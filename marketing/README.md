@@ -1,4 +1,4 @@
-# Nursemind — Marketing Site
+# NurseMind — Marketing Site
 
 The public site at nursemind.app.
 

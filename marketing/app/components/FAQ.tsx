@@ -5,16 +5,16 @@ import { Plus, Minus } from "./icons";
 
 const faqs = [
   {
-    q: "Who is Nursemind for?",
+    q: "Who is NurseMind for?",
     a: "Nursing students, licensed registered nurses, licensed practical nurses, and nursing assistants in the United States who want a trustworthy place to study, prepare for the NCLEX, and answer their own clinical questions for personal learning. No NPI is required, and no clinical role is assumed.",
   },
   {
-    q: "Can I use Nursemind during patient care?",
-    a: "No. Nursemind is a study and self-directed learning tool. It is not a clinical decision support system, it is not a substitute for facility protocols or physician orders, and it is not intended to inform decisions for a real patient. It is designed for use off the clock — for studying, NCLEX prep, and answering your own questions for clarity. For care decisions, defer to your facility, your physician orders, your clinical educators, and your own licensed clinical judgment.",
+    q: "Can I use NurseMind during patient care?",
+    a: "No. NurseMind is a study and self-directed learning tool. It is not a clinical decision support system, it is not a substitute for facility protocols or physician orders, and it is not intended to inform decisions for a real patient. It is designed for use off the clock — for studying, NCLEX prep, and answering your own questions for clarity. For care decisions, defer to your facility, your physician orders, your clinical educators, and your own licensed clinical judgment.",
   },
   {
     q: "How is privacy handled?",
-    a: "Nursemind cannot collect Protected Health Information by design. There are no patient name, MRN, DOB, or chart fields anywhere in the product. We ask that you never enter patient-identifying information of any kind. Inputs are scrubbed at the edge before any model receives them. We use the minimum analytics necessary to ship a quality product, and we never sell data.",
+    a: "NurseMind cannot collect Protected Health Information by design. There are no patient name, MRN, DOB, or chart fields anywhere in the product. We ask that you never enter patient-identifying information of any kind. Inputs are scrubbed at the edge before any model receives them. We use the minimum analytics necessary to ship a quality product, and we never sell data.",
   },
   {
     q: "Can the AI co-pilot diagnose or prescribe?",

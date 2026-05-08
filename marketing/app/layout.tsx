@@ -25,13 +25,13 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://nursemind.app"),
   title: {
-    default: "Nursemind — A clinical reference, redesigned for clarity.",
-    template: "%s · Nursemind",
+    default: "NurseMind — A clinical reference, redesigned for clarity.",
+    template: "%s · NurseMind",
   },
   description:
     "A cited reference library, a complete suite of nursing calculators, and an AI co-pilot — built for nursing students and licensed nurses for study, NCLEX prep, and self-directed learning. Not a clinical decision tool.",
-  applicationName: "Nursemind",
-  authors: [{ name: "Nursemind" }],
+  applicationName: "NurseMind",
+  authors: [{ name: "NurseMind" }],
   keywords: [
     "nursing study",
     "nursing reference",
@@ -43,15 +43,15 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     type: "website",
-    title: "Nursemind",
+    title: "NurseMind",
     description:
       "A clinical reference, redesigned for clarity. A cited library, the calculator suite, and an AI co-pilot — for studying and self-directed learning.",
     url: "https://nursemind.app",
-    siteName: "Nursemind",
+    siteName: "NurseMind",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nursemind",
+    title: "NurseMind",
     description:
       "A clinical reference, redesigned for clarity. For nursing study and self-directed learning.",
   },

@@ -19,7 +19,7 @@ const shots: Shot[] = [
     body: "The co-pilot opens to a single editorial input. It tells you what it knows — your specialty, the 2026 NCLEX-RN test plan — and how many questions you have left today before you ever type one.",
     detail: "5 of 5 questions left today · Specialty-aware · NCLEX-aligned",
     src: "/screenshots/ask.png",
-    alt: "Nursemind Ask home screen — italic display headline 'Ask anything' with quota, NCLEX alignment, and suggested questions",
+    alt: "NurseMind Ask home screen — italic display headline 'Ask anything' with quota, NCLEX alignment, and suggested questions",
     reverse: false,
   },
   {
@@ -29,7 +29,7 @@ const shots: Shot[] = [
     body: "Drugs, drips, labs, procedures, diagnoses, scenarios — every category opens to entries written and cited for clinical learning. The count next to each row is what's in your specialty alone, not the global catalogue.",
     detail: "965 entries in Med-Surg · cited to primary sources",
     src: "/screenshots/library.png",
-    alt: "Nursemind Library tab — Med-Surg specialty showing browse categories Drugs, Drips, Labs, Procedures, Diagnoses with entry counts",
+    alt: "NurseMind Library tab — Med-Surg specialty showing browse categories Drugs, Drips, Labs, Procedures, Diagnoses with entry counts",
     reverse: true,
   },
   {
@@ -39,7 +39,7 @@ const shots: Shot[] = [
     body: "Hemodynamics, renal, respiratory, hepatic, hematology, burns — calculators grouped the way nurses think about systems, not the way alphabetical lists pretend they do. Every result returns the formula and an interpretive band.",
     detail: "149 calculators · 9 categories · formula + band on every result",
     src: "/screenshots/tools.png",
-    alt: "Nursemind Tools tab — 149 calculators in 9 categories: Cardiovascular, Respiratory, Renal, Hepatic, Hematology, Burns",
+    alt: "NurseMind Tools tab — 149 calculators in 9 categories: Cardiovascular, Respiratory, Renal, Hepatic, Hematology, Burns",
     reverse: false,
   },
   {
@@ -49,7 +49,7 @@ const shots: Shot[] = [
     body: "Every answer surfaces the entries it pulled from before the prose begins. Numerical claims carry a citation chip. Critical findings — like a potassium of 6.5 — are flagged with the relevant guideline source, not buried in a paragraph.",
     detail: "Source chips · guideline citations · grounded retrieval",
     src: "/screenshots/answer.png",
-    alt: "Nursemind AI answer in action — interpreting a potassium of 6.5, with reference entries surfaced first and an AHA citation chip on the critical finding",
+    alt: "NurseMind AI answer in action — interpreting a potassium of 6.5, with reference entries surfaced first and an AHA citation chip on the critical finding",
     reverse: true,
   },
 ];

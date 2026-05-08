@@ -7,7 +7,7 @@ export function Nav() {
       <nav className="container-wide flex items-center justify-between h-14 md:h-16">
         <Link
           href="/"
-          aria-label="Nursemind home"
+          aria-label="NurseMind home"
           className="flex items-center"
         >
           <Wordmark />

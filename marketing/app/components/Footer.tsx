@@ -9,7 +9,7 @@ export function Footer() {
           <div className="col-span-2 md:col-span-5">
             <Wordmark size="lg" />
             <p className="mt-5 max-w-[30rem] text-[13.5px] leading-[1.65] text-[color:var(--color-ink-muted)]">
-              Nursemind is a clinical reference and education tool for nursing
+              NurseMind is a clinical reference and education tool for nursing
               students and licensed nurses, intended for study, NCLEX
               preparation, and self-directed learning. It is not clinical
               decision support, it is not intended for use during patient care
@@ -52,7 +52,7 @@ export function Footer() {
 
         <div className="mt-12 md:mt-16 pt-6 border-t border-[color:var(--color-hairline)] flex flex-wrap items-center justify-between gap-3 text-[12px] text-[color:var(--color-ink-faint)]">
           <span>
-            © {new Date().getFullYear()} Nursemind, Inc. All rights reserved.
+            © {new Date().getFullYear()} NurseMind, Inc. All rights reserved.
           </span>
           <span className="italic font-[family-name:var(--font-serif)]">
             Built for nurses, in the United States.

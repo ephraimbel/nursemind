@@ -13,7 +13,7 @@ export function Wordmark({
     <span
       className={`font-[family-name:var(--font-serif)] ${sizes[size]} tracking-[-0.02em] text-[color:var(--color-ink)] leading-none`}
     >
-      Nursemind
+      NurseMind
     </span>
   );
 }

@@ -6,7 +6,7 @@ const pillars = [
   },
   {
     title: "No patient data, ever.",
-    body: "Nursemind is architecturally prevented from collecting Protected Health Information. There is no patient record, no chart, no name field. The product cannot store what it cannot accept.",
+    body: "NurseMind is architecturally prevented from collecting Protected Health Information. There is no patient record, no chart, no name field. The product cannot store what it cannot accept.",
     detail: "Inputs scrubbed at the edge before reaching any model.",
   },
   {
