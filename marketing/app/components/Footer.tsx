@@ -36,7 +36,7 @@ export function Footer() {
             links={[
               ["About", "/about"],
               ["Press", "/press"],
-              ["Contact", "mailto:hello@nursemind.app"],
+              ["Support", "/support"],
             ]}
           />
           <FooterCol
