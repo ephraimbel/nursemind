@@ -44,7 +44,7 @@ export function Footer() {
             links={[
               ["Privacy", "/privacy"],
               ["Terms", "/terms"],
-              ["Sources", "/sources"],
+              ["Editorial standards", "/editorial-standards"],
               ["Report an error", "/report"],
             ]}
           />
