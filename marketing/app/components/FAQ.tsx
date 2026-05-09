@@ -30,7 +30,7 @@ const faqs = [
   },
   {
     q: "Why two SKUs and no student discount?",
-    a: "Simpler pricing converts better, and at $89.99 a year Pro is already less than one nursing textbook. The library and forty-plus calculators are free, forever, for everyone.",
+    a: "Simpler pricing converts better, and at $99.99 a year Pro is still less than one nursing textbook. The yearly plan starts with a 3-day free trial. The library and forty-plus calculators are free, forever, for everyone.",
   },
   {
     q: "Where do I report a content error?",

@@ -83,7 +83,7 @@ export function Pricing() {
             </button>
           </div>
           <p className="mt-3 text-[12.5px] citation">
-            Annual saves 50% vs. monthly.
+            Annual saves 44% vs. monthly.
           </p>
         </div>
 
@@ -133,14 +133,14 @@ export function Pricing() {
             </div>
             <div className="mt-5 flex items-baseline gap-2">
               <span className="num text-[56px] leading-none tracking-[-0.03em]">
-                {annual ? "$89.99" : "$14.99"}
+                {annual ? "$99.99" : "$14.99"}
               </span>
               <span className="text-[14px] text-[color:var(--color-ink-muted)] num">
                 / {annual ? "yr" : "mo"}
               </span>
             </div>
             <p className="mt-3 text-[14px] italic font-[family-name:var(--font-serif)] text-[color:var(--color-ink-muted)]">
-              {annual ? "Equivalent to $7.50 / mo." : pro.blurb}
+              {annual ? "3-day free trial · then $8.33 / mo, billed yearly." : pro.blurb}
             </p>
 
             <ul className="mt-8 space-y-3 text-[14.5px]">
