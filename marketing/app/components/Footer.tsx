@@ -32,10 +32,9 @@ export function Footer() {
             ]}
           />
           <FooterCol
-            title="Company"
+            title="Resources"
             links={[
-              ["About", "/about"],
-              ["Press", "/press"],
+              ["Editorial standards", "/editorial-standards"],
               ["Support", "/support"],
             ]}
           />
@@ -44,8 +43,6 @@ export function Footer() {
             links={[
               ["Privacy", "/privacy"],
               ["Terms", "/terms"],
-              ["Editorial standards", "/editorial-standards"],
-              ["Report an error", "/report"],
             ]}
           />
         </div>
