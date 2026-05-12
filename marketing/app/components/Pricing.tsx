@@ -12,7 +12,7 @@ const free = {
   features: [
     "Full clinical reference library",
     "All non-dosing calculators",
-    "5 AI co-pilot queries / day",
+    "3 AI co-pilot queries / day",
     "Local bookmarks",
     "Citations on every claim",
   ],

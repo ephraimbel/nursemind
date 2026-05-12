@@ -17,7 +17,7 @@ const shots: Shot[] = [
     eyebrow: "Ask · Entry",
     title: "Ask, scoped to nursing.",
     body: "The co-pilot opens to a single editorial input. It tells you what it knows — your specialty, the 2026 NCLEX-RN test plan — and how many questions you have left today before you ever type one.",
-    detail: "5 of 5 questions left today · Specialty-aware · NCLEX-aligned",
+    detail: "3 of 3 questions left today · Specialty-aware · NCLEX-aligned",
     src: "/screenshots/ask.png",
     alt: "NurseMind Ask home screen — italic display headline 'Ask anything' with quota, NCLEX alignment, and suggested questions",
     reverse: false,

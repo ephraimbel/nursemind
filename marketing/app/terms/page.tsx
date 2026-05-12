@@ -169,7 +169,7 @@ function Body() {
             in any context where accuracy matters.
           </P>
           <P>
-            Daily AI quotas (free: 5 questions/day, Pro: 50 questions/day)
+            Daily AI quotas (free: 3 questions/day, Pro: 50 questions/day)
             are enforced to keep operating costs sustainable and prevent
             abuse. Quotas reset at local midnight.
           </P>
