@@ -156,61 +156,6 @@ public enum HemorrhagicStrokeSample {
     )
 }
 
-// MARK: - SAH
-
-public enum SAHRound13Sample {
-    public static let entry: DiagnosisEntry = DiagnosisEntry(
-        id: "sah",
-        title: "Subarachnoid hemorrhage (SAH)",
-        subtitle: "Aneurysmal · \"thunderclap\" headache · vasospasm + rebleed risk",
-        nclexTags: strokeR13,
-        definition: AttributedProse(
-            "Bleeding into subarachnoid space — most commonly from rupture of a saccular (\"berry\") aneurysm at branch points of circle of Willis (~80%); other causes include AVM, trauma, perimesencephalic. High mortality and morbidity even with treatment per primary source.",
-            citationIDs: ["openrn_dx_round13", "specialty_dx_round13"]
-        ),
-        pathophysiology: AttributedProse(
-            "Aneurysm rupture → blood under arterial pressure into subarachnoid space → ICP elevation, irritation of meninges, vasospasm 4–14 days later, hydrocephalus, rebleed risk if untreated.",
-            citationIDs: ["openrn_dx_round13"]
-        ),
-        presentation: [
-            AttributedBullet("\"WORST HEADACHE OF MY LIFE\" — sudden / thunderclap; classic.", citationIDs: ["openrn_dx_round13"]),
-            AttributedBullet("Photophobia, nausea / vomiting, neck stiffness, brief loss of consciousness.", citationIDs: ["openrn_dx_round13"]),
-            AttributedBullet("Focal deficit (CN III palsy from posterior communicating aneurysm — \"down and out\" pupil dilated).", citationIDs: ["openrn_dx_round13"]),
-            AttributedBullet("Sentinel headache — minor leak preceding rupture by days-weeks (~10–40%).", citationIDs: ["openrn_dx_round13"]),
-            AttributedBullet("Hunt-Hess grade 1–5 (clinical severity) and Fisher grade 1–4 (CT blood) for prognosis.", citationIDs: ["openrn_dx_round13"])
-        ],
-        diagnosticCriteria: [
-            AttributedBullet("Non-contrast CT head — sensitivity ~99% within 6 hours, falls to ~85% at 24 hours.", citationIDs: ["openrn_dx_round13"]),
-            AttributedBullet("LUMBAR PUNCTURE if CT negative + clinical suspicion remains — xanthochromia (yellow CSF from RBC breakdown) confirms SAH per primary source.", citationIDs: ["openrn_dx_round13"]),
-            AttributedBullet("CT angiogram or DSA to identify aneurysm.", citationIDs: ["openrn_dx_round13"])
-        ],
-        priorityAssessments: [
-            AttributedBullet("Airway / GCS; pupillary; cranial-nerve exam; signs of meningismus.", citationIDs: ["openrn_dx_round13"]),
-            AttributedBullet("BP — control to prevent rebleed (target SBP <140 typically).", citationIDs: ["openrn_dx_round13"]),
-            AttributedBullet("Vasospasm surveillance with TCD ultrasound days 4–14.", citationIDs: ["openrn_dx_round13"])
-        ],
-        commonInterventions: [
-            AttributedBullet("EMERGENT NEUROSURGICAL CONSULT for definitive aneurysm treatment — endovascular coiling vs surgical clipping per primary source.", citationIDs: ["specialty_dx_round13"]),
-            AttributedBullet("BP control — keep SBP <140 to prevent rebleed; nicardipine / labetalol / clevidipine.", citationIDs: ["openrn_dx_round13"]),
-            AttributedBullet("NIMODIPINE 60 mg PO every 4 hours × 21 days — REDUCES vasospasm-related stroke per primary source.", citationIDs: ["specialty_dx_round13"]),
-            AttributedBullet("ICP management; EVD if hydrocephalus.", citationIDs: ["openrn_dx_round13"]),
-            AttributedBullet("Vasospasm management — INDUCED HYPERTENSION (post-coiling/clipping) per primary source; verapamil intra-arterial; angioplasty for refractory.", citationIDs: ["specialty_dx_round13"]),
-            AttributedBullet("Seizure prophylaxis — short-course in selected patients per primary source.", citationIDs: ["openrn_dx_round13"]),
-            AttributedBullet("DVT prophylaxis — mechanical until aneurysm secured + 24 hours; then pharmacologic.", citationIDs: ["openrn_dx_round13"]),
-            AttributedBullet("HYPERVOLEMIA / HEMODILUTION (\"Triple H\") historical; current focus is euvolemia + induced hypertension per primary source.", citationIDs: ["openrn_dx_round13"])
-        ],
-        watchFor: [
-            AttributedBullet("REBLEED — peak first 24 hours; mortality >50%; aggressive BP control + early aneurysm treatment.", citationIDs: ["openrn_dx_round13"]),
-            AttributedBullet("VASOSPASM days 4–14 → delayed cerebral ischemia; nimodipine + monitoring.", citationIDs: ["openrn_dx_round13"]),
-            AttributedBullet("Hydrocephalus — communicating from blood blockage; EVD or VP shunt.", citationIDs: ["openrn_dx_round13"]),
-            AttributedBullet("HYPONATREMIA from cerebral salt wasting OR SIADH; differentiate (volume status); treat appropriately per primary source.", citationIDs: ["openrn_dx_round13"]),
-            AttributedBullet("Long-term — cognitive deficits, depression, family burden.", citationIDs: ["openrn_dx_round13"])
-        ],
-        citations: [openrnDxR13, specialtyDxR13],
-        lastSourceFidelityReview: "2026-05-04"
-    )
-}
-
 // MARK: - Severe TBI
 
 public enum SevereTBISample {

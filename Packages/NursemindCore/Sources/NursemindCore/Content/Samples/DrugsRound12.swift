@@ -645,66 +645,6 @@ public enum LoperamideSample {
     )
 }
 
-// MARK: - Lactulose
-
-public enum LactuloseRound12Sample {
-    public static let entry: DrugEntry = DrugEntry(
-        id: "lactulose",
-        title: "Lactulose",
-        subtitle: "Cephulac · synthetic disaccharide · constipation + hepatic encephalopathy",
-        category: "Osmotic laxative + ammonia trap",
-        isHighAlert: false,
-        quickReference: [
-            KeyValueRow(key: "Class", value: "Non-absorbable synthetic disaccharide"),
-            KeyValueRow(key: "Indications", value: "Constipation; HEPATIC ENCEPHALOPATHY (titrated to 2–3 soft stools/day)"),
-            KeyValueRow(key: "Mechanism in HE", value: "Lowers colonic pH → traps NH3 → reduces ammonia absorption + increases ammonia excretion"),
-            KeyValueRow(key: "Notable", value: "Sweet taste; cramping / bloating common at initiation")
-        ],
-        indications: AttributedProse(
-            "Hepatic encephalopathy (acute treatment + prevention of recurrence); chronic idiopathic constipation per primary source.",
-            citationIDs: ["openfda_round12", "specialty_round12"]
-        ),
-        mechanism: AttributedProse(
-            "Not absorbed; metabolized by colonic bacteria to short-chain organic acids → osmotic laxative effect AND lowers colonic pH (4.5–5.0) → converts NH3 to NH4+ which is poorly absorbed → enhances ammonia elimination in stool.",
-            citationIDs: ["openfda_round12"]
-        ),
-        dosing: [
-            DosingBlock(label: "Hepatic encephalopathy (adult)", body: "30–45 mL PO every 1–2 hours initially until soft stools begin; then titrate to 2–3 soft stools/day per primary source.", citationIDs: ["openfda_round12"]),
-            DosingBlock(label: "Constipation", body: "15–30 mL PO daily; titrate to effect.", citationIDs: ["openfda_round12"]),
-            DosingBlock(label: "HE — patient unable to take PO", body: "Lactulose enema 300 mL in 700 mL water retained 30–60 min PR per primary source.", citationIDs: ["openfda_round12"])
-        ],
-        contraindications: AttributedProse(
-            "Galactosemia; bowel obstruction; hypersensitivity per primary source.",
-            citationIDs: ["openfda_round12"]
-        ),
-        warnings: [
-            AttributedBullet("Cramping, bloating, flatulence — common at initiation.", citationIDs: ["openfda_round12"]),
-            AttributedBullet("Excessive diarrhea → dehydration / electrolyte derangement (especially hypokalemia → worsens HE) per primary source.", citationIDs: ["openfda_round12"]),
-            AttributedBullet("Diabetic patients — contains carbohydrate (~10–20 g per dose); consider effect on glucose.", citationIDs: ["openfda_round12"])
-        ],
-        adverseReactions: AttributedProse(
-            "Bloating, flatulence, cramping, nausea, diarrhea, electrolyte imbalance with overuse.",
-            citationIDs: ["openfda_round12"]
-        ),
-        drugInteractions: [
-            AttributedBullet("Antacids — neutralize colonic acid → reduce efficacy in HE; separate by 2 hours.", citationIDs: ["openfda_round12"]),
-            AttributedBullet("Other laxatives — additive diarrhea; do not combine.", citationIDs: ["openfda_round12"])
-        ],
-        nursingImplications: [
-            AttributedBullet("Titrate to 2–3 soft stools/day for HE — too few = inadequate, too many = electrolyte loss / worsening HE per primary source.", citationIDs: ["openrn_pharm_round12"]),
-            AttributedBullet("Trend mental status (HE), electrolytes (K), volume status.", citationIDs: ["openrn_pharm_round12"]),
-            AttributedBullet("Combine with rifaximin in recurrent / refractory HE per primary source.", citationIDs: ["openrn_pharm_round12"]),
-            AttributedBullet("Assess for hypokalemia and treat — hypokalemia worsens HE.", citationIDs: ["openrn_pharm_round12"])
-        ],
-        patientTeaching: AttributedProse(
-            "Take as prescribed — for HE, the goal is 2–3 soft bowel movements per day. Tell us if you have severe diarrhea or muscle cramps. The medicine is sweet — you can mix with juice or water. May cause gas and bloating at first; this usually settles.",
-            citationIDs: ["openrn_pharm_round12"]
-        ),
-        citations: [openfda, openrnPharmR12, specialtyR12],
-        lastSourceFidelityReview: "2026-05-04"
-    )
-}
-
 // MARK: - Rifaximin
 
 public enum RifaximinSample {

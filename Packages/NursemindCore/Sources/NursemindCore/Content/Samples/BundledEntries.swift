@@ -1004,6 +1004,7 @@ extension ContentRegistry {
         entries.append(.diagnosis(SarcoidosisSample.entry))
         entries.append(.diagnosis(PADSample.entry))
         entries.append(.diagnosis(PulmHTNSample.entry))
+        entries.append(.diagnosis(NeonatalSepsisRound13Sample.entry))
 
         // MARK: Round 13 — Labs
         entries.append(.lab(TRAbSample.entry))
@@ -1743,6 +1744,7 @@ extension ContentRegistry {
         entries.append(.diagnosis(ADEMSample.entry))
         entries.append(.diagnosis(CervicalSpondyloticMyelopathySample.entry))
         entries.append(.diagnosis(DiabeticPeripheralNeuropathySample.entry))
+        entries.append(.diagnosis(HemicraniaContinuaSample.entry))
 
         // MARK: Round 31 — Labs
         entries.append(.lab(CSFAnalysisSample.entry))
@@ -1881,6 +1883,31 @@ extension ContentRegistry {
         entries.append(.reference(DelegationScopeSample.entry))
         entries.append(.reference(InformedConsentSample.entry))
         entries.append(.reference(NursingEthicsSample.entry))
+
+        // MARK: Round 35 — Diagnoses (abuse recognition + reporting + trafficking + FDIA)
+        entries.append(.diagnosis(ChildAbusePhysicalSample.entry))
+        entries.append(.diagnosis(ElderAbuseNeglectSample.entry))
+        entries.append(.diagnosis(IntimatePartnerViolenceSample.entry))
+        entries.append(.diagnosis(AbusiveHeadTraumaSample.entry))
+        entries.append(.diagnosis(HumanTraffickingSample.entry))
+        entries.append(.diagnosis(FDIASample.entry))
+
+        // MARK: Round 35 — Labs (toxicology + TDM reference)
+        entries.append(.lab(UrineDrugScreenSample.entry))
+        entries.append(.lab(BloodAlcoholLevelSample.entry))
+        entries.append(.lab(NarrowTherapeuticIndexTDMSample.entry))
+
+        // MARK: Round 35 — Procedures + References (safety processes + management of care)
+        entries.append(.procedure(RapidResponseTeamActivationSample.entry))
+        entries.append(.procedure(CodeBlueResponseSample.entry))
+        entries.append(.procedure(RootCauseAnalysisSample.entry))
+        entries.append(.reference(HIPAAFrameworkSample.entry))
+        entries.append(.reference(PatientRightsSample.entry))
+        entries.append(.reference(MandatoryReportingSample.entry))
+        entries.append(.reference(IncidentReportingJustCultureSample.entry))
+        entries.append(.reference(SentinelNeverEventsSample.entry))
+        entries.append(.reference(HomeSafetyFallPreventionSample.entry))
+        entries.append(.reference(BehavioralSafetySample.entry))
 
         return entries
     }

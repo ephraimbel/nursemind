@@ -644,7 +644,7 @@ public enum VitaminB12DeficiencySample {
         commonInterventions: [
             AttributedBullet("ORAL HIGH-DOSE B12 — 1000-2000 mcg/day cyanocobalamin PO; effective in most including pernicious anemia (1-2% absorbed via passive diffusion despite IF deficiency) per primary source.", citationIDs: ["specialty_dx_round23"]),
             AttributedBullet("INTRAMUSCULAR B12 — for severe / neurologic / NPO / refractory; 1000 mcg IM daily × 1 week → weekly × 4 weeks → monthly lifelong.", citationIDs: ["specialty_dx_round23"]),
-            AttributedBullet("INTRANASAL B12 — 500 mcg weekly maintenance.", citationIDs: ["openfda_round23"]),
+            AttributedBullet("INTRANASAL B12 — 500 mcg weekly maintenance.", citationIDs: ["specialty_dx_round23"]),
             AttributedBullet("CHECK + REPLETE B12 BEFORE OR WITH FOLATE — folate alone corrects anemia but not B12 neuro damage; permanent if delayed per primary source.", citationIDs: ["specialty_dx_round23"]),
             AttributedBullet("PERNICIOUS ANEMIA — lifelong replacement; screen + monitor for autoimmune comorbidities (Hashimoto, T1DM); counsel + family screening (autoimmune cluster).", citationIDs: ["specialty_dx_round23"]),
             AttributedBullet("MONITOR — Hb / MCV (normalize 2-3 months); reticulocytes (peak 5-10 days post-treatment); B12 + MMA / homocysteine; neurologic improvement; cognitive function.", citationIDs: ["specialty_dx_round23"]),

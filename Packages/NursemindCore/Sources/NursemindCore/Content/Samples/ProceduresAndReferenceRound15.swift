@@ -152,7 +152,7 @@ public enum MethotrexateRescueSample {
         equipment: [
             AttributedBullet("IV access for hydration + alkalinization; central line preferred for HDMTX administration.", citationIDs: ["openrn_pr_round15"]),
             AttributedBullet("Sodium bicarbonate IV for urinary alkalinization (target pH ≥7.0).", citationIDs: ["specialty_pr_round15"]),
-            AttributedBullet("Leucovorin (calcium folinate) for rescue; serum MTX levels by HPLC (after glucarpidase).", citationIDs: ["openfda_round15"]),
+            AttributedBullet("Leucovorin (calcium folinate) for rescue; serum MTX levels by HPLC (after glucarpidase).", citationIDs: ["specialty_pr_round15"]),
             AttributedBullet("Glucarpidase available for severe delayed clearance + AKI per primary source.", citationIDs: ["specialty_pr_round15"])
         ],
         preProcedure: [
