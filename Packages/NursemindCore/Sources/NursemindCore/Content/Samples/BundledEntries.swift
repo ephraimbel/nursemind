@@ -1909,6 +1909,33 @@ extension ContentRegistry {
         entries.append(.reference(HomeSafetyFallPreventionSample.entry))
         entries.append(.reference(BehavioralSafetySample.entry))
 
+        // MARK: Round 36 — Chief Complaint Workup References (cardiopulm + neuro)
+        entries.append(.reference(ChestPainEvaluationSample.entry))
+        entries.append(.reference(DyspneaEvaluationSample.entry))
+        entries.append(.reference(SyncopeEvaluationSample.entry))
+        entries.append(.reference(HeadacheEvaluationSample.entry))
+        entries.append(.reference(AlteredMentalStatusEvaluationSample.entry))
+        entries.append(.reference(AcuteConfusionDeliriumEvaluationSample.entry))
+        entries.append(.reference(WeaknessEvaluationSample.entry))
+
+        // MARK: Round 36 — Chief Complaint Workup References (abd + general medical)
+        entries.append(.reference(AbdominalPainEvaluationSample.entry))
+        entries.append(.reference(FeverEvaluationAdultSample.entry))
+        entries.append(.reference(VomitingAcuteEvaluationSample.entry))
+        entries.append(.reference(DiarrheaAcuteEvaluationSample.entry))
+        entries.append(.reference(RashEvaluationSample.entry))
+        entries.append(.reference(AcuteBackPainEvaluationSample.entry))
+        entries.append(.reference(DizzinessVertigoEvaluationSample.entry))
+
+        // MARK: Round 36 — Chief Complaint Workup + Triage (trauma + ENT + triage)
+        entries.append(.reference(AcuteTraumaEvaluationSample.entry))
+        entries.append(.reference(BurnEvaluationSample.entry))
+        entries.append(.reference(AcuteVisionLossEvaluationSample.entry))
+        entries.append(.reference(EpistaxisEvaluationSample.entry))
+        entries.append(.reference(ESITriageRound36Sample.entry))
+        entries.append(.reference(TraumaTeamActivationSample.entry))
+        entries.append(.reference(MassCasualtyTriageSample.entry))
+
         return entries
     }
 }
