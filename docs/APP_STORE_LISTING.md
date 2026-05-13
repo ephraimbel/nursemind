@@ -128,7 +128,7 @@ NurseMind v1.0 — the first release.
 · The full clinical reference library, cited at every claim
 · 149 nursing calculators with formulas and interpretive bands
 · Ask NurseMind — an AI co-pilot grounded in the library that cites or refuses
-· 5 free AI questions a day; Pro unlocks 50 a day, the full scenario set, offline mode, and cross-device sync
+· 3 free AI questions a day; Pro unlocks 50 a day, the full scenario set, offline mode, and cross-device sync
 
 Built for clarity. Not for clinical use. Always defer to facility protocols and licensed clinical judgment.
 
