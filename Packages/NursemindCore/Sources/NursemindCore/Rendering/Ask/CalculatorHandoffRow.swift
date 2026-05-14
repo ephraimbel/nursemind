@@ -23,6 +23,10 @@ struct CalculatorHandoffRow: View {
 
     var body: some View {
         Button {
+            // Light tap — opening the calculator with the AI's preset values
+            // is a clear handoff out of the answer; same weight as the library
+            // handoff row above so both deep-dive paths feel uniform.
+            Haptic.light()
             presented = true
         } label: {
             HStack(alignment: .center, spacing: NMSpace.base) {

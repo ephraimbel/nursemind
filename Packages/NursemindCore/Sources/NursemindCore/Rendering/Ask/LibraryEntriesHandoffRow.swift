@@ -29,6 +29,11 @@ struct LibraryEntriesHandoffRow: View {
                     Hairline(color: NMColor.borderSubtle)
                     ForEach(Array(entries.enumerated()), id: \.element.id) { idx, entry in
                         Button {
+                            // Light tap — opening a curated library entry is
+                            // a meaningful "exit" from the answer into deeper
+                            // reading, but it's still a navigation, not a
+                            // committal action.
+                            Haptic.light()
                             presentedEntry = entry
                         } label: {
                             EntryHandoffRow(entry: entry)

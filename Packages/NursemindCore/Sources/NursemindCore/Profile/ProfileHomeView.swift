@@ -32,7 +32,13 @@ public struct ProfileHomeView: View {
                     Hairline()
                         .padding(.bottom, NMSpace.xxxl)
 
-                    if supabase.isAnonymous {
+                    // Gated until the Supabase dashboard's Apple provider is
+                    // configured (Auth → Providers → Apple). With the provider
+                    // off, `linkIdentityWithIdToken` fails after the user has
+                    // already authenticated through Apple's native sheet — a
+                    // Guideline 2.1 review risk. Flip `SignInWithAppleRow.isEnabled`
+                    // to true once the dashboard side is wired.
+                    if supabase.isAnonymous && SignInWithAppleRow.isEnabled {
                         SignInWithAppleRow()
                             .padding(.bottom, NMSpace.xxxl)
                         Hairline()
@@ -59,6 +65,8 @@ public struct ProfileHomeView: View {
                 .padding(.horizontal, NMSpace.lg)
                 .padding(.top, NMSpace.sm)
                 .padding(.bottom, NMSpace.huge)
+                .frame(maxWidth: 460)
+                .frame(maxWidth: .infinity, alignment: .center)
             }
             .background(GrainBackground())
             .navigationDestination(for: ProfileDestination.self) { dest in
@@ -270,8 +278,7 @@ private struct SubscriptionCard: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: NMSpace.md) {
-            EyebrowLabel("SUBSCRIPTION", sparkle: false)
-            HStack(alignment: .firstTextBaseline, spacing: 0) {
+            HStack(alignment: .firstTextBaseline) {
                 Text("NurseMind ")
                     .font(NMFont.displayItalicMD)
                     .foregroundStyle(NMColor.textSecondary)
@@ -279,7 +286,7 @@ private struct SubscriptionCard: View {
                 Text(tier.isPro ? tier.displayName : "Free")
                     .font(NMFont.displayMD)
                     .foregroundStyle(NMColor.textPrimary)
-                Spacer(minLength: 0)
+                Spacer()
             }
             Text(tier.isPro
                  ? "50 Ask questions a day, offline mode, no reference limits, priority new content."
@@ -287,7 +294,6 @@ private struct SubscriptionCard: View {
                 .font(NMFont.bodyLG)
                 .foregroundStyle(NMColor.textSecondary)
                 .lineSpacing(3)
-                .padding(.top, NMSpace.xs)
             HStack(spacing: NMSpace.xs) {
                 Text(tier.isPro ? "Manage subscription" : "Upgrade to Pro")
                     .font(NMFont.title)
@@ -296,9 +302,17 @@ private struct SubscriptionCard: View {
                     .font(.system(size: 13, weight: .medium))
                     .foregroundStyle(NMColor.accent)
             }
-            .padding(.top, NMSpace.sm)
         }
+        .padding(NMSpace.lg)
         .frame(maxWidth: .infinity, alignment: .leading)
+        .background(
+            RoundedRectangle(cornerRadius: 14)
+                .fill(NMColor.bgElevated)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 14)
+                        .stroke(NMColor.borderSubtle, lineWidth: 1)
+                )
+        )
     }
 }
 

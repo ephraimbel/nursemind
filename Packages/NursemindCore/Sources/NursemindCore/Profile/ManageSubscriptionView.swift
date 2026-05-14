@@ -44,7 +44,8 @@ public struct ManageSubscriptionView: View {
         let pkgs = revenueCat.paywallPackages
         PaywallView(
             monthlyPackage: pkgs.monthly,
-            annualPackage: pkgs.annual
+            annualPackage: pkgs.annual,
+            analyticsSource: "profile_upgrade"
         )
     }
 

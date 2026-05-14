@@ -17,9 +17,22 @@ public struct MessageBodyView: View {
     }
 
     public var body: some View {
+        let parsed = blocks
+        // Index of the FIRST paragraph block in the answer — used to give
+        // that paragraph editorial weight (slightly larger font) so the lead
+        // sentence carries the answer the way a magazine lede does. Bullets
+        // and headers are excluded: if the answer opens with a header, the
+        // first paragraph AFTER the header gets the emphasis (the header
+        // already carries display weight). Computed once per render so the
+        // emphasis stays stable as content streams in — the first paragraph
+        // is whatever's accumulated until the first blank line, which is
+        // well-defined even mid-stream.
+        let firstParagraphIdx = parsed.firstIndex {
+            if case .paragraph = $0 { return true } else { return false }
+        }
         VStack(alignment: .leading, spacing: NMSpace.base) {
-            ForEach(Array(blocks.enumerated()), id: \.offset) { _, block in
-                renderBlock(block)
+            ForEach(Array(parsed.enumerated()), id: \.offset) { idx, block in
+                renderBlock(block, emphasized: idx == firstParagraphIdx)
             }
         }
         .sheet(
@@ -43,7 +56,7 @@ public struct MessageBodyView: View {
     }
 
     @ViewBuilder
-    private func renderBlock(_ block: ContentBlock) -> some View {
+    private func renderBlock(_ block: ContentBlock, emphasized: Bool = false) -> some View {
         switch block {
         case .header(let text):
             Text(text)
@@ -52,8 +65,17 @@ public struct MessageBodyView: View {
                 .padding(.top, NMSpace.sm)
 
         case .paragraph(let spans):
+            // Lead paragraph gets `leadFont` (Inter 19pt), subsequent body
+            // paragraphs use `bodyFont` (Inter 17pt). 2pt is the smallest
+            // step that's perceptible without making the lead feel like a
+            // header — the type hierarchy stays "lead → body" rather than
+            // "header → body".
             AttributedTextView(
-                attributed: buildAttributed(spans, font: bodyFont, textColor: bodyColor),
+                attributed: buildAttributed(
+                    spans,
+                    font: emphasized ? leadFont : bodyFont,
+                    textColor: bodyColor
+                ),
                 onLinkTap: handleLinkTap
             )
 
@@ -78,6 +100,13 @@ public struct MessageBodyView: View {
 
     private var bodyFont: UIFont {
         UIFont(name: "Inter", size: 17) ?? UIFont.systemFont(ofSize: 17)
+    }
+
+    /// Slightly larger Inter for the lead paragraph of an answer — gives
+    /// the opening sentence editorial gravity without dipping into header
+    /// territory (NMFont.title is the next step up at 20pt+).
+    private var leadFont: UIFont {
+        UIFont(name: "Inter", size: 19) ?? UIFont.systemFont(ofSize: 19)
     }
 
     private var bodyColor: UIColor {

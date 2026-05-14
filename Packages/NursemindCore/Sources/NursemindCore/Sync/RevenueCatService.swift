@@ -219,11 +219,41 @@ public final class RevenueCatService {
     /// the paywall when this returns `.completed`.
     public func purchase(_ package: Package) async throws -> PurchaseOutcome {
         let result = try await Purchases.shared.purchase(package: package)
-        if result.userCancelled { return .userCancelled }
+        if result.userCancelled {
+            AnalyticsService.shared.capture(
+                "purchase_cancelled",
+                properties: ["product_id": package.storeProduct.productIdentifier]
+            )
+            return .userCancelled
+        }
         // CustomerInfo is included in the result; piping it through our
         // existing apply method updates local state synchronously rather
         // than waiting for the async stream to catch up.
         applyCustomerInfo(result.customerInfo)
+        // Split trial-start from immediate purchase. StoreKit reports an
+        // intro-period activation as a `.trial` periodType on the active
+        // entitlement; without splitting these the trial→paid conversion
+        // ratio is unmeasurable.
+        let entitlement = result.customerInfo.entitlements.active[RevenueCatService.proEntitlementID]
+        let isTrial = entitlement?.periodType == .trial
+        let event = isTrial ? "trial_started" : "subscription_purchased"
+        // Trials shouldn't book revenue — Apple won't bill until day 4.
+        // The `trial_converted` server-side event (RC webhook → PostHog,
+        // wired later) is where actual revenue lands.
+        let revenue = isTrial ? 0.0 : NSDecimalNumber(decimal: package.storeProduct.price as Decimal).doubleValue
+        AnalyticsService.shared.capture(
+            event,
+            properties: [
+                "product_id": package.storeProduct.productIdentifier,
+                "package_type": package.packageType == .annual ? "annual" : "monthly",
+                "price": package.storeProduct.price.description,
+                "currency": package.storeProduct.currencyCode ?? "USD",
+                "expires_at": entitlement?.expirationDate?.timeIntervalSince1970 ?? 0,
+                // PostHog convention — fills the built-in MRR/LTV charts
+                // without us building dashboards from raw events.
+                "$revenue": revenue
+            ]
+        )
         return .completed
     }
 

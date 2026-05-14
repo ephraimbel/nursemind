@@ -39,7 +39,7 @@ If a decision satisfies all four, ship it. If it conflicts on any one, escalate 
 
 ## Stack (locked)
 
-iOS-native Swift 5.9+ with SwiftUI. Supabase for Postgres, auth, edge functions, and pgvector. Anthropic Claude (Sonnet 4.7 for generation, Haiku for classification). OpenAI text-embedding-3-small for vector embeddings. RevenueCat + StoreKit 2 for subscriptions. Sentry for errors, PostHog for product analytics. No HIPAA-eligible vendors required for v1 because the product is architecturally prevented from handling Protected Health Information. Android, web, and EHR integration are explicitly v2+.
+iOS-native Swift 5.9+ with SwiftUI. Supabase for Postgres, auth, edge functions, and pgvector. Anthropic Claude (Haiku 4.5 for both generation and classification — ~3.3× cheaper than Sonnet, equivalent quality on the ~80% of NurseMind traffic that's retrieval-grounded clinical Q&A; cite-or-refuse is server-enforced regardless of model so the safety floor is unchanged). OpenAI text-embedding-3-small for vector embeddings. RevenueCat + StoreKit 2 for subscriptions. Sentry for errors, PostHog for product analytics. No HIPAA-eligible vendors required for v1 because the product is architecturally prevented from handling Protected Health Information. Android, web, and EHR integration are explicitly v2+.
 
 ## Conventions
 

@@ -45,10 +45,7 @@ public struct OnboardingFlow: View {
         case .splash:
             SplashView { navigate(to: .welcome) }
         case .welcome:
-            WelcomeView(
-                onContinue: { navigate(to: .auth) },
-                onSignIn: { navigate(to: .auth) }
-            )
+            WelcomeView(onContinue: { navigate(to: .auth) })
         case .auth:
             AuthView { navigate(to: .showcase) }
         case .showcase:
@@ -64,7 +61,9 @@ public struct OnboardingFlow: View {
         case .notificationsConsent:
             NotificationsConsentView { navigate(to: .safetyContract) }
         case .safetyContract:
-            SafetyContractView { navigate(to: .success) }
+            SafetyContractView { navigate(to: .paywall) }
+        case .paywall:
+            OnboardingPaywallStep { navigate(to: .success) }
         case .success:
             OnboardingSuccessView { commit() }
         }
@@ -74,8 +73,15 @@ public struct OnboardingFlow: View {
     /// to the current step — going to a higher-rawValue step is forward,
     /// lower is back.
     private func navigate(to next: Step) {
+        let from = step
         isForward = next.rawValue > step.rawValue
         step = next
+        if isForward {
+            AnalyticsService.shared.capture(
+                "onboarding_step_completed",
+                properties: ["step": from.eventName, "next": next.eventName]
+            )
+        }
     }
 
     /// Final commit. Setting `safetyContractAgreedAt` flips
@@ -83,6 +89,7 @@ public struct OnboardingFlow: View {
     /// swaps to the main TabView automatically.
     private func commit() {
         prefs.safetyContractAgreedAt = Date()
+        AnalyticsService.shared.capture("onboarding_completed")
     }
 
     enum Step: Int {
@@ -93,6 +100,44 @@ public struct OnboardingFlow: View {
         case personalization
         case notificationsConsent
         case safetyContract
+        case paywall
         case success
+
+        var eventName: String {
+            switch self {
+            case .splash:                return "splash"
+            case .welcome:               return "welcome"
+            case .auth:                  return "auth"
+            case .showcase:              return "showcase"
+            case .personalization:       return "personalization"
+            case .notificationsConsent:  return "notifications_consent"
+            case .safetyContract:        return "safety_contract"
+            case .paywall:               return "paywall"
+            case .success:               return "success"
+            }
+        }
+    }
+}
+
+/// Onboarding-only wrapper around `PaywallView`. Pulls live RC packages
+/// from `RevenueCatService.paywallPackages` (which has been bootstrapping
+/// since app launch, so by the time we reach this step the offerings are
+/// almost always loaded), and wires the paywall's `onComplete` to advance
+/// the flow regardless of whether the user purchased, restored, or
+/// tapped "Maybe later". The same `PaywallView` design is reused so the
+/// onboarding paywall and the quota-exhaustion paywall are visually
+/// identical.
+private struct OnboardingPaywallStep: View {
+    let onContinue: () -> Void
+    @State private var revenueCat = RevenueCatService.shared
+
+    var body: some View {
+        let pkgs = revenueCat.paywallPackages
+        PaywallView(
+            monthlyPackage: pkgs.monthly,
+            annualPackage: pkgs.annual,
+            onComplete: onContinue,
+            analyticsSource: "onboarding"
+        )
     }
 }

@@ -10,6 +10,10 @@ struct FeedEmptyState: View {
         case empty
         case offline
         case error(String)
+        /// "Saved" filter is active and nothing is saved yet.
+        case noSaved
+        /// A category filter is active and no items match it.
+        case noInCategory(String)
     }
 
     let kind: Kind
@@ -59,19 +63,23 @@ struct FeedEmptyState: View {
 
     private var eyebrowText: String {
         switch kind {
-        case .loading: return "LOADING"
-        case .empty:   return "FEED"
-        case .offline: return "OFFLINE"
-        case .error:   return "COULDN'T LOAD"
+        case .loading:        return "LOADING"
+        case .empty:          return "FEED"
+        case .offline:        return "OFFLINE"
+        case .error:          return "COULDN'T LOAD"
+        case .noSaved:        return "SAVED"
+        case .noInCategory:   return "EMPTY"
         }
     }
 
     private var headline: String {
         switch kind {
-        case .loading: return "Catching up on today's news."
-        case .empty:   return "Nothing new yet."
-        case .offline: return "No connection."
-        case .error:   return "Something went sideways."
+        case .loading:               return "Catching up on today's news."
+        case .empty:                 return "Nothing new yet."
+        case .offline:               return "No connection."
+        case .error:                 return "Something went sideways."
+        case .noSaved:               return "Nothing saved yet."
+        case .noInCategory(let cat): return "No \(cat.lowercased()) items today."
         }
     }
 
@@ -87,6 +95,10 @@ struct FeedEmptyState: View {
             return detail.isEmpty
                 ? "We couldn't load the Feed. Pull to refresh, or try again in a moment."
                 : detail
+        case .noSaved:
+            return "Tap the bookmark on any item to save it for later. Saved items live here for easy revisits."
+        case .noInCategory:
+            return "Try another filter, or check back when new items arrive."
         }
     }
 

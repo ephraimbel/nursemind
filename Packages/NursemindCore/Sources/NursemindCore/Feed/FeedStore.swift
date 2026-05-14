@@ -49,10 +49,15 @@ public final class FeedStore {
         }
 
         do {
-            async let itemsTask  = fetchItems(client: client)
-            async let savedTask  = fetchSavedIDs(client: client)
+            // Items are essential — a failure here is what we surface to the UI.
+            // The saved set is non-essential (worst case the cards just don't
+            // show the "Saved" indicator), so its failure is logged and
+            // swallowed independently. Run them concurrently for latency.
+            async let itemsTask = fetchItems(client: client)
+            async let savedTask = trySaved(client: client)
+
             let fetchedItems = try await itemsTask
-            let fetchedSaved = try await savedTask
+            let fetchedSaved = await savedTask
 
             self.items = fetchedItems
             self.savedIDs = fetchedSaved
@@ -61,6 +66,19 @@ public final class FeedStore {
         } catch {
             feedLog.error("refresh failed: \(error.localizedDescription, privacy: .public)")
             self.loadState = .failed(error.localizedDescription)
+        }
+    }
+
+    /// Wrapper that converts the saved-set fetch from throwing → optional-empty
+    /// so a transient feed_user_state failure doesn't blank the feed. The
+    /// trade-off is that a stale `savedIDs` may persist across a failed
+    /// refresh; the next successful refresh corrects it.
+    private func trySaved(client: SupabaseClient) async -> Set<UUID> {
+        do {
+            return try await fetchSavedIDs(client: client)
+        } catch {
+            feedLog.warning("saved set fetch failed (non-fatal): \(error.localizedDescription, privacy: .public)")
+            return savedIDs
         }
     }
 
@@ -128,9 +146,14 @@ public final class FeedStore {
     // MARK: - Network primitives
 
     private func fetchItems(client: SupabaseClient) async throws -> [FeedItem] {
+        // Order by the real source publish date (when FDA/CDC released the
+        // item) with our own published_at as tiebreaker for items lacking
+        // a pubDate in their RSS. nullsFirst:false sinks null-source items
+        // below dated ones rather than to the top of the feed.
         try await client
             .from("feed_items_visible")
             .select()
+            .order("source_published_at", ascending: false, nullsFirst: false)
             .order("published_at", ascending: false)
             .limit(pageSize)
             .execute()

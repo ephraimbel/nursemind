@@ -32,4 +32,14 @@ enum Haptic {
         gen.prepare()
         gen.notificationOccurred(.success)
     }
+
+    /// Warning notification. Use for one-shot moments when the app declines
+    /// to do what the user asked — refusals (PHI, off-scope, service down),
+    /// or surfacing a quota wall. Distinct from `.error()` which signals a
+    /// system failure rather than a deliberate boundary.
+    static func warning() {
+        let gen = UINotificationFeedbackGenerator()
+        gen.prepare()
+        gen.notificationOccurred(.warning)
+    }
 }

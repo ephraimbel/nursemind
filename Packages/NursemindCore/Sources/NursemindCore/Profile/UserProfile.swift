@@ -164,18 +164,24 @@ public enum SubscriptionTier: String, Codable, CaseIterable, Sendable, Hashable 
         self != .free
     }
 
-    /// Maximum AI questions per local-day. Free tier is intentionally tight to
-    /// gate the AI cost on freeloading. Pro is set at 50 — comfortably above
-    /// the realistic clinical-reference + heavy-NCLEX-study ceiling (~4
-    /// questions/hour over a 12-hour shift), while halving worst-case abuse
-    /// exposure vs an unlimited cap. Worst case at 50/day × ~$0.016/query
-    /// (cached Sonnet pricing) is ~$24/mo per maxed user. Easier to raise
-    /// the cap later as a delight than to lower it as a take-back, so this
-    /// starts conservative.
+    /// Dual-semantics cap. For **Free** this is the LIFETIME trial cap (3
+    /// questions across the entire app lifetime — once exhausted, the user
+    /// must upgrade). For **Pro** this is the DAILY cap (50/day, rolling at
+    /// local midnight). `UserPreferences.askQuotaRemaining` routes to the
+    /// right counter based on tier.
+    ///
+    /// Free lifetime trial: enough questions to experience the product —
+    /// one drug lookup, one drip titration, one clinical-reasoning prompt —
+    /// without subsidizing freeloaders at scale. The library and calculators
+    /// remain free forever; only the AI is gated.
+    ///
+    /// Pro 50/day: comfortably above the realistic clinical-reference +
+    /// heavy-NCLEX-study ceiling (~4 questions/hour over a 12-hour shift),
+    /// while halving worst-case abuse exposure vs an unlimited cap.
     public var askDailyLimit: Int {
         switch self {
-        case .free:                   return 3   // tight free funnel: three questions, then paywall
-        case .proMonthly, .proYearly: return 50
+        case .free:                   return 3   // lifetime trial — never resets
+        case .proMonthly, .proYearly: return 50  // daily — resets at midnight
         }
     }
 }

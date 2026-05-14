@@ -148,6 +148,9 @@ struct NotificationsConsentView: View {
                     prefs.notificationsEnabled = true
                     prefs.weeklyTipEnabled = true
                 }
+                AnalyticsService.shared.capture(
+                    granted ? "notification_permission_granted" : "notification_permission_denied"
+                )
                 isRequesting = false
                 onContinue()
             }
@@ -158,6 +161,7 @@ struct NotificationsConsentView: View {
         Haptic.selection()
         // Leave both flags at false — defaults set on first launch in
         // UserPreferences init. User can enable later in Profile.
+        AnalyticsService.shared.capture("notification_permission_skipped")
         onContinue()
     }
 }

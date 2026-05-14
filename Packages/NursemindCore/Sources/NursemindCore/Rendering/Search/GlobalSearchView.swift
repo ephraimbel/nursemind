@@ -93,6 +93,23 @@ public struct GlobalSearchView: View {
                 try? await Task.sleep(nanoseconds: 200_000_000)
                 if !Task.isCancelled {
                     debouncedQuery = query
+                    if !query.isEmpty {
+                        // Capture the *length* and result counts, never the
+                        // query text — search terms can be sensitive
+                        // ("could my patient have…") even though we never
+                        // tie them to PHI in our own systems.
+                        AnalyticsService.shared.capture(
+                            "search_performed",
+                            properties: [
+                                "query_length": query.count,
+                                "library_results": libraryResults.count,
+                                "calculator_results": calculatorResults.count,
+                                "saved_results": savedResults.count,
+                                "nclex_results": nclexResults.count,
+                                "has_any_results": hasAnyResults
+                            ]
+                        )
+                    }
                 }
             }
         }

@@ -38,6 +38,38 @@ public final class SupabaseService {
     /// keeps everything else working offline if the client never gets set up.
     public private(set) var client: SupabaseClient?
 
+    /// Project base URL — exposed so callers that need to bypass the SDK
+    /// (e.g. ProfileSyncService's manual REST path that works around the
+    /// 2.46.0 session-attach race) can build URLRequests by hand.
+    public private(set) var supabaseURL: URL?
+
+    /// Anon key — exposed for the same reason as `supabaseURL`. Safe to expose
+    /// per Supabase's design (it's a JWT signed with the project's `anon`
+    /// role, all real auth happens via RLS + the user's bearer JWT).
+    public private(set) var anonKey: String?
+
+    /// Access token captured directly from `signInAnonymously()` / cached
+    /// session lookup at bootstrap. Source of truth for callers that need to
+    /// authenticate raw URLRequests, because `client.auth.session` in supabase-
+    /// swift 2.46.0 throws "Auth session missing" intermittently right after
+    /// sign-in (the in-memory session hasn't settled yet). Reading this
+    /// cached copy avoids that race. Refresh handled at next launch.
+    public private(set) var cachedAccessToken: String?
+
+    /// True while the current session is anonymous. Mirrors `client.auth.
+    /// currentUser?.isAnonymous` but stored as a tracked property so SwiftUI
+    /// re-renders bound views (e.g., the "Sign in with Apple" row in Profile)
+    /// when the value flips. Reading `client.auth.currentUser` directly was
+    /// invisible to @Observable tracking — views read stale `false` before
+    /// auth resolved and never re-rendered.
+    public private(set) var isAnonymous: Bool = false
+
+    /// Email associated with the current session, if any. Apple returns email
+    /// only on first sign-in for a given Apple ID + app pair, so this can be
+    /// nil for users who linked previously and re-launched. Same observation-
+    /// tracking reason as `isAnonymous`.
+    public private(set) var currentEmail: String?
+
     private init() {}
 
     // MARK: - Configuration
@@ -48,6 +80,8 @@ public final class SupabaseService {
     public func configure(url: URL, anonKey: String) {
         guard client == nil else { return }
         self.client = SupabaseClient(supabaseURL: url, supabaseKey: anonKey)
+        self.supabaseURL = url
+        self.anonKey = anonKey
         self.state = .bootstrapping
         Task { await bootstrap() }
     }
@@ -64,6 +98,9 @@ public final class SupabaseService {
             // Fast path: a previously-issued JWT is still valid in Keychain.
             // The SDK refreshes it transparently if it's near expiration.
             let session = try await client.auth.session
+            self.cachedAccessToken = session.accessToken
+            self.isAnonymous = session.user.isAnonymous
+            self.currentEmail = session.user.email
             self.state = .signedIn(userID: session.user.id)
             supabaseLog.info("Restored cached session: user=\(session.user.id, privacy: .public)")
             return
@@ -84,6 +121,13 @@ public final class SupabaseService {
             // extra `client.auth.session` await yields long enough for the
             // event stream to settle. Verified across 3 erased-Keychain runs.
             _ = try? await client.auth.session
+            // Capture the access token before the SDK's session-store wedges
+            // it behind that broken `client.auth.session` accessor. Callers
+            // that need to bypass the SDK (ProfileSyncService.push) use this
+            // cached copy.
+            self.cachedAccessToken = session.accessToken
+            self.isAnonymous = true
+            self.currentEmail = nil
             self.state = .signedIn(userID: session.user.id)
             supabaseLog.info("Anonymous sign-in success: user=\(session.user.id, privacy: .public)")
         } catch {
@@ -129,22 +173,6 @@ public final class SupabaseService {
         await bootstrap()
     }
 
-    /// True while the current session is anonymous — gates the "Sign in with
-    /// Apple" upgrade affordance in Profile. Returns false if no session
-    /// exists yet (we don't want to flash the upgrade button before auth
-    /// resolves) and false once the user has linked any real identity.
-    public var isAnonymous: Bool {
-        guard let user = client?.auth.currentUser else { return false }
-        return user.isAnonymous
-    }
-
-    /// The email Apple returned (or whatever email is on file) for UI display.
-    /// Apple returns email only on first sign-in for a given Apple ID + app
-    /// pair, so this can be nil for users who linked previously and re-launched.
-    public var currentEmail: String? {
-        client?.auth.currentUser?.email
-    }
-
     /// Link a native Apple Sign In credential to the current (anonymous) user.
     /// Preserves `user.id` — the same UUID continues to own all profile +
     /// saved-answer rows, so no data migration is needed.
@@ -168,9 +196,13 @@ public final class SupabaseService {
                 nonce: credential.rawNonce
             )
         )
-        // user.id is unchanged after a successful link, but we re-emit the
-        // state so any view bound to `state` gets a chance to re-render
-        // (e.g., the Profile button hides itself when `isAnonymous` flips).
+        // user.id is unchanged after a successful link. Update the tracked
+        // properties so views observing `isAnonymous` / `currentEmail` re-
+        // render — the Profile "Sign in with Apple" row hides itself, and
+        // any view showing the user's email lights up.
+        self.cachedAccessToken = session.accessToken
+        self.isAnonymous = false
+        self.currentEmail = session.user.email
         self.state = .signedIn(userID: session.user.id)
         supabaseLog.info("Apple identity linked to user=\(session.user.id, privacy: .public)")
     }

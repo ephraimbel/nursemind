@@ -6,7 +6,6 @@ import SwiftUI
 /// Staggered fade-up on appear gives the page life. Reduce Motion respected.
 struct WelcomeView: View {
     let onContinue: () -> Void
-    let onSignIn: () -> Void
 
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var visible: [Bool] = Array(repeating: false, count: 4)
@@ -65,6 +64,11 @@ struct WelcomeView: View {
     /// pull-quote treatment. Per-line VStack gives explicit control over
     /// line breaks (avoids `\n` truncation issues with concatenated Text).
     private var hero: some View {
+        // 76pt fills the 430pt Pro Max width beautifully, but on 375pt SE
+        // "companion" is the widest word (~304pt at 76pt) and would clip.
+        // `minimumScaleFactor(0.82)` lets each line shrink to ~62pt on
+        // narrow widths — still editorial in scale, never truncated.
+        // `lineLimit(1)` is safe because each Text holds a single word.
         let serifRegular = Font.custom("InstrumentSerif-Regular", size: 76, relativeTo: .largeTitle)
         let serifItalic  = Font.custom("InstrumentSerif-Italic",  size: 76, relativeTo: .largeTitle)
 
@@ -72,16 +76,24 @@ struct WelcomeView: View {
             Text("A nursing")
                 .font(serifRegular)
                 .foregroundStyle(NMColor.textPrimary)
+                .lineLimit(1)
+                .minimumScaleFactor(0.82)
             Text("companion")
                 .font(serifRegular)
                 .foregroundStyle(NMColor.textPrimary)
+                .lineLimit(1)
+                .minimumScaleFactor(0.82)
             Text("you can")
                 .font(serifRegular)
                 .foregroundStyle(NMColor.textPrimary)
+                .lineLimit(1)
+                .minimumScaleFactor(0.82)
             HStack(alignment: .firstTextBaseline, spacing: 0) {
                 Text("trust")
                     .font(serifItalic)
                     .foregroundStyle(NMColor.accent)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.82)
                 Text(".")
                     .font(serifRegular)
                     .foregroundStyle(NMColor.textPrimary)
@@ -113,21 +125,6 @@ struct WelcomeView: View {
     private var actions: some View {
         VStack(spacing: NMSpace.md) {
             PrimaryCTAButton(title: "Get started", action: onContinue)
-
-            Button {
-                Haptic.light()
-                onSignIn()
-            } label: {
-                HStack(spacing: 4) {
-                    Text("Already have an account?")
-                        .font(NMFont.bodySM)
-                        .foregroundStyle(NMColor.textTertiary)
-                    Text("Sign in")
-                        .font(NMFont.bodySM)
-                        .foregroundStyle(NMColor.accent)
-                }
-            }
-            .buttonStyle(PressableButtonStyle())
         }
         .padding(.bottom, NMSpace.xl)
         .opacity(visible[3] ? 1 : 0)
@@ -196,5 +193,5 @@ struct PressableButtonStyle: ButtonStyle {
 }
 
 #Preview {
-    WelcomeView(onContinue: {}, onSignIn: {})
+    WelcomeView(onContinue: {})
 }

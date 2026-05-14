@@ -40,6 +40,12 @@ public struct LibraryHomeView: View {
                 .padding(.horizontal, NMSpace.lg)
                 .padding(.top, NMSpace.sm)
                 .padding(.bottom, NMSpace.huge)
+                // iPad in "Designed for iPhone" mode gives the app a window
+                // wider than any iPhone. Cap the content column at iPhone-Pro-
+                // Max width so type and spacing stay readable; the cream
+                // GrainBackground around it fills the rest of the window.
+                .frame(maxWidth: 460)
+                .frame(maxWidth: .infinity, alignment: .center)
             }
             .background(GrainBackground())
             .overlay(alignment: .topTrailing) {

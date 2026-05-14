@@ -50,6 +50,15 @@ public final class FlagReportService {
                     .insert(upsert)
                     .execute()
                 flagLog.info("Flag report submitted")
+                await MainActor.run {
+                    AnalyticsService.shared.capture(
+                        "flag_report_submitted",
+                        properties: [
+                            "has_reason": upsert.reason != nil,
+                            "citation_count": citations.count
+                        ]
+                    )
+                }
             } catch {
                 flagLog.error("Flag report failed: \(error.localizedDescription, privacy: .public)")
                 _ = self

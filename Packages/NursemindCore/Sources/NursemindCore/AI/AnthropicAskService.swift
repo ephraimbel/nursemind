@@ -104,12 +104,21 @@ public final class AnthropicAskService: AskService, @unchecked Sendable {
                         continuation.yield(.libraryEntries(entryIDs))
                     }
 
-                    // 6. Generate (streaming) with prompt caching on the
-                    // static prefix. Cache hits within the 5-minute TTL bill
-                    // the prefix at ~10% of fresh input rates.
+                    // 6. Generate (streaming) with Haiku 4.5 + prompt caching
+                    // on the static prefix. Haiku is ~3.3× cheaper than Sonnet
+                    // per token and handles ~80% of NurseMind's traffic (drug
+                    // lookups, lab values, single-protocol questions) with
+                    // equivalent quality. The remaining ~20% (complex multi-
+                    // step prioritization, long-context synthesis) is where
+                    // Sonnet would win — flag reports + tier review surface
+                    // those if they become a quality problem in production.
+                    // Cache hits within the 5-minute TTL bill the prefix at
+                    // ~10% of fresh input rates. Haiku's cache minimum is
+                    // 2048 tokens (vs Sonnet's 1024); the static prefix is
+                    // ~5K tokens so it clears.
                     var accumulated = ""
                     let stream = client.streamMessage(
-                        model: .sonnet45,
+                        model: .haiku45,
                         cachedSystem: SystemPrompt.staticPrefix,
                         dynamicSystem: dynamicSystem,
                         messages: messages,

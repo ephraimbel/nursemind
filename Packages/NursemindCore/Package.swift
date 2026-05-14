@@ -20,7 +20,11 @@ let package = Package(
         // RevenueCat — StoreKit 2 wrapper, Paywalls SwiftUI component, and
         // CustomerCenterUI. The umbrella `RevenueCat` product is the SDK
         // core; `RevenueCatUI` re-exports `PaywallView` + `CustomerCenterView`.
-        .package(url: "https://github.com/RevenueCat/purchases-ios-spm.git", from: "5.0.0")
+        .package(url: "https://github.com/RevenueCat/purchases-ios-spm.git", from: "5.0.0"),
+        // PostHog iOS SDK — product analytics for the organic funnel.
+        // Public `phc_` project token is safe to embed; the SDK never sends
+        // user input bodies, only event names + structured properties.
+        .package(url: "https://github.com/PostHog/posthog-ios.git", from: "3.56.0")
     ],
     targets: [
         .target(
@@ -28,7 +32,8 @@ let package = Package(
             dependencies: [
                 .product(name: "Supabase", package: "supabase-swift"),
                 .product(name: "RevenueCat", package: "purchases-ios-spm"),
-                .product(name: "RevenueCatUI", package: "purchases-ios-spm")
+                .product(name: "RevenueCatUI", package: "purchases-ios-spm"),
+                .product(name: "PostHog", package: "posthog-ios")
             ],
             path: "Sources/NursemindCore",
             resources: [

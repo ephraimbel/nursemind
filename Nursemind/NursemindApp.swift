@@ -23,6 +23,12 @@ struct NursemindApp: App {
         // observes Supabase auth state internally and calls `Purchases.logIn`
         // once a Supabase user_id is available.
         RevenueCatService.shared.configure(apiKey: Secrets.revenueCatAPIKey)
+        // PostHog before any first-launch event fires so the install event
+        // and onboarding funnel land in the same anonymous distinct_id.
+        AnalyticsService.shared.configure(
+            projectToken: Secrets.posthogProjectToken,
+            host: Secrets.posthogHost
+        )
     }
 
     var body: some Scene {

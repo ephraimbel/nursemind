@@ -32,7 +32,14 @@ struct ConversationView: View {
             }
             .onChange(of: viewModel.isStreaming) { _, isStreaming in
                 guard !isStreaming, let last = viewModel.conversation.messages.last else { return }
-                withAnimation(.easeOut(duration: 0.2)) {
+                // Streaming complete — settle to the top of the answer with a
+                // gentle spring rather than a mechanical ease. The streaming
+                // path (above) intentionally stays on easeOut(0.15) because
+                // springs would jitter under rapid delta-triggered scrolls;
+                // this branch fires exactly once per answer, so the spring's
+                // 0.45s response cost is paid only at the "earned" moment
+                // where the user transitions from watching to reading.
+                withAnimation(.spring(response: 0.45, dampingFraction: 0.86)) {
                     proxy.scrollTo(last.id, anchor: .top)
                 }
             }
@@ -109,9 +116,21 @@ struct MessageRenderer: View {
     @ViewBuilder
     private var assistantMessage: some View {
         VStack(alignment: .leading, spacing: NMSpace.base) {
-            EyebrowLabel("NURSEMIND")
+            // `animated: true` — the ✦ glyph does a one-shot fade-up + scale
+            // when this assistant message first appears, giving fresh answers
+            // a subtle "the AI just took the floor" signal. The animation
+            // fires once per message instance and stays static thereafter, so
+            // scrolling back to an older message doesn't replay it.
+            EyebrowLabel("NURSEMIND", animated: true)
             if let refusal = message.refusal {
                 RefusalCard(refusal: refusal)
+                    .onAppear {
+                        // One-shot warning haptic the instant a refusal surfaces.
+                        // Distinct from `.success()` (subscription, save) and
+                        // `.error()` (system failure) — the app deliberately
+                        // declined what was asked, and the haptic mirrors that.
+                        Haptic.warning()
+                    }
             } else {
                 bodyContent
                 if !message.citations.isEmpty && !message.isStreaming {
@@ -144,11 +163,13 @@ struct MessageRenderer: View {
     @ViewBuilder
     private var bodyContent: some View {
         if message.content.isEmpty && message.isStreaming {
+            // Pre-first-delta: editorial thinking indicator (breathing
+            // dot + cycling phase text). Replaces the bare blinking cursor
+            // so the moment between "send tapped" and "first token" reads
+            // like deliberate work rather than dead air.
             VStack(alignment: .leading, spacing: NMSpace.base) {
                 handoffSection
-                HStack(spacing: 6) {
-                    StreamingCursor()
-                }
+                ThinkingIndicator()
             }
         } else {
             VStack(alignment: .leading, spacing: NMSpace.base) {
@@ -159,6 +180,13 @@ struct MessageRenderer: View {
                         .padding(.top, 2)
                 }
             }
+            // Crossfade from the thinking state into the streamed body —
+            // without this the answer can pop in jarringly the instant the
+            // first delta lands. The animation is anchored to "content
+            // became non-empty" rather than "isStreaming changed" so it
+            // only fires on the thinking→streaming boundary, not on every
+            // appended token.
+            .transition(.opacity.animation(.easeOut(duration: 0.28)))
         }
     }
 
@@ -249,6 +277,7 @@ private extension MessageRenderer {
             modelContext.delete(existing)
             try? modelContext.save()
             SavedAnswerSyncService.shared.didDelete(id: removedID)
+            AnalyticsService.shared.capture("saved_answer_removed")
             return
         }
         guard !message.content.isEmpty else { return }
@@ -262,6 +291,13 @@ private extension MessageRenderer {
         modelContext.insert(saved)
         try? modelContext.save()
         SavedAnswerSyncService.shared.didInsertOrUpdate(saved)
+        AnalyticsService.shared.capture(
+            "saved_answer_added",
+            properties: [
+                "citation_count": message.citations.count,
+                "char_count": message.content.count
+            ]
+        )
         UINotificationFeedbackGenerator().notificationOccurred(.success)
         let isFirstSave = !firstSaveNudgeShown
         withAnimation(.easeOut(duration: 0.2)) {
@@ -307,19 +343,30 @@ private extension MessageRenderer {
 
 // MARK: - Streaming cursor
 
+/// Thin breathing vertical bar that signals "more content is on the way."
+/// Replaces the prior `Text("▍")` Unicode glyph — that character renders
+/// inconsistently across iOS versions and reads as a binary blink rather
+/// than a breath. A SwiftUI shape gives us pixel-perfect control over
+/// width, color, corner rounding, and the easeInOut curve, and tints with
+/// the brand accent so the cursor lives in the same visual vocabulary as
+/// every other "the app is working" affordance (CTAs, ThinkingIndicator
+/// dot, citation pill stroke).
 struct StreamingCursor: View {
-    @State private var visible = true
+    @State private var breath: Double = 0.35
 
     var body: some View {
-        Text("▍")
-            .font(NMFont.bodyLG)
-            .foregroundStyle(NMColor.textTertiary)
-            .opacity(visible ? 1 : 0)
+        RoundedRectangle(cornerRadius: 1)
+            .fill(NMColor.accent)
+            .frame(width: 2.5, height: 18)
+            .opacity(breath)
             .onAppear {
-                withAnimation(.easeInOut(duration: 0.6).repeatForever()) {
-                    visible.toggle()
+                withAnimation(
+                    .easeInOut(duration: 0.85).repeatForever(autoreverses: true)
+                ) {
+                    breath = 1.0
                 }
             }
+            .accessibilityHidden(true)
     }
 }
 

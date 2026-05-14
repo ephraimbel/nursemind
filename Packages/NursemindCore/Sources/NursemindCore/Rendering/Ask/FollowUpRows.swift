@@ -28,7 +28,14 @@ private struct FollowUpRow: View {
     let onTap: () -> Void
 
     var body: some View {
-        Button(action: onTap) {
+        Button {
+            // Selection click — the user is picking one of three suggested
+            // continuations, the same hardware feedback pattern a Picker or
+            // segmented control uses. Lighter than `.light()` impact so the
+            // three-row list doesn't feel chunky on rapid taps.
+            Haptic.selection()
+            onTap()
+        } label: {
             HStack(alignment: .center, spacing: NMSpace.base) {
                 Text(text)
                     .font(NMFont.displaySM)

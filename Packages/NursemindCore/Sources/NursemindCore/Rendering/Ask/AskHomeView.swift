@@ -12,6 +12,13 @@ public struct AskHomeView: View {
     @State private var voiceListening: Bool = false
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Environment(\.modelContext) private var modelContext
+    /// SwiftUI wrapper around `SKStoreReviewController.requestReview()`.
+    /// Triggered exactly once per user, after their first successful AI
+    /// answer — see the `viewModel.isStreaming` onChange handler below. Apple
+    /// rate-limits to 3 prompts / 365 days regardless of how often we call
+    /// this; the client-side flag (`prefs.hasRequestedReview`) keeps us to a
+    /// single ask per user lifetime so we never repeat-ask within a session.
+    @Environment(\.requestReview) private var requestReview
 
     @Query(sort: \SavedAnswer.savedAt, order: .reverse)
     private var savedAnswers: [SavedAnswer]
@@ -21,13 +28,11 @@ public struct AskHomeView: View {
 
     public init(
         service: AskService = MockAskService(),
-        followUpService: FollowUpService = MockFollowUpService(),
-        calculatorSuggester: CalculatorSuggester = MockCalculatorSuggester()
+        enrichmentService: AnswerEnrichmentService = MockAnswerEnrichmentService()
     ) {
         _viewModel = State(initialValue: AskViewModel(
             service: service,
-            followUpService: followUpService,
-            calculatorSuggester: calculatorSuggester
+            enrichmentService: enrichmentService
         ))
     }
 
@@ -82,6 +87,36 @@ public struct AskHomeView: View {
             .onChange(of: viewModel.conversation.lastUpdatedAt) {
                 persistConversationIfNeeded()
             }
+            // First-answer App Store review prompt. Fires the native iOS
+            // rating sheet after the user gets their first successful AI
+            // answer — the moment they've just experienced app value, which
+            // is what Apple's review-prompt guidance asks for. Tightly gated:
+            //   • Once per user (prefs.hasRequestedReview)
+            //   • Only on stream completion (isStreaming transition true→false)
+            //   • Only on a real answer (last message is assistant, non-empty,
+            //     no refusal)
+            //   • 1.5s delay so the user reads the answer before the sheet
+            //     interrupts. Apple's RequestReviewAction is itself rate-
+            //     limited to 3 prompts / 365 days, but we self-limit to one
+            //     ask ever — a clearly invitational moment, not a pestering
+            //     pattern.
+            .onChange(of: viewModel.isStreaming) { _, isStreaming in
+                guard !isStreaming else { return }
+                guard !prefs.hasRequestedReview else { return }
+                guard let last = viewModel.conversation.messages.last,
+                      last.role == .assistant,
+                      last.refusal == nil,
+                      !last.content.isEmpty else { return }
+                Task { @MainActor in
+                    try? await Task.sleep(for: .seconds(1.5))
+                    // Re-check inside the task — the user could have started
+                    // a new conversation or hit a quota wall during the wait.
+                    guard !prefs.hasRequestedReview else { return }
+                    requestReview()
+                    prefs.hasRequestedReview = true
+                    AnalyticsService.shared.capture("review_prompt_shown")
+                }
+            }
             // Daily quota gate. ViewModel rejects send() and bumps the token;
             // we surface the right UI based on tier.
             .onChange(of: viewModel.quotaBlockedToken) {
@@ -128,7 +163,8 @@ public struct AskHomeView: View {
                 let pkgs = RevenueCatService.shared.paywallPackages
                 PaywallView(
                     monthlyPackage: pkgs.monthly,
-                    annualPackage: pkgs.annual
+                    annualPackage: pkgs.annual,
+                    analyticsSource: "ask_quota_hit"
                 )
             }
             .sheet(isPresented: $proLimitAlertShown) {
@@ -199,6 +235,8 @@ public struct AskHomeView: View {
             }
             .padding(.horizontal, NMSpace.lg)
             .padding(.top, NMSpace.sm)
+            .frame(maxWidth: 460)
+            .frame(maxWidth: .infinity, alignment: .center)
         }
     }
 
@@ -247,10 +285,14 @@ public struct AskHomeView: View {
             HStack(alignment: .firstTextBaseline, spacing: 0) {
                 Text("Ask ")
                     .font(NMFont.displayXL).tracking(-1.6).foregroundStyle(NMColor.textPrimary)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.85)
                 Text("anything")
                     .font(NMFont.displayItalicLG)
                     .foregroundStyle(NMColor.textPrimary)
                     .baselineOffset(8)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.85)
             }
             Text("Evidence-based, cited, scoped to nursing practice.")
                 .font(NMFont.displayItalicMD)
@@ -275,12 +317,13 @@ public struct AskHomeView: View {
     private var quotaLine: some View {
         let remaining = prefs.askQuotaRemaining
         let total = prefs.askDailyLimit
+        let isPro = prefs.subscriptionTier.isPro
         if remaining == 0 {
             HStack(spacing: NMSpace.xs) {
-                Text(total == 1 ? "You've used today's free question." : "You've used today's \(total) questions.")
+                Text(zeroQuotaCopy(total: total, isPro: isPro))
                     .font(NMFont.bodySM)
                     .foregroundStyle(NMColor.textSecondary)
-                if !prefs.subscriptionTier.isPro {
+                if !isPro {
                     Button {
                         Haptic.light()
                         paywallPresented = true
@@ -292,6 +335,12 @@ public struct AskHomeView: View {
                     .buttonStyle(.plain)
                 }
             }
+        } else if !isPro {
+            // Free tier — small lifetime trial cap (3 by default). Dot meter
+            // reads at-a-glance: each dot = one remaining lifetime question.
+            // Suffix label is "free" because the count never resets — this
+            // is a one-time trial, not a daily allowance.
+            QuotaMeter(remaining: remaining, total: total, suffix: "free")
         } else {
             Text(remainingCopy(remaining: remaining, total: total))
                 .font(NMFont.displayItalicSM)
@@ -299,8 +348,20 @@ public struct AskHomeView: View {
         }
     }
 
+    /// Zero-state copy. Free uses lifetime framing ("free questions"), Pro
+    /// uses today framing ("questions today") so the reset-at-midnight
+    /// expectation is implicit.
+    private func zeroQuotaCopy(total: Int, isPro: Bool) -> String {
+        if isPro {
+            return total == 1 ? "You've used today's question." : "You've used today's \(total) questions."
+        } else {
+            return total == 1 ? "You've used your free question." : "You've used all \(total) free questions."
+        }
+    }
+
+    /// Pro-tier daily remaining copy. Free tier doesn't hit this path — it
+    /// uses the visual `QuotaMeter` above.
     private func remainingCopy(remaining: Int, total: Int) -> String {
-        if total == 1 { return "1 free question today" }
         if remaining == 1 { return "1 of \(total) questions left today" }
         return "\(remaining) of \(total) questions left today"
     }
@@ -382,6 +443,10 @@ public struct AskHomeView: View {
             VStack(spacing: 0) {
                 ForEach(Array(suggestions.enumerated()), id: \.offset) { idx, suggestion in
                     SuggestionRow(text: suggestion) {
+                        // Selection click mirrors the FollowUpRows vocabulary —
+                        // the user is picking one of three offered questions,
+                        // same hardware feedback iOS pickers use.
+                        Haptic.selection()
                         viewModel.inputText = suggestion
                         inputFocused = true
                     }
@@ -393,15 +458,18 @@ public struct AskHomeView: View {
         }
     }
 
+    /// Three personalized suggestions for this user, drawn from a curated
+    /// unit/role-aware pool with a calendar-day-stable shuffle. Recomputes on
+    /// every render, but the shuffle is deterministic per (prefs, day) so the
+    /// list stays stable across navigations within a session and refreshes
+    /// once daily — and immediately whenever the user changes their role,
+    /// unit, or ICU subspecialty in Profile.
     private var suggestions: [String] {
-        [
-            "How do I titrate norepi to MAP?",
-            "What's the difference between BiPAP and HFNC?",
-            "When do I call a rapid response?",
-            "How do I interpret a K+ of 6.5?",
-            "What are nursing implications for IV vancomycin?",
-            "Walk me through SBAR for a hypotensive patient."
-        ]
+        SuggestedQuestionsProvider.questions(
+            role: prefs.role,
+            unit: prefs.unit,
+            icuSubspecialty: prefs.icuSubspecialty
+        )
     }
 
     // MARK: - Input bar
@@ -432,14 +500,28 @@ public struct AskHomeView: View {
                 }
                 Button {
                     if viewModel.isStreaming {
+                        // Stop is a "soft" interrupt — light tap, the way you'd
+                        // pull a thread off the loom mid-pattern.
+                        Haptic.light()
                         viewModel.cancel()
                     } else {
+                        // Send is committal — medium impact mirrors the weight
+                        // of "ask the model a question," matching the haptic
+                        // grammar Linear and Mercury use on primary submits.
+                        Haptic.medium()
                         send()
                     }
                 } label: {
                     Image(systemName: viewModel.isStreaming ? "stop.fill" : "arrow.up")
                         .font(.system(size: 14, weight: .semibold))
                         .foregroundStyle(NMColor.onAccent)
+                        // SF Symbol replace effect — the arrow morphs into the
+                        // stop square (and back) with a quick crossfade rather
+                        // than a jarring swap. Native iOS 17+ API; the icon
+                        // change becomes a state transition the eye reads as
+                        // "the same button just shifted modes," not "a
+                        // different button appeared in the same place."
+                        .contentTransition(.symbolEffect(.replace))
                         .frame(width: 32, height: 32)
                         .background(
                             Circle().fill(canSend ? NMColor.accent : NMColor.textQuaternary)
@@ -530,6 +612,14 @@ public struct AskHomeView: View {
         if voiceListening {
             voiceListening = false
         }
+        AnalyticsService.shared.capture(
+            "question_asked",
+            properties: [
+                "tier": prefs.subscriptionTier.isPro ? "pro" : "free",
+                "char_count": viewModel.inputText.count,
+                "voice": voiceListening
+            ]
+        )
         viewModel.send()
         inputFocused = false
     }
@@ -723,8 +813,13 @@ private struct SuggestionRow: View {
                     .foregroundStyle(NMColor.accent)
             }
             .padding(.vertical, NMSpace.base)
+            .contentShape(Rectangle())
         }
-        .buttonStyle(.plain)
+        // Same press treatment as FollowUpRows / Welcome CTAs — 0.97 scale +
+        // 0.88 opacity dip — so the rows feel tangible rather than passive
+        // text. Combined with the selection haptic at the call site, the
+        // suggested list feels like a real picker, not a static list.
+        .buttonStyle(PressableButtonStyle())
     }
 }
 

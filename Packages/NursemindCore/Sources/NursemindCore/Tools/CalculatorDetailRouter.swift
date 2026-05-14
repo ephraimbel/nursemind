@@ -31,6 +31,13 @@ public struct CalculatorDetailRouter: View {
             }
             .onAppear {
                 prefs.recordCalculatorView(calculatorID)
+                AnalyticsService.shared.capture(
+                    "calculator_viewed",
+                    properties: [
+                        "calculator_id": calculatorID,
+                        "preset_provided": !preset.isEmpty
+                    ]
+                )
             }
     }
 

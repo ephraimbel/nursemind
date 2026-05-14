@@ -10,7 +10,7 @@ settings:
     SWIFT_VERSION: "6.0"
     DEVELOPMENT_TEAM: "LRDHWBMA87"
     MARKETING_VERSION: "1.0.0"
-    CURRENT_PROJECT_VERSION: "3"
+    CURRENT_PROJECT_VERSION: "4"
 
 packages:
   NursemindCore:
@@ -33,6 +33,9 @@ targets:
         UILaunchScreen: {}
         UISupportedInterfaceOrientations:
           - UIInterfaceOrientationPortrait
+        UISupportedInterfaceOrientations~ipad:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
         UIRequiresFullScreen: true
         # Skips the export-compliance question on every upload. NurseMind
         # uses only iOS's standard HTTPS / TLS — qualifies for the
@@ -55,7 +58,11 @@ targets:
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: app.nursemind.ios
-        TARGETED_DEVICE_FAMILY: "1"
+        # 1,2 = iPhone + iPad. App ships as "Universal" so iPad runs it
+        # natively (fills the screen) instead of as a "Designed for iPhone"
+        # compat window with wallpaper bleed at the edges. The per-tab
+        # maxWidth=460 cap keeps content iPhone-shaped centered on iPad.
+        TARGETED_DEVICE_FAMILY: "1,2"
         ENABLE_PREVIEWS: YES
         CODE_SIGN_STYLE: Automatic
         CODE_SIGNING_ALLOWED: YES

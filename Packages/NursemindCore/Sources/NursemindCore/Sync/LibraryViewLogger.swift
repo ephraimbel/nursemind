@@ -120,6 +120,16 @@ public final class LibraryViewLogger {
             let duration = elapsed > 0 ? elapsed : nil
             pendingViews.removeValue(forKey: slug)
             recordInsert(slug: slug, durationSec: duration, viewedAt: pending.startTime)
+            // Mirror the same session into PostHog so retention analysis
+            // can join library engagement to subscription conversion. Slug
+            // only — never the entry body or any user-typed value.
+            AnalyticsService.shared.capture(
+                "library_entry_viewed",
+                properties: [
+                    "slug": slug,
+                    "duration_sec": duration ?? 0
+                ]
+            )
         } else {
             pendingViews[slug] = pending
         }

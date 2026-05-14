@@ -58,7 +58,8 @@ export const SOURCES: IngestSource[] = [
         authority: "fda",
         category: "drug_safety",
         verified: true,
-        maxItemsPerRun: 10,
+        maxItemsPerRun: 20,  // Each RSS holds ~20 items spanning the last 2-3 months;
+                             // pulling all of them gives us depth without paid scraping.
     },
     {
         id: "fda-medwatch",
@@ -67,7 +68,16 @@ export const SOURCES: IngestSource[] = [
         authority: "fda",
         category: "drug_safety",
         verified: true,  // confirmed 2026-05-13: HTTP 200, 20 items, well-formed RSS 2.0
-        maxItemsPerRun: 10,
+        maxItemsPerRun: 20,
+    },
+    {
+        id: "cdc-newsroom",
+        label: "CDC Online Newsroom",
+        rssUrl: "https://tools.cdc.gov/api/v2/resources/media/132608.rss",
+        authority: "cdc",
+        category: "public_health",
+        verified: true,  // confirmed 2026-05-13: HTTP 200, well-formed RSS, 2-3 month depth
+        maxItemsPerRun: 20,
     },
     {
         // NOTE 2026-05-13: CDC retired the HAN RSS feed; emergency.cdc.gov/han/rss.asp

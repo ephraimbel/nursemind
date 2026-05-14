@@ -24,13 +24,41 @@ public struct PaywallView: View {
 
     private let monthlyPackage: Package?
     private let annualPackage: Package?
+    /// When non-nil, this is invoked instead of `dismiss()` on every exit
+    /// path — successful purchase, close button, restore-success, and the
+    /// "Maybe later" affordance that's shown only in this mode. Used by the
+    /// onboarding paywall step to advance the flow rather than dismiss a
+    /// presentation that doesn't exist (the paywall is rendered inline,
+    /// not as a sheet, during onboarding).
+    private let onComplete: (() -> Void)?
+    /// Where the paywall was triggered from. Captured on the
+    /// `paywall_viewed` event so the funnel splits cleanly (onboarding vs
+    /// quota-hit vs profile-upgrade).
+    private let analyticsSource: String
 
     public init(
         monthlyPackage: Package? = nil,
-        annualPackage: Package? = nil
+        annualPackage: Package? = nil,
+        onComplete: (() -> Void)? = nil,
+        analyticsSource: String = "unknown"
     ) {
         self.monthlyPackage = monthlyPackage
         self.annualPackage = annualPackage
+        self.onComplete = onComplete
+        self.analyticsSource = analyticsSource
+    }
+
+    /// Routes every "I'm done with this paywall" signal — purchase complete,
+    /// X tap, restore complete, "Maybe later" — to the right exit. In a
+    /// sheet/fullScreenCover context this falls through to `dismiss()`. In
+    /// an inline-onboarding-step context, the parent flow's `onComplete`
+    /// callback advances to the next step.
+    private func exit() {
+        if let onComplete {
+            onComplete()
+        } else {
+            dismiss()
+        }
     }
 
     public var body: some View {
@@ -68,19 +96,46 @@ public struct PaywallView: View {
                 }
                 legalFooter
                     .padding(.top, NMSpace.sm)
+                // Onboarding-only escape hatch. Renders below the legal footer
+                // so the user finishes reading the offer before they see the
+                // skip option — typical premium-subscription pattern (Calm,
+                // Duolingo Super). In every other context (post-quota Ask,
+                // Profile → Subscription) this is hidden and the X close
+                // button handles dismissal.
+                if onComplete != nil {
+                    Button {
+                        Haptic.light()
+                        exit()
+                    } label: {
+                        Text("Maybe later")
+                            .font(NMFont.bodySM)
+                            .underline()
+                            .foregroundStyle(NMColor.textTertiary)
+                    }
+                    .buttonStyle(.plain)
+                    .padding(.top, NMSpace.md)
+                    .accessibilityLabel("Skip and continue with the free tier")
+                }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding(.horizontal, NMSpace.lg)
 
-            FloatingIconButton(
-                systemName: "xmark",
-                accessibilityLabel: "Close"
-            ) {
-                Haptic.light()
-                dismiss()
+            // X close button shown only when the paywall is presented as a
+            // sheet/cover (existing surfaces — Ask quota, Profile → Subscription).
+            // In onboarding the explicit "Maybe later" link below the legal
+            // footer is the dismissal affordance, so we hide the X to avoid
+            // two competing escape paths.
+            if onComplete == nil {
+                FloatingIconButton(
+                    systemName: "xmark",
+                    accessibilityLabel: "Close"
+                ) {
+                    Haptic.light()
+                    exit()
+                }
+                .padding(.trailing, NMSpace.lg)
+                .padding(.top, NMSpace.sm)
             }
-            .padding(.trailing, NMSpace.lg)
-            .padding(.top, NMSpace.sm)
         }
         // Hide nav bar + tab bar so the paywall always presents full-screen
         // regardless of whether it's surfaced as a fullScreenCover (Ask flow)
@@ -89,6 +144,12 @@ public struct PaywallView: View {
         // and the bottom with the tab bar, clipping the wordmark and footer.
         .toolbar(.hidden, for: .navigationBar)
         .toolbar(.hidden, for: .tabBar)
+        .onAppear {
+            AnalyticsService.shared.capture(
+                "paywall_viewed",
+                properties: ["source": analyticsSource]
+            )
+        }
     }
 
     // MARK: - Brand mark
@@ -289,17 +350,33 @@ public struct PaywallView: View {
                 isWorking = false
                 if outcome == .completed {
                     Haptic.success()
-                    dismiss()
+                    exit()
                 }
             } catch {
                 isWorking = false
                 errorMessage = friendly(error)
                 Haptic.medium()
+                AnalyticsService.shared.capture(
+                    "purchase_error",
+                    properties: [
+                        "source": analyticsSource,
+                        "plan": selectedPlan.rawValue,
+                        "error": String(describing: error)
+                    ]
+                )
             }
         } else {
             // No live offering — common in dev/preview. Surface a soft message
             // rather than firing into a nil package.
             errorMessage = "Subscriptions are still loading. Please try again in a moment."
+            AnalyticsService.shared.capture(
+                "purchase_error",
+                properties: [
+                    "source": analyticsSource,
+                    "plan": selectedPlan.rawValue,
+                    "error": "no_live_offering"
+                ]
+            )
         }
     }
 
@@ -352,18 +429,37 @@ public struct PaywallView: View {
         guard !isWorking else { return }
         isWorking = true
         errorMessage = nil
+        AnalyticsService.shared.capture(
+            "purchase_restore_attempted",
+            properties: ["source": analyticsSource]
+        )
         do {
             try await RevenueCatService.shared.restorePurchases()
             isWorking = false
             if RevenueCatService.shared.isPro {
                 Haptic.success()
-                dismiss()
+                AnalyticsService.shared.capture(
+                    "purchase_restored",
+                    properties: ["source": analyticsSource]
+                )
+                exit()
             } else {
                 errorMessage = "No previous purchase found on this Apple ID."
+                AnalyticsService.shared.capture(
+                    "purchase_restore_empty",
+                    properties: ["source": analyticsSource]
+                )
             }
         } catch {
             isWorking = false
             errorMessage = friendly(error)
+            AnalyticsService.shared.capture(
+                "purchase_restore_failed",
+                properties: [
+                    "source": analyticsSource,
+                    "error": String(describing: error)
+                ]
+            )
         }
     }
 }

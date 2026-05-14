@@ -96,7 +96,7 @@ struct FeedReadingView: View {
                 .tracking(1.6)
                 .foregroundStyle(NMColor.textTertiary)
             Text("·").foregroundStyle(NMColor.textTertiary)
-            Text(absoluteDate(item.publishedAt).uppercased())
+            Text(absoluteDate(item.displayDate).uppercased())
                 .font(NMFont.label)
                 .tracking(1.2)
                 .foregroundStyle(NMColor.textTertiary)

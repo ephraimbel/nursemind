@@ -25,6 +25,24 @@ public final class AppRouter {
     }() {
         didSet {
             UserDefaults.standard.set(selectedTab, forKey: AppRouter.selectedTabKey)
+            guard selectedTab != oldValue else { return }
+            AnalyticsService.shared.capture(
+                "tab_switched",
+                properties: [
+                    "from": AppRouter.tabName(for: oldValue),
+                    "to": AppRouter.tabName(for: selectedTab)
+                ]
+            )
+        }
+    }
+
+    private static func tabName(for index: Int) -> String {
+        switch index {
+        case askTab:     return "ask"
+        case feedTab:    return "feed"
+        case libraryTab: return "library"
+        case profileTab: return "profile"
+        default:         return "unknown"
         }
     }
 

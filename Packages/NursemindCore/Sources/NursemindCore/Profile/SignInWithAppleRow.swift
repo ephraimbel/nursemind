@@ -13,6 +13,15 @@ private let appleSignInLog = Logger(subsystem: "app.nursemind.ios", category: "A
 /// silent (Apple Sign In treats user-initiated cancel as a no-op, not a
 /// failure that needs a banner).
 public struct SignInWithAppleRow: View {
+    /// Feature gate. Enabled 2026-05-13 once Supabase Apple OAuth was wired
+    /// (external_apple_enabled=true, external_apple_client_id=app.nursemind.ios).
+    /// The native iOS Sign In with Apple flow returns an id_token whose `aud`
+    /// claim matches the bundle ID; Supabase verifies against the configured
+    /// client_id. If you ever rotate the bundle ID or disable the provider in
+    /// Supabase, flip this back to false to avoid surfacing a "Sign in failed"
+    /// alert — that's a Guideline 2.1 review risk.
+    public static let isEnabled: Bool = true
+
     @State private var isLinking: Bool = false
     @State private var errorMessage: String?
     @State private var coordinator = AppleSignInCoordinator()

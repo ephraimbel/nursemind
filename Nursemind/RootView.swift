@@ -7,7 +7,6 @@ struct RootView: View {
     @State private var prefs = UserPreferences.shared
 
     init() {
-        Self.configureTabBar()
         // Hand the Supabase URL + anon key to the core service before any
         // view appears. Idempotent — safe even if SwiftUI tears down and
         // rebuilds the root. Auth bootstrap is async-fire-and-forget; the
@@ -36,38 +35,54 @@ struct RootView: View {
                 OnboardingFlow()
             }
         }
+        // OnboardingFlow honors `.adaptForIPadCompat()` at the Group level
+        // because it's a pure SwiftUI flow. mainAppView's per-tab cap is
+        // applied INSIDE the TabView because TabView bridges to UIKit's
+        // UITabBarController and ignores frame hints from its parent.
+        .adaptForIPadCompat()
         .preferredColorScheme(colorScheme(for: prefs.preferredAppearance))
         .animation(.easeInOut(duration: 0.4), value: prefs.hasCompletedOnboarding)
     }
 
     private var mainAppView: some View {
-        TabView(selection: $router.selectedTab) {
+        // Custom replacement for SwiftUI's TabView. We keep every tab's view
+        // alive (so NavigationStack paths + per-view state persist across
+        // tab switches just like UITabBarController would) but only the
+        // selected tab is visible + interactive at any moment. Below the
+        // content sits our own bottom bar, which on iPad fills the screen
+        // edge to edge — SwiftUI's TabView on iPadOS 18+ migrates the bar
+        // to a top tab strip, which we don't want for the "iPhone style on
+        // iPad" feel.
+        ZStack {
             AskHomeView(
                 service: askService,
-                followUpService: followUpService,
-                calculatorSuggester: calculatorSuggester
+                enrichmentService: enrichmentService
             )
-            .tabItem { Label("Ask", systemImage: "sparkle") }
-            .tag(AppRouter.askTab)
+            .opacity(router.selectedTab == AppRouter.askTab ? 1 : 0)
+            .allowsHitTesting(router.selectedTab == AppRouter.askTab)
 
-            // Feed tab is feature-flagged off by default for the v1 build
-            // currently in App Review. Flip prefs.feedTabEnabled to true
-            // for the v1.1 build once the backend pipeline is deployed.
             if prefs.feedTabEnabled {
                 FeedTabView()
-                    .tabItem { Label("Feed", systemImage: "newspaper") }
-                    .tag(AppRouter.feedTab)
+                    .opacity(router.selectedTab == AppRouter.feedTab ? 1 : 0)
+                    .allowsHitTesting(router.selectedTab == AppRouter.feedTab)
             }
 
             LibraryHomeView()
-                .tabItem { Label("Library", systemImage: "books.vertical") }
-                .tag(AppRouter.libraryTab)
+                .opacity(router.selectedTab == AppRouter.libraryTab ? 1 : 0)
+                .allowsHitTesting(router.selectedTab == AppRouter.libraryTab)
 
             ProfileHomeView()
-                .tabItem { Label("Profile", systemImage: "person") }
-                .tag(AppRouter.profileTab)
+                .opacity(router.selectedTab == AppRouter.profileTab ? 1 : 0)
+                .allowsHitTesting(router.selectedTab == AppRouter.profileTab)
         }
-        .tint(NMColor.accent)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .safeAreaInset(edge: .bottom, spacing: 0) {
+            BottomTabBar(
+                selectedTab: $router.selectedTab,
+                showFeed: prefs.feedTabEnabled
+            )
+        }
+        .background(NMColor.bgPrimary.ignoresSafeArea())
         .sheet(isPresented: $router.isSearchPresented) {
             GlobalSearchView()
                 .presentationDetents([.large])
@@ -83,8 +98,8 @@ struct RootView: View {
         }
     }
 
-    /// Single Anthropic transport, shared across Ask / follow-up / calculator-
-    /// suggester services so we don't open three separate URL session pools.
+    /// Single Anthropic transport, shared across Ask + post-answer enrichment
+    /// so we don't open separate URL session pools.
     /// Mode selection:
     ///
     /// - DEBUG with a dev `Secrets.anthropicAPIKey`: hits api.anthropic.com
@@ -112,43 +127,30 @@ struct RootView: View {
         return MockAskService()
     }
 
-    private var followUpService: FollowUpService {
+    /// Post-answer enrichment — one call returns both follow-up chips and
+    /// calculator handoff id. Replaced the prior pair of `followUpService` +
+    /// `calculatorSuggester` factories; each user question now fires 3
+    /// Anthropic calls instead of 4 (intent + generation + enrichment).
+    private var enrichmentService: AnswerEnrichmentService {
         if let client = anthropicClient {
-            return AnthropicFollowUpService(client: client)
+            return AnthropicAnswerEnrichmentService(client: client)
         }
-        return MockFollowUpService()
+        return MockAnswerEnrichmentService()
     }
 
-    private var calculatorSuggester: CalculatorSuggester {
-        if let client = anthropicClient {
-            return AnthropicCalculatorSuggester(client: client)
-        }
-        return MockCalculatorSuggester()
-    }
+    // configureTabBar() removed: we no longer use SwiftUI's TabView (which
+    // bridged to UITabBarController and respected UITabBarAppearance). The
+    // custom BottomTabBar styles itself directly with NMColor / NMFont.
+}
 
-    private static func configureTabBar() {
-        let appearance = UITabBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = UIColor(red: 0xF4 / 255.0, green: 0xF2 / 255.0, blue: 0xEC / 255.0, alpha: 1.0)
-        appearance.shadowColor = UIColor(red: 0xD9 / 255.0, green: 0xD4 / 255.0, blue: 0xC7 / 255.0, alpha: 1.0)
-
-        let tertiary = UIColor(red: 0x8B / 255.0, green: 0x8A / 255.0, blue: 0x82 / 255.0, alpha: 1.0)
-        // Mirrors NMColor.accent — light: 0x4ABE7B, dark: 0x7AD2A0.
-        // UITabBarAppearance can't accept a SwiftUI Color directly, so we
-        // construct the same dynamic UIColor by hand.
-        let accent = UIColor { trait in
-            trait.userInterfaceStyle == .dark
-                ? UIColor(red: 0x7A / 255.0, green: 0xD2 / 255.0, blue: 0xA0 / 255.0, alpha: 1.0)
-                : UIColor(red: 0x4A / 255.0, green: 0xBE / 255.0, blue: 0x7B / 255.0, alpha: 1.0)
-        }
-
-        appearance.stackedLayoutAppearance.normal.iconColor = tertiary
-        appearance.stackedLayoutAppearance.normal.titleTextAttributes = [.foregroundColor: tertiary]
-        appearance.stackedLayoutAppearance.selected.iconColor = accent
-        appearance.stackedLayoutAppearance.selected.titleTextAttributes = [.foregroundColor: accent]
-
-        UITabBar.appearance().standardAppearance = appearance
-        UITabBar.appearance().scrollEdgeAppearance = appearance
+/// Legacy helper kept for OnboardingFlow only — the per-tab adaption inside
+/// the main app now lives at the ScrollView content level in each tab view.
+private extension View {
+    func adaptForIPadCompat() -> some View {
+        self
+            .frame(maxWidth: 460)
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(NMColor.bgPrimary.ignoresSafeArea())
     }
 }
 

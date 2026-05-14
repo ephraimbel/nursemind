@@ -16,6 +16,10 @@ public struct CitationPill: View {
 
     public var body: some View {
         Button {
+            // Light tap acknowledges the pill — "yes, you tapped a citation."
+            // Premium reference apps (Notion, Quill) put a haptic here so the
+            // tiny pill feels like a real button, not a passive label.
+            Haptic.light()
             if let url = URL(string: source.url) {
                 openURL(url)
             }
@@ -49,7 +53,13 @@ public struct CitationPill: View {
                     )
             )
         }
-        .buttonStyle(.plain)
+        // PressableButtonStyle gives a 0.97 scale + 0.88 opacity dip on press.
+        // Subtle on a 60-ish-point-wide pill, but combined with the `.light()`
+        // haptic on tap it eliminates the "is this thing clickable?" hesitation
+        // users get with `.buttonStyle(.plain)`. Same style every other primary
+        // pressable surface in the app uses, so the haptic vocabulary is
+        // coherent end-to-end.
+        .buttonStyle(PressableButtonStyle())
         .accessibilityLabel("Citation: \(source.shortName)")
         .accessibilityHint("Opens source")
     }

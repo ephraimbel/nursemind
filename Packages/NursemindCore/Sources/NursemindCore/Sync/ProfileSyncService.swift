@@ -89,7 +89,37 @@ public final class ProfileSyncService {
         guard case .signedIn(let userID) = supabase.state else { return }
         guard initialSyncedForUserID != userID else { return }
         initialSyncedForUserID = userID
+        // Stitch the anonymous funnel events that fired before sign-in
+        // (install, onboarding step completions, first paywall views) onto
+        // the now-known Supabase user id so PostHog reports a single
+        // person, not two. Also enrich with person properties so cohorts
+        // (tier, role, specialty) are queryable in PostHog.
+        AnalyticsService.shared.identify(userID.uuidString, properties: personProperties())
         Task { await self.performInitialSync(userID: userID) }
+    }
+
+    /// Snapshot of identifying user attributes for PostHog cohorts. Re-built
+    /// every identify so subsequent calls keep tier/specialty fresh after
+    /// the user upgrades or changes their unit.
+    private func personProperties() -> [String: Any] {
+        var props: [String: Any] = [
+            "subscription_tier": prefs.subscriptionTier.rawValue,
+            "is_pro": prefs.subscriptionTier.isPro,
+            "nursing_role": prefs.role.rawValue,
+            "specialty": prefs.unit.rawValue,
+            "is_student_nurse": prefs.role == .student
+        ]
+        if let sub = prefs.icuSubspecialty {
+            props["icu_subspecialty"] = sub.rawValue
+        }
+        if let years = prefs.yearsOfExperience {
+            props["years_experience"] = years
+        }
+        if let agreedAt = prefs.safetyContractAgreedAt {
+            let days = Int(Date().timeIntervalSince(agreedAt) / 86400)
+            props["days_since_onboarding"] = days
+        }
+        return props
     }
 
     /// Reset per-user-id tracking after `AccountDeletionService` wipes
@@ -106,7 +136,7 @@ public final class ProfileSyncService {
     /// Runs once per (user, app launch). Pulls the server row; decides whether
     /// to apply server values or push local based on `updated_at` vs the
     /// last-pushed-at timestamp in UserDefaults. If no row exists yet, INSERTs.
-    private func performInitialSync(userID: UUID) async {
+    private func performInitialSync(userID: UUID, attempt: Int = 1) async {
         guard let client = supabase.client else { return }
         status = .syncing
         do {
@@ -130,7 +160,18 @@ public final class ProfileSyncService {
             }
             status = .synced(at: Date())
         } catch {
-            syncLog.error("Initial sync failed: \(error.localizedDescription, privacy: .public)")
+            // Supabase Swift SDK 2.46.0 races its session hydration on the
+            // first call after anonymous sign-in: the JWT exists but isn't
+            // yet attached to the PostgREST client, so the first INSERT can
+            // hit RLS even though the SELECT works. We retry once after a
+            // brief delay; that's enough for the SDK to finish attaching.
+            if attempt < 2 {
+                syncLog.warning("Initial sync attempt \(attempt) failed (\(error.localizedDescription, privacy: .public)) — retrying after 500ms")
+                try? await Task.sleep(for: .milliseconds(500))
+                await performInitialSync(userID: userID, attempt: attempt + 1)
+                return
+            }
+            syncLog.error("Initial sync failed after \(attempt) attempts: \(error.localizedDescription, privacy: .public)")
             status = .error(error.localizedDescription)
         }
     }
@@ -179,19 +220,59 @@ public final class ProfileSyncService {
     }
 
     private func push(client: SupabaseClient, userID: UUID) async throws {
-        let upsert = currentLocalUpsert(userID: userID)
-        let response: [ProfileRecord] = try await client
-            .from("profiles")
-            .upsert(upsert, returning: .representation)
-            .select()
-            .execute()
-            .value
-        // Use the server's authoritative updated_at as our high-water mark.
-        if let returned = response.first {
-            self.lastPushedAt = returned.updatedAt
-        } else {
-            self.lastPushedAt = Date()
+        // Bypass the Supabase Swift SDK 2.46.0 session-attach race: send the
+        // upsert via URLSession with the user JWT explicitly in the
+        // Authorization header. The SDK's `.from().upsert()` path sometimes
+        // dispatches before the SDK has wired the session into its PostgREST
+        // client, so the first write after anonymous sign-in goes out as
+        // anon and Postgres rejects it with "violates row-level security
+        // policy". A direct URLRequest with our own bearer guarantees the
+        // right auth context, every time.
+        // Source of truth for the JWT is the cached token captured at
+        // bootstrap, NOT `client.auth.session` — the SDK 2.46.0 accessor
+        // throws "Auth session missing" intermittently after sign-in. We
+        // know the session is real (signInAnonymously returned it); the
+        // cached copy is the same value the SDK just gave us, captured
+        // before it could wedge itself.
+        guard let baseURL = supabase.supabaseURL,
+              let anonKey = supabase.anonKey,
+              let userJWT = supabase.cachedAccessToken else {
+            throw URLError(.userAuthenticationRequired)
         }
+
+        let upsert = currentLocalUpsert(userID: userID)
+        let url = baseURL.appendingPathComponent("rest/v1/profiles")
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue(anonKey,                       forHTTPHeaderField: "apikey")
+        request.setValue("Bearer \(userJWT)",           forHTTPHeaderField: "Authorization")
+        request.setValue("application/json",            forHTTPHeaderField: "Content-Type")
+        request.setValue("resolution=merge-duplicates,return=representation",
+                                                         forHTTPHeaderField: "Prefer")
+
+        let encoder = JSONEncoder()
+        encoder.dateEncodingStrategy = .iso8601
+        request.httpBody = try encoder.encode([upsert])
+
+        let (data, response) = try await URLSession.shared.data(for: request)
+        guard let http = response as? HTTPURLResponse else {
+            throw URLError(.badServerResponse)
+        }
+        guard (200...299).contains(http.statusCode) else {
+            let body = String(data: data, encoding: .utf8) ?? "<binary>"
+            throw NSError(
+                domain: "ProfileSyncService.push",
+                code: http.statusCode,
+                userInfo: [NSLocalizedDescriptionKey: "Upsert HTTP \(http.statusCode): \(body.prefix(300))"]
+            )
+        }
+
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
+        let returned = try? decoder.decode([ProfileRecord].self, from: data)
+        // Use the server's authoritative updated_at as our high-water mark.
+        self.lastPushedAt = returned?.first?.updatedAt ?? Date()
     }
 
     // MARK: - Mapping

@@ -71,6 +71,11 @@ public final class AccountDeletionService {
         SavedAnswerSyncService.shared.resetForFreshAccount()
         ProfileSyncService.shared.resetForFreshAccount()
         RevenueCatService.shared.resetForFreshAccount()
+        // Drop the PostHog distinct_id so the next sign-in (e.g., a different
+        // user on the same device) starts as a fresh anonymous person rather
+        // than inheriting the deleted user's funnel events.
+        AnalyticsService.shared.capture("account_deleted")
+        AnalyticsService.shared.reset()
 
         deletionLog.info("Local cleanup complete")
     }

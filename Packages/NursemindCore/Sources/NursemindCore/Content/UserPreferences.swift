@@ -37,7 +37,9 @@ public final class UserPreferences {
     private let safetyContractDateKey    = "nm.safety.contractAgreedAt"
     private let askQuotaDateKey          = "nm.ask.quotaDate"
     private let askQuotaCountKey         = "nm.ask.quotaCount"
+    private let askLifetimeUsedKey       = "nm.ask.lifetimeUsed"
     private let feedTabEnabledKey        = "nm.flags.feedTabEnabled"
+    private let hasRequestedReviewKey    = "nm.review.hasRequested"
 
     private let maxPinned = 12
     private let maxRecents = 10
@@ -119,6 +121,16 @@ public final class UserPreferences {
             postChange()
         }
     }
+    /// One-shot gate for the App Store review prompt. Flipped to `true` the
+    /// first time we successfully call `RequestReviewAction` after a
+    /// completed (non-refusal) AI answer. Apple's framework also rate-limits
+    /// to 3 prompts / 365 days, but this client-side flag keeps the request
+    /// to a single ask per user lifetime — re-asks happen only if the user
+    /// deletes their account (wipe clears this) or a new device install.
+    /// Not synced to the server: it's a per-install UX flag, not profile state.
+    public var hasRequestedReview: Bool {
+        didSet { defaults.set(hasRequestedReview, forKey: hasRequestedReviewKey) }
+    }
     public var safetyContractAgreedAt: Date? {
         didSet {
             if let d = safetyContractAgreedAt { defaults.set(d, forKey: safetyContractDateKey) }
@@ -152,9 +164,9 @@ public final class UserPreferences {
 
     // MARK: Ask daily quota
 
-    /// Number of AI questions submitted today. Resets automatically at the
-    /// start of the next local day. Stored as (day-bucketed Date, count) so a
-    /// stale bucket from yesterday returns 0 without a separate cron.
+    /// Number of AI questions submitted today (Pro tier — day-bucketed so the
+    /// counter auto-rolls at local midnight without a separate cron). Free
+    /// tier doesn't use this path; see `askLifetimeUsed` below.
     public var askQuotaToday: Int {
         guard let stored = defaults.object(forKey: askQuotaDateKey) as? Date,
               Calendar.current.isDateInToday(stored)
@@ -162,22 +174,49 @@ public final class UserPreferences {
         return defaults.integer(forKey: askQuotaCountKey)
     }
 
+    /// Total AI questions a free-tier user has ever submitted. Never resets
+    /// except on account deletion (`wipe()`). This is the lifetime trial
+    /// counter — free users get exactly N questions across the entire app
+    /// lifetime, where N is `SubscriptionTier.free.askDailyLimit` (3).
+    /// Once exhausted, the only path forward is Pro.
+    public var askLifetimeUsed: Int {
+        defaults.integer(forKey: askLifetimeUsedKey)
+    }
+
+    /// Dual-semantics: for Free this is the LIFETIME trial cap (3 forever);
+    /// for Pro it's the DAILY cap (50/day). The remaining/exceeded
+    /// computations below route to the right counter based on tier — callers
+    /// only need to know "is the user out of questions" via `askQuotaExceeded`.
     public var askDailyLimit: Int {
         subscriptionTier.askDailyLimit
     }
 
     public var askQuotaRemaining: Int {
-        max(0, askDailyLimit - askQuotaToday)
+        if subscriptionTier.isPro {
+            return max(0, askDailyLimit - askQuotaToday)
+        } else {
+            return max(0, askDailyLimit - askLifetimeUsed)
+        }
     }
 
     public var askQuotaExceeded: Bool {
-        askQuotaToday >= askDailyLimit
+        if subscriptionTier.isPro {
+            return askQuotaToday >= askDailyLimit
+        } else {
+            return askLifetimeUsed >= askDailyLimit
+        }
     }
 
-    /// Bumps today's count by one, rolling the bucket if the stored date is
-    /// from a previous day. Call once per accepted question (after the
-    /// quota gate, before streaming starts).
+    /// Bumps the relevant counter by one. Pro: today's bucket (rolls at
+    /// midnight). Free: lifetime counter (never rolls). Call once per
+    /// accepted question (after the quota gate, before streaming starts).
     public func incrementAskQuota() {
+        if !subscriptionTier.isPro {
+            // Free user — lifetime trial counter.
+            let next = defaults.integer(forKey: askLifetimeUsedKey) + 1
+            defaults.set(next, forKey: askLifetimeUsedKey)
+            return
+        }
         let today = Calendar.current.startOfDay(for: Date())
         let stored = defaults.object(forKey: askQuotaDateKey) as? Date
         if let s = stored, Calendar.current.isDate(s, inSameDayAs: today) {
@@ -219,6 +258,7 @@ public final class UserPreferences {
             .flatMap { SubscriptionTier(rawValue: $0) }) ?? .free
         self.safetyContractAgreedAt = defaults.object(forKey: safetyContractDateKey) as? Date
         self.feedTabEnabled = defaults.object(forKey: feedTabEnabledKey) as? Bool ?? true
+        self.hasRequestedReview = defaults.bool(forKey: hasRequestedReviewKey)
     }
 
     // MARK: Library actions
@@ -362,6 +402,11 @@ public final class UserPreferences {
             // Quota
             defaults.removeObject(forKey: askQuotaDateKey)
             defaults.removeObject(forKey: askQuotaCountKey)
+            defaults.removeObject(forKey: askLifetimeUsedKey)
+
+            // One-shot UX flags
+            self.hasRequestedReview = false
+            defaults.removeObject(forKey: hasRequestedReviewKey)
         }
         // Sync-service high-water marks live in standard UserDefaults under
         // their own keys; clear those too so the next user's initial sync

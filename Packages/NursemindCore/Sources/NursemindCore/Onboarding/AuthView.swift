@@ -1,18 +1,18 @@
 import SwiftUI
-import AuthenticationServices
 
-/// Modern mobile sign-up screen. Logo at top, brief title + subtitle,
-/// prominent full-width auth buttons (Apple, Continue without). Tiny
-/// terms/privacy footer at the very bottom.
+/// "Get started" surface — the final framing screen before personalization
+/// kicks off. Anonymous Supabase auth has already happened invisibly at app
+/// launch, so this screen is editorial framing + an obligatory pause to let
+/// the user see Terms, Privacy, and Editorial Standards before continuing.
 ///
-/// Apple Sign-In failures (cancel, network, identity conflict) surface
-/// inline so the user knows why nothing happened — they aren't silently
-/// progressed to the next step. "Continue without an account" stays as
-/// a deliberate guest path for users who don't want to sync.
+/// We deliberately don't surface a sign-in button here — Apple Sign In is
+/// gated behind backend configuration that isn't live yet (see
+/// `SignInWithAppleRow.isEnabled`). When the dashboard side is wired up, the
+/// upgrade affordance lives on the Profile tab where it can act on the
+/// already-authenticated anonymous user without re-routing onboarding.
 struct AuthView: View {
     let onComplete: () -> Void
 
-    @State private var errorMessage: String?
     @State private var legalSheet: LegalSheet?
 
     var body: some View {
@@ -26,7 +26,7 @@ struct AuthView: View {
                 Spacer().frame(height: NMSpace.xxl)
                 benefits
                 Spacer(minLength: NMSpace.xl)
-                buttons
+                button
                 Spacer().frame(height: NMSpace.xl)
                 footer
             }
@@ -47,19 +47,18 @@ struct AuthView: View {
 
     // MARK: - Hero
 
-    /// Smaller, modern hero. `displayMD` instead of `displayXL` shifts
-    /// visual weight onto the buttons below — the page is about action,
-    /// not editorial framing. Italic on the back half of the subtitle is
-    /// the deliberate editorial accent (per CLAUDE.md: "italic is
-    /// deliberate") and pulls the eye to the value prop.
+    /// Smaller, modern hero. `displayLG` keeps visual weight on the benefit
+    /// list and CTA below — the page is about confirming what they're about
+    /// to use, not selling them on it (Welcome did that). Italic on the back
+    /// half of the subtitle is the deliberate editorial accent per CLAUDE.md.
     private var hero: some View {
         VStack(alignment: .leading, spacing: NMSpace.sm) {
-            Text("Sign in")
+            Text("You're set.")
                 .font(NMFont.displayLG)
                 .foregroundStyle(NMColor.textPrimary)
             (
-                Text("Library, saved answers, and Pro — ")
-                + Text("across every signed-in device.").italic()
+                Text("A reference and study companion — ")
+                + Text("ready when you are.").italic()
             )
             .font(NMFont.bodyLG)
             .foregroundStyle(NMColor.textSecondary)
@@ -70,114 +69,44 @@ struct AuthView: View {
 
     // MARK: - Benefits
 
-    /// Three concrete proof points presented as a hairline-divided list,
-    /// filling the otherwise-empty middle of the screen. ✦ glyph (one of
-    /// two allowed glyphs per CLAUDE.md) acts as the bullet, tinted with
-    /// the accent color. Title in body weight, italic subtitle in tertiary.
+    /// Three concrete value proofs presented as a hairline-divided list,
+    /// filling the otherwise-empty middle of the screen. ✦ glyph (one of the
+    /// two allowed glyphs per CLAUDE.md) acts as the bullet, tinted accent.
+    /// Copy describes capabilities that don't require sign-in — every promise
+    /// here works for an anonymous user on day one.
     private var benefits: some View {
         VStack(spacing: 0) {
             BenefitRow(
-                title: "Library and bookmarks",
-                subtitle: "Pinned entries, recents, and your specialty"
+                title: "Cited at every claim",
+                subtitle: "openFDA, Open RN, CDC, NIH — sourced and visible"
             )
             Hairline(color: NMColor.borderSubtle)
             BenefitRow(
-                title: "AI conversation history",
-                subtitle: "Saved answers and your daily quota"
+                title: "AI co-pilot, scoped to your role",
+                subtitle: "Grounded in our library, refuses without citations"
             )
             Hairline(color: NMColor.borderSubtle)
             BenefitRow(
-                title: "Subscription portability",
-                subtitle: "Pro follows your account, not your device"
+                title: "Calculators for every unit",
+                subtitle: "Drips, doses, scores, conversions — fast and offline"
             )
         }
     }
 
-    // MARK: - Buttons
+    // MARK: - Button
 
-    private var buttons: some View {
-        VStack(spacing: NMSpace.md) {
-            SignInWithAppleButton(
-                .continue,
-                onRequest: { request in
-                    request.requestedScopes = [.fullName, .email]
-                },
-                onCompletion: handleAppleCompletion
-            )
-            .signInWithAppleButtonStyle(.black)
-            .frame(height: 56)
-            .clipShape(RoundedRectangle(cornerRadius: 12))
-
-            if let errorMessage {
-                Text(errorMessage)
-                    .font(NMFont.bodySM)
-                    .foregroundStyle(NMColor.alertHigh)
-                    .multilineTextAlignment(.center)
-                    .frame(maxWidth: .infinity)
-                    .padding(.top, 2)
-                    .transition(.opacity)
-            }
-
-            Button {
-                Haptic.light()
-                onComplete()
-            } label: {
-                Text("Continue as guest")
-                    .font(NMFont.bodySM)
-                    .foregroundStyle(NMColor.textTertiary)
-                    .padding(.vertical, NMSpace.sm)
-                    .frame(maxWidth: .infinity)
-            }
-            .buttonStyle(PressableButtonStyle())
-        }
-    }
-
-    /// Apple Sign-In callback. Success → clear any prior error, fire
-    /// success haptic, advance. Failure → surface the system error inline
-    /// (or a friendly mapping for `.canceled`) and stay on screen so the
-    /// user can retry or fall back to guest entry.
-    private func handleAppleCompletion(_ result: Result<ASAuthorization, Error>) {
-        switch result {
-        case .success:
-            withAnimation(.easeOut(duration: 0.18)) { errorMessage = nil }
-            Haptic.success()
-            onComplete()
-        case .failure(let err):
-            let asError = err as? ASAuthorizationError
-            // User-cancel is the expected non-completion path on the Apple
-            // sheet — we silently clear without an error message because
-            // the user just hit "Cancel" deliberately.
-            if asError?.code == .canceled {
-                withAnimation(.easeOut(duration: 0.18)) { errorMessage = nil }
-                return
-            }
-            withAnimation(.easeOut(duration: 0.18)) {
-                errorMessage = friendly(asError, fallback: err)
-            }
-        }
-    }
-
-    private func friendly(_ asError: ASAuthorizationError?, fallback: Error) -> String {
-        guard let code = asError?.code else { return fallback.localizedDescription }
-        switch code {
-        case .invalidResponse, .failed:
-            return "Sign-in didn't complete. Please try again."
-        case .notHandled:
-            return "Sign-in couldn't be completed on this device. Try again later."
-        case .notInteractive:
-            return "Sign-in needs an interactive session. Try again."
-        case .unknown:
-            return "Something went wrong with Apple sign-in. Try again."
-        default:
-            return fallback.localizedDescription
-        }
+    /// Single full-width primary CTA. Matches the accent-green style used on
+    /// Welcome and every other primary action in onboarding — one visual
+    /// language across the whole flow.
+    private var button: some View {
+        PrimaryCTAButton(title: "Continue", action: onComplete)
     }
 
     // MARK: - Footer
 
     /// Compact legal footer at the bottom. Underlined, textTertiary, tiny.
     /// Each label is a real button that opens a sheet with the corresponding
-    /// document — App Store review requires Terms + Privacy to be reachable
+    /// document — App Store review expects Terms + Privacy to be reachable
     /// before purchase, and Editorial Standards is our content-credibility
     /// disclosure (CLAUDE.md).
     private var footer: some View {
@@ -208,10 +137,10 @@ struct AuthView: View {
 
 // MARK: - Benefit row
 
-/// Single row in the AuthView "What you get when you sign in" list. ✦ glyph
-/// (allowed per CLAUDE.md) tinted with the brand accent, body title, italic
-/// tertiary subtitle. Vertical padding sized to give the three-row list real
-/// presence in the middle of the screen without crowding the buttons below.
+/// Single row in the AuthView value-prop list. ✦ glyph (allowed per
+/// CLAUDE.md) tinted with the brand accent, body title, italic tertiary
+/// subtitle. Vertical padding sized to give the three-row list real presence
+/// in the middle of the screen without crowding the button below.
 private struct BenefitRow: View {
     let title: String
     let subtitle: String
@@ -275,10 +204,9 @@ private enum LegalSheet: String, Identifiable {
             NurseMind is built so that handling Protected Health Information is structurally impossible — there is no patient field, no chart upload, and the AI is scoped to refuse PHI.
 
             What we collect:
-            • Your email and display name (only if you sign in with Apple).
-            • Your nursing unit + specialty preference (used to scope library and AI suggestions).
-            • Your saved answers and pinned entries (synced to your account if signed in).
-            • Your AI question text and answers (associated only with your account, never with patient identifiers).
+            • Your nursing role and unit (used to scope library and AI suggestions).
+            • Your saved answers and pinned entries (synced to your anonymous account).
+            • Your AI question text and answers (associated only with your anonymous account, never with patient identifiers).
 
             What we don't collect:
             • Patient names, MRNs, dates of birth, room numbers, or any other PHI.

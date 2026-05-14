@@ -16,20 +16,24 @@ public final class AskViewModel {
     public var quotaBlockedToken: Int = 0
 
     private let service: AskService
-    private let followUpService: FollowUpService?
-    private let calculatorSuggester: CalculatorSuggester?
+    /// Single post-answer Anthropic call that produces both follow-up
+    /// suggestions and the calculator handoff id. Replaces what used to be
+    /// two separate helpers (`FollowUpService` + `CalculatorSuggester`) —
+    /// merged to save ~$0.0012 per question (~10% of total AI cost). The
+    /// `FollowUpService` and `CalculatorSuggester` protocols/mocks still
+    /// exist for preview/test ergonomics but the live pipeline no longer
+    /// invokes them.
+    private let enrichmentService: AnswerEnrichmentService?
     private var streamingTask: Task<Void, Never>?
 
     public init(
         conversation: AskConversation = AskConversation(),
         service: AskService,
-        followUpService: FollowUpService? = nil,
-        calculatorSuggester: CalculatorSuggester? = nil
+        enrichmentService: AnswerEnrichmentService? = nil
     ) {
         self.conversation = conversation
         self.service = service
-        self.followUpService = followUpService
-        self.calculatorSuggester = calculatorSuggester
+        self.enrichmentService = enrichmentService
     }
 
     public func send() {
@@ -67,7 +71,12 @@ public final class AskViewModel {
            let idx = conversation.messages.firstIndex(where: { $0.id == assistantID }) {
             conversation.messages[idx].calculatorPreset = extractedValues
         }
-        fetchCalculatorSuggestion(for: assistantID, question: scrub.scrubbed)
+        // Calculator suggestion is now produced by the post-stream merged
+        // `enrichmentService` call (see fetchEnrichment below), bundled with
+        // follow-ups in a single Anthropic call. Local value extraction (the
+        // calculatorPreset) still runs synchronously above — that's regex-only,
+        // no API cost — so when the suggestion arrives, the preset is already
+        // there waiting.
         // Specialty + sub-specialty are derived from the user's profile each
         // send — no per-message UI control. The Ask page front door stays
         // clean; nurses still steer mid-message ("on my Peds shift today…")
@@ -139,7 +148,17 @@ public final class AskViewModel {
                         }
                     }
                 }
-                self.fetchFollowUps(for: assistantID, originalQuestion: scrub.scrubbed)
+                self.fetchEnrichment(for: assistantID, originalQuestion: scrub.scrubbed)
+                let final = self.conversation.messages.first { $0.id == assistantID }
+                AnalyticsService.shared.capture(
+                    "question_completed",
+                    properties: [
+                        "refusal": final?.refusal?.rawValue ?? "none",
+                        "citation_count": final?.citations.count ?? 0,
+                        "answer_char_count": final?.content.count ?? 0,
+                        "phi_redacted": scrub.redacted
+                    ]
+                )
             } catch {
                 if let idx = self.conversation.messages.firstIndex(where: { $0.id == assistantID }) {
                     self.conversation.messages[idx] = AskMessage(
@@ -150,6 +169,10 @@ public final class AskViewModel {
                         isStreaming: false
                     )
                 }
+                AnalyticsService.shared.capture(
+                    "question_failed",
+                    properties: ["error": String(describing: error)]
+                )
             }
             self.isStreaming = false
             _ = assistantMessage   // capture so the @MainActor task keeps the strong reference
@@ -173,7 +196,19 @@ public final class AskViewModel {
 
     public func rate(_ messageID: UUID, as rating: AskMessage.Rating) {
         guard let idx = conversation.messages.firstIndex(where: { $0.id == messageID }) else { return }
+        let previous = conversation.messages[idx].rating
         conversation.messages[idx].rating = rating
+        let message = conversation.messages[idx]
+        AnalyticsService.shared.capture(
+            "answer_rated",
+            properties: [
+                "rating": String(describing: rating),
+                "previous_rating": previous.map { String(describing: $0) } ?? "none",
+                "refusal": message.refusal?.rawValue ?? "none",
+                "citation_count": message.citations.count,
+                "answer_char_count": message.content.count
+            ]
+        )
     }
 
     /// Sends the prefilled follow-up text to the input bar and bumps the focus
@@ -184,40 +219,36 @@ public final class AskViewModel {
         focusRequestToken &+= 1
     }
 
-    /// Fires immediately when the user sends a question — runs in parallel with
-    /// the main stream so the calculator chip can appear at the top of the
-    /// answer before the stream even completes.
-    private func fetchCalculatorSuggestion(for messageID: UUID, question: String) {
-        guard let suggester = calculatorSuggester else { return }
-        Task { [weak self] in
-            let suggestion = await suggester.suggest(for: question)
-            guard let self, let suggestion else { return }
-            await MainActor.run {
-                if let i = self.conversation.messages.firstIndex(where: { $0.id == messageID }) {
-                    withAnimation(.easeOut(duration: 0.2)) {
-                        self.conversation.messages[i].calculatorSuggestion = suggestion
-                    }
-                }
-            }
-        }
-    }
-
-    /// Fires after a successful stream. Skips refusals and short answers
-    /// (no value in suggesting follow-ups for a one-line response).
-    private func fetchFollowUps(for messageID: UUID, originalQuestion: String) {
-        guard let service = followUpService,
+    /// Fires once after a successful stream. Makes a single Anthropic call
+    /// that returns both follow-up suggestions and a calculator handoff id,
+    /// then applies both to the message at the same animation tick. Replaces
+    /// the prior two helpers (calculator suggester firing in parallel with
+    /// the stream, follow-ups firing after) — collapsing them halves the
+    /// post-answer helper cost and gives the calculator suggester access to
+    /// the answer text, which improves match accuracy ("calculate the MAP"
+    /// phrasing in the answer becomes a usable signal).
+    ///
+    /// Skips refusals entirely — no enrichment is meaningful on an apology.
+    /// Does NOT gate on answer length: very short answers (e.g., "MAP = 76.7
+    /// mmHg") still benefit from a calculator handoff even though follow-up
+    /// quality drops, and the model returns empty followups gracefully when
+    /// none make sense.
+    private func fetchEnrichment(for messageID: UUID, originalQuestion: String) {
+        guard let service = enrichmentService,
               let idx = conversation.messages.firstIndex(where: { $0.id == messageID }) else { return }
         let message = conversation.messages[idx]
-        guard message.refusal == nil, message.content.count > 120 else { return }
+        guard message.refusal == nil, !message.content.isEmpty else { return }
 
         let answer = message.content
         Task { [weak self] in
-            let suggestions = await service.suggest(question: originalQuestion, answer: answer)
+            let enrichment = await service.enrich(question: originalQuestion, answer: answer)
             guard let self else { return }
             await MainActor.run {
-                if let i = self.conversation.messages.firstIndex(where: { $0.id == messageID }) {
-                    withAnimation(.easeOut(duration: 0.25)) {
-                        self.conversation.messages[i].followUps = suggestions
+                guard let i = self.conversation.messages.firstIndex(where: { $0.id == messageID }) else { return }
+                withAnimation(.easeOut(duration: 0.25)) {
+                    self.conversation.messages[i].followUps = enrichment.followUps
+                    if let calc = enrichment.calculatorID {
+                        self.conversation.messages[i].calculatorSuggestion = calc
                     }
                 }
             }

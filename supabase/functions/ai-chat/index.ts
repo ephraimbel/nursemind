@@ -36,8 +36,10 @@ const ANTHROPIC_ENDPOINT        = "https://api.anthropic.com/v1/messages"
 
 // Tier → daily quota. Mirror of the iOS `SubscriptionTier.askDailyLimit`
 // computed property — keep aligned with `Profile/UserProfile.swift`.
+// Free was tightened from 5 → 3 (locked decision 2026-05-12) to push harder
+// on conversion; iOS auto-presents the paywall on the 4th attempt.
 const QUOTA_BY_TIER: Record<string, number> = {
-    free:       5,
+    free:       3,
     proMonthly: 50,
     proYearly:  50,
 }
@@ -87,13 +89,44 @@ Deno.serve(async (req: Request): Promise<Response> => {
         return jsonError(401, "Auth verification failed")
     }
 
+    // Forward-the-body-as-is requires us to read it as raw text, since we don't
+    // decode or re-encode JSON (the payload may be large — system prompt + RAG
+    // context + history + cache control blocks — and round-tripping wastes CPU
+    // and risks key-order changes that would defeat Anthropic's prompt cache).
+    // We read it once here, peek at the model field for quota accounting, and
+    // forward the same bytes downstream.
+    const requestBody = await req.text()
+
+    // Probe the request body to identify the primary user-question call vs
+    // the helper Haiku calls (intent / follow-ups / calculator suggestion).
+    // Each user-initiated question fires ~4 proxied calls but only the
+    // generation streams its response — helpers all use non-streaming
+    // single-shot completion. So `stream: true` is the reliable signal.
+    //
+    // This used to gate on `model.includes("sonnet")` back when generation
+    // ran on Sonnet 4.x. After the Haiku 4.5 cost-reduction switch, that
+    // heuristic broke (all four calls now use Haiku) and quota counting
+    // would either fail entirely or burn 4× per ask. Streaming flag is
+    // model-agnostic and durable across future model swaps.
+    //
+    // Default to TRUE on parse failure: a malformed body must not let the
+    // caller slip past the quota gate (we'd rather over-count one request
+    // than under-count a flood).
+    let isPrimaryCall = true
+    try {
+        const parsed = JSON.parse(requestBody) as { stream?: boolean }
+        isPrimaryCall = parsed.stream === true
+    } catch {
+        // Malformed body — fall through with isPrimaryCall=true; Anthropic
+        // will reject it but we still consume one quota unit defensively.
+    }
+
     // Quota gate: read user's tier (server-authoritative — written by
-    // revenuecat-events), then atomically consume one quota unit. If the
-    // user's already at the cap the function returns -1 and we 429 without
-    // ever calling Anthropic. Need the service-role client to bypass RLS on
-    // the consume_ask_quota function call from this server context. Only
-    // applied to primary (Sonnet/Opus) calls — the Haiku helpers that fire
-    // around each user question piggyback on the same allowance.
+    // revenuecat-events), then atomically consume one quota unit. If the user
+    // is already at the cap, return 429 without ever calling Anthropic. We
+    // need the service-role client to bypass RLS on the consume_ask_quota
+    // function call from this server context. Only applied to primary
+    // (Sonnet/Opus) calls — the Haiku helpers piggyback on the same allowance.
     if (SUPABASE_SERVICE_ROLE_KEY && isPrimaryCall) {
         const admin = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, {
             auth: { persistSession: false },
@@ -115,9 +148,9 @@ Deno.serve(async (req: Request): Promise<Response> => {
 
         if (quotaError) {
             console.error("consume_ask_quota failed", quotaError)
-            // Fail open rather than block all traffic on a transient DB
-            // hiccup — the iOS client still has its own quota counter as a
-            // last-line UX guard.
+            // Fail open rather than block all traffic on a transient DB hiccup
+            // — the iOS client still has its own quota counter as a last-line
+            // UX guard.
         } else if (typeof remaining === "number" && remaining < 0) {
             return jsonResponse(429, {
                 error: "Daily question limit reached",
@@ -128,26 +161,6 @@ Deno.serve(async (req: Request): Promise<Response> => {
     }
     // (When SUPABASE_SERVICE_ROLE_KEY isn't set we skip the quota check —
     // useful for local dev without the secret. Production must set it.)
-
-    // Forward the body as-is. We don't decode or re-encode JSON because the
-    // payload may be large (system prompt + RAG context + history + cache
-    // control blocks) and round-tripping wastes CPU + risks key-order
-    // changes that would defeat Anthropic's prompt cache.
-    const requestBody = await req.text()
-
-    // Probe the model field for quota accounting. Each user-initiated
-    // question fires multiple proxied calls (one Sonnet generation + several
-    // Haiku helpers for intent / follow-ups / calculator suggestion). Only
-    // the Sonnet call represents a real "question" from the user's
-    // perspective — counting Haiku calls would burn 4× the quota per ask.
-    let isPrimaryCall = false
-    try {
-        const parsed = JSON.parse(requestBody) as { model?: string }
-        const model = (parsed.model ?? "").toLowerCase()
-        isPrimaryCall = model.includes("sonnet") || model.includes("opus")
-    } catch {
-        // Malformed body — let Anthropic reject it; don't double-fail here.
-    }
 
     let upstream: Response
     try {
@@ -180,9 +193,13 @@ Deno.serve(async (req: Request): Promise<Response> => {
     })
 })
 
-function jsonError(status: number, message: string): Response {
-    return new Response(JSON.stringify({ error: message }), {
+function jsonResponse(status: number, body: unknown): Response {
+    return new Response(JSON.stringify(body), {
         status,
         headers: { ...CORS_HEADERS, "content-type": "application/json" },
     })
+}
+
+function jsonError(status: number, message: string): Response {
+    return jsonResponse(status, { error: message })
 }

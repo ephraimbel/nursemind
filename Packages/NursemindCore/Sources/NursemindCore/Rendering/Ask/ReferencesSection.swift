@@ -21,6 +21,7 @@ public struct ReferencesSection: View {
             VStack(alignment: .leading, spacing: NMSpace.base) {
                 ForEach(Array(visibleCitations.enumerated()), id: \.element.id) { index, source in
                     ReferenceRow(number: index + 1, source: source) {
+                        Haptic.light()
                         presentedIndex = index + 1
                     }
                 }
@@ -64,6 +65,9 @@ public struct ReferencesSection: View {
 
     private var disclosureButton: some View {
         Button {
+            // Selection click — expanding/collapsing the citation list is a
+            // toggle, the same hardware feedback iOS uses on Picker rotations.
+            Haptic.selection()
             withAnimation(.easeOut(duration: 0.2)) { showAll.toggle() }
         } label: {
             HStack(spacing: NMSpace.xs) {

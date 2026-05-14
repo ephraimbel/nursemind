@@ -1815,9 +1815,9 @@ User input from iOS
     │
     ▼
 ┌─────────────────────────────────────────────────────────┐
-│ STEP 6 — Claude Sonnet 4.7 generation                   │
-│ Streaming response                                      │
-│ Cost: ~$0.012 / request                                 │
+│ STEP 6 — Claude Haiku 4.5 generation                    │
+│ Streaming response, prompt caching on system prefix     │
+│ Cost: ~$0.006 / request (was ~$0.020 on Sonnet 4.7)     │
 └─────────────────────────────────────────────────────────┘
     │
     ▼
@@ -2094,13 +2094,15 @@ function hasHallucinatedCitations(response: string, validCitationIds: Set<string
 |---|---|
 | Embedding (OpenAI) | $0.000003 |
 | Haiku classifier | $0.0007 |
-| Sonnet generation (~2K in, 400 out) | $0.012 |
-| **Total** | **~$0.013** |
+| Haiku 4.5 generation (~8K in cached, 400 out) | $0.006 |
+| **Total** | **~$0.007** |
 
-**At scale:**
-- Average Pro user: 3 questions/day → ~$1.20/user/month
-- Heavy Pro user: 15 questions/day → ~$6/user/month
-- Free user (capped at 5/day): max ~$2/user/month if abused
+**At scale (with Haiku 4.5 + 3-question lifetime free trial):**
+- Average Pro user: 3 questions/day → ~$0.65/user/month
+- Heavy Pro user: 15 questions/day → ~$3.20/user/month
+- Free user (3 questions LIFETIME, not daily): max ~$0.02 ever, then upgrade or churn
+
+Previous spec used Sonnet 4.7 at $0.020/question and a 3/day free tier — total burn at 100K users was ~$35K/mo. After the Haiku 4.5 switch + 3-lifetime free, projected burn at 100K users is ~$3K/mo (10× reduction).
 
 **At $14.99/mo or $99.99/yr ($8.33/mo) Pro pricing:** AI cost is well within margins even for heavy users. Yearly net via Apple SBP (~$85) covers ~$15/year typical AI usage with 80% margin; heavy-user worst case ($24/mo at 50/day cap) still profitable. Free tier cost is acceptable as marketing.
 
