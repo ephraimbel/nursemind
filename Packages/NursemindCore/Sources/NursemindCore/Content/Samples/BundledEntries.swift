@@ -1936,6 +1936,27 @@ extension ContentRegistry {
         entries.append(.reference(TraumaTeamActivationSample.entry))
         entries.append(.reference(MassCasualtyTriageSample.entry))
 
+        // MARK: Round 37 — Procedures (feeding tubes + EKG + cardiopulm)
+        entries.append(.procedure(PEGTubeManagementSample.entry))
+        entries.append(.procedure(JejunostomyTubeCareSample.entry))
+        entries.append(.procedure(EKG12LeadProcedureSample.entry))
+        entries.append(.procedure(CentralLineRemovalSample.entry))
+        entries.append(.procedure(LumbarPunctureAssistRound37Sample.entry))
+
+        // MARK: Round 37 — Procedures (pain management + vascular access)
+        entries.append(.procedure(PCAPumpManagementSample.entry))
+        entries.append(.procedure(EpiduralCatheterManagementSample.entry))
+        entries.append(.procedure(LumbarDrainManagementSample.entry))
+        entries.append(.procedure(MidlineCatheterSample.entry))
+        entries.append(.procedure(FoleyManagementSample.entry))
+
+        // MARK: Round 37 — Pain management references
+        entries.append(.reference(RegionalAnesthesiaReferenceSample.entry))
+        entries.append(.reference(NonPharmPainSample.entry))
+        entries.append(.reference(ChronicPainFrameworkSample.entry))
+        entries.append(.reference(OpioidTaperingSample.entry))
+        entries.append(.reference(PediatricPainSample.entry))
+
         return entries
     }
 }
