@@ -1983,6 +1983,22 @@ extension ContentRegistry {
         entries.append(.procedure(PediatricIVSample.entry))
         entries.append(.procedure(PediatricMedAdminSample.entry))
 
+        // MARK: Round 39 — Lab interpretation references
+        entries.append(.reference(CBCInterpretationSample.entry))
+        entries.append(.reference(BMPCMPInterpretationSample.entry))
+        entries.append(.reference(LFTInterpretationSample.entry))
+        entries.append(.reference(CoagulationInterpretationSample.entry))
+        entries.append(.reference(LipidPanelInterpretationSample.entry))
+        entries.append(.reference(UrinalysisInterpretationSample.entry))
+        entries.append(.reference(ABGInterpretationSample.entry))
+
+        // MARK: Round 39 — Drug class references
+        entries.append(.reference(AntibioticSpectrumSample.entry))
+        entries.append(.reference(InsulinRegimensSample.entry))
+        entries.append(.reference(OralDiabetesMedsSample.entry))
+        entries.append(.reference(LipidLoweringSample.entry))
+        entries.append(.reference(AnticoagulationReversalRound39Sample.entry))
+
         return entries
     }
 }
