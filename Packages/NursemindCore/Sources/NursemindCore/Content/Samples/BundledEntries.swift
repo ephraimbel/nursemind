@@ -1957,6 +1957,32 @@ extension ContentRegistry {
         entries.append(.reference(OpioidTaperingSample.entry))
         entries.append(.reference(PediatricPainSample.entry))
 
+        // MARK: Round 38 — Pediatric diagnoses (neonatal/infant focus)
+        entries.append(.diagnosis(MalrotationVolvulusSample.entry))
+        entries.append(.diagnosis(BiliaryAtresiaSample.entry))
+        entries.append(.diagnosis(TEFSample.entry))
+        entries.append(.diagnosis(CongenitalHypothyroidismSample.entry))
+        entries.append(.diagnosis(BRUESample.entry))
+        entries.append(.diagnosis(PediatricFeverWithoutSourceSample.entry))
+        entries.append(.diagnosis(PediatricAppendicitisSample.entry))
+
+        // MARK: Round 38 — Pediatric diagnoses (general)
+        entries.append(.diagnosis(PediatricAsthmaExacerbationSample.entry))
+        entries.append(.diagnosis(PediatricPharyngitisSample.entry))
+        entries.append(.diagnosis(PediatricUTISample.entry))
+        entries.append(.diagnosis(ForeignBodyAspirationSample.entry))
+        entries.append(.diagnosis(PediatricITPSample.entry))
+        entries.append(.diagnosis(PediatricFUOSample.entry))
+        entries.append(.diagnosis(PediatricGastroenteritisSample.entry))
+
+        // MARK: Round 38 — Pediatric labs + procedures
+        entries.append(.lab(NeonatalBilirubinSample.entry))
+        entries.append(.lab(NewbornScreeningSample.entry))
+        entries.append(.lab(NeonatalGlucoseSample.entry))
+        entries.append(.procedure(NRPSample.entry))
+        entries.append(.procedure(PediatricIVSample.entry))
+        entries.append(.procedure(PediatricMedAdminSample.entry))
+
         return entries
     }
 }
