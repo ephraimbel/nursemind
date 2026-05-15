@@ -3,6 +3,7 @@ import SwiftUI
 public struct DiagnosisEntryView: View {
     private let entry: DiagnosisEntry
     private let citationIndex: [String: Int]
+    @State private var prefs = UserPreferences.shared
 
     public init(entry: DiagnosisEntry) {
         self.entry = entry
@@ -16,38 +17,65 @@ public struct DiagnosisEntryView: View {
     public var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 0) {
-                header
-                Hairline().padding(.vertical, NMSpace.xxl)
-                definition
-                if entry.pathophysiology != nil { divider; pathophysiology }
-                divider
-                presentation
-                if let crit = entry.diagnosticCriteria, !crit.isEmpty {
-                    divider
-                    diagnosticCriteria(crit)
+                if prefs.subscriptionTier.isPro {
+                    fullContent
+                } else {
+                    previewContent
                 }
-                if let assess = entry.priorityAssessments, !assess.isEmpty {
-                    divider
-                    priorityAssessments(assess)
-                }
-                if let interventions = entry.commonInterventions, !interventions.isEmpty {
-                    divider
-                    commonInterventions(interventions)
-                }
-                if let watches = entry.watchFor, !watches.isEmpty {
-                    divider
-                    watchFor(watches)
-                }
-                divider
-                citations
-                attributionFooter
-                RelatedToolsSection(entryID: entry.id)
             }
             .padding(.horizontal, NMSpace.lg)
             .padding(.top, NMSpace.xxl)
             .padding(.bottom, NMSpace.huge)
         }
         .background(GrainBackground())
+    }
+
+    /// Free preview: header + definition + presentation, then paywall.
+    /// Diagnostic criteria, priority assessments, interventions, and
+    /// watch-fors are Pro-only.
+    @ViewBuilder
+    private var previewContent: some View {
+        header
+        Hairline().padding(.vertical, NMSpace.xxl)
+        definition
+        divider
+        presentation
+        if let firstCitation = entry.citations.first {
+            CitationsList(citations: [firstCitation])
+                .padding(.top, NMSpace.lg)
+        }
+        PaywallTeaserBlock(entryID: entry.id, entryCategory: "diagnosis")
+            .padding(.top, NMSpace.xxl)
+    }
+
+    @ViewBuilder
+    private var fullContent: some View {
+        header
+        Hairline().padding(.vertical, NMSpace.xxl)
+        definition
+        if entry.pathophysiology != nil { divider; pathophysiology }
+        divider
+        presentation
+        if let crit = entry.diagnosticCriteria, !crit.isEmpty {
+            divider
+            diagnosticCriteria(crit)
+        }
+        if let assess = entry.priorityAssessments, !assess.isEmpty {
+            divider
+            priorityAssessments(assess)
+        }
+        if let interventions = entry.commonInterventions, !interventions.isEmpty {
+            divider
+            commonInterventions(interventions)
+        }
+        if let watches = entry.watchFor, !watches.isEmpty {
+            divider
+            watchFor(watches)
+        }
+        divider
+        citations
+        attributionFooter
+        RelatedToolsSection(entryID: entry.id)
     }
 
     private var divider: some View { Hairline().padding(.vertical, NMSpace.xxl) }

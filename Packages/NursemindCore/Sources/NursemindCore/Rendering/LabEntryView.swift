@@ -3,6 +3,7 @@ import SwiftUI
 public struct LabEntryView: View {
     private let entry: LabEntry
     private let citationIndex: [String: Int]
+    @State private var prefs = UserPreferences.shared
 
     public init(entry: LabEntry) {
         self.entry = entry
@@ -16,31 +17,56 @@ public struct LabEntryView: View {
     public var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 0) {
-                header
-                Hairline().padding(.vertical, NMSpace.xxl)
-                referenceRanges
-                divider
-                interpretationTiers
-                divider
-                commonCauses
-                if let actions = entry.nursingActions, !actions.isEmpty {
-                    divider
-                    nursingActions(actions)
+                if prefs.subscriptionTier.isPro {
+                    fullContent
+                } else {
+                    previewContent
                 }
-                if let watches = entry.watchFor, !watches.isEmpty {
-                    divider
-                    watchFor(watches)
-                }
-                divider
-                citations
-                attributionFooter
-                RelatedToolsSection(entryID: entry.id)
             }
             .padding(.horizontal, NMSpace.lg)
             .padding(.top, NMSpace.xxl)
             .padding(.bottom, NMSpace.huge)
         }
         .background(GrainBackground())
+    }
+
+    /// Free preview: header + reference range table + paywall block.
+    /// Interpretation (low/high/critical), clinical context, and nursing
+    /// actions are Pro-only.
+    @ViewBuilder
+    private var previewContent: some View {
+        header
+        Hairline().padding(.vertical, NMSpace.xxl)
+        referenceRanges
+        if let firstCitation = entry.citations.first {
+            CitationsList(citations: [firstCitation])
+                .padding(.top, NMSpace.lg)
+        }
+        PaywallTeaserBlock(entryID: entry.id, entryCategory: "lab")
+            .padding(.top, NMSpace.xxl)
+    }
+
+    @ViewBuilder
+    private var fullContent: some View {
+        header
+        Hairline().padding(.vertical, NMSpace.xxl)
+        referenceRanges
+        divider
+        interpretationTiers
+        divider
+        commonCauses
+        if let actions = entry.nursingActions, !actions.isEmpty {
+            divider
+            nursingActions(actions)
+        }
+        if let watches = entry.watchFor, !watches.isEmpty {
+            divider
+            watchFor(watches)
+        }
+        divider
+        citations
+        attributionFooter
+        RelatedToolsSection(entryID: entry.id)
     }
 
     private var divider: some View {

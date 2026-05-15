@@ -3,6 +3,7 @@ import SwiftUI
 public struct DrugEntryView: View {
     private let entry: DrugEntry
     private let citationIndex: [String: Int]
+    @State private var prefs = UserPreferences.shared
 
     public init(entry: DrugEntry) {
         self.entry = entry
@@ -16,39 +17,67 @@ public struct DrugEntryView: View {
     public var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 0) {
-                header
-                Hairline().padding(.vertical, NMSpace.xxl)
-                quickReference
-                divider
-                indicationsAndMechanism
-                divider
-                dosing
-                divider
-                contraindications
-                divider
-                warnings
-                divider
-                adverseReactions
-                divider
-                drugInteractions
-                if entry.nursingImplications != nil {
-                    divider
-                    nursingImplications
+                if prefs.subscriptionTier.isPro {
+                    fullContent
+                } else {
+                    previewContent
                 }
-                if entry.patientTeaching != nil {
-                    divider
-                    patientTeaching
-                }
-                divider
-                citations
-                attributionFooter
-                RelatedToolsSection(entryID: entry.id)
             }
             .padding(.horizontal, NMSpace.lg)
             .padding(.top, NMSpace.xxl)
             .padding(.bottom, NMSpace.huge)
         }
         .background(GrainBackground())
+    }
+
+    /// Free-tier preview: header + indications + one citation pill, then
+    /// the paywall teaser block. Everything execution-relevant (dosing,
+    /// monitoring, warnings, interactions, full citations) is behind Pro.
+    @ViewBuilder
+    private var previewContent: some View {
+        header
+        Hairline().padding(.vertical, NMSpace.xxl)
+        VStack(alignment: .leading, spacing: 0) {
+            SectionHeader("Indications")
+            AttributedProseView(prose: entry.indications, citationIndex: citationIndex)
+        }
+        if let firstCitation = entry.citations.first {
+            CitationsList(citations: [firstCitation])
+                .padding(.top, NMSpace.lg)
+        }
+        PaywallTeaserBlock(entryID: entry.id, entryCategory: "drug")
+            .padding(.top, NMSpace.xxl)
+    }
+
+    @ViewBuilder
+    private var fullContent: some View {
+        header
+        Hairline().padding(.vertical, NMSpace.xxl)
+        quickReference
+        divider
+        indicationsAndMechanism
+        divider
+        dosing
+        divider
+        contraindications
+        divider
+        warnings
+        divider
+        adverseReactions
+        divider
+        drugInteractions
+        if entry.nursingImplications != nil {
+            divider
+            nursingImplications
+        }
+        if entry.patientTeaching != nil {
+            divider
+            patientTeaching
+        }
+        divider
+        citations
+        attributionFooter
+        RelatedToolsSection(entryID: entry.id)
     }
 
     private var divider: some View {

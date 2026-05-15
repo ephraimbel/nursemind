@@ -50,6 +50,11 @@ struct RootView: View {
         // UITabBarController and ignores frame hints from its parent.
         .adaptForIPadCompat()
         .preferredColorScheme(colorScheme(for: prefs.preferredAppearance))
+        // Cap Dynamic Type for display fonts at `.large` so users with
+        // larger iOS text settings don't blow our 38pt+ serif titles up
+        // to unreadable sizes. Body text (Inter) still uses `relativeTo:`
+        // so genuine accessibility needs are honored within reason.
+        .dynamicTypeSize(...DynamicTypeSize.large)
         .animation(.easeInOut(duration: 0.4), value: prefs.hasCompletedOnboarding)
     }
 

@@ -40,6 +40,7 @@ public final class UserPreferences {
     private let askLifetimeUsedKey       = "nm.ask.lifetimeUsed"
     private let feedTabEnabledKey        = "nm.flags.feedTabEnabled"
     private let hasRequestedReviewKey    = "nm.review.hasRequested"
+    private let lastPaywallTeaserDateKey = "nm.paywall.lastTeaserDate"
 
     private let maxPinned = 12
     private let maxRecents = 10
@@ -130,6 +131,20 @@ public final class UserPreferences {
     /// Not synced to the server: it's a per-install UX flag, not profile state.
     public var hasRequestedReview: Bool {
         didSet { defaults.set(hasRequestedReview, forKey: hasRequestedReviewKey) }
+    }
+
+    /// Records that the library-entry paywall teaser block was shown to the
+    /// user. Returns `true` if this is the first encounter of the calendar
+    /// day so the caller can fire a one-shot haptic — subsequent encounters
+    /// in the same day return false (no haptic = no nag). Persisted to
+    /// UserDefaults so a relaunch within the same day doesn't reset.
+    @discardableResult
+    public func markPaywallTeaserShownAndCheckFirstToday() -> Bool {
+        let now = Date()
+        let last = defaults.object(forKey: lastPaywallTeaserDateKey) as? Date
+        defaults.set(now, forKey: lastPaywallTeaserDateKey)
+        guard let last else { return true }
+        return !Calendar.current.isDate(last, inSameDayAs: now)
     }
     public var safetyContractAgreedAt: Date? {
         didSet {

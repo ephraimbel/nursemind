@@ -3,6 +3,7 @@ import SwiftUI
 public struct ProcedureEntryView: View {
     private let entry: ProcedureEntry
     private let citationIndex: [String: Int]
+    @State private var prefs = UserPreferences.shared
 
     public init(entry: ProcedureEntry) {
         self.entry = entry
@@ -16,36 +17,63 @@ public struct ProcedureEntryView: View {
     public var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 0) {
-                header
-                Hairline().padding(.vertical, NMSpace.xxl)
-                indications
-                if entry.contraindications != nil { divider; contraindications }
-                divider
-                equipment
-                divider
-                preProcedure
-                divider
-                steps
-                divider
-                postProcedure
-                if let docs = entry.documentation, !docs.isEmpty {
-                    divider
-                    documentation(docs)
+                if prefs.subscriptionTier.isPro {
+                    fullContent
+                } else {
+                    previewContent
                 }
-                if let watches = entry.watchFor, !watches.isEmpty {
-                    divider
-                    watchFor(watches)
-                }
-                divider
-                citations
-                attributionFooter
-                RelatedToolsSection(entryID: entry.id)
             }
             .padding(.horizontal, NMSpace.lg)
             .padding(.top, NMSpace.xxl)
             .padding(.bottom, NMSpace.huge)
         }
         .background(GrainBackground())
+    }
+
+    /// Free preview: header + indications + equipment list (so the user
+    /// knows what's needed), then paywall. Steps, pre/post procedure,
+    /// documentation, and complications are Pro-only.
+    @ViewBuilder
+    private var previewContent: some View {
+        header
+        Hairline().padding(.vertical, NMSpace.xxl)
+        indications
+        divider
+        equipment
+        if let firstCitation = entry.citations.first {
+            CitationsList(citations: [firstCitation])
+                .padding(.top, NMSpace.lg)
+        }
+        PaywallTeaserBlock(entryID: entry.id, entryCategory: "procedure")
+            .padding(.top, NMSpace.xxl)
+    }
+
+    @ViewBuilder
+    private var fullContent: some View {
+        header
+        Hairline().padding(.vertical, NMSpace.xxl)
+        indications
+        if entry.contraindications != nil { divider; contraindications }
+        divider
+        equipment
+        divider
+        preProcedure
+        divider
+        steps
+        divider
+        postProcedure
+        if let docs = entry.documentation, !docs.isEmpty {
+            divider
+            documentation(docs)
+        }
+        if let watches = entry.watchFor, !watches.isEmpty {
+            divider
+            watchFor(watches)
+        }
+        divider
+        citations
+        attributionFooter
+        RelatedToolsSection(entryID: entry.id)
     }
 
     private var divider: some View { Hairline().padding(.vertical, NMSpace.xxl) }
