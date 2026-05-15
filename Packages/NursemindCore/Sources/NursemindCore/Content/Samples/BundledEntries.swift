@@ -5,7 +5,57 @@ extension ContentRegistry {
     /// from openFDA, Open RN, OpenStax, CDC, AHRQ, etc. with attribution.
     public static func bundledEntries() -> [LibraryEntry] {
         var entries: [LibraryEntry] = []
+        entries.append(contentsOf: bundledChunk01())
+        entries.append(contentsOf: bundledChunk02())
+        entries.append(contentsOf: bundledChunk03())
+        entries.append(contentsOf: bundledChunk04())
+        entries.append(contentsOf: bundledChunk05())
+        entries.append(contentsOf: bundledChunk06())
+        entries.append(contentsOf: bundledChunk07())
+        entries.append(contentsOf: bundledChunk08())
+        entries.append(contentsOf: bundledChunk09())
+        entries.append(contentsOf: bundledChunk10())
+        entries.append(contentsOf: bundledChunk11())
+        entries.append(contentsOf: bundledChunk12())
+        entries.append(contentsOf: bundledChunk13())
+        entries.append(contentsOf: bundledChunk14())
+        entries.append(contentsOf: bundledChunk15())
+        entries.append(contentsOf: bundledChunk16())
+        entries.append(contentsOf: bundledChunk17())
+        entries.append(contentsOf: bundledChunk18())
+        entries.append(contentsOf: bundledChunk19())
+        entries.append(contentsOf: bundledChunk20())
+        entries.append(contentsOf: bundledChunk21())
+        entries.append(contentsOf: bundledChunk22())
+        entries.append(contentsOf: bundledChunk23())
+        entries.append(contentsOf: bundledChunk24())
+        entries.append(contentsOf: bundledChunk25())
+        entries.append(contentsOf: bundledChunk26())
+        entries.append(contentsOf: bundledChunk27())
+        entries.append(contentsOf: bundledChunk28())
+        entries.append(contentsOf: bundledChunk29())
+        entries.append(contentsOf: bundledChunk30())
+        entries.append(contentsOf: bundledChunk31())
+        entries.append(contentsOf: bundledChunk32())
+        entries.append(contentsOf: bundledChunk33())
+        entries.append(contentsOf: bundledChunk34())
+        entries.append(contentsOf: bundledChunk35())
+        entries.append(contentsOf: bundledChunk36())
+        entries.append(contentsOf: bundledChunk37())
+        entries.append(contentsOf: bundledChunk38())
+        entries.append(contentsOf: bundledChunk39())
+        entries.append(contentsOf: bundledChunk40())
+        entries.append(contentsOf: bundledChunk41())
+        entries.append(contentsOf: bundledChunk42())
+        entries.append(contentsOf: bundledChunk43())
+        entries.append(contentsOf: bundledChunk44())
+        entries.append(contentsOf: bundledChunk45())
+        entries.append(contentsOf: bundledChunk46())
+        return entries
+    }
 
+    private static func bundledChunk01() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Drugs
         entries.append(.drug(NorepinephrineSample.entry))
         entries.append(.drug(HeparinSample.entry))
@@ -57,7 +107,11 @@ extension ContentRegistry {
         entries.append(.drug(PhenytoinSample.entry))
         entries.append(.drug(SodiumChlorideSample.entry))
         entries.append(.drug(AlbuminSampleDrug.entry))
+        return entries
+    }
 
+    private static func bundledChunk02() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Drugs — v1.5 expansion (cardiovascular)
         entries.append(.drug(DigoxinSample.entry))
         entries.append(.drug(AmlodipineSample.entry))
@@ -65,7 +119,6 @@ extension ContentRegistry {
         entries.append(.drug(HydrochlorothiazideSample.entry))
         entries.append(.drug(CarvedilolSample.entry))
         entries.append(.drug(SpironolactoneSample.entry))
-
         // MARK: Drugs — v1.5 expansion (antimicrobials)
         entries.append(.drug(MetronidazoleSample.entry))
         entries.append(.drug(AzithromycinSample.entry))
@@ -73,41 +126,39 @@ extension ContentRegistry {
         entries.append(.drug(BactrimSample.entry))
         entries.append(.drug(AcyclovirSample.entry))
         entries.append(.drug(FluconazoleSample.entry))
-
         // MARK: Drugs — v1.5 expansion (endocrine)
         entries.append(.drug(InsulinGlargineSample.entry))
         entries.append(.drug(InsulinLisproSample.entry))
         entries.append(.drug(GlucagonSample.entry))
         entries.append(.drug(Dextrose50Sample.entry))
         entries.append(.drug(LactuloseSample.entry))
-
         // MARK: Drugs — v1.5 expansion (psych)
         entries.append(.drug(SertralineSample.entry))
         entries.append(.drug(HaloperidolSample.entry))
         entries.append(.drug(QuetiapineSample.entry))
         entries.append(.drug(LithiumSample.entry))
-
         // MARK: Drugs — v1.5 expansion (GI)
         entries.append(.drug(PolyethyleneGlycolSample.entry))
         entries.append(.drug(PromethazineSample.entry))
         entries.append(.drug(DocusateSodiumSample.entry))
-
         // MARK: Drugs — v1.5 expansion (reversal / antidotes)
         entries.append(.drug(VitaminKSample.entry))
         entries.append(.drug(ProtamineSulfateSample.entry))
         entries.append(.drug(NACSample.entry))
-
         // MARK: Drugs — v1.5 expansion (DOACs / thrombolytics)
         entries.append(.drug(ApixabanSample.entry))
         entries.append(.drug(RivaroxabanSample.entry))
         entries.append(.drug(AlteplaseSample.entry))
+        return entries
+    }
 
+    private static func bundledChunk03() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Drugs — v1.5 expansion (respiratory + analgesic)
         entries.append(.drug(IpratropiumSample.entry))
         entries.append(.drug(FluticasoneSalmeterolSample.entry))
         entries.append(.drug(TramadolSample.entry))
         entries.append(.drug(OxycodoneSample.entry))
-
         // MARK: Drugs — Option A expansion (high-volume drugs)
         entries.append(.drug(SemaglutideSample.entry))
         entries.append(.drug(EmpagliflozinSample.entry))
@@ -119,7 +170,6 @@ extension ContentRegistry {
         entries.append(.drug(MethotrexateSample.entry))
         entries.append(.drug(PrednisoneSample.entry))
         entries.append(.drug(OseltamivirSample.entry))
-
         // MARK: Scenarios (7) — AHRQ TeamSTEPPS public-domain case studies
         entries.append(.scenario(FailureToRescueScenarioSample.entry))
         entries.append(.scenario(SepsisRecognitionScenarioSample.entry))
@@ -128,7 +178,6 @@ extension ContentRegistry {
         entries.append(.scenario(MedicationNearMissScenarioSample.entry))
         entries.append(.scenario(WrongSiteSurgeryScenarioSample.entry))
         entries.append(.scenario(DiagnosticAnchoringScenarioSample.entry))
-
         // MARK: Scenarios — v1.5 expansion (AHRQ public-domain case studies)
         entries.append(.scenario(FallsPreventionScenarioSample.entry))
         entries.append(.scenario(RapidResponseScenarioSample.entry))
@@ -138,7 +187,6 @@ extension ContentRegistry {
         entries.append(.scenario(EndOfLifeScenarioSample.entry))
         entries.append(.scenario(RecognizingDeliriumScenarioSample.entry))
         entries.append(.scenario(DifficultFamilyScenarioSample.entry))
-
         // MARK: Drips
         entries.append(.drip(NorepiDripSample.entry))
         entries.append(.drip(EpinephrineDripSample.entry))
@@ -155,14 +203,17 @@ extension ContentRegistry {
         entries.append(.drip(LabetalolDripSample.entry))
         entries.append(.drip(NitroprussideDripSample.entry))
         entries.append(.drip(AmiodaroneDripSample.entry))
+        return entries
+    }
 
+    private static func bundledChunk04() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Drips — v1.5 expansion
         entries.append(.drip(FentanylDripSample.entry))
         entries.append(.drip(KetamineDripSample.entry))
         entries.append(.drip(EsmololDripSample.entry))
         entries.append(.drip(CisatracuriumDripSample.entry))
         entries.append(.drip(OctreotideDripSample.entry))
-
         // MARK: Labs
         entries.append(.lab(LactateSample.entry))
         entries.append(.lab(PotassiumSample.entry))
@@ -194,7 +245,11 @@ extension ContentRegistry {
         entries.append(.lab(AmmoniaSample.entry))
         entries.append(.lab(CRPSample.entry))
         entries.append(.lab(LDHSample.entry))
+        return entries
+    }
 
+    private static func bundledChunk05() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Labs — v1.5 expansion
         entries.append(.lab(HematocritSample.entry))
         entries.append(.lab(PTSample.entry))
@@ -211,7 +266,6 @@ extension ContentRegistry {
         entries.append(.lab(DigoxinLevelSample.entry))
         entries.append(.lab(LipidPanelSample.entry))
         entries.append(.lab(FerritinSample.entry))
-
         // MARK: Procedures
         entries.append(.procedure(IVInsertionSample.entry))
         entries.append(.procedure(HandHygieneSample.entry))
@@ -233,7 +287,11 @@ extension ContentRegistry {
         entries.append(.procedure(TwelveLeadECGSample.entry))
         entries.append(.procedure(ChestTubeCareSample.entry))
         entries.append(.procedure(SCDApplicationSample.entry))
+        return entries
+    }
 
+    private static func bundledChunk06() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Procedures — v1.5 expansion
         entries.append(.procedure(OxygenAdministrationSample.entry))
         entries.append(.procedure(IncentiveSpirometrySample.entry))
@@ -250,7 +308,6 @@ extension ContentRegistry {
         entries.append(.procedure(PCASetupSample.entry))
         entries.append(.procedure(WoundVACSample.entry))
         entries.append(.procedure(NGTubeRemovalSample.entry))
-
         // MARK: Diagnoses
         entries.append(.diagnosis(SepsisSample.entry))
         entries.append(.diagnosis(DKASample.entry))
@@ -277,7 +334,11 @@ extension ContentRegistry {
         entries.append(.diagnosis(DVTSample.entry))
         entries.append(.diagnosis(PressureInjurySample.entry))
         entries.append(.diagnosis(HypoglycemiaSample.entry))
+        return entries
+    }
 
+    private static func bundledChunk07() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Diagnoses — v1.5 expansion (endocrine, fluid/electrolyte, respiratory, transfusion, GI)
         entries.append(.diagnosis(HHSSample.entry))
         entries.append(.diagnosis(SIADHSample.entry))
@@ -292,7 +353,6 @@ extension ContentRegistry {
         entries.append(.diagnosis(UpperGIBleedSample.entry))
         entries.append(.diagnosis(BowelObstructionSample.entry))
         entries.append(.diagnosis(AppendicitisSample.entry))
-
         // MARK: Diagnoses — v1.5 expansion (GI, hepatic, neuro, heme, infectious)
         entries.append(.diagnosis(CholecystitisSample.entry))
         entries.append(.diagnosis(CDiffColitisSample.entry))
@@ -307,7 +367,6 @@ extension ContentRegistry {
         entries.append(.diagnosis(BurnsSample.entry))
         entries.append(.diagnosis(TuberculosisSample.entry))
         entries.append(.diagnosis(CompartmentSyndromeSample.entry))
-
         // MARK: Diagnoses — Option A (maternity)
         entries.append(.diagnosis(PreeclampsiaDiagnosisSample.entry))
         entries.append(.diagnosis(EclampsiaSample.entry))
@@ -324,7 +383,11 @@ extension ContentRegistry {
         entries.append(.diagnosis(EctopicPregnancySample.entry))
         entries.append(.diagnosis(SpontaneousAbortionSample.entry))
         entries.append(.diagnosis(GroupBStrepSample.entry))
+        return entries
+    }
 
+    private static func bundledChunk08() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Diagnoses — Option A (mental health)
         entries.append(.diagnosis(MajorDepressionSample.entry))
         entries.append(.diagnosis(BipolarDisorderSample.entry))
@@ -338,7 +401,6 @@ extension ContentRegistry {
         entries.append(.diagnosis(SubstanceUseDisorderSample.entry))
         entries.append(.diagnosis(SuicideRiskSample.entry))
         entries.append(.diagnosis(OpioidUseDisorderSample.entry))
-
         // MARK: Diagnoses — Option A (pediatric)
         entries.append(.diagnosis(BronchiolitisDiagnosisSample.entry))
         entries.append(.diagnosis(CroupDiagnosisSample.entry))
@@ -350,7 +412,6 @@ extension ContentRegistry {
         entries.append(.diagnosis(PediatricDehydrationSample.entry))
         entries.append(.diagnosis(CysticFibrosisSample.entry))
         entries.append(.diagnosis(PediatricFeverSample.entry))
-
         // MARK: Diagnoses — Option A (cardiac)
         entries.append(.diagnosis(CardiacTamponadeSample.entry))
         entries.append(.diagnosis(PericarditisSample.entry))
@@ -359,7 +420,6 @@ extension ContentRegistry {
         entries.append(.diagnosis(CardiogenicShockSample.entry))
         entries.append(.diagnosis(AorticStenosisSample.entry))
         entries.append(.diagnosis(MitralRegurgitationSample.entry))
-
         // MARK: Diagnoses — Option A (neuro)
         entries.append(.diagnosis(TIASample.entry))
         entries.append(.diagnosis(SAHSample.entry))
@@ -369,7 +429,11 @@ extension ContentRegistry {
         entries.append(.diagnosis(MultipleSclerosisSample.entry))
         entries.append(.diagnosis(ParkinsonDiseaseSample.entry))
         entries.append(.diagnosis(AlzheimerDementiaSample.entry))
+        return entries
+    }
 
+    private static func bundledChunk09() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Reference
         entries.append(.reference(IsolationPrecautionsSample.entry))
         entries.append(.reference(PainScalesSample.entry))
@@ -386,7 +450,6 @@ extension ContentRegistry {
         entries.append(.reference(AdultImmunizationScheduleSample.entry))
         entries.append(.reference(DoNotUseAbbreviationsSample.entry))
         entries.append(.reference(PPESequenceSample.entry))
-
         // MARK: Reference — v1.5 expansion
         entries.append(.reference(FiveRightsSample.entry))
         entries.append(.reference(NPSGsSample.entry))
@@ -398,50 +461,47 @@ extension ContentRegistry {
         entries.append(.reference(STEMIBundleSample.entry))
         entries.append(.reference(ACLSAlgorithmsSample.entry))
         entries.append(.reference(LabPanelsSample.entry))
-
         // MARK: Reference — OB
         entries.append(.reference(MaternalVitalSignsSample.entry))
         entries.append(.reference(PreeclampsiaReferenceSample.entry))
         entries.append(.reference(PostpartumHemorrhageReferenceSample.entry))
         entries.append(.reference(FetalHeartRateSample.entry))
         entries.append(.reference(PostpartumAssessmentSample.entry))
+        return entries
+    }
 
+    private static func bundledChunk10() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Reference — NICU
         entries.append(.reference(NeonatalVitalSignsSample.entry))
         entries.append(.reference(ApgarScoreSample.entry))
         entries.append(.reference(NeonatalJaundiceSample.entry))
         entries.append(.reference(NeonatalSepsisSample.entry))
-
         // MARK: Reference — Peds
         entries.append(.reference(PedsDosingSample.entry))
         entries.append(.reference(CroupSample.entry))
         entries.append(.reference(BronchiolitisSample.entry))
         entries.append(.reference(PedsResuscitationSample.entry))
-
         // MARK: Reference — ED
         entries.append(.reference(NIHSSReferenceSample.entry))
         entries.append(.reference(CIWAArReferenceSample.entry))
         entries.append(.reference(ESITriageSample.entry))
         entries.append(.reference(OpioidOverdoseReversalSample.entry))
-
         // MARK: Reference — Med-Surg
         entries.append(.reference(PostOpAssessmentSample.entry))
         entries.append(.reference(WoundCareSample.entry))
         entries.append(.reference(BloodTransfusionAdminSample.entry))
         entries.append(.reference(AnticoagulationTeachingSample.entry))
-
         // MARK: Reference — ICU
         entries.append(.reference(MechanicalVentilationSample.entry))
         entries.append(.reference(RASSReferenceSample.entry))
         entries.append(.reference(CAMICUReferenceSample.entry))
         entries.append(.reference(PronePositioningSample.entry))
-
         // MARK: Reference — Patient Education
         entries.append(.reference(HeartFailureTeachingSample.entry))
         entries.append(.reference(DiabetesTeachingSample.entry))
         entries.append(.reference(COPDTeachingSample.entry))
         entries.append(.reference(DischargeTeachingFrameworkSample.entry))
-
         // MARK: Reference — Option A (ECG / rhythms)
         entries.append(.reference(ECG12LeadBasicsSample.entry))
         entries.append(.reference(SinusRhythmSample.entry))
@@ -451,7 +511,11 @@ extension ContentRegistry {
         entries.append(.reference(VTReferenceSample.entry))
         entries.append(.reference(VFReferenceSample.entry))
         entries.append(.reference(AVBlocksReferenceSample.entry))
+        return entries
+    }
 
+    private static func bundledChunk11() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Reference — Option A (clinical scales)
         entries.append(.reference(GCSDetailSample.entry))
         entries.append(.reference(NIHSSScalesReferenceSample.entry))
@@ -463,31 +527,26 @@ extension ContentRegistry {
         entries.append(.reference(NYHAReferenceSample.entry))
         entries.append(.reference(CKDStagingSample.entry))
         entries.append(.reference(DKAvsHHSSample.entry))
-
         // MARK: Scenarios — v3 expansion (peds, OB, neuro, electrolyte)
         entries.append(.scenario(PediatricDKAScenarioSample.entry))
         entries.append(.scenario(PostpartumHemorrhageScenarioSample.entry))
         entries.append(.scenario(StrokeAlertScenarioSample.entry))
         entries.append(.scenario(HyperkalemiaScenarioSample.entry))
-
         // MARK: Reference — Peds drug & fluid reference
         entries.append(.reference(PedsAnalgesicDosingSample.entry))
         entries.append(.reference(PedsIVFluidsSample.entry))
         entries.append(.reference(NICUFirstDayMedsSample.entry))
         entries.append(.reference(PedsAntibioticReferenceSample.entry))
-
         // MARK: Reference — OB drug pack
         entries.append(.reference(OxytocinOBSample.entry))
         entries.append(.reference(MagnesiumOBSample.entry))
         entries.append(.reference(UterotonicLadderSample.entry))
         entries.append(.reference(AntenatalCorticosteroidsSample.entry))
-
         // MARK: Reference — Equipment / devices
         entries.append(.reference(CentralVenousCatheterSample.entry))
         entries.append(.reference(ArterialLineSample.entry))
         entries.append(.reference(ChestTubeSample.entry))
         entries.append(.reference(ExternalVentricularDrainSample.entry))
-
         // MARK: Communication
         entries.append(.communication(SBARSample.entry))
         entries.append(.communication(IPASSHandoffSample.entry))
@@ -510,7 +569,11 @@ extension ContentRegistry {
         entries.append(.communication(VerbalDeescalationSample.entry))
         entries.append(.communication(InterpreterUseSample.entry))
         entries.append(.communication(SBARQSample.entry))
+        return entries
+    }
 
+    private static func bundledChunk12() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Round 3 — Antibiotics + GI/respiratory drugs
         entries.append(.drug(AmoxicillinSample.entry))
         entries.append(.drug(AugmentinSample.entry))
@@ -520,7 +583,6 @@ extension ContentRegistry {
         entries.append(.drug(OmeprazoleSample.entry))
         entries.append(.drug(TiotropiumSample.entry))
         entries.append(.drug(MontelukastSample.entry))
-
         // MARK: Round 3 — Psych / cardiac / OB drugs
         entries.append(.drug(TrazodoneSample.entry))
         entries.append(.drug(BupropionSample.entry))
@@ -530,7 +592,6 @@ extension ContentRegistry {
         entries.append(.drug(DiltiazemPOSample.entry))
         entries.append(.drug(OxytocinSample.entry))
         entries.append(.drug(TranexamicAcidSample.entry))
-
         // MARK: Round 3 — Common diagnoses
         entries.append(.diagnosis(DiverticulitisSample.entry))
         entries.append(.diagnosis(PyelonephritisSample.entry))
@@ -550,7 +611,11 @@ extension ContentRegistry {
         entries.append(.diagnosis(AspirationPneumoniaSample.entry))
         entries.append(.diagnosis(NecrotizingFasciitisSample.entry))
         entries.append(.diagnosis(OSASample.entry))
+        return entries
+    }
 
+    private static func bundledChunk13() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Round 3 — Labs
         entries.append(.lab(ReticulocyteSample.entry))
         entries.append(.lab(HaptoglobinSample.entry))
@@ -560,7 +625,6 @@ extension ContentRegistry {
         entries.append(.lab(AntiXaSample.entry))
         entries.append(.lab(CortisolSample.entry))
         entries.append(.lab(HepatitisBPanelSample.entry))
-
         // MARK: Round 3 — Procedures + Reference
         entries.append(.procedure(IntubationAssistSample.entry))
         entries.append(.procedure(LumbarPunctureAssistSample.entry))
@@ -570,7 +634,6 @@ extension ContentRegistry {
         entries.append(.reference(MTPSample.entry))
         entries.append(.reference(CommonAntidotesSample.entry))
         entries.append(.reference(LabTubeColorsSample.entry))
-
         // MARK: Round 4 — Drugs
         entries.append(.drug(LevofloxacinSample.entry))
         entries.append(.drug(CefepimeSample.entry))
@@ -584,7 +647,6 @@ extension ContentRegistry {
         entries.append(.drug(DabigatranSample.entry))
         entries.append(.drug(EplerenoneSample.entry))
         entries.append(.drug(RanolazineSample.entry))
-
         // MARK: Round 4 — Diagnoses
         entries.append(.diagnosis(ShinglesSample.entry))
         entries.append(.diagnosis(LymeDiseaseSample.entry))
@@ -604,7 +666,11 @@ extension ContentRegistry {
         entries.append(.diagnosis(SJSTENSample.entry))
         entries.append(.diagnosis(ViralGastroenteritisSample.entry))
         entries.append(.diagnosis(EczemaSample.entry))
+        return entries
+    }
 
+    private static func bundledChunk14() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Round 4 — Labs
         entries.append(.lab(VitaminDSample.entry))
         entries.append(.lab(PTHSample.entry))
@@ -614,7 +680,6 @@ extension ContentRegistry {
         entries.append(.lab(SerumOsmolalitySample.entry))
         entries.append(.lab(TacrolimusLevelSample.entry))
         entries.append(.lab(AntiTPOSample.entry))
-
         // MARK: Round 4 — Procedures + Reference
         entries.append(.procedure(HeelStickSample.entry))
         entries.append(.procedure(AmbulatoryAidTeachingSample.entry))
@@ -624,7 +689,6 @@ extension ContentRegistry {
         entries.append(.reference(PediatricVaccineScheduleSample.entry))
         entries.append(.reference(TherapeuticDietsSample.entry))
         entries.append(.reference(SlidingScaleInsulinSample.entry))
-
         // MARK: Round 5 — Drugs (psychiatric)
         entries.append(.drug(FluoxetineSample.entry))
         entries.append(.drug(CitalopramSample.entry))
@@ -638,7 +702,6 @@ extension ContentRegistry {
         entries.append(.drug(RisperidoneSample.entry))
         entries.append(.drug(ClozapineSample.entry))
         entries.append(.drug(MethylphenidateSample.entry))
-
         // MARK: Round 5 — Diagnoses
         entries.append(.diagnosis(HFMDSample.entry))
         entries.append(.diagnosis(FifthDiseaseSample.entry))
@@ -654,13 +717,16 @@ extension ContentRegistry {
         entries.append(.diagnosis(AdjustmentDisorderSample.entry))
         entries.append(.diagnosis(StimulantUseDisorderSample.entry))
         entries.append(.diagnosis(RMSFSample.entry))
+        return entries
+    }
 
+    private static func bundledChunk15() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Round 5 — Labs (drug levels)
         entries.append(.lab(LithiumLevelSample.entry))
         entries.append(.lab(ValproicAcidLevelSample.entry))
         entries.append(.lab(CarbamazepineLevelSample.entry))
         entries.append(.lab(PhenytoinLevelSample.entry))
-
         // MARK: Round 5 — Procedures + Reference
         entries.append(.procedure(SuicidePrecautionsSample.entry))
         entries.append(.procedure(PediatricIVStartSample.entry))
@@ -668,7 +734,6 @@ extension ContentRegistry {
         entries.append(.reference(MentalStatusExamSample.entry))
         entries.append(.reference(CSSRSSample.entry))
         entries.append(.reference(ISMPHighAlertSample.entry))
-
         // MARK: Round 6 — Drugs (antimicrobials)
         entries.append(.drug(AmpSulbactamSample.entry))
         entries.append(.drug(CefuroximeSample.entry))
@@ -682,7 +747,6 @@ extension ContentRegistry {
         entries.append(.drug(AmphotericinBSample.entry))
         entries.append(.drug(MicafunginSample.entry))
         entries.append(.drug(IsoniazidSample.entry))
-
         // MARK: Round 6 — Diagnoses
         entries.append(.diagnosis(SVCSyndromeSample.entry))
         entries.append(.diagnosis(CordCompressionSample.entry))
@@ -698,13 +762,16 @@ extension ContentRegistry {
         entries.append(.diagnosis(EsophagealVaricesSample.entry))
         entries.append(.diagnosis(COPDExacSample.entry))
         entries.append(.diagnosis(SBPSample.entry))
+        return entries
+    }
 
+    private static func bundledChunk16() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Round 6 — Labs (endocrine + DM)
         entries.append(.lab(ACTHStimSample.entry))
         entries.append(.lab(AldoReninSample.entry))
         entries.append(.lab(CPeptideSample.entry))
         entries.append(.lab(A1cSample.entry))
-
         // MARK: Round 6 — Procedures + Reference
         entries.append(.procedure(ParacentesisAssistSample.entry))
         entries.append(.procedure(ThoracentesisAssistSample.entry))
@@ -713,7 +780,6 @@ extension ContentRegistry {
         entries.append(.reference(WellsCriteriaSample.entry))
         entries.append(.reference(CHADS2VAScSample.entry))
         entries.append(.reference(ChildPughMELDSample.entry))
-
         // MARK: Round 7 — Drugs (transplant + dermatology + ophthalmology + ENT)
         entries.append(.drug(MycophenolateSample.entry))
         entries.append(.drug(CyclosporineSample.entry))
@@ -727,7 +793,6 @@ extension ContentRegistry {
         entries.append(.drug(TimololOphthalmicSample.entry))
         entries.append(.drug(BrimonidineSample.entry))
         entries.append(.drug(MupirocinSample.entry))
-
         // MARK: Round 7 — Diagnoses
         entries.append(.diagnosis(ThermalBurnSample.entry))
         entries.append(.diagnosis(InhalationInjurySample.entry))
@@ -743,12 +808,15 @@ extension ContentRegistry {
         entries.append(.diagnosis(TransplantRejectionSample.entry))
         entries.append(.diagnosis(CMVDiseaseSample.entry))
         entries.append(.diagnosis(GVHDSample.entry))
+        return entries
+    }
 
+    private static func bundledChunk17() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Round 7 — Labs (immunosuppressant + viral)
         entries.append(.lab(MycophenolateLevelSample.entry))
         entries.append(.lab(CMVViralLoadSample.entry))
         entries.append(.lab(CD4Sample.entry))
-
         // MARK: Round 7 — Procedures + Reference
         entries.append(.procedure(BurnWoundCareSample.entry))
         entries.append(.procedure(NGTInsertionSample.entry))
@@ -757,7 +825,6 @@ extension ContentRegistry {
         entries.append(.reference(NPIAPStagingSample.entry))
         entries.append(.reference(BeersCriteriaSample.entry))
         entries.append(.reference(VisualAcuitySample.entry))
-
         // MARK: Round 8 — Drugs (GYN + rheumatology + biologics + bisphosphonate)
         entries.append(.drug(CombinedOCPSample.entry))
         entries.append(.drug(LevonorgestrelIUDSample.entry))
@@ -771,7 +838,6 @@ extension ContentRegistry {
         entries.append(.drug(ColchicineSample.entry))
         entries.append(.drug(AlendronateSample.entry))
         entries.append(.drug(TocilizumabSample.entry))
-
         // MARK: Round 8 — Diagnoses
         entries.append(.diagnosis(PCOSSample.entry))
         entries.append(.diagnosis(EndometriosisSample.entry))
@@ -787,12 +853,15 @@ extension ContentRegistry {
         entries.append(.diagnosis(SjogrenSample.entry))
         entries.append(.diagnosis(ANCAVasculitisSample.entry))
         entries.append(.diagnosis(PsoriasisSample.entry))
+        return entries
+    }
 
+    private static func bundledChunk18() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Round 8 — Labs
         entries.append(.lab(CA125Sample.entry))
         entries.append(.lab(UricAcidSample.entry))
         entries.append(.lab(AntiCCPSample.entry))
-
         // MARK: Round 8 — Procedures + Reference
         entries.append(.procedure(CastCareSample.entry))
         entries.append(.procedure(TractionSetupSample.entry))
@@ -801,7 +870,6 @@ extension ContentRegistry {
         entries.append(.reference(CervicalScreeningSample.entry))
         entries.append(.reference(BreastScreeningSample.entry))
         entries.append(.reference(GoutManagementSample.entry))
-
         // MARK: Round 9 — Drugs (OB / L&D + peds emergency + peds chronic)
         entries.append(.drug(BetamethasoneSample.entry))
         entries.append(.drug(TerbutalineSample.entry))
@@ -815,7 +883,6 @@ extension ContentRegistry {
         entries.append(.drug(SomatropinSample.entry))
         entries.append(.drug(PhenobarbitalSample.entry))
         entries.append(.drug(HydroxyureaSample.entry))
-
         // MARK: Round 9 — Diagnoses (peds CHD + peds onc + peds neuro/genetic)
         entries.append(.diagnosis(TOFSample.entry))
         entries.append(.diagnosis(TGASample.entry))
@@ -831,12 +898,15 @@ extension ContentRegistry {
         entries.append(.diagnosis(PedsT1DMSample.entry))
         entries.append(.diagnosis(DownSyndromeSample.entry))
         entries.append(.diagnosis(DuchenneSample.entry))
+        return entries
+    }
 
+    private static func bundledChunk19() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Round 9 — Labs (peds-specific)
         entries.append(.lab(SweatChlorideSample.entry))
         entries.append(.lab(NewbornScreenSample.entry))
         entries.append(.lab(LeadLevelSample.entry))
-
         // MARK: Round 9 — Procedures + Reference
         entries.append(.procedure(FundalMassageSample.entry))
         entries.append(.procedure(NSTInterpretationSample.entry))
@@ -845,7 +915,6 @@ extension ContentRegistry {
         entries.append(.reference(LochiaReferenceSample.entry))
         entries.append(.reference(CHDOverviewSample.entry))
         entries.append(.reference(PALSSummarySample.entry))
-
         // MARK: Round 10 — Drugs (toxidrome antidotes + addiction + HIV)
         entries.append(.drug(FlumazenilSample.entry))
         entries.append(.drug(PralidoximeSample.entry))
@@ -859,7 +928,6 @@ extension ContentRegistry {
         entries.append(.drug(TruvadaPrEPSample.entry))
         entries.append(.drug(BiktarvySample.entry))
         entries.append(.drug(SodiumThiosulfateSample.entry))
-
         // MARK: Round 10 — Diagnoses (toxidromes + STIs + environmental)
         entries.append(.diagnosis(AnticholinergicToxSample.entry))
         entries.append(.diagnosis(CholinergicToxSample.entry))
@@ -875,12 +943,15 @@ extension ContentRegistry {
         entries.append(.diagnosis(HeatStrokeSample.entry))
         entries.append(.diagnosis(HypothermiaSample.entry))
         entries.append(.diagnosis(BVSample.entry))
+        return entries
+    }
 
+    private static func bundledChunk20() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Round 10 — Labs
         entries.append(.lab(AnionGapSample.entry))
         entries.append(.lab(RPRSample.entry))
         entries.append(.lab(UDSSample.entry))
-
         // MARK: Round 10 — Procedures + Reference
         entries.append(.procedure(ActivatedCharcoalSample.entry))
         entries.append(.procedure(NaloxoneAdministrationSample.entry))
@@ -889,7 +960,6 @@ extension ContentRegistry {
         entries.append(.reference(STIGuidelinesSummary.entry))
         entries.append(.reference(LTBITestingSample.entry))
         entries.append(.reference(ToxidromesReferenceSample.entry))
-
         // MARK: Round 11 — Drugs (antiarrhythmics + RSI + palliative + dementia)
         entries.append(.drug(LidocaineSample.entry))
         entries.append(.drug(ProcainamideSample.entry))
@@ -903,7 +973,6 @@ extension ContentRegistry {
         entries.append(.drug(MethadoneSample.entry))
         entries.append(.drug(DonepezilSample.entry))
         entries.append(.drug(MemantineSample.entry))
-
         // MARK: Round 11 — Diagnoses (dysrhythmias + EOL + neuro + vascular + onc)
         entries.append(.diagnosis(VTSample.entry))
         entries.append(.diagnosis(VFSample.entry))
@@ -919,12 +988,15 @@ extension ContentRegistry {
         entries.append(.diagnosis(TrigeminalNeuralgiaSample.entry))
         entries.append(.diagnosis(AAASample.entry))
         entries.append(.diagnosis(LungCancerSample.entry))
+        return entries
+    }
 
+    private static func bundledChunk21() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Round 11 — Labs
         entries.append(.lab(PSASample.entry))
         entries.append(.lab(CEASample.entry))
         entries.append(.lab(ANASample.entry))
-
         // MARK: Round 11 — Procedures + Reference
         entries.append(.procedure(ChestTubeInsertionSample.entry))
         entries.append(.procedure(CardioversionSample.entry))
@@ -933,7 +1005,6 @@ extension ContentRegistry {
         entries.append(.reference(EOLComfortCareSample.entry))
         entries.append(.reference(DeathPronouncementSample.entry))
         entries.append(.reference(AdvanceDirectivesSample.entry))
-
         // MARK: Round 12 — Drugs (chemo + immunotherapy + biologics + GI/hepatic)
         entries.append(.drug(CisplatinSample.entry))
         entries.append(.drug(DoxorubicinSample.entry))
@@ -946,7 +1017,6 @@ extension ContentRegistry {
         entries.append(.drug(InfliximabSample.entry))
         entries.append(.drug(LoperamideSample.entry))
         entries.append(.drug(RifaximinSample.entry))
-
         // MARK: Round 12 — Diagnoses (solid tumors + IBD + hepatic + heme)
         entries.append(.diagnosis(ColorectalCancerSample.entry))
         entries.append(.diagnosis(ProstateCancerSample.entry))
@@ -962,12 +1032,15 @@ extension ContentRegistry {
         entries.append(.diagnosis(ALFSample.entry))
         entries.append(.diagnosis(MyelomaSample.entry))
         entries.append(.diagnosis(HodgkinLymphomaSample.entry))
+        return entries
+    }
 
+    private static func bundledChunk22() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Round 12 — Labs (tumor markers)
         entries.append(.lab(AFPSample.entry))
         entries.append(.lab(CA199Sample.entry))
         entries.append(.lab(SPEPSample.entry))
-
         // MARK: Round 12 — Procedures + Reference
         entries.append(.procedure(PACatheterSample.entry))
         entries.append(.procedure(CRRTSetupSample.entry))
@@ -976,7 +1049,6 @@ extension ContentRegistry {
         entries.append(.reference(ChemoSafetySample.entry))
         entries.append(.reference(NGNItemsSample.entry))
         entries.append(.reference(CancerScreeningSample.entry))
-
         // MARK: Round 13 — Drugs (endocrine + nephrology + DM/HF + pulm)
         entries.append(.drug(MethimazoleSample.entry))
         entries.append(.drug(PTUSample.entry))
@@ -990,7 +1062,6 @@ extension ContentRegistry {
         entries.append(.drug(CinacalcetSample.entry))
         entries.append(.drug(PirfenidoneSample.entry))
         entries.append(.drug(FinerenoneSample.entry))
-
         // MARK: Round 13 — Diagnoses (stroke + neuro + peds ID + endocrine + pulm/vasc)
         entries.append(.diagnosis(IschemicStrokeSample.entry))
         entries.append(.diagnosis(HemorrhagicStrokeSample.entry))
@@ -1005,12 +1076,15 @@ extension ContentRegistry {
         entries.append(.diagnosis(PADSample.entry))
         entries.append(.diagnosis(PulmHTNSample.entry))
         entries.append(.diagnosis(NeonatalSepsisRound13Sample.entry))
+        return entries
+    }
 
+    private static func bundledChunk23() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Round 13 — Labs
         entries.append(.lab(TRAbSample.entry))
         entries.append(.lab(PTHrPSample.entry))
         entries.append(.lab(FibrinogenSample.entry))
-
         // MARK: Round 13 — Procedures + Reference
         entries.append(.procedure(TPAStrokeAdminSample.entry))
         entries.append(.procedure(ICPEVDSample.entry))
@@ -1019,7 +1093,6 @@ extension ContentRegistry {
         entries.append(.reference(PedsFluidsRefSample.entry))
         entries.append(.reference(BETAFrameworkSample.entry))
         entries.append(.reference(StressDoseSteroidSample.entry))
-
         // MARK: Round 14 — Drugs (sleep + acute psych + GI + biologics + addiction)
         entries.append(.drug(ZolpidemSample.entry))
         entries.append(.drug(SuvorexantSample.entry))
@@ -1033,7 +1106,6 @@ extension ContentRegistry {
         entries.append(.drug(OmalizumabSample.entry))
         entries.append(.drug(MepolizumabSample.entry))
         entries.append(.drug(AcamprosateSample.entry))
-
         // MARK: Round 14 — Diagnoses (sleep + acute psych + allergy + MPN)
         entries.append(.diagnosis(InsomniaSample.entry))
         entries.append(.diagnosis(NarcolepsySample.entry))
@@ -1049,7 +1121,11 @@ extension ContentRegistry {
         entries.append(.diagnosis(MyelofibrosisSample.entry))
         entries.append(.diagnosis(RLSSample.entry))
         entries.append(.diagnosis(OHSSample.entry))
+        return entries
+    }
 
+    private static func bundledChunk24() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Round 15 — DMARDs / biologics + ID + endocrine + rheum + ENT/ophtho + psych
         entries.append(.drug(RituximabSample.entry))
         entries.append(.drug(TofacitinibSample.entry))
@@ -1063,7 +1139,6 @@ extension ContentRegistry {
         entries.append(.drug(TadalafilSample.entry))
         entries.append(.drug(ValacyclovirSample.entry))
         entries.append(.drug(GlucarpidaseSample.entry))
-
         entries.append(.diagnosis(PheochromocytomaSample.entry))
         entries.append(.diagnosis(AddisonsSample.entry))
         entries.append(.diagnosis(SjogrensSample.entry))
@@ -1074,11 +1149,9 @@ extension ContentRegistry {
         entries.append(.diagnosis(BPPVSample.entry))
         entries.append(.diagnosis(MenieresSample.entry))
         entries.append(.diagnosis(AutismSample.entry))
-
         entries.append(.lab(RheumatoidFactorSample.entry))
         entries.append(.lab(AntiDsDNASample.entry))
         entries.append(.lab(HIVMonitoringSample.entry))
-
         entries.append(.procedure(TonometrySample.entry))
         entries.append(.procedure(EpleyManeuverSample.entry))
         entries.append(.procedure(MethotrexateRescueSample.entry))
@@ -1086,7 +1159,11 @@ extension ContentRegistry {
         entries.append(.reference(SBIRTSample.entry))
         entries.append(.reference(AntimicrobialStewardshipSample.entry))
         entries.append(.reference(GeriatricFrailtySample.entry))
+        return entries
+    }
 
+    private static func bundledChunk25() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Round 16 — Drugs (toxicology antidotes + TB + HIV + dermatology + ophthalmology)
         entries.append(.drug(HighDoseGlucagonSample.entry))
         entries.append(.drug(PhysostigmineSample.entry))
@@ -1096,7 +1173,6 @@ extension ContentRegistry {
         entries.append(.drug(CabotegravirLASample.entry))
         entries.append(.drug(IsotretinoinSample.entry))
         entries.append(.drug(TimololEyeSample.entry))
-
         // MARK: Round 16 — Diagnoses (toxicology + dermatology + ID)
         entries.append(.diagnosis(TCAToxicitySample.entry))
         entries.append(.diagnosis(BetaBlockerToxSample.entry))
@@ -1111,12 +1187,10 @@ extension ContentRegistry {
         entries.append(.diagnosis(AtopicDermatitisSample.entry))
         entries.append(.diagnosis(DRESSSyndromeSample.entry))
         entries.append(.diagnosis(ActiveTBSample.entry))
-
         // MARK: Round 16 — Labs
         entries.append(.lab(HSTroponinSample.entry))
         entries.append(.lab(DDimerVTESample.entry))
         entries.append(.lab(FerritinIronStudiesSample.entry))
-
         // MARK: Round 16 — Procedures + Reference
         entries.append(.procedure(ThoracentesisSample.entry))
         entries.append(.procedure(ParacentesisSample.entry))
@@ -1125,7 +1199,11 @@ extension ContentRegistry {
         entries.append(.reference(WoundCarePressureInjurySample.entry))
         entries.append(.reference(IsolationPrecautionsHierarchySample.entry))
         entries.append(.reference(HealthLiteracyTeachBackSample.entry))
+        return entries
+    }
 
+    private static func bundledChunk26() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Round 17 — Drugs (critical care + anesthesia + endo + ID)
         entries.append(.drug(PropofolSample.entry))
         entries.append(.drug(SugammadexSample.entry))
@@ -1139,7 +1217,6 @@ extension ContentRegistry {
         entries.append(.drug(CisatracuriumSample.entry))
         entries.append(.drug(KetamineSample.entry))
         entries.append(.drug(PioglitazoneSample.entry))
-
         // MARK: Round 17 — Diagnoses (trauma + critical care + transfusion)
         entries.append(.diagnosis(MajorBurnSample.entry))
         entries.append(.diagnosis(SCISample.entry))
@@ -1155,12 +1232,10 @@ extension ContentRegistry {
         entries.append(.diagnosis(TACOSample.entry))
         entries.append(.diagnosis(AcuteHemolyticTransfusionReactionSample.entry))
         entries.append(.diagnosis(ElectricalInjurySample.entry))
-
         // MARK: Round 17 — Labs
         entries.append(.lab(ABGR17Sample.entry))
         entries.append(.lab(VBGSample.entry))
         entries.append(.lab(BetaHydroxybutyrateSample.entry))
-
         // MARK: Round 17 — Procedures + Reference
         entries.append(.procedure(RSISample.entry))
         entries.append(.procedure(NeedleThoracostomySample.entry))
@@ -1169,7 +1244,11 @@ extension ContentRegistry {
         entries.append(.reference(WHOSurgicalSafetyChecklistSample.entry))
         entries.append(.reference(DifficultAirwayAlgorithmSample.entry))
         entries.append(.reference(TransfusionReactionRecognitionSample.entry))
+        return entries
+    }
 
+    private static func bundledChunk27() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Round 18 — Drugs (heme/onc supportive + chemo + neurology + psych)
         entries.append(.drug(FilgrastimSample.entry))
         entries.append(.drug(EpoetinAlfaSample.entry))
@@ -1183,7 +1262,6 @@ extension ContentRegistry {
         entries.append(.drug(EculizumabSample.entry))
         entries.append(.drug(CyclophosphamideSample.entry))
         entries.append(.drug(LisdexamfetamineSample.entry))
-
         // MARK: Round 18 — Diagnoses (heme/onc + neuro + peds + sleep)
         entries.append(.diagnosis(AnemiaChronicDiseaseSample.entry))
         entries.append(.diagnosis(ALLR18Sample.entry))
@@ -1199,12 +1277,10 @@ extension ContentRegistry {
         entries.append(.diagnosis(AplasticAnemiaSample.entry))
         entries.append(.diagnosis(PNHSample.entry))
         entries.append(.diagnosis(OSAR18Sample.entry))
-
         // MARK: Round 18 — Labs
         entries.append(.lab(B12FolateSample.entry))
         entries.append(.lab(MMASample.entry))
         entries.append(.lab(LDHR18Sample.entry))
-
         // MARK: Round 18 — Procedures + Reference
         entries.append(.procedure(BoneMarrowBiopsySample.entry))
         entries.append(.procedure(PediatricLPSample.entry))
@@ -1213,7 +1289,11 @@ extension ContentRegistry {
         entries.append(.reference(ChemoExtravasationSample.entry))
         entries.append(.reference(PediatricDevelopmentalMilestonesSample.entry))
         entries.append(.reference(CancerScreeningBundleSample.entry))
+        return entries
+    }
 
+    private static func bundledChunk28() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Round 19 — Drugs (OB / repro + GU + bone health)
         entries.append(.drug(MifepristoneSample.entry))
         entries.append(.drug(DinoprostoneSample.entry))
@@ -1227,7 +1307,6 @@ extension ContentRegistry {
         entries.append(.drug(OxybutyninSample.entry))
         entries.append(.drug(RisedronateSample.entry))
         entries.append(.drug(DenosumabSample.entry))
-
         // MARK: Round 19 — Diagnoses (OB + GU + nephro + ortho/MSK + women's psych)
         entries.append(.diagnosis(CervicalInsufficiencySample.entry))
         entries.append(.diagnosis(PROMSampleR19.entry))
@@ -1244,12 +1323,15 @@ extension ContentRegistry {
         entries.append(.diagnosis(SpinalStenosisSample.entry))
         entries.append(.diagnosis(PMDDSample.entry))
         entries.append(.diagnosis(FrozenShoulderSample.entry))
-
         // MARK: Round 19 — Labs
         entries.append(.lab(AMHSample.entry))
         entries.append(.lab(UPCRSample.entry))
         entries.append(.lab(TestosteroneSample.entry))
+        return entries
+    }
 
+    private static func bundledChunk29() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Round 19 — Procedures + Reference
         entries.append(.procedure(NSTSample.entry))
         entries.append(.procedure(DEXASample.entry))
@@ -1258,7 +1340,6 @@ extension ContentRegistry {
         entries.append(.reference(MenopauseHRTSample.entry))
         entries.append(.reference(CKDStagingR19Sample.entry))
         entries.append(.reference(FallsFractureSample.entry))
-
         // MARK: Round 20 — Drugs (STIs + GI + addiction + vaccines)
         entries.append(.drug(PenicillinGBenzathineSample.entry))
         entries.append(.drug(MetronidazoleBVR20Sample.entry))
@@ -1272,7 +1353,6 @@ extension ContentRegistry {
         entries.append(.drug(MMRVaccineSample.entry))
         entries.append(.drug(HPVVaccineSample.entry))
         entries.append(.drug(InfluenzaVaccineSample.entry))
-
         // MARK: Round 20 — Diagnoses (STIs + GI common + addiction + peds rashes)
         entries.append(.diagnosis(TrichomoniasisSample.entry))
         entries.append(.diagnosis(HPVWartsSample.entry))
@@ -1287,12 +1367,15 @@ extension ContentRegistry {
         entries.append(.diagnosis(CeliacDiseaseSample.entry))
         entries.append(.diagnosis(AUDSample.entry))
         entries.append(.diagnosis(TobaccoUseDisorderSample.entry))
+        return entries
+    }
 
+    private static func bundledChunk30() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Round 20 — Labs
         entries.append(.lab(HPyloriStoolAntigenSample.entry))
         entries.append(.lab(TTGIgASample.entry))
         entries.append(.lab(HIV4thGenSample.entry))
-
         // MARK: Round 20 — Procedures + Reference
         entries.append(.procedure(VenipunctureSample.entry))
         entries.append(.procedure(FemaleFoleyCatheterSample.entry))
@@ -1300,7 +1383,6 @@ extension ContentRegistry {
         entries.append(.reference(PediatricImmunizationScheduleSample.entry))
         entries.append(.reference(STITreatmentBundleSample.entry))
         entries.append(.reference(MATOverviewSample.entry))
-
         // MARK: Round 21 — Diagnoses (shock + ICU complications)
         entries.append(.diagnosis(SepticShockSample.entry))
         entries.append(.diagnosis(HypovolemicShockSample.entry))
@@ -1315,12 +1397,10 @@ extension ContentRegistry {
         entries.append(.diagnosis(RefractoryHypoxemiaSample.entry))
         entries.append(.diagnosis(MODSSample.entry))
         entries.append(.diagnosis(PRISSample.entry))
-
         // MARK: Round 21 — Labs
         entries.append(.lab(ScvO2Sample.entry))
         entries.append(.lab(IonizedCalciumSample.entry))
         entries.append(.lab(DyshemoglobinSample.entry))
-
         // MARK: Round 21 — Procedures + Reference
         entries.append(.procedure(ArterialLineInsertionSample.entry))
         entries.append(.procedure(SpontaneousBreathingTrialSample.entry))
@@ -1329,7 +1409,11 @@ extension ContentRegistry {
         entries.append(.reference(ABCDEFBundleSample.entry))
         entries.append(.reference(VasopressorSelectionSample.entry))
         entries.append(.reference(TTMProtocolSample.entry))
+        return entries
+    }
 
+    private static func bundledChunk31() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Round 22 — Drugs (ENT + ophth + derm)
         entries.append(.drug(ErythromycinOphthalmicSample.entry))
         entries.append(.drug(MoxifloxacinOphthalmicSample.entry))
@@ -1343,7 +1427,6 @@ extension ContentRegistry {
         entries.append(.drug(NystatinSample.entry))
         entries.append(.drug(ClotrimazoleSample.entry))
         entries.append(.drug(TerbinafineSample.entry))
-
         // MARK: Round 22 — Diagnoses (ENT + ophth + derm)
         entries.append(.diagnosis(AcuteBacterialSinusitisSample.entry))
         entries.append(.diagnosis(AcutePharyngitisSample.entry))
@@ -1358,12 +1441,10 @@ extension ContentRegistry {
         entries.append(.diagnosis(TineaSample.entry))
         entries.append(.diagnosis(ScabiesSample.entry))
         entries.append(.diagnosis(ImpetigoSample.entry))
-
         // MARK: Round 22 — Labs
         entries.append(.lab(RapidStrepSample.entry))
         entries.append(.lab(KOHPrepSample.entry))
         entries.append(.lab(IgEAllergyPanelSample.entry))
-
         // MARK: Round 22 — Procedures + Reference
         entries.append(.procedure(CerumenRemovalSample.entry))
         entries.append(.procedure(AnteriorNasalPackingSample.entry))
@@ -1372,7 +1453,11 @@ extension ContentRegistry {
         entries.append(.reference(RedEyeDifferentialSample.entry))
         entries.append(.reference(SinusitisCriteriaSample.entry))
         entries.append(.reference(AllergicRhinitisManagementSample.entry))
+        return entries
+    }
 
+    private static func bundledChunk32() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Round 23 — Drugs (OB pharm + supplements + migraine)
         entries.append(.drug(LabetalolSample.entry))
         entries.append(.drug(MethyldopaSample.entry))
@@ -1386,7 +1471,6 @@ extension ContentRegistry {
         entries.append(.drug(TopiramateSample.entry))
         entries.append(.drug(ClonidineSample.entry))
         entries.append(.drug(CholecalciferolSample.entry))
-
         // MARK: Round 23 — Diagnoses (OB emergencies + B12 def)
         entries.append(.diagnosis(AmnioticFluidEmbolismSample.entry))
         entries.append(.diagnosis(PlacentaAccretaSample.entry))
@@ -1401,12 +1485,10 @@ extension ContentRegistry {
         entries.append(.diagnosis(VitaminB12DeficiencySample.entry))
         entries.append(.diagnosis(PostpartumEndometritisSample.entry))
         entries.append(.diagnosis(IntrahepaticCholestasisSample.entry))
-
         // MARK: Round 23 — Labs
         entries.append(.lab(APLAntibodiesSample.entry))
         entries.append(.lab(BileAcidsSample.entry))
         entries.append(.lab(GBSScreeningSample.entry))
-
         // MARK: Round 23 — Procedures + Reference
         entries.append(.procedure(ShoulderDystociaDrillSample.entry))
         entries.append(.procedure(ECVSample.entry))
@@ -1415,7 +1497,11 @@ extension ContentRegistry {
         entries.append(.reference(PrenatalGeneticScreeningSample.entry))
         entries.append(.reference(AnemiaPregnancyManagementSample.entry))
         entries.append(.reference(LaborStagesSample.entry))
+        return entries
+    }
 
+    private static func bundledChunk33() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Round 24 — Drugs (geriatric/palliative/chronic pain)
         entries.append(.drug(MethylnaltrexoneSample.entry))
         entries.append(.drug(GalantamineSample.entry))
@@ -1429,7 +1515,6 @@ extension ContentRegistry {
         entries.append(.drug(GlycopyrrolateSample.entry))
         entries.append(.drug(FentanylPatchSample.entry))
         entries.append(.drug(NaproxenSample.entry))
-
         // MARK: Round 24 — Diagnoses (dementia + wound + geriatric)
         entries.append(.diagnosis(BPSDSample.entry))
         entries.append(.diagnosis(VascularDementiaSample.entry))
@@ -1444,12 +1529,10 @@ extension ContentRegistry {
         entries.append(.diagnosis(ChronicOsteomyelitisSample.entry))
         entries.append(.diagnosis(CaregiverBurnoutSample.entry))
         entries.append(.diagnosis(FailureToThriveElderlySample.entry))
-
         // MARK: Round 24 — Labs
         entries.append(.lab(ABISample.entry))
         entries.append(.lab(PrealbuminSample.entry))
         entries.append(.lab(MMAHomocysteineSample.entry))
-
         // MARK: Round 24 — Procedures + Reference
         entries.append(.procedure(WoundDebridementSample.entry))
         entries.append(.procedure(CGASample.entry))
@@ -1458,7 +1541,11 @@ extension ContentRegistry {
         entries.append(.reference(EOLSymptomManagementSample.entry))
         entries.append(.reference(WoundDressingSelectionSample.entry))
         entries.append(.reference(OpioidConversionSample.entry))
+        return entries
+    }
 
+    private static func bundledChunk34() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Round 25 — Drugs (peds specialty + CF + congenital)
         entries.append(.drug(CaffeineCitrateSample.entry))
         entries.append(.drug(DornaseAlfaSample.entry))
@@ -1472,7 +1559,6 @@ extension ContentRegistry {
         entries.append(.drug(PancrelipaseSample.entry))
         entries.append(.drug(LoratadineSample.entry))
         entries.append(.drug(VigabatrinSample.entry))
-
         // MARK: Round 25 — Diagnoses (peds ortho + cardiac + genetic + behavioral)
         entries.append(.diagnosis(DDHSample.entry))
         entries.append(.diagnosis(SCFESample.entry))
@@ -1487,12 +1573,10 @@ extension ContentRegistry {
         entries.append(.diagnosis(TurnerSyndromeSample.entry))
         entries.append(.diagnosis(FASDSample.entry))
         entries.append(.diagnosis(PediatricFBASample.entry))
-
         // MARK: Round 25 — Labs
         entries.append(.lab(NewbornHearingScreenSample.entry))
         entries.append(.lab(TcBBilirubinSample.entry))
         entries.append(.lab(KaryotypeMicroarraySample.entry))
-
         // MARK: Round 25 — Procedures + Reference
         entries.append(.procedure(PavlikHarnessSample.entry))
         entries.append(.procedure(FLACCSample.entry))
@@ -1501,7 +1585,11 @@ extension ContentRegistry {
         entries.append(.reference(CarSeatSafetySample.entry))
         entries.append(.reference(BreastfeedingCounselingSample.entry))
         entries.append(.reference(PediatricPainScalesSample.entry))
+        return entries
+    }
 
+    private static func bundledChunk35() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Round 26 — Drugs (heme + reversal + IV iron + onc-heme)
         entries.append(.drug(CaplacizumabSample.entry))
         entries.append(.drug(AndexanetAlfaSample.entry))
@@ -1515,7 +1603,6 @@ extension ContentRegistry {
         entries.append(.drug(VenetoclaxSample.entry))
         entries.append(.drug(LenalidomideSample.entry))
         entries.append(.drug(BortezomibSample.entry))
-
         // MARK: Round 26 — Diagnoses (heme + chronic liver)
         entries.append(.diagnosis(TTPSample.entry))
         entries.append(.diagnosis(AtypicalHUSSample.entry))
@@ -1530,12 +1617,10 @@ extension ContentRegistry {
         entries.append(.diagnosis(PBCSample.entry))
         entries.append(.diagnosis(PSCSample.entry))
         entries.append(.diagnosis(CryoglobulinemicVasculitisSample.entry))
-
         // MARK: Round 26 — Labs
         entries.append(.lab(ADAMTS13Sample.entry))
         entries.append(.lab(PeripheralSmearSample.entry))
         entries.append(.lab(CeruloplasminSample.entry))
-
         // MARK: Round 26 — Procedures + Reference
         entries.append(.procedure(PlasmapheresisTPESample.entry))
         entries.append(.procedure(IronIVAdministrationSample.entry))
@@ -1544,7 +1629,11 @@ extension ContentRegistry {
         entries.append(.reference(TransfusionReactionTypesSample.entry))
         entries.append(.reference(CirrhosisComplicationsSample.entry))
         entries.append(.reference(AutoimmuneHepatobiliarySample.entry))
+        return entries
+    }
 
+    private static func bundledChunk36() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Round 27 — Drugs (rheumatology biologics + JAK inhibitors + IL-targeted)
         entries.append(.drug(AbataceptSample.entry))
         entries.append(.drug(BelimumabSample.entry))
@@ -1558,7 +1647,6 @@ extension ContentRegistry {
         entries.append(.drug(UstekinumabSample.entry))
         entries.append(.drug(GuselkumabSample.entry))
         entries.append(.drug(DupilumabSample.entry))
-
         // MARK: Round 27 — Diagnoses (vasculitis + CT diseases + advanced neuro)
         entries.append(.diagnosis(GPASample.entry))
         entries.append(.diagnosis(EGPASample.entry))
@@ -1573,12 +1661,10 @@ extension ContentRegistry {
         entries.append(.diagnosis(NMOSample.entry))
         entries.append(.diagnosis(CIDPSample.entry))
         entries.append(.diagnosis(GlioblastomaSample.entry))
-
         // MARK: Round 27 — Labs
         entries.append(.lab(ANCASample.entry))
         entries.append(.lab(ComplementSample.entry))
         entries.append(.lab(IgG4Sample.entry))
-
         // MARK: Round 27 — Procedures + Reference
         entries.append(.procedure(TemporalArteryBiopsySample.entry))
         entries.append(.procedure(JointInjectionAspirationSample.entry))
@@ -1587,7 +1673,11 @@ extension ContentRegistry {
         entries.append(.reference(BiologicSafetyMonitoringSample.entry))
         entries.append(.reference(DMARDsTradStrategiesSample.entry))
         entries.append(.reference(AutoimmuneDiseaseScreeningSample.entry))
+        return entries
+    }
 
+    private static func bundledChunk37() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Round 28 — Drugs (PAH + ILD + severe asthma + CFTR + COPD)
         entries.append(.drug(BosentanSample.entry))
         entries.append(.drug(MacitentanSample.entry))
@@ -1601,7 +1691,6 @@ extension ContentRegistry {
         entries.append(.drug(BenralizumabSample.entry))
         entries.append(.drug(TrikaftaSample.entry))
         entries.append(.drug(TheophyllineSample.entry))
-
         // MARK: Round 28 — Diagnoses (pulmonary depth)
         entries.append(.diagnosis(NSIPSample.entry))
         entries.append(.diagnosis(HypersensitivityPneumonitisSample.entry))
@@ -1615,12 +1704,10 @@ extension ContentRegistry {
         entries.append(.diagnosis(StatusAsthmaticusSample.entry))
         entries.append(.diagnosis(PleuralEffusionSample.entry))
         entries.append(.diagnosis(EmpyemaSample.entry))
-
         // MARK: Round 28 — Labs
         entries.append(.lab(AlphaOneAntitrypsinSample.entry))
         entries.append(.lab(QuantiFERONTBSample.entry))
         entries.append(.lab(AspergillusPrecipitinsSample.entry))
-
         // MARK: Round 28 — Procedures + Reference
         entries.append(.procedure(BronchoscopySample.entry))
         entries.append(.procedure(PulmonaryFunctionTestsSample.entry))
@@ -1629,7 +1716,11 @@ extension ContentRegistry {
         entries.append(.reference(ILDClassificationSample.entry))
         entries.append(.reference(AsthmaStepwiseTherapySample.entry))
         entries.append(.reference(CFPulmonaryCareSample.entry))
+        return entries
+    }
 
+    private static func bundledChunk38() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Round 29 — Drugs (endocrine: thyroid + pituitary + parathyroid + adrenal + bone)
         entries.append(.drug(PropylthiouracilSample.entry))
         entries.append(.drug(CabergolineSample.entry))
@@ -1643,7 +1734,6 @@ extension ContentRegistry {
         entries.append(.drug(PotassiumIodideSample.entry))
         entries.append(.drug(ParicalcitolSample.entry))
         entries.append(.drug(CalcitoninSample.entry))
-
         // MARK: Round 29 — Diagnoses (endocrine depth)
         entries.append(.diagnosis(PrimaryAldosteronismSample.entry))
         entries.append(.diagnosis(AcromegalySample.entry))
@@ -1658,12 +1748,10 @@ extension ContentRegistry {
         entries.append(.diagnosis(ZollingerEllisonSample.entry))
         entries.append(.diagnosis(PagetDiseaseBoneSample.entry))
         entries.append(.diagnosis(HypopituitarismSample.entry))
-
         // MARK: Round 29 — Labs
         entries.append(.lab(MetanephrinesSample.entry))
         entries.append(.lab(IGF1Sample.entry))
         entries.append(.lab(ChromograninA5HIAASample.entry))
-
         // MARK: Round 29 — Procedures + Reference
         entries.append(.procedure(DexamethasoneSuppressionTestSample.entry))
         entries.append(.procedure(IPSSSample.entry))
@@ -1672,7 +1760,11 @@ extension ContentRegistry {
         entries.append(.reference(MENOverviewSample.entry))
         entries.append(.reference(NETClassificationSample.entry))
         entries.append(.reference(OsteoporosisScreeningSample.entry))
+        return entries
+    }
 
+    private static func bundledChunk39() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Round 30 — Drugs (ID depth: antifungals + HIV + antiparasitics)
         entries.append(.drug(ItraconazoleSample.entry))
         entries.append(.drug(IsavuconazoleSample.entry))
@@ -1686,7 +1778,6 @@ extension ContentRegistry {
         entries.append(.drug(MaravirocSample.entry))
         entries.append(.drug(LenacapavirSample.entry))
         entries.append(.drug(IvermectinSample.entry))
-
         // MARK: Round 30 — Diagnoses (ID depth)
         entries.append(.diagnosis(PCPSample.entry))
         entries.append(.diagnosis(ToxoplasmosisSample.entry))
@@ -1701,12 +1792,10 @@ extension ContentRegistry {
         entries.append(.diagnosis(StrongyloidiasisSample.entry))
         entries.append(.diagnosis(NeurosyphilisSample.entry))
         entries.append(.diagnosis(ChronicHepatitisBSample.entry))
-
         // MARK: Round 30 — Labs
         entries.append(.lab(CryptococcalAntigenSample.entry))
         entries.append(.lab(GalactomannanBDGSample.entry))
         entries.append(.lab(MalariaSmearSample.entry))
-
         // MARK: Round 30 — Procedures + Reference
         entries.append(.procedure(TuberculinSkinTestSample.entry))
         entries.append(.procedure(PICCLineCareSample.entry))
@@ -1715,7 +1804,11 @@ extension ContentRegistry {
         entries.append(.reference(OIProphylaxisSample.entry))
         entries.append(.reference(AntifungalClassesSample.entry))
         entries.append(.reference(TropicalFeverWorkupSample.entry))
+        return entries
+    }
 
+    private static func bundledChunk40() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Round 31 — Drugs (neurology depth: MS DMTs + PD adjuncts + AEDs + MG + migraine + SMA)
         entries.append(.drug(OcrelizumabSample.entry))
         entries.append(.drug(NatalizumabSample.entry))
@@ -1729,7 +1822,6 @@ extension ContentRegistry {
         entries.append(.drug(LacosamideSample.entry))
         entries.append(.drug(ErenumabSample.entry))
         entries.append(.drug(NusinersenSample.entry))
-
         // MARK: Round 31 — Diagnoses (neurology depth)
         entries.append(.diagnosis(ClusterHeadacheSample.entry))
         entries.append(.diagnosis(TensionHeadacheSample.entry))
@@ -1745,12 +1837,10 @@ extension ContentRegistry {
         entries.append(.diagnosis(CervicalSpondyloticMyelopathySample.entry))
         entries.append(.diagnosis(DiabeticPeripheralNeuropathySample.entry))
         entries.append(.diagnosis(HemicraniaContinuaSample.entry))
-
         // MARK: Round 31 — Labs
         entries.append(.lab(CSFAnalysisSample.entry))
         entries.append(.lab(EEGInterpretationSample.entry))
         entries.append(.lab(ParaneoplasticAbPanelSample.entry))
-
         // MARK: Round 31 — Procedures + Reference
         entries.append(.procedure(IVIGInfusionSample.entry))
         entries.append(.procedure(MechanicalThrombectomyCareSample.entry))
@@ -1759,7 +1849,11 @@ extension ContentRegistry {
         entries.append(.reference(ParkinsonMedicationStrategySample.entry))
         entries.append(.reference(SeizureAEDSelectionSample.entry))
         entries.append(.reference(HeadacheTherapySample.entry))
+        return entries
+    }
 
+    private static func bundledChunk41() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Round 32 — Drugs (critical care: inotropes + DTIs + HTN crisis IV + antidotes + HAE + rFVIIa + antiarrhythmic)
         entries.append(.drug(MilrinoneSample.entry))
         entries.append(.drug(BivalirudinSample.entry))
@@ -1773,7 +1867,6 @@ extension ContentRegistry {
         entries.append(.drug(IcatibantSample.entry))
         entries.append(.drug(RecombinantFactorVIIaSample.entry))
         entries.append(.drug(LidocaineIVAntiarrhythmicSample.entry))
-
         // MARK: Round 32 — Diagnoses (critical care depth)
         entries.append(.diagnosis(VAPSample.entry))
         entries.append(.diagnosis(VILISample.entry))
@@ -1788,12 +1881,10 @@ extension ContentRegistry {
         entries.append(.diagnosis(CRSSample.entry))
         entries.append(.diagnosis(CIPNMSample.entry))
         entries.append(.diagnosis(FulminantMyocarditisSample.entry))
-
         // MARK: Round 32 — Labs
         entries.append(.lab(ActivatedClottingTimeSample.entry))
         entries.append(.lab(ViscoelasticTestingSample.entry))
         entries.append(.lab(CapnographyEtCO2Sample.entry))
-
         // MARK: Round 32 — Procedures + Reference
         entries.append(.procedure(CentralLineInsertionSample.entry))
         entries.append(.procedure(CricothyrotomySample.entry))
@@ -1801,7 +1892,11 @@ extension ContentRegistry {
         entries.append(.reference(VentModesSelectionSample.entry))
         entries.append(.reference(ShockHemodynamicPatternsSample.entry))
         entries.append(.reference(HTNEmergencySample.entry))
+        return entries
+    }
 
+    private static func bundledChunk42() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Round 33 — Drugs (oncology depth: CDK4/6 + PARP + ICIs + anti-androgens + chemo + targeted)
         entries.append(.drug(PalbociclibSample.entry))
         entries.append(.drug(OlaparibSample.entry))
@@ -1815,7 +1910,6 @@ extension ContentRegistry {
         entries.append(.drug(CetuximabSample.entry))
         entries.append(.drug(TrastuzumabDeruxtecanSample.entry))
         entries.append(.drug(TucatinibSample.entry))
-
         // MARK: Round 33 — Diagnoses (oncology depth)
         entries.append(.diagnosis(NSCLCSample.entry))
         entries.append(.diagnosis(SCLCSample.entry))
@@ -1830,12 +1924,10 @@ extension ContentRegistry {
         entries.append(.diagnosis(IRHepatitisSample.entry))
         entries.append(.diagnosis(IRThyroiditisSample.entry))
         entries.append(.diagnosis(FebrileNeutropeniaSample.entry))
-
         // MARK: Round 33 — Labs (oncology biomarkers)
         entries.append(.lab(CancerGenomicTestingSample.entry))
         entries.append(.lab(CtDNASample.entry))
         entries.append(.lab(MSIMMRTestingSample.entry))
-
         // MARK: Round 33 — Procedures + Reference (oncology nursing)
         entries.append(.procedure(RadiationTherapyCareSample.entry))
         entries.append(.procedure(ICIMonitoringSample.entry))
@@ -1844,7 +1936,11 @@ extension ContentRegistry {
         entries.append(.reference(HereditaryCancerSyndromesSample.entry))
         entries.append(.reference(IrAEAlgorithmSample.entry))
         entries.append(.reference(OncologicEmergenciesSample.entry))
+        return entries
+    }
 
+    private static func bundledChunk43() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Round 34 — Drugs (Safe & Effective Care: K-binders + hypertonic saline + nimodipine + leucovorin rescue + conivaptan + evolocumab)
         entries.append(.drug(PotassiumChlorideIVSample.entry))
         entries.append(.drug(HypertonicSalineSample.entry))
@@ -1855,7 +1951,6 @@ extension ContentRegistry {
         entries.append(.drug(LeucovorinRescueSample.entry))
         entries.append(.drug(ConivaptanSample.entry))
         entries.append(.drug(EvolocumabSample.entry))
-
         // MARK: Round 34 — Diagnoses (safety events + HAIs + occupational)
         entries.append(.diagnosis(MedicationErrorHarmSample.entry))
         entries.append(.diagnosis(WrongSiteSurgerySample.entry))
@@ -1870,12 +1965,10 @@ extension ContentRegistry {
         entries.append(.diagnosis(CAUTISample.entry))
         entries.append(.diagnosis(CLABSISample.entry))
         entries.append(.diagnosis(SSISurgicalSiteInfectionSample.entry))
-
         // MARK: Round 34 — Labs (therapeutic drug monitoring + toxicology)
         entries.append(.lab(VancomycinTDMSample.entry))
         entries.append(.lab(CarboxyhemoglobinSample.entry))
         entries.append(.lab(MethemoglobinSample.entry))
-
         // MARK: Round 34 — Procedures + Reference (safety procedures + management of care)
         entries.append(.procedure(HazardousDrugHandlingSample.entry))
         entries.append(.procedure(MedicationReconciliationSample.entry))
@@ -1883,7 +1976,11 @@ extension ContentRegistry {
         entries.append(.reference(DelegationScopeSample.entry))
         entries.append(.reference(InformedConsentSample.entry))
         entries.append(.reference(NursingEthicsSample.entry))
+        return entries
+    }
 
+    private static func bundledChunk44() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Round 35 — Diagnoses (abuse recognition + reporting + trafficking + FDIA)
         entries.append(.diagnosis(ChildAbusePhysicalSample.entry))
         entries.append(.diagnosis(ElderAbuseNeglectSample.entry))
@@ -1891,12 +1988,10 @@ extension ContentRegistry {
         entries.append(.diagnosis(AbusiveHeadTraumaSample.entry))
         entries.append(.diagnosis(HumanTraffickingSample.entry))
         entries.append(.diagnosis(FDIASample.entry))
-
         // MARK: Round 35 — Labs (toxicology + TDM reference)
         entries.append(.lab(UrineDrugScreenSample.entry))
         entries.append(.lab(BloodAlcoholLevelSample.entry))
         entries.append(.lab(NarrowTherapeuticIndexTDMSample.entry))
-
         // MARK: Round 35 — Procedures + References (safety processes + management of care)
         entries.append(.procedure(RapidResponseTeamActivationSample.entry))
         entries.append(.procedure(CodeBlueResponseSample.entry))
@@ -1908,7 +2003,6 @@ extension ContentRegistry {
         entries.append(.reference(SentinelNeverEventsSample.entry))
         entries.append(.reference(HomeSafetyFallPreventionSample.entry))
         entries.append(.reference(BehavioralSafetySample.entry))
-
         // MARK: Round 36 — Chief Complaint Workup References (cardiopulm + neuro)
         entries.append(.reference(ChestPainEvaluationSample.entry))
         entries.append(.reference(DyspneaEvaluationSample.entry))
@@ -1917,7 +2011,6 @@ extension ContentRegistry {
         entries.append(.reference(AlteredMentalStatusEvaluationSample.entry))
         entries.append(.reference(AcuteConfusionDeliriumEvaluationSample.entry))
         entries.append(.reference(WeaknessEvaluationSample.entry))
-
         // MARK: Round 36 — Chief Complaint Workup References (abd + general medical)
         entries.append(.reference(AbdominalPainEvaluationSample.entry))
         entries.append(.reference(FeverEvaluationAdultSample.entry))
@@ -1926,7 +2019,11 @@ extension ContentRegistry {
         entries.append(.reference(RashEvaluationSample.entry))
         entries.append(.reference(AcuteBackPainEvaluationSample.entry))
         entries.append(.reference(DizzinessVertigoEvaluationSample.entry))
+        return entries
+    }
 
+    private static func bundledChunk45() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Round 36 — Chief Complaint Workup + Triage (trauma + ENT + triage)
         entries.append(.reference(AcuteTraumaEvaluationSample.entry))
         entries.append(.reference(BurnEvaluationSample.entry))
@@ -1935,28 +2032,24 @@ extension ContentRegistry {
         entries.append(.reference(ESITriageRound36Sample.entry))
         entries.append(.reference(TraumaTeamActivationSample.entry))
         entries.append(.reference(MassCasualtyTriageSample.entry))
-
         // MARK: Round 37 — Procedures (feeding tubes + EKG + cardiopulm)
         entries.append(.procedure(PEGTubeManagementSample.entry))
         entries.append(.procedure(JejunostomyTubeCareSample.entry))
         entries.append(.procedure(EKG12LeadProcedureSample.entry))
         entries.append(.procedure(CentralLineRemovalSample.entry))
         entries.append(.procedure(LumbarPunctureAssistRound37Sample.entry))
-
         // MARK: Round 37 — Procedures (pain management + vascular access)
         entries.append(.procedure(PCAPumpManagementSample.entry))
         entries.append(.procedure(EpiduralCatheterManagementSample.entry))
         entries.append(.procedure(LumbarDrainManagementSample.entry))
         entries.append(.procedure(MidlineCatheterSample.entry))
         entries.append(.procedure(FoleyManagementSample.entry))
-
         // MARK: Round 37 — Pain management references
         entries.append(.reference(RegionalAnesthesiaReferenceSample.entry))
         entries.append(.reference(NonPharmPainSample.entry))
         entries.append(.reference(ChronicPainFrameworkSample.entry))
         entries.append(.reference(OpioidTaperingSample.entry))
         entries.append(.reference(PediatricPainSample.entry))
-
         // MARK: Round 38 — Pediatric diagnoses (neonatal/infant focus)
         entries.append(.diagnosis(MalrotationVolvulusSample.entry))
         entries.append(.diagnosis(BiliaryAtresiaSample.entry))
@@ -1965,7 +2058,6 @@ extension ContentRegistry {
         entries.append(.diagnosis(BRUESample.entry))
         entries.append(.diagnosis(PediatricFeverWithoutSourceSample.entry))
         entries.append(.diagnosis(PediatricAppendicitisSample.entry))
-
         // MARK: Round 38 — Pediatric diagnoses (general)
         entries.append(.diagnosis(PediatricAsthmaExacerbationSample.entry))
         entries.append(.diagnosis(PediatricPharyngitisSample.entry))
@@ -1974,7 +2066,11 @@ extension ContentRegistry {
         entries.append(.diagnosis(PediatricITPSample.entry))
         entries.append(.diagnosis(PediatricFUOSample.entry))
         entries.append(.diagnosis(PediatricGastroenteritisSample.entry))
+        return entries
+    }
 
+    private static func bundledChunk46() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
         // MARK: Round 38 — Pediatric labs + procedures
         entries.append(.lab(NeonatalBilirubinSample.entry))
         entries.append(.lab(NewbornScreeningSample.entry))
@@ -1982,7 +2078,6 @@ extension ContentRegistry {
         entries.append(.procedure(NRPSample.entry))
         entries.append(.procedure(PediatricIVSample.entry))
         entries.append(.procedure(PediatricMedAdminSample.entry))
-
         // MARK: Round 39 — Lab interpretation references
         entries.append(.reference(CBCInterpretationSample.entry))
         entries.append(.reference(BMPCMPInterpretationSample.entry))
@@ -1991,14 +2086,12 @@ extension ContentRegistry {
         entries.append(.reference(LipidPanelInterpretationSample.entry))
         entries.append(.reference(UrinalysisInterpretationSample.entry))
         entries.append(.reference(ABGInterpretationSample.entry))
-
         // MARK: Round 39 — Drug class references
         entries.append(.reference(AntibioticSpectrumSample.entry))
         entries.append(.reference(InsulinRegimensSample.entry))
         entries.append(.reference(OralDiabetesMedsSample.entry))
         entries.append(.reference(LipidLoweringSample.entry))
         entries.append(.reference(AnticoagulationReversalRound39Sample.entry))
-
         return entries
     }
 }

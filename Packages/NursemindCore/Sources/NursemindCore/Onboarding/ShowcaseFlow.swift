@@ -38,20 +38,15 @@ struct ShowcaseFlow: View {
     ]
 
     var body: some View {
-        ZStack(alignment: .topTrailing) {
-            NMColor.bgPrimary.ignoresSafeArea()
-
-            VStack(spacing: 0) {
-                Spacer().frame(height: NMSpace.xxl)
-                pageView
-                Spacer(minLength: NMSpace.lg)
-                pageDots
-                Spacer().frame(height: NMSpace.lg)
-                actionButton
-            }
-
+        VStack(spacing: 0) {
+            pageView
+            Spacer(minLength: NMSpace.lg)
+            pageDots
+            Spacer().frame(height: NMSpace.lg)
+            actionButton
             skipButton
         }
+        .background(NMColor.bgPrimary.ignoresSafeArea())
     }
 
     // MARK: - Page view
@@ -81,6 +76,7 @@ struct ShowcaseFlow: View {
                     .foregroundStyle(NMColor.textSecondary)
             }
             .padding(.horizontal, NMSpace.lg)
+            .padding(.top, NMSpace.md)
 
             Spacer(minLength: NMSpace.lg)
 
@@ -137,7 +133,6 @@ struct ShowcaseFlow: View {
             }
         }
         .padding(.horizontal, NMSpace.lg)
-        .padding(.bottom, NMSpace.xl)
     }
 
     // MARK: - Skip button
@@ -148,12 +143,12 @@ struct ShowcaseFlow: View {
             onSkip()
         } label: {
             Text("Skip")
-                .font(NMFont.bodyLG)
+                .font(NMFont.body)
                 .foregroundStyle(NMColor.textTertiary)
         }
         .buttonStyle(PressableButtonStyle())
-        .padding(.top, NMSpace.lg)
-        .padding(.trailing, NMSpace.lg)
+        .padding(.top, NMSpace.md)
+        .padding(.bottom, NMSpace.lg)
     }
 }
 

@@ -25,6 +25,15 @@ struct RootView: View {
         // duration only; never PHI. Offline queue flushes on first
         // .signedIn transition.
         LibraryViewLogger.shared.attach()
+        // Pre-warm ContentRegistry on a background-priority Task so the lazy
+        // dispatch_once init (which builds ~1,600 bundled library entries)
+        // never runs from inside a SwiftUI body call. On iPad in compatibility
+        // mode the cumulative stack usage of the registry build during a body
+        // pass overflowed the 1 MB main-thread stack and crashed the app on
+        // launch (Apple review 2026-05-14, v1.0 build 6, iPad15,3 / iOS 26.5).
+        Task.detached(priority: .utility) {
+            _ = ContentRegistry.shared
+        }
     }
 
     var body: some View {
@@ -45,44 +54,35 @@ struct RootView: View {
     }
 
     private var mainAppView: some View {
-        // Custom replacement for SwiftUI's TabView. We keep every tab's view
-        // alive (so NavigationStack paths + per-view state persist across
-        // tab switches just like UITabBarController would) but only the
-        // selected tab is visible + interactive at any moment. Below the
-        // content sits our own bottom bar, which on iPad fills the screen
-        // edge to edge — SwiftUI's TabView on iPadOS 18+ migrates the bar
-        // to a top tab strip, which we don't want for the "iPhone style on
-        // iPad" feel.
-        ZStack {
+        // Native SwiftUI TabView. iPhone-only (TARGETED_DEVICE_FAMILY = 1) so
+        // we don't hit the iPadOS 18+ top-tab migration that previously
+        // forced us into a custom BottomTabBar. On iOS 26+ this renders as
+        // the system "liquid glass" bottom bar; on iOS 17/18 it's the
+        // traditional translucent bar. Per-tab `.safeAreaInset(.bottom)`
+        // (e.g. AskHomeView's input bar) stacks correctly above the bar.
+        TabView(selection: $router.selectedTab) {
             AskHomeView(
                 service: askService,
                 enrichmentService: enrichmentService
             )
-            .opacity(router.selectedTab == AppRouter.askTab ? 1 : 0)
-            .allowsHitTesting(router.selectedTab == AppRouter.askTab)
+            .tabItem { Label("Ask", systemImage: "sparkle") }
+            .tag(AppRouter.askTab)
 
             if prefs.feedTabEnabled {
                 FeedTabView()
-                    .opacity(router.selectedTab == AppRouter.feedTab ? 1 : 0)
-                    .allowsHitTesting(router.selectedTab == AppRouter.feedTab)
+                    .tabItem { Label("Feed", systemImage: "newspaper") }
+                    .tag(AppRouter.feedTab)
             }
 
             LibraryHomeView()
-                .opacity(router.selectedTab == AppRouter.libraryTab ? 1 : 0)
-                .allowsHitTesting(router.selectedTab == AppRouter.libraryTab)
+                .tabItem { Label("Library", systemImage: "books.vertical") }
+                .tag(AppRouter.libraryTab)
 
             ProfileHomeView()
-                .opacity(router.selectedTab == AppRouter.profileTab ? 1 : 0)
-                .allowsHitTesting(router.selectedTab == AppRouter.profileTab)
+                .tabItem { Label("Profile", systemImage: "person") }
+                .tag(AppRouter.profileTab)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .safeAreaInset(edge: .bottom, spacing: 0) {
-            BottomTabBar(
-                selectedTab: $router.selectedTab,
-                showFeed: prefs.feedTabEnabled
-            )
-        }
-        .background(NMColor.bgPrimary.ignoresSafeArea())
+        .tint(NMColor.accent)
         .sheet(isPresented: $router.isSearchPresented) {
             GlobalSearchView()
                 .presentationDetents([.large])

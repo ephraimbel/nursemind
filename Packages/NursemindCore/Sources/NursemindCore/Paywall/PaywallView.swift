@@ -67,13 +67,17 @@ public struct PaywallView: View {
                 .ignoresSafeArea()
 
             VStack(spacing: 0) {
-                Spacer().frame(height: NMSpace.lg)
+                // Spacing scaled down universally so the paywall fits on
+                // iPhone 15 (852pt) and stays balanced on iPhone Pro Max
+                // (932pt) — the original spacing pushed "Maybe later"
+                // below the bottom safe area on shorter phones.
+                Spacer().frame(height: NMSpace.md)
                 brandMark
                 header
                     .padding(.top, NMSpace.md)
-                Spacer(minLength: NMSpace.lg)
+                Spacer(minLength: NMSpace.md)
                 featureChecklist
-                Spacer(minLength: NMSpace.lg)
+                Spacer(minLength: NMSpace.md)
                 planSection
                 continueButton
                     .padding(.top, NMSpace.md)
@@ -183,7 +187,7 @@ public struct PaywallView: View {
     /// auto-advance delay before they can decide. Each row: accent badge
     /// with icon → bold title → italic supporting line.
     private var featureChecklist: some View {
-        VStack(spacing: NMSpace.lg) {
+        VStack(spacing: NMSpace.md) {
             ForEach(Array(features.enumerated()), id: \.offset) { _, feature in
                 PaywallFeatureRow(feature: feature)
             }
@@ -219,9 +223,9 @@ public struct PaywallView: View {
     // MARK: - Plans
 
     private var planSection: some View {
-        VStack(alignment: .leading, spacing: NMSpace.lg) {
+        VStack(alignment: .leading, spacing: NMSpace.md) {
             EyebrowLabel("CHOOSE YOUR PLAN", sparkle: false)
-            VStack(spacing: NMSpace.md) {
+            VStack(spacing: NMSpace.sm) {
                 ForEach(PaywallPlan.allCases, id: \.self) { plan in
                     PaywallPlanRow(
                         plan: plan,
@@ -567,7 +571,7 @@ private struct PaywallPlanRow: View {
                 Spacer(minLength: 0)
                 priceBlock
             }
-            .padding(.vertical, NMSpace.lg)
+            .padding(.vertical, NMSpace.md)
             .padding(.horizontal, NMSpace.base + 2)
             .background(
                 RoundedRectangle(cornerRadius: 14)
