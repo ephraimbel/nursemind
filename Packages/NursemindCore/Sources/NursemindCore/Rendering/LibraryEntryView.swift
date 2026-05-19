@@ -13,8 +13,8 @@ public struct LibraryEntryView: View {
     public var body: some View {
         Group {
             switch entry {
-            case .drug(let e):           DrugEntryView(entry: e)
-            case .drip(let e):           DrugEntryView(entry: e)
+            case .drug(let e):           DrugEntryView(entry: e, entryCategory: "drug")
+            case .drip(let e):           DrugEntryView(entry: e, entryCategory: "drip")
             case .lab(let e):            LabEntryView(entry: e)
             case .procedure(let e):      ProcedureEntryView(entry: e)
             case .diagnosis(let e):      DiagnosisEntryView(entry: e)

@@ -16,29 +16,64 @@ public struct CalculatorDetailRouter: View {
     }
 
     public var body: some View {
-        content
-            .environment(\.currentCalculatorID, calculatorID)
-            .toolbar {
-                ToolbarItem(placement: .topBarTrailing) {
-                    Button {
-                        prefs.togglePinCalculator(calculatorID)
-                    } label: {
-                        Image(systemName: prefs.isPinnedCalculator(calculatorID) ? "star.fill" : "star")
-                            .foregroundStyle(prefs.isPinnedCalculator(calculatorID) ? NMColor.accent : NMColor.textPrimary)
-                    }
-                    .accessibilityLabel(prefs.isPinnedCalculator(calculatorID) ? "Unpin calculator" : "Pin calculator")
+        Group {
+            if prefs.subscriptionTier.isPro {
+                content
+                    .environment(\.currentCalculatorID, calculatorID)
+            } else {
+                calculatorPreview
+            }
+        }
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    prefs.togglePinCalculator(calculatorID)
+                } label: {
+                    Image(systemName: prefs.isPinnedCalculator(calculatorID) ? "star.fill" : "star")
+                        .foregroundStyle(prefs.isPinnedCalculator(calculatorID) ? NMColor.accent : NMColor.textPrimary)
                 }
+                .accessibilityLabel(prefs.isPinnedCalculator(calculatorID) ? "Unpin calculator" : "Pin calculator")
             }
-            .onAppear {
-                prefs.recordCalculatorView(calculatorID)
-                AnalyticsService.shared.capture(
-                    "calculator_viewed",
-                    properties: [
-                        "calculator_id": calculatorID,
-                        "preset_provided": !preset.isEmpty
-                    ]
-                )
+        }
+        .onAppear {
+            prefs.recordCalculatorView(calculatorID)
+            AnalyticsService.shared.capture(
+                "calculator_viewed",
+                properties: [
+                    "calculator_id": calculatorID,
+                    "preset_provided": !preset.isEmpty,
+                    "is_pro": prefs.subscriptionTier.isPro
+                ]
+            )
+        }
+    }
+
+    /// Free-tier calculator surface: shows what the calculator is (title +
+    /// short description), then a paywall teaser. Calculators are
+    /// "execute work" tools — partial-preview doesn't make sense (a
+    /// half-functional MAP calculator is worse than a paywall), so the
+    /// whole calculation is Pro-gated.
+    @ViewBuilder
+    private var calculatorPreview: some View {
+        let meta = CalculatorRegistry.entry(byID: calculatorID)
+        ScrollView {
+            VStack(alignment: .leading, spacing: 0) {
+                VStack(alignment: .leading, spacing: NMSpace.md) {
+                    EyebrowLabel("CALCULATOR · \(meta?.category.eyebrowName ?? "")")
+                    Text(meta?.title ?? "Calculator")
+                        .displayEntry()
+                    Text(meta?.subtitle ?? "")
+                        .font(NMFont.displayItalicMD)
+                        .foregroundStyle(NMColor.textSecondary)
+                }
+                PaywallTeaserBlock(entryID: calculatorID, entryCategory: "calculator")
+                    .padding(.top, NMSpace.xxl)
             }
+            .padding(.horizontal, NMSpace.lg)
+            .padding(.top, NMSpace.xxl)
+            .padding(.bottom, NMSpace.huge)
+        }
+        .background(GrainBackground())
     }
 
     @ViewBuilder

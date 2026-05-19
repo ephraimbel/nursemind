@@ -2,11 +2,17 @@ import SwiftUI
 
 public struct DrugEntryView: View {
     private let entry: DrugEntry
+    private let entryCategory: String
     private let citationIndex: [String: Int]
     @State private var prefs = UserPreferences.shared
 
-    public init(entry: DrugEntry) {
+    /// `entryCategory` separates analytics for drugs vs drips — both share
+    /// this renderer (LibraryEntry's `.drug` and `.drip` both wrap
+    /// `DrugEntry`), but they're two distinct browse surfaces and we want
+    /// the conversion funnel split clean.
+    public init(entry: DrugEntry, entryCategory: String = "drug") {
         self.entry = entry
+        self.entryCategory = entryCategory
         var index: [String: Int] = [:]
         for (i, c) in entry.citations.enumerated() {
             index[c.id] = i + 1
@@ -45,7 +51,7 @@ public struct DrugEntryView: View {
             CitationsList(citations: [firstCitation])
                 .padding(.top, NMSpace.lg)
         }
-        PaywallTeaserBlock(entryID: entry.id, entryCategory: "drug")
+        PaywallTeaserBlock(entryID: entry.id, entryCategory: entryCategory)
             .padding(.top, NMSpace.xxl)
     }
 
