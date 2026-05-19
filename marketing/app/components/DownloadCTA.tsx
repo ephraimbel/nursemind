@@ -1,6 +1,16 @@
 import Link from "next/link";
 import { ArrowUpRight } from "./icons";
 
+// Apple's canonical App Store URL. The `/us/app/<slug>/id<numeric-id>` form
+// is the one Apple guarantees stable — the `<slug>` is cosmetic (Apple
+// redirects if it's wrong) and the `<numeric-id>` is the StoreKit adamId
+// for app.nursemind.ios. Confirmed against the App Store Connect listing
+// + crash-report adam_id field. Region prefix `/us/` is fine globally —
+// Apple auto-redirects to the user's storefront based on their device's
+// region setting; without it some browsers route to an empty preview.
+const APP_STORE_URL =
+  "https://apps.apple.com/us/app/nursemind/id6767489231";
+
 export function DownloadCTA() {
   return (
     <section
@@ -9,7 +19,7 @@ export function DownloadCTA() {
     >
       <div className="container-wide pt-24 md:pt-36 pb-24 md:pb-36">
         <div className="max-w-[44rem]">
-          <div className="eyebrow">Now in beta</div>
+          <div className="eyebrow">Now on the App Store</div>
           <h2 className="mt-5 text-[44px] md:text-[72px] lg:text-[88px] leading-[0.98] tracking-[-0.025em]">
             For when you want
             <br />
@@ -22,22 +32,24 @@ export function DownloadCTA() {
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-x-7 gap-y-4">
-            <Link
-              href="https://apps.apple.com/app/nursemind"
+            <a
+              href={APP_STORE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-primary"
             >
               Download for iPhone
               <ArrowUpRight className="w-[14px] h-[14px]" />
-            </Link>
+            </a>
             <Link href="#pricing" className="link-quiet">
               See pricing
             </Link>
           </div>
 
           <p className="mt-10 text-[12.5px] citation">
-            Requires iOS 17 or later · iPhone and iPad · Android coming this
-            year · For study and reference. Not a clinical decision tool, not
-            for use during patient care.
+            Requires iOS 17 or later · iPhone · Android coming this year ·
+            For study and reference. Not a clinical decision tool, not for
+            use during patient care.
           </p>
         </div>
       </div>

@@ -6,7 +6,7 @@ export function Hero() {
     <section className="container-wide pt-24 md:pt-40 lg:pt-52 pb-20 md:pb-28">
       <div className="max-w-[72rem]">
         <div className="eyebrow lift">
-          <span>Now in beta</span>
+          <span>Now on the App Store</span>
           <span className="mx-2 text-[color:var(--color-ink-faint)]">·</span>
           <span>iPhone</span>
         </div>
@@ -38,7 +38,7 @@ export function Hero() {
         </div>
 
         <div className="mt-10 md:mt-14 flex flex-wrap items-center gap-x-6 gap-y-2 text-[13px] text-[color:var(--color-ink-faint)] lift lift-delay-4">
-          <span>iPhone · iPad</span>
+          <span>iPhone</span>
           <span className="hidden sm:inline">·</span>
           <span>Free with optional Pro</span>
           <span className="hidden sm:inline">·</span>
