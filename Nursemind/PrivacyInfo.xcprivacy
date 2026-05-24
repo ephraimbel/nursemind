@@ -15,13 +15,27 @@
         what NurseMind's own code uses.
     -->
 
-    <!-- We don't track users across apps or websites. -->
+    <!--
+        Tracking is enabled because the TikTok Business SDK collects IDFA
+        (when the user grants ATT) for ad attribution across apps/websites.
+        Tracking is gated behind the iOS AppTrackingTransparency prompt
+        shown after the onboarding paywall closes — if the user denies, the
+        SDK still receives aggregate install/conversion events but no IDFA.
+    -->
     <key>NSPrivacyTracking</key>
-    <false/>
+    <true/>
 
-    <!-- No tracking domains. -->
+    <!--
+        Domains the TikTok Business SDK contacts for attribution + event
+        ingestion. Listed here so iOS can enforce them as tracking
+        endpoints when ATT is denied.
+    -->
     <key>NSPrivacyTrackingDomains</key>
-    <array/>
+    <array>
+        <string>business-api.tiktok.com</string>
+        <string>analytics.tiktok.com</string>
+        <string>analytics-sg.tiktok.com</string>
+    </array>
 
     <!--
         Data types we collect, mirroring docs/APP_STORE_PRIVACY.md.
@@ -100,18 +114,24 @@
             </array>
         </dict>
 
-        <!-- Device ID: install-scoped, used only by Sentry / PostHog -->
+        <!--
+            Device ID covers install-scoped IDs (Sentry/PostHog) AND, once
+            the user grants ATT, the IDFA used by the TikTok Business SDK
+            for cross-app ad attribution. Tracking=true reflects the IDFA
+            usage; users who deny ATT get no IDFA passed to TikTok.
+        -->
         <dict>
             <key>NSPrivacyCollectedDataType</key>
             <string>NSPrivacyCollectedDataTypeDeviceID</string>
             <key>NSPrivacyCollectedDataTypeLinked</key>
             <false/>
             <key>NSPrivacyCollectedDataTypeTracking</key>
-            <false/>
+            <true/>
             <key>NSPrivacyCollectedDataTypePurposes</key>
             <array>
                 <string>NSPrivacyCollectedDataTypePurposeAnalytics</string>
                 <string>NSPrivacyCollectedDataTypePurposeAppFunctionality</string>
+                <string>NSPrivacyCollectedDataTypePurposeThirdPartyAdvertising</string>
             </array>
         </dict>
 

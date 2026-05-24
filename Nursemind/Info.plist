@@ -43,6 +43,8 @@
 	<string>NurseMind uses the microphone so you can ask the AI questions by voice. Audio is transcribed entirely on your device and never sent to a server.</string>
 	<key>NSSpeechRecognitionUsageDescription</key>
 	<string>NurseMind transcribes your speech into text so the AI can answer your question. Recognition runs on your device — no audio leaves it.</string>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>Allowing tracking helps us measure which ads bring nurses to NurseMind so we can keep reaching more of you. No clinical, account, or personal information is ever shared.</string>
 	<key>UILaunchScreen</key>
 	<dict/>
 	<key>UIRequiresFullScreen</key>

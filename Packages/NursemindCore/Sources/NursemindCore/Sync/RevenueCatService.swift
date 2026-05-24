@@ -254,6 +254,23 @@ public final class RevenueCatService {
                 "$revenue": revenue
             ]
         )
+        // Mirror to TikTok so the ad optimization algorithm sees both
+        // trial-start and direct-purchase signals. Trial fires zero
+        // revenue (matches the PostHog branch); subscription books the
+        // StoreKit price + currency.
+        let currency = package.storeProduct.currencyCode ?? "USD"
+        if isTrial {
+            TikTokAnalyticsService.shared.trackTrialStart(
+                productID: package.storeProduct.productIdentifier,
+                currency: currency
+            )
+        } else {
+            TikTokAnalyticsService.shared.trackSubscription(
+                productID: package.storeProduct.productIdentifier,
+                price: package.storeProduct.price as Decimal,
+                currency: currency
+            )
+        }
         return .completed
     }
 

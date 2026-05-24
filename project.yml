@@ -40,6 +40,7 @@ targets:
         ITSAppUsesNonExemptEncryption: false
         NSMicrophoneUsageDescription: "NurseMind uses the microphone so you can ask the AI questions by voice. Audio is transcribed entirely on your device and never sent to a server."
         NSSpeechRecognitionUsageDescription: "NurseMind transcribes your speech into text so the AI can answer your question. Recognition runs on your device — no audio leaves it."
+        NSUserTrackingUsageDescription: "Allowing tracking helps us measure which ads bring nurses to NurseMind so we can keep reaching more of you. No clinical, account, or personal information is ever shared."
         NSAppTransportSecurity:
           NSAllowsArbitraryLoads: false
           NSExceptionDomains:

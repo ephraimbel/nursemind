@@ -53,7 +53,14 @@ public struct PaywallView: View {
     /// sheet/fullScreenCover context this falls through to `dismiss()`. In
     /// an inline-onboarding-step context, the parent flow's `onComplete`
     /// callback advances to the next step.
+    ///
+    /// TikTok ATT request fires here so the system prompt comes *after* the
+    /// onboarding paywall instead of stacking on top of notifications
+    /// consent or Sign-In-With-Apple. The iOS ATT API only shows the
+    /// system sheet on the first call; subsequent invocations are no-ops,
+    /// so firing this from every paywall exit is safe.
     private func exit() {
+        TikTokAnalyticsService.shared.requestTrackingAuthorization()
         if let onComplete {
             onComplete()
         } else {
@@ -153,6 +160,7 @@ public struct PaywallView: View {
                 "paywall_viewed",
                 properties: ["source": analyticsSource]
             )
+            TikTokAnalyticsService.shared.trackPaywallView(source: analyticsSource)
         }
     }
 

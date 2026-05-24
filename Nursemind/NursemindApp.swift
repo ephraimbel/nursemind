@@ -29,6 +29,16 @@ struct NursemindApp: App {
             projectToken: Secrets.posthogProjectToken,
             host: Secrets.posthogHost
         )
+        // TikTok Business SDK — install + subscription attribution for the
+        // TikTok paid funnel. No-op when any of the three Secrets is empty,
+        // so dev builds without TikTok keys stay silent. ATT prompt is
+        // explicitly deferred until the onboarding paywall closes (handled
+        // in PaywallView.exit).
+        TikTokAnalyticsService.shared.configure(
+            appID: Secrets.tiktokAppleAppID,
+            tiktokAppID: Secrets.tiktokAppID,
+            accessToken: Secrets.tiktokAccessToken
+        )
     }
 
     var body: some Scene {

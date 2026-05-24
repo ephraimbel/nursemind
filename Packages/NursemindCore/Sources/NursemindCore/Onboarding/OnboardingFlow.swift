@@ -90,6 +90,7 @@ public struct OnboardingFlow: View {
     private func commit() {
         prefs.safetyContractAgreedAt = Date()
         AnalyticsService.shared.capture("onboarding_completed")
+        TikTokAnalyticsService.shared.trackOnboardingComplete()
     }
 
     enum Step: Int {
