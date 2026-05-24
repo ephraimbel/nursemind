@@ -22,6 +22,14 @@ public final class TikTokAnalyticsService {
 
     private var isConfigured = false
 
+    /// Guard against re-firing Login + identify on every auth-state stream
+    /// tick. Same pattern as `RevenueCatService.lastLinkedUserID`.
+    private var lastIdentifiedUserID: UUID?
+
+    /// Bound at `attach()` time and never released. Service is a singleton
+    /// so the retain is intentional.
+    private var supabase: SupabaseService { SupabaseService.shared }
+
     private init() {}
 
     /// Initialize the TikTok Business SDK with the three credentials from
@@ -67,6 +75,56 @@ public final class TikTokAnalyticsService {
         }
     }
 
+    /// Hook the Supabase auth-state stream so we fire Login + identify
+    /// exactly once per signed-in user. Idempotent — safe to call from
+    /// RootView.init even when SwiftUI tears down and rebuilds.
+    ///
+    /// Called from `RootView.init` (after `SupabaseService.configure`)
+    /// rather than `NursemindApp.init` because SupabaseService needs its
+    /// URL + anon key set before its `state` stream is meaningful.
+    public func attach() {
+        observeAuthState()
+    }
+
+    private func observeAuthState() {
+        withObservationTracking { [weak self] in
+            _ = self?.supabase.state
+        } onChange: { [weak self] in
+            Task { @MainActor in
+                self?.observeAuthState()
+                self?.handleAuthStateChange()
+            }
+        }
+        handleAuthStateChange()
+    }
+
+    private func handleAuthStateChange() {
+        guard isConfigured else { return }
+        guard case .signedIn(let userID) = supabase.state else { return }
+        guard lastIdentifiedUserID != userID else { return }
+        lastIdentifiedUserID = userID
+        // identify ties subsequent TikTok events to a stable cross-device
+        // user key. We deliberately pass ONLY the Supabase UUID — never
+        // email or phone — to keep the TikTok ad graph from learning
+        // anything that could touch user PII.
+        TikTokBusiness.identify(
+            withExternalID: userID.uuidString.lowercased(),
+            externalUserName: nil,
+            phoneNumber: nil,
+            email: nil
+        )
+        let event = TikTokBaseEvent(eventName: TTEventName.login.rawValue)
+        TikTokBusiness.trackTTEvent(event)
+    }
+
+    /// Clear the identify guard so a fresh sign-in re-runs identify.
+    /// Wired into the account-deletion path the same way RevenueCat is.
+    public func resetForFreshAccount() {
+        guard isConfigured else { return }
+        lastIdentifiedUserID = nil
+        TikTokBusiness.logout()
+    }
+
     // MARK: - Event helpers
 
     /// User finished the onboarding flow (after the safety contract +
@@ -75,6 +133,34 @@ public final class TikTokAnalyticsService {
     public func trackOnboardingComplete() {
         guard isConfigured else { return }
         let event = TikTokBaseEvent(eventName: TTEventName.registration.rawValue)
+        TikTokBusiness.trackTTEvent(event)
+    }
+
+    /// User finished the in-onboarding showcase flow (the feature tour
+    /// between auth and personalization). TikTok's CompleteTutorial event
+    /// fits this conceptually and is a useful mid-funnel signal between
+    /// Login and Registration.
+    public func trackTutorialComplete() {
+        guard isConfigured else { return }
+        let event = TikTokBaseEvent(eventName: TTEventName.completeTutorial.rawValue)
+        TikTokBusiness.trackTTEvent(event)
+    }
+
+    /// User actively searched (debounced commit, not per-keystroke). We
+    /// deliberately do not pass the query text — search terms in a
+    /// clinical app can carry sensitive intent.
+    public func trackSearch() {
+        guard isConfigured else { return }
+        let event = TikTokBaseEvent(eventName: TTEventName.search.rawValue)
+        TikTokBusiness.trackTTEvent(event)
+    }
+
+    /// User selected a plan and tapped the paywall CTA — declared intent
+    /// to purchase, before the StoreKit sheet appears. Mid-funnel signal
+    /// between paywall view and StartTrial/Subscribe.
+    public func trackAddPaymentInfo() {
+        guard isConfigured else { return }
+        let event = TikTokBaseEvent(eventName: TTEventName.addPaymentInfo.rawValue)
         TikTokBusiness.trackTTEvent(event)
     }
 

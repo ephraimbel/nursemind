@@ -19,6 +19,10 @@ struct RootView: View {
         // change notifications. Initial sync runs as soon as Supabase reports
         // signed-in; subsequent local mutations debounce and push.
         ProfileSyncService.shared.attach()
+        // Hook TikTok analytics into the same auth-state stream so Login
+        // + identify fire exactly once per signed-in user. No-op if the
+        // TikTok SDK wasn't initialized (empty Secrets).
+        TikTokAnalyticsService.shared.attach()
         // Pre-staged behavioral logger — captures library entry view sessions
         // so the v1.5 dynamic suggested feed (BUILD_SPEC §15) has historical
         // signal on launch instead of cold-starting every user. Logs slug +

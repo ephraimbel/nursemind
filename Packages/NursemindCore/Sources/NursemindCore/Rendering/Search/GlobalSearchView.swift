@@ -109,6 +109,7 @@ public struct GlobalSearchView: View {
                                 "has_any_results": hasAnyResults
                             ]
                         )
+                        TikTokAnalyticsService.shared.trackSearch()
                     }
                 }
             }

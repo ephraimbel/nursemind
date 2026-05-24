@@ -355,6 +355,12 @@ public struct PaywallView: View {
     private func beginPurchase() async {
         guard !isWorking else { return }
         errorMessage = nil
+        // Mid-funnel TikTok signal: user has chosen a plan and tapped the
+        // CTA, just before StoreKit's sheet appears. Fires regardless of
+        // whether `packageFor(selectedPlan)` returns nil (no live offering)
+        // — the intent moment is the same; the absence of an offering is
+        // captured separately via the purchase_error event below.
+        TikTokAnalyticsService.shared.trackAddPaymentInfo()
         if let package = packageFor(selectedPlan) {
             isWorking = true
             do {

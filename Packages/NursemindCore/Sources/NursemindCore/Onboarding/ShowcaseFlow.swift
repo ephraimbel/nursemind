@@ -128,6 +128,7 @@ struct ShowcaseFlow: View {
             } else {
                 PrimaryCTAButton(title: "Get started") {
                     Haptic.light()
+                    TikTokAnalyticsService.shared.trackTutorialComplete()
                     onComplete()
                 }
             }
