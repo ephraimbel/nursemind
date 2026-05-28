@@ -238,6 +238,7 @@ public struct AskHomeView: View {
             .frame(maxWidth: 460)
             .frame(maxWidth: .infinity, alignment: .center)
         }
+        .scrollDismissesKeyboard(.interactively)
     }
 
     /// Surfaces the most-recent saved answer above the suggestion list so the

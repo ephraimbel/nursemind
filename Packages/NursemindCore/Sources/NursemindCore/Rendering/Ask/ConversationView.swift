@@ -21,6 +21,7 @@ struct ConversationView: View {
                 .padding(.horizontal, NMSpace.lg)
                 .padding(.top, NMSpace.lg)
             }
+            .scrollDismissesKeyboard(.interactively)
             .onChange(of: viewModel.conversation.messages.last?.content) {
                 guard let last = viewModel.conversation.messages.last else { return }
                 // While streaming: track the bottom edge so the cursor stays in view.
