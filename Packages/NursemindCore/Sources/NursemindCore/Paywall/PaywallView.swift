@@ -54,13 +54,12 @@ public struct PaywallView: View {
     /// an inline-onboarding-step context, the parent flow's `onComplete`
     /// callback advances to the next step.
     ///
-    /// TikTok ATT request fires here so the system prompt comes *after* the
-    /// onboarding paywall instead of stacking on top of notifications
-    /// consent or Sign-In-With-Apple. The iOS ATT API only shows the
-    /// system sheet on the first call; subsequent invocations are no-ops,
-    /// so firing this from every paywall exit is safe.
+    /// The ATT prompt is NOT requested here — it fires from `RootView` on
+    /// the first active scene (the splash) so it reliably appears before
+    /// any IDFA is read. Triggering it from this dismiss transition let iOS
+    /// silently suppress the prompt (the app wasn't cleanly `.active`),
+    /// which is why App Review couldn't find it (Guideline 2.1, 2026-05-30).
     private func exit() {
-        TikTokAnalyticsService.shared.requestTrackingAuthorization()
         if let onComplete {
             onComplete()
         } else {
@@ -107,35 +106,23 @@ public struct PaywallView: View {
                 }
                 legalFooter
                     .padding(.top, NMSpace.sm)
-                // Onboarding-only escape hatch. Renders below the legal footer
-                // so the user finishes reading the offer before they see the
-                // skip option — typical premium-subscription pattern (Calm,
-                // Duolingo Super). In every other context (post-quota Ask,
-                // Profile → Subscription) this is hidden and the X close
-                // button handles dismissal.
-                if onComplete != nil {
-                    Button {
-                        Haptic.light()
-                        exit()
-                    } label: {
-                        Text("Maybe later")
-                            .font(NMFont.bodySM)
-                            .underline()
-                            .foregroundStyle(NMColor.textTertiary)
-                    }
-                    .buttonStyle(.plain)
-                    .padding(.top, NMSpace.md)
-                    .accessibilityLabel("Skip and continue with the free tier")
-                }
+                // Hard paywall: in onboarding there is deliberately no skip
+                // affordance. The only way past this step is to start the
+                // trial / subscribe (which calls `exit()` → `onComplete`) or
+                // restore a prior purchase. Restore + Terms + Privacy live in
+                // the legal footer above, which keeps the screen compliant
+                // with App Review while still gating entry behind conversion.
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding(.horizontal, NMSpace.lg)
 
-            // X close button shown only when the paywall is presented as a
-            // sheet/cover (existing surfaces — Ask quota, Profile → Subscription).
-            // In onboarding the explicit "Maybe later" link below the legal
-            // footer is the dismissal affordance, so we hide the X to avoid
-            // two competing escape paths.
+            // Dismissal affordance, top-right — shown ONLY on the sheet/cover
+            // surfaces (Ask quota, Profile → Subscription, onComplete == nil).
+            // The onboarding paywall (onComplete != nil) is a true hard
+            // paywall: no close button at all. The only way forward is to
+            // start the trial / subscribe (which calls exit() → onComplete)
+            // or restore a prior purchase via the legal footer, which keeps
+            // the screen App-Review compliant while gating entry on conversion.
             if onComplete == nil {
                 FloatingIconButton(
                     systemName: "xmark",

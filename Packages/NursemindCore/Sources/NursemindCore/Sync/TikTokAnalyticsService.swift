@@ -1,4 +1,5 @@
 import Foundation
+import AppTrackingTransparency
 import TikTokBusinessSDK
 
 /// Thin wrapper around `TikTokBusiness` that mirrors the surface of
@@ -14,8 +15,15 @@ import TikTokBusinessSDK
 /// inert by default.
 ///
 /// ATT: the SDK never auto-prompts. `requestTrackingAuthorization()` is
-/// called explicitly from the app once the onboarding paywall closes,
-/// keeping the system prompt out of the onboarding stack.
+/// called explicitly from `RootView` the first time the scene becomes
+/// active — i.e. at the splash, before any IDFA-bearing tracking data is
+/// collected. We call Apple's `ATTrackingManager` directly (rather than
+/// TikTok's wrapper) so the prompt is independent of SDK-config state and
+/// fires deterministically on a fresh install; the TikTok SDK reads the
+/// resulting ATT status itself to gate IDFA. Firing during a view
+/// transition (the old paywall-exit trigger) let iOS silently suppress the
+/// prompt when the app wasn't cleanly `.active` — which is why App Review
+/// 2026-05-30 couldn't locate it (Guideline 2.1).
 @MainActor
 public final class TikTokAnalyticsService {
     public static let shared = TikTokAnalyticsService()
@@ -63,15 +71,23 @@ public final class TikTokAnalyticsService {
         isConfigured = true
     }
 
-    /// Request iOS ATT permission for IDFA tracking. Wired to fire when
-    /// the onboarding paywall closes so the system prompt doesn't stack
-    /// on top of notifications-consent or Sign-In-With-Apple.
+    /// Present the iOS App Tracking Transparency prompt. Called from
+    /// `RootView` on the first `.active` scene phase so the system sheet
+    /// appears at the splash, before any IDFA is read.
+    ///
+    /// Deliberately NOT gated on `isConfigured`: the prompt must show even
+    /// in builds without TikTok keys, and the system API only displays the
+    /// sheet once ever (when status is `.notDetermined`) — every later call
+    /// is a no-op — so the explicit `.notDetermined` guard just avoids the
+    /// pointless re-entry. We call Apple's framework directly; the TikTok
+    /// SDK reads ATT status on its own to decide whether it may use the
+    /// IDFA, so no hand-off is required.
     public func requestTrackingAuthorization() {
-        guard isConfigured else { return }
-        TikTokBusiness.requestTrackingAuthorization { _ in
-            // The status is fine to ignore — TikTok stores it internally
-            // and gates IDFA-bearing requests on it. Nothing else in the
-            // app branches on ATT state today.
+        guard ATTrackingManager.trackingAuthorizationStatus == .notDetermined else { return }
+        ATTrackingManager.requestTrackingAuthorization { _ in
+            // The status is fine to ignore — TikTok reads it internally and
+            // gates IDFA-bearing requests on it. Nothing else in the app
+            // branches on ATT state today.
         }
     }
 

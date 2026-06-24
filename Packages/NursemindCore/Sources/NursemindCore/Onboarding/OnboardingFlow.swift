@@ -61,7 +61,9 @@ public struct OnboardingFlow: View {
         case .notificationsConsent:
             NotificationsConsentView { navigate(to: .safetyContract) }
         case .safetyContract:
-            SafetyContractView { navigate(to: .paywall) }
+            SafetyContractView { navigate(to: .reviews) }
+        case .reviews:
+            ReviewsView { navigate(to: .paywall) }
         case .paywall:
             OnboardingPaywallStep { navigate(to: .success) }
         case .success:
@@ -101,6 +103,7 @@ public struct OnboardingFlow: View {
         case personalization
         case notificationsConsent
         case safetyContract
+        case reviews
         case paywall
         case success
 
@@ -113,6 +116,7 @@ public struct OnboardingFlow: View {
             case .personalization:       return "personalization"
             case .notificationsConsent:  return "notifications_consent"
             case .safetyContract:        return "safety_contract"
+            case .reviews:               return "reviews"
             case .paywall:               return "paywall"
             case .success:               return "success"
             }

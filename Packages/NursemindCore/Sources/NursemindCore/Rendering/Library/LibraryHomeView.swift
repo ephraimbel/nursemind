@@ -355,6 +355,11 @@ public struct LibraryHomeView: View {
 
 private struct CalculatorHomeRow: View {
     let entry: CalculatorEntry
+    @State private var prefs = UserPreferences.shared
+
+    private var locked: Bool {
+        !prefs.subscriptionTier.isPro && !FreeTier.isFreeCalculator(entry.id)
+    }
 
     var body: some View {
         HStack(alignment: .center, spacing: NMSpace.base) {
@@ -368,9 +373,16 @@ private struct CalculatorHomeRow: View {
                     .lineLimit(1)
             }
             Spacer(minLength: 0)
-            Image(systemName: "chevron.right")
-                .font(.system(size: 14, weight: .regular))
-                .foregroundStyle(NMColor.accent)
+            if locked {
+                Image(systemName: "lock.fill")
+                    .font(.system(size: 12, weight: .regular))
+                    .foregroundStyle(NMColor.textTertiary)
+                    .accessibilityLabel("Pro")
+            } else {
+                Image(systemName: "chevron.right")
+                    .font(.system(size: 14, weight: .regular))
+                    .foregroundStyle(NMColor.accent)
+            }
         }
         .padding(.vertical, NMSpace.base)
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -382,6 +394,11 @@ private struct CalculatorHomeRow: View {
 
 struct EntryRow: View {
     let entry: LibraryEntry
+    @State private var prefs = UserPreferences.shared
+
+    private var locked: Bool {
+        !prefs.subscriptionTier.isPro && !FreeTier.isFreeEntry(entry.id)
+    }
 
     var body: some View {
         HStack(alignment: .center, spacing: NMSpace.base) {
@@ -399,9 +416,16 @@ struct EntryRow: View {
                     .foregroundStyle(NMColor.textTertiary)
             }
             Spacer(minLength: 0)
-            Image(systemName: "chevron.right")
-                .font(.system(size: 14, weight: .regular))
-                .foregroundStyle(NMColor.accent)
+            if locked {
+                Image(systemName: "lock.fill")
+                    .font(.system(size: 12, weight: .regular))
+                    .foregroundStyle(NMColor.textTertiary)
+                    .accessibilityLabel("Pro")
+            } else {
+                Image(systemName: "chevron.right")
+                    .font(.system(size: 14, weight: .regular))
+                    .foregroundStyle(NMColor.accent)
+            }
         }
         .padding(.vertical, NMSpace.base)
         .frame(maxWidth: .infinity, alignment: .leading)

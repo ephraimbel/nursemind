@@ -17,7 +17,7 @@ public struct CalculatorDetailRouter: View {
 
     public var body: some View {
         Group {
-            if prefs.subscriptionTier.isPro {
+            if prefs.subscriptionTier.isPro || FreeTier.isFreeCalculator(calculatorID) {
                 content
                     .environment(\.currentCalculatorID, calculatorID)
             } else {
