@@ -27,16 +27,20 @@ struct WelcomeView: View {
     /// so the image bleeds edge-to-edge; the content layer above keeps its
     /// own safe-area insets so the CTA never sits under the home indicator.
     private var backgroundLayer: some View {
-        GeometryReader { geo in
-            Image("WelcomeBackground", bundle: .module)
-                .resizable()
-                .scaledToFill()
-                .frame(width: geo.size.width, height: geo.size.height)
-                .clipped()
-                .overlay(scrim)
-        }
-        .ignoresSafeArea()
-        .accessibilityHidden(true)
+        // Plain full-bleed fill rather than a GeometryReader — the latter can
+        // briefly report a zero/changing size on first layout, which flickered
+        // the photo as the page slid in. scaledToFill + clipped fills the
+        // screen and crops overflow without that first-pass jump.
+        Color.clear
+            .overlay(
+                Image("WelcomeBackground", bundle: .module)
+                    .resizable()
+                    .scaledToFill()
+            )
+            .clipped()
+            .overlay(scrim)
+            .ignoresSafeArea()
+            .accessibilityHidden(true)
     }
 
     // MARK: - Scrim

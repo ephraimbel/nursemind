@@ -25,16 +25,21 @@ public struct OnboardingFlow: View {
     /// Asymmetric transition derived from current direction. Going forward,
     /// the new step slides in from the trailing edge while the old slides
     /// out to leading. Going back, it's mirrored.
+    ///
+    /// Pure `.move` (no opacity cross-fade): each step paints its own opaque,
+    /// full-screen background, so fading them would briefly reveal the cream
+    /// backdrop behind — visibly rough when sliding into/out of the dark
+    /// full-bleed WelcomeView photo. A clean push keeps every frame covered.
     private var directionalTransition: AnyTransition {
         if isForward {
             return .asymmetric(
-                insertion: .move(edge: .trailing).combined(with: .opacity),
-                removal: .move(edge: .leading).combined(with: .opacity)
+                insertion: .move(edge: .trailing),
+                removal: .move(edge: .leading)
             )
         } else {
             return .asymmetric(
-                insertion: .move(edge: .leading).combined(with: .opacity),
-                removal: .move(edge: .trailing).combined(with: .opacity)
+                insertion: .move(edge: .leading),
+                removal: .move(edge: .trailing)
             )
         }
     }
