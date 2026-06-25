@@ -5,6 +5,11 @@ import UIKit
 struct RootView: View {
     @State private var router = AppRouter.shared
     @State private var prefs = UserPreferences.shared
+    @Environment(\.scenePhase) private var scenePhase
+    /// One-shot guard so we attempt the ATT prompt only on the first
+    /// `.active` transition. The system API is itself idempotent, but
+    /// re-requesting on every foreground is noise.
+    @State private var hasRequestedTracking = false
 
     init() {
         // Hand the Supabase URL + anon key to the core service before any
@@ -60,6 +65,23 @@ struct RootView: View {
         // so genuine accessibility needs are honored within reason.
         .dynamicTypeSize(...DynamicTypeSize.large)
         .animation(.easeInOut(duration: 0.4), value: prefs.hasCompletedOnboarding)
+        // App Tracking Transparency. Fired on the first time the scene is
+        // fully `.active` — the splash — so the system prompt appears before
+        // the TikTok SDK reads the IDFA for ad attribution, and reliably
+        // shows on a fresh install regardless of how far the user gets in
+        // onboarding. iOS silently suppresses requestTrackingAuthorization
+        // unless the app is foreground-active, which is exactly why the old
+        // paywall-exit trigger was invisible to App Review (Guideline 2.1,
+        // 2026-05-30). A short delay lets the key window finish coming up so
+        // the sheet has something to attach to.
+        .onChange(of: scenePhase, initial: true) { _, phase in
+            guard phase == .active, !hasRequestedTracking else { return }
+            hasRequestedTracking = true
+            Task { @MainActor in
+                try? await Task.sleep(for: .milliseconds(500))
+                TikTokAnalyticsService.shared.requestTrackingAuthorization()
+            }
+        }
     }
 
     private var mainAppView: some View {

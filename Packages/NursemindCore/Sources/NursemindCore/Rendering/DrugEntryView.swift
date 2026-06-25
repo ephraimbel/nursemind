@@ -23,7 +23,7 @@ public struct DrugEntryView: View {
     public var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 0) {
-                if prefs.subscriptionTier.isPro {
+                if prefs.subscriptionTier.isPro || FreeTier.isFreeEntry(entry.id) {
                     fullContent
                 } else {
                     previewContent

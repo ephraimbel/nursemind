@@ -31,9 +31,10 @@ struct NursemindApp: App {
         )
         // TikTok Business SDK — install + subscription attribution for the
         // TikTok paid funnel. No-op when any of the three Secrets is empty,
-        // so dev builds without TikTok keys stay silent. ATT prompt is
-        // explicitly deferred until the onboarding paywall closes (handled
-        // in PaywallView.exit).
+        // so dev builds without TikTok keys stay silent. The SDK does not
+        // read the IDFA until ATT is authorized; the ATT prompt itself is
+        // fired from RootView on first scene-active (before any tracking
+        // data is collected).
         TikTokAnalyticsService.shared.configure(
             appID: Secrets.tiktokAppleAppID,
             tiktokAppID: Secrets.tiktokAppID,

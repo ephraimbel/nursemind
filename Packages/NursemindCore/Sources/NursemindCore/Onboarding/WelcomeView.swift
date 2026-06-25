@@ -1,9 +1,11 @@
 import SwiftUI
 
-/// First impression after the splash. Editorial layout: small logo at top,
-/// dramatic 4-line hero headline (72pt — much larger than displayXL), then
-/// a 3-line italic subtitle that establishes trust + scope + setting.
-/// Staggered fade-up on appear gives the page life. Reduce Motion respected.
+/// First impression after the splash. A full-bleed editorial photograph of
+/// nurses fills the screen. The wordmark sits quietly at the top; a compact,
+/// centered text block — serif hero, italic subtitle, CTA — is anchored at
+/// the bottom over a gradient scrim, leaving the middle of the frame to the
+/// photograph. Copy fades up on appear. No motion gimmicks. Reduce Motion
+/// respected.
 struct WelcomeView: View {
     let onContinue: () -> Void
 
@@ -12,123 +14,138 @@ struct WelcomeView: View {
 
     var body: some View {
         ZStack {
-            NMColor.bgPrimary.ignoresSafeArea()
-            VStack(alignment: .leading, spacing: 0) {
-                Spacer(minLength: NMSpace.lg)   // flex top — pushes everything down
-                logo
-                Spacer().frame(height: NMSpace.xxl)
-                hero
-                Spacer().frame(height: NMSpace.xxl)
-                subtitle
-                Spacer().frame(height: NMSpace.xl)
-                sparkleDivider
-                Spacer().frame(height: NMSpace.xl)
-                actions
-            }
-            .padding(.horizontal, NMSpace.lg)
+            backgroundLayer
+            content
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
         .task { await stagger() }
     }
 
-    /// Editorial chapter-break divider — hairline · sparkle · hairline.
-    /// Marks the transition from "what we are" (the editorial block above)
-    /// to "begin" (the CTAs below). Fills the bottom gap with visual rhythm
-    /// rather than empty space, in the spirit of magazine layout marks.
-    private var sparkleDivider: some View {
-        HStack(spacing: NMSpace.md) {
-            Rectangle()
-                .fill(NMColor.borderSubtle)
-                .frame(height: 1)
-            Image(systemName: "sparkle")
-                .font(.system(size: 12, weight: .regular))
-                .foregroundStyle(NMColor.accent)
-            Rectangle()
-                .fill(NMColor.borderSubtle)
-                .frame(height: 1)
+    // MARK: - Background photograph
+
+    /// Full-bleed photo filling the entire background. Ignores the safe area
+    /// so the image bleeds edge-to-edge; the content layer above keeps its
+    /// own safe-area insets so the CTA never sits under the home indicator.
+    private var backgroundLayer: some View {
+        GeometryReader { geo in
+            Image("WelcomeBackground", bundle: .module)
+                .resizable()
+                .scaledToFill()
+                .frame(width: geo.size.width, height: geo.size.height)
+                .clipped()
+                .overlay(scrim)
         }
-        .opacity(visible[2] ? 1 : 0)
+        .ignoresSafeArea()
+        .accessibilityHidden(true)
+    }
+
+    // MARK: - Scrim
+
+    /// A soft cap at the top so the white wordmark reads against the warm
+    /// ceiling, a clear window through the middle for the subject, and a
+    /// strong bottom wash that seats the headline / subtitle / CTA.
+    private var scrim: some View {
+        LinearGradient(
+            stops: [
+                .init(color: .black.opacity(0.42), location: 0.0),
+                .init(color: .black.opacity(0.0),  location: 0.24),
+                .init(color: .black.opacity(0.0),  location: 0.46),
+                .init(color: .black.opacity(0.45), location: 0.66),
+                .init(color: .black.opacity(0.92), location: 1.0)
+            ],
+            startPoint: .top,
+            endPoint: .bottom
+        )
+    }
+
+    // MARK: - Content
+
+    private var content: some View {
+        VStack(alignment: .center, spacing: 0) {
+            logo
+                .padding(.top, NMSpace.sm)
+            Spacer(minLength: NMSpace.xl)
+            hero
+            Spacer().frame(height: NMSpace.md)
+            subtitle
+            Spacer().frame(height: NMSpace.xl)
+            actions
+        }
+        .frame(maxWidth: .infinity)
+        .padding(.horizontal, NMSpace.lg)
+        .padding(.bottom, NMSpace.xl)
     }
 
     // MARK: - Logo
 
     private var logo: some View {
-        NursemindLogo(size: 48)
+        NursemindLogo(size: 30, color: .white)
+            .shadow(color: .black.opacity(0.4), radius: 12, y: 2)
             .opacity(visible[0] ? 1 : 0)
-            .offset(y: visible[0] ? 0 : 12)
+            .offset(y: visible[0] ? 0 : 10)
     }
 
     // MARK: - Hero
 
-    /// Big editorial display, 76pt Instrument Serif. Four lines with italic
-    /// green "trust." dropped to its own line for dramatic emphasis — magazine
-    /// pull-quote treatment. Per-line VStack gives explicit control over
-    /// line breaks (avoids `\n` truncation issues with concatenated Text).
+    /// Two-line centered serif headline (44pt Instrument Serif), with the
+    /// italic green "trust." carrying the accent. Kept compact so it sits in
+    /// the lower band of the frame rather than over the subject's face.
     private var hero: some View {
-        // 76pt fills the 430pt Pro Max width beautifully, but on 375pt SE
-        // "companion" is the widest word (~304pt at 76pt) and would clip.
-        // `minimumScaleFactor(0.82)` lets each line shrink to ~62pt on
-        // narrow widths — still editorial in scale, never truncated.
-        // `lineLimit(1)` is safe because each Text holds a single word.
-        let serifRegular = Font.custom("InstrumentSerif-Regular", size: 76, relativeTo: .largeTitle)
-        let serifItalic  = Font.custom("InstrumentSerif-Italic",  size: 76, relativeTo: .largeTitle)
+        let serifRegular = Font.custom("InstrumentSerif-Regular", size: 44, relativeTo: .largeTitle)
+        let serifItalic  = Font.custom("InstrumentSerif-Italic",  size: 44, relativeTo: .largeTitle)
 
-        return VStack(alignment: .leading, spacing: -16) {
-            Text("A nursing")
+        return VStack(spacing: -4) {
+            Text("A nursing companion")
                 .font(serifRegular)
-                .foregroundStyle(NMColor.textPrimary)
+                .foregroundStyle(.white)
                 .lineLimit(1)
-                .minimumScaleFactor(0.82)
-            Text("companion")
-                .font(serifRegular)
-                .foregroundStyle(NMColor.textPrimary)
-                .lineLimit(1)
-                .minimumScaleFactor(0.82)
-            Text("you can")
-                .font(serifRegular)
-                .foregroundStyle(NMColor.textPrimary)
-                .lineLimit(1)
-                .minimumScaleFactor(0.82)
+                .minimumScaleFactor(0.7)
             HStack(alignment: .firstTextBaseline, spacing: 0) {
+                Text("you can ")
+                    .font(serifRegular)
+                    .foregroundStyle(.white)
                 Text("trust")
                     .font(serifItalic)
                     .foregroundStyle(NMColor.accent)
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.82)
                 Text(".")
                     .font(serifRegular)
-                    .foregroundStyle(NMColor.textPrimary)
+                    .foregroundStyle(.white)
             }
+            .lineLimit(1)
+            .minimumScaleFactor(0.7)
         }
+        .multilineTextAlignment(.center)
+        .frame(maxWidth: .infinity)
+        .shadow(color: .black.opacity(0.5), radius: 16, y: 3)
         .opacity(visible[1] ? 1 : 0)
-        .offset(y: visible[1] ? 0 : 12)
+        .offset(y: visible[1] ? 0 : 10)
     }
 
     // MARK: - Subtitle
 
-    /// Three short editorial statements stacked. Italic, textSecondary.
-    /// Establishes trust (cited), scope (NCLEX), and setting (bedside).
-    /// Replaces the capability list with quieter editorial rhythm.
+    /// Three short editorial statements, centered under the hero. Trust
+    /// (cited), audience (curious nurses), and the ask-to-learn promise.
     private var subtitle: some View {
-        VStack(alignment: .leading, spacing: NMSpace.xs) {
+        VStack(spacing: NMSpace.xs) {
             Text("Cited at every claim.")
-            Text("Aligned to NCLEX-RN.")
-            Text("Calm at every shift.")
+            Text("Built for curious nurses.")
+            Text("Ask, and understand why.")
         }
         .font(NMFont.displayItalicMD)
-        .foregroundStyle(NMColor.textSecondary)
+        .foregroundStyle(.white.opacity(0.92))
+        .multilineTextAlignment(.center)
+        .frame(maxWidth: .infinity)
+        .shadow(color: .black.opacity(0.45), radius: 10, y: 2)
         .opacity(visible[2] ? 1 : 0)
-        .offset(y: visible[2] ? 0 : 12)
+        .offset(y: visible[2] ? 0 : 10)
     }
 
     // MARK: - Actions
 
     private var actions: some View {
-        VStack(spacing: NMSpace.md) {
-            PrimaryCTAButton(title: "Get started", action: onContinue)
-        }
-        .padding(.bottom, NMSpace.xl)
-        .opacity(visible[3] ? 1 : 0)
-        .offset(y: visible[3] ? 0 : 12)
+        PrimaryCTAButton(title: "Get started", action: onContinue)
+            .opacity(visible[3] ? 1 : 0)
+            .offset(y: visible[3] ? 0 : 10)
     }
 
     // MARK: - Stagger

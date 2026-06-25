@@ -43,6 +43,11 @@ public struct CalculatorListView: View {
 
 private struct CalculatorRow: View {
     let entry: CalculatorEntry
+    @State private var prefs = UserPreferences.shared
+
+    private var locked: Bool {
+        !prefs.subscriptionTier.isPro && !FreeTier.isFreeCalculator(entry.id)
+    }
 
     var body: some View {
         HStack(alignment: .center, spacing: NMSpace.base) {
@@ -56,9 +61,10 @@ private struct CalculatorRow: View {
                     .lineLimit(2)
             }
             Spacer(minLength: 0)
-            Image(systemName: "chevron.right")
-                .font(.system(size: 14, weight: .regular))
+            Image(systemName: locked ? "lock.fill" : "chevron.right")
+                .font(.system(size: locked ? 12 : 14, weight: .regular))
                 .foregroundStyle(NMColor.textTertiary)
+                .accessibilityLabel(locked ? "Pro" : "")
         }
         .padding(.vertical, NMSpace.base)
         .frame(maxWidth: .infinity, alignment: .leading)
