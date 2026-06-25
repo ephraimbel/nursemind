@@ -5,7 +5,7 @@ import SwiftUI
 /// scope the visible items to a category or to the user's saved set.
 struct FeedListView: View {
     @State private var store = FeedStore.shared
-    @State private var activeFilter: FeedFilter = .all
+    @State private var activeFilter: FeedFilter = .thisWeek
 
     var body: some View {
         ScrollView {
@@ -51,7 +51,7 @@ struct FeedListView: View {
                 .font(NMFont.displayXL)
                 .tracking(-1.6)
                 .foregroundStyle(NMColor.textPrimary)
-            Text("Curated clinical updates from the FDA, CDC, and MMWR. Every claim cited.")
+            Text("Curated clinical updates from federal health agencies and open-access journals. Every claim cited.")
                 .font(NMFont.displayItalicSM)
                 .foregroundStyle(NMColor.textSecondary)
                 .lineSpacing(2)
@@ -61,6 +61,9 @@ struct FeedListView: View {
     private var filterRow: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: NMSpace.sm) {
+                FeedFilterChip(label: "THIS WEEK", isActive: activeFilter == .thisWeek) {
+                    activeFilter = .thisWeek
+                }
                 FeedFilterChip(label: "ALL", isActive: activeFilter == .all) {
                     activeFilter = .all
                 }
@@ -121,7 +124,9 @@ struct FeedListView: View {
                     FeedEmptyState(kind: .noSaved, onRetry: refreshNow)
                 case .category(let cat):
                     FeedEmptyState(kind: .noInCategory(cat.label), onRetry: refreshNow)
-                case .all:
+                case .thisWeek, .all:
+                    // .thisWeek falls back to the full list when its window is
+                    // empty, so this only renders when the whole feed is empty.
                     FeedEmptyState(kind: .empty, onRetry: refreshNow)
                 }
             } else {
@@ -131,9 +136,16 @@ struct FeedListView: View {
     }
 
     /// Items visible under the current filter. `store.items` is server-ordered
-    /// by published_at desc, so filtering preserves recency order.
+    /// by rank_score desc, so filtering preserves the ranked order.
     private var filteredItems: [FeedItem] {
         switch activeFilter {
+        case .thisWeek:
+            // Rolling 7-day window. Graceful fallback: if nothing landed in the
+            // last week (sparse-publishing day, or a cold backend), show the
+            // full ranked list rather than stranding the default tab on empty.
+            let cutoff = Date().addingTimeInterval(-7 * 24 * 60 * 60)
+            let recent = store.items.filter { $0.displayDate >= cutoff }
+            return recent.isEmpty ? store.items : recent
         case .all:
             return store.items
         case .saved:
@@ -149,7 +161,7 @@ struct FeedListView: View {
     private var usesLeadLayout: Bool {
         switch activeFilter {
         case .saved: return false
-        case .all, .category: return true
+        case .thisWeek, .all, .category: return true
         }
     }
 
@@ -230,6 +242,7 @@ struct FeedListView: View {
 /// Top-of-list filter scope. Persisted only in-memory for the session —
 /// every cold launch resets to .all so the user always sees the day's news.
 enum FeedFilter: Hashable {
+    case thisWeek
     case all
     case saved
     case category(FeedItem.Category)

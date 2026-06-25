@@ -106,6 +106,7 @@ private struct InAppDocLink: View {
                     .foregroundStyle(NMColor.textTertiary)
             }
             .padding(.vertical, NMSpace.base)
+            .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
     }

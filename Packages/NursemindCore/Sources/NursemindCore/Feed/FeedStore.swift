@@ -24,6 +24,15 @@ public final class FeedStore {
         case failed(String)
     }
 
+    /// Engagement signals fed to `feed_engagement_bump`. Powers the ranked sort
+    /// (feed_items_ranked) and post-launch success metrics. Aggregate only.
+    public enum EngagementEvent: String {
+        case view
+        case read
+        case save
+        case ask
+    }
+
     public private(set) var items: [FeedItem] = []
     public private(set) var loadState: LoadState = .idle
     public private(set) var savedIDs: Set<UUID> = []
@@ -111,6 +120,7 @@ public final class FeedStore {
                     .upsert(row)
                     .execute()
                 savedIDs.insert(itemID)
+                bumpEngagement(itemID, .save)
             }
         } catch {
             feedLog.error("toggleSave failed: \(error.localizedDescription, privacy: .public)")
@@ -146,18 +156,38 @@ public final class FeedStore {
     // MARK: - Network primitives
 
     private func fetchItems(client: SupabaseClient) async throws -> [FeedItem] {
-        // Order by the real source publish date (when FDA/CDC released the
-        // item) with our own published_at as tiebreaker for items lacking
-        // a pubDate in their RSS. nullsFirst:false sinks null-source items
-        // below dated ones rather than to the top of the feed.
+        // Order by rank_score (freshness-decay + 7-day engagement) so the feed
+        // visibly moves day-to-day and week-to-week. source_published_at is the
+        // tiebreaker for items with equal scores (e.g. all fresh, zero
+        // engagement on cold start, where rank_score collapses to recency).
+        // FeedItem ignores the extra rank_score column at decode time.
         try await client
-            .from("feed_items_visible")
+            .from("feed_items_ranked")
             .select()
+            .order("rank_score", ascending: false, nullsFirst: false)
             .order("source_published_at", ascending: false, nullsFirst: false)
-            .order("published_at", ascending: false)
             .limit(pageSize)
             .execute()
             .value
+    }
+
+    /// Fire-and-forget engagement signal. Drives the ranked sort and metrics.
+    /// Failures are swallowed — a missed counter is never worth surfacing.
+    /// Safe to over-call (e.g. card re-appears on scroll); counters are additive.
+    public func bumpEngagement(_ itemID: UUID, _ event: EngagementEvent) {
+        guard let client = SupabaseService.shared.client else { return }
+        Task {
+            do {
+                try await client
+                    .rpc("feed_engagement_bump", params: [
+                        "p_item_id": itemID.uuidString,
+                        "p_event":   event.rawValue,
+                    ])
+                    .execute()
+            } catch {
+                feedLog.debug("bumpEngagement(\(event.rawValue, privacy: .public)) failed: \(error.localizedDescription, privacy: .public)")
+            }
+        }
     }
 
     private func fetchSavedIDs(client: SupabaseClient) async throws -> Set<UUID> {

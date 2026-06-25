@@ -110,6 +110,7 @@ private struct SubcategoryRow: View {
         }
         .padding(.vertical, NMSpace.base)
         .frame(maxWidth: .infinity, alignment: .leading)
+        .contentShape(Rectangle())
     }
 }
 

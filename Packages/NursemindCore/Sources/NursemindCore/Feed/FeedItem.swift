@@ -1,4 +1,5 @@
 import Foundation
+import SwiftUI
 
 /// Wire format for `public.feed_items_visible` (the security-invoker view
 /// over published Feed items). Mirrors the migration schema in
@@ -92,10 +93,41 @@ public extension FeedItem {
     /// a label table — adding a new source means one map entry here.
     var authorityLabel: String {
         switch source {
-        case "fda-drugs", "fda-medwatch": return "FDA"
-        case "cdc-han":                   return "CDC"
-        case "cdc-mmwr":                  return "CDC MMWR"
-        default:                          return source.uppercased()
+        case "fda-drugs", "fda-medwatch", "fda-enforcement", "fda-shortages":
+            return "FDA"
+        case "cdc-newsroom", "cdc-han", "cdc-outbreaks":
+            return "CDC"
+        case "cdc-mmwr":
+            return "CDC MMWR"
+        case "cdc-eid":
+            return "CDC EID"
+        case "plos-medicine", "plos-gph":
+            return "PLOS"
+        case "fedreg-rn", "fedreg-cms":
+            return "Federal Register"
+        case "osha-news":
+            return "OSHA"
+        default:
+            return source.uppercased()
+        }
+    }
+
+    /// Editorial source tone for the authority eyebrow. Each source family maps
+    /// to a desaturated bibliography color so a feed mixing FDA, CDC, journals,
+    /// and regulators reads as a curated wire — never the single FDA navy that
+    /// previously tinted every item regardless of origin.
+    var authorityColor: Color {
+        switch source {
+        case "fda-drugs", "fda-medwatch", "fda-enforcement", "fda-shortages":
+            return NMColor.sourceFDA        // classical navy — drug regulation
+        case "cdc-newsroom", "cdc-han", "cdc-outbreaks", "cdc-mmwr", "osha-news":
+            return NMColor.sourceAgency     // letterhead slate — public-health agencies
+        case "cdc-eid", "plos-medicine", "plos-gph":
+            return NMColor.sourceJournal    // aged burgundy — peer-reviewed
+        case "fedreg-rn", "fedreg-cms":
+            return NMColor.sourceGuideline  // institutional slate — regulation
+        default:
+            return NMColor.sourceAgency
         }
     }
 

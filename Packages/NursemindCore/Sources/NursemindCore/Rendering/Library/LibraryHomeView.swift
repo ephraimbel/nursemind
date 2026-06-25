@@ -386,6 +386,7 @@ private struct CalculatorHomeRow: View {
         }
         .padding(.vertical, NMSpace.base)
         .frame(maxWidth: .infinity, alignment: .leading)
+        .contentShape(Rectangle())
     }
 }
 
@@ -429,6 +430,7 @@ struct EntryRow: View {
         }
         .padding(.vertical, NMSpace.base)
         .frame(maxWidth: .infinity, alignment: .leading)
+        .contentShape(Rectangle())
     }
 }
 
@@ -486,6 +488,8 @@ private struct CategoryRow: View {
                 .padding(.leading, NMSpace.sm)
         }
         .padding(.vertical, NMSpace.base)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .contentShape(Rectangle())
     }
 }
 
@@ -518,6 +522,8 @@ private struct SavedSummaryRow: View {
                 .padding(.leading, NMSpace.sm)
         }
         .padding(.vertical, NMSpace.base)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .contentShape(Rectangle())
     }
 
     private var subtitle: String {

@@ -2,7 +2,6 @@ import SwiftUI
 
 public enum ProfileDestination: Hashable {
     case editProfile
-    case appearance
     case notifications
     case manageSubscription
     case editorialStandards
@@ -19,8 +18,17 @@ public struct ProfileHomeView: View {
     @State private var isDeletingAccount: Bool = false
     @State private var deletionErrorMessage: String?
     @Environment(\.modelContext) private var modelContext
+    @Environment(\.colorScheme) private var systemColorScheme
 
     public init() {}
+
+    private var isDarkMode: Bool {
+        switch prefs.preferredAppearance {
+        case .light:  return false
+        case .dark:   return true
+        case .system: return systemColorScheme == .dark
+        }
+    }
 
     public var body: some View {
         NavigationStack(path: $path) {
@@ -72,7 +80,6 @@ public struct ProfileHomeView: View {
             .navigationDestination(for: ProfileDestination.self) { dest in
                 switch dest {
                 case .editProfile:        EditProfileView()
-                case .appearance:         AppearanceSettingsView()
                 case .notifications:      NotificationsSettingsView()
                 case .manageSubscription: ManageSubscriptionView()
                 case .editorialStandards: EditorialStandardsView()
@@ -85,11 +92,35 @@ public struct ProfileHomeView: View {
         }
     }
 
+    // MARK: - Appearance toggle
+
+    /// Inline sun/moon switch, top-right of the header row (no nav-bar toolbar,
+    /// so the Profile header stays aligned with Feed and Library). Shows the icon
+    /// for the mode you'd switch *to*: a sun while dark, a moon while light.
+    private var appearanceToggle: some View {
+        Button {
+            Haptic.selection()
+            withAnimation(.snappy(duration: 0.25)) {
+                prefs.preferredAppearance = isDarkMode ? .light : .dark
+            }
+        } label: {
+            Image(systemName: isDarkMode ? "sun.max" : "moon")
+                .font(.system(size: 17, weight: .regular))
+                .foregroundStyle(NMColor.textPrimary)
+                .contentTransition(.symbolEffect(.replace))
+        }
+        .accessibilityLabel(isDarkMode ? "Switch to light mode" : "Switch to dark mode")
+    }
+
     // MARK: - Header
 
     private var header: some View {
         VStack(alignment: .leading, spacing: NMSpace.md) {
-            EyebrowLabel("YOUR PROFILE")
+            HStack(alignment: .center) {
+                EyebrowLabel("YOUR PROFILE")
+                Spacer()
+                appearanceToggle
+            }
             Text(prefs.displayName.isEmpty ? "Set your name" : prefs.displayName)
                 .displayXL()
                 .lineLimit(2)
@@ -140,12 +171,6 @@ public struct ProfileHomeView: View {
                 label: "Notifications",
                 value: prefs.notificationsEnabled ? "On" : "Off",
                 destination: .notifications
-            )
-            Hairline(color: NMColor.borderSubtle)
-            ProfileLinkRow(
-                label: "Appearance",
-                value: prefs.preferredAppearance.displayName,
-                destination: .appearance
             )
             Hairline(color: NMColor.borderSubtle)
             ProfileLinkRow(
@@ -308,10 +333,36 @@ private struct SubscriptionCard: View {
         .background(
             RoundedRectangle(cornerRadius: 14)
                 .fill(NMColor.bgElevated)
-                .overlay(
-                    RoundedRectangle(cornerRadius: 14)
-                        .stroke(NMColor.borderSubtle, lineWidth: 1)
-                )
+                .shadow(color: glowColor, radius: isUpgrade ? 22 : 0, x: 0, y: isUpgrade ? 8 : 0)
+                .shadow(color: glowColor.opacity(0.6), radius: isUpgrade ? 7 : 0, x: 0, y: isUpgrade ? 2 : 0)
+        )
+        .overlay(
+            RoundedRectangle(cornerRadius: 14)
+                .strokeBorder(borderStyle, lineWidth: isUpgrade ? 1.5 : 1)
+        )
+    }
+
+    private var isUpgrade: Bool { !tier.isPro }
+
+    /// Soft forest-green halo behind the upgrade card; none for the Pro state.
+    private var glowColor: Color {
+        isUpgrade ? NMColor.accent.opacity(0.45) : .clear
+    }
+
+    /// Glowing green gradient border for upgrade; a calm hairline once subscribed.
+    private var borderStyle: AnyShapeStyle {
+        guard isUpgrade else { return AnyShapeStyle(NMColor.borderSubtle) }
+        return AnyShapeStyle(
+            LinearGradient(
+                colors: [
+                    NMColor.accentHover,
+                    NMColor.accent,
+                    NMColor.accent.opacity(0.5),
+                    NMColor.accentHover,
+                ],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
         )
     }
 }
@@ -341,6 +392,7 @@ private struct ProfileLinkRow: View {
                     .padding(.leading, NMSpace.sm)
             }
             .padding(.vertical, NMSpace.lg)
+            .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
     }

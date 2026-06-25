@@ -20,7 +20,17 @@
 // =============================================================================
 
 import { adminClient } from "../_shared/supabase.ts"
-import { callAnthropic, extractJson, MODEL_SONNET } from "../_shared/anthropic.ts"
+import { callAnthropic, extractJson, MODEL_SONNET, MODEL_HAIKU } from "../_shared/anthropic.ts"
+
+// Model tiering (locked decision, docs/CONTENT_SOURCING.md): the ~80% of items
+// that are retrieval-grounded recalls/shortages/alerts are formulaic, so author
+// + critic run on Haiku (~3× cheaper). Only the revise pass — which fires solely
+// when the Haiku critic flags an issue — escalates to Sonnet, where quality
+// matters most. checkCitations/checkClinicalSafety are model-independent, so the
+// server-enforced safety floor is unchanged regardless of authoring model.
+const MODEL_AUTHOR = MODEL_HAIKU
+const MODEL_CRITIC = MODEL_HAIKU
+const MODEL_REVISE = MODEL_SONNET
 import {
     AUTHOR_SYSTEM, authorUserPayload,
     CRITIC_SYSTEM, criticUserPayload,
@@ -191,7 +201,7 @@ async function processItem(item: QueueRow): Promise<ItemResult> {
     let authorOutput: AuthorOutput
     try {
         const result = await callAnthropic({
-            model: MODEL_SONNET,
+            model: MODEL_AUTHOR,
             max_tokens: 1600,
             temperature: 0.4,
             system: AUTHOR_SYSTEM,
@@ -235,7 +245,7 @@ async function processItem(item: QueueRow): Promise<ItemResult> {
     let criticOutput: CriticOutput
     try {
         const result = await callAnthropic({
-            model: MODEL_SONNET,
+            model: MODEL_CRITIC,
             max_tokens: 800,
             temperature: 0.0,
             system: CRITIC_SYSTEM,
@@ -256,7 +266,7 @@ async function processItem(item: QueueRow): Promise<ItemResult> {
     if (criticOutput.overall === "fail" && criticOutput.issues.length > 0) {
         try {
             const result = await callAnthropic({
-                model: MODEL_SONNET,
+                model: MODEL_REVISE,
                 max_tokens: 1600,
                 temperature: 0.3,
                 system: REVISE_SYSTEM,

@@ -64,6 +64,7 @@ struct FeedCard: View {
         .padding(.vertical, isLead ? NMSpace.xxl : NMSpace.lg)
         .frame(maxWidth: .infinity, alignment: .leading)
         .contentShape(Rectangle())
+        .onAppear { FeedStore.shared.bumpEngagement(item.id, .view) }
     }
 
     private var eyebrow: some View {
@@ -82,7 +83,7 @@ struct FeedCard: View {
             Text(item.authorityLabel)
                 .font(NMFont.label)
                 .tracking(1.6)
-                .foregroundStyle(NMColor.sourceFDA)
+                .foregroundStyle(item.authorityColor)
             dot
             Text(item.category.label.uppercased())
                 .font(NMFont.label)

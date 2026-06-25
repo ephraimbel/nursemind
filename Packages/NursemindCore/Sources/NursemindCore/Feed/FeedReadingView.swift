@@ -77,6 +77,7 @@ struct FeedReadingView: View {
             guard !hasMarkedRead else { return }
             hasMarkedRead = true
             await store.markRead(item.id)
+            store.bumpEngagement(item.id, .read)
         }
     }
 
@@ -119,6 +120,7 @@ struct FeedReadingView: View {
     private var askCTA: some View {
         Button {
             askSheetPresented = true
+            store.bumpEngagement(item.id, .ask)
         } label: {
             HStack(spacing: NMSpace.sm) {
                 Text("✦")

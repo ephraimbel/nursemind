@@ -126,6 +126,7 @@ private struct SavedAnswerRow: View {
         }
         .padding(.vertical, NMSpace.base)
         .frame(maxWidth: .infinity, alignment: .leading)
+        .contentShape(Rectangle())
     }
 
     private var relativeDate: String {

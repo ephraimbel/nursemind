@@ -106,23 +106,22 @@ public struct PaywallView: View {
                 }
                 legalFooter
                     .padding(.top, NMSpace.sm)
-                // Hard paywall: in onboarding there is deliberately no skip
-                // affordance. The only way past this step is to start the
-                // trial / subscribe (which calls `exit()` → `onComplete`) or
-                // restore a prior purchase. Restore + Terms + Privacy live in
-                // the legal footer above, which keeps the screen compliant
-                // with App Review while still gating entry behind conversion.
+                // The onboarding paywall carries a deliberately faint X in the
+                // top-right (see the overlay below) as a low-friction escape
+                // hatch. Subscribe / start-trial and Restore remain the primary
+                // paths; the subtle dismiss just lets a user who isn't ready
+                // continue into the app.
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .padding(.horizontal, NMSpace.lg)
 
-            // Dismissal affordance, top-right — shown ONLY on the sheet/cover
-            // surfaces (Ask quota, Profile → Subscription, onComplete == nil).
-            // The onboarding paywall (onComplete != nil) is a true hard
-            // paywall: no close button at all. The only way forward is to
-            // start the trial / subscribe (which calls exit() → onComplete)
-            // or restore a prior purchase via the legal footer, which keeps
-            // the screen App-Review compliant while gating entry on conversion.
+            // Dismissal affordance, top-right. Two treatments:
+            //  • Sheet/cover surfaces (onComplete == nil): the standard
+            //    bubbled FloatingIconButton, clearly tappable.
+            //  • Onboarding (onComplete != nil): a very subtle bare glyph —
+            //    no bubble, quaternary tint — so it reads as a quiet escape
+            //    hatch that never competes with the CTA. Tapping it advances
+            //    the flow via exit() → onComplete.
             if onComplete == nil {
                 FloatingIconButton(
                     systemName: "xmark",
@@ -131,6 +130,21 @@ public struct PaywallView: View {
                     Haptic.light()
                     exit()
                 }
+                .padding(.trailing, NMSpace.lg)
+                .padding(.top, NMSpace.sm)
+            } else {
+                Button {
+                    Haptic.light()
+                    exit()
+                } label: {
+                    Image(systemName: "xmark")
+                        .font(.system(size: 15, weight: .regular))
+                        .foregroundStyle(NMColor.textQuaternary)
+                        .frame(width: 38, height: 38)
+                        .contentShape(Rectangle())
+                }
+                .buttonStyle(.plain)
+                .accessibilityLabel("Skip for now")
                 .padding(.trailing, NMSpace.lg)
                 .padding(.top, NMSpace.sm)
             }
