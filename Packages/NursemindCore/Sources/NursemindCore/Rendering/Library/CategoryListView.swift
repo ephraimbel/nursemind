@@ -16,29 +16,17 @@ public struct CategoryListView: View {
         }
         let letters = grouped.keys.sorted()
 
-        ScrollViewReader { proxy in
-            ZStack(alignment: .trailing) {
-                ScrollView {
-                    VStack(alignment: .leading, spacing: 0) {
-                        header(count: entries.count)
-                        Hairline().padding(.vertical, NMSpace.xxl)
-                        ForEach(letters, id: \.self) { letter in
-                            LetterSection(letter: letter, entries: grouped[letter] ?? [])
-                                .id(letter)
-                        }
-                    }
-                    .padding(.horizontal, NMSpace.lg)
-                    .padding(.top, NMSpace.xxl)
-                    .padding(.bottom, NMSpace.huge)
-                }
-                if letters.count >= 4 {
-                    LetterScrubber(letters: letters) { letter in
-                        withAnimation(.easeOut(duration: 0.2)) {
-                            proxy.scrollTo(letter, anchor: .top)
-                        }
-                    }
+        ScrollView {
+            VStack(alignment: .leading, spacing: 0) {
+                header(count: entries.count)
+                Hairline().padding(.vertical, NMSpace.xxl)
+                ForEach(letters, id: \.self) { letter in
+                    LetterSection(letter: letter, entries: grouped[letter] ?? [])
                 }
             }
+            .padding(.horizontal, NMSpace.lg)
+            .padding(.top, NMSpace.xxl)
+            .padding(.bottom, NMSpace.huge)
         }
         .background(GrainBackground())
         .navigationBarTitleDisplayMode(.inline)
@@ -75,26 +63,5 @@ private struct LetterSection: View {
             }
         }
         .padding(.bottom, NMSpace.lg)
-    }
-}
-
-private struct LetterScrubber: View {
-    let letters: [String]
-    let onSelect: (String) -> Void
-
-    var body: some View {
-        VStack(spacing: 2) {
-            ForEach(letters, id: \.self) { letter in
-                Text(letter)
-                    .font(.system(size: 11, weight: .medium))
-                    .foregroundStyle(NMColor.textTertiary)
-                    .frame(width: 20, height: 18)
-                    .contentShape(Rectangle())
-                    .onTapGesture { onSelect(letter) }
-            }
-        }
-        .padding(.trailing, 6)
-        .accessibilityElement(children: .combine)
-        .accessibilityLabel("A to Z section scrubber")
     }
 }

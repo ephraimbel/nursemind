@@ -159,7 +159,17 @@ public enum SuggestedQuestionsProvider {
         "When is hyponatremia an emergency?",
         "What are the early warning signs of urosepsis?",
         "How do I manage uncontrolled hypertension safely?",
-        "Walk me through SBAR for a hypotensive patient."
+        "Walk me through SBAR for a hypotensive patient.",
+        "How do I recognize and treat hypoglycemia?",
+        "What's the workup for new-onset atrial fibrillation?",
+        "How do I manage a blood transfusion reaction?",
+        "What are the signs of digoxin toxicity?",
+        "How do I assess and stage a pressure injury?",
+        "What's the priority for a patient with sepsis?",
+        "How do I interpret an elevated troponin?",
+        "What are the nursing implications for furosemide?",
+        "How do I manage a patient in alcohol withdrawal?",
+        "What's the workup for acute kidney injury?"
     ]
 
     private static let icu: [String] = [
@@ -174,7 +184,14 @@ public enum SuggestedQuestionsProvider {
         "How do I read an ABG quickly?",
         "When is therapeutic hypothermia indicated post-arrest?",
         "What's the sepsis bundle for the first hour?",
-        "How do I manage refractory hypoxemia?"
+        "How do I manage refractory hypoxemia?",
+        "How do I manage sedation and analgesia on a vent?",
+        "What's the workup for a sudden drop in SpO2?",
+        "When do I add vasopressin as a second pressor?",
+        "How do I manage hyperkalemia with EKG changes?",
+        "How do I recognize and treat a tension pneumothorax?",
+        "What's the approach to a patient who self-extubated?",
+        "How do I interpret central venous pressure?"
     ]
 
     private static let medicalICU: [String] = [
@@ -241,7 +258,13 @@ public enum SuggestedQuestionsProvider {
         "When does a fever need a sepsis workup?",
         "What's the priority for status epilepticus?",
         "How do I assess an acute abdomen?",
-        "What's the workup for sudden severe headache?"
+        "What's the workup for sudden severe headache?",
+        "How do I manage anaphylaxis?",
+        "How do I recognize an aortic dissection?",
+        "What's the priority for a GI bleed?",
+        "What's the workup for new shortness of breath?",
+        "How do I manage an unknown overdose?",
+        "What's the priority for a major burn?"
     ]
 
     private static let stepDown: [String] = [
@@ -382,7 +405,15 @@ public enum SuggestedQuestionsProvider {
         "What are the 6 rights of medication administration?",
         "What's the difference between SIRS and sepsis?",
         "How do I assess pain in different age groups?",
-        "What does culturally competent care look like?"
+        "What does culturally competent care look like?",
+        "How do I prioritize using Maslow's hierarchy?",
+        "How do I recognize fluid volume overload vs deficit?",
+        "What are the steps of the nursing process?",
+        "How do I prioritize airway, breathing, circulation?",
+        "What's the difference between objective and subjective data?",
+        "How do I manage a client refusing treatment?",
+        "What does therapeutic communication look like?",
+        "How do I recognize fluid and electrolyte imbalances?"
     ]
 }
 

@@ -10,6 +10,17 @@ public struct AskHomeView: View {
     @State private var paywallPresented: Bool = false
     @State private var proLimitAlertShown: Bool = false
     @State private var voiceListening: Bool = false
+    /// Per-section entrance flags for the empty-state stagger-in.
+    @State private var sectionsVisible: [Bool] = Array(repeating: false, count: 3)
+    /// Window offset into the suggestion pool; the "Shuffle" control advances it.
+    @State private var suggestionOffset: Int = 0
+    /// Which greeting subtitle to show. Randomized once when the view's state
+    /// is first created — i.e. once per app launch — so the line is fresh each
+    /// time the user opens the app but stable within a session.
+    @State private var greetingVariant: Int = Int.random(in: 0..<AskHomeView.greetingSubtitles.count)
+    /// Which greeting *title* to show, randomized once per launch. Modulo'd
+    /// against the (context-dependent) title pool size at render time.
+    @State private var titleVariant: Int = Int.random(in: 0..<10_000)
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Environment(\.modelContext) private var modelContext
     /// SwiftUI wrapper around `SKStoreReviewController.requestReview()`.
@@ -224,14 +235,20 @@ public struct AskHomeView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 0) {
                 header
-                Hairline().padding(.vertical, NMSpace.xxl)
+                    .padding(.top, NMSpace.xxxl)
+                    .padding(.bottom, NMSpace.sm)
+                    .opacity(sectionsVisible[0] ? 1 : 0)
+                    .offset(y: sectionsVisible[0] ? 0 : 10)
                 if let recent = savedAnswers.first {
-                    continueSection(recent: recent)
                     Hairline().padding(.vertical, NMSpace.xxl)
+                    continueSection(recent: recent)
+                        .opacity(sectionsVisible[1] ? 1 : 0)
+                        .offset(y: sectionsVisible[1] ? 0 : 10)
                 }
-                scopeSection
                 Hairline().padding(.vertical, NMSpace.xxl)
                 suggestedSection
+                    .opacity(sectionsVisible[2] ? 1 : 0)
+                    .offset(y: sectionsVisible[2] ? 0 : 10)
             }
             .padding(.horizontal, NMSpace.lg)
             .padding(.top, NMSpace.sm)
@@ -239,6 +256,23 @@ public struct AskHomeView: View {
             .frame(maxWidth: .infinity, alignment: .center)
         }
         .scrollDismissesKeyboard(.interactively)
+        .task { await staggerInSections() }
+    }
+
+    /// Empty-state entrance: header → continue → suggestions fade up 80ms
+    /// apart. Plays once per appearance; skipped under Reduce Motion. This is
+    /// the page's only motion now that the auto-scrolling capability marquee
+    /// is gone — life comes from response, not from chrome moving on its own.
+    private func staggerInSections() async {
+        guard !reduceMotion else {
+            sectionsVisible = Array(repeating: true, count: sectionsVisible.count)
+            return
+        }
+        guard sectionsVisible.contains(false) else { return }
+        for i in sectionsVisible.indices {
+            withAnimation(.easeOut(duration: 0.45)) { sectionsVisible[i] = true }
+            try? await Task.sleep(nanoseconds: 80_000_000)
+        }
     }
 
     /// Surfaces the most-recent saved answer above the suggestion list so the
@@ -280,30 +314,142 @@ public struct AskHomeView: View {
         return "Saved \(f.localizedString(for: answer.savedAt, relativeTo: Date()))"
     }
 
+    /// Centered greeting — the calm focal point of the empty state. A green
+    /// sparkle (the AI signature, mirroring the send button), a time-of-day
+    /// greeting personalized with the user's first name, and a learning-framed
+    /// invitation underneath. Time wording only — never workplace framing.
     private var header: some View {
-        VStack(alignment: .leading, spacing: NMSpace.md) {
-            EyebrowLabel("NURSEMIND AI")
-            HStack(alignment: .firstTextBaseline, spacing: 0) {
-                Text("Ask ")
-                    .font(NMFont.displayXL).tracking(-1.6).foregroundStyle(NMColor.textPrimary)
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.85)
-                Text("anything")
-                    .font(NMFont.displayItalicLG)
+        VStack(spacing: NMSpace.md) {
+            // Same SF Symbol the Ask tab uses in the bottom bar, so the AI
+            // mark reads as one consistent identity across the app.
+            Image(systemName: "sparkle")
+                .font(.system(size: 27, weight: .regular))
+                .foregroundStyle(NMColor.accent)
+            VStack(spacing: NMSpace.sm) {
+                Text(greetingTitle)
+                    .font(NMFont.displayLG)
+                    .tracking(-0.8)
                     .foregroundStyle(NMColor.textPrimary)
-                    .baselineOffset(8)
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.85)
+                    .multilineTextAlignment(.center)
+                    .lineLimit(2)
+                    .minimumScaleFactor(0.7)
+                Text(greetingSubtitle)
+                    .font(NMFont.displayItalicMD)
+                    .foregroundStyle(NMColor.textSecondary)
+                    .multilineTextAlignment(.center)
             }
-            Text("Evidence-based, cited, scoped to nursing practice.")
-                .font(NMFont.displayItalicMD)
-                .foregroundStyle(NMColor.textSecondary)
             if shouldShowQuotaLine {
                 quotaLine
                     .padding(.top, NMSpace.xs)
             }
         }
+        .frame(maxWidth: .infinity)
     }
+
+    /// A clever, human greeting — time/day-aware and brand-flavored — drawn
+    /// from a contextual pool and rotated per launch (see `titleVariant`).
+    private var greetingTitle: String {
+        let pool = greetingTitlePool
+        return pool[titleVariant % pool.count]
+    }
+
+    /// The user's first name, or "" when unset.
+    private var firstName: String {
+        prefs.displayName.split(separator: " ").first.map(String.init) ?? ""
+    }
+
+    /// Candidate greetings for right now. Always includes the time-correct
+    /// "Good morning/afternoon/evening" line and any day-special line, plus a
+    /// rotation of warm, nursing-flavored brand lines (a coffee break with
+    /// NurseMind, a quick study break, etc.). Study/clarity framed — never a
+    /// shift, floor, or bedside.
+    private var greetingTitlePool: [String] {
+        let first = firstName
+        let n = first.isEmpty ? "" : ", \(first)"        // ", Ephraim"
+        let cal = Calendar.current
+        let now = Date()
+        let hour = cal.component(.hour, from: now)
+        let weekday = cal.component(.weekday, from: now)  // 1=Sun … 7=Sat
+
+        var pool: [String] = []
+
+        // Time-correct greeting — always a candidate.
+        switch hour {
+        case 5..<12:  pool.append("Good morning\(n).")
+        case 12..<17: pool.append("Good afternoon\(n).")
+        case 17..<22: pool.append("Good evening\(n).")
+        default:      pool.append(first.isEmpty ? "Up late?" : "Up late, \(first)?")
+        }
+
+        // Day-special flourishes.
+        switch weekday {
+        case 6:    pool.append("Happy Friday\(n).")
+        case 1, 7: pool.append("Happy \(cal.weekdaySymbols[weekday - 1])\(n).")
+        case 2:    pool.append(first.isEmpty ? "New week, fresh start." : "New week, \(first).")
+        default:   break
+        }
+
+        // Warm, brand-flavored, nursing-study lines.
+        pool += [
+            "A coffee break with NurseMind?",
+            first.isEmpty ? "Coffee and NurseMind?"        : "Coffee break, \(first)?",
+            "Tea and NurseMind?",
+            "Nursing, made clearer.",
+            "Let's make nursing make sense.",
+            first.isEmpty ? "Let's decode some nursing."   : "Let's decode some nursing, \(first).",
+            first.isEmpty ? "Ready when you are."          : "Ready when you are, \(first).",
+            first.isEmpty ? "Let's dig in."                : "Let's dig in, \(first).",
+            first.isEmpty ? "Where should we start?"       : "Where should we start, \(first)?",
+            first.isEmpty ? "What's the question?"         : "What's the question, \(first)?",
+            first.isEmpty ? "What's puzzling you?"         : "What's puzzling you, \(first)?",
+            first.isEmpty ? "Let's untangle something."    : "Let's untangle something, \(first).",
+            first.isEmpty ? "Let's make it click."         : "Let's make it click, \(first).",
+            first.isEmpty ? "Stuck on something?"          : "Stuck on something, \(first)?",
+            first.isEmpty ? "Got a minute?"                : "Got a minute, \(first)?",
+            first.isEmpty ? "One question at a time."      : "One question at a time, \(first).",
+            first.isEmpty ? "Ask away."                    : "Ask away, \(first).",
+            first.isEmpty ? "Quiz time?"                   : "Quiz time, \(first)?",
+            first.isEmpty ? "Study break?"                 : "Study break, \(first)?"
+        ]
+
+        return pool
+    }
+
+    /// Nursing/learning-framed invitation under the greeting, drawn from a
+    /// curated pool and rotated once per app launch (see `greetingVariant`).
+    /// Every line is study/clarity-framed — never a shift, floor, or bedside.
+    private var greetingSubtitle: String {
+        Self.greetingSubtitles[greetingVariant % Self.greetingSubtitles.count]
+    }
+
+    /// Subtle, aesthetic invitations under the greeting. Kept calm and
+    /// learning-oriented so they read as a premium reference companion, not a
+    /// chirpy chatbot. Order is irrelevant — one is picked at random per launch.
+    static let greetingSubtitles: [String] = [
+        "Ask anything about nursing.",
+        "Ask anything — I'll cite it.",
+        "Ask me anything in nursing.",
+        "What would you like to understand?",
+        "What should we make sense of today?",
+        "Where would you like to begin?",
+        "What are you curious about?",
+        "What can I help you learn?",
+        "What would you like to review?",
+        "What's worth understanding today?",
+        "What's on your mind today?",
+        "What concept is fuzzy right now?",
+        "What would you like to nail down?",
+        "What should we work through?",
+        "Pharm, labs, drips — ask away.",
+        "No question too small.",
+        "Every answer comes cited.",
+        "Let's make it make sense.",
+        "Let's turn confusion into clarity.",
+        "Let's untangle something together.",
+        "Here to help you think it through.",
+        "Bring me a question.",
+        "Cited answers, whenever you need them."
+    ]
 
     /// Free tier always sees the count (1/day is the entire daily allowance,
     /// so it has to be visible). Pro tier only sees it inside the last 20 —
@@ -367,110 +513,77 @@ public struct AskHomeView: View {
         return "\(remaining) of \(total) questions left today"
     }
 
-    /// "WHAT I KNOW" capabilities surfaced as a continuous marquee. Cards
-    /// drift right-to-left at constant velocity, looping seamlessly via the
-    /// classic two-copy pattern: the strip renders the items twice, animates
-    /// from offset 0 to offset -setWidth, then `repeatForever` snaps back —
-    /// because the second copy is identical to the first, the snap is
-    /// invisible. Disabled under Reduce Motion.
-    private var scopeSection: some View {
-        VStack(alignment: .leading, spacing: NMSpace.lg) {
-            EyebrowLabel("WHAT I KNOW", sparkle: false)
-            ScopeMarquee(
-                items: scopeItems,
-                reduceMotion: reduceMotion,
-                performAction: performScopeAction
-            )
-        }
-    }
-
-    private var scopeItems: [ScopeItemData] {
-        [
-            ScopeItemData(
-                icon: "books.vertical",
-                title: "Cited library",
-                detail: "Drugs, drips, labs, procedures, diagnoses, scenarios, communication.",
-                action: .openLibrary
-            ),
-            ScopeItemData(
-                icon: "checkmark.seal",
-                title: "2026 NCLEX-RN aligned",
-                detail: "Tagged across 8 client needs categories.",
-                action: .openLibrary
-            ),
-            ScopeItemData(
-                icon: "person.2",
-                title: "Specialty-aware",
-                detail: "Adapts to ICU, ED, OB, Peds, NICU, Med-Surg.",
-                action: nil
-            ),
-            ScopeItemData(
-                icon: "function",
-                title: "Calculator handoffs",
-                detail: "Pre-fills MAP, GFR, BMI, anion gap from your question.",
-                action: .openTools
-            ),
-            ScopeItemData(
-                icon: "bookmark",
-                title: "Save & search",
-                detail: "Bookmark answers; find them in Library → Saved.",
-                action: .openSavedList
-            ),
-            ScopeItemData(
-                icon: "lock.shield",
-                title: "Reference scope",
-                detail: "Doesn't diagnose, prescribe, or accept PHI.",
-                action: nil
-            )
-        ]
-    }
-
-    private func performScopeAction(_ action: ScopeItemData.Action) {
-        switch action {
-        case .openLibrary:
-            router.libraryPath = NavigationPath()
-            router.librarySection = .reference
-            router.selectedTab = AppRouter.libraryTab
-        case .openTools:
-            router.openToolsHome()
-        case .openSavedList:
-            router.openSavedList()
-        }
-    }
-
+    /// The hero of the empty state: a small set of personalized questions the
+    /// nurse can tap to ask. Editorial rows (serif question + accent arrow),
+    /// hairline-separated, with a quiet "Shuffle" control that rotates the
+    /// window through a larger pool — variety without auto-motion.
     private var suggestedSection: some View {
         VStack(alignment: .leading, spacing: NMSpace.lg) {
-            EyebrowLabel("SUGGESTED", sparkle: false)
+            HStack {
+                EyebrowLabel("SUGGESTED", sparkle: false)
+                Spacer(minLength: 0)
+                if suggestionPool.count > displayedSuggestionCount {
+                    Button {
+                        Haptic.selection()
+                        withAnimation(.easeInOut(duration: 0.28)) {
+                            suggestionOffset += displayedSuggestionCount
+                        }
+                    } label: {
+                        HStack(spacing: NMSpace.xs) {
+                            Image(systemName: "shuffle")
+                                .font(.system(size: 11, weight: .medium))
+                            Text("SHUFFLE")
+                                .font(NMFont.label)
+                                .tracking(1.2)
+                        }
+                        .foregroundStyle(NMColor.textTertiary)
+                        .contentShape(Rectangle())
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
             VStack(spacing: 0) {
-                ForEach(Array(suggestions.enumerated()), id: \.offset) { idx, suggestion in
+                ForEach(Array(displayedSuggestions.enumerated()), id: \.offset) { idx, suggestion in
                     SuggestionRow(text: suggestion) {
                         // Selection click mirrors the FollowUpRows vocabulary —
-                        // the user is picking one of three offered questions,
-                        // same hardware feedback iOS pickers use.
+                        // picking one of the offered questions, same hardware
+                        // feedback iOS pickers use.
                         Haptic.selection()
                         viewModel.inputText = suggestion
                         inputFocused = true
                     }
-                    if idx < suggestions.count - 1 {
+                    if idx < displayedSuggestions.count - 1 {
                         Hairline(color: NMColor.borderSubtle)
                     }
                 }
             }
+            .id(suggestionOffset)
+            .transition(.opacity)
         }
     }
 
-    /// Three personalized suggestions for this user, drawn from a curated
-    /// unit/role-aware pool with a calendar-day-stable shuffle. Recomputes on
-    /// every render, but the shuffle is deterministic per (prefs, day) so the
-    /// list stays stable across navigations within a session and refreshes
-    /// once daily — and immediately whenever the user changes their role,
-    /// unit, or ICU subspecialty in Profile.
-    private var suggestions: [String] {
+    /// How many suggestions show at once.
+    private let displayedSuggestionCount = 5
+
+    /// A larger personalized pool, drawn from the curated role/unit-aware set
+    /// with a calendar-day-stable shuffle (deterministic per prefs+day, so it
+    /// stays put across navigations and refreshes daily / on profile changes).
+    private var suggestionPool: [String] {
         SuggestedQuestionsProvider.questions(
             role: prefs.role,
             unit: prefs.unit,
-            icuSubspecialty: prefs.icuSubspecialty
+            icuSubspecialty: prefs.icuSubspecialty,
+            count: 20
         )
+    }
+
+    /// The current rotating window into `suggestionPool`. "Shuffle" advances
+    /// `suggestionOffset` by a full window; the modulo wraps it around.
+    private var displayedSuggestions: [String] {
+        let pool = suggestionPool
+        guard !pool.isEmpty else { return [] }
+        let n = min(displayedSuggestionCount, pool.count)
+        return (0..<n).map { pool[(suggestionOffset + $0) % pool.count] }
     }
 
     // MARK: - Input bar
@@ -538,11 +651,23 @@ public struct AskHomeView: View {
             .background(
                 RoundedRectangle(cornerRadius: 22, style: .continuous)
                     .fill(NMColor.bgElevated)
+                    // The input is the page's single elevated element. On
+                    // focus it lifts with one soft shadow — everything else
+                    // stays flat hairlines, so this is the one depth cue.
+                    .shadow(
+                        color: .black.opacity(inputFocused ? 0.10 : 0),
+                        radius: inputFocused ? 14 : 0,
+                        y: inputFocused ? 5 : 0
+                    )
             )
             .overlay(
                 RoundedRectangle(cornerRadius: 22, style: .continuous)
-                    .strokeBorder(NMColor.borderSubtle, lineWidth: 1)
+                    .strokeBorder(
+                        inputFocused ? NMColor.accent.opacity(0.55) : NMColor.borderSubtle,
+                        lineWidth: inputFocused ? 1.5 : 1
+                    )
             )
+            .animation(.easeOut(duration: 0.2), value: inputFocused)
             .padding(.horizontal, NMSpace.lg)
             .padding(.vertical, NMSpace.md)
             .background(NMColor.bgPrimary)
@@ -623,175 +748,6 @@ public struct AskHomeView: View {
         )
         viewModel.send()
         inputFocused = false
-    }
-}
-
-// MARK: - Scope card carousel
-
-struct ScopeItemData: Hashable {
-    let icon: String
-    let title: String
-    let detail: String
-    let action: Action?
-
-    enum Action: Hashable {
-        case openLibrary
-        case openTools
-        case openSavedList
-    }
-}
-
-/// Interactive horizontal marquee. Drifts right-to-left at constant velocity
-/// driven by a 60Hz timer, but yields to direct user input: a swipe pauses the
-/// auto-drift, follows the finger, and resumes drift seamlessly on release.
-///
-/// Layout: the items are rendered twice in a single HStack with `.fixedSize()`
-/// inside an overlay over a `Color.clear` placeholder. The placeholder owns
-/// the parent-facing size (full width, 140pt tall) so the wider HStack can't
-/// stretch siblings off-screen.
-///
-/// State model:
-/// - `basePhase`: accumulated horizontal offset, wrapped to (-setWidth, 0]
-/// - `dragOffset`: live finger delta during an in-flight drag, baked into
-///   `basePhase` on release
-/// - `lastTick`: last timer tick, used to compute frame-rate-independent dt
-///
-/// Drift is paused while `isDragging` is true. The wrap function keeps
-/// `basePhase` always within one set-width of zero, so the duplicated content
-/// always perfectly tiles the visible region in both scroll directions.
-private struct ScopeMarquee: View {
-    let items: [ScopeItemData]
-    let reduceMotion: Bool
-    let performAction: (ScopeItemData.Action) -> Void
-
-    @State private var basePhase: CGFloat = 0
-    @State private var dragOffset: CGFloat = 0
-    @State private var isDragging: Bool = false
-    @State private var lastTick: Date = Date()
-
-    private let cardWidth: CGFloat = 220
-    private let cardHeight: CGFloat = 140
-    private let spacing: CGFloat = NMSpace.md
-    private let pixelsPerSecond: CGFloat = 22
-
-    private var setWidth: CGFloat {
-        CGFloat(items.count) * (cardWidth + spacing)
-    }
-
-    private let timer = Timer.publish(every: 1.0 / 60.0, on: .main, in: .common).autoconnect()
-
-    var body: some View {
-        Color.clear
-            .frame(height: cardHeight)
-            .frame(maxWidth: .infinity)
-            .overlay(alignment: .leading) {
-                HStack(spacing: spacing) {
-                    ForEach(0..<2, id: \.self) { copy in
-                        ForEach(Array(items.enumerated()), id: \.offset) { idx, item in
-                            cardView(for: item)
-                                .id("\(copy)-\(idx)")
-                        }
-                    }
-                }
-                .fixedSize()
-                .offset(x: wrap(basePhase + dragOffset))
-            }
-            .contentShape(Rectangle())
-            .gesture(
-                DragGesture(minimumDistance: 8)
-                    .onChanged { value in
-                        if !isDragging { isDragging = true }
-                        dragOffset = value.translation.width
-                    }
-                    .onEnded { value in
-                        basePhase = wrap(basePhase + value.translation.width)
-                        dragOffset = 0
-                        isDragging = false
-                        lastTick = Date()
-                    }
-            )
-            .onAppear { lastTick = Date() }
-            .onReceive(timer) { now in
-                let dt = now.timeIntervalSince(lastTick)
-                lastTick = now
-                guard !isDragging, !reduceMotion else { return }
-                basePhase = wrap(basePhase - CGFloat(dt) * pixelsPerSecond)
-            }
-    }
-
-    /// Normalizes any phase into the half-open interval (-setWidth, 0]. With
-    /// the items rendered twice, this range guarantees the visible viewport is
-    /// always covered by at least one full copy regardless of drift direction.
-    private func wrap(_ x: CGFloat) -> CGFloat {
-        let m = setWidth
-        guard m > 0 else { return x }
-        var v = x.truncatingRemainder(dividingBy: m)
-        if v > 0 { v -= m }
-        return v
-    }
-
-    @ViewBuilder
-    private func cardView(for item: ScopeItemData) -> some View {
-        if let action = item.action {
-            Button {
-                guard !isDragging else { return }
-                performAction(action)
-            } label: {
-                ScopeCard(item: item)
-            }
-            .buttonStyle(ScopeCardButtonStyle())
-        } else {
-            ScopeCard(item: item)
-        }
-    }
-}
-
-private struct ScopeCard: View {
-    let item: ScopeItemData
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: NMSpace.sm) {
-            HStack(alignment: .top) {
-                Image(systemName: item.icon)
-                    .font(.system(size: 14, weight: .regular))
-                    .foregroundStyle(NMColor.accent)
-                Spacer(minLength: 0)
-                if item.action != nil {
-                    Image(systemName: "arrow.up.right")
-                        .font(.system(size: 11, weight: .medium))
-                        .foregroundStyle(NMColor.accent)
-                }
-            }
-            Text(item.title)
-                .font(NMFont.title)
-                .foregroundStyle(NMColor.textPrimary)
-                .lineLimit(1)
-            Text(item.detail)
-                .font(NMFont.displayItalicSM)
-                .foregroundStyle(NMColor.textSecondary)
-                .lineLimit(3)
-                .multilineTextAlignment(.leading)
-                .fixedSize(horizontal: false, vertical: true)
-            Spacer(minLength: 0)
-        }
-        .padding(NMSpace.base)
-        .frame(width: 220, height: 140, alignment: .topLeading)
-        .background(
-            RoundedRectangle(cornerRadius: 6)
-                .stroke(NMColor.borderSubtle, lineWidth: 1)
-        )
-        .contentShape(RoundedRectangle(cornerRadius: 6))
-    }
-}
-
-/// Subtle press animation for scope cards — gentle scale + opacity dim. Echoes
-/// the press feel of native iOS controls without becoming flashy.
-private struct ScopeCardButtonStyle: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .scaleEffect(configuration.isPressed ? 0.97 : 1.0)
-            .opacity(configuration.isPressed ? 0.85 : 1.0)
-            .animation(.easeOut(duration: 0.15), value: configuration.isPressed)
     }
 }
 
