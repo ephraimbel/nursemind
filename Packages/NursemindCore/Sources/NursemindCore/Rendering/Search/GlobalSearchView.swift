@@ -19,36 +19,19 @@ public struct GlobalSearchView: View {
 
     public init() {}
 
-    // MARK: - Computed result sets
+    // MARK: - Result state
 
-    private var libraryResults: [LibraryEntry] {
-        guard !debouncedQuery.isEmpty else { return [] }
-        return ContentRegistry.shared.search(debouncedQuery, limit: 5)
-    }
-
-    private var calculatorResults: [CalculatorEntry] {
-        guard !debouncedQuery.isEmpty else { return [] }
-        return CalculatorRegistry.search(debouncedQuery, limit: 5)
-    }
-
-    private var savedResults: [SavedAnswer] {
-        guard !debouncedQuery.isEmpty else { return [] }
-        let q = debouncedQuery.lowercased()
-        return allSavedAnswers.filter { answer in
-            answer.question.lowercased().contains(q) ||
-            answer.answerMarkdown.lowercased().contains(q) ||
-            (answer.customTitle?.lowercased().contains(q) ?? false)
-        }.prefix(5).map { $0 }
-    }
-
-    private var nclexResults: [TestPlanSubcategory] {
-        guard !debouncedQuery.isEmpty else { return [] }
-        let q = debouncedQuery.lowercased()
-        return TestPlanSubcategory.inCanonicalOrder.filter { sub in
-            sub.displayName.lowercased().contains(q) ||
-            sub.parentCategory.displayName.lowercased().contains(q)
-        }
-    }
+    /// Result sets for the current settled query. Recomputed only when the
+    /// debounced query changes (see `runSearch`). Previously these were
+    /// computed properties that re-ran `ContentRegistry.search` several times
+    /// per body pass and on every unrelated re-render (keyboard animations,
+    /// @Query updates) — the source of the search jank. Now the scan runs
+    /// once per settled query, with the heavy library pass off the main
+    /// thread.
+    @State private var libraryResults: [LibraryEntry] = []
+    @State private var calculatorResults: [CalculatorEntry] = []
+    @State private var savedResults: [SavedAnswer] = []
+    @State private var nclexResults: [TestPlanSubcategory] = []
 
     private var hasAnyResults: Bool {
         !libraryResults.isEmpty
@@ -86,34 +69,71 @@ public struct GlobalSearchView: View {
             .onAppear {
                 isSearchFocused = true
             }
-            .task(id: query) {
-                // Debounce: wait 200ms before committing the query to the
-                // result-driving state. Cancellation makes consecutive
-                // keystrokes coalesce naturally.
-                try? await Task.sleep(nanoseconds: 200_000_000)
-                if !Task.isCancelled {
-                    debouncedQuery = query
-                    if !query.isEmpty {
-                        // Capture the *length* and result counts, never the
-                        // query text — search terms can be sensitive
-                        // ("could my patient have…") even though we never
-                        // tie them to PHI in our own systems.
-                        AnalyticsService.shared.capture(
-                            "search_performed",
-                            properties: [
-                                "query_length": query.count,
-                                "library_results": libraryResults.count,
-                                "calculator_results": calculatorResults.count,
-                                "saved_results": savedResults.count,
-                                "nclex_results": nclexResults.count,
-                                "has_any_results": hasAnyResults
-                            ]
-                        )
-                        TikTokAnalyticsService.shared.trackSearch()
-                    }
-                }
-            }
+            .task(id: query) { await runSearch() }
         }
+    }
+
+    // MARK: - Search
+
+    /// Debounced, mostly-off-main search. `.task(id: query)` cancels and
+    /// restarts this on every keystroke, so rapid typing collapses into a
+    /// single scan. The heavy ~1,600-entry library scan runs on a detached
+    /// task to keep the main thread free; the small calculator / saved /
+    /// NCLEX filters run inline. All result sets commit together with
+    /// `debouncedQuery`, so the no-matches state never flashes mid-type and
+    /// the body never recomputes search on unrelated re-renders.
+    private func runSearch() async {
+        let q = query.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !q.isEmpty else {
+            debouncedQuery = ""
+            libraryResults = []
+            calculatorResults = []
+            savedResults = []
+            nclexResults = []
+            return
+        }
+
+        // Debounce. Cancellation (next keystroke) aborts before the scan.
+        try? await Task.sleep(nanoseconds: 200_000_000)
+        if Task.isCancelled { return }
+
+        let library = await Task.detached(priority: .userInitiated) {
+            ContentRegistry.shared.search(q, limit: 5)
+        }.value
+        if Task.isCancelled { return }
+
+        let ql = q.lowercased()
+        let calculators = CalculatorRegistry.search(q, limit: 5)
+        let saved = allSavedAnswers.filter { answer in
+            answer.question.lowercased().contains(ql) ||
+            answer.answerMarkdown.lowercased().contains(ql) ||
+            (answer.customTitle?.lowercased().contains(ql) ?? false)
+        }.prefix(5).map { $0 }
+        let nclex = TestPlanSubcategory.inCanonicalOrder.filter { sub in
+            sub.displayName.lowercased().contains(ql) ||
+            sub.parentCategory.displayName.lowercased().contains(ql)
+        }
+
+        libraryResults = library
+        calculatorResults = calculators
+        savedResults = Array(saved)
+        nclexResults = nclex
+        debouncedQuery = q
+
+        // Capture the *length* and result counts, never the query text —
+        // search terms can be sensitive even though we never tie them to PHI.
+        AnalyticsService.shared.capture(
+            "search_performed",
+            properties: [
+                "query_length": q.count,
+                "library_results": library.count,
+                "calculator_results": calculators.count,
+                "saved_results": saved.count,
+                "nclex_results": nclex.count,
+                "has_any_results": hasAnyResults
+            ]
+        )
+        TikTokAnalyticsService.shared.trackSearch()
     }
 
     // MARK: - Search field
@@ -196,8 +216,10 @@ public struct GlobalSearchView: View {
             VStack(spacing: 0) {
                 ForEach(Array(recents.queries.enumerated()), id: \.element) { idx, recent in
                     Button {
+                        // Setting `query` re-triggers `.task(id: query)`,
+                        // which runs the search and commits `debouncedQuery`
+                        // together with the results.
                         query = recent
-                        debouncedQuery = recent
                     } label: {
                         HStack(spacing: NMSpace.sm) {
                             Image(systemName: "clock")
@@ -443,6 +465,7 @@ private struct CalculatorResultRow: View {
         }
         .padding(.vertical, NMSpace.base)
         .frame(maxWidth: .infinity, alignment: .leading)
+        .contentShape(Rectangle())
     }
 }
 
@@ -468,6 +491,7 @@ private struct SavedAnswerResultRow: View {
         }
         .padding(.vertical, NMSpace.base)
         .frame(maxWidth: .infinity, alignment: .leading)
+        .contentShape(Rectangle())
     }
 
     private var relativeDate: String {
@@ -501,5 +525,6 @@ private struct NCLEXResultRow: View {
         }
         .padding(.vertical, NMSpace.base)
         .frame(maxWidth: .infinity, alignment: .leading)
+        .contentShape(Rectangle())
     }
 }

@@ -3,17 +3,29 @@ import SwiftUI
 public struct SearchView: View {
     let registry: ContentRegistry
     @State private var query: String = ""
+    /// Cached results for the most recently completed search. Recomputed
+    /// only when `query` changes (via `.task(id:)`), never on every body
+    /// pass — so scrolling and unrelated re-renders don't re-run the scan.
+    @State private var results: [LibraryEntry] = []
+    /// The trimmed query the cached `results` correspond to. Used to tell a
+    /// genuinely empty result ("Nothing matches") apart from the in-flight
+    /// debounce window, so the no-results copy never flashes mid-type.
+    @State private var searchedQuery: String = ""
     @FocusState private var inputFocused: Bool
 
     public init(registry: ContentRegistry) {
         self.registry = registry
     }
 
+    private var trimmedQuery: String {
+        query.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+
     public var body: some View {
-        let results = registry.search(query)
         let groups = Dictionary(grouping: results) { $0.category }
         let groupOrder = registry.allCategories.filter { groups[$0] != nil }
         let isQuestion = ContentRegistry.looksLikeQuestion(query)
+        let settledEmpty = results.isEmpty && searchedQuery == trimmedQuery
 
         VStack(spacing: 0) {
             searchField
@@ -22,11 +34,9 @@ public struct SearchView: View {
                 .padding(.bottom, NMSpace.lg)
             Hairline()
             ScrollView {
-                if query.isEmpty {
+                if trimmedQuery.isEmpty {
                     emptyState
-                } else if results.isEmpty {
-                    noResults
-                } else {
+                } else if !results.isEmpty {
                     VStack(alignment: .leading, spacing: NMSpace.xxl) {
                         ForEach(groupOrder, id: \.self) { category in
                             if let categoryResults = groups[category] {
@@ -40,12 +50,38 @@ public struct SearchView: View {
                     .padding(.horizontal, NMSpace.lg)
                     .padding(.top, NMSpace.xxl)
                     .padding(.bottom, NMSpace.huge)
+                } else if settledEmpty {
+                    noResults
                 }
+                // else: mid-debounce with no prior results — show nothing
+                // briefly rather than flashing the no-results state.
             }
         }
         .background(GrainBackground())
         .navigationBarTitleDisplayMode(.inline)
         .onAppear { inputFocused = true }
+        .task(id: query) { await runSearch() }
+    }
+
+    /// Debounced, off-main search. `.task(id: query)` cancels and restarts
+    /// this on every keystroke, so the sleep collapses rapid typing into a
+    /// single scan, and the heavy `registry.search` runs on a detached task
+    /// to keep the main thread free for smooth text input.
+    private func runSearch() async {
+        let q = trimmedQuery
+        guard !q.isEmpty else {
+            results = []
+            searchedQuery = ""
+            return
+        }
+        try? await Task.sleep(for: .milliseconds(180))
+        if Task.isCancelled { return }
+        let found = await Task.detached(priority: .userInitiated) { [registry] in
+            registry.search(q)
+        }.value
+        if Task.isCancelled { return }
+        results = found
+        searchedQuery = q
     }
 
     private var searchField: some View {
