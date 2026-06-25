@@ -22,6 +22,7 @@ public struct AskHomeView: View {
     /// against the (context-dependent) title pool size at render time.
     @State private var titleVariant: Int = Int.random(in: 0..<10_000)
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @Environment(\.colorScheme) private var colorScheme
     @Environment(\.modelContext) private var modelContext
     /// SwiftUI wrapper around `SKStoreReviewController.requestReview()`.
     /// Triggered exactly once per user, after their first successful AI
@@ -58,6 +59,12 @@ public struct AskHomeView: View {
         NavigationStack {
             ZStack {
                 GrainBackground()
+                // The top glow belongs to the greeting only. It fades out as
+                // soon as a chat begins (the conversation gains a message and
+                // the AI starts thinking) and fades back in on a fresh chat.
+                topGlow
+                    .opacity(viewModel.conversation.messages.isEmpty ? 1 : 0)
+                    .animation(.easeInOut(duration: 0.45), value: viewModel.conversation.messages.isEmpty)
                 if viewModel.conversation.messages.isEmpty {
                     emptyState
                 } else {
@@ -231,32 +238,57 @@ public struct AskHomeView: View {
 
     // MARK: - Empty state
 
+    /// A soft green glow falling from the top edge of the Ask page, fading
+    /// out around the greeting. Radial from the top so it reads as light
+    /// spilling in rather than a hard band; kept low-opacity and behind all
+    /// content. Non-interactive.
+    private var topGlow: some View {
+        // Light mode needs a bit more presence over the cream background;
+        // dark mode reads the glow at a lower opacity.
+        let peak = colorScheme == .dark ? 0.18 : 0.30
+        return RadialGradient(
+            gradient: Gradient(colors: [
+                NMColor.accent.opacity(peak),
+                NMColor.accent.opacity(0.0)
+            ]),
+            center: .top,
+            startRadius: 0,
+            endRadius: 360
+        )
+        .ignoresSafeArea()
+        .allowsHitTesting(false)
+    }
+
     private var emptyState: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 0) {
-                header
-                    .padding(.top, NMSpace.xxxl)
-                    .padding(.bottom, NMSpace.sm)
-                    .opacity(sectionsVisible[0] ? 1 : 0)
-                    .offset(y: sectionsVisible[0] ? 0 : 10)
-                if let recent = savedAnswers.first {
+        GeometryReader { geo in
+            ScrollView {
+                VStack(alignment: .leading, spacing: 0) {
+                    // Sit the greeting a bit above the vertical center rather
+                    // than hugging the top. Proportional so it reads right on
+                    // any screen size; the page still scrolls if content runs long.
+                    Spacer(minLength: 0).frame(height: geo.size.height * 0.18)
+                    header
+                        .padding(.bottom, NMSpace.sm)
+                        .opacity(sectionsVisible[0] ? 1 : 0)
+                        .offset(y: sectionsVisible[0] ? 0 : 10)
+                    if let recent = savedAnswers.first {
+                        Hairline().padding(.vertical, NMSpace.xxl)
+                        continueSection(recent: recent)
+                            .opacity(sectionsVisible[1] ? 1 : 0)
+                            .offset(y: sectionsVisible[1] ? 0 : 10)
+                    }
                     Hairline().padding(.vertical, NMSpace.xxl)
-                    continueSection(recent: recent)
-                        .opacity(sectionsVisible[1] ? 1 : 0)
-                        .offset(y: sectionsVisible[1] ? 0 : 10)
+                    suggestedSection
+                        .opacity(sectionsVisible[2] ? 1 : 0)
+                        .offset(y: sectionsVisible[2] ? 0 : 10)
                 }
-                Hairline().padding(.vertical, NMSpace.xxl)
-                suggestedSection
-                    .opacity(sectionsVisible[2] ? 1 : 0)
-                    .offset(y: sectionsVisible[2] ? 0 : 10)
+                .padding(.horizontal, NMSpace.lg)
+                .frame(maxWidth: 460)
+                .frame(maxWidth: .infinity, alignment: .center)
             }
-            .padding(.horizontal, NMSpace.lg)
-            .padding(.top, NMSpace.sm)
-            .frame(maxWidth: 460)
-            .frame(maxWidth: .infinity, alignment: .center)
+            .scrollDismissesKeyboard(.interactively)
+            .task { await staggerInSections() }
         }
-        .scrollDismissesKeyboard(.interactively)
-        .task { await staggerInSections() }
     }
 
     /// Empty-state entrance: header → continue → suggestions fade up 80ms
