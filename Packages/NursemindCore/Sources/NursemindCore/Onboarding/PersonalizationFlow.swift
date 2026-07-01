@@ -126,26 +126,28 @@ private struct PersonalizationStepShell<Content: View>: View {
     }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            header
-            Spacer().frame(height: NMSpace.xxl)
-            Text(question)
-                .font(NMFont.displayLG)
-                .foregroundStyle(NMColor.textPrimary)
-                .lineSpacing(2)
-                .opacity(visible[0] ? 1 : 0)
-                .offset(y: visible[0] ? 0 : 12)
-            Spacer().frame(height: NMSpace.xl)
-            content
-                .opacity(visible[1] ? 1 : 0)
-                .offset(y: visible[1] ? 0 : 12)
-            Spacer(minLength: NMSpace.lg)
-            PrimaryCTAButton(title: "Continue", action: onContinue, isEnabled: canContinue)
-                .padding(.bottom, NMSpace.xl)
-                .opacity(visible[2] ? 1 : 0)
-                .offset(y: visible[2] ? 0 : 12)
+        FitOrScrollLayout {
+            VStack(alignment: .leading, spacing: 0) {
+                header
+                Spacer().frame(height: NMSpace.xxl)
+                Text(question)
+                    .font(NMFont.displayLG)
+                    .foregroundStyle(NMColor.textPrimary)
+                    .lineSpacing(2)
+                    .opacity(visible[0] ? 1 : 0)
+                    .offset(y: visible[0] ? 0 : 12)
+                Spacer().frame(height: NMSpace.xl)
+                content
+                    .opacity(visible[1] ? 1 : 0)
+                    .offset(y: visible[1] ? 0 : 12)
+                Spacer(minLength: NMSpace.xl)
+                PrimaryCTAButton(title: "Continue", action: onContinue, isEnabled: canContinue)
+                    .padding(.bottom, NMSpace.xl)
+                    .opacity(visible[2] ? 1 : 0)
+                    .offset(y: visible[2] ? 0 : 12)
+            }
+            .padding(.horizontal, NMSpace.lg)
         }
-        .padding(.horizontal, NMSpace.lg)
         .task { await stagger() }
     }
 
@@ -295,22 +297,18 @@ private struct UnitStep: View {
             onBack: onBack,
             onContinue: onContinue
         ) {
-            ScrollView {
-                VStack(spacing: 0) {
-                    ForEach(Array(options.enumerated()), id: \.element) { idx, unit in
-                        OptionRow(
-                            title: unit.displayName,
-                            isSelected: prefs.unit == unit,
-                            onTap: { prefs.unit = unit }
-                        )
-                        if idx < options.count - 1 {
-                            Hairline(color: NMColor.borderSubtle)
-                        }
+            VStack(spacing: 0) {
+                ForEach(Array(options.enumerated()), id: \.element) { idx, unit in
+                    OptionRow(
+                        title: unit.displayName,
+                        isSelected: prefs.unit == unit,
+                        onTap: { prefs.unit = unit }
+                    )
+                    if idx < options.count - 1 {
+                        Hairline(color: NMColor.borderSubtle)
                     }
                 }
             }
-            .scrollIndicators(.hidden)
-            .frame(maxHeight: .infinity)
         }
     }
 }

@@ -49,14 +49,16 @@ struct ReviewsView: View {
     var body: some View {
         ZStack {
             NMColor.bgPrimary.ignoresSafeArea()
-            VStack(alignment: .leading, spacing: 0) {
-                header
-                Spacer(minLength: NMSpace.lg)
-                testimonialList
-                Spacer(minLength: NMSpace.lg)
-                actions
+            FitOrScrollLayout {
+                VStack(alignment: .leading, spacing: 0) {
+                    header
+                    Spacer(minLength: NMSpace.lg)
+                    testimonialList
+                    Spacer(minLength: NMSpace.lg)
+                    actions
+                }
+                .padding(.horizontal, NMSpace.lg)
             }
-            .padding(.horizontal, NMSpace.lg)
         }
         .task {
             await stagger()

@@ -14,14 +14,16 @@ struct SafetyContractView: View {
     var body: some View {
         ZStack {
             NMColor.bgPrimary.ignoresSafeArea()
-            VStack(alignment: .leading, spacing: 0) {
-                header
-                Spacer(minLength: 0)
-                bullets
-                Spacer(minLength: 0)
-                actions
+            FitOrScrollLayout {
+                VStack(alignment: .leading, spacing: 0) {
+                    header
+                    Spacer(minLength: NMSpace.xl)
+                    bullets
+                    Spacer(minLength: NMSpace.xl)
+                    actions
+                }
+                .padding(.horizontal, NMSpace.lg)
             }
-            .padding(.horizontal, NMSpace.lg)
         }
         .task { await stagger() }
     }

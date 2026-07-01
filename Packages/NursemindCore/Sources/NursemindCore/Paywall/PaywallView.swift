@@ -72,48 +72,55 @@ public struct PaywallView: View {
             GrainBackground()
                 .ignoresSafeArea()
 
-            VStack(spacing: 0) {
-                // Spacing scaled down universally so the paywall fits on
-                // iPhone 15 (852pt) and stays balanced on iPhone Pro Max
-                // (932pt) — the original spacing pushed "Maybe later"
-                // below the bottom safe area on shorter phones.
-                Spacer().frame(height: NMSpace.md)
-                brandMark
-                header
-                    .padding(.top, NMSpace.md)
-                Spacer(minLength: NMSpace.md)
-                featureChecklist
-                Spacer(minLength: NMSpace.md)
-                planSection
-                continueButton
-                    .padding(.top, NMSpace.md)
-                if let sub = continueSubcopy {
-                    Text(sub)
-                        .font(NMFont.bodySM)
-                        .italic()
-                        .foregroundStyle(NMColor.textTertiary)
-                        .multilineTextAlignment(.center)
-                        .frame(maxWidth: .infinity)
-                        .padding(.top, NMSpace.xs)
+            // Fits on a tall iPhone exactly as before; scrolls into reach on a
+            // short canvas (iPhone-app-on-iPad compatibility window) so the
+            // plan picker, CTA, and Restore / Terms / Privacy footer are never
+            // clipped below the fold. (Apple review, Guideline 4, 2026-06-26.)
+            FitOrScrollLayout {
+                VStack(spacing: 0) {
+                    // Spacing scaled down universally so the paywall fits on
+                    // iPhone 15 (852pt) and stays balanced on iPhone Pro Max
+                    // (932pt) — the original spacing pushed "Maybe later"
+                    // below the bottom safe area on shorter phones.
+                    Spacer().frame(height: NMSpace.md)
+                    brandMark
+                    header
+                        .padding(.top, NMSpace.md)
+                    Spacer(minLength: NMSpace.xl)
+                    featureChecklist
+                    Spacer(minLength: NMSpace.xl)
+                    planSection
+                    continueButton
+                        .padding(.top, NMSpace.md)
+                    if let sub = continueSubcopy {
+                        Text(sub)
+                            .font(NMFont.bodySM)
+                            .italic()
+                            .foregroundStyle(NMColor.textTertiary)
+                            .multilineTextAlignment(.center)
+                            .frame(maxWidth: .infinity)
+                            .padding(.top, NMSpace.xs)
+                    }
+                    if let errorMessage, !errorMessage.isEmpty {
+                        Text(errorMessage)
+                            .font(NMFont.bodySM)
+                            .foregroundStyle(NMColor.alertHigh)
+                            .multilineTextAlignment(.center)
+                            .frame(maxWidth: .infinity)
+                            .padding(.top, NMSpace.xs)
+                    }
+                    legalFooter
+                        .padding(.top, NMSpace.sm)
+                        .padding(.bottom, NMSpace.md)
+                    // The onboarding paywall carries a deliberately faint X in
+                    // the top-right (see the overlay below) as a low-friction
+                    // escape hatch. Subscribe / start-trial and Restore remain
+                    // the primary paths; the subtle dismiss just lets a user
+                    // who isn't ready continue into the app.
                 }
-                if let errorMessage, !errorMessage.isEmpty {
-                    Text(errorMessage)
-                        .font(NMFont.bodySM)
-                        .foregroundStyle(NMColor.alertHigh)
-                        .multilineTextAlignment(.center)
-                        .frame(maxWidth: .infinity)
-                        .padding(.top, NMSpace.xs)
-                }
-                legalFooter
-                    .padding(.top, NMSpace.sm)
-                // The onboarding paywall carries a deliberately faint X in the
-                // top-right (see the overlay below) as a low-friction escape
-                // hatch. Subscribe / start-trial and Restore remain the primary
-                // paths; the subtle dismiss just lets a user who isn't ready
-                // continue into the app.
+                .frame(maxWidth: .infinity)
+                .padding(.horizontal, NMSpace.lg)
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .padding(.horizontal, NMSpace.lg)
 
             // Dismissal affordance, top-right. Two treatments:
             //  • Sheet/cover surfaces (onComplete == nil): the standard

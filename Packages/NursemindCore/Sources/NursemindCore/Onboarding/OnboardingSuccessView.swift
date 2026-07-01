@@ -18,13 +18,15 @@ struct OnboardingSuccessView: View {
     var body: some View {
         ZStack {
             NMColor.bgPrimary.ignoresSafeArea()
-            VStack(alignment: .leading, spacing: 0) {
-                Spacer(minLength: 0)
-                heroBlock
-                Spacer(minLength: 0)
-                action
+            FitOrScrollLayout {
+                VStack(alignment: .leading, spacing: 0) {
+                    Spacer(minLength: NMSpace.xl)
+                    heroBlock
+                    Spacer(minLength: NMSpace.xl)
+                    action
+                }
+                .padding(.horizontal, NMSpace.lg)
             }
-            .padding(.horizontal, NMSpace.lg)
         }
         .task {
             Haptic.success()

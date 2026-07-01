@@ -128,6 +128,14 @@ public struct ProfileHomeView: View {
             Text(profileSubtitle)
                 .font(NMFont.displayItalicMD)
                 .foregroundStyle(NMColor.textSecondary)
+            // Full-width, content-shaped hit target. The glyph-only version
+            // (text + arrow, no contentShape) left most of the row as a dead
+            // zone, so a tap that landed a few points off registered as
+            // nothing — which is exactly how App Review saw it ("tapped Edit
+            // profile, unresponsive" on iPad, Guideline 2.1, 2026-06-26). The
+            // settings rows below never had this problem because they use
+            // ProfileLinkRow, which is full-width and content-shaped; this
+            // matches that behavior.
             NavigationLink(value: ProfileDestination.editProfile) {
                 HStack(spacing: NMSpace.xs) {
                     Text("Edit profile")
@@ -136,8 +144,12 @@ public struct ProfileHomeView: View {
                     Image(systemName: "arrow.right")
                         .font(.system(size: 13, weight: .medium))
                         .foregroundStyle(NMColor.accent)
+                    Spacer(minLength: 0)
                 }
                 .padding(.top, NMSpace.sm)
+                .padding(.vertical, NMSpace.xs)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .contentShape(Rectangle())
             }
             .buttonStyle(.plain)
         }
