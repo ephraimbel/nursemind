@@ -333,7 +333,7 @@ public enum ToxicAlcoholSample {
             AttributedBullet("Methanol visual loss and ethylene glycol acute kidney injury/hypocalcemia.", citationIDs: ["openrn_toxicology"]),
             AttributedBullet("Missed diagnosis — 'drunk without the smell' plus a severe acidosis is the clue.", citationIDs: ["openrn_toxicology"])
         ],
-        citations: [openrnTox, poisonControl],
+        citations: [openrnTox, poisonControl, cdcTox],
         lastSourceFidelityReview: "2026-07-03"
     )
 }

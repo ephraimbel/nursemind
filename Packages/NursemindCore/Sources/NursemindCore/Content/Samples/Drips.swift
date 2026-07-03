@@ -210,7 +210,7 @@ public enum VasopressinDripSample {
             AttributedBullet("Wean off when norepinephrine has been weaned to ≤0.1 mcg/kg/min and MAP stable.", citationIDs: ["openrn_drips"])
         ],
         patientTeaching: nil,
-        citations: [openfdaGeneric, openrnDrip, ssc, ismp],
+        citations: [openfdaGeneric, openrnDrip, openrnPharm, ssc, ismp],
         lastSourceFidelityReview: "2026-05-03"
     )
 }
@@ -260,7 +260,7 @@ public enum PhenylephrineDripSample {
             AttributedBullet("Caution in HFrEF — phenylephrine increases afterload and may decrease cardiac output.", citationIDs: ["openrn_drips"])
         ],
         patientTeaching: nil,
-        citations: [openfdaGeneric, openrnDrip, ismp],
+        citations: [openfdaGeneric, openrnDrip, openrnPharm, ismp],
         lastSourceFidelityReview: "2026-05-03"
     )
 }

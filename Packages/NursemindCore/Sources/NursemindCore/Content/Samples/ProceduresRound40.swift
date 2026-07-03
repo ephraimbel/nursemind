@@ -113,7 +113,7 @@ public enum IVPushMedicationSample {
             AttributedBullet("Extravasation of a vesicant — stop immediately, do not flush, follow the antidote/protocol for that drug.", citationIDs: ["openstax_skills_r40"]),
             AttributedBullet("Immediate hypersensitivity/anaphylaxis — stop the push, keep the line, and treat per protocol.", citationIDs: ["openstax_skills_r40"])
         ],
-        citations: [openstaxR40, openrnSkillsR40, ismpR40],
+        citations: [openstaxR40, openrnSkillsR40, ismpR40, cdcR40],
         lastSourceFidelityReview: "2026-07-03"
     )
 }
