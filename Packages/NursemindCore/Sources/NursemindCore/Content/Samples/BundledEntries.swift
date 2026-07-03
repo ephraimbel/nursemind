@@ -2170,6 +2170,13 @@ extension ContentRegistry {
         entries.append(.procedure(NRPSample.entry))
         entries.append(.procedure(PediatricIVSample.entry))
         entries.append(.procedure(PediatricMedAdminSample.entry))
+        // MARK: Round 40 — Procedures (everyday-technique gaps)
+        entries.append(.procedure(IVPushMedicationSample.entry))
+        entries.append(.procedure(EnteralMedicationTubeSample.entry))
+        entries.append(.procedure(IntraosseousAccessSample.entry))
+        entries.append(.procedure(TranscutaneousPacingSample.entry))
+        entries.append(.procedure(ABGSamplingSample.entry))
+        entries.append(.procedure(SurgicalTimeOutSample.entry))
         // MARK: Round 39 — Lab interpretation references
         entries.append(.reference(CBCInterpretationSample.entry))
         entries.append(.reference(BMPCMPInterpretationSample.entry))
