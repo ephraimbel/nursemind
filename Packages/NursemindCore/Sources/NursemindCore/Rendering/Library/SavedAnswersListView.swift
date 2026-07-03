@@ -121,10 +121,10 @@ private struct SavedAnswerRow: View {
             }
             Spacer(minLength: 0)
             Image(systemName: "chevron.right")
-                .font(.system(size: 14, weight: .regular))
-                .foregroundStyle(NMColor.accent)
+                .font(.system(size: 13, weight: .regular))
+                .foregroundStyle(NMColor.textTertiary)
         }
-        .padding(.vertical, NMSpace.base)
+        .padding(.vertical, NMSpace.md)
         .frame(maxWidth: .infinity, alignment: .leading)
         .contentShape(Rectangle())
     }

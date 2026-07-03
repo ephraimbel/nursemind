@@ -21,17 +21,19 @@ public struct DrugEntryView: View {
     }
 
     public var body: some View {
-        ScrollView {
-            VStack(alignment: .leading, spacing: 0) {
-                if prefs.subscriptionTier.isPro || FreeTier.isFreeEntry(entry.id) {
-                    fullContent
-                } else {
-                    previewContent
+        ScrollViewReader { proxy in
+            ScrollView {
+                VStack(alignment: .leading, spacing: 0) {
+                    if prefs.subscriptionTier.isPro || FreeTier.isFreeEntry(entry.id) {
+                        fullContent(proxy: proxy)
+                    } else {
+                        previewContent
+                    }
                 }
+                .padding(.horizontal, NMSpace.lg)
+                .padding(.top, NMSpace.xxl)
+                .padding(.bottom, NMSpace.huge)
             }
-            .padding(.horizontal, NMSpace.lg)
-            .padding(.top, NMSpace.xxl)
-            .padding(.bottom, NMSpace.huge)
         }
         .background(GrainBackground())
     }
@@ -56,34 +58,100 @@ public struct DrugEntryView: View {
     }
 
     @ViewBuilder
-    private var fullContent: some View {
+    private func fullContent(proxy: ScrollViewProxy) -> some View {
         header
-        Hairline().padding(.vertical, NMSpace.xxl)
-        quickReference
+        sectionJumpRow(proxy: proxy)
+            .padding(.top, NMSpace.lg)
+        Hairline().padding(.top, NMSpace.md).padding(.bottom, NMSpace.xl)
+        quickReference.id(SectionAnchor.quickReference.rawValue)
         divider
-        indicationsAndMechanism
+        indicationsAndMechanism.id(SectionAnchor.indications.rawValue)
         divider
-        dosing
+        dosing.id(SectionAnchor.dosing.rawValue)
+        if entry.contraindications != nil {
+            divider
+            contraindications.id(SectionAnchor.contraindications.rawValue)
+        }
         divider
-        contraindications
+        warnings.id(SectionAnchor.warnings.rawValue)
         divider
-        warnings
+        adverseReactions.id(SectionAnchor.adverse.rawValue)
         divider
-        adverseReactions
-        divider
-        drugInteractions
+        drugInteractions.id(SectionAnchor.interactions.rawValue)
         if entry.nursingImplications != nil {
             divider
-            nursingImplications
+            nursingImplications.id(SectionAnchor.nursing.rawValue)
         }
         if entry.patientTeaching != nil {
             divider
-            patientTeaching
+            patientTeaching.id(SectionAnchor.teaching.rawValue)
         }
         divider
-        citations
+        citations.id(SectionAnchor.citations.rawValue)
         attributionFooter
         RelatedToolsSection(entryID: entry.id)
+    }
+
+    // MARK: - Section jump row
+
+    /// Every section a monograph can contain, in page order. Raw value doubles
+    /// as the ScrollViewReader anchor id.
+    private enum SectionAnchor: String, CaseIterable {
+        case quickReference, indications, dosing, contraindications
+        case warnings, adverse, interactions, nursing, teaching, citations
+
+        var label: String {
+            switch self {
+            case .quickReference:    return "QUICK REF"
+            case .indications:       return "INDICATIONS"
+            case .dosing:            return "DOSING"
+            case .contraindications: return "CONTRAINDICATIONS"
+            case .warnings:          return "WARNINGS"
+            case .adverse:           return "ADVERSE"
+            case .interactions:      return "INTERACTIONS"
+            case .nursing:           return "NURSING"
+            case .teaching:          return "TEACHING"
+            case .citations:         return "CITATIONS"
+            }
+        }
+    }
+
+    private var availableAnchors: [SectionAnchor] {
+        SectionAnchor.allCases.filter { anchor in
+            switch anchor {
+            case .contraindications: return entry.contraindications != nil
+            case .nursing:           return entry.nursingImplications != nil
+            case .teaching:          return entry.patientTeaching != nil
+            default:                 return true
+            }
+        }
+    }
+
+    /// Horizontally scrollable row of uppercase section labels. One tap lands
+    /// a nurse on Dosing without paging past Mechanism — the difference
+    /// between a monograph and a scroll. Bleeds to the screen edge so partial
+    /// labels signal scrollability.
+    private func sectionJumpRow(proxy: ScrollViewProxy) -> some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: NMSpace.lg) {
+                ForEach(availableAnchors, id: \.self) { anchor in
+                    Button {
+                        withAnimation(.easeInOut(duration: 0.35)) {
+                            proxy.scrollTo(anchor.rawValue, anchor: .top)
+                        }
+                    } label: {
+                        Text(anchor.label)
+                            .font(NMFont.label)
+                            .tracking(1.6)
+                            .foregroundStyle(NMColor.textSecondary)
+                            .padding(.vertical, NMSpace.xs)
+                    }
+                    .buttonStyle(.plain)
+                }
+            }
+            .padding(.horizontal, NMSpace.lg)
+        }
+        .padding(.horizontal, -NMSpace.lg)
     }
 
     private var divider: some View {

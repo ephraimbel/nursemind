@@ -74,6 +74,16 @@ struct RootView: View {
         // paywall-exit trigger was invisible to App Review (Guideline 2.1,
         // 2026-05-30). A short delay lets the key window finish coming up so
         // the sheet has something to attach to.
+        .onAppear {
+            #if DEBUG
+            // Dev-only deep link (like NM_TEST_QUERY): land directly on a
+            // library entry so UI work on detail views can be screenshotted
+            // without simulator navigation.
+            if let entryID = ProcessInfo.processInfo.environment["NM_OPEN_ENTRY"] {
+                router.openLibraryEntry(entryID)
+            }
+            #endif
+        }
         .onChange(of: scenePhase, initial: true) { _, phase in
             guard phase == .active, !hasRequestedTracking else { return }
             hasRequestedTracking = true
@@ -152,6 +162,13 @@ struct RootView: View {
     }
 
     private var askService: AskService {
+        #if DEBUG
+        // Dev-only escape hatch (like NM_TEST_QUERY): forces the mock service
+        // so streaming UX can be exercised without live API credits.
+        if ProcessInfo.processInfo.environment["NM_MOCK_AI"] == "1" {
+            return MockAskService()
+        }
+        #endif
         if let client = anthropicClient {
             return AnthropicAskService(client: client)
         }

@@ -583,12 +583,13 @@ private struct PaywallPlanRow: View {
                         }
                     }
                     Text(secondaryLine)
-                        .font(NMFont.body)
+                        .font(NMFont.bodySM)
                         .italic()
                         .foregroundStyle(NMColor.textTertiary)
                         .lineLimit(1)
                         .truncationMode(.tail)
-                        .minimumScaleFactor(0.85)
+                        .allowsTightening(true)
+                        .minimumScaleFactor(0.7)
                 }
                 Spacer(minLength: 0)
                 priceBlock
@@ -650,6 +651,7 @@ private struct PaywallPlanRow: View {
                 .font(NMFont.bodySM)
                 .foregroundStyle(NMColor.textTertiary)
         }
+        .fixedSize()
     }
 }
 

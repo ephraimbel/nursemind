@@ -23,6 +23,11 @@ public protocol AskService: Sendable {
         specialty: NursingSpecialty?,
         icuSubspecialty: ICUSubspecialty?
     ) -> AsyncThrowingStream<AskEvent, Error>
+
+    /// Optional pre-flight: establish the network path (DNS + TLS + edge
+    /// function warm-up) before the user sends, so the first question doesn't
+    /// pay handshake latency. Called when the Ask surface appears.
+    func warmUp() async
 }
 
 public extension AskService {
@@ -30,6 +35,9 @@ public extension AskService {
     func stream(question: String, conversationContext: [AskMessage]) -> AsyncThrowingStream<AskEvent, Error> {
         stream(question: question, conversationContext: conversationContext, specialty: nil, icuSubspecialty: nil)
     }
+
+    /// No-op by default — mock/preview services have no connection to warm.
+    func warmUp() async {}
 }
 
 public enum AskEvent: Sendable {

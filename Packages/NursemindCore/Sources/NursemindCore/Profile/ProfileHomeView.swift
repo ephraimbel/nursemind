@@ -18,57 +18,39 @@ public struct ProfileHomeView: View {
     @State private var isDeletingAccount: Bool = false
     @State private var deletionErrorMessage: String?
     @Environment(\.modelContext) private var modelContext
-    @Environment(\.colorScheme) private var systemColorScheme
 
     public init() {}
-
-    private var isDarkMode: Bool {
-        switch prefs.preferredAppearance {
-        case .light:  return false
-        case .dark:   return true
-        case .system: return systemColorScheme == .dark
-        }
-    }
 
     public var body: some View {
         NavigationStack(path: $path) {
             ScrollView {
                 VStack(alignment: .leading, spacing: 0) {
                     header
-                        .padding(.bottom, NMSpace.xxxl)
 
-                    Hairline()
-                        .padding(.bottom, NMSpace.xxxl)
-
-                    // Gated until the Supabase dashboard's Apple provider is
-                    // configured (Auth → Providers → Apple). With the provider
-                    // off, `linkIdentityWithIdToken` fails after the user has
-                    // already authenticated through Apple's native sheet — a
-                    // Guideline 2.1 review risk. Flip `SignInWithAppleRow.isEnabled`
-                    // to true once the dashboard side is wired.
                     if supabase.isAnonymous && SignInWithAppleRow.isEnabled {
+                        // Kept prominent (not buried in Account) — this is the
+                        // primary save-your-data conversion prompt for anonymous
+                        // users. Bracketed by hairlines so it reads as its own
+                        // deliberate row between identity and subscription.
+                        Hairline().padding(.top, NMSpace.xxl)
                         SignInWithAppleRow()
-                            .padding(.bottom, NMSpace.xxxl)
                         Hairline()
-                            .padding(.bottom, NMSpace.xxxl)
                     }
 
                     subscriptionCard
-                        .padding(.bottom, NMSpace.xxxl)
+                        .padding(.top, NMSpace.xxl)
 
-                    Hairline()
-                        .padding(.bottom, NMSpace.xxxl)
+                    preferencesSection
+                        .padding(.top, NMSpace.xxl)
 
-                    settingsList
+                    resourcesSection
+                        .padding(.top, NMSpace.xxl)
 
-                    Hairline()
-                        .padding(.vertical, NMSpace.xxxl)
-
-                    deleteAccountSection
-
-                    Spacer(minLength: NMSpace.xxxl)
+                    accountSection
+                        .padding(.top, NMSpace.xxl)
 
                     versionFooter
+                        .padding(.top, NMSpace.xxxl)
                 }
                 .padding(.horizontal, NMSpace.lg)
                 .padding(.top, NMSpace.sm)
@@ -92,50 +74,36 @@ public struct ProfileHomeView: View {
         }
     }
 
-    // MARK: - Appearance toggle
+    // MARK: - Header (identity)
 
-    /// Inline sun/moon switch, top-right of the header row (no nav-bar toolbar,
-    /// so the Profile header stays aligned with Feed and Library). Shows the icon
-    /// for the mode you'd switch *to*: a sun while dark, a moon while light.
-    private var appearanceToggle: some View {
-        Button {
-            Haptic.selection()
-            withAnimation(.snappy(duration: 0.25)) {
-                prefs.preferredAppearance = isDarkMode ? .light : .dark
-            }
-        } label: {
-            Image(systemName: isDarkMode ? "sun.max" : "moon")
-                .font(.system(size: 17, weight: .regular))
-                .foregroundStyle(NMColor.textPrimary)
-                .contentTransition(.symbolEffect(.replace))
-        }
-        .accessibilityLabel(isDarkMode ? "Switch to light mode" : "Switch to dark mode")
-    }
-
-    // MARK: - Header
-
+    /// Identity block: serif monogram avatar + name + role/unit line, then a
+    /// full-width Edit profile affordance. The avatar anchors the page with a
+    /// premium personal mark; appearance moved out of the header into a proper
+    /// labeled control in Preferences (below), so the header stays purely about
+    /// who the user is.
     private var header: some View {
-        VStack(alignment: .leading, spacing: NMSpace.md) {
-            HStack(alignment: .center) {
-                EyebrowLabel("YOUR PROFILE")
-                Spacer()
-                appearanceToggle
+        VStack(alignment: .leading, spacing: NMSpace.base) {
+            EyebrowLabel("YOUR PROFILE")
+            HStack(alignment: .center, spacing: NMSpace.base) {
+                MonogramAvatar(initials: monogramInitials)
+                VStack(alignment: .leading, spacing: 3) {
+                    Text(prefs.displayName.isEmpty ? "Set your name" : prefs.displayName)
+                        .displayLG()
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.6)
+                    Text(profileSubtitle)
+                        .font(NMFont.displayItalicMD)
+                        .foregroundStyle(NMColor.textSecondary)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.8)
+                }
             }
-            Text(prefs.displayName.isEmpty ? "Set your name" : prefs.displayName)
-                .displayXL()
-                .lineLimit(2)
-                .minimumScaleFactor(0.7)
-            Text(profileSubtitle)
-                .font(NMFont.displayItalicMD)
-                .foregroundStyle(NMColor.textSecondary)
+            .padding(.top, NMSpace.xs)
             // Full-width, content-shaped hit target. The glyph-only version
             // (text + arrow, no contentShape) left most of the row as a dead
             // zone, so a tap that landed a few points off registered as
-            // nothing — which is exactly how App Review saw it ("tapped Edit
-            // profile, unresponsive" on iPad, Guideline 2.1, 2026-06-26). The
-            // settings rows below never had this problem because they use
-            // ProfileLinkRow, which is full-width and content-shaped; this
-            // matches that behavior.
+            // nothing (App Review, Guideline 2.1, iPad, 2026-06-26). Keeping
+            // the whole row tappable matches the ProfileLinkRow behavior below.
             NavigationLink(value: ProfileDestination.editProfile) {
                 HStack(spacing: NMSpace.xs) {
                     Text("Edit profile")
@@ -153,6 +121,15 @@ public struct ProfileHomeView: View {
             }
             .buttonStyle(.plain)
         }
+    }
+
+    /// Up to two initials from the display name; empty when unset so the avatar
+    /// falls back to a neutral glyph.
+    private var monogramInitials: String {
+        let name = prefs.displayName.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !name.isEmpty else { return "" }
+        let letters = name.split(separator: " ").prefix(2).compactMap { $0.first }
+        return String(letters).uppercased()
     }
 
     private var profileSubtitle: String {
@@ -175,67 +152,67 @@ public struct ProfileHomeView: View {
         .buttonStyle(.plain)
     }
 
-    // MARK: - Settings
+    // MARK: - Preferences
 
-    private var settingsList: some View {
-        VStack(spacing: 0) {
+    private var preferencesSection: some View {
+        ProfileSection("PREFERENCES") {
             ProfileLinkRow(
                 label: "Notifications",
                 value: prefs.notificationsEnabled ? "On" : "Off",
                 destination: .notifications
             )
             Hairline(color: NMColor.borderSubtle)
-            ProfileLinkRow(
-                label: "Editorial standards",
-                value: nil,
-                destination: .editorialStandards
-            )
-            Hairline(color: NMColor.borderSubtle)
-            ProfileLinkRow(
-                label: "Terms of Use",
-                value: nil,
-                destination: .termsOfUse
-            )
-            Hairline(color: NMColor.borderSubtle)
-            ProfileLinkRow(
-                label: "Privacy Policy",
-                value: nil,
-                destination: .privacyPolicy
-            )
-            Hairline(color: NMColor.borderSubtle)
-            ProfileLinkRow(
-                label: "About",
-                value: nil,
-                destination: .about
-            )
+            AppearanceRow(selection: appearanceBinding)
         }
     }
 
-    // MARK: - Delete account
+    private var appearanceBinding: Binding<AppearanceTheme> {
+        Binding(
+            get: { prefs.preferredAppearance },
+            set: { prefs.preferredAppearance = $0 }
+        )
+    }
 
-    /// Destructive section at the bottom of Profile. Apple Guideline
-    /// 5.1.1(v) requires an in-app account-deletion path. Two-step
-    /// confirmation: a labeled button opens an alert with explicit "this
-    /// can't be undone" language and a destructive-styled Delete action.
+    // MARK: - Resources
+
+    private var resourcesSection: some View {
+        ProfileSection("RESOURCES") {
+            ProfileLinkRow(label: "Editorial standards", value: nil, destination: .editorialStandards)
+            Hairline(color: NMColor.borderSubtle)
+            ProfileLinkRow(label: "About", value: nil, destination: .about)
+            Hairline(color: NMColor.borderSubtle)
+            ProfileLinkRow(label: "Terms of Use", value: nil, destination: .termsOfUse)
+            Hairline(color: NMColor.borderSubtle)
+            ProfileLinkRow(label: "Privacy Policy", value: nil, destination: .privacyPolicy)
+        }
+    }
+
+    // MARK: - Account (delete)
+
+    /// Apple Guideline 5.1.1(v) requires an in-app account-deletion path.
+    /// Two-step confirmation: a labeled button opens an alert with explicit
+    /// "this can't be undone" language and a destructive-styled Delete action.
     /// Cleared local + server state returns the user to onboarding.
-    private var deleteAccountSection: some View {
-        VStack(alignment: .leading, spacing: NMSpace.sm) {
+    private var accountSection: some View {
+        VStack(alignment: .leading, spacing: NMSpace.md) {
             EyebrowLabel("ACCOUNT", sparkle: false)
             Text("Delete your account and all data — your profile, saved answers, conversation history, and subscription record. This can't be undone.")
                 .font(NMFont.bodySM)
                 .foregroundStyle(NMColor.textTertiary)
                 .lineSpacing(3)
-                .padding(.bottom, NMSpace.sm)
             Button(role: .destructive) {
                 showDeleteConfirm = true
             } label: {
-                HStack {
+                HStack(spacing: NMSpace.sm) {
                     if isDeletingAccount {
                         ProgressView()
                             .controlSize(.small)
-                            .padding(.trailing, NMSpace.xs)
+                    } else {
+                        Image(systemName: "trash")
+                            .font(.system(size: 14, weight: .medium))
+                            .foregroundStyle(NMColor.alertHigh)
                     }
-                    Text(isDeletingAccount ? "Deleting…" : "Delete Account")
+                    Text(isDeletingAccount ? "Deleting…" : "Delete account")
                         .font(NMFont.bodyLG.weight(.medium))
                         .foregroundStyle(NMColor.alertHigh)
                     Spacer()
@@ -274,9 +251,8 @@ public struct ProfileHomeView: View {
                 let container = modelContext.container
                 try await AccountDeletionService.shared.deleteAccount(modelContainer: container)
                 // Success: prefs.safetyContractAgreedAt was cleared by wipe(),
-                // which flips hasCompletedOnboarding → false. RootView
-                // observes this and swaps back to OnboardingFlow
-                // automatically — no manual navigation needed.
+                // which flips hasCompletedOnboarding → false. RootView observes
+                // this and swaps back to OnboardingFlow automatically.
                 isDeletingAccount = false
             } catch {
                 isDeletingAccount = false
@@ -305,6 +281,127 @@ public struct ProfileHomeView: View {
         let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0.0.0"
         let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "0"
         return "\(version) (\(build))"
+    }
+}
+
+// MARK: - Monogram avatar
+
+/// Serif initials in a hairline-bordered circle — a calm, personal identity
+/// mark. No photo upload (no PHI surface, no storage cost); the monogram is
+/// the premium-but-safe stand-in. Falls back to a neutral person glyph before
+/// the user sets a name.
+private struct MonogramAvatar: View {
+    let initials: String
+
+    var body: some View {
+        ZStack {
+            Circle().fill(NMColor.bgElevated)
+            Circle().strokeBorder(NMColor.border, lineWidth: 1)
+            if initials.isEmpty {
+                Image(systemName: "person.fill")
+                    .font(.system(size: 20, weight: .regular))
+                    .foregroundStyle(NMColor.textTertiary)
+            } else {
+                Text(initials)
+                    .font(NMFont.displayMD)
+                    .foregroundStyle(NMColor.textPrimary)
+            }
+        }
+        .frame(width: 54, height: 54)
+        .accessibilityHidden(true)
+    }
+}
+
+// MARK: - Section container
+
+/// Labeled group of hairline-separated rows. Sections are separated from each
+/// other by whitespace + their eyebrow header rather than cards — structure
+/// without chrome, matching the Library's BROWSE grammar.
+private struct ProfileSection<Content: View>: View {
+    let title: String
+    @ViewBuilder let content: Content
+
+    init(_ title: String, @ViewBuilder content: () -> Content) {
+        self.title = title
+        self.content = content()
+    }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: NMSpace.md) {
+            EyebrowLabel(title, sparkle: false)
+            VStack(spacing: 0) { content }
+        }
+    }
+}
+
+// MARK: - Appearance control
+
+/// Inline row: "Appearance" label + a three-way System / Light / Dark segmented
+/// control. Replaces the old hidden header moon toggle — appearance now lives
+/// where users expect a setting, and exposes the System option the toggle
+/// couldn't. Icon segments keep it compact; the selected pill slides on accent.
+private struct AppearanceRow: View {
+    @Binding var selection: AppearanceTheme
+
+    var body: some View {
+        HStack {
+            Text("Appearance")
+                .font(NMFont.bodyLG)
+                .foregroundStyle(NMColor.textPrimary)
+            Spacer()
+            AppearanceSegmentedControl(selection: $selection)
+        }
+        .padding(.vertical, NMSpace.md)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .contentShape(Rectangle())
+    }
+}
+
+private struct AppearanceSegmentedControl: View {
+    @Binding var selection: AppearanceTheme
+    @Namespace private var pill
+
+    var body: some View {
+        HStack(spacing: 2) {
+            ForEach(AppearanceTheme.allCases, id: \.self) { theme in
+                segment(theme)
+            }
+        }
+        .padding(3)
+        .background(Capsule().fill(NMColor.bgSecondary))
+    }
+
+    private func segment(_ theme: AppearanceTheme) -> some View {
+        let selected = selection == theme
+        return Button {
+            guard !selected else { return }
+            Haptic.selection()
+            withAnimation(.snappy(duration: 0.25)) { selection = theme }
+        } label: {
+            Image(systemName: icon(theme))
+                .font(.system(size: 13, weight: .medium))
+                .foregroundStyle(selected ? NMColor.onAccent : NMColor.textTertiary)
+                .frame(width: 42, height: 28)
+                .background {
+                    if selected {
+                        Capsule()
+                            .fill(NMColor.accent)
+                            .matchedGeometryEffect(id: "appearancePill", in: pill)
+                    }
+                }
+                .contentShape(Capsule())
+        }
+        .buttonStyle(.plain)
+        .accessibilityLabel(theme.displayName)
+        .accessibilityAddTraits(selected ? [.isSelected] : [])
+    }
+
+    private func icon(_ theme: AppearanceTheme) -> String {
+        switch theme {
+        case .system: return "circle.lefthalf.filled"
+        case .light:  return "sun.max"
+        case .dark:   return "moon"
+        }
     }
 }
 

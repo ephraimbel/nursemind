@@ -80,7 +80,13 @@ public struct MAPCalculatorView: View {
                 value: result.map { String(format: "%.0f", $0) },
                 unit: "mmHg",
                 interpretation: interpretation?.0,
-                level: interpretation?.1 ?? .neutral
+                level: interpretation?.1 ?? .neutral,
+                scale: ResultScale(from: 40, bands: [
+                    .init(upTo: 65, .alert),
+                    .init(upTo: 110, .neutral),
+                    .init(upTo: 140, .caution)
+                ]),
+                scaleValue: result
             )
             CalculatorFormulaSection(
                 formula: "MAP ≈ DBP + (SBP − DBP) / 3",
@@ -126,7 +132,14 @@ public struct CardiacIndexCalculatorView: View {
                 value: result.map { String(format: "%.2f", $0) },
                 unit: "L/min/m²",
                 interpretation: interpretation?.0,
-                level: interpretation?.1 ?? .neutral
+                level: interpretation?.1 ?? .neutral,
+                scale: ResultScale(from: 1.0, bands: [
+                    .init(upTo: 2.2, .alert),
+                    .init(upTo: 2.5, .caution),
+                    .init(upTo: 4.0, .neutral),
+                    .init(upTo: 6.0, .caution)
+                ]),
+                scaleValue: result
             )
             CalculatorFormulaSection(
                 formula: "CI = CO ÷ BSA",

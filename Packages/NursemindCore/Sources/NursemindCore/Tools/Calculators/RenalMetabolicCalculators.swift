@@ -129,7 +129,14 @@ public struct GFRCalculatorView: View {
                 value: result.map { String(format: "%.0f", $0) },
                 unit: "mL/min/1.73 m²",
                 interpretation: interpretation?.0,
-                level: interpretation?.1 ?? .neutral
+                level: interpretation?.1 ?? .neutral,
+                scale: ResultScale(from: 0, bands: [
+                    .init(upTo: 15, .alert),
+                    .init(upTo: 30, .alert),
+                    .init(upTo: 60, .caution),
+                    .init(upTo: 120, .neutral)
+                ]),
+                scaleValue: result
             )
             CalculatorFormulaSection(
                 formula: "eGFR = 142 × min(Scr/κ, 1)^α × max(Scr/κ, 1)^−1.200 × 0.9938^age × 1.012 if female\n(κ = 0.7 female / 0.9 male; α = −0.241 female / −0.302 male)",
@@ -203,7 +210,13 @@ public struct AnionGapCalculatorView: View {
                 value: (correctedGap ?? rawGap).map { String(format: "%.1f", $0) },
                 unit: "mEq/L",
                 interpretation: interpretation?.0,
-                level: interpretation?.1 ?? .neutral
+                level: interpretation?.1 ?? .neutral,
+                scale: ResultScale(from: 0, bands: [
+                    .init(upTo: 4, .caution),
+                    .init(upTo: 12, .neutral),
+                    .init(upTo: 24, .alert)
+                ]),
+                scaleValue: correctedGap ?? rawGap
             )
             CalculatorFormulaSection(
                 formula: "AG = Na − (Cl + HCO₃)\nAG_corrected = AG + 2.5 × (4.0 − albumin)",
@@ -318,7 +331,13 @@ public struct CorrectedCalciumCalculatorView: View {
                 value: result.map { String(format: "%.2f", $0) },
                 unit: "mg/dL",
                 interpretation: interpretation?.0,
-                level: interpretation?.1 ?? .neutral
+                level: interpretation?.1 ?? .neutral,
+                scale: ResultScale(from: 6, bands: [
+                    .init(upTo: 8.5, .alert),
+                    .init(upTo: 10.5, .neutral),
+                    .init(upTo: 13, .alert)
+                ]),
+                scaleValue: result
             )
             CalculatorFormulaSection(
                 formula: "Corrected Ca = measured Ca + 0.8 × (4.0 − albumin)",

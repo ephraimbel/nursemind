@@ -81,10 +81,7 @@ private struct EntryHandoffRow: View {
 
     var body: some View {
         HStack(alignment: .center, spacing: NMSpace.base) {
-            Image(systemName: glyph)
-                .font(.system(size: 14, weight: .regular))
-                .foregroundStyle(iconTint)
-                .frame(width: 18, alignment: .center)
+            CategoryGlyphCell(symbol: entry.category.glyph, tint: entry.category.glyphTint, size: 14)
             VStack(alignment: .leading, spacing: 1) {
                 Text(entry.title)
                     .font(NMFont.title)
@@ -101,33 +98,6 @@ private struct EntryHandoffRow: View {
         }
         .padding(.vertical, NMSpace.base)
         .contentShape(Rectangle())
-    }
-
-    private var glyph: String {
-        switch entry.category {
-        case .drug, .drip:     return "pills"
-        case .lab:             return "drop"
-        case .procedure:       return "list.bullet.clipboard"
-        case .diagnosis:       return "stethoscope"
-        case .scenario:        return "person.2"
-        case .communication:   return "bubble.left.and.bubble.right"
-        case .reference:       return "book"
-        }
-    }
-
-    /// Quiet category-aware tint pulled from the source palette. Creates
-    /// editorial rhythm in a 3-row list (drug navy, scenario plum, procedure
-    /// umber) without competing with primary accents.
-    private var iconTint: Color {
-        switch entry.category {
-        case .drug, .drip:    return NMColor.sourceFDA
-        case .lab:            return NMColor.sourceJournal
-        case .procedure:      return NMColor.sourceTextbook
-        case .diagnosis:      return NMColor.sourceGuideline
-        case .scenario:       return NMColor.sourceSociety
-        case .communication:  return NMColor.sourceAgency
-        case .reference:      return NMColor.textSecondary
-        }
     }
 }
 

@@ -78,6 +78,12 @@ public struct AskHomeView: View {
                     viewModel.send()
                 }
             }
+            // Pre-establish the network path (DNS + TLS + edge-function warm
+            // start) the moment the Ask surface appears, so the first question
+            // doesn't pay handshake latency on top of model latency.
+            .task {
+                await viewModel.warmUpConnection()
+            }
             .onChange(of: viewModel.focusRequestToken) {
                 inputFocused = true
             }

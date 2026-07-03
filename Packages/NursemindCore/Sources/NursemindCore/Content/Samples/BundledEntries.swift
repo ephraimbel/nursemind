@@ -51,6 +51,7 @@ extension ContentRegistry {
         entries.append(contentsOf: bundledChunk44())
         entries.append(contentsOf: bundledChunk45())
         entries.append(contentsOf: bundledChunk46())
+        entries.append(contentsOf: bundledChunk47())
         return entries
     }
 
@@ -2092,6 +2093,16 @@ extension ContentRegistry {
         entries.append(.reference(OralDiabetesMedsSample.entry))
         entries.append(.reference(LipidLoweringSample.entry))
         entries.append(.reference(AnticoagulationReversalRound39Sample.entry))
+        return entries
+    }
+
+    private static func bundledChunk47() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
+        // MARK: Round 40 — ICU depth: ECMO, mechanical circulatory support, electrolyte repletion
+        entries.append(.reference(ECMOBasicsSample.entry))
+        entries.append(.reference(IABPSample.entry))
+        entries.append(.reference(PercutaneousVADSample.entry))
+        entries.append(.reference(ElectrolyteRepletionSample.entry))
         return entries
     }
 }

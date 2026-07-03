@@ -23,9 +23,11 @@ public struct LibraryHomeView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: 0) {
                     header
+                    SearchFieldButton(prompt: searchPrompt) { router.presentSearch() }
+                        .padding(.top, NMSpace.lg)
                     LibrarySectionSwitcher(selection: $router.librarySection)
-                        .padding(.top, NMSpace.xl)
-                    Hairline().padding(.bottom, NMSpace.xxl)
+                        .padding(.top, NMSpace.lg)
+                    Hairline().padding(.bottom, NMSpace.xl)
                     Group {
                         switch router.librarySection {
                         case .reference:
@@ -48,11 +50,6 @@ public struct LibraryHomeView: View {
                 .frame(maxWidth: .infinity, alignment: .center)
             }
             .background(GrainBackground())
-            .overlay(alignment: .topTrailing) {
-                FloatingSearchButton { router.presentSearch() }
-                    .padding(.trailing, NMSpace.lg)
-                    .padding(.top, NMSpace.sm)
-            }
             .navigationDestination(for: LibraryDestination.self) { dest in
                 switch dest {
                 case .category(let category):
@@ -63,8 +60,6 @@ public struct LibraryHomeView: View {
                     } else {
                         Text("Entry not found").captionText()
                     }
-                case .search:
-                    SearchView(registry: registry)
                 case .savedList:
                     SavedAnswersListView()
                 case .savedEntry(let id):
@@ -101,20 +96,22 @@ public struct LibraryHomeView: View {
 
     @ViewBuilder
     private func referenceContent(pinned: [LibraryEntry], recents: [LibraryEntry]) -> some View {
+        // Frequency-of-use order: the rows a returning user is most likely to
+        // tap (pinned, recently viewed) come before the full browse directory.
         VStack(alignment: .leading, spacing: 0) {
             if !pinned.isEmpty {
                 pinnedSection(entries: pinned)
-                Hairline().padding(.vertical, NMSpace.xxl)
+                Hairline().padding(.vertical, NMSpace.xl)
+            }
+            if !recents.isEmpty {
+                recentlyViewedSection(entries: recents)
+                Hairline().padding(.vertical, NMSpace.xl)
             }
             if !savedAnswers.isEmpty {
                 savedSection
-                Hairline().padding(.vertical, NMSpace.xxl)
+                Hairline().padding(.vertical, NMSpace.xl)
             }
             browseSection
-            if !recents.isEmpty {
-                Hairline().padding(.vertical, NMSpace.xxl)
-                recentlyViewedSection(entries: recents)
-            }
         }
     }
 
@@ -123,13 +120,13 @@ public struct LibraryHomeView: View {
         VStack(alignment: .leading, spacing: 0) {
             if !pinnedCalcs.isEmpty {
                 pinnedCalculatorsSection(entries: pinnedCalcs)
-                Hairline().padding(.vertical, NMSpace.xxl)
+                Hairline().padding(.vertical, NMSpace.xl)
+            }
+            if !recentCalcs.isEmpty {
+                recentCalculatorsSection(entries: recentCalcs)
+                Hairline().padding(.vertical, NMSpace.xl)
             }
             toolsSection
-            if !recentCalcs.isEmpty {
-                Hairline().padding(.vertical, NMSpace.xxl)
-                recentCalculatorsSection(entries: recentCalcs)
-            }
         }
     }
 
@@ -142,6 +139,13 @@ public struct LibraryHomeView: View {
             Text(headerSubtitle)
                 .font(NMFont.displayItalicMD)
                 .foregroundStyle(NMColor.textSecondary)
+        }
+    }
+
+    private var searchPrompt: String {
+        switch router.librarySection {
+        case .reference: return "Search drugs, labs, procedures…"
+        case .tools:     return "Search calculators…"
         }
     }
 
@@ -215,7 +219,9 @@ public struct LibraryHomeView: View {
                         CategoryRow(
                             name: category.displayName,
                             count: registry.count(in: category),
-                            subtitle: Self.categoryDescriptor(for: category)
+                            subtitle: Self.categoryDescriptor(for: category),
+                            glyph: category.glyph,
+                            glyphTint: category.glyphTint
                         )
                     }
                     .buttonStyle(.plain)
@@ -225,7 +231,8 @@ public struct LibraryHomeView: View {
                     CategoryRow(
                         name: "NCLEX-RN Test Plan",
                         count: TestPlanSubcategory.inCanonicalOrder.count,
-                        subtitle: "Aligned to 2026 Test Plan"
+                        subtitle: "Aligned to 2026 Test Plan",
+                        glyph: "graduationcap"
                     )
                 }
                 .buttonStyle(.plain)
@@ -265,7 +272,8 @@ public struct LibraryHomeView: View {
                         CategoryRow(
                             name: category.displayName,
                             count: CalculatorRegistry.count(in: category),
-                            subtitle: Self.toolsCategoryDescriptor(for: category)
+                            subtitle: Self.toolsCategoryDescriptor(for: category),
+                            glyph: category.glyph
                         )
                     }
                     .buttonStyle(.plain)
@@ -363,6 +371,7 @@ private struct CalculatorHomeRow: View {
 
     var body: some View {
         HStack(alignment: .center, spacing: NMSpace.base) {
+            CategoryGlyphCell(symbol: entry.category.glyph, tint: NMColor.textSecondary, size: 14)
             VStack(alignment: .leading, spacing: 2) {
                 Text(entry.title)
                     .font(NMFont.displaySM)
@@ -375,16 +384,15 @@ private struct CalculatorHomeRow: View {
             Spacer(minLength: 0)
             if locked {
                 Image(systemName: "lock.fill")
-                    .font(.system(size: 12, weight: .regular))
+                    .font(.system(size: 11, weight: .regular))
                     .foregroundStyle(NMColor.textTertiary)
                     .accessibilityLabel("Pro")
-            } else {
-                Image(systemName: "chevron.right")
-                    .font(.system(size: 14, weight: .regular))
-                    .foregroundStyle(NMColor.accent)
             }
+            Image(systemName: "chevron.right")
+                .font(.system(size: 13, weight: .regular))
+                .foregroundStyle(NMColor.textTertiary)
         }
-        .padding(.vertical, NMSpace.base)
+        .padding(.vertical, NMSpace.md)
         .frame(maxWidth: .infinity, alignment: .leading)
         .contentShape(Rectangle())
     }
@@ -395,40 +403,58 @@ private struct CalculatorHomeRow: View {
 
 struct EntryRow: View {
     let entry: LibraryEntry
+    /// Inside a category list every row shares the category, so falling back
+    /// to the category name as a subtitle is pure noise — pass `true` there.
+    /// Mixed-context lists (search, pinned, recents) keep the fallback.
+    var hidesCategoryFallback: Bool = false
     @State private var prefs = UserPreferences.shared
 
     private var locked: Bool {
         !prefs.subscriptionTier.isPro && !FreeTier.isFreeEntry(entry.id)
     }
 
+    private var rowSubtitle: String? {
+        if let subtitle = entry.subtitle, !subtitle.isEmpty {
+            return subtitle
+        }
+        return hidesCategoryFallback ? nil : entry.category.singularName
+    }
+
     var body: some View {
         HStack(alignment: .center, spacing: NMSpace.base) {
+            CategoryGlyphCell(symbol: entry.category.glyph, tint: entry.category.glyphTint, size: 14)
             VStack(alignment: .leading, spacing: 2) {
-                HStack(spacing: NMSpace.sm) {
-                    Text(entry.title)
-                        .font(NMFont.displaySM)
-                        .foregroundStyle(NMColor.textPrimary)
-                    if entry.isHighAlert {
-                        SmallHighAlertChip()
+                Text(entry.title)
+                    .font(NMFont.displaySM)
+                    .foregroundStyle(NMColor.textPrimary)
+                // High-alert lives on the metadata line, never inline with the
+                // title — inline placement wraps badly on two-line drug names.
+                if entry.isHighAlert || rowSubtitle != nil {
+                    HStack(spacing: NMSpace.sm) {
+                        if entry.isHighAlert {
+                            SmallHighAlertChip()
+                        }
+                        if let rowSubtitle {
+                            Text(rowSubtitle)
+                                .font(NMFont.bodySM)
+                                .foregroundStyle(NMColor.textTertiary)
+                                .lineLimit(1)
+                        }
                     }
                 }
-                Text(entry.category.singularName)
-                    .font(NMFont.bodySM)
-                    .foregroundStyle(NMColor.textTertiary)
             }
             Spacer(minLength: 0)
             if locked {
                 Image(systemName: "lock.fill")
-                    .font(.system(size: 12, weight: .regular))
+                    .font(.system(size: 11, weight: .regular))
                     .foregroundStyle(NMColor.textTertiary)
                     .accessibilityLabel("Pro")
-            } else {
-                Image(systemName: "chevron.right")
-                    .font(.system(size: 14, weight: .regular))
-                    .foregroundStyle(NMColor.accent)
             }
+            Image(systemName: "chevron.right")
+                .font(.system(size: 13, weight: .regular))
+                .foregroundStyle(NMColor.textTertiary)
         }
-        .padding(.vertical, NMSpace.base)
+        .padding(.vertical, NMSpace.md)
         .frame(maxWidth: .infinity, alignment: .leading)
         .contentShape(Rectangle())
     }
@@ -459,15 +485,22 @@ private struct CategoryRow: View {
     let name: String
     let count: Int
     let subtitle: String?
+    let glyph: String?
+    let glyphTint: Color
 
-    init(name: String, count: Int, subtitle: String? = nil) {
+    init(name: String, count: Int, subtitle: String? = nil, glyph: String? = nil, glyphTint: Color = NMColor.textSecondary) {
         self.name = name
         self.count = count
         self.subtitle = subtitle
+        self.glyph = glyph
+        self.glyphTint = glyphTint
     }
 
     var body: some View {
         HStack(alignment: .center, spacing: NMSpace.base) {
+            if let glyph {
+                CategoryGlyphCell(symbol: glyph, tint: glyphTint)
+            }
             VStack(alignment: .leading, spacing: 2) {
                 Text(name)
                     .font(NMFont.displaySM)
@@ -480,14 +513,14 @@ private struct CategoryRow: View {
             }
             Spacer(minLength: 0)
             Text("\(count)")
-                .font(NMFont.monoXL)
-                .foregroundStyle(NMColor.accent)
+                .font(NMFont.mono)
+                .foregroundStyle(NMColor.textTertiary)
             Image(systemName: "chevron.right")
-                .font(.system(size: 14, weight: .regular))
-                .foregroundStyle(NMColor.accent)
+                .font(.system(size: 13, weight: .regular))
+                .foregroundStyle(NMColor.textTertiary)
                 .padding(.leading, NMSpace.sm)
         }
-        .padding(.vertical, NMSpace.base)
+        .padding(.vertical, NMSpace.md)
         .frame(maxWidth: .infinity, alignment: .leading)
         .contentShape(Rectangle())
     }
@@ -513,15 +546,15 @@ private struct SavedSummaryRow: View {
             Spacer(minLength: 0)
             if count > 0 {
                 Text("\(count)")
-                    .font(NMFont.monoXL)
-                    .foregroundStyle(NMColor.accent)
+                    .font(NMFont.mono)
+                    .foregroundStyle(NMColor.textTertiary)
             }
             Image(systemName: "chevron.right")
-                .font(.system(size: 14, weight: .regular))
-                .foregroundStyle(NMColor.accent)
+                .font(.system(size: 13, weight: .regular))
+                .foregroundStyle(NMColor.textTertiary)
                 .padding(.leading, NMSpace.sm)
         }
-        .padding(.vertical, NMSpace.base)
+        .padding(.vertical, NMSpace.md)
         .frame(maxWidth: .infinity, alignment: .leading)
         .contentShape(Rectangle())
     }
@@ -588,7 +621,6 @@ private struct LibrarySectionSwitcher: View {
 public enum LibraryDestination: Hashable {
     case category(EntryCategory)
     case entry(String)   // resolved by ContentRegistry.entry(byID:)
-    case search
     case savedList                    // user's saved AI answers
     case savedEntry(UUID)             // a single saved answer by id
     case nclexBrowse                  // 2026 NCLEX-RN Test Plan browse view

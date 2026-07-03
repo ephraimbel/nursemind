@@ -17,6 +17,13 @@ import SwiftUI
 /// handled identically. If the first `.delta` arrives mid-"Thinking",
 /// the indicator fades out cleanly and the streamed content takes over.
 struct ThinkingIndicator: View {
+    /// Short names of the sources the RAG step actually retrieved (citations
+    /// are yielded before generation starts, so these are available while
+    /// still waiting on the first token). When present, the middle phase
+    /// names them — "Reading DailyMed, Open RN…" — which is honest, not
+    /// theatrical: those are the exact sources the answer will cite.
+    var sourceNames: [String] = []
+
     @State private var phaseIndex: Int = 0
     @State private var dotVisible: Bool = false
 
@@ -24,11 +31,19 @@ struct ThinkingIndicator: View {
     /// enough that the user sees motion, long enough to read each phrase.
     private let phaseInterval: TimeInterval = 1.4
 
-    private let phases: [String] = [
-        "Thinking…",
-        "Researching the library…",
-        "Drafting your answer…"
-    ]
+    private var phases: [String] {
+        let reading: String
+        if sourceNames.isEmpty {
+            reading = "Researching the library…"
+        } else {
+            reading = "Reading \(sourceNames.prefix(3).joined(separator: ", "))…"
+        }
+        return [
+            "Searching the library…",
+            reading,
+            "Drafting your answer…"
+        ]
+    }
 
     var body: some View {
         HStack(alignment: .center, spacing: NMSpace.sm) {

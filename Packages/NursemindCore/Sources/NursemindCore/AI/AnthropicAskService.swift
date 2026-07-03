@@ -4,7 +4,8 @@ import OSLog
 private let askServiceLog = Logger(subsystem: "app.nursemind.ios", category: "AnthropicAskService")
 
 /// Production AI co-pilot service. Implements the full pipeline:
-///   PHI scrub → intent classify → RAG retrieve → generate → validate → stream.
+///   PHI scrub → local intent gate → RAG retrieve → generate (racing the
+///   Haiku intent classifier in parallel) → validate → stream.
 ///
 /// On any reachability/auth/server failure, emits `.refusal(.serviceUnavailable)`
 /// rather than falling back to canned mock content. The mock fallback was
@@ -50,6 +51,11 @@ public final class AnthropicAskService: AskService, @unchecked Sendable {
     ) -> AsyncThrowingStream<AskEvent, Error> {
         AsyncThrowingStream { continuation in
             Task {
+                // Haiku classifier races the generation stream instead of
+                // gating it — see step 2 below. Held at function scope so
+                // every exit path (success, refusal, throw) can cancel it.
+                var classifierWatcher: Task<Void, Never>?
+                defer { classifierWatcher?.cancel() }
                 do {
                     // 1. Client-side PHI scrub (defense in depth — server-side scrubber is canonical)
                     let scrub = PHIScrubber.scrub(question)
@@ -57,13 +63,27 @@ public final class AnthropicAskService: AskService, @unchecked Sendable {
                         continuation.yield(.phiNotice)
                     }
 
-                    // 2. Intent classification (Haiku)
-                    let intent = await classifier.classify(scrub.scrubbed)
-                    if let refusal = intent.refusal {
-                        continuation.yield(.refusal(refusal, citations: []))
+                    // 2. Intent classification. The Haiku classifier used to
+                    // block here — a full proxy round trip (~1s) of dead air
+                    // before generation could even start. Now: the local
+                    // keyword classifier runs synchronously as the fast gate
+                    // (catches the obvious refusals for free), and the Haiku
+                    // call races the generation stream in parallel. If it
+                    // comes back with a refusal, the stream is cancelled and
+                    // the refusal card replaces whatever streamed in — the
+                    // safety outcome is identical, the wait just isn't serial.
+                    if let localRefusal = MockAskService.classifyRefusal(scrub.scrubbed) {
+                        continuation.yield(.refusal(localRefusal, citations: []))
                         continuation.yield(.done)
                         continuation.finish()
                         return
+                    }
+                    let refusalBox = RefusalBox()
+                    classifierWatcher = Task { [classifier] in
+                        let intent = await classifier.classify(scrub.scrubbed)
+                        if let refusal = intent.refusal {
+                            refusalBox.value = refusal
+                        }
                     }
 
                     // 3. RAG retrieval — specialty (when active) re-ranks results
@@ -127,8 +147,33 @@ public final class AnthropicAskService: AskService, @unchecked Sendable {
                     )
 
                     for try await chunk in stream {
+                        // Classifier verdict landed mid-stream: stop generating,
+                        // swap in the refusal. Dropping out of this loop
+                        // releases the iterator, which cancels the underlying
+                        // request via the stream's onTermination hook.
+                        if let refusal = refusalBox.value {
+                            continuation.yield(.refusal(refusal, citations: []))
+                            continuation.yield(.done)
+                            continuation.finish()
+                            return
+                        }
                         accumulated += chunk
                         continuation.yield(.delta(chunk))
+                    }
+
+                    // Generation finished before the classifier did (rare —
+                    // the classifier is a 16-token call and virtually always
+                    // wins the race). Await its verdict so a refusal can never
+                    // be skipped by a fast answer; in practice this await
+                    // resolves instantly.
+                    if let watcher = classifierWatcher {
+                        await watcher.value
+                        if let refusal = refusalBox.value {
+                            continuation.yield(.refusal(refusal, citations: []))
+                            continuation.yield(.done)
+                            continuation.finish()
+                            return
+                        }
                     }
 
                     // 7. Validate post-stream — log issues for the QA queue.
@@ -165,6 +210,22 @@ public final class AnthropicAskService: AskService, @unchecked Sendable {
                     continuation.finish()
                 }
             }
+        }
+    }
+
+    public func warmUp() async {
+        await client.warmUp()
+    }
+
+    /// Lock-guarded cell the classifier watcher writes into and the generation
+    /// loop polls per chunk. A one-shot write/read pair — plain lock beats an
+    /// actor here because the read happens on every delta and must not suspend.
+    private final class RefusalBox: @unchecked Sendable {
+        private let lock = NSLock()
+        private var stored: RefusalType?
+        var value: RefusalType? {
+            get { lock.withLock { stored } }
+            set { lock.withLock { stored = newValue } }
         }
     }
 

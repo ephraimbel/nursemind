@@ -82,10 +82,10 @@ struct ToolLinkRow: View {
             }
             Spacer(minLength: 0)
             Image(systemName: "arrow.up.right")
-                .font(.system(size: 14, weight: .medium))
-                .foregroundStyle(NMColor.accent)
+                .font(.system(size: 13, weight: .regular))
+                .foregroundStyle(NMColor.textTertiary)
         }
-        .padding(.vertical, NMSpace.base)
+        .padding(.vertical, NMSpace.md)
         .frame(maxWidth: .infinity, alignment: .leading)
     }
 }

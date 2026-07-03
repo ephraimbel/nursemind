@@ -11,30 +11,38 @@ import SwiftUI
 struct FeedCard: View {
     let item: FeedItem
     let isSaved: Bool
+    let isRead: Bool
     let isLead: Bool
 
-    init(item: FeedItem, isSaved: Bool, isLead: Bool = false) {
+    init(item: FeedItem, isSaved: Bool, isRead: Bool = false, isLead: Bool = false) {
         self.item = item
         self.isSaved = isSaved
+        self.isRead = isRead
         self.isLead = isLead
     }
 
     var body: some View {
         VStack(alignment: .leading, spacing: NMSpace.md) {
             HStack(spacing: NMSpace.xs) {
+                // Urgent wears the clinical-alert terracotta, not the brand
+                // green — same vocabulary as HIGH-ALERT chips. Green is for
+                // actions; alarm colors are for alarms.
                 if item.priority == .urgent {
                     Rectangle()
-                        .fill(NMColor.accent)
+                        .fill(NMColor.alertHigh)
                         .frame(width: isLead ? 4 : 3)
                         .frame(maxHeight: .infinity)
                         .padding(.trailing, NMSpace.xs)
                 }
                 VStack(alignment: .leading, spacing: isLead ? NMSpace.lg : NMSpace.md) {
                     eyebrow
+                    // Read stories recede like visited links in print archives:
+                    // the headline drops to secondary, everything else stays.
+                    // Unread items need no marker — full-ink IS the marker.
                     Text(item.headline)
                         .font(isLead ? NMFont.displayLG : NMFont.displayMD)
                         .tracking(isLead ? -1.2 : -0.6)
-                        .foregroundStyle(NMColor.textPrimary)
+                        .foregroundStyle(isRead ? NMColor.textSecondary : NMColor.textPrimary)
                         .lineLimit(isLead ? 4 : 3)
                         .multilineTextAlignment(.leading)
                         .fixedSize(horizontal: false, vertical: true)
@@ -48,13 +56,13 @@ struct FeedCard: View {
                     if isSaved {
                         HStack(spacing: 4) {
                             Image(systemName: "bookmark.fill")
-                                .font(.system(size: 11))
-                                .foregroundStyle(NMColor.accent)
+                                .font(.system(size: 10))
+                                .foregroundStyle(NMColor.textTertiary)
                             Text("Saved")
                                 .font(NMFont.labelSM)
                                 .tracking(1.2)
                                 .textCase(.uppercase)
-                                .foregroundStyle(NMColor.accent)
+                                .foregroundStyle(NMColor.textTertiary)
                         }
                         .padding(.top, NMSpace.xs)
                     }
@@ -77,7 +85,7 @@ struct FeedCard: View {
                 Text("URGENT")
                     .font(NMFont.label)
                     .tracking(1.6)
-                    .foregroundStyle(NMColor.accent)
+                    .foregroundStyle(NMColor.alertHigh)
                 dot
             }
             Text(item.authorityLabel)

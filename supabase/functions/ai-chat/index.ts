@@ -26,13 +26,47 @@
 // =============================================================================
 
 import { createClient } from "jsr:@supabase/supabase-js@2"
+import { jwtVerify } from "npm:jose@5"
 
 const SUPABASE_URL              = Deno.env.get("SUPABASE_URL")              ?? ""
 const SUPABASE_ANON_KEY         = Deno.env.get("SUPABASE_ANON_KEY")         ?? ""
 const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? ""
 const ANTHROPIC_API_KEY         = Deno.env.get("ANTHROPIC_API_KEY")         ?? ""
+// Optional: project JWT secret (Dashboard → Settings → API → JWT Secret,
+// set via `supabase secrets set SUPABASE_JWT_SECRET=...`). When present,
+// tokens verify locally (HS256) instead of a network round trip to Supabase
+// Auth — saves ~100–300ms on EVERY proxied call, and each user question
+// makes several. When absent (or on verify failure, e.g. after a key
+// rotation or a migration to asymmetric signing keys), falls back to
+// auth.getUser — correctness is never at risk, only speed.
+const SUPABASE_JWT_SECRET       = Deno.env.get("SUPABASE_JWT_SECRET")       ?? ""
+const JWT_KEY = SUPABASE_JWT_SECRET ? new TextEncoder().encode(SUPABASE_JWT_SECRET) : null
 const ANTHROPIC_API_VERSION     = "2023-06-01"
 const ANTHROPIC_ENDPOINT        = "https://api.anthropic.com/v1/messages"
+
+// Resolve the caller's user id from their JWT: local verify fast path,
+// auth.getUser fallback. Returns null when the token is invalid either way.
+async function resolveUserID(jwt: string): Promise<string | null> {
+    if (JWT_KEY) {
+        try {
+            const { payload } = await jwtVerify(jwt, JWT_KEY)
+            if (typeof payload.sub === "string" && payload.sub.length > 0) {
+                return payload.sub
+            }
+        } catch {
+            // Fall through to auth.getUser — never reject on the fast path alone.
+        }
+    }
+    try {
+        const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+        const { data, error } = await supabase.auth.getUser(jwt)
+        if (error || !data?.user) return null
+        return data.user.id
+    } catch (e) {
+        console.error("auth.getUser threw", e)
+        return null
+    }
+}
 
 // Tier → daily quota. Mirror of the iOS `SubscriptionTier.askDailyLimit`
 // computed property — keep aligned with `Profile/UserProfile.swift`.
@@ -76,17 +110,9 @@ Deno.serve(async (req: Request): Promise<Response> => {
     }
     const jwt = authHeader.slice("bearer ".length).trim()
 
-    let userID: string
-    try {
-        const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
-        const { data, error } = await supabase.auth.getUser(jwt)
-        if (error || !data?.user) {
-            return jsonError(401, "Invalid token")
-        }
-        userID = data.user.id
-    } catch (e) {
-        console.error("auth.getUser threw", e)
-        return jsonError(401, "Auth verification failed")
+    const userID = await resolveUserID(jwt)
+    if (!userID) {
+        return jsonError(401, "Invalid token")
     }
 
     // Forward-the-body-as-is requires us to read it as raw text, since we don't
@@ -121,46 +147,80 @@ Deno.serve(async (req: Request): Promise<Response> => {
         // will reject it but we still consume one quota unit defensively.
     }
 
-    // Quota gate: read user's tier (server-authoritative — written by
-    // revenuecat-events), then atomically consume one quota unit. If the user
-    // is already at the cap, return 429 without ever calling Anthropic. We
-    // need the service-role client to bypass RLS on the consume_ask_quota
-    // function call from this server context. Only applied to primary
-    // (Sonnet/Opus) calls — the Haiku helpers piggyback on the same allowance.
-    if (SUPABASE_SERVICE_ROLE_KEY && isPrimaryCall) {
-        const admin = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, {
-            auth: { persistSession: false },
-        })
+    // Quota gate: atomically consume one unit for the caller's tier (tier is
+    // server-authoritative — written by revenuecat-events). If the user is
+    // already at the cap, return 429 without ever calling Anthropic. We need
+    // the service-role client to bypass RLS from this server context. Only
+    // applied to primary (streaming) calls — the Haiku helpers piggyback on
+    // the same allowance.
+    //
+    // Fast path: consume_ask_quota_v2 folds the tier read into the consume —
+    // one round trip instead of two on the time-to-first-token critical
+    // path. Falls back to the old two-step when the migration hasn't been
+    // applied yet.
+    const admin = SUPABASE_SERVICE_ROLE_KEY
+        ? createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY, {
+              auth: { persistSession: false },
+          })
+        : null
+    let consumedQuota = false
 
-        const { data: profile } = await admin
-            .from("profiles")
-            .select("subscription_tier")
-            .eq("id", userID)
-            .maybeSingle()
+    if (admin && isPrimaryCall) {
+        let remaining: number | null = null
+        let tier = "free"
+        let limit = QUOTA_BY_TIER.free
 
-        const tier = profile?.subscription_tier ?? "free"
-        const limit = QUOTA_BY_TIER[tier] ?? QUOTA_BY_TIER.free
+        const v2 = await admin.rpc("consume_ask_quota_v2", { p_user_id: userID })
+        if (!v2.error && Array.isArray(v2.data) && v2.data.length > 0) {
+            remaining = v2.data[0].remaining as number
+            tier      = (v2.data[0].tier as string) ?? "free"
+            limit     = (v2.data[0].cap as number) ?? QUOTA_BY_TIER.free
+        } else {
+            if (v2.error) console.warn("consume_ask_quota_v2 unavailable, using two-step", v2.error.message)
+            const { data: profile } = await admin
+                .from("profiles")
+                .select("subscription_tier")
+                .eq("id", userID)
+                .maybeSingle()
 
-        const { data: remaining, error: quotaError } = await admin.rpc(
-            "consume_ask_quota",
-            { p_user_id: userID, p_limit: limit },
-        )
+            tier  = profile?.subscription_tier ?? "free"
+            limit = QUOTA_BY_TIER[tier] ?? QUOTA_BY_TIER.free
 
-        if (quotaError) {
-            console.error("consume_ask_quota failed", quotaError)
-            // Fail open rather than block all traffic on a transient DB hiccup
-            // — the iOS client still has its own quota counter as a last-line
-            // UX guard.
-        } else if (typeof remaining === "number" && remaining < 0) {
+            const { data, error: quotaError } = await admin.rpc(
+                "consume_ask_quota",
+                { p_user_id: userID, p_limit: limit },
+            )
+            if (quotaError) {
+                console.error("consume_ask_quota failed", quotaError)
+                // Fail open rather than block all traffic on a transient DB
+                // hiccup — the iOS client still has its own quota counter as
+                // a last-line UX guard.
+            } else if (typeof data === "number") {
+                remaining = data
+            }
+        }
+
+        if (remaining !== null && remaining < 0) {
             return jsonResponse(429, {
                 error: "Daily question limit reached",
                 tier,
                 limit,
             })
         }
+        consumedQuota = remaining !== null
     }
     // (When SUPABASE_SERVICE_ROLE_KEY isn't set we skip the quota check —
     // useful for local dev without the secret. Production must set it.)
+
+    // A consumed unit whose upstream call never produced an answer gets
+    // returned — a network blip must not burn one of a free user's questions.
+    // Best-effort: refund failures only log (the client refunds its local
+    // counter independently).
+    const refundQuota = () => {
+        if (!admin || !consumedQuota) return
+        admin.rpc("refund_ask_quota", { p_user_id: userID })
+            .then(({ error }) => { if (error) console.warn("refund_ask_quota failed", error.message) })
+    }
 
     let upstream: Response
     try {
@@ -176,7 +236,12 @@ Deno.serve(async (req: Request): Promise<Response> => {
         })
     } catch (e) {
         console.error("upstream fetch threw", e)
+        refundQuota()
         return jsonError(502, "Upstream fetch failed")
+    }
+
+    if (upstream.status !== 200) {
+        refundQuota()
     }
 
     // Pass the upstream response through. For SSE this preserves chunked

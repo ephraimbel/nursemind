@@ -4,19 +4,23 @@ struct QuickReferenceTable: View {
     let rows: [KeyValueRow]
 
     var body: some View {
-        VStack(spacing: 0) {
+        // Grid sizes the key column to its longest label instead of a fixed
+        // width, so short keys ("Class", "Onset") don't strand the values
+        // mid-screen and long keys don't truncate.
+        Grid(alignment: .topLeading, horizontalSpacing: NMSpace.base, verticalSpacing: 0) {
             ForEach(rows, id: \.key) { row in
-                HStack(alignment: .top, spacing: NMSpace.base) {
+                GridRow {
                     Text(row.key)
                         .font(NMFont.bodyLG)
                         .foregroundStyle(NMColor.textSecondary)
-                        .frame(width: 130, alignment: .leading)
+                        .gridColumnAlignment(.leading)
+                        .padding(.vertical, NMSpace.md)
                     Text(row.value)
                         .font(NMFont.monoXL)
                         .foregroundStyle(NMColor.textPrimary)
                         .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.vertical, NMSpace.md)
                 }
-                .padding(.vertical, NMSpace.md)
             }
         }
     }

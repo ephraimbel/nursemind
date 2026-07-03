@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 /// Scrollable Feed list. Each card is a NavigationLink pushing FeedReadingView.
 /// Pull-to-refresh re-fetches items + saved set. Filter chips below the header
@@ -6,6 +7,7 @@ import SwiftUI
 struct FeedListView: View {
     @State private var store = FeedStore.shared
     @State private var activeFilter: FeedFilter = .thisWeek
+    @Namespace private var filterNS
 
     var body: some View {
         ScrollView {
@@ -44,41 +46,67 @@ struct FeedListView: View {
         }
     }
 
+    /// Newspaper masthead: the real date as the eyebrow, a stable editorial
+    /// title, one confident line about sourcing. The date does the "today"
+    /// work honestly — the old "Today's News" title promised freshness the
+    /// stream couldn't always keep.
     private var header: some View {
         VStack(alignment: .leading, spacing: NMSpace.md) {
-            EyebrowLabel("FEED")
-            Text("Today's News")
+            EyebrowLabel(mastheadDate)
+            Text("The Brief")
                 .font(NMFont.displayXL)
                 .tracking(-1.6)
                 .foregroundStyle(NMColor.textPrimary)
-            Text("Curated clinical updates from federal health agencies and open-access journals. Every claim cited.")
-                .font(NMFont.displayItalicSM)
+            Text("Cited updates from the agencies and journals.")
+                .font(NMFont.displayItalicMD)
                 .foregroundStyle(NMColor.textSecondary)
-                .lineSpacing(2)
         }
+    }
+
+    private var mastheadDate: String {
+        let fmt = DateFormatter()
+        fmt.dateFormat = "EEEE, MMMM d"
+        return fmt.string(from: Date()).uppercased()
     }
 
     private var filterRow: some View {
         ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: NMSpace.sm) {
-                FeedFilterChip(label: "THIS WEEK", isActive: activeFilter == .thisWeek) {
-                    activeFilter = .thisWeek
+            HStack(spacing: NMSpace.xl) {
+                FeedFilterTab(label: thisWeekLabel, isActive: activeFilter == .thisWeek, namespace: filterNS) {
+                    select(.thisWeek)
                 }
-                FeedFilterChip(label: "ALL", isActive: activeFilter == .all) {
-                    activeFilter = .all
+                FeedFilterTab(label: "ALL", isActive: activeFilter == .all, namespace: filterNS) {
+                    select(.all)
                 }
-                FeedFilterChip(label: "SAVED", isActive: activeFilter == .saved) {
-                    activeFilter = .saved
+                FeedFilterTab(label: "SAVED", isActive: activeFilter == .saved, namespace: filterNS) {
+                    select(.saved)
                 }
                 ForEach(availableCategories) { cat in
-                    FeedFilterChip(label: cat.chipLabel.uppercased(),
-                                   isActive: activeFilter == .category(cat)) {
-                        activeFilter = .category(cat)
+                    FeedFilterTab(label: cat.chipLabel.uppercased(),
+                                  isActive: activeFilter == .category(cat),
+                                  namespace: filterNS) {
+                        select(.category(cat))
                     }
                 }
             }
             .padding(.horizontal, NMSpace.lg)
             .animation(.easeInOut(duration: 0.2), value: availableCategories)
+        }
+    }
+
+    /// The editorial version of a tab badge: unread count appended to the
+    /// default tab's label. Scoped to the 7-day window so it invites rather
+    /// than accuses.
+    private var thisWeekLabel: String {
+        let n = store.unreadThisWeek
+        return n > 0 ? "THIS WEEK · \(n)" : "THIS WEEK"
+    }
+
+    private func select(_ filter: FeedFilter) {
+        guard filter != activeFilter else { return }
+        UISelectionFeedbackGenerator().selectionChanged()
+        withAnimation(.spring(response: 0.35, dampingFraction: 0.85)) {
+            activeFilter = filter
         }
     }
 
@@ -171,20 +199,26 @@ struct FeedListView: View {
             let rest = items.filter { $0.id != lead.id }
             LazyVStack(spacing: 0) {
                 NavigationLink(value: FeedDestination.item(lead.id)) {
-                    FeedCard(item: lead, isSaved: store.isSaved(lead.id), isLead: true)
+                    FeedCard(item: lead, isSaved: store.isSaved(lead.id), isRead: store.isRead(lead.id), isLead: true)
                 }
                 .buttonStyle(.plain)
 
-                if !rest.isEmpty {
-                    moreTodayDivider
-                }
-                ForEach(rest) { item in
-                    NavigationLink(value: FeedDestination.item(item.id)) {
-                        FeedCard(item: item, isSaved: store.isSaved(item.id))
-                    }
-                    .buttonStyle(.plain)
-                    if item.id != rest.last?.id {
-                        Hairline(color: NMColor.borderSubtle)
+                // Print-newspaper sections by age. Older items sit under an
+                // honest EARLIER header instead of impersonating today's news
+                // — on sparse weeks the feed reads as an archive, not a lie.
+                ForEach(AgeBucket.allCases, id: \.self) { bucket in
+                    let group = rest.filter { ageBucket(for: $0) == bucket }
+                    if !group.isEmpty {
+                        sectionDivider(bucket.label)
+                        ForEach(group) { item in
+                            NavigationLink(value: FeedDestination.item(item.id)) {
+                                FeedCard(item: item, isSaved: store.isSaved(item.id), isRead: store.isRead(item.id))
+                            }
+                            .buttonStyle(.plain)
+                            if item.id != group.last?.id {
+                                Hairline(color: NMColor.borderSubtle)
+                            }
+                        }
                     }
                 }
             }
@@ -192,7 +226,7 @@ struct FeedListView: View {
             LazyVStack(spacing: 0) {
                 ForEach(items) { item in
                     NavigationLink(value: FeedDestination.item(item.id)) {
-                        FeedCard(item: item, isSaved: store.isSaved(item.id))
+                        FeedCard(item: item, isSaved: store.isSaved(item.id), isRead: store.isRead(item.id))
                     }
                     .buttonStyle(.plain)
                     if item.id != items.last?.id {
@@ -212,12 +246,31 @@ struct FeedListView: View {
         return items.first
     }
 
-    /// Print-newspaper divider between the lead story and the rest of the briefs.
-    private var moreTodayDivider: some View {
+    /// Age sections for the post-lead stream, in display order. Ranked order
+    /// from the server is preserved within each section.
+    private enum AgeBucket: CaseIterable {
+        case today, thisWeek, earlier
+
+        var label: String {
+            switch self {
+            case .today:    return "MORE TODAY"
+            case .thisWeek: return "THIS WEEK"
+            case .earlier:  return "EARLIER"
+            }
+        }
+    }
+
+    private func ageBucket(for item: FeedItem) -> AgeBucket {
+        if Calendar.current.isDateInToday(item.displayDate) { return .today }
+        if item.displayDate >= Date().addingTimeInterval(-7 * 24 * 60 * 60) { return .thisWeek }
+        return .earlier
+    }
+
+    private func sectionDivider(_ label: String) -> some View {
         VStack(spacing: 0) {
             Hairline()
             HStack {
-                EyebrowLabel("MORE TODAY", sparkle: false)
+                EyebrowLabel(label, sparkle: false)
                 Spacer()
             }
             .padding(.top, NMSpace.lg)

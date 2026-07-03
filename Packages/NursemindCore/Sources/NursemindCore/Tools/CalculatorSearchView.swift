@@ -132,6 +132,7 @@ private struct CalculatorSearchRow: View {
 
     var body: some View {
         HStack(alignment: .center, spacing: NMSpace.base) {
+            CategoryGlyphCell(symbol: entry.category.glyph, tint: NMColor.textSecondary, size: 14)
             VStack(alignment: .leading, spacing: 2) {
                 Text(entry.title)
                     .font(NMFont.displaySM)
@@ -146,7 +147,7 @@ private struct CalculatorSearchRow: View {
                 .font(.system(size: 14, weight: .regular))
                 .foregroundStyle(NMColor.textTertiary)
         }
-        .padding(.vertical, NMSpace.base)
+        .padding(.vertical, NMSpace.md)
         .frame(maxWidth: .infinity, alignment: .leading)
         .contentShape(Rectangle())
     }

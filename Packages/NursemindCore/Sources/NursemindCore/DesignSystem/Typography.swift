@@ -20,8 +20,11 @@ public enum NMFont {
     public static let displayEntry = Font.custom(serifName, size: 44, relativeTo: .largeTitle)
     public static let displayLG    = Font.custom(serifName, size: 38, relativeTo: .title)
     public static let displayMD    = Font.custom(serifName, size: 25, relativeTo: .title2)
-    public static let displaySM    = Font.custom(serifName, size: 20, relativeTo: .title3)
-    public static let displayXS    = Font.custom(serifName, size: 17, relativeTo: .headline)
+
+    // Sub-headers — Inter, not serif. Serif stops at displayMD; row titles and
+    // section headers below that tier read better in the workhorse sans.
+    public static let displaySM    = Font.custom(interName, size: 16, relativeTo: .title3).weight(.semibold)
+    public static let displayXS    = Font.custom(interName, size: 14, relativeTo: .headline).weight(.semibold)
 
     // Display italic
     public static let displayItalicLG = Font.custom(serifItalicName, size: 22, relativeTo: .title3)
@@ -69,7 +72,7 @@ public extension Text {
     }
 
     func displaySM() -> some View {
-        self.font(NMFont.displaySM).tracking(-0.4).foregroundStyle(NMColor.textPrimary)
+        self.font(NMFont.displaySM).tracking(-0.2).foregroundStyle(NMColor.textPrimary)
     }
 
     /// Entry title — 52pt serif with -1.5 tracking and graceful scale-down for long generic names.

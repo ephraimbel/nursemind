@@ -20,6 +20,7 @@ public enum CalculatorRegistry {
         CalculatorEntry(id: "grace",          title: "GRACE",          subtitle: "ACS in-hospital + 6-month mortality", category: .cardiovascular),
         CalculatorEntry(id: "sgarbossa",      title: "Sgarbossa",      subtitle: "Acute MI in LBBB · ECG criteria", category: .cardiovascular),
         CalculatorEntry(id: "timi-stemi",     title: "TIMI for STEMI", subtitle: "30-day mortality after STEMI",  category: .cardiovascular),
+        CalculatorEntry(id: "cpp",            title: "CPP",            subtitle: "Cerebral perfusion pressure · MAP − ICP", category: .cardiovascular),
 
         // Respiratory
         CalculatorEntry(id: "pf-ratio",       title: "P/F Ratio",      subtitle: "PaO₂ / FiO₂ — ARDS severity", category: .respiratory),
@@ -39,6 +40,7 @@ public enum CalculatorRegistry {
         CalculatorEntry(id: "spesi",          title: "sPESI",          subtitle: "Simplified PE Severity Index", category: .respiratory),
         CalculatorEntry(id: "geneva-pe",      title: "Geneva PE",      subtitle: "PE pretest probability · revised", category: .respiratory),
         CalculatorEntry(id: "light",          title: "Light's Criteria", subtitle: "Pleural effusion · transudate vs exudate", category: .respiratory),
+        CalculatorEntry(id: "ardsnet-vt",     title: "Tidal Volume · PBW", subtitle: "ARDSNet predicted body weight + mL/kg range", category: .respiratory),
 
         // Renal · Metabolic
         CalculatorEntry(id: "gfr",            title: "GFR",            subtitle: "CKD-EPI 2021 (race-free)",   category: .renalMetabolic),

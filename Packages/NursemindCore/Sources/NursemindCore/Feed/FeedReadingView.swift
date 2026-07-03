@@ -14,6 +14,7 @@ struct FeedReadingView: View {
     @State private var router = AppRouter.shared
     @State private var hasMarkedRead = false
     @State private var askSheetPresented = false
+    @State private var relatedEntries: [LibraryEntry] = []
 
     var body: some View {
         ScrollView {
@@ -41,6 +42,13 @@ struct FeedReadingView: View {
 
                 bodyView
                     .padding(.bottom, NMSpace.xxxl)
+
+                if !relatedEntries.isEmpty {
+                    Hairline()
+                        .padding(.bottom, NMSpace.xxl)
+                    inYourLibrary
+                        .padding(.bottom, NMSpace.xxl)
+                }
 
                 Hairline()
                     .padding(.bottom, NMSpace.xxl)
@@ -72,12 +80,46 @@ struct FeedReadingView: View {
             FeedAIActionSheet(item: item)
         }
         .task {
+            // Library matching scans ~1,600 titles against the story text —
+            // cheap, but not main-thread cheap. Same detached pattern as
+            // global search.
+            let storyItem = item
+            relatedEntries = await Task.detached(priority: .userInitiated) {
+                FeedLibraryMatcher.relatedEntries(for: storyItem)
+            }.value
+
             // Mark as read once per appearance so unread-count math stays clean.
             // Guard prevents re-firing if SwiftUI re-runs the task.
             guard !hasMarkedRead else { return }
             hasMarkedRead = true
             await store.markRead(item.id)
             store.bumpEngagement(item.id, .read)
+        }
+    }
+
+    /// The bundle expressing itself: a story about a drug you carry links
+    /// straight into its monograph. Uses the same cross-link row vocabulary
+    /// as Related Tools (arrow.up.right = leaves this tab).
+    private var inYourLibrary: some View {
+        VStack(alignment: .leading, spacing: NMSpace.sm) {
+            EyebrowLabel("IN YOUR LIBRARY", sparkle: false)
+            VStack(spacing: 0) {
+                ForEach(Array(relatedEntries.enumerated()), id: \.element.id) { idx, entry in
+                    Button {
+                        router.openLibraryEntry(entry.id)
+                    } label: {
+                        ToolLinkRow(
+                            eyebrow: entry.category.singularName.uppercased(),
+                            title: entry.title,
+                            subtitle: entry.subtitle ?? ""
+                        )
+                    }
+                    .buttonStyle(.plain)
+                    if idx < relatedEntries.count - 1 {
+                        Hairline(color: NMColor.borderSubtle)
+                    }
+                }
+            }
         }
     }
 
@@ -89,9 +131,14 @@ struct FeedReadingView: View {
                 Text("URGENT")
                     .font(NMFont.label)
                     .tracking(1.6)
-                    .foregroundStyle(NMColor.accent)
+                    .foregroundStyle(NMColor.alertHigh)
                 Text("·").foregroundStyle(NMColor.textTertiary)
             }
+            Text(item.authorityLabel)
+                .font(NMFont.label)
+                .tracking(1.6)
+                .foregroundStyle(item.authorityColor)
+            Text("·").foregroundStyle(NMColor.textTertiary)
             Text(item.category.label.uppercased())
                 .font(NMFont.label)
                 .tracking(1.6)

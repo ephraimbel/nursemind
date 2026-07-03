@@ -243,6 +243,23 @@ public final class UserPreferences {
         }
     }
 
+    /// Returns one question to the user's allowance. Called when a consumed
+    /// question produced no answer (transport failure, server-side 429) — a
+    /// network blip must not burn one of a free user's lifetime questions.
+    public func refundAskQuota() {
+        if !subscriptionTier.isPro {
+            let current = defaults.integer(forKey: askLifetimeUsedKey)
+            defaults.set(max(0, current - 1), forKey: askLifetimeUsedKey)
+            return
+        }
+        let today = Calendar.current.startOfDay(for: Date())
+        if let s = defaults.object(forKey: askQuotaDateKey) as? Date,
+           Calendar.current.isDate(s, inSameDayAs: today) {
+            let current = defaults.integer(forKey: askQuotaCountKey)
+            defaults.set(max(0, current - 1), forKey: askQuotaCountKey)
+        }
+    }
+
     // MARK: Init
 
     private init(defaults: UserDefaults = .standard) {

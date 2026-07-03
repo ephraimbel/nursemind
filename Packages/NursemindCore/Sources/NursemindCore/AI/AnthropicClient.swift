@@ -150,6 +150,19 @@ public struct AnthropicClient: Sendable {
         }
     }
 
+    // MARK: - Connection warm-up
+
+    /// Fire-and-forget OPTIONS to the endpoint. The response is irrelevant —
+    /// the point is that DNS resolution, the TLS handshake, and (in proxy
+    /// mode) the edge function cold start all happen before the user hits
+    /// send, so the first real request rides an already-warm connection.
+    public func warmUp() async {
+        var request = URLRequest(url: endpoint)
+        request.httpMethod = "OPTIONS"
+        request.timeoutInterval = 5
+        _ = try? await urlSession.data(for: request)
+    }
+
     // MARK: - Streaming generation
 
     public func streamMessage(

@@ -84,7 +84,13 @@ public struct ShockIndexCalculatorView: View {
                 label: "Shock Index",
                 value: result.map { String(format: "%.2f", $0) },
                 interpretation: interpretation?.0,
-                level: interpretation?.1 ?? .neutral
+                level: interpretation?.1 ?? .neutral,
+                scale: ResultScale(from: 0.3, bands: [
+                    .init(upTo: 0.7, .neutral),
+                    .init(upTo: 1.0, .caution),
+                    .init(upTo: 1.6, .alert)
+                ]),
+                scaleValue: result
             )
             CalculatorFormulaSection(
                 formula: "Shock Index = HR ÷ SBP",
@@ -118,8 +124,8 @@ public struct QTcCalculatorView: View {
 
     private var interpretation: (String, CalculatorInterpretationLevel)? {
         guard let b = bazett else { return nil }
-        if b > 500 { return ("QTc > 500 ms — markedly prolonged. Substantially increased torsades risk; review and discontinue QT-prolonging meds, replete K and Mg, continuous cardiac monitoring.", .alert) }
-        if b > 460 { return ("QTc 460–500 ms — prolonged. Review medications, electrolytes (K, Mg), and risk factors.", .caution) }
+        if b > 500 { return ("QTc > 500 ms — markedly prolonged; published guidance associates this range with substantially increased torsades risk. QT-prolonging medications, potassium, magnesium, and cardiac monitoring are the factors the care team reviews.", .alert) }
+        if b > 460 { return ("QTc 460–500 ms — prolonged range. Medications, electrolytes (K, Mg), and risk factors are the published review targets.", .caution) }
         return ("QTc within typical range (< 460 ms).", .neutral)
     }
 
@@ -139,7 +145,13 @@ public struct QTcCalculatorView: View {
                 value: bazett.map { String(format: "%.0f", $0) },
                 unit: "ms",
                 interpretation: interpretation?.0,
-                level: interpretation?.1 ?? .neutral
+                level: interpretation?.1 ?? .neutral,
+                scale: ResultScale(from: 350, bands: [
+                    .init(upTo: 460, .neutral),
+                    .init(upTo: 500, .caution),
+                    .init(upTo: 580, .alert)
+                ]),
+                scaleValue: bazett
             )
             if let f = fridericia {
                 CalculatorSection("FRIDERICIA") {

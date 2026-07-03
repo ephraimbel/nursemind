@@ -97,6 +97,8 @@ public struct CalculatorDetailRouter: View {
         case "grace":            GRACECalculatorView()
         case "sgarbossa":        SgarbossaCalculatorView()
         case "timi-stemi":       TIMISTEMICalculatorView()
+        case "cpp":              CPPCalculatorView()
+        case "ardsnet-vt":       ARDSNetTidalVolumeCalculatorView()
 
         // Respiratory
         case "pf-ratio":         PFRatioCalculatorView()

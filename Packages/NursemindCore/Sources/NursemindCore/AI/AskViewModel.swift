@@ -26,6 +26,21 @@ public final class AskViewModel {
     private let enrichmentService: AnswerEnrichmentService?
     private var streamingTask: Task<Void, Never>?
 
+    // MARK: Smooth reveal
+    //
+    // Network deltas arrive in lurching chunks (SSE batches tokens
+    // unevenly), and appending each one directly re-parsed and re-laid-out
+    // the entire answer per delta — O(n²) over the stream and visually
+    // choppy. Instead, deltas land in `revealBuffer` and a 30ms drain loop
+    // moves an adaptive slice into the visible message: a floor of a few
+    // characters per tick keeps short answers flowing, a backlog-
+    // proportional rate keeps long answers from falling behind the network.
+    // The result is an even typographic flow at ~30 render passes/second
+    // regardless of how the network chunks arrive.
+    @ObservationIgnored private var revealBuffer: String = ""
+    @ObservationIgnored private var revealTask: Task<Void, Never>?
+    @ObservationIgnored private var streamEnded: Bool = false
+
     public init(
         conversation: AskConversation = AskConversation(),
         service: AskService,
@@ -47,7 +62,6 @@ public final class AskViewModel {
             quotaBlockedToken &+= 1
             return
         }
-        prefs.incrementAskQuota()
 
         inputText = ""
 
@@ -59,6 +73,35 @@ public final class AskViewModel {
             phiRedacted: scrub.redacted
         )
         conversation.append(userMessage)
+        startAsk(question: scrub.scrubbed, phiRedacted: scrub.redacted)
+    }
+
+    /// Re-runs the question that produced a failed answer (service-unavailable
+    /// card). Removes the failed assistant message and streams a fresh one —
+    /// the user's message stays in place, so retrying reads as "the answer
+    /// arrived late," not "I asked twice."
+    public func retry(_ messageID: UUID) {
+        guard !isStreaming,
+              let idx = conversation.messages.firstIndex(where: { $0.id == messageID }),
+              conversation.messages[idx].role == .assistant else { return }
+        var question: String?
+        for i in stride(from: idx - 1, through: 0, by: -1) where conversation.messages[i].role == .user {
+            question = conversation.messages[i].content
+            break
+        }
+        guard let question else { return }
+        if UserPreferences.shared.askQuotaExceeded {
+            quotaBlockedToken &+= 1
+            return
+        }
+        conversation.messages.remove(at: idx)
+        startAsk(question: question, phiRedacted: false)
+    }
+
+    private func startAsk(question: String, phiRedacted: Bool) {
+        let prefs = UserPreferences.shared
+        prefs.incrementAskQuota()
+        let scrub = (scrubbed: question, redacted: phiRedacted)
 
         // Insert a streaming assistant placeholder so the chat re-renders immediately.
         let assistantMessage = AskMessage(role: .assistant, content: "", isStreaming: true)
@@ -66,6 +109,8 @@ public final class AskViewModel {
         conversation.append(assistantMessage)
 
         isStreaming = true
+        streamEnded = false
+        revealBuffer = ""
         let extractedValues = ClinicalValueExtractor.extract(from: scrub.scrubbed)
         if !extractedValues.isEmpty,
            let idx = conversation.messages.firstIndex(where: { $0.id == assistantID }) {
@@ -101,6 +146,15 @@ public final class AskViewModel {
                         self.phiNoticeFlash = true
                     case .refusal(let type, let citations):
                         refusal = type
+                        self.stopReveal()
+                        // A question that produced no answer must not burn
+                        // quota — a network blip costing a free user one of
+                        // their 3 lifetime questions is indefensible. Content
+                        // refusals (diagnostic, prescribing, …) still count:
+                        // the user got a considered response.
+                        if type == .serviceUnavailable || type == .quotaExceeded {
+                            prefs.refundAskQuota()
+                        }
                         if let idx = self.conversation.messages.firstIndex(where: { $0.id == assistantID }) {
                             self.conversation.messages[idx] = AskMessage(
                                 id: assistantID,
@@ -113,9 +167,8 @@ public final class AskViewModel {
                         }
                     case .delta(let chunk):
                         guard refusal == nil else { continue }
-                        if let idx = self.conversation.messages.firstIndex(where: { $0.id == assistantID }) {
-                            self.conversation.messages[idx].content += chunk
-                        }
+                        self.revealBuffer += chunk
+                        self.scheduleReveal(for: assistantID)
                     case .citations(let cits):
                         if let idx = self.conversation.messages.firstIndex(where: { $0.id == assistantID }) {
                             var prev = self.conversation.messages[idx]
@@ -143,10 +196,22 @@ public final class AskViewModel {
                             }
                         }
                     case .done:
-                        if let idx = self.conversation.messages.firstIndex(where: { $0.id == assistantID }) {
-                            self.conversation.messages[idx].isStreaming = false
-                        }
+                        // Finalization happens after the reveal buffer drains
+                        // (below) — flipping isStreaming here would drop the
+                        // cursor while text is still flowing out.
+                        break
                     }
+                }
+                // Let the reveal loop drain what the network already
+                // delivered, then finalize. The drain accelerates once the
+                // stream is done, so this tail lasts a beat, not seconds.
+                self.streamEnded = true
+                if let drain = self.revealTask {
+                    await drain.value
+                }
+                if refusal == nil,
+                   let idx = self.conversation.messages.firstIndex(where: { $0.id == assistantID }) {
+                    self.conversation.messages[idx].isStreaming = false
                 }
                 self.fetchEnrichment(for: assistantID, originalQuestion: scrub.scrubbed)
                 let final = self.conversation.messages.first { $0.id == assistantID }
@@ -160,12 +225,14 @@ public final class AskViewModel {
                     ]
                 )
             } catch {
+                self.stopReveal()
+                prefs.refundAskQuota()
                 if let idx = self.conversation.messages.firstIndex(where: { $0.id == assistantID }) {
                     self.conversation.messages[idx] = AskMessage(
                         id: assistantID,
                         role: .assistant,
                         content: "",
-                        refusal: .lowConfidence,
+                        refusal: .serviceUnavailable,
                         isStreaming: false
                     )
                 }
@@ -182,10 +249,93 @@ public final class AskViewModel {
     public func cancel() {
         streamingTask?.cancel()
         streamingTask = nil
+        stopReveal()
         isStreaming = false
         if let last = conversation.messages.last, last.role == .assistant, last.isStreaming {
             conversation.messages.removeLast()
         }
+    }
+
+    /// Pre-establishes the network path to the AI service (DNS, TLS, edge
+    /// function warm start). Called when the Ask surface appears so the first
+    /// question rides a warm connection.
+    public func warmUpConnection() async {
+        await service.warmUp()
+    }
+
+    // MARK: - Smooth reveal
+
+    private func stopReveal() {
+        revealTask?.cancel()
+        revealTask = nil
+        revealBuffer = ""
+    }
+
+    /// Starts the 30ms drain loop if it isn't already running. The loop ends
+    /// itself once the stream has finished AND the buffer is empty.
+    private func scheduleReveal(for messageID: UUID) {
+        guard revealTask == nil else { return }
+        revealTask = Task { [weak self] in
+            guard let self else { return }
+            while !Task.isCancelled {
+                try? await Task.sleep(nanoseconds: 33_000_000)
+                if Task.isCancelled { return }
+                let emitted = self.emitRevealSlice(to: messageID)
+                if !emitted && self.streamEnded { break }
+            }
+            self.revealTask = nil
+        }
+    }
+
+    /// Moves one adaptive slice from the buffer into the visible message.
+    /// Returns false when nothing could be emitted this tick.
+    private func emitRevealSlice(to messageID: UUID) -> Bool {
+        guard !revealBuffer.isEmpty else { return false }
+        let chars = Array(revealBuffer)
+        let total = chars.count
+        // Floor keeps short answers moving (~90 chars/s minimum); the
+        // backlog-proportional term catches up when the network runs ahead.
+        // Post-stream the rate triples so the tail drains in a beat.
+        var take = min(total, streamEnded ? max(12, total / 3) : max(3, total / 6))
+
+        // Citation-marker holdback: never emit a partial "[c001, c0" — the
+        // raw fragment would flash before the parser can turn it into a pill.
+        // If the marker's close already arrived, extend the slice through it;
+        // otherwise pull back to just before the "[" and wait a tick.
+        if let openIdx = lastUnclosedMarkerStart(in: chars, upTo: take) {
+            if let closeIdx = chars[take...].firstIndex(of: "]"), closeIdx - openIdx <= 24 {
+                take = closeIdx + 1
+            } else if total - openIdx <= 24 {
+                take = openIdx
+            }
+        }
+        guard take > 0 else { return false }
+
+        let slice = String(chars[0..<take])
+        revealBuffer = String(chars[take...])
+        guard let idx = conversation.messages.firstIndex(where: { $0.id == messageID }) else {
+            revealBuffer = ""
+            return false
+        }
+        conversation.messages[idx].content += slice
+        return true
+    }
+
+    /// Index of a "[" in `chars[0..<take]` that opens a plausible citation
+    /// marker not yet closed within the slice; nil when the boundary is safe.
+    private func lastUnclosedMarkerStart(in chars: [Character], upTo take: Int) -> Int? {
+        var i = take - 1
+        while i >= 0 && take - i <= 24 {
+            let c = chars[i]
+            if c == "]" { return nil }
+            if c == "[" {
+                let tail = chars[(i + 1)..<take]
+                let plausible = tail.allSatisfy { $0 == "c" || $0.isNumber || $0 == "," || $0 == " " }
+                return plausible ? i : nil
+            }
+            i -= 1
+        }
+        return nil
     }
 
     public func startNewConversation() {

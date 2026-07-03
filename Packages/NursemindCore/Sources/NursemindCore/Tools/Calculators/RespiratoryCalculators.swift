@@ -66,7 +66,14 @@ public struct PFRatioCalculatorView: View {
                 label: "P/F Ratio",
                 value: result.map { String(format: "%.0f", $0) },
                 interpretation: interpretation?.0,
-                level: interpretation?.1 ?? .neutral
+                level: interpretation?.1 ?? .neutral,
+                scale: ResultScale(from: 0, bands: [
+                    .init(upTo: 100, .alert),
+                    .init(upTo: 200, .alert),
+                    .init(upTo: 300, .caution),
+                    .init(upTo: 500, .neutral)
+                ]),
+                scaleValue: result
             )
             CalculatorFormulaSection(
                 formula: "P/F = PaO₂ ÷ FiO₂   (FiO₂ as decimal)",

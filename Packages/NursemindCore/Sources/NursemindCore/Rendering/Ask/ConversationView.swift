@@ -4,47 +4,153 @@ import SwiftData
 struct ConversationView: View {
     @Bindable var viewModel: AskViewModel
 
+    /// Auto-follow state. True while the view tracks the streaming bottom
+    /// edge; broken the moment the user drags upward to reread something
+    /// (their read position must never be yanked away by an arriving token),
+    /// restored when they return to the bottom or tap the ↓ affordance.
+    @State private var isFollowing = true
+    @State private var viewportHeight: CGFloat = 0
+    @State private var bottomDistance: CGFloat = 0
+
     var body: some View {
         ScrollViewReader { proxy in
-            ScrollView {
-                VStack(alignment: .leading, spacing: 0) {
-                    ForEach(Array(viewModel.conversation.messages.enumerated()), id: \.element.id) { idx, message in
-                        VStack(alignment: .leading, spacing: 0) {
-                            if idx > 0 {
-                                Hairline().padding(.vertical, NMSpace.xxl)
-                            }
-                            MessageRenderer(message: message, viewModel: viewModel)
-                                .id(message.id)
+            scrollBody(proxy)
+                .scrollDismissesKeyboard(.interactively)
+                .onChange(of: viewModel.conversation.messages.count) {
+                    // A new user message always re-engages follow — sending is
+                    // an explicit "take me to the conversation floor."
+                    if viewModel.conversation.messages.last?.role == .user {
+                        isFollowing = true
+                    }
+                }
+                .onChange(of: viewModel.conversation.messages.last?.content) {
+                    followStream(proxy)
+                }
+                .onChange(of: viewModel.isStreaming) { _, isStreaming in
+                    if !isStreaming { settleAfterStream(proxy) }
+                }
+        }
+    }
+
+    private func scrollBody(_ proxy: ScrollViewProxy) -> some View {
+        ScrollView {
+            messageList
+                .background(
+                    GeometryReader { geo in
+                        Color.clear.preference(
+                            key: ContentBottomKey.self,
+                            value: geo.frame(in: .named("conversation")).maxY
+                        )
+                    }
+                )
+        }
+        .coordinateSpace(name: "conversation")
+        .background(
+            GeometryReader { geo in
+                Color.clear
+                    .onAppear { viewportHeight = geo.size.height }
+                    .onChange(of: geo.size.height) { _, h in viewportHeight = h }
+            }
+        )
+        .onPreferenceChange(ContentBottomKey.self) { maxY in
+            bottomDistance = max(0, maxY - viewportHeight)
+            // User (or the follow animation) reached the bottom again —
+            // re-engage following so the stream resumes tracking.
+            if bottomDistance < 60 { isFollowing = true }
+        }
+        .simultaneousGesture(
+            DragGesture().onChanged { value in
+                // A downward finger drag means "scroll back up" — the user is
+                // rereading. Break follow; never fight them.
+                if value.translation.height > 12 { isFollowing = false }
+            }
+        )
+        .overlay(alignment: .bottom) {
+            if !isFollowing {
+                ScrollToBottomButton {
+                    isFollowing = true
+                    if let last = viewModel.conversation.messages.last {
+                        withAnimation(.spring(response: 0.4, dampingFraction: 0.85)) {
+                            proxy.scrollTo(last.id, anchor: .bottom)
                         }
                     }
                 }
-                .padding(.horizontal, NMSpace.lg)
-                .padding(.top, NMSpace.lg)
+                .padding(.bottom, NMSpace.md)
+                .transition(.opacity.combined(with: .scale(scale: 0.85)))
             }
-            .scrollDismissesKeyboard(.interactively)
-            .onChange(of: viewModel.conversation.messages.last?.content) {
-                guard let last = viewModel.conversation.messages.last else { return }
-                // While streaming: track the bottom edge so the cursor stays in view.
-                // When done: snap to the top of the assistant response so the answer is read top-down.
-                let anchor: UnitPoint = last.isStreaming ? .bottom : .top
-                withAnimation(.easeOut(duration: 0.15)) {
-                    proxy.scrollTo(last.id, anchor: anchor)
-                }
-            }
-            .onChange(of: viewModel.isStreaming) { _, isStreaming in
-                guard !isStreaming, let last = viewModel.conversation.messages.last else { return }
-                // Streaming complete — settle to the top of the answer with a
-                // gentle spring rather than a mechanical ease. The streaming
-                // path (above) intentionally stays on easeOut(0.15) because
-                // springs would jitter under rapid delta-triggered scrolls;
-                // this branch fires exactly once per answer, so the spring's
-                // 0.45s response cost is paid only at the "earned" moment
-                // where the user transitions from watching to reading.
-                withAnimation(.spring(response: 0.45, dampingFraction: 0.86)) {
-                    proxy.scrollTo(last.id, anchor: .top)
+        }
+        .animation(.easeOut(duration: 0.2), value: isFollowing)
+    }
+
+    private var messageList: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            ForEach(Array(viewModel.conversation.messages.enumerated()), id: \.element.id) { idx, message in
+                VStack(alignment: .leading, spacing: 0) {
+                    if idx > 0 {
+                        Hairline().padding(.vertical, NMSpace.xxl)
+                    }
+                    MessageRenderer(message: message, viewModel: viewModel)
+                        .id(message.id)
                 }
             }
         }
+        .padding(.horizontal, NMSpace.lg)
+        .padding(.top, NMSpace.lg)
+    }
+
+    private func followStream(_ proxy: ScrollViewProxy) {
+        guard isFollowing, let last = viewModel.conversation.messages.last else { return }
+        // While streaming: track the bottom edge so the cursor stays in view.
+        // When done: snap to the top of the assistant response so the answer
+        // is read top-down.
+        let anchor: UnitPoint = last.isStreaming ? .bottom : .top
+        withAnimation(.easeOut(duration: 0.15)) {
+            proxy.scrollTo(last.id, anchor: anchor)
+        }
+    }
+
+    private func settleAfterStream(_ proxy: ScrollViewProxy) {
+        guard isFollowing, let last = viewModel.conversation.messages.last else { return }
+        // Streaming complete — settle to the top of the answer with a gentle
+        // spring rather than a mechanical ease. The streaming path (above)
+        // intentionally stays on easeOut(0.15) because springs would jitter
+        // under rapid scrolls; this branch fires exactly once per answer, so
+        // the spring's 0.45s response cost is paid only at the "earned"
+        // moment where the user transitions from watching to reading.
+        withAnimation(.spring(response: 0.45, dampingFraction: 0.86)) {
+            proxy.scrollTo(last.id, anchor: .top)
+        }
+    }
+}
+
+private struct ContentBottomKey: PreferenceKey {
+    static let defaultValue: CGFloat = 0
+    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
+        value = nextValue()
+    }
+}
+
+/// Quiet "return to the live edge" affordance shown while auto-follow is
+/// broken. Deliberately not accent-colored — the accent is reserved for
+/// primary CTAs; this is navigation, not action.
+private struct ScrollToBottomButton: View {
+    let action: () -> Void
+
+    var body: some View {
+        Button(action: action) {
+            Image(systemName: "chevron.down")
+                .font(.system(size: 13, weight: .semibold))
+                .foregroundStyle(NMColor.textSecondary)
+                .frame(width: 34, height: 34)
+                .background(
+                    Circle()
+                        .fill(NMColor.bgPrimary)
+                        .overlay(Circle().stroke(NMColor.borderSubtle, lineWidth: 1))
+                        .shadow(color: .black.opacity(0.08), radius: 6, y: 2)
+                )
+        }
+        .buttonStyle(.plain)
+        .accessibilityLabel("Scroll to latest")
     }
 }
 
@@ -124,7 +230,9 @@ struct MessageRenderer: View {
             // scrolling back to an older message doesn't replay it.
             EyebrowLabel("NURSEMIND", animated: true)
             if let refusal = message.refusal {
-                RefusalCard(refusal: refusal)
+                RefusalCard(refusal: refusal, onRetry: refusal == .serviceUnavailable ? {
+                    viewModel.retry(message.id)
+                } : nil)
                     .onAppear {
                         // One-shot warning haptic the instant a refusal surfaces.
                         // Distinct from `.success()` (subscription, save) and
@@ -170,12 +278,12 @@ struct MessageRenderer: View {
             // like deliberate work rather than dead air.
             VStack(alignment: .leading, spacing: NMSpace.base) {
                 handoffSection
-                ThinkingIndicator()
+                ThinkingIndicator(sourceNames: message.citations.map(\.shortName))
             }
         } else {
             VStack(alignment: .leading, spacing: NMSpace.base) {
                 handoffSection
-                MessageBodyView(content: message.content, citations: message.citations)
+                MessageBodyView(content: message.content, citations: message.citations, cacheKey: message.id)
                 if message.isStreaming {
                     StreamingCursor()
                         .padding(.top, 2)
@@ -392,6 +500,7 @@ private struct ActionButton: View {
 
 struct RefusalCard: View {
     let refusal: RefusalType
+    var onRetry: (() -> Void)? = nil
 
     var body: some View {
         VStack(alignment: .leading, spacing: NMSpace.md) {
@@ -407,6 +516,25 @@ struct RefusalCard: View {
                 .font(NMFont.bodyLG)
                 .foregroundStyle(NMColor.textPrimary)
                 .lineSpacing(4)
+            if let onRetry {
+                Button(action: onRetry) {
+                    HStack(spacing: 6) {
+                        Image(systemName: "arrow.clockwise")
+                            .font(.system(size: 12, weight: .medium))
+                        Text("Try again")
+                            .font(NMFont.body)
+                    }
+                    .foregroundStyle(NMColor.textPrimary)
+                    .padding(.horizontal, NMSpace.md)
+                    .padding(.vertical, 7)
+                    .background(
+                        RoundedRectangle(cornerRadius: 6)
+                            .stroke(NMColor.borderSubtle, lineWidth: 1)
+                    )
+                }
+                .buttonStyle(.plain)
+                .padding(.top, 2)
+            }
         }
         .padding(NMSpace.lg)
         .background(

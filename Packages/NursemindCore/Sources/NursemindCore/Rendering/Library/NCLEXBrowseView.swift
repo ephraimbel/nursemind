@@ -119,6 +119,7 @@ private struct SubcategoryRow: View {
 public struct NCLEXSubcategoryListView: View {
     let subcategory: TestPlanSubcategory
     let registry: ContentRegistry
+    @State private var filter: String = ""
 
     public init(subcategory: TestPlanSubcategory, registry: ContentRegistry = .shared) {
         self.subcategory = subcategory
@@ -127,37 +128,31 @@ public struct NCLEXSubcategoryListView: View {
 
     public var body: some View {
         let entries = registry.entries(inSubcategory: subcategory)
-        ScrollView {
-            VStack(alignment: .leading, spacing: 0) {
-                header(count: entries.count)
-                Hairline().padding(.vertical, NMSpace.xxl)
-                if entries.isEmpty {
-                    emptyState
-                } else {
-                    list(entries: entries)
-                }
+        VStack(alignment: .leading, spacing: 0) {
+            header(count: entries.count)
+                .padding(.horizontal, NMSpace.lg)
+            if entries.isEmpty {
+                Hairline().padding(.top, NMSpace.base)
+                emptyState
+            } else {
+                FilteredEntryList(entries: entries, filter: $filter)
             }
-            .padding(.horizontal, NMSpace.lg)
-            .padding(.top, NMSpace.xxl)
-            .padding(.bottom, NMSpace.huge)
         }
         .background(GrainBackground())
         .navigationBarTitleDisplayMode(.inline)
     }
 
     private func header(count: Int) -> some View {
-        VStack(alignment: .leading, spacing: NMSpace.md) {
-            EyebrowLabel("NCLEX · \(subcategory.percentLabel) OF EXAM")
-            Text(subcategory.displayName).displayXL()
-            Text(subtitleText(count: count))
-                .font(NMFont.displayItalicMD)
-                .foregroundStyle(NMColor.textSecondary)
+        VStack(alignment: .leading, spacing: NMSpace.sm) {
+            EyebrowLabel("NCLEX · \(subcategory.percentLabel) OF EXAM · \(count) \(count == 1 ? "ENTRY" : "ENTRIES")", sparkle: false)
+            Text(subcategory.displayName)
+                .font(NMFont.displayLG)
+                .tracking(-1.2)
+                .foregroundStyle(NMColor.textPrimary)
+                .lineLimit(2)
+                .minimumScaleFactor(0.7)
         }
-    }
-
-    private func subtitleText(count: Int) -> String {
-        let entryWord = count == 1 ? "entry" : "entries"
-        return "\(count) \(entryWord) · \(subcategory.parentCategory.displayName)"
+        .padding(.top, NMSpace.md)
     }
 
     private var emptyState: some View {
@@ -169,19 +164,8 @@ public struct NCLEXSubcategoryListView: View {
                 .font(NMFont.bodySM)
                 .foregroundStyle(NMColor.textTertiary)
         }
-    }
-
-    private func list(entries: [LibraryEntry]) -> some View {
-        VStack(spacing: 0) {
-            ForEach(Array(entries.enumerated()), id: \.element.id) { idx, entry in
-                NavigationLink(value: LibraryDestination.entry(entry.id)) {
-                    EntryRow(entry: entry)
-                }
-                .buttonStyle(.plain)
-                if idx < entries.count - 1 {
-                    Hairline(color: NMColor.borderSubtle)
-                }
-            }
-        }
+        .padding(.horizontal, NMSpace.lg)
+        .padding(.top, NMSpace.xxl)
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
     }
 }

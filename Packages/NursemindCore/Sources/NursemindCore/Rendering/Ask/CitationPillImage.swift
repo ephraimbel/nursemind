@@ -6,7 +6,25 @@ import UIKit
 /// flows naturally with surrounding text and wraps cleanly at line breaks.
 enum CitationPillImage {
 
+    /// Rendered pills keyed by everything that affects their pixels. During
+    /// streaming the message body re-renders ~30×/second and every pass used
+    /// to re-draw every pill from scratch — cached, a stream renders each
+    /// distinct pill exactly once.
+    // NSCache is documented thread-safe; the annotation only silences the
+    // compiler's inability to see that.
+    nonisolated(unsafe) private static let cache = NSCache<NSString, UIImage>()
+
     static func render(for source: CitationSource, extras: Int = 0, scale: CGFloat = 3) -> UIImage {
+        let cacheKey = "\(source.pillTitle)|\(source.sourceType)|\(extras)|\(scale)" as NSString
+        if let cached = cache.object(forKey: cacheKey) {
+            return cached
+        }
+        let image = renderUncached(for: source, extras: extras, scale: scale)
+        cache.setObject(image, forKey: cacheKey)
+        return image
+    }
+
+    private static func renderUncached(for source: CitationSource, extras: Int, scale: CGFloat) -> UIImage {
         let label = source.pillTitle
         let extrasLabel = extras > 0 ? " +\(extras)" : ""
 

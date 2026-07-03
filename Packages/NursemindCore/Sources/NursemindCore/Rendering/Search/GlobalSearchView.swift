@@ -449,6 +449,7 @@ private struct CalculatorResultRow: View {
 
     var body: some View {
         HStack(alignment: .center, spacing: NMSpace.base) {
+            CategoryGlyphCell(symbol: entry.category.glyph, tint: NMColor.textSecondary, size: 14)
             VStack(alignment: .leading, spacing: 2) {
                 Text(entry.title)
                     .font(NMFont.displaySM)

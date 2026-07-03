@@ -9,11 +9,15 @@ import UIKit
 public struct MessageBodyView: View {
     let content: String
     let citations: [CitationSource]
+    /// Stable identity for the streaming parse cache. Pass the message id for
+    /// live-streaming messages; nil (previews, saved answers) parses fresh.
+    let cacheKey: UUID?
     @State private var presentedCitationIndex: Int?
 
-    public init(content: String, citations: [CitationSource]) {
+    public init(content: String, citations: [CitationSource], cacheKey: UUID? = nil) {
         self.content = content
         self.citations = citations
+        self.cacheKey = cacheKey
     }
 
     public var body: some View {
@@ -52,7 +56,7 @@ public struct MessageBodyView: View {
     }
 
     private var blocks: [ContentBlock] {
-        ContentBlockParser.parse(content: content, citations: citations)
+        ContentBlockParser.parse(content: content, citations: citations, cacheKey: cacheKey)
     }
 
     @ViewBuilder
@@ -87,6 +91,24 @@ public struct MessageBodyView: View {
                             .font(NMFont.bodyLG)
                             .foregroundStyle(NMColor.textTertiary)
                             .padding(.top, 1)
+                        AttributedTextView(
+                            attributed: buildAttributed(item, font: bodyFont, textColor: bodyColor),
+                            onLinkTap: handleLinkTap
+                        )
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                }
+            }
+
+        case .numberedList(let items, let start):
+            VStack(alignment: .leading, spacing: NMSpace.sm + 2) {
+                ForEach(Array(items.enumerated()), id: \.offset) { i, item in
+                    HStack(alignment: .top, spacing: NMSpace.sm + 2) {
+                        Text("\(start + i).")
+                            .font(NMFont.monoSM)
+                            .foregroundStyle(NMColor.textTertiary)
+                            .frame(minWidth: 20, alignment: .trailing)
+                            .padding(.top, 1.5)
                         AttributedTextView(
                             attributed: buildAttributed(item, font: bodyFont, textColor: bodyColor),
                             onLinkTap: handleLinkTap
@@ -206,6 +228,7 @@ public enum ContentBlock {
     case header(String)
     case paragraph([ContentSpan])
     case bulletList([[ContentSpan]])
+    case numberedList([[ContentSpan]], start: Int)
 }
 
 public enum ContentSpan {
@@ -213,15 +236,83 @@ public enum ContentSpan {
     case citation(CitationSource, extras: Int)
 }
 
+// MARK: - Streaming parse cache
+
+/// Per-message cache of the parsed stable prefix. Keyed by message id;
+/// invalidated automatically when the prefix or citation count changes.
+/// Bounded FIFO — a conversation only ever streams one message at a time,
+/// so a dozen entries comfortably covers scroll-back re-renders.
+private final class StreamingParseCache: @unchecked Sendable {
+    static let shared = StreamingParseCache()
+
+    private let lock = NSLock()
+    private var store: [UUID: (prefix: String, citationCount: Int, blocks: [ContentBlock])] = [:]
+    private var order: [UUID] = []
+
+    func blocks(
+        for key: UUID,
+        prefix: String,
+        citationCount: Int,
+        compute: () -> [ContentBlock]
+    ) -> [ContentBlock] {
+        lock.lock()
+        if let hit = store[key], hit.prefix == prefix, hit.citationCount == citationCount {
+            lock.unlock()
+            return hit.blocks
+        }
+        lock.unlock()
+
+        let computed = compute()
+
+        lock.lock()
+        if store[key] == nil {
+            order.append(key)
+            if order.count > 12 {
+                store.removeValue(forKey: order.removeFirst())
+            }
+        }
+        store[key] = (prefix, citationCount, computed)
+        lock.unlock()
+        return computed
+    }
+}
+
 // MARK: - Parser
 
 enum ContentBlockParser {
 
-    static func parse(content: String, citations: [CitationSource]) -> [ContentBlock] {
+    /// Parse with an optional streaming cache. During a stream the message
+    /// body re-renders ~30×/second and every block before the last blank
+    /// line is immutable — re-parsing all of them per tick made the render
+    /// loop O(answer²) over the stream's lifetime. With a `cacheKey` the
+    /// stable prefix parses once and only the trailing (still-growing) block
+    /// re-parses per tick. Splitting at a blank line is lossless: a blank
+    /// line always flushes every accumulator, so parse(prefix) + parse(tail)
+    /// is identical to parse(whole).
+    static func parse(content: String, citations: [CitationSource], cacheKey: UUID? = nil) -> [ContentBlock] {
+        guard let cacheKey,
+              let boundary = content.range(of: "\n\n", options: .backwards) else {
+            return parseAll(content: content, citations: citations)
+        }
+        let prefix = String(content[..<boundary.upperBound])
+        let tail = String(content[boundary.upperBound...])
+        let prefixBlocks = StreamingParseCache.shared.blocks(
+            for: cacheKey,
+            prefix: prefix,
+            citationCount: citations.count
+        ) {
+            parseAll(content: prefix, citations: citations)
+        }
+        return prefixBlocks + parseAll(content: tail, citations: citations)
+    }
+
+    private static func parseAll(content: String, citations: [CitationSource]) -> [ContentBlock] {
         let lines = content.components(separatedBy: "\n")
         var blocks: [ContentBlock] = []
         var currentParagraph: [String] = []
         var currentBullets: [String] = []
+        var currentNumbered: [String] = []
+        var numberedStart: Int = 1
 
         func flushParagraph() {
             if !currentParagraph.isEmpty {
@@ -237,26 +328,49 @@ enum ContentBlockParser {
                 currentBullets.removeAll()
             }
         }
+        func flushNumbered() {
+            if !currentNumbered.isEmpty {
+                let items = currentNumbered.map { parseSpans(in: $0, citations: citations) }
+                blocks.append(.numberedList(items, start: numberedStart))
+                currentNumbered.removeAll()
+            }
+        }
 
         for line in lines {
             let trimmed = line.trimmingCharacters(in: .whitespaces)
             if trimmed.isEmpty {
-                flushParagraph(); flushBullets()
+                flushParagraph(); flushBullets(); flushNumbered()
                 continue
             }
-            if let bulletText = parseBulletLine(trimmed) {
-                flushParagraph()
+            if let numbered = parseNumberedLine(trimmed) {
+                flushParagraph(); flushBullets()
+                if currentNumbered.isEmpty { numberedStart = numbered.number }
+                currentNumbered.append(numbered.text)
+            } else if let bulletText = parseBulletLine(trimmed) {
+                flushParagraph(); flushNumbered()
                 currentBullets.append(bulletText)
             } else if let headerText = parseHeaderLine(trimmed) {
-                flushParagraph(); flushBullets()
+                flushParagraph(); flushBullets(); flushNumbered()
                 blocks.append(.header(headerText))
             } else {
-                flushBullets()
+                flushBullets(); flushNumbered()
                 currentParagraph.append(trimmed)
             }
         }
-        flushParagraph(); flushBullets()
+        flushParagraph(); flushBullets(); flushNumbered()
         return blocks
+    }
+
+    /// Matches "1. text", "12) text" — ordered-list items the model emits
+    /// constantly for step sequences. Without this they rendered as run-on
+    /// paragraphs.
+    private static func parseNumberedLine(_ line: String) -> (number: Int, text: String)? {
+        guard let match = line.range(of: #"^\d{1,3}[.)]\s+"#, options: .regularExpression) else {
+            return nil
+        }
+        let digits = line[line.startIndex..<match.upperBound].prefix(while: \.isNumber)
+        guard let number = Int(digits) else { return nil }
+        return (number, String(line[match.upperBound...]))
     }
 
     private static func parseHeaderLine(_ line: String) -> String? {

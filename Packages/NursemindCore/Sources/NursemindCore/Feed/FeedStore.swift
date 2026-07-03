@@ -36,6 +36,7 @@ public final class FeedStore {
     public private(set) var items: [FeedItem] = []
     public private(set) var loadState: LoadState = .idle
     public private(set) var savedIDs: Set<UUID> = []
+    public private(set) var readIDs: Set<UUID> = []
     public private(set) var lastRefreshedAt: Date?
 
     private let pageSize = 50
@@ -59,17 +60,18 @@ public final class FeedStore {
 
         do {
             // Items are essential — a failure here is what we surface to the UI.
-            // The saved set is non-essential (worst case the cards just don't
-            // show the "Saved" indicator), so its failure is logged and
-            // swallowed independently. Run them concurrently for latency.
+            // The per-user state (saved + read sets) is non-essential (worst
+            // case the cards just don't show their indicators), so its failure
+            // is logged and swallowed independently. Run them concurrently.
             async let itemsTask = fetchItems(client: client)
-            async let savedTask = trySaved(client: client)
+            async let stateTask = tryUserState(client: client)
 
             let fetchedItems = try await itemsTask
-            let fetchedSaved = await savedTask
+            let fetchedState = await stateTask
 
             self.items = fetchedItems
-            self.savedIDs = fetchedSaved
+            self.savedIDs = fetchedState.saved
+            self.readIDs = fetchedState.read
             self.lastRefreshedAt = Date()
             self.loadState = .loaded
         } catch {
@@ -78,16 +80,16 @@ public final class FeedStore {
         }
     }
 
-    /// Wrapper that converts the saved-set fetch from throwing → optional-empty
+    /// Wrapper that converts the user-state fetch from throwing → prior-value
     /// so a transient feed_user_state failure doesn't blank the feed. The
-    /// trade-off is that a stale `savedIDs` may persist across a failed
-    /// refresh; the next successful refresh corrects it.
-    private func trySaved(client: SupabaseClient) async -> Set<UUID> {
+    /// trade-off is that stale sets may persist across a failed refresh; the
+    /// next successful refresh corrects them.
+    private func tryUserState(client: SupabaseClient) async -> (saved: Set<UUID>, read: Set<UUID>) {
         do {
-            return try await fetchSavedIDs(client: client)
+            return try await fetchUserState(client: client)
         } catch {
-            feedLog.warning("saved set fetch failed (non-fatal): \(error.localizedDescription, privacy: .public)")
-            return savedIDs
+            feedLog.warning("user state fetch failed (non-fatal): \(error.localizedDescription, privacy: .public)")
+            return (savedIDs, readIDs)
         }
     }
 
@@ -129,7 +131,10 @@ public final class FeedStore {
 
     /// Mark an item as read. Idempotent — called from FeedReadingView.onAppear.
     /// Fire-and-forget: a read-mark failure isn't worth surfacing to the user.
+    /// The local set updates immediately so the list dims the headline the
+    /// moment the user returns, without waiting on a refresh round-trip.
     public func markRead(_ itemID: UUID) async {
+        readIDs.insert(itemID)
         guard let client = SupabaseService.shared.client,
               let userID = SupabaseService.shared.currentUserID else { return }
 
@@ -151,6 +156,18 @@ public final class FeedStore {
 
     public func isSaved(_ itemID: UUID) -> Bool {
         savedIDs.contains(itemID)
+    }
+
+    public func isRead(_ itemID: UUID) -> Bool {
+        readIDs.contains(itemID)
+    }
+
+    /// Unread items in the rolling 7-day window — powers the THIS WEEK count
+    /// in the filter row. Scoped to the week so a long-idle user returns to
+    /// "· 4", not an accusatory backlog of fifty.
+    public var unreadThisWeek: Int {
+        let cutoff = Date().addingTimeInterval(-7 * 24 * 60 * 60)
+        return items.filter { $0.displayDate >= cutoff && !readIDs.contains($0.id) }.count
     }
 
     // MARK: - Network primitives
@@ -190,16 +207,19 @@ public final class FeedStore {
         }
     }
 
-    private func fetchSavedIDs(client: SupabaseClient) async throws -> Set<UUID> {
-        guard let userID = SupabaseService.shared.currentUserID else { return [] }
+    /// One round-trip for both per-user sets: rows with a `saved_at` feed the
+    /// saved set, rows with a `read_at` feed the read set.
+    private func fetchUserState(client: SupabaseClient) async throws -> (saved: Set<UUID>, read: Set<UUID>) {
+        guard let userID = SupabaseService.shared.currentUserID else { return ([], []) }
         let rows: [FeedUserStateRecord] = try await client
             .from("feed_user_state")
-            .select("item_id, saved_at")
+            .select("item_id, saved_at, read_at")
             .eq("user_id", value: userID.uuidString)
-            .not("saved_at", operator: .is, value: "null")
             .execute()
             .value
-        return Set(rows.map { $0.itemID })
+        let saved = Set(rows.filter { $0.savedAt != nil }.map { $0.itemID })
+        let read  = Set(rows.filter { $0.readAt  != nil }.map { $0.itemID })
+        return (saved, read)
     }
 }
 
@@ -208,10 +228,12 @@ public final class FeedStore {
 private struct FeedUserStateRecord: Decodable {
     let itemID: UUID
     let savedAt: Date?
+    let readAt: Date?
 
     enum CodingKeys: String, CodingKey {
         case itemID  = "item_id"
         case savedAt = "saved_at"
+        case readAt  = "read_at"
     }
 }
 

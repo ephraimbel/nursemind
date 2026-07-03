@@ -30,6 +30,10 @@ private struct CitationRow: View {
                         .font(NMFont.bodySM)
                         .foregroundStyle(NMColor.textTertiary)
                         .frame(width: 24, alignment: .leading)
+                    Image(systemName: source.pillIconSymbol)
+                        .font(.system(size: 10, weight: .medium))
+                        .foregroundStyle(source.pillIconColor)
+                        .accessibilityHidden(true)
                     Text(source.shortName)
                         .font(NMFont.displayItalicSM)
                         .foregroundStyle(NMColor.textPrimary)
@@ -45,9 +49,14 @@ private struct CitationRow: View {
                         .padding(.leading, 32)
                 }
                 HStack(spacing: NMSpace.sm) {
-                    Text("•")
-                        .font(NMFont.bodySM)
-                        .foregroundStyle(NMColor.textTertiary)
+                    if let badge = source.typeBadgeLabel {
+                        Text(badge)
+                            .font(NMFont.bodySM)
+                            .foregroundStyle(source.pillIconColor)
+                        Text("•")
+                            .font(NMFont.bodySM)
+                            .foregroundStyle(NMColor.textTertiary)
+                    }
                     Text(source.licenseDisplayName)
                         .font(NMFont.bodySM)
                         .foregroundStyle(NMColor.textTertiary)

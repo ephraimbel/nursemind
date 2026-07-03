@@ -34,7 +34,11 @@ public enum FreeTier {
         calculatorIDs.contains(id)
     }
 
+    /// Accepts both bare entry ids ("acetaminophen") and the namespaced form
+    /// LibraryEntry exposes ("drug:acetaminophen") — list rows pass the
+    /// latter, entry views the former.
     public static func isFreeEntry(_ id: String) -> Bool {
-        libraryEntryIDs.contains(id)
+        let bare = id.split(separator: ":").last.map(String.init) ?? id
+        return libraryEntryIDs.contains(bare)
     }
 }
