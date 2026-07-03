@@ -455,6 +455,15 @@ extension ContentRegistry {
         // MARK: Diagnoses — maternity batch 2 (VTE, amniotic fluid disorders)
         entries.append(.diagnosis(PregnancyVTEDiagnosisSample.entry))
         entries.append(.diagnosis(AmnioticFluidDisordersDiagnosisSample.entry))
+        // MARK: Diagnoses — toxicology (common/testable poisonings + toxidrome key)
+        entries.append(.diagnosis(AcetaminophenOverdoseSample.entry))
+        entries.append(.diagnosis(SalicylateOverdoseSample.entry))
+        entries.append(.diagnosis(DigoxinToxicitySample.entry))
+        entries.append(.diagnosis(IronOverdoseSample.entry))
+        entries.append(.diagnosis(CCBBetaBlockerOverdoseSample.entry))
+        entries.append(.diagnosis(ToxicAlcoholSample.entry))
+        entries.append(.diagnosis(AnticholinergicPoisoningSample.entry))
+        entries.append(.diagnosis(ToxidromeRecognitionSample.entry))
         return entries
     }
 
