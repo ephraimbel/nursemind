@@ -2096,6 +2096,11 @@ extension ContentRegistry {
         entries.append(.reference(RashEvaluationSample.entry))
         entries.append(.reference(AcuteBackPainEvaluationSample.entry))
         entries.append(.reference(DizzinessVertigoEvaluationSample.entry))
+        // MARK: Reference — medication safety (ISMP/FDA/TJC lists, concept-cited)
+        entries.append(.reference(HighAlertMedicationsSample.entry))
+        entries.append(.reference(ConfusedDrugNamesSample.entry))
+        entries.append(.reference(DoNotCrushSample.entry))
+        entries.append(.reference(ErrorProneAbbreviationsSample.entry))
         return entries
     }
 
