@@ -605,6 +605,13 @@ extension ContentRegistry {
         entries.append(.communication(VerbalDeescalationSample.entry))
         entries.append(.communication(InterpreterUseSample.entry))
         entries.append(.communication(SBARQSample.entry))
+        // MARK: Communication — batch 3 (the hard conversations)
+        entries.append(.communication(BreakingSeriousNewsSample.entry))
+        entries.append(.communication(DeathNotificationSample.entry))
+        entries.append(.communication(ChainOfCommandSample.entry))
+        entries.append(.communication(ErrorDisclosureSample.entry))
+        entries.append(.communication(WorkplaceIncivilitySample.entry))
+        entries.append(.communication(FamilyDuringCrisisSample.entry))
         return entries
     }
 
