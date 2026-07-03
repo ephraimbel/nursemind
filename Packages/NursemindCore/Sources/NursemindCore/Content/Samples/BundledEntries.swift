@@ -443,6 +443,18 @@ extension ContentRegistry {
         entries.append(.diagnosis(MultipleSclerosisSample.entry))
         entries.append(.diagnosis(ParkinsonDiseaseSample.entry))
         entries.append(.diagnosis(AlzheimerDementiaSample.entry))
+        // MARK: Diagnoses — neonatal prematurity complications cluster
+        entries.append(.diagnosis(NeonatalRDSDiagnosisSample.entry))
+        entries.append(.diagnosis(TransientTachypneaDiagnosisSample.entry))
+        entries.append(.diagnosis(BronchopulmonaryDysplasiaDiagnosisSample.entry))
+        entries.append(.diagnosis(NeonatalAbstinenceDiagnosisSample.entry))
+        entries.append(.diagnosis(HIEDiagnosisSample.entry))
+        entries.append(.diagnosis(IntraventricularHemorrhageDiagnosisSample.entry))
+        entries.append(.diagnosis(RetinopathyPrematurityDiagnosisSample.entry))
+        entries.append(.diagnosis(PatentDuctusArteriosusDiagnosisSample.entry))
+        // MARK: Diagnoses — maternity batch 2 (VTE, amniotic fluid disorders)
+        entries.append(.diagnosis(PregnancyVTEDiagnosisSample.entry))
+        entries.append(.diagnosis(AmnioticFluidDisordersDiagnosisSample.entry))
         return entries
     }
 
