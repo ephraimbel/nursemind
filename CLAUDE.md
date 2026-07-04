@@ -16,7 +16,7 @@ The target user opens the app at the bedside, the nursing station, or during a s
 
 This is not a side project, not an MVP-quality build, and not a hackathon. The reference points for execution quality are Linear, Mercury, Notion, Aven, OpenAI's product surfaces, and the Eden.so design language. Every interaction, every animation, every loading state, and every empty state should feel native, considered, and confident. If a piece of the build feels rushed, the answer is not to ship it faster — the answer is to cut scope until the remaining surface meets the bar.
 
-The aesthetic is editorial-modern, not enterprise-corporate. The typography pairs Instrument Serif (display) with Inter (body) and SF Mono (numerics), set on a cool sage-cream background with a subtle film-grain texture. White space is structural, not decorative. Hairline dividers replace cards. A single deep forest green accent color carries every primary action. There are no emojis, no illustrated icons, no gradients, no decorative chrome. The information does the talking; the design quietly carries it.
+The aesthetic is editorial-modern, not enterprise-corporate. The typography pairs Instrument Serif (display) with Inter (body) and SF Mono (numerics), set on a cool sage-cream background with a subtle film-grain texture. White space is structural, not decorative. Hairline dividers replace cards. A single vivid green accent color (#0BDA51, both modes) carries every primary action. There are no emojis, no illustrated icons, no gradients, no decorative chrome. The information does the talking; the design quietly carries it.
 
 ## What makes this hard
 
@@ -46,7 +46,7 @@ iOS-native Swift 5.9+ with SwiftUI. Supabase for Postgres, auth, edge functions,
 - **The spec wins.** When `docs/BUILD_SPEC.md` contradicts old documentation, a Slack message, or a different developer's intuition — the spec wins. When the spec is silent, refer to the four priorities above.
 - **No emojis in code, copy, or UI.** Sparkle ✦ and check ✓ are the only allowed glyphs. Everything else is SF Symbols.
 - **Hairlines, not cards.** Dividers separate content; cards over-package it.
-- **One accent.** Deep forest green appears only on primary CTAs and the AI send button. Nowhere else.
+- **One accent.** Vivid green (#0BDA51) appears only on primary CTAs and the AI send button. Nowhere else. (Citation/link surfaces use the separate deep-emerald link family — information color, never action color.)
 - **Italic is deliberate.** Subtitles, footers, accent words, citation source names. Never random.
 - **Numbers in mono, language in serif, body in sans.**
 - **Cite or refuse.** No clinical claim without a citation. Server-side enforced.

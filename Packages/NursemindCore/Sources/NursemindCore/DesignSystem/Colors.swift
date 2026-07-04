@@ -18,8 +18,8 @@ public enum NMColor {
     public static let textTertiary    = dynamic(light: 0x8B8A82, dark: 0x8B8A82)
     public static let textQuaternary  = dynamic(light: 0xBAB7AC, dark: 0x4A4F47)
 
-    public static let accent          = dynamic(light: 0x4ABE7B, dark: 0x7AD2A0)
-    public static let accentHover     = dynamic(light: 0x3DAB6B, dark: 0x8EDDAF)
+    public static let accent          = dynamic(light: 0x0BDA51, dark: 0x0BDA51)
+    public static let accentHover     = dynamic(light: 0x09BE46, dark: 0x33E272)
     public static let onAccent        = dynamic(light: 0x0E2E1B, dark: 0x14130F)
 
     public static let alertHigh       = dynamic(light: 0x8B3220, dark: 0xD89A8A)

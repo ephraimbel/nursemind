@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 
-// Generates the iOS App Store icon as a fresh 1024×1024 PNG: bright spring
-// green four-point sparkle on a flat deep-forest ground. Mirrors the iOS
-// app's NMColor.accent (#4ABE7B) on a deeper version of bgPrimary, and
-// uses the same SF-Symbols-style four-point-star silhouette the app uses
-// in its eyebrow labels and Ask CTAs.
+// Generates the iOS App Store icon as a fresh 1024×1024 PNG: vivid malachite
+// green four-point sparkle on the app's cream ground (NMColor.bgPrimary
+// light, #F4F2EC). Uses the same SF-Symbols-style four-point-star silhouette
+// the app uses in its eyebrow labels and Ask CTAs.
 //
 // Path-defined (not a recolor of the previous PNG), so anti-aliasing is
 // perfect and the colors are exact at every pixel — no gradient artifacts.
@@ -29,8 +28,8 @@ const DST = path.join(
   "AppIcon-1024.png"
 );
 
-const BG = "#1F3D2A"; // deep forest, flat
-const FG = "#4ABE7B"; // bright spring green
+const BG = "#F4F2EC"; // app cream (bgPrimary light), flat
+const FG = "#0BDA51"; // vivid malachite green
 
 // Parametric four-point sparkle. `reach` is how far each cardinal point
 // extends from the canvas center; `waist` controls how chunky the body
