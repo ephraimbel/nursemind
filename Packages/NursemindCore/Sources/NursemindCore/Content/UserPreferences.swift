@@ -113,6 +113,19 @@ public final class UserPreferences {
         // Not synced — RevenueCat owns subscription state per device.
         didSet { defaults.set(subscriptionTier.rawValue, forKey: subscriptionKey) }
     }
+
+    /// Dev-only escape hatch (like NM_TEST_QUERY / NM_MOCK_AI): launch with
+    /// NM_FAKE_PRO=1 to run the session as a Pro yearly subscriber without a
+    /// StoreKit purchase. RevenueCat and profile sync both skip their tier
+    /// writes while active so the fake tier can't be reverted mid-session.
+    /// Compiled out of release builds entirely.
+    public static var fakeProSession: Bool {
+        #if DEBUG
+        ProcessInfo.processInfo.environment["NM_FAKE_PRO"] == "1"
+        #else
+        false
+        #endif
+    }
     /// v1.1 Feed tab gate. Defaults to true — Feed is part of the shipped IA.
     /// Kept as a flag so an emergency disable is one toggle away if the
     /// backend pipeline misbehaves; future build can default it false.
@@ -286,8 +299,10 @@ public final class UserPreferences {
 
         self.preferredAppearance = (defaults.string(forKey: appearanceKey)
             .flatMap { AppearanceTheme(rawValue: $0) }) ?? .system
-        self.subscriptionTier = (defaults.string(forKey: subscriptionKey)
-            .flatMap { SubscriptionTier(rawValue: $0) }) ?? .free
+        self.subscriptionTier = Self.fakeProSession
+            ? .proYearly
+            : (defaults.string(forKey: subscriptionKey)
+                .flatMap { SubscriptionTier(rawValue: $0) }) ?? .free
         self.safetyContractAgreedAt = defaults.object(forKey: safetyContractDateKey) as? Date
         self.feedTabEnabled = defaults.object(forKey: feedTabEnabledKey) as? Bool ?? true
         self.hasRequestedReview = defaults.bool(forKey: hasRequestedReviewKey)

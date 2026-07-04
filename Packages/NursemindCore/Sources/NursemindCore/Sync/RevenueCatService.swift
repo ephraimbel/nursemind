@@ -164,6 +164,7 @@ public final class RevenueCatService {
     /// reads for quota enforcement, so client-only manipulation here can't
     /// raise the cap server-side.
     private func bridgeToUserPreferences(info: CustomerInfo, isPro: Bool) {
+        guard !UserPreferences.fakeProSession else { return }
         let tier = resolveTier(from: info, isPro: isPro)
         if prefs.subscriptionTier != tier {
             prefs.subscriptionTier = tier

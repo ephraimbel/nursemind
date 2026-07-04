@@ -338,7 +338,8 @@ public final class ProfileSyncService {
             // server's value; never push client's. Unknown raw strings keep
             // the existing local value so a server-side enum drift can't
             // corrupt the client's UI.
-            if let tier = SubscriptionTier(rawValue: record.subscriptionTier) {
+            if let tier = SubscriptionTier(rawValue: record.subscriptionTier),
+               !UserPreferences.fakeProSession {
                 prefs.subscriptionTier = tier
             }
 
