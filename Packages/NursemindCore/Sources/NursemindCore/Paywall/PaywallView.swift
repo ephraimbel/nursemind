@@ -82,13 +82,24 @@ public struct PaywallView: View {
                     // iPhone 15 (852pt) and stays balanced on iPhone Pro Max
                     // (932pt) — the original spacing pushed "Maybe later"
                     // below the bottom safe area on shorter phones.
-                    Spacer().frame(height: NMSpace.md)
+                    //
+                    // The inner gaps are capped. FitOrScrollLayout stretches
+                    // this column to the viewport, so uncapped Spacers here
+                    // split every surplus point between the sections — on a
+                    // 6.9" canvas that was ~170pt each, breaking the page into
+                    // three drifting islands. Bounded gaps keep the wordmark,
+                    // the value props and the purchase block reading as one
+                    // column. Every gap is capped, including this one, so the
+                    // leftover falls past the end of the column — the layout
+                    // is top-aligned — rather than stranding the wordmark in
+                    // the middle of an empty upper half.
+                    Spacer().frame(minHeight: NMSpace.md, maxHeight: NMSpace.huge)
                     brandMark
                     header
                         .padding(.top, NMSpace.md)
-                    Spacer(minLength: NMSpace.xl)
+                    Spacer().frame(minHeight: NMSpace.lg, maxHeight: NMSpace.huge)
                     featureChecklist
-                    Spacer(minLength: NMSpace.xl)
+                    Spacer().frame(minHeight: NMSpace.lg, maxHeight: NMSpace.huge)
                     planSection
                     continueButton
                         .padding(.top, NMSpace.md)
@@ -174,20 +185,24 @@ public struct PaywallView: View {
 
     // MARK: - Brand mark
 
+    /// The title steps up a notch on a 15/16-class canvas; the wordmark only
+    /// drifts. It has to stay optically lighter than "Everything, unlocked." —
+    /// at parity the mark reads as the headline and the offer becomes the
+    /// subtitle. Smaller phones keep the original 32.
     private var brandMark: some View {
-        NursemindLogo(size: 32)
+        NursemindLogo(size: NMDeviceSize.isTallCanvas ? 40 : 32)
     }
 
     // MARK: - Header
 
     private var header: some View {
-        VStack(spacing: NMSpace.sm) {
+        VStack(spacing: NMSpace.md) {
             EyebrowLabel("NURSEMIND PRO")
             Text("Everything, unlocked.")
-                .font(NMFont.displayMD)
+                .font(NMDeviceSize.isTallCanvas ? NMFont.displayLG : NMFont.displayMD)
                 .foregroundStyle(NMColor.textPrimary)
                 .multilineTextAlignment(.center)
-                .tracking(-0.6)
+                .tracking(NMDeviceSize.isTallCanvas ? -1.2 : -0.6)
             Text("Cited at every claim. Calm at every shift.")
                 .font(NMFont.displayItalicSM)
                 .foregroundStyle(NMColor.textSecondary)
@@ -203,7 +218,7 @@ public struct PaywallView: View {
     /// auto-advance delay before they can decide. Each row: accent badge
     /// with icon → bold title → italic supporting line.
     private var featureChecklist: some View {
-        VStack(spacing: NMSpace.md) {
+        VStack(spacing: NMSpace.lg) {
             ForEach(Array(features.enumerated()), id: \.offset) { _, feature in
                 PaywallFeatureRow(feature: feature)
             }
@@ -239,7 +254,7 @@ public struct PaywallView: View {
     // MARK: - Plans
 
     private var planSection: some View {
-        VStack(alignment: .leading, spacing: NMSpace.md) {
+        VStack(alignment: .leading, spacing: NMSpace.base) {
             EyebrowLabel("CHOOSE YOUR PLAN", sparkle: false)
             VStack(spacing: NMSpace.sm) {
                 ForEach(PaywallPlan.allCases, id: \.self) { plan in
@@ -333,7 +348,7 @@ public struct PaywallView: View {
                 }
             }
             .frame(maxWidth: .infinity)
-            .frame(height: 56)
+            .frame(height: NMDeviceSize.isTallCanvas ? 62 : 56)
             .background(
                 RoundedRectangle(cornerRadius: 16)
                     .fill(NMColor.accent)
@@ -535,16 +550,16 @@ private struct PaywallFeatureRow: View {
     let feature: PaywallFeature
 
     var body: some View {
-        HStack(spacing: NMSpace.base + 2) {
+        HStack(spacing: NMSpace.lg + 2) {
             ZStack {
                 Circle()
                     .fill(NMColor.linkBg)
-                    .frame(width: 40, height: 40)
+                    .frame(width: 46, height: 46)
                 Image(systemName: feature.icon)
-                    .font(.system(size: 18, weight: .regular))
+                    .font(.system(size: 21, weight: .regular))
                     .foregroundStyle(NMColor.accent)
             }
-            VStack(alignment: .leading, spacing: 1) {
+            VStack(alignment: .leading, spacing: 3) {
                 Text(feature.title)
                     .font(NMFont.displaySM)
                     .foregroundStyle(NMColor.textPrimary)
@@ -594,7 +609,7 @@ private struct PaywallPlanRow: View {
                 Spacer(minLength: 0)
                 priceBlock
             }
-            .padding(.vertical, NMSpace.md)
+            .padding(.vertical, NMDeviceSize.isTallCanvas ? NMSpace.base + 2 : NMSpace.md)
             .padding(.horizontal, NMSpace.base + 2)
             .background(
                 RoundedRectangle(cornerRadius: 14)
