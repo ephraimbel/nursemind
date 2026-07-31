@@ -46,6 +46,10 @@ struct NursemindApp: App {
         // corpus mid-keystroke.
         Task.detached(priority: .utility) {
             ContentRegistry.shared.prewarmIndex()
+            // Publish the library to system search once the in-memory index is
+            // warm — both walk the same corpus, so running them back to back on
+            // one background task avoids building it twice.
+            SpotlightIndexer.indexIfNeeded()
         }
     }
 

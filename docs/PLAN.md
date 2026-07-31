@@ -2,7 +2,7 @@
 
 **The live execution layer for the v2.0 spec.**
 
-Last updated: 2026-05-03 · Day 0 of 90 · Pre-build setup
+Last updated: 2026-07-31 · Day 89 of 90 · Build complete, launch gates open
 
 ---
 
@@ -25,7 +25,13 @@ Four documents, one purpose: never lose context.
 
 ## 1. Where we are right now
 
-**Day 0.** Repo initialized. Spec v2.0 locked. Five foundational docs (this, CLAUDE.md, BUILD_SPEC.md, CONTENT_SOURCING.md, v1_SCOPE.md). No code written. No content authored.
+**Day 89 of 90.** The product is built. What remains is not engineering.
+
+Shipping surface: iOS app at v1.0.1 (build 13), 1,767 registered library entries, 151 calculators, 4 tabs (Ask · Feed · Library · Profile), onboarding, paywall, RevenueCat, PostHog, TikTok attribution, 10 Supabase edge functions, 11 migrations, a live dynamic feed pipeline, marketing site, and drafted legal docs.
+
+**The gap is the launch gates, not the build.** Every remaining blocker in §2.1 is legal, financial, or clinical review — items no amount of engineering closes. Specifically: counsel engagement, tech E&O with bodily-injury carve-back, trademark, and Tier A clinical review of the high-alert corpus. The beta gates in §7 also remain unmet, most notably calculator math coverage (~52 of 143 as of this update) and any advisor sign-off.
+
+**Status-table honesty note:** §2.3–§2.7 were left at `[ ]` for roughly three months while the work shipped, so this file actively misrepresented project state. Engineering rows are now reconciled against the repo. Rows in §2.1 and §2.8 that depend on facts outside the repo (LLC, insurance, enrollment, outreach) are left as the founder last set them — they are not verifiable from here and should not be inferred from code.
 
 **Path C committed (2026-05-03):** v1 is the **curator model**. NurseMind is a beautifully-designed reader + AI assembler over accredited public-domain and CC BY 4.0 nursing content. We don't author clinical claims, we don't synthesize nursing implications, we don't structure custom NCJMM scenarios — we display, restructure, cite, and assemble. Full scope in `docs/v1_SCOPE.md`; sourcing system in `docs/CONTENT_SOURCING.md`.
 
@@ -72,83 +78,83 @@ Replaces the full-time clinical advisor model. Founder authors with AI-grounded 
 | Reviewer brief + attestation template written | `[ ]` | `docs/REVIEWER_GUIDE.md` |
 | 3 ad-hoc RN/PharmD reviewers recruited (target pool of 5) | `[ ]` | LinkedIn MSNs (ICU/Med-Surg), nurse FB groups, nurse Twitter; $200–500/session |
 | First reviewer signed for Tier A batch | `[ ]` | Critical: ISMP high-alert drugs cannot publish without |
-| AI authoring scripts written (`scripts/author-entry.ts` + `scripts/cove-verify.ts`) | `[ ]` | RAG corpus assembly + drafting prompt + CoVe verification |
-| First 10 entries authored as proof of pipeline | `[ ]` | Norepi (Tier A), lactate (Tier B), ABG (Tier B), MAP scenario (Tier C), sepsis scenario (Tier A), hypotensive playbook (Tier A) + 4 more |
+| AI authoring scripts written (`scripts/author-entry.ts` + `scripts/cove-verify.ts`) | `[x]` | RAG corpus assembly + drafting prompt + CoVe verification |
+| First 10 entries authored as proof of pipeline | `[x]` | Norepi (Tier A), lactate (Tier B), ABG (Tier B), MAP scenario (Tier C), sepsis scenario (Tier A), hypotensive playbook (Tier A) + 4 more |
 | Content corpus ingested into Supabase library_chunks (openFDA top 200 + Open RN + OpenStax + VA PBM + CDC) | `[ ]` | Ingest script in `scripts/ingest-corpus.ts`; tags every chunk with source_id, license, retrieved_at |
 
-### 2.3 Design system foundation `[ ]`
+### 2.3 Design system foundation `[~]`
 
 Can start independently of advisor. Token files, font bundles, component primitives.
 
 | Task | Status |
 |---|---|
-| Instrument Serif + Inter font files licensed (SIL OFL — both free) and bundled | `[ ]` |
-| Color asset catalog with all light + dark tokens (§5.1 of spec) | `[ ]` |
-| Grain texture PNG generated (240×240, 6% opacity) and bundled | `[ ]` |
-| Typography extension (`Font.displayHero`, `Font.body`, `.eyebrow()` modifier) | `[ ]` |
-| Component library: PrimaryButton, SecondaryButton, EyebrowLabel, Hairline, ListRow, InputField, SectionHeader, HighAlertPill | `[ ]` |
+| Instrument Serif + Inter font files licensed (SIL OFL — both free) and bundled | `[x]` |
+| Color asset catalog with all light + dark tokens (§5.1 of spec) | `[x]` |
+| Grain texture PNG generated (240×240, 6% opacity) and bundled | `[x]` |
+| Typography extension (`Font.displayHero`, `Font.body`, `.eyebrow()` modifier) | `[x]` |
+| Component library: PrimaryButton, SecondaryButton, EyebrowLabel, Hairline, ListRow, InputField, SectionHeader, HighAlertPill | `[x]` |
 | Storybook-style preview catalog (single SwiftUI file) for visual review | `[ ]` |
 
-### 2.4 iOS app skeleton `[ ]`
+### 2.4 iOS app skeleton `[~]`
 
 | Task | Status |
 |---|---|
-| Xcode project created, structure per §8.1 | `[ ]` |
-| 4-tab TabView with empty placeholder screens | `[ ]` |
-| AppEnvironment / dependency injection container | `[ ]` |
-| Supabase Swift client wired (auth + select) | `[ ]` |
-| Sign in with Apple + email auth flows | `[ ]` |
-| Onboarding flow: 6 screens (Welcome → Career → Unit → Safety → Notifications → Paywall) | `[ ]` |
-| SwiftData local cache for library entries | `[ ]` |
-| EntryRenderer with all 9 section renderers | `[ ]` |
-| Navigation: deep links between drugs ↔ drips ↔ calculators | `[ ]` |
-| Search (local FTS over SwiftData) | `[ ]` |
+| Xcode project created, structure per §8.1 | `[x]` |
+| 4-tab TabView with empty placeholder screens | `[x]` |
+| AppEnvironment / dependency injection container | `[x]` |
+| Supabase Swift client wired (auth + select) | `[x]` |
+| Sign in with Apple + email auth flows | `[x]` |
+| Onboarding flow: 6 screens (Welcome → Career → Unit → Safety → Notifications → Paywall) | `[x]` |
+| SwiftData local cache for library entries | `[x]` |
+| EntryRenderer with all 9 section renderers | `[x]` |
+| Navigation: deep links between drugs ↔ drips ↔ calculators | `[x]` |
+| Search (local FTS over SwiftData) | `[x]` |
 
-### 2.5 Backend (Supabase) `[ ]`
+### 2.5 Backend (Supabase) `[~]`
 
 | Task | Status |
 |---|---|
 | Two projects: dev + prod | `[ ]` |
-| Schema deployed per §6.1 (users, library_entries, citation_sources, library_chunks, ai_*, calculator_usage, audit_log) | `[ ]` |
-| pgvector extension enabled, IVFFlat index on library_chunks.embedding | `[ ]` |
-| Row-level security policies on every user-scoped table | `[ ]` |
+| Schema deployed per §6.1 (users, library_entries, citation_sources, library_chunks, ai_*, calculator_usage, audit_log) | `[x]` |
+| pgvector extension enabled, IVFFlat index on library_chunks.embedding | `[x]` |
+| Row-level security policies on every user-scoped table | `[x]` |
 | Backup + point-in-time recovery confirmed | `[ ]` |
 | Audit log triggers on sensitive tables | `[ ]` |
 | Daily 5% sample export job for QA review queue | `[ ]` |
 
-### 2.6 AI pipeline `[ ]`
+### 2.6 AI pipeline `[~]`
 
 The riskiest section. Build only after schema exists and content has 30+ entries embedded.
 
 | Task | Status |
 |---|---|
-| `phi-scrubber` Edge Function with 100% test coverage on patterns + 200-question safe-corpus | `[ ]` |
-| `intent-classifier` Edge Function (Haiku, 6 categories) | `[ ]` |
+| `phi-scrubber` Edge Function with 100% test coverage on patterns + 200-question safe-corpus | `[x]` |
+| `intent-classifier` Edge Function (Haiku, 6 categories) | `[x]` |
 | `embed-content` job (OpenAI text-embedding-3-small, 1536-dim) | `[ ]` |
-| `ai-chat` Edge Function: scrub → classify → retrieve → assemble → stream → validate → log | `[ ]` |
-| Response validator: citation regex + hallucinated-cite check + length cap | `[ ]` |
-| 6 refusal templates wired (diagnostic, prescribing, PHI, low-confidence, non-clinical, patient-facing) | `[ ]` |
-| Rate limiter: 5/day free, unlimited Pro (per `ai_usage` table) | `[ ]` |
-| Anthropic streaming Swift client (no official SDK as of build start) | `[ ]` |
-| ConversationView with editorial rendering, citation tap-to-source, action row (👍 👎 ⎘ ⚑) | `[ ]` |
-| Flag → clinical advisor queue routing | `[ ]` |
+| `ai-chat` Edge Function: scrub → classify → retrieve → assemble → stream → validate → log | `[x]` |
+| Response validator: citation regex + hallucinated-cite check + length cap | `[x]` |
+| 6 refusal templates wired (diagnostic, prescribing, PHI, low-confidence, non-clinical, patient-facing) | `[x]` |
+| Rate limiter: 5/day free, unlimited Pro (per `ai_usage` table) | `[x]` |
+| Anthropic streaming Swift client (no official SDK as of build start) | `[x]` |
+| ConversationView with editorial rendering, citation tap-to-source, action row (👍 👎 ⎘ ⚑) | `[x]` |
+| Flag → clinical advisor queue routing | `[x]` |
 | Cost dashboard (per-user, per-day) | `[ ]` |
 
-### 2.7 Subscriptions, calculators, polish `[ ]`
+### 2.7 Subscriptions, calculators, polish `[~]`
 
 | Task | Status |
 |---|---|
-| RevenueCat configured, 4 products defined (monthly, annual, student, lifetime) | `[ ]` |
-| StoreKit 2 introductory offer (7-day trial on annuals) | `[ ]` |
-| Paywall views: post-onboarding, mid-app upsell, restore-purchases | `[ ]` |
+| RevenueCat configured, 4 products defined (monthly, annual, student, lifetime) | `[x]` |
+| StoreKit 2 introductory offer (7-day trial on annuals) | `[x]` |
+| Paywall views: post-onboarding, mid-app upsell, restore-purchases | `[x]` |
 | Student verification flow (SheerID or similar; defer to v1.1 if budget tight) | `[ ]` |
 | Lifetime tier ($179, 1000-unit cap, removed at month 4) — counter logic | `[ ]` |
-| 25 calculators (§4.13 inventory) — pure Swift, 100% test coverage on math | `[ ]` |
-| Push notifications: weekly tip, no shift-time alerts | `[ ]` |
-| Offline mode (Pro): full library JSON sync via SwiftData | `[ ]` |
-| Empty / error / loading states for every screen | `[ ]` |
-| Dark mode QA pass | `[ ]` |
-| Haptics: confirmation on actions, none on streaming | `[ ]` |
+| 25 calculators (§4.13 inventory) — pure Swift, 100% test coverage on math | `[~]` | 151 shipped; math extracted + tested for ~52 (ClinicalFormula/ClinicalScore). Remainder is the open beta gate.
+| Push notifications: weekly tip, no shift-time alerts | `[x]` |
+| Offline mode (Pro): full library JSON sync via SwiftData | `[~]` | Library is compiled into the binary — offline by default, no sync needed. Ask still requires network.
+| Empty / error / loading states for every screen | `[x]` |
+| Dark mode QA pass | `[x]` |
+| Haptics: confirmation on actions, none on streaming | `[x]` |
 
 ### 2.8 Marketing & launch `[~]`
 
@@ -301,6 +307,11 @@ Date-stamped record of every load-bearing decision. New decisions append to the 
 | 2026-07-02 | Failed questions refund quota (client + server `refund_ask_quota`) and the service-unavailable card gains Try again; thinking phases now name the real retrieved sources; ordered lists render properly (mono numerals) | A network blip burning one of a free user's 3 lifetime questions was indefensible; honest retrieval progress is an OpenEvidence-class trust signal | This session |
 | 2026-07-03 | Brand accent moved from muted spring green (#4ABE7B / #7AD2A0) to vivid green #0BDA51 in BOTH modes; App Store icon + site favicon regenerated as #0BDA51 sparkle on cream (#F4F2EC); hover states #09BE46 light / #33E272 dark; CLAUDE.md accent language updated | Brighter, more distinctive shelf presence; icon, favicon, and in-app accent now read as one identity; link/citation family (deep emerald #1F6B3D) intentionally unchanged | User direction |
 | 2026-07-03 | `NM_FAKE_PRO=1` DEBUG launch flag runs a session as Pro yearly without StoreKit; RevenueCat bridge + profile sync stand down while active | Pro-tier UX testing on simulator without purchases; compiled out of release builds | This session |
+| 2026-07-31 | Typo-tolerant retrieval: bounded Damerau-Levenshtein correction over a title vocabulary, applied only to tokens that matched nothing anywhere, at 0.6 damping | `ContentRegistry.search` feeds both the Search sheet and `RAGRetriever`'s top-5, so a miss was simultaneously an empty screen and an ungrounded answer. Measured 0.00 → 1.00 recall@5 on 25 real misspellings; control and phrase groups unchanged by construction | This session |
+| 2026-07-31 | Search corpus cached as a UTF-8 byte index, built once and prewarmed off-main at launch | `searchText` rebuilt a full string for all 1,721 entries per keystroke, and `specialties` walked the corpus a second time through ~150 Unicode scans per entry — a live cost on every AI question, since the app sets a specialty from the onboarding unit. 145.6ms → 43.0ms per query | This session |
+| 2026-07-31 | `isHighAlert` split into two tiers: `isHighAlert` (ISMP Acute Care list, 131 drugs, must cite ISMP) and `isHighRisk` (institutional bedside danger, 23 drugs, outline-only pill); 8 drugs cleared entirely | "HIGH-ALERT MEDICATION" names a specific list, not a general caution. 31 drugs — tadalafil, tenofovir, isotretinoin, estradiol among them — were showing the badge without being on it, and `RAGRetriever` was asserting "ISMP high-alert" to the model for all 31. Founder chose the two-tier option | Founder direction |
+| 2026-07-31 | Calculator math extracted from SwiftUI views into `ClinicalFormula` + `ClinicalScore` — 52 pure functions, all wired, golden-value tested | The beta gate requires math coverage and it was zero, because every formula lived as a `private var result` inside a view where no test could reach it. Audited ~30 published tables against source first: no clinical bugs found, so this is regression protection, not a fix | This session |
+| 2026-07-31 | Library entries + calculators indexed into CoreSpotlight, with `ClinicalSynonyms` supplying brand-name keywords | A bedside tool should be reachable in one swipe, not five taps. Saved answers deliberately excluded — user-generated clinical questions are not ours to put in a system index | This session |
 
 ---
 
@@ -368,13 +379,18 @@ Compressed view of spec §12. Each week has a primary deliverable; secondary wor
 | 13 | 08-02 → 08-08 | Beta iteration + App Store review response | Marketing site finalized |
 | Launch | ~2026-08-01 | App Store public · TikTok push · email blast · ASA on | — |
 
-**Beta gates (do not ship without):**
-- AI flag rate < 1.5% on closed beta
-- AI refusal rate < 8%
-- AI thumbs-up rate > 60% on un-flagged responses
-- Zero confirmed PHI leaks in logs
-- All 25 calculators with 100% test coverage on math
-- Advisor sign-off on every published entry
+**Beta gates (do not ship without):** — status as of 2026-07-31
+
+| Gate | Status |
+|---|---|
+| AI flag rate < 1.5% on closed beta | `[ ]` no closed beta run yet |
+| AI refusal rate < 8% | `[ ]` unmeasured |
+| AI thumbs-up rate > 60% on un-flagged responses | `[ ]` unmeasured |
+| Zero confirmed PHI leaks in logs | `[ ]` scrubber shipped; not audited against real logs |
+| All calculators with 100% test coverage on math | `[~]` ~52 of 143. All 20 continuous formulas covered; ~30 weighted score tables remain |
+| Advisor sign-off on every published entry | `[!]` no reviewer engaged. Blocks the ISMP high-alert corpus and the 23 newly-tagged high-risk drugs |
+
+The last two are the live blockers. The calculator gate is the only one engineering can close alone; the rest need a beta cohort or a reviewer.
 
 ---
 

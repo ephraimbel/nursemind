@@ -380,6 +380,25 @@ public enum ClinicalSynonyms {
     /// found in the input. Uses whole-word boundary matching to avoid expanding
     /// substring coincidences ("ms" inside "myasthenia" wouldn't match the
     /// stand-alone "ms" → "morphine" group).
+    /// Every other term in the groups this text matches — the reverse of
+    /// `expand`. Spotlight matches on a fixed keyword list rather than running
+    /// our expander, so an entry has to carry its own aliases into the index or
+    /// "lasix" will never find Furosemide from the home screen.
+    ///
+    /// Matches on whole words only, so "MI" doesn't fire on "vitaMIn".
+    public static func alternateTerms(for text: String) -> [String] {
+        let haystack = " " + text.lowercased() + " "
+        var out: [String] = []
+        var seen: Set<String> = []
+        for group in groups {
+            guard group.contains(where: { wholeWordContains(haystack, term: $0) }) else { continue }
+            for term in group where !wholeWordContains(haystack, term: term) {
+                if seen.insert(term).inserted { out.append(term) }
+            }
+        }
+        return out
+    }
+
     public static func expand(query: String) -> String {
         let lower = " " + query.lowercased() + " "
         var expanded = lower

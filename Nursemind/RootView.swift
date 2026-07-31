@@ -1,3 +1,4 @@
+import CoreSpotlight
 import SwiftUI
 import NursemindCore
 import UIKit
@@ -83,6 +84,13 @@ struct RootView: View {
                 router.openLibraryEntry(entryID)
             }
             #endif
+        }
+        // Spotlight result tapped from the home screen. Routed even mid-
+        // onboarding: someone who searched for a drug wants the drug, not the
+        // step they abandoned, and `hasCompletedOnboarding` still gates the
+        // main view so they land back in the flow afterwards.
+        .onContinueUserActivity(CSSearchableItemActionType) { activity in
+            SpotlightIndexer.handle(activity: activity, router: router)
         }
         .onChange(of: scenePhase, initial: true) { _, phase in
             guard phase == .active, !hasRequestedTracking else { return }
