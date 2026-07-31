@@ -103,7 +103,7 @@ public enum PralidoximeSample {
         title: "Pralidoxime (2-PAM)",
         subtitle: "Protopam · cholinesterase reactivator · organophosphate / nerve-agent antidote",
         category: "Cholinesterase reactivator",
-        isHighAlert: true,
+        isHighRisk: true,
         quickReference: [
             KeyValueRow(key: "Class", value: "Cholinesterase reactivator (oxime)"),
             KeyValueRow(key: "Indication", value: "Organophosphate / nerve-agent (sarin) poisoning — given AFTER atropine for muscarinic symptoms"),
@@ -340,7 +340,7 @@ public enum CalciumChlorideSample {
         title: "Calcium chloride 10%",
         subtitle: "Stabilizes cardiac membrane · hyperK · CCB / β-blocker overdose · hypocalcemia",
         category: "Electrolyte / antidote",
-        isHighAlert: true,
+        isHighRisk: true,
         quickReference: [
             KeyValueRow(key: "Class", value: "Calcium salt (3× elemental Ca per gram vs calcium gluconate)"),
             KeyValueRow(key: "Routes", value: "CENTRAL line preferred; peripheral OK in emergency but VESICANT — extravasation = severe tissue necrosis"),

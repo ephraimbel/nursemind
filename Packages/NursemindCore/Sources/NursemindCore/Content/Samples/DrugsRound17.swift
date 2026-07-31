@@ -26,6 +26,15 @@ private let specialtyR17 = CitationSource(
     url: "https://www.asahq.org/standards-and-guidelines",
     lastRetrieved: "2026-05-04"
 )
+private let ismpR17 = CitationSource(
+    id: "ismp_high_alert_2024",
+    shortName: "ISMP List of High-Alert Medications in Acute Care Settings, 2024",
+    detail: "Concept citation only — list itself not reproduced",
+    publisher: "Institute for Safe Medication Practices",
+    license: .factCitationOnly,
+    url: "https://www.ismp.org/recommendations/high-alert-medications-acute-list",
+    lastRetrieved: "2026-05-03"
+)
 
 public enum PropofolSample {
     public static let entry: DrugEntry = DrugEntry(
@@ -84,7 +93,7 @@ public enum PropofolSample {
             "This medication is given through your IV to keep you sedated while on the ventilator or during a procedure. You will be unconscious, and we will monitor your breathing and heart closely.",
             citationIDs: ["openrn_pharm_round17"]
         ),
-        citations: [openfdaR17, openrnPharmR17, specialtyR17],
+        citations: [openfdaR17, openrnPharmR17, specialtyR17, ismpR17],
         lastSourceFidelityReview: "2026-05-04"
     )
 }
@@ -95,7 +104,7 @@ public enum SugammadexSample {
         title: "Sugammadex",
         subtitle: "Bridion · selective rocuronium / vecuronium reversal · rapid + complete · bradycardia",
         category: "Selective NMBD reversal agent",
-        isHighAlert: true,
+        isHighRisk: true,
         quickReference: [
             KeyValueRow(key: "Class", value: "Modified γ-cyclodextrin"),
             KeyValueRow(key: "Indications", value: "Reversal of rocuronium- or vecuronium-induced neuromuscular blockade"),
@@ -154,7 +163,7 @@ public enum NeostigmineSample {
         title: "Neostigmine",
         subtitle: "AChE inhibitor · NMBD reversal + myasthenia · ALWAYS with anticholinergic for bradycardia",
         category: "Acetylcholinesterase inhibitor (NMBD reversal)",
-        isHighAlert: true,
+        isHighRisk: true,
         quickReference: [
             KeyValueRow(key: "Class", value: "Quaternary AChE inhibitor"),
             KeyValueRow(key: "Indications", value: "Non-depolarizing NMBD reversal (with anticholinergic); myasthenia gravis"),
@@ -214,7 +223,7 @@ public enum DantroleneSample {
         title: "Dantrolene",
         subtitle: "Ryanodex / Dantrium · MH antidote · ryanodine receptor blocker · NMS adjunct",
         category: "Muscle relaxant / MH antidote",
-        isHighAlert: true,
+        isHighRisk: true,
         quickReference: [
             KeyValueRow(key: "Class", value: "Skeletal muscle relaxant (ryanodine receptor antagonist)"),
             KeyValueRow(key: "Indications", value: "Malignant hyperthermia (MH); neuroleptic malignant syndrome (NMS); chronic spasticity"),
@@ -323,7 +332,7 @@ public enum EsmololSample {
             "We're giving this to control your heart rate and blood pressure during this critical care period. The medication wears off within 20–30 minutes after we stop it.",
             citationIDs: ["openrn_pharm_round17"]
         ),
-        citations: [openfdaR17, openrnPharmR17, specialtyR17],
+        citations: [openfdaR17, openrnPharmR17, specialtyR17, ismpR17],
         lastSourceFidelityReview: "2026-05-04"
     )
 }
@@ -334,7 +343,7 @@ public enum PhentolamineSample {
         title: "Phentolamine",
         subtitle: "Regitine · α1+α2 blocker · pheochromocytoma + vasopressor extravasation + hypertensive crisis",
         category: "Non-selective α-adrenergic blocker",
-        isHighAlert: true,
+        isHighRisk: true,
         quickReference: [
             KeyValueRow(key: "Class", value: "Non-selective competitive α-adrenergic antagonist"),
             KeyValueRow(key: "Indications", value: "Pheochromocytoma HTN crisis; vasopressor extravasation; cocaine / sympathomimetic HTN; MAOI-tyramine reactions"),
@@ -502,7 +511,7 @@ public enum TenecteplaseSample {
             "We're giving this to dissolve a clot in your heart or brain. The most serious risk is bleeding — we'll watch you closely. Tell us right away about any new headache, weakness, or visible bleeding.",
             citationIDs: ["openrn_pharm_round17"]
         ),
-        citations: [openfdaR17, openrnPharmR17, specialtyR17],
+        citations: [openfdaR17, openrnPharmR17, specialtyR17, ismpR17],
         lastSourceFidelityReview: "2026-05-04"
     )
 }
@@ -621,7 +630,7 @@ public enum CisatracuriumSample {
             "This medication paralyzes your muscles temporarily so we can keep you on the ventilator. You will be sedated and asleep so you don't feel anything. We monitor you very closely.",
             citationIDs: ["openrn_pharm_round17"]
         ),
-        citations: [openfdaR17, openrnPharmR17, specialtyR17],
+        citations: [openfdaR17, openrnPharmR17, specialtyR17, ismpR17],
         lastSourceFidelityReview: "2026-05-04"
     )
 }
@@ -684,7 +693,7 @@ public enum KetamineSample {
             "This medication will quickly put you into a sleep-like state for the procedure. You may have vivid dreams as you wake up; this is normal and goes away. Tell us if you feel anxious or scared as you recover.",
             citationIDs: ["openrn_pharm_round17"]
         ),
-        citations: [openfdaR17, openrnPharmR17, specialtyR17],
+        citations: [openfdaR17, openrnPharmR17, specialtyR17, ismpR17],
         lastSourceFidelityReview: "2026-05-04"
     )
 }

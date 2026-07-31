@@ -172,6 +172,8 @@ public struct DrugEntryView: View {
             }
             if entry.isHighAlert {
                 HighAlertPill().padding(.top, NMSpace.sm)
+            } else if entry.isHighRisk {
+                HighRiskPill().padding(.top, NMSpace.sm)
             }
         }
     }

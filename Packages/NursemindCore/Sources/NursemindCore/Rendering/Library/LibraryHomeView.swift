@@ -429,10 +429,12 @@ struct EntryRow: View {
                     .foregroundStyle(NMColor.textPrimary)
                 // High-alert lives on the metadata line, never inline with the
                 // title — inline placement wraps badly on two-line drug names.
-                if entry.isHighAlert || rowSubtitle != nil {
+                if entry.isHighAlert || entry.isHighRisk || rowSubtitle != nil {
                     HStack(spacing: NMSpace.sm) {
                         if entry.isHighAlert {
                             SmallHighAlertChip()
+                        } else if entry.isHighRisk {
+                            SmallHighRiskChip()
                         }
                         if let rowSubtitle {
                             Text(rowSubtitle)
@@ -475,6 +477,21 @@ private struct SmallHighAlertChip: View {
                         RoundedRectangle(cornerRadius: 3)
                             .stroke(NMColor.alertHighBorder, lineWidth: 1)
                     )
+            )
+    }
+}
+
+private struct SmallHighRiskChip: View {
+    var body: some View {
+        Text("HIGH-RISK")
+            .font(.system(size: 9, weight: .medium))
+            .tracking(1.0)
+            .foregroundStyle(NMColor.textTertiary)
+            .padding(.horizontal, 6)
+            .padding(.vertical, 2)
+            .background(
+                RoundedRectangle(cornerRadius: 3)
+                    .stroke(NMColor.border, lineWidth: 1)
             )
     }
 }

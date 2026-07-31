@@ -85,6 +85,14 @@ public enum LibraryEntry: Identifiable, Codable, Sendable {
         }
     }
 
+    public var isHighRisk: Bool {
+        switch self {
+        case .drug(let e):  return e.isHighRisk
+        case .drip(let e):  return e.isHighRisk
+        default:            return false
+        }
+    }
+
     public var nclexTags: NCLEXTags? {
         switch self {
         case .drug, .drip:           return nil   // drugs/drips primarily map to Pharm/Parenteral

@@ -404,7 +404,7 @@ public enum AlprostadilSample {
         title: "Alprostadil (PGE1, IV)",
         subtitle: "Prostin VR · keeps ductus arteriosus OPEN in cyanotic CHD",
         category: "Prostaglandin E1 (IV)",
-        isHighAlert: true,
+        isHighRisk: true,
         quickReference: [
             KeyValueRow(key: "Class", value: "Synthetic PGE1"),
             KeyValueRow(key: "Indication", value: "Maintain ductal patency in ductal-dependent congenital heart disease (until surgical correction)"),
@@ -523,7 +523,7 @@ public enum SurfactantSample {
         title: "Surfactant (poractant alfa / beractant)",
         subtitle: "Curosurf / Survanta · neonatal RDS · intratracheal",
         category: "Pulmonary surfactant",
-        isHighAlert: true,
+        isHighRisk: true,
         quickReference: [
             KeyValueRow(key: "Class", value: "Exogenous pulmonary surfactant (animal-derived)"),
             KeyValueRow(key: "Indication", value: "Neonatal RDS — prevention or rescue"),

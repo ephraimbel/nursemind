@@ -806,7 +806,7 @@ public enum VigabatrinSample {
         title: "Vigabatrin (Sabril)",
         subtitle: "INFANTILE SPASMS first-line + refractory complex partial · IRREVERSIBLE VISUAL FIELD LOSS (boxed) · REMS · short-term use",
         category: "GABA transaminase inhibitor (antiepileptic)",
-        isHighAlert: true,
+        isHighRisk: true,
         quickReference: [
             KeyValueRow(key: "Class", value: "GABA transaminase inhibitor — irreversibly inhibits GABA breakdown"),
             KeyValueRow(key: "Use", value: "Infantile spasms in 1 month-2 years (FDA); refractory complex partial seizures in adults + children ≥10 years"),

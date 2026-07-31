@@ -34,6 +34,15 @@ private let specialtyR23 = CitationSource(
     url: "https://www.acog.org/clinical-information/practice-bulletins",
     lastRetrieved: "2026-05-12"
 )
+private let ismpR23 = CitationSource(
+    id: "ismp_high_alert_2024",
+    shortName: "ISMP List of High-Alert Medications in Acute Care Settings, 2024",
+    detail: "Concept citation only — list itself not reproduced",
+    publisher: "Institute for Safe Medication Practices",
+    license: .factCitationOnly,
+    url: "https://www.ismp.org/recommendations/high-alert-medications-acute-list",
+    lastRetrieved: "2026-05-03"
+)
 
 public enum LabetalolSample {
     public static let entry: DrugEntry = DrugEntry(
@@ -101,7 +110,7 @@ public enum LabetalolSample {
             "This medicine lowers your blood pressure. Stand up slowly to avoid dizziness. If you have diabetes, check your sugar more often — this can hide low sugar warning signs. Don't stop suddenly — taper as directed. Tell us about wheezing, slow heartbeat, fainting, or unusual fatigue. Safe in pregnancy.",
             citationIDs: ["openrn_pharm_round23"]
         ),
-        citations: [openfdaR23, openrnPharmR23, cdcR23, specialtyR23],
+        citations: [openfdaR23, openrnPharmR23, cdcR23, specialtyR23, ismpR23],
         lastSourceFidelityReview: "2026-05-12"
     )
 }
@@ -730,7 +739,7 @@ public enum ClonidineSample {
         title: "Clonidine (Catapres, Kapvay)",
         subtitle: "Central α2 agonist · HTN urgency + ADHD + opioid withdrawal + hot flashes · WITHDRAWAL HTN crisis · sedation",
         category: "Central α2 adrenergic agonist",
-        isHighAlert: true,
+        isHighRisk: true,
         quickReference: [
             KeyValueRow(key: "Class", value: "Central α2 agonist; reduces sympathetic outflow"),
             KeyValueRow(key: "Use", value: "Hypertension (incl. urgency); ADHD; opioid / nicotine withdrawal; menopausal hot flashes; off-label tics, anxiety, PTSD nightmares"),

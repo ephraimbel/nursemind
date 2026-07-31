@@ -5,7 +5,21 @@ public struct DrugEntry: Identifiable, Codable, Sendable {
     public let title: String                 // "Norepinephrine"
     public let subtitle: String?             // "Levophed · norepinephrine bitartrate"
     public let category: String              // "Vasopressor"
+
+    /// On the ISMP List of High-Alert Medications in Acute Care Settings.
+    /// "High-alert medication" is a term of art in nursing — it names that
+    /// specific list, not a general sense of danger. Setting this renders the
+    /// HIGH-ALERT MEDICATION pill and tells the AI the drug is ISMP-listed, so
+    /// it must cite ISMP (enforced by `highAlertCitesIsmp`). If a drug is
+    /// dangerous but not on the list, it is `isHighRisk`, not this.
     public let isHighAlert: Bool
+
+    /// Dangerous to give or monitor at the bedside, but not on the ISMP list —
+    /// the class of drug most hospitals add to their own high-risk list.
+    /// Narrow therapeutic index (gentamicin), fatal by the wrong route
+    /// (penicillin G benzathine IM-only), time-critical antidotes (dantrolene),
+    /// or a hazard during administration itself (surfactant desaturation).
+    public let isHighRisk: Bool
 
     public let quickReference: [KeyValueRow]
     public let indications: AttributedProse
@@ -27,6 +41,7 @@ public struct DrugEntry: Identifiable, Codable, Sendable {
         subtitle: String? = nil,
         category: String,
         isHighAlert: Bool = false,
+        isHighRisk: Bool = false,
         quickReference: [KeyValueRow],
         indications: AttributedProse,
         mechanism: AttributedProse,
@@ -45,6 +60,7 @@ public struct DrugEntry: Identifiable, Codable, Sendable {
         self.subtitle = subtitle
         self.category = category
         self.isHighAlert = isHighAlert
+        self.isHighRisk = isHighRisk
         self.quickReference = quickReference
         self.indications = indications
         self.mechanism = mechanism

@@ -19,6 +19,15 @@ private let openrn = CitationSource(
     url: "https://wtcs.pressbooks.pub/pharmacology/?s=respiratory+albuterol+inhaler+steroid",
     lastRetrieved: "2026-05-04"
 )
+private let ismpRespiratoryDrugs = CitationSource(
+    id: "ismp_high_alert_2024",
+    shortName: "ISMP List of High-Alert Medications in Acute Care Settings, 2024",
+    detail: "Concept citation only — list itself not reproduced",
+    publisher: "Institute for Safe Medication Practices",
+    license: .factCitationOnly,
+    url: "https://www.ismp.org/recommendations/high-alert-medications-acute-list",
+    lastRetrieved: "2026-05-03"
+)
 
 // MARK: - Ipratropium
 
@@ -205,7 +214,7 @@ public enum TramadolSample {
             "This is an opioid — do not combine with alcohol, sleep aids, or other pain medications without telling your provider. Avoid driving until you know how it affects you. Drink fluids and add fiber to prevent constipation. Tell your provider about all medications, including over-the-counter and herbal — many interact dangerously.",
             citationIDs: ["openrn_pharm_resp"]
         ),
-        citations: [openfda, openrn],
+        citations: [openfda, openrn, ismpRespiratoryDrugs],
         lastSourceFidelityReview: "2026-05-04"
     )
 }
@@ -272,7 +281,7 @@ public enum OxycodoneSample {
             "Take only as directed. Do not crush, chew, or split ER tablets. Do not combine with alcohol or sleep aids. Add fiber and fluids to prevent constipation. Keep the medication in a locked place — accidental ingestion can be fatal. Keep naloxone (Narcan) at home if you take long-term opioids.",
             citationIDs: ["openrn_pharm_resp"]
         ),
-        citations: [openfda, openrn],
+        citations: [openfda, openrn, ismpRespiratoryDrugs],
         lastSourceFidelityReview: "2026-05-04"
     )
 }

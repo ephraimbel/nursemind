@@ -33,7 +33,7 @@ public enum MifepristoneSample {
         title: "Mifepristone",
         subtitle: "Mifeprex / Korlym · progesterone receptor antagonist · medical abortion + Cushing's hyperglycemia",
         category: "Antiprogestin (progesterone receptor antagonist)",
-        isHighAlert: true,
+        isHighAlert: false,
         quickReference: [
             KeyValueRow(key: "Class", value: "Synthetic steroid; progesterone receptor antagonist"),
             KeyValueRow(key: "Indications", value: "Medical termination of pregnancy ≤70 days (with misoprostol); endogenous Cushing's-related hyperglycemia (Korlym)"),
@@ -94,7 +94,7 @@ public enum DinoprostoneSample {
         title: "Dinoprostone",
         subtitle: "Cervidil / Prepidil · prostaglandin E2 · cervical ripening · uterine tachysystole risk",
         category: "Prostaglandin E2 (cervical ripening agent)",
-        isHighAlert: true,
+        isHighRisk: true,
         quickReference: [
             KeyValueRow(key: "Class", value: "Synthetic prostaglandin E2 (PGE2)"),
             KeyValueRow(key: "Indications", value: "Cervical ripening at term for induction of labor; second-trimester pregnancy termination; missed abortion management"),
@@ -273,7 +273,7 @@ public enum EstradiolHRTSample {
         title: "Estradiol (menopausal HRT)",
         subtitle: "Estrace / patches / vaginal · vasomotor + GU atrophy · pair with progestin if uterus · VTE + breast cancer signal",
         category: "Estrogen replacement (HRT)",
-        isHighAlert: true,
+        isHighAlert: false,
         quickReference: [
             KeyValueRow(key: "Class", value: "17-β estradiol (oral, transdermal, vaginal, gel, spray)"),
             KeyValueRow(key: "Indications", value: "Vasomotor symptoms; vulvovaginal atrophy; osteoporosis prevention (selected); premature ovarian insufficiency"),
@@ -696,7 +696,7 @@ public enum DenosumabSample {
         title: "Denosumab",
         subtitle: "Prolia / Xgeva · RANKL inhibitor · postmenopausal + cancer-related bone disease · DON'T STOP without bridge",
         category: "RANKL inhibitor (osteoclast antagonist)",
-        isHighAlert: true,
+        isHighAlert: false,
         quickReference: [
             KeyValueRow(key: "Class", value: "Human monoclonal anti-RANKL antibody"),
             KeyValueRow(key: "Indications", value: "Postmenopausal osteoporosis (Prolia); men's osteoporosis; bone metastases (Xgeva); giant cell tumor; multiple myeloma bone disease"),

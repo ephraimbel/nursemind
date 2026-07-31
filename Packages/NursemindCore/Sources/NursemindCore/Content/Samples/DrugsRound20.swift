@@ -34,6 +34,15 @@ private let specialtyR20 = CitationSource(
     url: "https://www.samhsa.gov/medications-substance-use-disorders",
     lastRetrieved: "2026-05-12"
 )
+private let ismpR20 = CitationSource(
+    id: "ismp_high_alert_2024",
+    shortName: "ISMP List of High-Alert Medications in Acute Care Settings, 2024",
+    detail: "Concept citation only — list itself not reproduced",
+    publisher: "Institute for Safe Medication Practices",
+    license: .factCitationOnly,
+    url: "https://www.ismp.org/recommendations/high-alert-medications-acute-list",
+    lastRetrieved: "2026-05-03"
+)
 
 public enum PenicillinGBenzathineSample {
     public static let entry: DrugEntry = DrugEntry(
@@ -41,7 +50,7 @@ public enum PenicillinGBenzathineSample {
         title: "Penicillin G benzathine",
         subtitle: "Bicillin L-A · long-acting IM · syphilis + GAS prophylaxis · NEVER IV (fatal)",
         category: "Long-acting penicillin (IM only)",
-        isHighAlert: true,
+        isHighRisk: true,
         quickReference: [
             KeyValueRow(key: "Class", value: "Long-acting penicillin (IM depot)"),
             KeyValueRow(key: "Indications", value: "Syphilis (all stages except neurosyphilis); secondary GAS prevention in rheumatic fever; group A strep pharyngitis selective"),
@@ -421,7 +430,7 @@ public enum DisulfiramSample {
         title: "Disulfiram",
         subtitle: "Antabuse · aldehyde dehydrogenase inhibitor · AUD aversion therapy · NEVER without informed consent",
         category: "Aldehyde dehydrogenase inhibitor (AUD)",
-        isHighAlert: true,
+        isHighRisk: true,
         quickReference: [
             KeyValueRow(key: "Class", value: "Aldehyde dehydrogenase inhibitor"),
             KeyValueRow(key: "Indications", value: "Adjunctive therapy for alcohol use disorder (AUD) — aversion strategy in motivated abstinence-committed patients"),
@@ -538,7 +547,7 @@ public enum BuprenorphineNaloxoneSample {
             "Place the film or tablet under your tongue and let it dissolve completely — usually 5–10 minutes. Don't chew, swallow, or drink for 5 minutes after. Do NOT take with alcohol or benzodiazepines (like Xanax, Valium, Klonopin) — that combination can kill you. Tell every provider you take this. Keep naloxone at home + tell your family how to use it. Counseling + peer support work alongside the medicine — recovery is more than the pill.",
             citationIDs: ["openrn_pharm_round20"]
         ),
-        citations: [openfdaR20, openrnPharmR20, specialtyR20],
+        citations: [openfdaR20, openrnPharmR20, specialtyR20, ismpR20],
         lastSourceFidelityReview: "2026-05-12"
     )
 }

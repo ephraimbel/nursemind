@@ -35,6 +35,15 @@ private let specialtyR11 = CitationSource(
     url: "https://www.heart.org/en/professional/quality-improvement",
     lastRetrieved: "2026-05-04"
 )
+private let ismpR11 = CitationSource(
+    id: "ismp_high_alert_2024",
+    shortName: "ISMP List of High-Alert Medications in Acute Care Settings, 2024",
+    detail: "Concept citation only — list itself not reproduced",
+    publisher: "Institute for Safe Medication Practices",
+    license: .factCitationOnly,
+    url: "https://www.ismp.org/recommendations/high-alert-medications-acute-list",
+    lastRetrieved: "2026-05-03"
+)
 
 // MARK: - Lidocaine
 
@@ -274,7 +283,7 @@ public enum IbutilideSample {
             "This medicine helps your heart return to a normal rhythm. We will monitor you closely on a heart monitor for several hours. Tell us right away about palpitations, dizziness, or fainting.",
             citationIDs: ["openrn_pharm_round11"]
         ),
-        citations: [openfda, openrnPharmR11, specialtyR11],
+        citations: [openfda, openrnPharmR11, specialtyR11, ismpR11],
         lastSourceFidelityReview: "2026-05-04"
     )
 }
@@ -635,7 +644,7 @@ public enum MethadoneSample {
             "Take exactly as prescribed. Even a small dose increase can build up over days and cause overdose — never adjust your own dose. Always carry naloxone. Avoid alcohol, benzodiazepines, and sleep medications unless your provider has explicitly discussed it. Tell every provider about all medications.",
             citationIDs: ["openrn_pharm_round11"]
         ),
-        citations: [openfda, openrnPharmR11, cdcR11, specialtyR11],
+        citations: [openfda, openrnPharmR11, cdcR11, specialtyR11, ismpR11],
         lastSourceFidelityReview: "2026-05-04"
     )
 }

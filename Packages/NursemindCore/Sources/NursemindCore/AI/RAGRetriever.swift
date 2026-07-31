@@ -88,7 +88,7 @@ public struct RAGRetriever: Sendable {
     private func formatDrug(_ d: DrugEntry) -> [(String, [CitationSource])] {
         var out: [(String, [CitationSource])] = []
         out.append((
-            "\(d.title) (\(d.category)\(d.isHighAlert ? ", ISMP high-alert" : "")). Indications: \(d.indications.text)",
+            "\(d.title) (\(d.category)\(d.isHighAlert ? ", ISMP high-alert" : d.isHighRisk ? ", high-risk medication" : "")). Indications: \(d.indications.text)",
             sources(d.indications.citationIDs, in: d.citations)
         ))
         out.append(("Mechanism: \(d.mechanism.text)", sources(d.mechanism.citationIDs, in: d.citations)))

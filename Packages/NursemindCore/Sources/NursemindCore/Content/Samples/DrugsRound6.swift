@@ -36,6 +36,15 @@ private let idsaConceptR6 = CitationSource(
     url: "https://www.idsociety.org/practice-guideline/",
     lastRetrieved: "2026-05-04"
 )
+private let ismpR6 = CitationSource(
+    id: "ismp_high_alert_2024",
+    shortName: "ISMP List of High-Alert Medications in Acute Care Settings, 2024",
+    detail: "Concept citation only — list itself not reproduced",
+    publisher: "Institute for Safe Medication Practices",
+    license: .factCitationOnly,
+    url: "https://www.ismp.org/recommendations/high-alert-medications-acute-list",
+    lastRetrieved: "2026-05-03"
+)
 
 // MARK: - Ampicillin-Sulbactam
 
@@ -345,7 +354,7 @@ public enum GentamicinSample {
         title: "Gentamicin",
         subtitle: "Garamycin · aminoglycoside · narrow therapeutic index",
         category: "Aminoglycoside",
-        isHighAlert: true,
+        isHighRisk: true,
         quickReference: [
             KeyValueRow(key: "Class", value: "Aminoglycoside — gram-negative + synergy for gram-positive"),
             KeyValueRow(key: "Toxicity", value: "Nephrotoxicity + ototoxicity (often irreversible)"),
@@ -405,7 +414,7 @@ public enum TobramycinSample {
         title: "Tobramycin",
         subtitle: "Nebcin / Tobi · aminoglycoside · IV / inhaled (cystic fibrosis)",
         category: "Aminoglycoside",
-        isHighAlert: true,
+        isHighRisk: true,
         quickReference: [
             KeyValueRow(key: "Class", value: "Aminoglycoside"),
             KeyValueRow(key: "Routes", value: "IV; inhaled (Tobi) for chronic Pseudomonas in CF; ophthalmic"),
@@ -629,7 +638,7 @@ public enum AmphotericinBSample {
             "You will get IV fluids before and after the antifungal — this protects your kidneys. You may feel chills or fever during the infusion; this is common and we will give medication for comfort. Tell us about muscle cramps or weakness — these can mean low potassium.",
             citationIDs: ["openrn_pharm_round6"]
         ),
-        citations: [openfda, openrnPharmR6, idsaConceptR6],
+        citations: [openfda, openrnPharmR6, idsaConceptR6, ismpR6],
         lastSourceFidelityReview: "2026-05-04"
     )
 }

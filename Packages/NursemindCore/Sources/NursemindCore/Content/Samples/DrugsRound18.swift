@@ -26,6 +26,15 @@ private let specialtyR18 = CitationSource(
     url: "https://www.nccn.org/guidelines/category_1",
     lastRetrieved: "2026-05-04"
 )
+private let ismpR18 = CitationSource(
+    id: "ismp_high_alert_2024",
+    shortName: "ISMP List of High-Alert Medications in Acute Care Settings, 2024",
+    detail: "Concept citation only — list itself not reproduced",
+    publisher: "Institute for Safe Medication Practices",
+    license: .factCitationOnly,
+    url: "https://www.ismp.org/recommendations/high-alert-medications-acute-list",
+    lastRetrieved: "2026-05-03"
+)
 
 public enum FilgrastimSample {
     public static let entry: DrugEntry = DrugEntry(
@@ -94,7 +103,7 @@ public enum EpoetinAlfaSample {
         title: "Epoetin alfa (EPO)",
         subtitle: "Procrit / Epogen · ESA · CKD + chemo anemia · target Hgb 10–11 (NOT normal)",
         category: "Erythropoiesis-stimulating agent (ESA)",
-        isHighAlert: true,
+        isHighRisk: true,
         quickReference: [
             KeyValueRow(key: "Class", value: "Recombinant human erythropoietin"),
             KeyValueRow(key: "Indications", value: "Anemia of CKD (especially dialysis); chemotherapy-induced anemia; zidovudine-treated HIV anemia; perisurgical RBC reduction"),
@@ -210,7 +219,7 @@ public enum VincristineSample {
             "This is a chemotherapy that goes only into your IV — never into your spine. We always double-check before giving it. Take stool softeners + drink fluids — constipation is common and serious. Tell us about numbness, tingling, jaw pain, weakness, or trouble walking. If the IV site burns, hurts, or swells, tell us right away.",
             citationIDs: ["openrn_pharm_round18"]
         ),
-        citations: [openfdaR18, openrnPharmR18, specialtyR18],
+        citations: [openfdaR18, openrnPharmR18, specialtyR18, ismpR18],
         lastSourceFidelityReview: "2026-05-04"
     )
 }
@@ -273,7 +282,7 @@ public enum CytarabineSample {
             "This chemotherapy can cause low blood counts, mouth sores, nausea, hair loss, and infection risk. Use the eye drops (high-dose) on schedule. Tell us right away about fever, balance problems, slurred speech, severe rash, or mouth pain.",
             citationIDs: ["openrn_pharm_round18"]
         ),
-        citations: [openfdaR18, openrnPharmR18, specialtyR18],
+        citations: [openfdaR18, openrnPharmR18, specialtyR18, ismpR18],
         lastSourceFidelityReview: "2026-05-04"
     )
 }
@@ -589,7 +598,7 @@ public enum EculizumabSample {
         title: "Eculizumab",
         subtitle: "Soliris · anti-C5 mAb · PNH + aHUS + gMG + NMOSD · MENINGOCOCCAL boxed warning",
         category: "Anti-C5 monoclonal antibody (terminal complement inhibitor)",
-        isHighAlert: true,
+        isHighRisk: true,
         quickReference: [
             KeyValueRow(key: "Class", value: "Humanized anti-C5 monoclonal antibody"),
             KeyValueRow(key: "Indications", value: "Paroxysmal nocturnal hemoglobinuria (PNH); atypical hemolytic uremic syndrome (aHUS); generalized myasthenia gravis; neuromyelitis optica spectrum disorder (NMOSD)"),
@@ -705,7 +714,7 @@ public enum CyclophosphamideSample {
             "We give this through your IV with a protective drug called MESNA + lots of fluids to protect your bladder. Drink lots of fluids and pee often. Tell us right away about pink / red urine, painful urination, fever, severe nausea, or breathing trouble. This medication can affect fertility — talk to us about preservation options before starting. Use reliable contraception during + after treatment.",
             citationIDs: ["openrn_pharm_round18"]
         ),
-        citations: [openfdaR18, openrnPharmR18, specialtyR18],
+        citations: [openfdaR18, openrnPharmR18, specialtyR18, ismpR18],
         lastSourceFidelityReview: "2026-05-04"
     )
 }
@@ -716,7 +725,7 @@ public enum LisdexamfetamineSample {
         title: "Lisdexamfetamine",
         subtitle: "Vyvanse · prodrug stimulant · ADHD + binge eating · Schedule II",
         category: "CNS stimulant (amphetamine prodrug)",
-        isHighAlert: true,
+        isHighAlert: false,
         quickReference: [
             KeyValueRow(key: "Class", value: "Lysine-conjugated dexamphetamine prodrug"),
             KeyValueRow(key: "Indications", value: "ADHD ≥6 years; binge eating disorder (moderate-severe)"),

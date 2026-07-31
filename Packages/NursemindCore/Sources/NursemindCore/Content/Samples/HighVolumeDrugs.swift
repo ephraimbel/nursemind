@@ -37,6 +37,15 @@ private let ahaHV = CitationSource(
     url: "https://www.acc.org/guidelines",
     lastRetrieved: "2026-05-04"
 )
+private let ismpHighVolumeDrugs = CitationSource(
+    id: "ismp_high_alert_2024",
+    shortName: "ISMP List of High-Alert Medications in Acute Care Settings, 2024",
+    detail: "Concept citation only — list itself not reproduced",
+    publisher: "Institute for Safe Medication Practices",
+    license: .factCitationOnly,
+    url: "https://www.ismp.org/recommendations/high-alert-medications-acute-list",
+    lastRetrieved: "2026-05-03"
+)
 
 // MARK: - Semaglutide
 
@@ -573,7 +582,7 @@ public enum MethotrexateSample {
             "Take this medicine ONCE A WEEK — never daily. Pick a day and stick with it. Take folic acid as directed (usually daily, except the day of methotrexate per provider). Get blood work as scheduled. Avoid alcohol. Use birth control. Tell every provider about this medicine. Stop and call for fever, mouth sores, severe nausea, dark urine, yellowing of skin, or new shortness of breath/cough.",
             citationIDs: ["openrn_pharm_hv"]
         ),
-        citations: [openfda, openrn],
+        citations: [openfda, openrn, ismpHighVolumeDrugs],
         lastSourceFidelityReview: "2026-05-04"
     )
 }

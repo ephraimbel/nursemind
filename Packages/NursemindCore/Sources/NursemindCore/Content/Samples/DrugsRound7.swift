@@ -110,7 +110,7 @@ public enum CyclosporineSample {
         title: "Cyclosporine",
         subtitle: "Sandimmune / Neoral / Gengraf · calcineurin inhibitor",
         category: "Calcineurin inhibitor",
-        isHighAlert: true,
+        isHighRisk: true,
         quickReference: [
             KeyValueRow(key: "Class", value: "Calcineurin inhibitor (CNI)"),
             KeyValueRow(key: "Notable", value: "GINGIVAL HYPERPLASIA + HIRSUTISM characteristic; tacrolimus has largely replaced cyclosporine for new transplants"),
@@ -350,7 +350,7 @@ public enum ATGSample {
         title: "Antithymocyte globulin (ATG)",
         subtitle: "Thymoglobulin / Atgam · T-cell-depleting induction or rejection treatment",
         category: "Polyclonal antibody (T-cell depleting)",
-        isHighAlert: true,
+        isHighRisk: true,
         quickReference: [
             KeyValueRow(key: "Class", value: "Polyclonal anti-thymocyte antibody (rabbit or equine)"),
             KeyValueRow(key: "Indications", value: "Induction in HIGH-immunologic-risk transplant; treatment of acute rejection; aplastic anemia"),

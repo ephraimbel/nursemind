@@ -27,6 +27,15 @@ private let specialtyR15 = CitationSource(
     url: "https://www.idsociety.org/practice-guideline/",
     lastRetrieved: "2026-05-04"
 )
+private let ismpR15 = CitationSource(
+    id: "ismp_high_alert_2024",
+    shortName: "ISMP List of High-Alert Medications in Acute Care Settings, 2024",
+    detail: "Concept citation only — list itself not reproduced",
+    publisher: "Institute for Safe Medication Practices",
+    license: .factCitationOnly,
+    url: "https://www.ismp.org/recommendations/high-alert-medications-acute-list",
+    lastRetrieved: "2026-05-03"
+)
 
 public enum RituximabSample {
     public static let entry: DrugEntry = DrugEntry(
@@ -86,7 +95,7 @@ public enum RituximabSample {
             "We give this through your vein. Tell us right away if you feel chills, fever, trouble breathing, or hives during the infusion. Avoid live vaccines (your provider will tell you which). Call us for fever, sore throat, or new weakness, vision, or thinking changes.",
             citationIDs: ["openrn_pharm_round15"]
         ),
-        citations: [openfda, openrnPharmR15, specialtyR15],
+        citations: [openfda, openrnPharmR15, specialtyR15, ismpR15],
         lastSourceFidelityReview: "2026-05-04"
     )
 }
@@ -277,7 +286,7 @@ public enum BaclofenSample {
         title: "Baclofen",
         subtitle: "GABA-B agonist · MS / SCI spasticity · intrathecal pump · severe withdrawal risk",
         category: "Central muscle relaxant (GABA-B agonist)",
-        isHighAlert: true,
+        isHighRisk: true,
         quickReference: [
             KeyValueRow(key: "Class", value: "GABA-B receptor agonist"),
             KeyValueRow(key: "Indications", value: "Spasticity (MS, SCI, CP); off-label AUD, trigeminal neuralgia, hiccups"),
@@ -460,7 +469,7 @@ public enum TenofovirSample {
         title: "Tenofovir (TAF / TDF)",
         subtitle: "NRTI · HIV + HBV · TAF lower bone/renal tox · HBV flare on discontinuation",
         category: "Nucleotide reverse transcriptase inhibitor (NRTI)",
-        isHighAlert: true,
+        isHighAlert: false,
         quickReference: [
             KeyValueRow(key: "Class", value: "NRTI (nucleotide RTI)"),
             KeyValueRow(key: "Indications", value: "HIV-1 (combination); chronic HBV; HIV PrEP"),
@@ -581,7 +590,7 @@ public enum TadalafilSample {
         title: "Tadalafil",
         subtitle: "PDE5 inhibitor · ED + BPH + PAH · contraindicated with nitrates · 36-hour duration",
         category: "Phosphodiesterase-5 inhibitor",
-        isHighAlert: true,
+        isHighAlert: false,
         quickReference: [
             KeyValueRow(key: "Class", value: "Long-acting (36-hour) PDE5 inhibitor"),
             KeyValueRow(key: "Indications", value: "ED, BPH symptom management, pulmonary arterial hypertension"),
@@ -706,7 +715,7 @@ public enum GlucarpidaseSample {
         title: "Glucarpidase",
         subtitle: "Methotrexate rescue · recombinant carboxypeptidase G2 · IV single dose · rapid MTX clearance",
         category: "Methotrexate-toxicity rescue (recombinant enzyme)",
-        isHighAlert: true,
+        isHighRisk: true,
         quickReference: [
             KeyValueRow(key: "Class", value: "Recombinant bacterial carboxypeptidase G2"),
             KeyValueRow(key: "Indications", value: "MTX-induced AKI with delayed clearance (HDMTX)"),

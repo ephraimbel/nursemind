@@ -35,6 +35,15 @@ private let specialtyR12 = CitationSource(
     url: "https://www.asco.org/practice-policy/cancer-care-initiatives/clinical-practice-guidelines",
     lastRetrieved: "2026-05-04"
 )
+private let ismpR12 = CitationSource(
+    id: "ismp_high_alert_2024",
+    shortName: "ISMP List of High-Alert Medications in Acute Care Settings, 2024",
+    detail: "Concept citation only — list itself not reproduced",
+    publisher: "Institute for Safe Medication Practices",
+    license: .factCitationOnly,
+    url: "https://www.ismp.org/recommendations/high-alert-medications-acute-list",
+    lastRetrieved: "2026-05-03"
+)
 
 // MARK: - Cisplatin
 
@@ -95,7 +104,7 @@ public enum CisplatinSample {
             "You will need IV fluids before and after each treatment to protect your kidneys. Take your nausea medications on schedule — even when you don't feel sick — for several days. Tell us about ringing in your ears, decreased hearing, numbness or tingling in fingers / toes, decreased urination, or muscle cramps. Do not become pregnant during treatment or for several months after; use reliable contraception.",
             citationIDs: ["openrn_pharm_round12"]
         ),
-        citations: [openfda, openrnPharmR12, specialtyR12],
+        citations: [openfda, openrnPharmR12, specialtyR12, ismpR12],
         lastSourceFidelityReview: "2026-05-04"
     )
 }
@@ -156,7 +165,7 @@ public enum DoxorubicinSample {
             "Your urine will be red-orange for 1–2 days after treatment — this is harmless. Hair loss is expected. Use a soft toothbrush; rinse mouth with salt water; report mouth sores. Tell us about new shortness of breath, swelling, fatigue, fast heartbeat — these can be heart symptoms. Get echocardiograms as scheduled. Use reliable contraception.",
             citationIDs: ["openrn_pharm_round12"]
         ),
-        citations: [openfda, openrnPharmR12, specialtyR12],
+        citations: [openfda, openrnPharmR12, specialtyR12, ismpR12],
         lastSourceFidelityReview: "2026-05-04"
     )
 }
@@ -217,7 +226,7 @@ public enum PaclitaxelSample {
             "You will get pre-medications before the infusion to prevent reactions. Tell us right away about itching, flushing, chest tightness, or shortness of breath during the infusion. Hair loss is expected; some centers offer scalp cooling. You may have body aches for a few days after — it goes away. Report numbness or tingling in hands or feet.",
             citationIDs: ["openrn_pharm_round12"]
         ),
-        citations: [openfda, openrnPharmR12, specialtyR12],
+        citations: [openfda, openrnPharmR12, specialtyR12, ismpR12],
         lastSourceFidelityReview: "2026-05-04"
     )
 }

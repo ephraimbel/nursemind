@@ -44,6 +44,22 @@ struct DrugInvariantTests {
             #expect(!ismpSources.isEmpty, "High-alert drug \(drug.title) does not cite ISMP")
         }
     }
+
+    /// The two tiers mean different things and render differently — a drug
+    /// claiming both would show the ISMP pill while being tagged as merely
+    /// institutional risk, which is how the original drift started.
+    @Test("No drug claims both high-alert and high-risk")
+    func tiersAreExclusive() {
+        for entry in ContentRegistry.shared.entries(in: .drug) + ContentRegistry.shared.entries(in: .drip) {
+            guard case .drug(let d) = entry else {
+                if case .drip(let d) = entry {
+                    #expect(!(d.isHighAlert && d.isHighRisk), "\(d.title) claims both tiers")
+                }
+                continue
+            }
+            #expect(!(d.isHighAlert && d.isHighRisk), "\(d.title) claims both tiers")
+        }
+    }
 }
 
 @Suite("Curator-model invariants — labs")

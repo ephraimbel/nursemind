@@ -34,6 +34,15 @@ private let specialtyR24 = CitationSource(
     url: "https://www.guideline.gov/",
     lastRetrieved: "2026-05-12"
 )
+private let ismpR24 = CitationSource(
+    id: "ismp_high_alert_2024",
+    shortName: "ISMP List of High-Alert Medications in Acute Care Settings, 2024",
+    detail: "Concept citation only — list itself not reproduced",
+    publisher: "Institute for Safe Medication Practices",
+    license: .factCitationOnly,
+    url: "https://www.ismp.org/recommendations/high-alert-medications-acute-list",
+    lastRetrieved: "2026-05-03"
+)
 
 public enum MethylnaltrexoneSample {
     public static let entry: DrugEntry = DrugEntry(
@@ -802,7 +811,7 @@ public enum FentanylPatchSample {
             "This patch contains a STRONG long-acting pain medicine. NEVER let children or pets touch it — they can die. Apply to clean dry skin on your chest, back, or upper arm (no hair). Wear it for 3 days, then remove + apply a new one in a different spot. NO heating pads, NO hot baths, NO electric blankets — heat releases more medicine + can cause overdose. When you remove the old patch, fold sticky-sides together + flush down toilet. Always have naloxone available + tell family how to use it.",
             citationIDs: ["openrn_pharm_round24"]
         ),
-        citations: [openfdaR24, openrnPharmR24, cdcR24, specialtyR24],
+        citations: [openfdaR24, openrnPharmR24, cdcR24, specialtyR24, ismpR24],
         lastSourceFidelityReview: "2026-05-12"
     )
 }

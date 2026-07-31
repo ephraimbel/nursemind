@@ -34,7 +34,7 @@ public enum HighDoseGlucagonSample {
         title: "Glucagon (high-dose, β-blocker / CCB toxicity)",
         subtitle: "GlucaGen · 5–10 mg IV bolus · cAMP-independent inotropy · vomiting common",
         category: "Toxicology antidote (high-dose glucagon)",
-        isHighAlert: true,
+        isHighRisk: true,
         quickReference: [
             KeyValueRow(key: "Class", value: "Pancreatic hormone / cyclic AMP elevator"),
             KeyValueRow(key: "Indications", value: "Beta-blocker overdose; calcium channel blocker overdose (adjunctive)"),
@@ -93,7 +93,7 @@ public enum PhysostigmineSample {
         title: "Physostigmine",
         subtitle: "Tertiary AChE inhibitor · anticholinergic toxicity · seizure / asystole risk",
         category: "Toxicology antidote (cholinesterase inhibitor)",
-        isHighAlert: true,
+        isHighRisk: true,
         quickReference: [
             KeyValueRow(key: "Class", value: "Tertiary amine acetylcholinesterase inhibitor (crosses BBB)"),
             KeyValueRow(key: "Indications", value: "Pure anticholinergic toxicity with severe agitation / hallucinations"),
@@ -330,7 +330,7 @@ public enum CabotegravirLASample {
         title: "Cabotegravir LA + rilpivirine LA (Cabenuva)",
         subtitle: "Long-acting injectable · HIV · monthly or every-2-month IM · adherence + injection-site reactions",
         category: "Long-acting injectable INSTI + NNRTI (combination)",
-        isHighAlert: true,
+        isHighAlert: false,
         quickReference: [
             KeyValueRow(key: "Class", value: "INSTI (cabotegravir) + NNRTI (rilpivirine)"),
             KeyValueRow(key: "Indications", value: "HIV-1 maintenance (virally suppressed adults + adolescents)"),
@@ -392,7 +392,7 @@ public enum IsotretinoinSample {
         title: "Isotretinoin",
         subtitle: "Vitamin A retinoid · severe acne · iPLEDGE REMS · teratogen Category X",
         category: "Retinoid (severe nodular acne)",
-        isHighAlert: true,
+        isHighAlert: false,
         quickReference: [
             KeyValueRow(key: "Class", value: "Retinoid (vitamin A derivative)"),
             KeyValueRow(key: "Indications", value: "Severe recalcitrant nodular acne; refractory to abx + topical"),
