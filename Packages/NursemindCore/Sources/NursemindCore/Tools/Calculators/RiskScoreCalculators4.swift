@@ -96,18 +96,12 @@ public struct WellsDVTCalculatorView: View {
     @CalcPersistedBool(calculatorID: "wells-dvt", key: "alternativeDx")       private var alternativeDx   // subtracts 2
 
     private var total: Int {
-        var s = 0
-        if activeCancer        { s += 1 }
-        if paralysis           { s += 1 }
-        if bedrestSurgery      { s += 1 }
-        if localizedTenderness { s += 1 }
-        if entireLegSwollen    { s += 1 }
-        if calfSwellingGT3     { s += 1 }
-        if pittingEdemaUni     { s += 1 }
-        if collateralVeins     { s += 1 }
-        if prevDvt             { s += 1 }
-        if alternativeDx       { s -= 2 }
-        return s
+        ClinicalScore.wellsDVT(
+            activeCancer: activeCancer, paralysisOrImmobilization: paralysis,
+            bedriddenOrMajorSurgery: bedrestSurgery, localizedTenderness: localizedTenderness,
+            entireLegSwollen: entireLegSwollen, calfSwellingOver3cm: calfSwellingGT3,
+            pittingEdemaUnilateral: pittingEdemaUni, collateralSuperficialVeins: collateralVeins,
+            previousDVT: prevDvt, alternativeDiagnosisAsLikely: alternativeDx)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel) {
@@ -192,19 +186,12 @@ public struct PaduaCalculatorView: View {
     @CalcPersistedBool(calculatorID: "padua", key: "hormonalTreatment") private var hormonalTreatment
 
     private var total: Int {
-        var s = 0
-        if activeCancer       { s += 3 }
-        if prevVte            { s += 3 }
-        if reducedMobility    { s += 3 }
-        if thrombophilia      { s += 3 }
-        if traumaSurgery      { s += 2 }
-        if ageGE70            { s += 1 }
-        if hfRespFailure      { s += 1 }
-        if miStroke           { s += 1 }
-        if infectionRheum     { s += 1 }
-        if bmiGE30            { s += 1 }
-        if hormonalTreatment  { s += 1 }
-        return s
+        ClinicalScore.padua(
+            activeCancer: activeCancer, previousVTE: prevVte, reducedMobility: reducedMobility,
+            thrombophilia: thrombophilia, recentTraumaOrSurgery: traumaSurgery, ageGE70: ageGE70,
+            heartOrRespiratoryFailure: hfRespFailure, acuteMIOrStroke: miStroke,
+            acuteInfectionOrRheumatologic: infectionRheum, obesityBMI30: bmiGE30,
+            hormonalTreatment: hormonalTreatment)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel) {
@@ -450,7 +437,7 @@ public struct PHQ9CalculatorView: View {
 
     private var total: Int? {
         guard items.allSatisfy({ $0 != nil }) else { return nil }
-        return items.compactMap { $0?.score }.reduce(0, +)
+        return ClinicalScore.phq9(items: items.compactMap { $0?.score })
     }
 
     private var item9Score: Int? { items[8]?.score }
@@ -536,7 +523,7 @@ public struct GAD7CalculatorView: View {
 
     private var total: Int? {
         guard items.allSatisfy({ $0 != nil }) else { return nil }
-        return items.compactMap { $0?.score }.reduce(0, +)
+        return ClinicalScore.gad7(items: items.compactMap { $0?.score })
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel)? {
@@ -671,12 +658,9 @@ public struct CentorCalculatorView: View {
 
     private var total: Int? {
         guard let age = ageGroup else { return nil }
-        var s = age.score
-        if tonsillarExudate { s += 1 }
-        if lymphadenopathy  { s += 1 }
-        if fever            { s += 1 }
-        if noCough          { s += 1 }
-        return s
+        return ClinicalScore.centorMcIsaac(
+            ageBandScore: age.score, tonsillarExudate: tonsillarExudate,
+            tenderAnteriorNodes: lymphadenopathy, fever: fever, absenceOfCough: noCough)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel)? {

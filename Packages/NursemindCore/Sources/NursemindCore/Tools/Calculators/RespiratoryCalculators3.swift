@@ -193,9 +193,8 @@ public struct PackYearsCalculatorView: View {
     @CalcPersistedDouble(calculatorID: "pack-years", key: "years") private var yearsSmoked
 
     private var result: Double? {
-        guard let packs = packsPerDay, packs > 0,
-              let yrs = yearsSmoked, yrs > 0 else { return nil }
-        return packs * yrs
+        guard let packs = packsPerDay, let yrs = yearsSmoked else { return nil }
+        return ClinicalFormula.packYears(packsPerDay: packs, yearsSmoked: yrs)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel)? {

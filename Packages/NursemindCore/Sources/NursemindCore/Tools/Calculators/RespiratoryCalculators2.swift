@@ -41,7 +41,9 @@ public struct CURB65CalculatorView: View {
     @CalcPersistedBool(calculatorID: "curb-65", key: "ageGE65")   private var ageGE65
 
     private var total: Int {
-        [confusion, ureaHigh, rrHigh, bpLow, ageGE65].filter { $0 }.count
+        ClinicalScore.curb65(
+            confusion: confusion, ureaHigh: ureaHigh, respiratoryRateHigh: rrHigh,
+            lowBloodPressure: bpLow, ageGE65: ageGE65)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel) {

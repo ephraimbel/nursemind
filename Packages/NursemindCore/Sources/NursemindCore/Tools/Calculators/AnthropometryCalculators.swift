@@ -53,9 +53,8 @@ public struct BMICalculatorView: View {
     }
 
     private var result: Double? {
-        guard let w = weightKg, w > 0, let h = heightCm, h > 0 else { return nil }
-        let meters = h / 100.0
-        return w / (meters * meters)
+        guard let w = weightKg, let h = heightCm else { return nil }
+        return ClinicalFormula.bmi(weightKg: w, heightCm: h)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel)? {
@@ -108,8 +107,8 @@ public struct BSACalculatorView: View {
     @CalcPersistedDouble(calculatorID: "bsa", key: "ht") private var heightCm
 
     private var result: Double? {
-        guard let w = weightKg, w > 0, let h = heightCm, h > 0 else { return nil }
-        return ((w * h) / 3600.0).squareRoot()
+        guard let w = weightKg, let h = heightCm else { return nil }
+        return ClinicalFormula.bsaMosteller(weightKg: w, heightCm: h)
     }
 
     private var interpretation: String? {
@@ -165,11 +164,9 @@ public struct IBWCalculatorView: View {
     }
 
     private var result: Double? {
-        guard let h = heightCm, h > 0, let s = sex else { return nil }
-        let inches = h / 2.54
-        let inchesOver5Ft = max(inches - 60.0, 0)
-        let base: Double = (s == .male) ? 50.0 : 45.5
-        return base + 2.3 * inchesOver5Ft
+        guard let h = heightCm, let s = sex else { return nil }
+        return ClinicalFormula.idealBodyWeightDevine(
+            heightCm: h, sex: s == .male ? .male : .female)
     }
 
     public var body: some View {

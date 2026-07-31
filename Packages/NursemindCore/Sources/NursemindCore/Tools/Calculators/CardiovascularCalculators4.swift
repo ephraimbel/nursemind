@@ -175,8 +175,8 @@ public struct PulsePressureCalculatorView: View {
     @CalcPersistedDouble(calculatorID: "pulse-pressure", key: "dbp") private var dbp
 
     private var result: Double? {
-        guard let sbp, let dbp, sbp >= dbp, sbp > 0, dbp > 0 else { return nil }
-        return sbp - dbp
+        guard let sbp, let dbp else { return nil }
+        return ClinicalFormula.pulsePressure(systolic: sbp, diastolic: dbp)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel)? {
@@ -220,9 +220,8 @@ public struct ABICalculatorView: View {
     @CalcPersistedDouble(calculatorID: "abi", key: "arm_sbp") private var armSBP
 
     private var result: Double? {
-        guard let ankle = ankleSBP, ankle > 0,
-              let arm = armSBP, arm > 0 else { return nil }
-        return ankle / arm
+        guard let ankle = ankleSBP, let arm = armSBP else { return nil }
+        return ClinicalFormula.ankleBrachialIndex(ankleSystolic: ankle, armSystolic: arm)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel)? {

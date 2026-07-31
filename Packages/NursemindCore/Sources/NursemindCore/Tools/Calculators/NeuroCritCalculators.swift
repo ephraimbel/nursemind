@@ -47,8 +47,8 @@ public struct CPPCalculatorView: View {
     @CalcPersistedDouble(calculatorID: "cpp", key: "icp") private var icp
 
     private var result: Double? {
-        guard let m = map, let i = icp, m > 0 else { return nil }
-        return m - i
+        guard let m = map, let i = icp else { return nil }
+        return ClinicalFormula.cerebralPerfusionPressure(map: m, icp: i)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel)? {

@@ -70,18 +70,9 @@ public struct GFRCalculatorView: View {
     }
 
     private var result: Double? {
-        guard let scr = creatinine, scr > 0,
-              let yrs = age, yrs > 0, yrs < 130,
-              let s = sex else { return nil }
-
-        let kappa  = (s == .female) ? 0.7 : 0.9
-        let alpha  = (s == .female) ? -0.241 : -0.302
-        let sexMul = (s == .female) ? 1.012 : 1.0
-        let ratio  = scr / kappa
-        let minTerm = pow(min(ratio, 1.0), alpha)
-        let maxTerm = pow(max(ratio, 1.0), -1.200)
-        let ageTerm = pow(0.9938, yrs)
-        return 142.0 * minTerm * maxTerm * ageTerm * sexMul
+        guard let scr = creatinine, let yrs = age, let s = sex else { return nil }
+        return ClinicalFormula.egfrCKDEPI2021(
+            creatinine: scr, age: yrs, sex: s == .female ? .female : .male)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel)? {
@@ -240,8 +231,8 @@ public struct CorrectedSodiumCalculatorView: View {
     }
 
     private var result: Double? {
-        guard let na = measuredNa, let glu = glucose, glu > 100 else { return nil }
-        return na + 2.4 * ((glu - 100.0) / 100.0)
+        guard let na = measuredNa, let glu = glucose else { return nil }
+        return ClinicalFormula.correctedSodium(measuredNa: na, glucose: glu)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel)? {
@@ -299,7 +290,7 @@ public struct CorrectedCalciumCalculatorView: View {
 
     private var result: Double? {
         guard let ca = totalCa, let alb = albumin else { return nil }
-        return ca + 0.8 * (4.0 - alb)
+        return ClinicalFormula.correctedCalcium(totalCalcium: ca, albumin: alb)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel)? {
@@ -357,9 +348,10 @@ public struct FENaCalculatorView: View {
     @CalcPersistedDouble(calculatorID: "fena", key: "s_cr") private var serumCr
 
     private var result: Double? {
-        guard let uNa = urineNa, let sNa = serumNa, sNa > 0,
-              let uCr = urineCr, let sCr = serumCr, sCr > 0 else { return nil }
-        return ((uNa * sCr) / (sNa * uCr)) * 100.0
+        guard let uNa = urineNa, let sNa = serumNa,
+              let uCr = urineCr, let sCr = serumCr else { return nil }
+        return ClinicalFormula.fractionalExcretionOfSodium(
+            urineNa: uNa, serumNa: sNa, urineCreatinine: uCr, serumCreatinine: sCr)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel)? {

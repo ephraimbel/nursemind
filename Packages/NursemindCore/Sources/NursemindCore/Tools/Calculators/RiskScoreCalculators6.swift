@@ -96,11 +96,9 @@ public struct ABCD2CalculatorView: View {
 
     private var total: Int? {
         guard let c = clinical, let d = duration else { return nil }
-        var t = c.score + d.score
-        if ageGE60 { t += 1 }
-        if bp      { t += 1 }
-        if diabetes { t += 1 }
-        return t
+        return ClinicalScore.abcd2(
+            clinicalFeatureScore: c.score, durationScore: d.score,
+            ageGE60: ageGE60, bloodPressureElevated: bp, diabetes: diabetes)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel)? {
@@ -178,7 +176,8 @@ public struct AUDITCCalculatorView: View {
 
     private var total: Int? {
         guard let f = freq, let a = amount, let b = binge else { return nil }
-        return f.score + a.score + b.score
+        return ClinicalScore.auditC(
+            frequency: f.score, amount: a.score, bingeFrequency: b.score)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel)? {
@@ -264,7 +263,9 @@ public struct AldreteScoreCalculatorView: View {
     private var total: Int? {
         guard let a = activity, let r = respiration, let c = circulation,
               let n = consciousness, let s = saturation else { return nil }
-        return a.score + r.score + c.score + n.score + s.score
+        return ClinicalScore.aldrete(
+            activity: a.score, respiration: r.score, circulation: c.score,
+            consciousness: n.score, oxygenSaturation: s.score)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel)? {

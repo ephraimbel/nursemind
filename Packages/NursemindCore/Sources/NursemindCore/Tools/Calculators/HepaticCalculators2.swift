@@ -40,13 +40,9 @@ public struct MELDClassicCalculatorView: View {
     @CalcPersistedBool(calculatorID: "meld", key: "dialysis") private var dialysisTwiceInWeek
 
     private var meld: Double? {
-        guard var bili = bilirubin, var ratio = inr, var cr = creatinine else { return nil }
-        if bili < 1.0  { bili = 1.0 }
-        if ratio < 1.0 { ratio = 1.0 }
-        if cr < 1.0    { cr = 1.0 }
-        if dialysisTwiceInWeek || cr > 4.0 { cr = 4.0 }
-        let raw = 3.78 * log(bili) + 11.2 * log(ratio) + 9.57 * log(cr) + 6.43
-        return min(max(raw, 6.0), 40.0)
+        guard let bili = bilirubin, let ratio = inr, let cr = creatinine else { return nil }
+        return ClinicalFormula.meldClassic(
+            bilirubin: bili, inr: ratio, creatinine: cr, onDialysis: dialysisTwiceInWeek)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel)? {
@@ -153,13 +149,10 @@ public struct GlasgowBlatchfordCalculatorView: View {
 
     private var total: Int? {
         guard let bunV = bun, let hgbV = hgb, let sbpV = sbp else { return nil }
-        var s = bunV.score + hgbV.score + sbpV.score
-        if hr100         { s += 1 }
-        if melena        { s += 1 }
-        if syncope       { s += 2 }
-        if hepaticDisease { s += 2 }
-        if heartFailure  { s += 2 }
-        return s
+        return ClinicalScore.glasgowBlatchford(
+            bunScore: bunV.score, hemoglobinScore: hgbV.score, systolicScore: sbpV.score,
+            pulseGE100: hr100, melena: melena, syncope: syncope,
+            hepaticDisease: hepaticDisease, cardiacFailure: heartFailure)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel)? {

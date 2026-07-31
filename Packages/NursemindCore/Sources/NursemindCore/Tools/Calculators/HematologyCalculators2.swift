@@ -77,7 +77,8 @@ public struct HIT4TsCalculatorView: View {
 
     private var total: Int? {
         guard let a = thrombocytopenia, let b = timing, let c = thrombosis, let d = otherCauses else { return nil }
-        return a.score + b.score + c.score + d.score
+        return ClinicalScore.hit4Ts(
+            thrombocytopenia: a.score, timing: b.score, thrombosis: c.score, otherCauses: d.score)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel)? {

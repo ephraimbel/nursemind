@@ -58,8 +58,8 @@ public struct ShockIndexCalculatorView: View {
     @CalcPersistedDouble(calculatorID: "shock-index", key: "sbp") private var sbp
 
     private var result: Double? {
-        guard let hr, let sbp, sbp > 0, hr > 0 else { return nil }
-        return hr / sbp
+        guard let hr, let sbp else { return nil }
+        return ClinicalFormula.shockIndex(heartRate: hr, systolic: sbp)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel)? {

@@ -158,7 +158,9 @@ public struct BishopCalculatorView: View {
     private var total: Int? {
         guard let a = dilation, let b = effacement, let c = consistency,
               let d = position, let e = station else { return nil }
-        return a.score + b.score + c.score + d.score + e.score
+        return ClinicalScore.bishop(
+            dilation: a.score, effacement: b.score, consistency: c.score,
+            position: d.score, station: e.score)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel)? {
@@ -230,7 +232,7 @@ public struct EpworthCalculatorView: View {
 
     private var total: Int? {
         guard items.allSatisfy({ $0 != nil }) else { return nil }
-        return items.compactMap { $0?.score }.reduce(0, +)
+        return ClinicalScore.epworth(items: items.compactMap { $0?.score })
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel)? {
@@ -600,10 +602,9 @@ public struct PEWSCalculatorView: View {
 
     private var total: Int? {
         guard let b = behavior, let c = cardio, let r = respiratory else { return nil }
-        var t = b.score + c.score + r.score
-        if nebulizer            { t += 2 }
-        if persistentVomiting   { t += 2 }
-        return t
+        return ClinicalScore.pews(
+            behavior: b.score, cardiovascular: c.score, respiratory: r.score,
+            quarterHourlyNebulizers: nebulizer, persistentVomiting: persistentVomiting)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel)? {

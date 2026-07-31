@@ -69,7 +69,8 @@ public struct QSOFACalculatorView: View {
     @CalcPersistedBool(calculatorID: "qsofa", key: "sbpLE100") private var sbpLE100
 
     private var total: Int {
-        [rrGE22, ams, sbpLE100].filter { $0 }.count
+        ClinicalScore.qSOFA(
+            respiratoryRateGE22: rrGE22, alteredMentation: ams, systolicLE100: sbpLE100)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel) {
@@ -181,9 +182,11 @@ public struct SOFACalculatorView: View {
     ]
 
     private var total: Int? {
-        let parts = [resp, coag, liver, cardio, cns, renal]
-        guard parts.allSatisfy({ $0 != nil }) else { return nil }
-        return parts.compactMap { $0?.score }.reduce(0, +)
+        guard let re = resp, let co = coag, let li = liver,
+              let ca = cardio, let cn = cns, let rn = renal else { return nil }
+        return ClinicalScore.sofa(
+            respiration: re.score, coagulation: co.score, liver: li.score,
+            cardiovascular: ca.score, cns: cn.score, renal: rn.score)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel)? {
@@ -266,44 +269,18 @@ public struct CapriniCalculatorView: View {
     @CalcPersistedBool(calculatorID: "caprini", key: "heparinThrombocytopenia") private var heparinThrombocytopenia
 
     private var total: Int {
-        var s = 0
-        // 1 point each
-        if age4160       { s += 1 }
-        if minorSurgery  { s += 1 }
-        if bmiOver25     { s += 1 }
-        if swollenLegs   { s += 1 }
-        if varicoseVeins { s += 1 }
-        if pregnancy     { s += 1 }
-        if hxContraceptive { s += 1 }
-        if sepsis        { s += 1 }
-        if seriousLungDisease { s += 1 }
-        if copdHx        { s += 1 }
-        if miHx          { s += 1 }
-        if chf           { s += 1 }
-        if ibd           { s += 1 }
-        if medicalPatientBedrest { s += 1 }
-        // 2 points each
-        if age6174       { s += 2 }
-        if majorSurgery  { s += 2 }
-        if arthroscopic  { s += 2 }
-        if bedrest       { s += 2 }
-        if malignancy    { s += 2 }
-        if openSurgeryGT45min { s += 2 }
-        if laparoscopicGT45min { s += 2 }
-        // 3 points each
-        if ageGE75               { s += 3 }
-        if hxDvtPe               { s += 3 }
-        if familyHxThrombosis    { s += 3 }
-        if factorVLeiden         { s += 3 }
-        if lupusAnticoag         { s += 3 }
-        if heparinThrombocytopenia { s += 3 }
-        // 5 points each
-        if arthroplasty   { s += 5 }
-        if hipFracture    { s += 5 }
-        if stroke         { s += 5 }
-        if multipleTrauma { s += 5 }
-        if spinalCordInjury { s += 5 }
-        return s
+        // Factor-to-tier assignment stays here; the 1/2/3/5 weighting is in
+        // ClinicalScore where it is pinned by test.
+        ClinicalScore.caprini(
+            onePointFactors: [age4160, minorSurgery, bmiOver25, swollenLegs, varicoseVeins,
+                              pregnancy, hxContraceptive, sepsis, seriousLungDisease, copdHx,
+                              miHx, chf, ibd, medicalPatientBedrest].filter { $0 }.count,
+            twoPointFactors: [age6174, majorSurgery, arthroscopic, bedrest, malignancy,
+                              openSurgeryGT45min, laparoscopicGT45min].filter { $0 }.count,
+            threePointFactors: [ageGE75, hxDvtPe, familyHxThrombosis, factorVLeiden,
+                                lupusAnticoag, heparinThrombocytopenia].filter { $0 }.count,
+            fivePointFactors: [arthroplasty, hipFracture, stroke, multipleTrauma,
+                               spinalCordInjury].filter { $0 }.count) ?? 0
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel) {

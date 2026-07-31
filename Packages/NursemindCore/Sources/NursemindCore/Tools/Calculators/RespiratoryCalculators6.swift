@@ -56,18 +56,11 @@ public struct PESICalculatorView: View {
 
     private var total: Int? {
         guard let a = age else { return nil }
-        var t = Int(a.rounded())
-        if male    { t += 10 }
-        if cancer  { t += 30 }
-        if hf      { t += 10 }
-        if lung    { t += 10 }
-        if hr110   { t += 20 }
-        if sbp100  { t += 30 }
-        if rr30    { t += 20 }
-        if temp36  { t += 20 }
-        if ams     { t += 60 }
-        if sat90   { t += 20 }
-        return t
+        return ClinicalScore.pesi(
+            ageYears: Int(a.rounded()), male: male, cancer: cancer, heartFailure: hf,
+            chronicLungDisease: lung, pulseGE110: hr110, systolicUnder100: sbp100,
+            respiratoryRateGE30: rr30, temperatureUnder36: temp36,
+            alteredMentalStatus: ams, oxygenSaturationUnder90: sat90)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel)? {

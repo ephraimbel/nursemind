@@ -54,17 +54,9 @@ public struct CHA2DS2VAScCalculatorView: View {
     @CalcPersistedBool(calculatorID: "cha2ds2-vasc", key: "female")       private var female
 
     private var total: Int {
-        var s = 0
-        if chf          { s += 1 }
-        if hypertension { s += 1 }
-        if ageGE75      { s += 2 }
-        if diabetes     { s += 1 }
-        if stroke       { s += 2 }
-        if vascular     { s += 1 }
-        // Age 65–74 only counted if ≥75 not also selected (mutually exclusive)
-        if age6574 && !ageGE75 { s += 1 }
-        if female       { s += 1 }
-        return s
+        ClinicalScore.cha2ds2VASc(
+            chf: chf, hypertension: hypertension, ageGE75: ageGE75, diabetes: diabetes,
+            strokeOrTIA: stroke, vascularDisease: vascular, age65to74: age6574, female: female)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel) {
@@ -139,17 +131,10 @@ public struct HASBLEDCalculatorView: View {
     @CalcPersistedBool(calculatorID: "has-bled", key: "alcohol")   private var alcohol
 
     private var total: Int {
-        var s = 0
-        if hypertensionUncontrolled { s += 1 }
-        if abnRenal                 { s += 1 }
-        if abnLiver                 { s += 1 }
-        if stroke                   { s += 1 }
-        if bleeding                 { s += 1 }
-        if labileINR                { s += 1 }
-        if elderly                  { s += 1 }
-        if drugs                    { s += 1 }
-        if alcohol                  { s += 1 }
-        return s
+        ClinicalScore.hasBled(
+            hypertensionUncontrolled: hypertensionUncontrolled, abnormalRenal: abnRenal,
+            abnormalLiver: abnLiver, strokeHistory: stroke, bleedingHistory: bleeding,
+            labileINR: labileINR, elderly: elderly, drugs: drugs, alcohol: alcohol)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel) {
@@ -254,9 +239,10 @@ public struct HEARTScoreCalculatorView: View {
     ]
 
     private var total: Int? {
-        let parts = [history, ecg, age, risk, troponin]
-        guard parts.allSatisfy({ $0 != nil }) else { return nil }
-        return parts.compactMap { $0?.score }.reduce(0, +)
+        guard let h = history, let e = ecg, let a = age, let r = risk, let t = troponin else { return nil }
+        return ClinicalScore.heartScore(
+            history: h.score, ecg: e.score, age: a.score,
+            riskFactors: r.score, troponin: t.score)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel)? {

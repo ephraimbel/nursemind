@@ -92,9 +92,11 @@ public struct CIWAArCalculatorView: View {
     ]
 
     private var total: Int? {
-        let parts = [nausea, tremor, sweats, anxiety, agitation, tactile, auditory, visual, headache, orientation]
-        guard parts.allSatisfy({ $0 != nil }) else { return nil }
-        return parts.compactMap { $0?.score }.reduce(0, +)
+        let symptoms = [nausea, tremor, sweats, anxiety, agitation,
+                        tactile, auditory, visual, headache]
+        guard symptoms.allSatisfy({ $0 != nil }), let o = orientation else { return nil }
+        return ClinicalScore.ciwaAr(
+            symptomItems: symptoms.compactMap { $0?.score }, orientation: o.score)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel)? {
@@ -192,9 +194,11 @@ public struct MorseFallCalculatorView: View {
     ]
 
     private var total: Int? {
-        let parts = [historyOfFalls, secondaryDx, aid, ivLock, gait, mental]
-        guard parts.allSatisfy({ $0 != nil }) else { return nil }
-        return parts.compactMap { $0?.score }.reduce(0, +)
+        guard let h = historyOfFalls, let s = secondaryDx, let a = aid,
+              let i = ivLock, let g = gait, let m = mental else { return nil }
+        return ClinicalScore.morseFallScale(
+            historyOfFalling: h.score, secondaryDiagnosis: s.score, ambulatoryAid: a.score,
+            ivOrHeparinLock: i.score, gait: g.score, mentalStatus: m.score)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel)? {
@@ -281,9 +285,11 @@ public struct BradenCalculatorView: View {
     }
 
     private var total: Int? {
-        let parts = [sensory, moisture, activity, mobility, nutrition, friction]
-        guard parts.allSatisfy({ $0 != nil }) else { return nil }
-        return parts.compactMap { $0?.score }.reduce(0, +)
+        guard let s = sensory, let m = moisture, let a = activity,
+              let mo = mobility, let n = nutrition, let f = friction else { return nil }
+        return ClinicalScore.braden(
+            sensoryPerception: s.score, moisture: m.score, activity: a.score,
+            mobility: mo.score, nutrition: n.score, frictionAndShear: f.score)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel)? {

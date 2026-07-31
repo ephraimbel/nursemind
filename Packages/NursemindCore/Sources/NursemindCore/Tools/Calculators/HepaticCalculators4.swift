@@ -94,7 +94,9 @@ public struct ChildPughCalculatorView: View {
 
     private var total: Int? {
         guard let a = enceph, let b = ascites, let c = bili, let d = albumin, let e = inr else { return nil }
-        return a.score + b.score + c.score + d.score + e.score
+        return ClinicalScore.childPugh(
+            encephalopathy: a.score, ascites: b.score, bilirubin: c.score,
+            albumin: d.score, inr: e.score)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel)? {

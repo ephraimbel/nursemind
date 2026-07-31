@@ -43,8 +43,8 @@ public struct MAPCalculatorView: View {
     }
 
     private var result: Double? {
-        guard let sbp = systolic, let dbp = diastolic, sbp >= dbp, sbp > 0, dbp > 0 else { return nil }
-        return dbp + (sbp - dbp) / 3.0
+        guard let sbp = systolic, let dbp = diastolic else { return nil }
+        return ClinicalFormula.meanArterialPressure(systolic: sbp, diastolic: dbp)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel)? {
@@ -104,8 +104,8 @@ public struct CardiacIndexCalculatorView: View {
     @CalcPersistedDouble(calculatorID: "cardiac-index", key: "bsa") private var bsa
 
     private var result: Double? {
-        guard let co = cardiacOutput, let area = bsa, area > 0, co > 0 else { return nil }
-        return co / area
+        guard let co = cardiacOutput, let area = bsa else { return nil }
+        return ClinicalFormula.cardiacIndex(cardiacOutput: co, bsa: area)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel)? {

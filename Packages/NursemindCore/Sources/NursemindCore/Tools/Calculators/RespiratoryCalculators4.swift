@@ -93,8 +93,9 @@ public struct RSBICalculatorView: View {
     @CalcPersistedDouble(calculatorID: "rsbi", key: "tv_ml") private var tvMl
 
     private var result: Double? {
-        guard let rr, rr > 0, let tv = tvMl, tv > 0 else { return nil }
-        return rr / (tv / 1000.0)
+        guard let rr, let tv = tvMl else { return nil }
+        return ClinicalFormula.rapidShallowBreathingIndex(
+            respiratoryRate: rr, tidalVolumeMl: tv)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel)? {

@@ -209,12 +209,9 @@ public struct ICHScoreCalculatorView: View {
 
     private var total: Int? {
         guard let g = gcsOption else { return nil }
-        var t = g.score
-        if ageGE80         { t += 1 }
-        if infratentorial  { t += 1 }
-        if volumeGE30      { t += 1 }
-        if ivh             { t += 1 }
-        return t
+        return ClinicalScore.ichScore(
+            gcsBandScore: g.score, ageGE80: ageGE80, infratentorialOrigin: infratentorial,
+            volumeGE30: volumeGE30, intraventricularHemorrhage: ivh)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel)? {
@@ -375,7 +372,9 @@ public struct SIRSCalculatorView: View {
     @CalcPersistedBool(calculatorID: "sirs", key: "wbcAbn")  private var wbcAbn
 
     private var total: Int {
-        [tempAbn, hrAbn, rrAbn, wbcAbn].filter { $0 }.count
+        ClinicalScore.sirs(
+            temperatureAbnormal: tempAbn, heartRateAbnormal: hrAbn,
+            respiratoryRateAbnormal: rrAbn, whiteCountAbnormal: wbcAbn)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel) {
@@ -458,7 +457,9 @@ public struct WestleyCroupCalculatorView: View {
     private var total: Int? {
         guard let a = loc, let b = cyanosis, let c = stridor,
               let d = airEntry, let e = retract else { return nil }
-        return a.score + b.score + c.score + d.score + e.score
+        return ClinicalScore.westleyCroup(
+            levelOfConsciousness: a.score, cyanosis: b.score, stridor: c.score,
+            airEntry: d.score, retractions: e.score)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel)? {

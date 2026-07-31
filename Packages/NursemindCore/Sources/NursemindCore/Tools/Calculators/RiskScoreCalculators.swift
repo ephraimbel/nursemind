@@ -303,7 +303,7 @@ public struct GCSCalculatorView: View {
 
     private var total: Int? {
         guard let e = eye, let v = verbal, let m = motor else { return nil }
-        return e.score + v.score + m.score
+        return ClinicalScore.glasgowComaScale(eye: e.score, verbal: v.score, motor: m.score)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel)? {
@@ -386,9 +386,10 @@ public struct ApgarCalculatorView: View {
     ]
 
     private var total: Int? {
-        let parts = [appearance, pulse, grimace, activity, respiration]
-        guard parts.allSatisfy({ $0 != nil }) else { return nil }
-        return parts.compactMap { $0?.score }.reduce(0, +)
+        guard let a = appearance, let p = pulse, let g = grimace,
+              let ac = activity, let r = respiration else { return nil }
+        return ClinicalScore.apgar(appearance: a.score, pulse: p.score, grimace: g.score,
+                                   activity: ac.score, respiration: r.score)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel)? {
@@ -472,9 +473,11 @@ public struct FLACCCalculatorView: View {
     ]
 
     private var total: Int? {
-        let parts = [face, legs, activity, cry, consolability]
-        guard parts.allSatisfy({ $0 != nil }) else { return nil }
-        return parts.compactMap { $0?.score }.reduce(0, +)
+        guard let f = face, let l = legs, let a = activity,
+              let c = cry, let co = consolability else { return nil }
+        return ClinicalScore.flacc(
+            face: f.score, legs: l.score, activity: a.score,
+            cry: c.score, consolability: co.score)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel)? {

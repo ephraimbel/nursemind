@@ -38,9 +38,8 @@ public struct PFRatioCalculatorView: View {
     @CalcPersistedDouble(calculatorID: "pf-ratio", key: "fio2_pct") private var fio2Percent
 
     private var result: Double? {
-        guard let p = pao2, let percent = fio2Percent, percent > 0, p > 0 else { return nil }
-        let fio2 = percent / 100.0
-        return p / fio2
+        guard let p = pao2, let percent = fio2Percent else { return nil }
+        return ClinicalFormula.pfRatio(pao2: p, fio2Percent: percent)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel)? {
@@ -92,11 +91,9 @@ public struct OxygenationIndexCalculatorView: View {
     @CalcPersistedDouble(calculatorID: "oxygenation-index", key: "pao2") private var pao2
 
     private var result: Double? {
-        guard let percent = fio2Percent, percent > 0,
-              let map = meanAirwayPressure, map > 0,
-              let p = pao2, p > 0 else { return nil }
-        let fio2 = percent / 100.0
-        return (fio2 * map * 100.0) / p
+        guard let percent = fio2Percent, let map = meanAirwayPressure, let p = pao2 else { return nil }
+        return ClinicalFormula.oxygenationIndex(
+            fio2Percent: percent, meanAirwayPressure: map, pao2: p)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel)? {

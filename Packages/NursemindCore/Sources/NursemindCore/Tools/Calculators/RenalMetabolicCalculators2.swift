@@ -53,12 +53,9 @@ public struct CockcroftGaultCalculatorView: View {
     }
 
     private var result: Double? {
-        guard let yrs = age, yrs > 0, yrs < 130,
-              let kg = weightKg, kg > 0,
-              let cr = creatinine, cr > 0,
-              let s = sex else { return nil }
-        let raw = ((140.0 - yrs) * kg) / (72.0 * cr)
-        return s == .female ? raw * 0.85 : raw
+        guard let yrs = age, let kg = weightKg, let cr = creatinine, let s = sex else { return nil }
+        return ClinicalFormula.creatinineClearanceCockcroftGault(
+            age: yrs, weightKg: kg, creatinine: cr, sex: s == .female ? .female : .male)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel)? {
@@ -230,7 +227,7 @@ public struct PlasmaOsmolalityCalculatorView: View {
 
     private var result: Double? {
         guard let na = sodium, let glu = glucose, let bun else { return nil }
-        return 2.0 * na + glu / 18.0 + bun / 2.8
+        return ClinicalFormula.plasmaOsmolality(sodium: na, glucose: glu, bun: bun)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel)? {

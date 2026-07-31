@@ -41,15 +41,11 @@ public struct GenevaPECalculatorView: View {
 
     private var total: Int? {
         guard let h = hrBand else { return nil }
-        var t = h.score
-        if ageGE65            { t += 1 }
-        if priorVTE           { t += 3 }
-        if surgeryFracture    { t += 2 }
-        if activeMalignancy   { t += 2 }
-        if unilateralLegPain  { t += 3 }
-        if hemoptysis         { t += 2 }
-        if painOnPalpation    { t += 4 }
-        return t
+        return ClinicalScore.genevaPERevised(
+            heartRateBandScore: h.score, ageGE65: ageGE65, previousVTE: priorVTE,
+            surgeryOrFractureWithinMonth: surgeryFracture, activeMalignancy: activeMalignancy,
+            unilateralLimbPain: unilateralLegPain, hemoptysis: hemoptysis,
+            painOnPalpationAndEdema: painOnPalpation)
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel)? {
