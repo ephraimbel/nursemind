@@ -691,7 +691,10 @@ extension ContentRegistry {
         entries.append(.lab(HepatitisBPanelSample.entry))
         // MARK: Round 3 — Procedures + Reference
         entries.append(.procedure(IntubationAssistSample.entry))
-        entries.append(.procedure(LumbarPunctureAssistSample.entry))
+        // LumbarPunctureAssistSample (Round 3) unregistered 2026-07-03 — it
+        // collided on id "lumbar-puncture-assist" with the fuller Round-37
+        // entry (LumbarPunctureAssistRound37Sample). Source kept in
+        // ProceduresAndReferenceRound3.swift; the Round-37 version is canonical.
         entries.append(.procedure(CBISample.entry))
         entries.append(.procedure(PostmortemCareSample.entry))
         entries.append(.reference(CrashCartSample.entry))
@@ -1837,7 +1840,7 @@ extension ContentRegistry {
         entries.append(.drug(DapsoneSample.entry))
         entries.append(.drug(PentamidineSample.entry))
         entries.append(.drug(PyrimethamineSulfadiazineSample.entry))
-        entries.append(.drug(BiktarvySample.entry))
+        // BiktarvySample registered earlier — duplicate append removed 2026-07-03.
         entries.append(.drug(DarunavirCobicistatSample.entry))
         entries.append(.drug(MaravirocSample.entry))
         entries.append(.drug(LenacapavirSample.entry))
@@ -1891,7 +1894,7 @@ extension ContentRegistry {
         entries.append(.diagnosis(TensionHeadacheSample.entry))
         entries.append(.diagnosis(MedicationOveruseHeadacheSample.entry))
         entries.append(.diagnosis(EssentialTremorSample.entry))
-        entries.append(.diagnosis(RLSSample.entry))
+        // RLSSample registered earlier — duplicate append removed 2026-07-03.
         entries.append(.diagnosis(AntiNMDARSample.entry))
         entries.append(.diagnosis(AutonomicDysreflexiaSample.entry))
         entries.append(.diagnosis(CervicalDystoniaSample.entry))
@@ -2201,11 +2204,9 @@ extension ContentRegistry {
         entries.append(.reference(IABPSample.entry))
         entries.append(.reference(PercutaneousVADSample.entry))
         entries.append(.reference(ElectrolyteRepletionSample.entry))
-        // MARK: Round 41 — Medication safety reference (ISMP / FDA / TJC)
-        entries.append(.reference(HighAlertMedicationsSample.entry))
-        entries.append(.reference(ConfusedDrugNamesSample.entry))
-        entries.append(.reference(DoNotCrushSample.entry))
-        entries.append(.reference(ErrorProneAbbreviationsSample.entry))
+        // Medication-safety entries (HighAlert/ConfusedNames/DoNotCrush/
+        // ErrorProneAbbreviations) are registered once above in the chunk that
+        // holds the other reference-evaluation entries — not duplicated here.
         return entries
     }
 }

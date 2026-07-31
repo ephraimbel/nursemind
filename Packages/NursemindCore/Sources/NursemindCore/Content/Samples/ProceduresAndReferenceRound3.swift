@@ -121,7 +121,7 @@ public enum IntubationAssistSample {
 
 public enum LumbarPunctureAssistSample {
     public static let entry: ProcedureEntry = ProcedureEntry(
-        id: "lumbar-puncture-assist",
+        id: "lumbar-puncture-assist-rn",
         title: "Lumbar puncture assist (RN role)",
         subtitle: "Setup · positioning · post-LP monitoring",
         nclexTags: NCLEXTags(category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential, priorityConcept: .infection),

@@ -81,7 +81,7 @@ public enum MaternalVitalSignsSample {
 
 public enum PreeclampsiaReferenceSample {
     public static let entry: ReferenceEntry = ReferenceEntry(
-        id: "preeclampsia",
+        id: "preeclampsia-reference",
         title: "Preeclampsia",
         subtitle: "Hypertensive disorder of pregnancy — assessment and escalation",
         eyebrow: "REFERENCE · OB",
@@ -127,7 +127,7 @@ public enum PreeclampsiaReferenceSample {
 
 public enum PostpartumHemorrhageReferenceSample {
     public static let entry: ReferenceEntry = ReferenceEntry(
-        id: "postpartum-hemorrhage",
+        id: "postpartum-hemorrhage-reference",
         title: "Postpartum hemorrhage (PPH)",
         subtitle: "Recognize early — uterine atony is the leading cause",
         eyebrow: "REFERENCE · OB",

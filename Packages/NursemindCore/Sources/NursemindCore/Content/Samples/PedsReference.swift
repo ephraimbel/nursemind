@@ -66,7 +66,7 @@ public enum PedsDosingSample {
 
 public enum CroupSample {
     public static let entry: ReferenceEntry = ReferenceEntry(
-        id: "croup",
+        id: "croup-reference",
         title: "Croup (laryngotracheobronchitis)",
         subtitle: "Barky cough, stridor, recognition and steroid management",
         eyebrow: "REFERENCE · PEDS",

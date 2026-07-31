@@ -16,6 +16,11 @@ public final class ContentRegistry: @unchecked Sendable {
         var byID: [String: LibraryEntry] = [:]
         var byCategory: [EntryCategory: [LibraryEntry]] = [:]
         for entry in sorted {
+            // A duplicate id silently shadows one entry — the earlier insert is
+            // lost, so `entry(byID:)` (and every cross-reference / free-tier /
+            // navigation link that resolves by id) can return the wrong entry.
+            // Trap it in debug/test builds so a collision can't ship unnoticed.
+            assert(byID[entry.id] == nil, "Duplicate library entry id: \(entry.id)")
             byID[entry.id] = entry
             byCategory[entry.category, default: []].append(entry)
         }
