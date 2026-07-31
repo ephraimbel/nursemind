@@ -1009,7 +1009,9 @@ extension ContentRegistry {
         entries.append(.diagnosis(LTBISample.entry))
         entries.append(.diagnosis(HeatStrokeSample.entry))
         entries.append(.diagnosis(HypothermiaSample.entry))
-        entries.append(.diagnosis(BVSample.entry))
+        // BVSample retired 2026-07-31 — duplicate of BacterialVaginosisSample
+        // (diagnosis:bacterial-vaginosis), which is newer, CDC-sourced and strictly
+        // fuller. Source kept in DiagnosesRound10.swift.
         return entries
     }
 
@@ -1118,7 +1120,9 @@ extension ContentRegistry {
         entries.append(.reference(CancerScreeningSample.entry))
         // MARK: Round 13 — Drugs (endocrine + nephrology + DM/HF + pulm)
         entries.append(.drug(MethimazoleSample.entry))
-        entries.append(.drug(PTUSample.entry))
+        // PTUSample retired 2026-07-31 — duplicate of PropylthiouracilSample
+        // (drug:propylthiouracil), which doubles or better on dosing, warnings,
+        // interactions and nursing implications. Source kept in DrugsRound13.swift.
         entries.append(.drug(DesmopressinSample.entry))
         entries.append(.drug(FludrocortisoneSample.entry))
         entries.append(.drug(TolvaptanSample.entry))
