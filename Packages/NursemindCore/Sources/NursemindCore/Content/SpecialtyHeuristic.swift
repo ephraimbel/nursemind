@@ -16,25 +16,36 @@ import Foundation
 enum SpecialtyHeuristic {
 
     static func infer(title: String, searchText: String, category: EntryCategory) -> [NursingSpecialty] {
-        let lower = (title + " " + searchText).lowercased()
-        var tags: Set<NursingSpecialty> = []
+        infer(haystack: Array((title + " " + searchText).lowercased().utf8))
+    }
 
-        for rule in rules {
-            if rule.matches(lower) {
+    /// Byte-level entry point for callers that already hold the lowercased UTF-8
+    /// body. Running ~150 keyword probes as Unicode-correct `String.contains`
+    /// over every entry's full text was the dominant cost in building the search
+    /// index; the corpus is lowercased ASCII, so byte matching is the same
+    /// answer far cheaper.
+    static func infer(haystack: [UInt8]) -> [NursingSpecialty] {
+        var tags: Set<NursingSpecialty> = []
+        for rule in byteRules {
+            if rule.keywords.contains(where: { ByteMatch.contains(haystack, $0) }) {
                 for specialty in rule.specialties { tags.insert(specialty) }
             }
         }
-
         return Array(tags).sorted { $0.rawValue < $1.rawValue }
     }
 
     private struct Rule {
         let keywords: [String]
         let specialties: [NursingSpecialty]
+    }
 
-        func matches(_ text: String) -> Bool {
-            keywords.contains { text.contains($0) }
-        }
+    private struct ByteRule {
+        let keywords: [[UInt8]]
+        let specialties: [NursingSpecialty]
+    }
+
+    private static let byteRules: [ByteRule] = rules.map {
+        ByteRule(keywords: $0.keywords.map { Array($0.utf8) }, specialties: $0.specialties)
     }
 
     private static let rules: [Rule] = [

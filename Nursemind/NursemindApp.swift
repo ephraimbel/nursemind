@@ -40,6 +40,13 @@ struct NursemindApp: App {
             tiktokAppID: Secrets.tiktokAppID,
             accessToken: Secrets.tiktokAccessToken
         )
+        // Build the library search index off the main thread. Both the Search
+        // sheet and the AI co-pilot's retrieval go through it, and building it
+        // lazily made whichever one the user reached first pay for the whole
+        // corpus mid-keystroke.
+        Task.detached(priority: .utility) {
+            ContentRegistry.shared.prewarmIndex()
+        }
     }
 
     var body: some Scene {
