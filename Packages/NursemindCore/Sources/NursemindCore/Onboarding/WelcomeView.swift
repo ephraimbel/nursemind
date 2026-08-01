@@ -1,11 +1,12 @@
 import SwiftUI
 
-/// First impression after the splash. A full-bleed editorial photograph of
-/// nurses fills the screen. The wordmark sits quietly at the top; a compact,
-/// centered text block — serif hero, italic subtitle, CTA — is anchored at
-/// the bottom over a gradient scrim, leaving the middle of the frame to the
-/// photograph. Copy fades up on appear. No motion gimmicks. Reduce Motion
-/// respected.
+/// First impression after the splash. Paper, not photography: the cream ground
+/// the rest of the app is built on, a soft bloom of the brand green sitting in
+/// it like light rather than like a graphic, and type doing the work.
+///
+/// The composition deliberately echoes the Ask home screen — mark, serif
+/// headline, italic supporting lines — so the first screen a nurse sees is a
+/// truthful preview of the app's actual voice rather than a marketing cover.
 struct WelcomeView: View {
     let onContinue: () -> Void
 
@@ -21,41 +22,46 @@ struct WelcomeView: View {
         .task { await stagger() }
     }
 
-    // MARK: - Background photograph
+    // MARK: - Background
 
-    /// Full-bleed photo filling the entire background. Ignores the safe area
-    /// so the image bleeds edge-to-edge; the content layer above keeps its
-    /// own safe-area insets so the CTA never sits under the home indicator.
+    /// Full-bleed product shot, 941x1672. Wider than any iPhone aspect, so
+    /// `scaledToFill` centre-crops the sides — which put the phone right of
+    /// centre with its edge clipped. The offset slides the visible window
+    /// right so the phone sits centred and whole.
+    ///
+    /// The shift is clamped to whatever horizontal overflow that device
+    /// actually has. An SE is 0.562 against the image's 0.563 and so has
+    /// almost none — scaling up to manufacture room would zoom the phone and
+    /// crop it worse, so on that canvas the image simply stays centred.
     private var backgroundLayer: some View {
-        // Plain full-bleed fill rather than a GeometryReader — the latter can
-        // briefly report a zero/changing size on first layout, which flickered
-        // the photo as the page slid in. scaledToFill + clipped fills the
-        // screen and crops overflow without that first-pass jump.
-        Color.clear
-            .overlay(
-                Image("WelcomeBackground", bundle: .module)
-                    .resizable()
-                    .scaledToFill()
-            )
-            .clipped()
-            .overlay(scrim)
-            .ignoresSafeArea()
-            .accessibilityHidden(true)
+        GeometryReader { geo in
+            let fill = max(geo.size.width / 941, geo.size.height / 1672)
+            let overflow = max(0, (941 * fill - geo.size.width) / 2)
+            Image("WelcomeBackground", bundle: .module)
+                .resizable()
+                .interpolation(.high)
+                .scaledToFill()
+                .offset(x: -min(26, overflow))
+                .frame(width: geo.size.width, height: geo.size.height)
+                .clipped()
+        }
+        .overlay(scrim)
+        .ignoresSafeArea()
+        .accessibilityHidden(true)
     }
 
-    // MARK: - Scrim
-
-    /// A soft cap at the top so the white wordmark reads against the warm
-    /// ceiling, a clear window through the middle for the subject, and a
-    /// strong bottom wash that seats the headline / subtitle / CTA.
+    /// Light cap at the top so the wordmark reads, a clear window through the
+    /// middle for the phone in frame, and a deep bottom wash that seats the
+    /// headline, subtitle and CTA.
     private var scrim: some View {
         LinearGradient(
             stops: [
-                .init(color: .black.opacity(0.42), location: 0.0),
-                .init(color: .black.opacity(0.0),  location: 0.24),
-                .init(color: .black.opacity(0.0),  location: 0.46),
-                .init(color: .black.opacity(0.45), location: 0.66),
-                .init(color: .black.opacity(0.92), location: 1.0)
+                .init(color: .black.opacity(0.30), location: 0.00),
+                .init(color: .black.opacity(0.0),  location: 0.14),
+                .init(color: .black.opacity(0.0),  location: 0.36),
+                .init(color: .black.opacity(0.72), location: 0.62),
+                .init(color: .black.opacity(0.96), location: 0.80),
+                .init(color: .black.opacity(0.98), location: 1.00)
             ],
             startPoint: .top,
             endPoint: .bottom
@@ -66,27 +72,47 @@ struct WelcomeView: View {
 
     private var content: some View {
         VStack(alignment: .center, spacing: 0) {
+            // Three flexible gaps of equal weight — above the mark, between the
+            // mark and the headline, and below the subtitle — so the surplus
+            // splits evenly instead of pooling into one dead band above the
+            // CTA. Only the headline-to-subtitle gap is fixed, because those
+            // two belong to each other.
             logo
                 .padding(.top, NMSpace.sm)
-            Spacer(minLength: NMSpace.xl)
+            Spacer(minLength: NMSpace.xxl)
             hero
-            Spacer().frame(height: NMSpace.md)
+            Spacer().frame(height: NMSpace.base)
             subtitle
-            Spacer().frame(height: NMSpace.xl)
+            Spacer().frame(height: NMSpace.xxl)
             actions
         }
         .frame(maxWidth: .infinity)
         .padding(.horizontal, NMSpace.lg)
-        .padding(.bottom, NMSpace.xl)
+        // The CTA sat 24pt off the bottom, close enough to the home indicator
+        // to read as clipped on a 6.9" screen. Every other bottom-anchored
+        // surface in the app gives itself more room than that.
+        .padding(.bottom, NMSpace.xxxl)
     }
 
     // MARK: - Logo
 
     private var logo: some View {
-        NursemindLogo(size: 30, color: .white)
-            .shadow(color: .black.opacity(0.4), radius: 12, y: 2)
+        NursemindLogo(size: 34, color: .white)
+            .shadow(color: .black.opacity(0.45), radius: 12, y: 2)
             .opacity(visible[0] ? 1 : 0)
             .offset(y: visible[0] ? 0 : 10)
+    }
+
+    // MARK: - Eyebrow
+
+    /// Names what the app is before the headline claims anything about it —
+    /// the same eyebrow-then-headline order the paywall and every entry view
+    /// use. "Reference" first, deliberately: this is a clinical reference for
+    /// nurses, not an exam-prep app.
+    private var eyebrow: some View {
+        EyebrowLabel("THE NURSING REFERENCE")
+            .opacity(visible[1] ? 1 : 0)
+            .offset(y: visible[1] ? 0 : 10)
     }
 
     // MARK: - Hero
@@ -120,26 +146,23 @@ struct WelcomeView: View {
         }
         .multilineTextAlignment(.center)
         .frame(maxWidth: .infinity)
-        .shadow(color: .black.opacity(0.5), radius: 16, y: 3)
+        .shadow(color: .black.opacity(0.55), radius: 16, y: 3)
         .opacity(visible[1] ? 1 : 0)
         .offset(y: visible[1] ? 0 : 10)
     }
 
     // MARK: - Subtitle
 
-    /// Three short editorial statements, centered under the hero. Trust
-    /// (cited), audience (curious nurses), and the ask-to-learn promise.
+    /// One line, not three. Stacked italic statements read as a poem; a single
+    /// sentence reads as a product willing to be held to a claim — and it
+    /// keeps the eye moving to the CTA rather than pausing three times.
     private var subtitle: some View {
-        VStack(spacing: NMSpace.xs) {
-            Text("Cited at every claim.")
-            Text("Built for curious nurses.")
-            Text("Ask, and understand why.")
-        }
+        Text("Cited at every claim. Ask, and understand why.")
         .font(NMFont.displayItalicMD)
         .foregroundStyle(.white.opacity(0.92))
         .multilineTextAlignment(.center)
         .frame(maxWidth: .infinity)
-        .shadow(color: .black.opacity(0.45), radius: 10, y: 2)
+        .shadow(color: .black.opacity(0.5), radius: 10, y: 2)
         .opacity(visible[2] ? 1 : 0)
         .offset(y: visible[2] ? 0 : 10)
     }
