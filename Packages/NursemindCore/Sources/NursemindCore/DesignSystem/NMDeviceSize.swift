@@ -19,7 +19,11 @@ public enum NMDeviceSize {
             .screen.bounds.height ?? 852
     }
 
-    /// iPhone 15/16-class and larger — 852pt and up. Excludes the 13 mini
-    /// (812) and SE (667), where the larger type would crowd rather than fill.
-    public static var isTallCanvas: Bool { screenHeight >= 850 }
+    /// iPhone 13-class and larger — 844pt and up, which covers 13, 14, 15, 16
+    /// and 17 plus every Pro/Plus/Max variant. The cutoff sits at 840 rather
+    /// than 850 deliberately: 13 and 14 are 844 and 15 is 852, so a 850
+    /// threshold would have split otherwise-identical phones across two
+    /// different designs over 8 points. Below it sit only the 13 mini (812)
+    /// and SE (667), where the larger type would crowd rather than fill.
+    public static var isTallCanvas: Bool { screenHeight >= 840 }
 }

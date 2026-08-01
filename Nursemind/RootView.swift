@@ -11,6 +11,13 @@ struct RootView: View {
     /// `.active` transition. The system API is itself idempotent, but
     /// re-requesting on every foreground is noise.
     @State private var hasRequestedTracking = false
+    #if DEBUG
+    /// Dev-only: launch straight into the paywall so its layout can be
+    /// screenshotted across device sizes without navigating there by hand.
+    ///   SIMCTL_CHILD_NM_OPEN_PAYWALL=1 xcrun simctl launch <sim> app.nursemind.ios
+    @State private var debugShowPaywall =
+        ProcessInfo.processInfo.environment["NM_OPEN_PAYWALL"] == "1"
+    #endif
 
     init() {
         // Hand the Supabase URL + anon key to the core service before any
@@ -92,6 +99,11 @@ struct RootView: View {
         .onContinueUserActivity(CSSearchableItemActionType) { activity in
             SpotlightIndexer.handle(activity: activity, router: router)
         }
+        #if DEBUG
+        .fullScreenCover(isPresented: $debugShowPaywall) {
+            PaywallView(analyticsSource: "debug_layout_check")
+        }
+        #endif
         .onChange(of: scenePhase, initial: true) { _, phase in
             guard phase == .active, !hasRequestedTracking else { return }
             hasRequestedTracking = true
