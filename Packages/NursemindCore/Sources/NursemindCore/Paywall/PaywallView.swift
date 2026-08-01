@@ -190,7 +190,7 @@ public struct PaywallView: View {
     /// at parity the mark reads as the headline and the offer becomes the
     /// subtitle. Smaller phones keep the original 32.
     private var brandMark: some View {
-        NursemindLogo(size: NMDeviceSize.isTallCanvas ? 36 : 32)
+        NursemindLogo(size: PaywallMetrics.current.logo)
     }
 
     // MARK: - Header
@@ -199,10 +199,10 @@ public struct PaywallView: View {
         VStack(spacing: NMSpace.md) {
             EyebrowLabel("NURSEMIND PRO")
             Text("Everything, unlocked.")
-                .font(NMFont.displayMD)
+                .font(PaywallMetrics.current.titleFont)
                 .foregroundStyle(NMColor.textPrimary)
                 .multilineTextAlignment(.center)
-                .tracking(-0.6)
+                .tracking(PaywallMetrics.current.titleTracking)
             Text("Cited at every claim. Calm at every shift.")
                 .font(NMFont.displayItalicSM)
                 .foregroundStyle(NMColor.textSecondary)
@@ -218,7 +218,7 @@ public struct PaywallView: View {
     /// auto-advance delay before they can decide. Each row: accent badge
     /// with icon → bold title → italic supporting line.
     private var featureChecklist: some View {
-        VStack(spacing: NMSpace.base) {
+        VStack(spacing: PaywallMetrics.current.rowSpacing) {
             ForEach(Array(features.enumerated()), id: \.offset) { _, feature in
                 PaywallFeatureRow(feature: feature)
             }
@@ -348,7 +348,7 @@ public struct PaywallView: View {
                 }
             }
             .frame(maxWidth: .infinity)
-            .frame(height: NMDeviceSize.isTallCanvas ? 58 : 56)
+            .frame(height: PaywallMetrics.current.ctaHeight)
             .background(
                 RoundedRectangle(cornerRadius: 16)
                     .fill(NMColor.accent)
@@ -546,17 +546,58 @@ private struct PaywallFeature {
     let body: String
 }
 
+
+/// Per-canvas sizing for the paywall. Kept in one table so the three tiers can
+/// be compared at a glance, and so a change to one never silently diverges
+/// from its siblings.
+private struct PaywallMetrics {
+    let logo: CGFloat
+    let titleFont: Font
+    let titleTracking: CGFloat
+    let badge: CGFloat
+    let icon: CGFloat
+    let rowSpacing: CGFloat
+    let ctaHeight: CGFloat
+    let planPadding: CGFloat
+
+    static var current: PaywallMetrics {
+        switch NMDeviceSize.canvasTier {
+        case .large:
+            // 932pt+. The only tier with room for the next step of display
+            // type; below this the headline costs height the screen needs.
+            return PaywallMetrics(
+                logo: 40, titleFont: NMFont.displayLG, titleTracking: -1.2,
+                badge: 46, icon: 21, rowSpacing: NMSpace.lg,
+                ctaHeight: 62, planPadding: NMSpace.base + 2)
+        case .standard:
+            // 844–899. Sized so an iPhone 14 keeps every feature subtitle on
+            // one line and the legal footer above the fold.
+            return PaywallMetrics(
+                logo: 36, titleFont: NMFont.displayMD, titleTracking: -0.6,
+                badge: 42, icon: 19, rowSpacing: NMSpace.base,
+                ctaHeight: 58, planPadding: NMSpace.base)
+        case .compact:
+            // SE and 13 mini — the original sizing, which was already right.
+            return PaywallMetrics(
+                logo: 32, titleFont: NMFont.displayMD, titleTracking: -0.6,
+                badge: 42, icon: 19, rowSpacing: NMSpace.base,
+                ctaHeight: 56, planPadding: NMSpace.md)
+        }
+    }
+}
+
 private struct PaywallFeatureRow: View {
     let feature: PaywallFeature
 
     var body: some View {
-        HStack(spacing: NMSpace.base + 2) {
+        let metrics = PaywallMetrics.current
+        return HStack(spacing: NMSpace.base + 2) {
             ZStack {
                 Circle()
                     .fill(NMColor.linkBg)
-                    .frame(width: 42, height: 42)
+                    .frame(width: metrics.badge, height: metrics.badge)
                 Image(systemName: feature.icon)
-                    .font(.system(size: 19, weight: .regular))
+                    .font(.system(size: metrics.icon, weight: .regular))
                     .foregroundStyle(NMColor.accent)
             }
             VStack(alignment: .leading, spacing: 3) {
@@ -609,7 +650,7 @@ private struct PaywallPlanRow: View {
                 Spacer(minLength: 0)
                 priceBlock
             }
-            .padding(.vertical, NMDeviceSize.isTallCanvas ? NMSpace.base : NMSpace.md)
+            .padding(.vertical, PaywallMetrics.current.planPadding)
             .padding(.horizontal, NMSpace.base + 2)
             .background(
                 RoundedRectangle(cornerRadius: 14)

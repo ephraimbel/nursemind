@@ -19,11 +19,25 @@ public enum NMDeviceSize {
             .screen.bounds.height ?? 852
     }
 
-    /// iPhone 13-class and larger — 844pt and up, which covers 13, 14, 15, 16
-    /// and 17 plus every Pro/Plus/Max variant. The cutoff sits at 840 rather
-    /// than 850 deliberately: 13 and 14 are 844 and 15 is 852, so a 850
-    /// threshold would have split otherwise-identical phones across two
-    /// different designs over 8 points. Below it sit only the 13 mini (812)
-    /// and SE (667), where the larger type would crowd rather than fill.
-    public static var isTallCanvas: Bool { screenHeight >= 840 }
+    /// Three tiers, because two could not serve both ends. A 6.9" screen looks
+    /// under-filled at the size an iPhone 14 can actually hold, and the 14
+    /// overflows at the size that fills the 6.9".
+    ///
+    /// Boundaries land between real device families, never inside one:
+    ///   compact  <840 — SE (667), 13 mini (812)
+    ///   standard  840–899 — 13/14 (844), 15/16 (852), 17 (874)
+    ///   large     >=900 — Plus (932), Pro Max (956)
+    ///
+    /// 840 rather than 850 matters: 13 and 14 are 844 and 15 is 852, so a 850
+    /// cutoff would have split otherwise-identical phones over 8 points.
+    public enum CanvasTier { case compact, standard, large }
+
+    public static var canvasTier: CanvasTier {
+        let height = screenHeight
+        if height >= 900 { return .large }
+        if height >= 840 { return .standard }
+        return .compact
+    }
+
+    public static var isTallCanvas: Bool { canvasTier != .compact }
 }
