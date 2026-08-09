@@ -196,7 +196,7 @@ public struct PaywallView: View {
     // MARK: - Header
 
     private var header: some View {
-        VStack(spacing: NMSpace.md) {
+        VStack(spacing: NMSpace.sm) {
             EyebrowLabel("NURSEMIND PRO")
             Text("Everything, unlocked.")
                 .font(PaywallMetrics.current.titleFont)
@@ -254,7 +254,7 @@ public struct PaywallView: View {
     // MARK: - Plans
 
     private var planSection: some View {
-        VStack(alignment: .leading, spacing: NMSpace.base) {
+        VStack(alignment: .leading, spacing: NMSpace.md) {
             EyebrowLabel("CHOOSE YOUR PLAN", sparkle: false)
             VStack(spacing: NMSpace.sm) {
                 ForEach(PaywallPlan.allCases, id: \.self) { plan in
@@ -569,18 +569,13 @@ private struct PaywallMetrics {
                 logo: 40, titleFont: NMFont.displayLG, titleTracking: -1.2,
                 badge: 46, icon: 21, rowSpacing: NMSpace.lg,
                 ctaHeight: 62, planPadding: NMSpace.base + 2)
-        case .standard:
-            // 844–899. Sized so an iPhone 14 keeps every feature subtitle on
-            // one line and the legal footer above the fold.
-            return PaywallMetrics(
-                logo: 36, titleFont: NMFont.displayMD, titleTracking: -0.6,
-                badge: 42, icon: 19, rowSpacing: NMSpace.base,
-                ctaHeight: 58, planPadding: NMSpace.base)
-        case .compact:
-            // SE and 13 mini — the original sizing, which was already right.
+        case .standard, .compact:
+            // Every non-Max phone gets the original sizing — the recipe the
+            // paywall was designed at. Only the 6.9" canvas, which visibly
+            // starves at these sizes, steps up.
             return PaywallMetrics(
                 logo: 32, titleFont: NMFont.displayMD, titleTracking: -0.6,
-                badge: 42, icon: 19, rowSpacing: NMSpace.base,
+                badge: 40, icon: 18, rowSpacing: NMSpace.md,
                 ctaHeight: 56, planPadding: NMSpace.md)
         }
     }
@@ -600,7 +595,7 @@ private struct PaywallFeatureRow: View {
                     .font(.system(size: metrics.icon, weight: .regular))
                     .foregroundStyle(NMColor.accent)
             }
-            VStack(alignment: .leading, spacing: 3) {
+            VStack(alignment: .leading, spacing: 1) {
                 Text(feature.title)
                     .font(NMFont.displaySM)
                     .foregroundStyle(NMColor.textPrimary)

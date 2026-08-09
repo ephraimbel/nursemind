@@ -63,6 +63,19 @@ struct RootView: View {
         #endif
     }
 
+    /// Dev-only: any screenshot deep-link is active (onboarding step jump or
+    /// paywall cover). Used to keep the ATT sheet from covering the surface
+    /// under inspection.
+    private var debugDeepLinkActive: Bool {
+        #if DEBUG
+        forceOnboardingForDebug
+            || ProcessInfo.processInfo.environment["NM_OPEN_PAYWALL"] == "1"
+            || ProcessInfo.processInfo.environment["NM_OPEN_ENTRY"] != nil
+        #else
+        false
+        #endif
+    }
+
     var body: some View {
         Group {
             if forceOnboardingForDebug || !prefs.hasCompletedOnboarding {
@@ -117,8 +130,8 @@ struct RootView: View {
         .onChange(of: scenePhase, initial: true) { _, phase in
             guard phase == .active, !hasRequestedTracking else { return }
             // Debug screenshot runs skip the ATT sheet so it can't cover the
-            // step under inspection.
-            guard !forceOnboardingForDebug else { return }
+            // surface under inspection.
+            guard !debugDeepLinkActive else { return }
             hasRequestedTracking = true
             Task { @MainActor in
                 try? await Task.sleep(for: .milliseconds(500))
