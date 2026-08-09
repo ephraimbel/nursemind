@@ -12,7 +12,16 @@ public struct OnboardingFlow: View {
     @State private var isForward: Bool = true
     @State private var prefs = UserPreferences.shared
 
-    public init() {}
+    public init() {
+        #if DEBUG
+        // Dev-only jump to a named onboarding step (screenshots, review-fix
+        // verification). `SIMCTL_CHILD_NM_ONBOARDING_STEP=reviews simctl launch …`
+        if let name = ProcessInfo.processInfo.environment["NM_ONBOARDING_STEP"],
+           let forced = Step.allCases.first(where: { $0.eventName == name }) {
+            _step = State(initialValue: forced)
+        }
+        #endif
+    }
 
     public var body: some View {
         ZStack {
@@ -100,7 +109,7 @@ public struct OnboardingFlow: View {
         TikTokAnalyticsService.shared.trackOnboardingComplete()
     }
 
-    enum Step: Int {
+    enum Step: Int, CaseIterable {
         case splash
         case welcome
         case auth

@@ -40,6 +40,7 @@ public final class UserPreferences {
     private let askLifetimeUsedKey       = "nm.ask.lifetimeUsed"
     private let feedTabEnabledKey        = "nm.flags.feedTabEnabled"
     private let hasRequestedReviewKey    = "nm.review.hasRequested"
+    private let completedAnswerCountKey  = "nm.review.completedAnswers"
     private let lastPaywallTeaserDateKey = "nm.paywall.lastTeaserDate"
 
     private let maxPinned = 12
@@ -144,6 +145,15 @@ public final class UserPreferences {
     /// Not synced to the server: it's a per-install UX flag, not profile state.
     public var hasRequestedReview: Bool {
         didSet { defaults.set(hasRequestedReview, forKey: hasRequestedReviewKey) }
+    }
+
+    /// Lifetime count of successful (non-refusal) AI answers the user has
+    /// received. Feeds the review-prompt engagement gate: the rating sheet is
+    /// only eligible from the third completed answer onward, so a first-launch
+    /// user is never interrupted before they've seen real value (App Review
+    /// guideline 5.6.3).
+    public var completedAnswerCount: Int {
+        didSet { defaults.set(completedAnswerCount, forKey: completedAnswerCountKey) }
     }
 
     /// Records that the library-entry paywall teaser block was shown to the
@@ -306,6 +316,7 @@ public final class UserPreferences {
         self.safetyContractAgreedAt = defaults.object(forKey: safetyContractDateKey) as? Date
         self.feedTabEnabled = defaults.object(forKey: feedTabEnabledKey) as? Bool ?? true
         self.hasRequestedReview = defaults.bool(forKey: hasRequestedReviewKey)
+        self.completedAnswerCount = defaults.integer(forKey: completedAnswerCountKey)
     }
 
     // MARK: Library actions
@@ -454,6 +465,8 @@ public final class UserPreferences {
             // One-shot UX flags
             self.hasRequestedReview = false
             defaults.removeObject(forKey: hasRequestedReviewKey)
+            self.completedAnswerCount = 0
+            defaults.removeObject(forKey: completedAnswerCountKey)
         }
         // Sync-service high-water marks live in standard UserDefaults under
         // their own keys; clear those too so the next user's initial sync

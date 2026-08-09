@@ -53,12 +53,22 @@ struct RootView: View {
         }
     }
 
+    /// Dev-only: show onboarding regardless of completion state when the
+    /// `NM_ONBOARDING_STEP` jump hook (see `OnboardingFlow.init`) is active.
+    private var forceOnboardingForDebug: Bool {
+        #if DEBUG
+        ProcessInfo.processInfo.environment["NM_ONBOARDING_STEP"] != nil
+        #else
+        false
+        #endif
+    }
+
     var body: some View {
         Group {
-            if prefs.hasCompletedOnboarding {
-                mainAppView
-            } else {
+            if forceOnboardingForDebug || !prefs.hasCompletedOnboarding {
                 OnboardingFlow()
+            } else {
+                mainAppView
             }
         }
         // OnboardingFlow honors `.adaptForIPadCompat()` at the Group level
@@ -106,6 +116,9 @@ struct RootView: View {
         #endif
         .onChange(of: scenePhase, initial: true) { _, phase in
             guard phase == .active, !hasRequestedTracking else { return }
+            // Debug screenshot runs skip the ATT sheet so it can't cover the
+            // step under inspection.
+            guard !forceOnboardingForDebug else { return }
             hasRequestedTracking = true
             Task { @MainActor in
                 try? await Task.sleep(for: .milliseconds(500))

@@ -88,7 +88,7 @@ struct AuthView: View {
             Hairline(color: NMColor.borderSubtle)
             BenefitRow(
                 title: "Calculators for every unit",
-                subtitle: "Drips, doses, scores, conversions — fast and offline"
+                subtitle: "Scores, scales, conversions — fast and offline"
             )
         }
     }

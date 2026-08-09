@@ -442,7 +442,7 @@ private struct AskShowcaseDemo: View {
 private struct LibraryShowcaseDemo: View {
     private let rows: [(name: String, descriptor: String, count: String)] = [
         ("Drugs",          "Cited to FDA · Open RN",        "94"),
-        ("Drips",          "Reference doses · titration",    "20"),
+        ("Drips",          "Titration · monitoring",         "20"),
         ("Labs",           "Ranges · critical thresholds",   "45"),
         ("Procedures",     "Step-by-step from OpenStax",     "35"),
         ("Diagnoses",      "Pathophysiology · presentation", "103"),

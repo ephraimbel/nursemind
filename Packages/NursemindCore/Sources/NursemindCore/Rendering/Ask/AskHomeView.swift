@@ -25,11 +25,11 @@ public struct AskHomeView: View {
     @Environment(\.colorScheme) private var colorScheme
     @Environment(\.modelContext) private var modelContext
     /// SwiftUI wrapper around `SKStoreReviewController.requestReview()`.
-    /// Triggered exactly once per user, after their first successful AI
-    /// answer — see the `viewModel.isStreaming` onChange handler below. Apple
-    /// rate-limits to 3 prompts / 365 days regardless of how often we call
-    /// this; the client-side flag (`prefs.hasRequestedReview`) keeps us to a
-    /// single ask per user lifetime so we never repeat-ask within a session.
+    /// Triggered exactly once per user, and only after their third successful
+    /// AI answer — see the `viewModel.isStreaming` onChange handler below.
+    /// Apple rate-limits to 3 prompts / 365 days regardless of how often we
+    /// call this; the client-side flag (`prefs.hasRequestedReview`) keeps us
+    /// to a single ask per user lifetime so we never repeat-ask.
     @Environment(\.requestReview) private var requestReview
 
     @Query(sort: \SavedAnswer.savedAt, order: .reverse)
@@ -111,14 +111,16 @@ public struct AskHomeView: View {
             .onChange(of: viewModel.conversation.lastUpdatedAt) {
                 persistConversationIfNeeded()
             }
-            // First-answer App Store review prompt. Fires the native iOS
-            // rating sheet after the user gets their first successful AI
-            // answer — the moment they've just experienced app value, which
-            // is what Apple's review-prompt guidance asks for. Tightly gated:
+            // App Store review prompt, engagement-gated per guideline 5.6.3:
+            // never on first launch, never during onboarding, and only after
+            // the user has received their THIRD successful AI answer — by
+            // then they've demonstrably experienced the app's value. Gates:
             //   • Once per user (prefs.hasRequestedReview)
             //   • Only on stream completion (isStreaming transition true→false)
             //   • Only on a real answer (last message is assistant, non-empty,
             //     no refusal)
+            //   • Only from the 3rd completed answer onward
+            //     (prefs.completedAnswerCount)
             //   • 1.5s delay so the user reads the answer before the sheet
             //     interrupts. Apple's RequestReviewAction is itself rate-
             //     limited to 3 prompts / 365 days, but we self-limit to one
@@ -126,11 +128,13 @@ public struct AskHomeView: View {
             //     pattern.
             .onChange(of: viewModel.isStreaming) { _, isStreaming in
                 guard !isStreaming else { return }
-                guard !prefs.hasRequestedReview else { return }
                 guard let last = viewModel.conversation.messages.last,
                       last.role == .assistant,
                       last.refusal == nil,
                       !last.content.isEmpty else { return }
+                prefs.completedAnswerCount += 1
+                guard !prefs.hasRequestedReview,
+                      prefs.completedAnswerCount >= 3 else { return }
                 Task { @MainActor in
                     try? await Task.sleep(for: .seconds(1.5))
                     // Re-check inside the task — the user could have started
@@ -446,8 +450,7 @@ public struct AskHomeView: View {
             first.isEmpty ? "Got a minute?"                : "Got a minute, \(first)?",
             first.isEmpty ? "One question at a time."      : "One question at a time, \(first).",
             first.isEmpty ? "Ask away."                    : "Ask away, \(first).",
-            first.isEmpty ? "Quiz time?"                   : "Quiz time, \(first)?",
-            first.isEmpty ? "Study break?"                 : "Study break, \(first)?"
+            first.isEmpty ? "Quiz time?"                   : "Quiz time, \(first)?"
         ]
 
         return pool
@@ -477,7 +480,6 @@ public struct AskHomeView: View {
         "What's on your mind today?",
         "What concept is fuzzy right now?",
         "What would you like to nail down?",
-        "What should we work through?",
         "Pharm, labs, drips — ask away.",
         "No question too small.",
         "Every answer comes cited.",

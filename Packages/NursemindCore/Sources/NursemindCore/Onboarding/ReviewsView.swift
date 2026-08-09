@@ -1,16 +1,13 @@
 import SwiftUI
-import StoreKit
 
 /// Social-proof step that sits between `safetyContract` and `paywall` in
-/// `OnboardingFlow`. Two jobs:
+/// `OnboardingFlow`: warm the user with curated 5-star testimonials right
+/// before the paywall — the standard premium-subscription pattern (Calm,
+/// Duolingo Super) where goodwill is highest just before the ask.
 ///
-/// 1. Warm the user with curated 5-star testimonials right before the
-///    paywall — the standard premium-subscription pattern (Calm, Duolingo
-///    Super) where goodwill is highest just before the ask.
-/// 2. Fire the native App Store rating prompt (`requestReview`) on appear.
-///    iOS rate-limits and de-dupes this system sheet itself, so calling it
-///    here is best-effort: it captures a rating while the user is engaged
-///    and never blocks the flow.
+/// Deliberately does NOT call `requestReview` — App Review guideline 5.6.3
+/// forbids rating prompts during onboarding. The one rating ask lives in
+/// `AskHomeView`, gated on the user's third successful AI answer.
 ///
 /// Testimonials stay in study/learning framing — NurseMind is positioned as
 /// a study and reference companion, never a workplace clinical tool.
@@ -18,9 +15,7 @@ struct ReviewsView: View {
     let onContinue: () -> Void
 
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
-    @Environment(\.requestReview) private var requestReview
     @State private var visible: [Bool] = Array(repeating: false, count: 5)
-    @State private var hasRequestedReview = false
 
     private let testimonials: [Testimonial] = [
         Testimonial(
@@ -32,7 +27,7 @@ struct ReviewsView: View {
         ),
         Testimonial(
             title: "The calculators alone are worth it",
-            quote: "I'm a student and the drip rate and dosage tools have saved me in clinical prep more times than I can count. Pharm finally clicked.",
+            quote: "I'm a student and the clinical scores and unit conversions have saved me in clinical prep more times than I can count. Pharm finally clicked.",
             name: "James T.",
             role: "BSN Student",
             when: "1mo ago"
@@ -62,7 +57,6 @@ struct ReviewsView: View {
         }
         .task {
             await stagger()
-            await requestRatingOnce()
         }
     }
 
@@ -114,19 +108,6 @@ struct ReviewsView: View {
         .padding(.bottom, NMSpace.xl)
         .opacity(visible[4] ? 1 : 0)
         .offset(y: visible[4] ? 0 : 12)
-    }
-
-    // MARK: - Native rating prompt
-
-    /// Fire the system rating sheet exactly once, after the page has settled.
-    /// iOS itself caps how often this can appear (and suppresses it if the
-    /// user already rated), so this is intentionally fire-and-forget.
-    private func requestRatingOnce() async {
-        guard !hasRequestedReview else { return }
-        hasRequestedReview = true
-        try? await Task.sleep(nanoseconds: 600_000_000)
-        AnalyticsService.shared.capture("onboarding_review_prompt_shown")
-        requestReview()
     }
 
     // MARK: - Animation
