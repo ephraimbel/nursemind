@@ -22,22 +22,19 @@ struct ReviewsView: View {
             title: "Got me through the NCLEX",
             quote: "Used this every single day the month before my exam. The fact that every answer is cited is what made me trust it over the chatbots my classmates were using.",
             name: "Maya R.",
-            role: "New Grad RN",
-            when: "2w ago"
+            role: "New Grad RN"
         ),
         Testimonial(
             title: "The calculators alone are worth it",
             quote: "I'm a student and the clinical scores and unit conversions have saved me in clinical prep more times than I can count. Pharm finally clicked.",
             name: "James T.",
-            role: "BSN Student",
-            when: "1mo ago"
+            role: "BSN Student"
         ),
         Testimonial(
             title: "I actually trust what I'm learning",
             quote: "Every claim has a source attached. As someone still in school that matters way more to me than an app that just sounds confident.",
             name: "Priya N.",
-            role: "RN · Med-Surg",
-            when: "3w ago"
+            role: "RN · Med-Surg"
         )
     ]
 
@@ -136,7 +133,6 @@ private struct Testimonial: Identifiable {
     let quote: String
     let name: String
     let role: String
-    let when: String
 }
 
 private struct TestimonialRow: View {
@@ -144,13 +140,7 @@ private struct TestimonialRow: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: NMSpace.sm) {
-            HStack(alignment: .center) {
-                StarRow(filled: 5)
-                Spacer(minLength: NMSpace.sm)
-                Text(testimonial.when)
-                    .font(NMFont.bodySM)
-                    .foregroundStyle(NMColor.textQuaternary)
-            }
+            StarRow(filled: 5)
             Text(testimonial.title)
                 .font(NMFont.bodyLG)
                 .fontWeight(.semibold)
