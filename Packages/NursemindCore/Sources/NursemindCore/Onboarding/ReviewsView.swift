@@ -20,19 +20,19 @@ struct ReviewsView: View {
     private let testimonials: [Testimonial] = [
         Testimonial(
             title: "Got me through the NCLEX",
-            quote: "Used this every single day the month before my exam. The fact that every answer is cited is what made me trust it over the chatbots my classmates were using.",
+            quote: "Used this every day for the last month before my exam. Having real sources on every answer meant I wasn't second-guessing it the way I was with other AI apps. Passed first try.",
             name: "Maya R.",
             role: "New Grad RN"
         ),
         Testimonial(
             title: "The calculators alone are worth it",
-            quote: "I'm a student and the clinical scores and unit conversions have saved me in clinical prep more times than I can count. Pharm finally clicked.",
+            quote: "Didn't expect to use these as much as I do. MAP, GFR, all the sepsis scores in one place instead of digging through my notes at clinical. Wish I'd found it before pharm, not halfway through.",
             name: "James T.",
             role: "BSN Student"
         ),
         Testimonial(
-            title: "I actually trust what I'm learning",
-            quote: "Every claim has a source attached. As someone still in school that matters way more to me than an app that just sounds confident.",
+            title: "I actually trust what it tells me",
+            quote: "Five years in and I still look things up constantly. This is faster than searching and it shows exactly where the information comes from, which is more than I can say for whatever google gives you.",
             name: "Priya N.",
             role: "RN · Med-Surg"
         )
