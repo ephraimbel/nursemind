@@ -79,7 +79,7 @@ public struct MinuteVentilationCalculatorView: View {
             )
             CalculatorFormulaSection(
                 formula: "VE (L/min) = RR × TV (in liters)\n= RR × TV (mL) ÷ 1000",
-                notes: "On a ventilator, minute ventilation drives PaCO₂. To lower CO₂: increase RR or TV (within lung-protective limits). Lung-protective ventilation in ARDS uses TV 4–8 mL/kg of IBW with permissive hypercapnia as needed.",
+                notes: "On a ventilator, minute ventilation drives PaCO₂ — RR and TV changes are ordered by the provider and adjusted by respiratory therapy. The published ARDSNet lung-protective range is 4–8 mL/kg of predicted body weight with permissive hypercapnia as needed.",
                 citations: [openrnResp4]
             )
         }

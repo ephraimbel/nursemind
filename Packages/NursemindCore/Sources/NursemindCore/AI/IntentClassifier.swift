@@ -36,7 +36,7 @@ public struct IntentClassifier: Sendable {
 
         nursing_clinical — questions about drugs, drips, labs, procedures, scenarios, assessments, equipment, vital signs, normal ranges, or any nursing action. The DEFAULT for ~95% of cases. This includes broad questions like "what's the normal heart rate?", "what does a high lactate mean?", "how do I assess pain?" — these are valid clinical reference questions even without patient specifics.
         diagnostic_request — the user is asking what a SPECIFIC patient has, or whether the SPECIFIC patient has condition X. Generic "what causes hyperkalemia?" is nursing_clinical, NOT diagnostic.
-        prescribing_request — the user is asking you to decide what medication or what dose to give to a specific patient. Generic "what's the typical dose of vancomycin?" is nursing_clinical, NOT prescribing.
+        prescribing_request — the user is asking you to decide what medication or what dose to give to a specific patient, OR to calculate a dose, infusion rate, or fluid volume from specific patient parameters (e.g., "how much acetaminophen for a 20 kg child?", "what rate for a 70 kg patient?"). Generic "what's the typical dose of vancomycin?" with no patient parameters is nursing_clinical, NOT prescribing.
         patient_facing — the user appears to be a patient or family member asking about themselves, not a nurse asking for reference.
         non_clinical — clearly off-topic, personal, or not related to nursing practice (weather, sports, the app itself).
         low_clarity — only use when the question is genuinely incoherent or empty. A short question like "normal heart rate?" is NOT low_clarity — it's nursing_clinical.

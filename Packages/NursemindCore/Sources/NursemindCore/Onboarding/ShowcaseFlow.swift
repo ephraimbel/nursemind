@@ -207,7 +207,7 @@ private struct AskShowcaseDemo: View {
         [
             Section(
                 header: "Target",
-                body: "Surviving Sepsis Campaign 2021 recommends an initial MAP target of ≥ 65 mmHg in septic shock. Titrate norepinephrine first-line; add vasopressin if higher doses are needed.",
+                body: "Surviving Sepsis Campaign 2021 recommends an initial MAP target of ≥ 65 mmHg in septic shock. Norepinephrine is first-line, titrated to MAP per provider order; vasopressin may be added per protocol.",
                 citationLabel: "SCCM 2021",
                 citationColor: NMColor.sourceSociety
             ),

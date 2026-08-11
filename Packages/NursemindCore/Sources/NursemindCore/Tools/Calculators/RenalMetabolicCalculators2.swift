@@ -61,17 +61,17 @@ public struct CockcroftGaultCalculatorView: View {
     private var interpretation: (String, CalculatorInterpretationLevel)? {
         guard let r = result else { return nil }
         if r >= 90 { return ("CrCl ≥ 90 mL/min — normal range.", .neutral) }
-        if r >= 60 { return ("CrCl 60–89 — mild reduction; many drug-dose adjustments begin here.", .caution) }
-        if r >= 30 { return ("CrCl 30–59 — moderate reduction; many renally-cleared drugs require dose reduction or interval extension.", .caution) }
-        if r >= 15 { return ("CrCl 15–29 — severe reduction; aggressive renal dosing required; many drugs contraindicated.", .alert) }
-        return ("CrCl < 15 — kidney failure; dialysis-relevant dosing.", .alert)
+        if r >= 60 { return ("CrCl 60–89 — mildly reduced renal clearance.", .caution) }
+        if r >= 30 { return ("CrCl 30–59 — moderately reduced renal clearance; flag renally-cleared medications to pharmacy per protocol.", .caution) }
+        if r >= 15 { return ("CrCl 15–29 — severely reduced renal clearance; pharmacy review of renally-cleared medications is standard.", .alert) }
+        return ("CrCl < 15 — kidney failure range; dialysis-relevant.", .alert)
     }
 
     public var body: some View {
         CalculatorScaffold(
             eyebrow: CalculatorCategory.renalMetabolic.eyebrowName,
             title: "Creatinine Clearance",
-            subtitle: "Cockcroft-Gault — drug-dosing reference"
+            subtitle: "Cockcroft-Gault renal function estimate"
         ) {
             CalculatorSection("INPUTS") {
                 CalculatorNumberField(label: "Age",                unit: "years",  value: $age)
@@ -107,112 +107,8 @@ public struct CockcroftGaultCalculatorView: View {
             )
             CalculatorFormulaSection(
                 formula: "CrCl = ((140 − age) × weight in kg) ÷ (72 × Scr)\nMultiply × 0.85 if female",
-                notes: "Cockcroft-Gault remains the FDA-required estimate for many drug-dose adjustments (e.g., DOACs, aminoglycosides, vancomycin nomograms in some institutions) even though CKD-EPI 2021 is preferred for staging CKD. Use ACTUAL body weight in non-obese patients; many institutions use ideal or adjusted body weight for obese (BMI > 30) patients — follow your protocol. Not validated in unstable creatinine (AKI), pregnancy, or AKA amputees.",
+                notes: "Cockcroft-Gault remains the renal-function estimate referenced in much FDA drug labeling, even though CKD-EPI 2021 is preferred for staging CKD. Use ACTUAL body weight in non-obese patients; many institutions use ideal or adjusted body weight for obese (BMI > 30) patients — follow your protocol. Not validated in unstable creatinine (AKI), pregnancy, or amputees. This tool estimates renal function only — medication decisions belong to the provider and pharmacist.",
                 citations: [cockcroftGault1976, openrnRenal2]
-            )
-        }
-    }
-}
-
-// MARK: - Free Water Deficit
-
-public struct FreeWaterDeficitCalculatorView: View {
-    @CalcPersistedDouble(calculatorID: "fwd", key: "s_na") private var serumNa
-    @CalcPersistedDouble(calculatorID: "fwd", key: "wt") private var weightKg
-    @CalcPersistedRawValue<SexOption>(calculatorID: "fwd", key: "sex") private var sex
-    @CalcPersistedRawValue<AgeOption>(calculatorID: "fwd", key: "age") private var age
-
-    enum SexOption: String, CaseIterable, Identifiable {
-        case female, male
-        var id: String { rawValue }
-        var display: String { rawValue.capitalized }
-    }
-
-    enum AgeOption: String, CaseIterable, Identifiable {
-        case adult, elderly
-        var id: String { rawValue }
-        var display: String {
-            switch self {
-            case .adult: return "Adult (< 65)"
-            case .elderly: return "Elderly (≥ 65)"
-            }
-        }
-    }
-
-    private var totalBodyWater: Double? {
-        guard let kg = weightKg, kg > 0, let s = sex, let a = age else { return nil }
-        // Standard fractions: adult male 0.6, adult female 0.5; elderly male 0.5, elderly female 0.45
-        let fraction: Double
-        switch (s, a) {
-        case (.male, .adult):    fraction = 0.6
-        case (.female, .adult):  fraction = 0.5
-        case (.male, .elderly):  fraction = 0.5
-        case (.female, .elderly):fraction = 0.45
-        }
-        return kg * fraction
-    }
-
-    private var deficit: Double? {
-        guard let na = serumNa, na > 140,
-              let tbw = totalBodyWater else { return nil }
-        return tbw * ((na / 140.0) - 1.0)
-    }
-
-    private var interpretation: (String, CalculatorInterpretationLevel)? {
-        guard let d = deficit else { return nil }
-        return ("Replace cautiously — generally over 48 hours and at a rate that lowers serum sodium by no more than 8–10 mEq/L per 24 hours to avoid cerebral edema. Use D5W or hypotonic saline per provider order; combine with the PATIENT'S OWN ongoing free-water losses (insensible + urinary).", .alert)
-        _ = d
-    }
-
-    public var body: some View {
-        CalculatorScaffold(
-            eyebrow: CalculatorCategory.renalMetabolic.eyebrowName,
-            title: "Free Water Deficit",
-            subtitle: "Replacement target in hypernatremia"
-        ) {
-            CalculatorSection("INPUTS") {
-                CalculatorNumberField(label: "Serum sodium",     unit: "mEq/L", value: $serumNa)
-                Hairline(color: NMColor.borderSubtle)
-                CalculatorNumberField(label: "Weight",            unit: "kg",    value: $weightKg)
-                    .onChange(of: weightKg) { _, new in
-                        CalculatorStateStore.shared.saveDouble(new, for: "crcl", key: "wt")
-                    }
-                Hairline(color: NMColor.borderSubtle)
-                HStack {
-                    Text("Sex at birth").font(NMFont.bodyLG)
-                    Spacer()
-                    Picker("Sex", selection: $sex) {
-                        Text("—").tag(SexOption?.none)
-                        ForEach(SexOption.allCases) { Text($0.display).tag(SexOption?.some($0)) }
-                    }
-                    .pickerStyle(.segmented)
-                    .frame(maxWidth: 200)
-                }
-                .padding(.vertical, NMSpace.base)
-                Hairline(color: NMColor.borderSubtle)
-                HStack {
-                    Text("Age group").font(NMFont.bodyLG)
-                    Spacer()
-                    Picker("Age", selection: $age) {
-                        Text("—").tag(AgeOption?.none)
-                        ForEach(AgeOption.allCases) { Text($0.display).tag(AgeOption?.some($0)) }
-                    }
-                    .pickerStyle(.segmented)
-                    .frame(maxWidth: 220)
-                }
-                .padding(.vertical, NMSpace.base)
-            }
-            CalculatorResultDisplay(
-                label: "Free water deficit",
-                value: deficit.map { String(format: "%.1f", $0) },
-                unit: "L",
-                interpretation: interpretation?.0,
-                level: interpretation?.1 ?? .neutral
-            )
-            CalculatorFormulaSection(
-                formula: "TBW = weight × fraction (M 0.6 / F 0.5; elderly M 0.5 / F 0.45)\nDeficit = TBW × ((serum Na ÷ 140) − 1)",
-                notes: "Calculation only valid for true hypernatremia (Na > 140). Replacement is in addition to ongoing losses — measure or estimate insensible (~30–50 mL/kg/day) and urinary water losses, then add them to the deficit calculation. Lowering Na too rapidly causes cerebral edema; max 8–10 mEq/L per 24 hours in chronic hypernatremia.",
-                citations: [openrnRenal2]
             )
         }
     }

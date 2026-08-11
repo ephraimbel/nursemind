@@ -78,7 +78,7 @@ The reference, the calculator, and the co-pilot — in one place.
 
 · LIBRARY · 1,200+ entries across drugs, drips, labs, procedures, diagnoses, scenarios, communication, and reference. Every clinical claim is tied to a primary source — openFDA, DailyMed, Open RN, OpenStax, VA PBM, CDC, NIH, and other accredited references. If we can't cite it, we don't show it.
 
-· CALCULATORS · 149 calculators across hemodynamics, renal, respiratory, hepatic, hematology, electrolytes, anti-coagulation, and more. Every result returns the formula and an interpretive band. Always free, in their entirety.
+· CALCULATORS · 149 calculators across hemodynamics, renal, respiratory, hepatic, hematology, electrolytes, and more — clinical scores, severity indexes, physiologic ratios, and unit conversions. Every result returns the formula and an interpretive band. NurseMind does not include medication dosage calculators: no tool in the app computes a drug dose, infusion rate, or administration volume. Six are free to try; Pro unlocks the full suite.
 
 · ASK NURSEMIND · An AI co-pilot grounded in the library. It explains pathophysiology, walks through clinical reasoning concepts, and surfaces guideline-based information for educational purposes. It does not diagnose. It does not prescribe. It does not direct treatment for a specific patient. Every numerical claim is cited; responses without citations are rejected and regenerated.
 
@@ -96,7 +96,7 @@ NurseMind is architecturally prevented from collecting Protected Health Informat
 
 PRO
 ———
-Most of NurseMind is free. Pro unlocks the full clinical scenario set, advanced specialty calculators, cross-device sync, offline mode, and a generous 50 daily AI questions (Free is 5/day).
+Most of NurseMind is free. Pro unlocks the full clinical scenario set, advanced specialty calculators, cross-device sync, offline mode, and a generous 50 daily AI questions (Free is 3/day).
 
 · Pro Monthly — $14.99/month
 · Pro Yearly — $99.99/year, with a 3-day free trial. Billed yearly. Cancel any time in iOS Settings.

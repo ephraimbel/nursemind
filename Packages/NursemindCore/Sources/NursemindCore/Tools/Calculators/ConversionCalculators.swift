@@ -161,7 +161,7 @@ public struct WeightConverterView: View {
             }
             CalculatorFormulaSection(
                 formula: "1 kg = 2.20462 lb\n1 lb = 0.453592 kg",
-                notes: "Many U.S. drug-dose references use mg/kg — patients reporting weight in pounds should be converted to kilograms first. Always document the SOURCE of the patient's weight (measured today vs. self-reported) for medication-dosing safety.",
+                notes: "Most clinical formulas and documentation use kilograms — patients reporting weight in pounds should be converted first. Always document the SOURCE of the patient's weight (measured today vs. self-reported).",
                 citations: [nistConversions]
             )
         }

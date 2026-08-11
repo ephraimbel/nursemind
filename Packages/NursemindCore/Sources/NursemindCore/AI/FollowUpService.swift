@@ -23,6 +23,7 @@ public struct AnthropicFollowUpService: FollowUpService {
         - Phrase as a nurse asking, not a student. Use clinical shorthand where it fits ("MAP", "vasopressor", "extravasation", "K+", "GCS").
         - Avoid generic ones like "Can you tell me more?" or "What else should I know?". Be specific.
         - Never propose questions that would cross into diagnosing or prescribing.
+        - Never propose questions that ask for a dose, infusion rate, or amount to administer — monitoring, assessment, and escalation questions only.
         """
 
         let payload = """
@@ -87,7 +88,7 @@ public struct MockFollowUpService: FollowUpService {
         if lower.contains("potassium") || lower.contains("k+") {
             return [
                 "EKG changes with K+ > 6.5?",
-                "How fast can I run IV potassium?",
+                "What monitoring does IV potassium require?",
                 "What if it's hemolyzed?"
             ]
         }

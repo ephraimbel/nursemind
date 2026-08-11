@@ -173,7 +173,7 @@ public enum SuggestedQuestionsProvider {
     ]
 
     private static let icu: [String] = [
-        "How do I titrate norepinephrine to MAP?",
+        "What should I monitor while titrating norepinephrine?",
         "What's the MAP target in septic shock?",
         "How do I troubleshoot a patient fighting the ventilator?",
         "What are the diagnostic criteria for ARDS?",
@@ -240,7 +240,7 @@ public enum SuggestedQuestionsProvider {
 
     private static let burnICU: [String] = [
         "How do I assess burn depth and total body surface area?",
-        "What's the fluid resuscitation target for major burns?",
+        "What should I monitor during burn fluid resuscitation?",
         "When does a burn need transfer to a burn center?",
         "How do I assess for inhalation injury?",
         "What's the priority for circumferential burns?"
@@ -273,7 +273,7 @@ public enum SuggestedQuestionsProvider {
         "What's the workup for chest pain on a tele floor?",
         "How do I assess respiratory deterioration?",
         "What's the indication for a rapid response?",
-        "How do I titrate an IV antihypertensive?",
+        "What should I monitor during an IV antihypertensive infusion?",
         "What's the priority for new-onset stridor?",
         "How do I monitor a heparin drip safely?"
     ]
@@ -284,7 +284,7 @@ public enum SuggestedQuestionsProvider {
         "How do I assess for postpartum hemorrhage?",
         "What's the priority for shoulder dystocia?",
         "How do I read a Category III fetal strip?",
-        "What's the magnesium loading dose for severe preeclampsia?",
+        "How do I monitor a magnesium infusion in severe preeclampsia?",
         "How do I assess for placental abruption?",
         "When is preterm labor an emergency?",
         "What's the workup for an unresponsive newborn?",
@@ -292,14 +292,14 @@ public enum SuggestedQuestionsProvider {
     ]
 
     private static let pediatric: [String] = [
-        "How do I calculate a pediatric fluid bolus?",
+        "How do I assess dehydration severity in a child?",
         "What's the workup for a febrile seizure?",
         "When does a fever in a neonate require sepsis workup?",
         "How do I assess pain in a non-verbal child?",
         "How do I manage a pediatric asthma exacerbation?",
         "When is a child's heart rate too low?",
         "What's the workup for unexplained bruising in a child?",
-        "How do I dose acetaminophen vs ibuprofen by weight?",
+        "When is acetaminophen vs ibuprofen preferred in children?",
         "What are the diagnostic criteria for Kawasaki disease?",
         "What's the priority for a pediatric airway emergency?"
     ]

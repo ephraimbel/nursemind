@@ -246,8 +246,8 @@ public struct LibraryHomeView: View {
     /// rather than a generic directory.
     private static func categoryDescriptor(for category: EntryCategory) -> String {
         switch category {
-        case .drug:          return "Doses · interactions · monitoring"
-        case .drip:          return "Reference doses · titration"
+        case .drug:          return "Interactions · monitoring · warnings"
+        case .drip:          return "Titration · monitoring"
         case .lab:           return "Ranges · critical thresholds"
         case .procedure:     return "Step-by-step nursing skills"
         case .diagnosis:     return "Pathophysiology · presentation"
@@ -293,11 +293,11 @@ public struct LibraryHomeView: View {
         case .respiratory:    return "P/F ratio · A-a gradient · vent"
         case .renalMetabolic: return "GFR · CrCl · anion gap"
         case .hepatic:        return "MELD · Child-Pugh · MELD-Na"
-        case .hematology:     return "ANC · INR · transfusion"
-        case .burns:          return "TBSA · fluid resuscitation"
+        case .hematology:     return "ANC · DIC · risk scores"
+        case .burns:          return "Rule of Nines · Lund-Browder"
         case .riskScores:     return "Sepsis · stroke · mortality"
         case .anthropometry:  return "BMI · BSA · ideal weight"
-        case .conversions:    return "Units · drips · weights"
+        case .conversions:    return "Temps · weights · units"
         }
     }
 

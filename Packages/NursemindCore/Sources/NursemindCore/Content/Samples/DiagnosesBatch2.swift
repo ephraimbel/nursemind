@@ -289,7 +289,7 @@ public enum HypernatremiaSample {
         ],
         commonInterventions: [
             AttributedBullet("Hypovolemic hypernatremia: NS first to restore volume, then D5W or 1/2 NS for free water deficit.", citationIDs: ["openrn_medsurg3"]),
-            AttributedBullet("Calculate free water deficit and replace SLOWLY over 48–72 hours.", citationIDs: ["openrn_medsurg3"]),
+            AttributedBullet("Free water deficit is replaced SLOWLY — typically over 48–72 hours, per provider orders.", citationIDs: ["openrn_medsurg3"]),
             AttributedBullet("Encourage oral water if patient able to drink.", citationIDs: ["openrn_medsurg3"]),
             AttributedBullet("Treat cause — DDAVP for central DI, thiazide for nephrogenic DI, replace ongoing GI losses.", citationIDs: ["openrn_medsurg3"]),
             AttributedBullet("Monitor for over-correction — stop or slow infusion if Na drops faster than 0.5 mEq/L/hr.", citationIDs: ["openrn_medsurg3"])

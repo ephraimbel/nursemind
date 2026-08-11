@@ -116,8 +116,8 @@ public struct ARDSNetTidalVolumeCalculatorView: View {
     public var body: some View {
         CalculatorScaffold(
             eyebrow: CalculatorCategory.respiratory.eyebrowName,
-            title: "Tidal Volume · PBW",
-            subtitle: "ARDSNet predicted body weight + published mL/kg range"
+            title: "Predicted Body Weight",
+            subtitle: "ARDSNet predicted body weight"
         ) {
             CalculatorSection("INPUTS") {
                 CalculatorNumberField(label: "Height", unit: "cm", value: $heightCm)
@@ -141,38 +141,11 @@ public struct ARDSNetTidalVolumeCalculatorView: View {
                 interpretation: "PBW uses height and sex — not actual weight. Tidal volume set from actual weight overestimates lung size in most adults.",
                 level: .neutral
             )
-            if let pbw {
-                CalculatorSection("PUBLISHED ARDSNET RANGE") {
-                    VStack(spacing: 0) {
-                        mlPerKgRow(4, pbw: pbw)
-                        Hairline(color: NMColor.borderSubtle)
-                        mlPerKgRow(6, pbw: pbw)
-                        Hairline(color: NMColor.borderSubtle)
-                        mlPerKgRow(8, pbw: pbw)
-                    }
-                }
-            }
             CalculatorFormulaSection(
                 formula: "Men:   PBW = 50 + 0.91 × (height cm − 152.4)\nWomen: PBW = 45.5 + 0.91 × (height cm − 152.4)",
-                notes: "The ARDSNet ARMA trial protocol published an initial tidal volume of 6 mL/kg PBW with a 4–8 mL/kg range, titrated against plateau pressure. Ventilator settings are ordered by the provider and adjusted by respiratory therapy — this tool shows the published reference math only.",
+                notes: "The ARDSNet ARMA trial protocol published an initial tidal volume of 6 mL/kg PBW with a 4–8 mL/kg range, titrated against plateau pressure. This tool estimates PBW only; ventilator settings are ordered by the provider and adjusted by respiratory therapy.",
                 citations: [ardsnetARMA, nhlbiARDSNet]
             )
         }
-    }
-
-    private func mlPerKgRow(_ mlPerKg: Double, pbw: Double) -> some View {
-        HStack(alignment: .firstTextBaseline) {
-            Text("\(Int(mlPerKg)) mL/kg PBW")
-                .font(NMFont.bodyLG)
-                .foregroundStyle(NMColor.textSecondary)
-            Spacer()
-            Text(String(format: "%.0f", mlPerKg * pbw))
-                .font(NMFont.monoXL)
-                .foregroundStyle(NMColor.textPrimary)
-            Text("mL")
-                .font(NMFont.displayItalicSM)
-                .foregroundStyle(NMColor.textTertiary)
-        }
-        .padding(.vertical, NMSpace.md)
     }
 }

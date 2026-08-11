@@ -15,10 +15,10 @@ const items = [
     label: "02",
     eyebrow: "Calculators",
     title: "The complete suite.",
-    body: "Hemodynamics, renal, respiratory, electrolytes, acid-base, anticoagulation. Show your work — every calculator returns a result, a formula, and an interpretive band.",
+    body: "Hemodynamics, renal, respiratory, hepatic, hematology, acid-base. Scores, indexes, and conversions — every calculator returns a result, a formula, and an interpretive band.",
     metrics: [
-      ["Calculators", "48"],
-      ["Always free", "all but six"],
+      ["Calculators", "149"],
+      ["Free to start", "6"],
       ["Citations per result", "1+"],
     ],
     sourcedFrom: "Surviving Sepsis · KDIGO · ATS · ACC/AHA",

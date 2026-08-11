@@ -8,7 +8,7 @@ private let adjbwRef = CitationSource(
     detail: "AdjBW = IBW + 0.4 × (actual − IBW)",
     publisher: "Open RN Nursing Pharmacology",
     license: .ccBy4,
-    url: "https://wtcs.pressbooks.pub/pharmacology/?s=anthropometry+dosing+weight",
+    url: "https://wtcs.pressbooks.pub/pharmacology/?s=anthropometry+body+weight",
     lastRetrieved: "2026-05-04"
 )
 
@@ -60,14 +60,14 @@ public struct AdjBWCalculatorView: View {
     private var interpretation: (String, CalculatorInterpretationLevel)? {
         guard let actual = actualKg, let i = ibw else { return nil }
         if actual < i {
-            return ("Actual weight ≤ IBW. Use ACTUAL body weight for most weight-based dosing in this scenario.", .neutral)
+            return ("Actual weight ≤ IBW — the adjustment does not apply; AdjBW equals IBW here.", .neutral)
         }
         let pctOver = ((actual - i) / i) * 100
         if pctOver >= 30 {
-            return ("Actual weight ≥ 30% above IBW (BMI typically > 30). AdjBW commonly used for hydrophilic drug dosing (e.g., aminoglycosides, vancomycin, LMWH per institutional protocol). Verify drug-specific guidance.", .alert)
+            return ("Actual weight ≥ 30% above IBW (BMI typically > 30) — the range where institutional protocols most often reference AdjBW. Which weight metric applies to a given medication is a provider and pharmacy decision.", .alert)
         }
         if pctOver >= 20 {
-            return ("Actual weight 20–30% above IBW. AdjBW may be used for select drugs per institutional protocol.", .caution)
+            return ("Actual weight 20–30% above IBW. Institutional protocols vary on which weight metric applies in this range.", .caution)
         }
         return ("Actual weight close to IBW. Many institutions use actual or IBW; AdjBW typically not needed.", .neutral)
     }
@@ -76,7 +76,7 @@ public struct AdjBWCalculatorView: View {
         CalculatorScaffold(
             eyebrow: CalculatorCategory.anthropometry.eyebrowName,
             title: "Adjusted Body Weight",
-            subtitle: "Drug-dosing weight in obesity"
+            subtitle: "Devine-based weight metric in obesity"
         ) {
             CalculatorSection("INPUTS") {
                 CalculatorNumberField(label: "Height",        unit: "cm", value: $heightCm)
@@ -116,7 +116,7 @@ public struct AdjBWCalculatorView: View {
             )
             CalculatorFormulaSection(
                 formula: "IBW (Devine) — see IBW calculator.\nAdjBW = IBW + 0.4 × (actual − IBW)\n(use actual weight if actual ≤ IBW)",
-                notes: "AdjBW is a calculated weight used as INPUT to certain drug-dose calculations, primarily hydrophilic agents in obese patients (aminoglycosides, vancomycin, enoxaparin in select protocols). It is NOT a drug dose itself. Always follow institutional and drug-specific dosing references — AdjBW vs. IBW vs. actual weight choice varies by drug.",
+                notes: "AdjBW is a body-weight metric, not a medication amount — this app does not calculate medication dosages. Which weight metric (AdjBW, IBW, or actual) applies to a given medication varies by drug and institution; that choice belongs to the provider and pharmacist.",
                 citations: [adjbwRef, openrnAnthro2]
             )
         }

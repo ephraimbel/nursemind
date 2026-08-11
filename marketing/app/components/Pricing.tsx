@@ -11,7 +11,7 @@ const free = {
   blurb: "Genuinely useful, not a teaser.",
   features: [
     "Full clinical reference library",
-    "All non-dosing calculators",
+    "Core scores, indexes + conversions",
     "3 AI co-pilot queries / day",
     "Local bookmarks",
     "Citations on every claim",
@@ -46,8 +46,8 @@ export function Pricing() {
           </h2>
           <p className="mt-6 max-w-[28rem] text-[16px] leading-[1.6] text-[color:var(--color-ink-muted)]">
             The library and the calculators are free, forever. Pro unlocks the
-            AI co-pilot for daily work, the full scenario set, and patient-
-            specific dosing tools.
+            AI co-pilot for daily work, the full scenario set, and the
+            advanced specialty calculators.
           </p>
 
           <div

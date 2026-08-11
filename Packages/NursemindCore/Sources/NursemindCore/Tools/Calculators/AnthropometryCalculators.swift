@@ -144,7 +144,7 @@ public struct BSACalculatorView: View {
             )
             CalculatorFormulaSection(
                 formula: "BSA = √[ (weight in kg × height in cm) ÷ 3600 ]",
-                notes: "Mosteller formula widely used because it is easy to compute at the bedside and approximates the older DuBois & DuBois formula closely enough for most clinical purposes (cardiac index, oncology dosing references, BSA-indexed labs).",
+                notes: "Mosteller formula widely used because it is easy to compute at the bedside and approximates the older DuBois & DuBois formula closely enough for most clinical purposes (cardiac index, BSA-indexed labs).",
                 citations: [mosteller, openrnAnthro]
             )
         }
@@ -202,7 +202,7 @@ public struct IBWCalculatorView: View {
             )
             CalculatorFormulaSection(
                 formula: "Men:   IBW = 50 + 2.3 × (inches over 5 ft)\nWomen: IBW = 45.5 + 2.3 × (inches over 5 ft)\n(1 in = 2.54 cm)",
-                notes: "Originally developed by Devine for aminoglycoside dosing, IBW is widely used as an input to ventilator tidal-volume settings (4–8 mL/kg IBW for ARDS lung-protective ventilation). Adjusted body weight (AdjBW) is preferred over IBW for some drug-dosing calculations in obese patients per institutional protocol.",
+                notes: "IBW (Devine) is a reference body-weight estimate used across critical-care literature, including the published ARDSNet lung-protective ventilation tables. It is a weight metric, not a medication amount — this app does not calculate medication dosages.",
                 citations: [devine, openrnAnthro]
             )
         }

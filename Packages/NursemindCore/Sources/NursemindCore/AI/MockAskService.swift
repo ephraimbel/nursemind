@@ -108,15 +108,27 @@ public final class MockAskService: AskService, @unchecked Sendable {
             return .diagnostic
         }
 
-        // Prescribing — "should I give", "what dose for X"
+        // Prescribing — "should I give", "what dose for X", or asking us to
+        // compute a dose/rate from patient parameters (Apple 1.4.2: the app
+        // must never calculate a medication dosage).
         let prescribingPatterns = [
             "should i give",
             "should we give",
             "what dose should i administer",
             "is it ok to give",
-            "can i give"
+            "can i give",
+            "how much should i give",
+            "calculate the dose",
+            "calculate a dose",
+            "calculate the drip rate",
+            "calculate a drip rate"
         ]
         if prescribingPatterns.contains(where: { lower.contains($0) }) {
+            return .prescribing
+        }
+        let asksForAmount = lower.contains("how much") || lower.contains("what dose") || lower.contains("dose for")
+        let suppliesPatientParameters = lower.range(of: #"\d+(\.\d+)?\s*(kg|kilo|lb|pound|month-old|year-old|yo\b)"#, options: .regularExpression) != nil
+        if asksForAmount && suppliesPatientParameters {
             return .prescribing
         }
 

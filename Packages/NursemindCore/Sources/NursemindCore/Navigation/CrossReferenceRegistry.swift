@@ -142,14 +142,11 @@ public enum CrossReferenceRegistry {
         case "hyponatremia":
             return [
                 .calculator(id: "osmolality"),
-                .calculator(id: "na-correction-rate"),
                 .calculator(id: "corrected-na")
             ]
         case "hypernatremia":
             return [
-                .calculator(id: "fwd"),
-                .calculator(id: "osmolality"),
-                .calculator(id: "na-correction-rate")
+                .calculator(id: "osmolality")
             ]
         case "hypertensive-emergency":
             return [
@@ -986,7 +983,7 @@ public enum CrossReferenceRegistry {
                 .libraryEntry(id: "dka", displayCategory: "Diagnosis"),
                 .libraryEntry(id: "aki", displayCategory: "Diagnosis")
             ]
-        case "corrected-na", "osmolality", "na-correction-rate", "fwd":
+        case "corrected-na", "osmolality":
             return [
                 .libraryEntry(id: "hyponatremia", displayCategory: "Diagnosis"),
                 .libraryEntry(id: "hypernatremia", displayCategory: "Diagnosis"),

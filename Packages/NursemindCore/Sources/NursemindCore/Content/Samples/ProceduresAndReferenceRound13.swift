@@ -290,13 +290,13 @@ public enum ICPCPPSample {
     )
 }
 
-// MARK: - Pediatric Fluid + Dose Calculation
+// MARK: - Pediatric Weight-Based Reference Values
 
 public enum PedsFluidsRefSample {
     public static let entry: ReferenceEntry = ReferenceEntry(
         id: "pediatric-fluid-dose",
-        title: "Pediatric IV fluid + dose calculation reference",
-        subtitle: "Holiday-Segar 4-2-1 · weight-based · Broselow tape",
+        title: "Pediatric weight-based reference values",
+        subtitle: "Holiday-Segar 4-2-1 · Broselow tape",
         eyebrow: "REFERENCE · PEDIATRICS",
         nclexTags: pedsRefR13,
         sections: [
@@ -307,8 +307,7 @@ public enum PedsFluidsRefSample {
             .keyValueTable(title: "Holiday-Segar maintenance fluid (4-2-1 rule)", [
                 KeyValueRow(key: "First 10 kg", value: "100 mL/kg/24 hr OR 4 mL/kg/hr"),
                 KeyValueRow(key: "Next 10 kg (10–20)", value: "Add 50 mL/kg/24 hr OR 2 mL/kg/hr"),
-                KeyValueRow(key: ">20 kg", value: "Add 20 mL/kg/24 hr OR 1 mL/kg/hr"),
-                KeyValueRow(key: "Example: 25 kg child", value: "(10×4) + (10×2) + (5×1) = 65 mL/hr")
+                KeyValueRow(key: ">20 kg", value: "Add 20 mL/kg/24 hr OR 1 mL/kg/hr")
             ]),
             .keyValueTable(title: "Maintenance fluid composition", [
                 KeyValueRow(key: "Standard", value: "D5 1/2 NS + 20 mEq KCl/L (after urine output established) per primary source"),
@@ -332,7 +331,7 @@ public enum PedsFluidsRefSample {
                 KeyValueRow(key: "Atropine", value: "0.02 mg/kg IV/IO; min 0.1 mg, max 0.5 mg child"),
                 KeyValueRow(key: "Adenosine (SVT)", value: "0.1 mg/kg IV first dose (max 6 mg); 0.2 mg/kg second (max 12 mg)")
             ]),
-            .bullets(title: "Calculation safety", [
+            .bullets(title: "Verification safety", [
                 AttributedBullet("ALWAYS use weight-based dosing in kg for pediatric patients; reconcile weight at every encounter.", citationIDs: ["openrn_ha_round13_proc"]),
                 AttributedBullet("Use BROSELOW TAPE for emergency drug + equipment dosing in unweighed pediatric patients.", citationIDs: ["openrn_ha_round13_proc"]),
                 AttributedBullet("Independent double-check all pediatric medications, especially high-alert (insulin, opioids, anticoagulants).", citationIDs: ["openrn_ha_round13_proc"]),

@@ -49,7 +49,7 @@ public struct PaywallTeaserBlock: View {
                 .multilineTextAlignment(.center)
                 .padding(.top, NMSpace.md)
 
-            Text("Complete dosing, monitoring, and nursing considerations. Every claim cited.")
+            Text("Complete monographs, monitoring, and nursing considerations. Every claim cited.")
                 .font(NMFont.displayItalicSM)
                 .foregroundStyle(NMColor.textSecondary)
                 .multilineTextAlignment(.center)

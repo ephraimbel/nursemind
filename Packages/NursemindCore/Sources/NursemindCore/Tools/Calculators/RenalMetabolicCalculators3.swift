@@ -2,16 +2,6 @@ import SwiftUI
 
 // MARK: - Shared citation sources
 
-private let adrogueMadias = CitationSource(
-    id: "adrogue_madias_2000",
-    shortName: "Adrogue-Madias formula — Adrogue HJ & Madias NE, NEJM 2000 (concept citation)",
-    detail: "Predicts change in serum sodium per liter of infusate",
-    publisher: "New England Journal of Medicine",
-    license: .factCitationOnly,
-    url: "https://pubmed.ncbi.nlm.nih.gov/10824078/",
-    lastRetrieved: "2026-05-04"
-)
-
 private let toxicAlcoholRef = CitationSource(
     id: "toxic_alcohols_ref",
     shortName: "Osmolar Gap in toxic alcohol ingestion — standard toxicology reference",
@@ -39,111 +29,6 @@ private let openrnRenal3 = CitationSource(
     url: "https://wtcs.pressbooks.pub/healthalterations/?s=renal+kidney+electrolyte+acid+base",
     lastRetrieved: "2026-05-04"
 )
-
-// MARK: - Sodium Correction Rate (Adrogue-Madias)
-
-public struct SodiumCorrectionRateCalculatorView: View {
-    @CalcPersistedDouble(calculatorID: "na-correction-rate", key: "inf_na") private var infusateNa
-    @CalcPersistedDouble(calculatorID: "na-correction-rate", key: "s_na") private var serumNa
-    @CalcPersistedDouble(calculatorID: "na-correction-rate", key: "wt") private var weightKg
-    @CalcPersistedRawValue<SexOption>(calculatorID: "na-correction-rate", key: "sex") private var sex
-    @CalcPersistedRawValue<AgeOption>(calculatorID: "na-correction-rate", key: "age") private var age
-
-    enum SexOption: String, CaseIterable, Identifiable {
-        case female, male
-        var id: String { rawValue }
-        var display: String { rawValue.capitalized }
-    }
-
-    enum AgeOption: String, CaseIterable, Identifiable {
-        case adult, elderly
-        var id: String { rawValue }
-        var display: String {
-            switch self {
-            case .adult:   return "Adult (< 65)"
-            case .elderly: return "Elderly (≥ 65)"
-            }
-        }
-    }
-
-    private var totalBodyWater: Double? {
-        guard let kg = weightKg, kg > 0, let s = sex, let a = age else { return nil }
-        let fraction: Double
-        switch (s, a) {
-        case (.male, .adult):     fraction = 0.6
-        case (.female, .adult):   fraction = 0.5
-        case (.male, .elderly):   fraction = 0.5
-        case (.female, .elderly): fraction = 0.45
-        }
-        return kg * fraction
-    }
-
-    private var deltaPerLiter: Double? {
-        guard let inf = infusateNa,
-              let serum = serumNa,
-              let tbw = totalBodyWater else { return nil }
-        return (inf - serum) / (tbw + 1.0)
-    }
-
-    private var interpretation: (String, CalculatorInterpretationLevel)? {
-        guard let d = deltaPerLiter else { return nil }
-        let abs = Swift.abs(d)
-        if abs > 8 { return ("Each liter of this infusate would change serum sodium by ≈ \(String(format: "%.1f", d)) mEq/L. Limit total correction to ≤ 8–10 mEq/L per 24 hours to avoid osmotic demyelination (chronic hyponatremia) or cerebral edema (chronic hypernatremia).", .alert) }
-        return ("Each liter of this infusate would change serum sodium by ≈ \(String(format: "%.1f", d)) mEq/L. Adjust the rate to keep total correction within 8–10 mEq/L per 24 hours.", .caution)
-    }
-
-    public var body: some View {
-        CalculatorScaffold(
-            eyebrow: CalculatorCategory.renalMetabolic.eyebrowName,
-            title: "Na Correction Rate",
-            subtitle: "Adrogue-Madias — ΔNa per liter of infusate"
-        ) {
-            CalculatorSection("INPUTS") {
-                CalculatorNumberField(label: "Infusate Na",  unit: "mEq/L", value: $infusateNa, placeholder: "e.g. 154 (NS)")
-                Hairline(color: NMColor.borderSubtle)
-                CalculatorNumberField(label: "Serum Na",     unit: "mEq/L", value: $serumNa)
-                Hairline(color: NMColor.borderSubtle)
-                CalculatorNumberField(label: "Weight",       unit: "kg",    value: $weightKg)
-                Hairline(color: NMColor.borderSubtle)
-                HStack {
-                    Text("Sex at birth").font(NMFont.bodyLG)
-                    Spacer()
-                    Picker("Sex", selection: $sex) {
-                        Text("—").tag(SexOption?.none)
-                        ForEach(SexOption.allCases) { Text($0.display).tag(SexOption?.some($0)) }
-                    }
-                    .pickerStyle(.segmented)
-                    .frame(maxWidth: 200)
-                }
-                .padding(.vertical, NMSpace.base)
-                Hairline(color: NMColor.borderSubtle)
-                HStack {
-                    Text("Age group").font(NMFont.bodyLG)
-                    Spacer()
-                    Picker("Age", selection: $age) {
-                        Text("—").tag(AgeOption?.none)
-                        ForEach(AgeOption.allCases) { Text($0.display).tag(AgeOption?.some($0)) }
-                    }
-                    .pickerStyle(.segmented)
-                    .frame(maxWidth: 220)
-                }
-                .padding(.vertical, NMSpace.base)
-            }
-            CalculatorResultDisplay(
-                label: "ΔNa per L of infusate",
-                value: deltaPerLiter.map { String(format: "%+.2f", $0) },
-                unit: "mEq/L",
-                interpretation: interpretation?.0,
-                level: interpretation?.1 ?? .neutral
-            )
-            CalculatorFormulaSection(
-                formula: "ΔNa = (infusate Na − serum Na) ÷ (TBW + 1)\nTBW = weight × (M 0.6 / F 0.5; elderly M 0.5 / F 0.45)\nCommon infusate Na: D5W = 0; ½NS = 77; NS = 154; 3% saline = 513",
-                notes: "Predicts steady-state sodium change per L of fluid; does not account for ongoing renal/insensible losses or oral intake. Recheck serum sodium every 4–6 hours during active correction. Limit total correction to ≤ 8–10 mEq/L in 24 h (more conservative in chronic disorders, alcoholics, malnourished).",
-                citations: [adrogueMadias, openrnRenal3]
-            )
-        }
-    }
-}
 
 // MARK: - Osmolar Gap
 

@@ -51,6 +51,7 @@ public struct AnthropicAnswerEnrichmentService: AnswerEnrichmentService {
         - Phrase as a nurse asking, not a student. Use clinical shorthand where it fits ("MAP", "vasopressor", "extravasation", "K+", "GCS").
         - Avoid generic ones like "Can you tell me more?" or "What else should I know?". Be specific.
         - Never propose questions that would cross into diagnosing or prescribing.
+        - Never propose questions that ask for a dose, infusion rate, or amount to administer — monitoring, assessment, and escalation questions only.
 
         CALCULATOR — id of ONE calculator from the catalog below if the user's question or the AI's answer makes a concrete computation appropriate (e.g., "what's the MAP for BP 110/60?", or the answer says "calculate GFR…"). Otherwise null.
         - Match ONLY when computation is the actual ask. Prose questions that merely mention a metric ("when do I escalate by MAP?", "what are MAP targets in sepsis?") return null.

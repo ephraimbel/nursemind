@@ -46,7 +46,7 @@ public struct EditorialStandardsView: View {
                 ])
                 section("", body:
                     """
-                    Concept-citation tier — published scoring instruments and clinical guidelines we reference but do not reproduce: TIMI, Killip, HEART, CHA₂DS₂-VASc, HAS-BLED, Wells PE/DVT, Padua, Caprini, MEWS, NEWS2, GCS, Apgar, FLACC, CIWA-Ar, COWS, PHQ-9, GAD-7, Mini-Cog, Centor/McIsaac, Maddrey, Lille, Rockall, Glasgow-Blatchford, MELD, MELD-Na, Bazett & Fridericia QTc, Mosteller BSA, Devine IBW, Mifflin-St Jeor, Adrogue-Madias, Cockcroft-Gault. Each is cited to its original publication; the formula is implemented; the proprietary text of the instrument itself is not reproduced.
+                    Concept-citation tier — published scoring instruments and clinical guidelines we reference but do not reproduce: TIMI, Killip, HEART, CHA₂DS₂-VASc, HAS-BLED, Wells PE/DVT, Padua, Caprini, MEWS, NEWS2, GCS, Apgar, FLACC, CIWA-Ar, COWS, PHQ-9, GAD-7, Mini-Cog, Centor/McIsaac, Maddrey, Lille, Rockall, Glasgow-Blatchford, MELD, MELD-Na, Bazett & Fridericia QTc, Mosteller BSA, Devine IBW, Mifflin-St Jeor, Cockcroft-Gault. Each is cited to its original publication; the formula is implemented; the proprietary text of the instrument itself is not reproduced.
 
                     Off-limits — we do not use: StatPearls (NC-ND license), AHFS PMI, Davis's, Mosby's, Lexicomp, UpToDate, Nursing Central, ATI, Saunders, Lippincott, Kaplan, UWorld, NCLEX item banks, MedlinePlus drug pages and Encyclopedia (A.D.A.M.).
                     """
