@@ -31,3 +31,4 @@ Nursemind.xcodeproj/
 *.log
 simulator_screenshot_*.png
 .claude/
+.vercel
