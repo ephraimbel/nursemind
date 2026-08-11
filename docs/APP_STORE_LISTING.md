@@ -1,5 +1,7 @@
 # App Store Listing — Copy-paste source
 
+> **2026-08-11:** The LIVE ASC metadata is canonical and diverges from this doc — it was rewritten in ASC directly during the 1.4.2 remediation (name is "NurseMind: AI Nursing Guide", subtitle "Evidence-based Clinical Tools", keywords `nclex,nursing,drug,medication,calculator,lab,iv,icu,reference,rn,sbar,map,gfr,bnp,anc,nurse,bedside`, description carries the explicit no-dosage-calculators sentence). Read the live fields in ASC before editing; treat the strings below as the v1.0 historical draft.
+
 All the strings to paste into App Store Connect. Each section maps to a specific ASC field. Counts assume the ASC limits.
 
 **Version:** 1.0
