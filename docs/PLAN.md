@@ -2,7 +2,7 @@
 
 **The live execution layer for the v2.0 spec.**
 
-Last updated: 2026-08-13 · v1.2.0 (20) REJECTED a third time (1.4.2, iPad Air, same submission 4b1e6b07) — build-21 remediation in progress: the "app has no dose-calculating features" claim was audited adversarially and found FALSE in three places (AI gate holes, library entries teaching dose math, feed pipeline blind spot); all fixed with enforcement layers + regression tests. See 2026-08-13 decision-log entry. ASC keyword edit + thread reply + resubmission pending founder approval
+Last updated: 2026-08-13 · v1.2.0 (21) SUBMITTED (Waiting for Review) after the third 1.4.2 rejection — adversarial audit found the "no dose-calculating features" claim FALSE in three places (AI gate holes, library entries teaching dose math, feed pipeline blind spot); all fixed with three enforcement layers + 99-test regression suite incl. full-corpus scan. ASC keywords de-risked (`medication`+`calculator` dropped), reviewer notes updated with test phrases, specific reply posted in thread. See 2026-08-13 decision-log entry. If rejected again with boilerplate: App Review Board appeal + consultation call, NOT a fourth silent resubmit
 
 ---
 
