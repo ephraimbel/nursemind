@@ -71,7 +71,7 @@ public enum FiveRightsSample {
             .keyValueTable(title: "The five basic rights", [
                 KeyValueRow(key: "1. Right patient", value: "Two identifiers (name + DOB or MRN). NEVER room number alone."),
                 KeyValueRow(key: "2. Right drug", value: "Verify against MAR; check label three times (when retrieving, before preparing, before administering)."),
-                KeyValueRow(key: "3. Right dose", value: "Verify dose calculation; question doses outside typical range."),
+                KeyValueRow(key: "3. Right dose", value: "Verify the ordered dose against the reference range; question doses outside it."),
                 KeyValueRow(key: "4. Right route", value: "Verify route is appropriate; clarify ambiguous orders."),
                 KeyValueRow(key: "5. Right time", value: "Within facility's window (often 30 min before/after scheduled time, exact for some — insulin, antibiotics, time-critical)")
             ]),
@@ -92,7 +92,7 @@ public enum FiveRightsSample {
                 AttributedBullet("Sound-alike / look-alike confusion — speak names aloud, use generic + brand together.", citationIDs: ["jc_npsg_ref"]),
                 AttributedBullet("Verbal orders during emergencies — read back ALL orders; transcribe immediately into chart.", citationIDs: ["jc_npsg_ref"]),
                 AttributedBullet("Distractions during medication preparation — quiet zones in many facilities; do not interrupt.", citationIDs: ["jc_npsg_ref"]),
-                AttributedBullet("Dose calculation errors — independent double-check on pediatric and weight-based doses.", citationIDs: ["jc_npsg_ref"])
+                AttributedBullet("Dosing errors — independent double-check of the ordered dose on pediatric and weight-based medications.", citationIDs: ["jc_npsg_ref"])
             ]),
             .prose(title: "If a med error occurs", AttributedProse(
                 "Notify the provider and assess the patient first. Stay with the patient. Document objectively in the chart what was given and the patient response — do NOT chart 'med error.' Complete the institution's incident report. Just-culture frameworks recognize that systems, not bad nurses, cause most errors; honest reporting makes systems safer.",

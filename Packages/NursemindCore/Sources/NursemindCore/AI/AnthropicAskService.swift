@@ -78,12 +78,10 @@ public final class AnthropicAskService: AskService, @unchecked Sendable {
                         continuation.finish()
                         return
                     }
-                    let refusalBox = RefusalBox()
+                    let verdictBox = VerdictBox()
                     classifierWatcher = Task { [classifier] in
                         let intent = await classifier.classify(scrub.scrubbed)
-                        if let refusal = intent.refusal {
-                            refusalBox.value = refusal
-                        }
+                        verdictBox.resolve(refusal: intent.refusal)
                     }
 
                     // 3. RAG retrieval — specialty (when active) re-ranks results
@@ -146,34 +144,63 @@ public final class AnthropicAskService: AskService, @unchecked Sendable {
                         temperature: 0.2
                     )
 
+                    // Deltas are held in `pending` until the classifier verdict
+                    // lands. Generation still races the classifier (the request
+                    // is in flight, tokens accumulate), but nothing renders
+                    // until the question is confirmed answerable — a refused
+                    // question must never flash a partial answer on screen.
+                    var pending = ""
                     for try await chunk in stream {
                         // Classifier verdict landed mid-stream: stop generating,
                         // swap in the refusal. Dropping out of this loop
                         // releases the iterator, which cancels the underlying
                         // request via the stream's onTermination hook.
-                        if let refusal = refusalBox.value {
+                        if let refusal = verdictBox.refusal {
                             continuation.yield(.refusal(refusal, citations: []))
                             continuation.yield(.done)
                             continuation.finish()
                             return
                         }
                         accumulated += chunk
-                        continuation.yield(.delta(chunk))
+
+                        // Output-side guard (Apple 1.4.2): if the model emits a
+                        // computed dose/rate/volume despite the system prompt,
+                        // kill the stream and refuse. Never renders — checked
+                        // before the chunk is yielded.
+                        if ResponseValidator.containsComputedDose(accumulated) {
+                            askServiceLog.error("Output guard: computed-dose pattern in generation; refusing")
+                            continuation.yield(.refusal(.prescribing, citations: []))
+                            continuation.yield(.done)
+                            continuation.finish()
+                            return
+                        }
+
+                        if verdictBox.isResolved {
+                            if !pending.isEmpty {
+                                continuation.yield(.delta(pending))
+                                pending = ""
+                            }
+                            continuation.yield(.delta(chunk))
+                        } else {
+                            pending += chunk
+                        }
                     }
 
                     // Generation finished before the classifier did (rare —
                     // the classifier is a 16-token call and virtually always
                     // wins the race). Await its verdict so a refusal can never
-                    // be skipped by a fast answer; in practice this await
-                    // resolves instantly.
+                    // be skipped by a fast answer, then flush anything still held.
                     if let watcher = classifierWatcher {
                         await watcher.value
-                        if let refusal = refusalBox.value {
+                        if let refusal = verdictBox.refusal {
                             continuation.yield(.refusal(refusal, citations: []))
                             continuation.yield(.done)
                             continuation.finish()
                             return
                         }
+                    }
+                    if !pending.isEmpty {
+                        continuation.yield(.delta(pending))
                     }
 
                     // 7. Validate post-stream — log issues for the QA queue.
@@ -220,12 +247,19 @@ public final class AnthropicAskService: AskService, @unchecked Sendable {
     /// Lock-guarded cell the classifier watcher writes into and the generation
     /// loop polls per chunk. A one-shot write/read pair — plain lock beats an
     /// actor here because the read happens on every delta and must not suspend.
-    private final class RefusalBox: @unchecked Sendable {
+    /// `resolved` distinguishes "no verdict yet" (hold deltas) from "cleared to
+    /// render" (verdict arrived, no refusal).
+    private final class VerdictBox: @unchecked Sendable {
         private let lock = NSLock()
-        private var stored: RefusalType?
-        var value: RefusalType? {
-            get { lock.withLock { stored } }
-            set { lock.withLock { stored = newValue } }
+        private var storedRefusal: RefusalType?
+        private var storedResolved = false
+        var refusal: RefusalType? { lock.withLock { storedRefusal } }
+        var isResolved: Bool { lock.withLock { storedResolved } }
+        func resolve(refusal: RefusalType?) {
+            lock.withLock {
+                storedRefusal = refusal
+                storedResolved = true
+            }
         }
     }
 

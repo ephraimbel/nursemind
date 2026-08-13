@@ -166,7 +166,7 @@ public enum BivalirudinSample {
         nursingImplications: [
             AttributedBullet("BASELINE — CBC + platelet count + INR + aPTT + Cr + active bleeding assessment + recent surgery/procedures + concomitant anticoagulants/antiplatelets.", citationIDs: ["specialty_round32"]),
             AttributedBullet("PCI dosing — IV bolus + infusion during cath; ACT monitoring intra-procedurally; collaborate with interventional cardiology.", citationIDs: ["specialty_round32"]),
-            AttributedBullet("HIT use — calculate dose based on weight + renal function; titrate to aPTT 1.5-2.5x baseline q4-6 hours initially.", citationIDs: ["specialty_round32"]),
+            AttributedBullet("HIT use — dosing is weight-based and renally adjusted, set per protocol with pharmacy; infusion titrated to aPTT 1.5-2.5x baseline q4-6 hours initially.", citationIDs: ["specialty_round32"]),
             AttributedBullet("Bleeding monitoring — vital signs, IV sites, urine/stool, neurologic exam (intracranial); CBC + INR + aPTT serial; emergent hemorrhage protocol if major bleed.", citationIDs: ["specialty_round32"]),
             AttributedBullet("Renal function — recheck CrCl during therapy; adjust dose as kidney function changes; significant accumulation with renal impairment.", citationIDs: ["openfda_round32"]),
             AttributedBullet("NO ANTIDOTE — supportive measures for bleeding; consider FFP + cryoprecipitate + factor concentrates + emergent dialysis if catastrophic; communicate to ED + procedural teams.", citationIDs: ["specialty_round32"]),
@@ -632,7 +632,7 @@ public enum DigoxinImmuneFabSample {
         quickReference: [
             KeyValueRow(key: "Class", value: "Ovine-derived antigen-binding fragments (Fab) of antibodies specific for digoxin"),
             KeyValueRow(key: "Use", value: "Life-threatening digoxin toxicity — severe hyperkalemia >5 mEq/L attributable to digoxin, life-threatening arrhythmias (VT, VF, severe bradycardia, high-grade AV block, asystole), serum digoxin level >10 ng/mL adult OR >5 ng/mL pediatric, ingested dose >10 mg adult OR >4 mg pediatric, end-organ dysfunction"),
-            KeyValueRow(key: "Dose", value: "Calculate based on serum digoxin level OR ingested dose; commonly 5-10 vials empirically for severe; each vial = 40 mg neutralizes 0.5 mg digoxin; IV infusion over 30 minutes (faster if cardiac arrest)"),
+            KeyValueRow(key: "Dose", value: "Vial count individualized by the provider and pharmacy from serum digoxin level OR ingested amount; commonly 5-10 vials empirically for severe; each vial (40 mg) neutralizes 0.5 mg digoxin; IV infusion over 30 minutes (faster if cardiac arrest)"),
             KeyValueRow(key: "Monitor", value: "ECG continuous, K + Cr + magnesium, repeat digoxin level meaningless after Fab (total elevated, free reduced); clinical response"),
             KeyValueRow(key: "Watch", value: "RAPID REVERSAL of toxicity (minutes-hours); REBOUND hypokalemia (sudden K shift back to intracellular); HYPERSENSITIVITY rare (ovine source); EXPENSIVE; HEART FAILURE worsening as digoxin effect reverses; HIGH-ALERT")
         ],
@@ -645,12 +645,12 @@ public enum DigoxinImmuneFabSample {
             citationIDs: ["openfda_round32"]
         ),
         dosing: [
-            DosingBlock(label: "Calculation from serum digoxin level", body: "Number of vials = serum digoxin (ng/mL) × patient weight (kg) / 100 per primary source.", citationIDs: ["openfda_round32"]),
-            DosingBlock(label: "Calculation from ingested dose", body: "Number of vials = ingested dose (mg) × 0.8 (bioavailability) / 0.5 (digoxin neutralized per vial).", citationIDs: ["openfda_round32"]),
+            DosingBlock(label: "Dosing from serum digoxin level", body: "The label derives the vial count from the measured serum digoxin level and body weight — this determination is made by the provider with pharmacy or toxicology.", citationIDs: ["openfda_round32"]),
+            DosingBlock(label: "Dosing from ingested amount", body: "For acute ingestion, the label derives the vial count from the estimated amount ingested, accounting for bioavailability; each vial neutralizes 0.5 mg of digoxin.", citationIDs: ["openfda_round32"]),
             DosingBlock(label: "Empiric for severe toxicity (unknown level)", body: "Adult: 10-20 vials IV; pediatric: 5-10 vials; smaller doses (3-6 vials) for less severe acute toxicity per primary source.", citationIDs: ["openfda_round32"]),
             DosingBlock(label: "Acute ingestion (unknown amount)", body: "Adult: 5-10 vials; can repeat dose if symptoms persist; experienced toxicologist consultation.", citationIDs: ["openfda_round32"]),
             DosingBlock(label: "Cardiac arrest", body: "IV bolus over 1-2 minutes; rapid administration acceptable for arrest situations.", citationIDs: ["openfda_round32"]),
-            DosingBlock(label: "Pediatric", body: "Weight-based calculation; same formula as adult.", citationIDs: ["openfda_round32"]),
+            DosingBlock(label: "Pediatric", body: "Weight-based per the label; determined the same way as the adult dose by the provider and pharmacy.", citationIDs: ["openfda_round32"]),
             DosingBlock(label: "Administration", body: "Reconstitute each vial in 4 mL sterile water → dilute in 0.9% NaCl; IV infusion over 30 minutes via 0.22-micron filter (filter not required for arrest); IV push over 1-2 minutes acceptable for cardiac arrest.", citationIDs: ["openfda_round32"])
         ],
         contraindications: AttributedProse(

@@ -233,7 +233,7 @@ public enum AntidoteQuickReferenceSample {
                 KeyValueRow(key: "Protamine", value: "Heparin reversal · 1 mg per 100 units heparin (max 50 mg/dose); slow IV"),
                 KeyValueRow(key: "Idarucizumab", value: "Dabigatran reversal · 5 g IV ×1"),
                 KeyValueRow(key: "Andexanet alfa", value: "Rivaroxaban / apixaban reversal (life-threatening) · weight-based bolus + infusion"),
-                KeyValueRow(key: "Digoxin Fab (DigiBind / DigiFab)", value: "Digoxin toxicity · 5–10 vials empirical; calculate by level + ingestion amount"),
+                KeyValueRow(key: "Digoxin Fab (DigiBind / DigiFab)", value: "Digoxin toxicity · 5–10 vials empirical; individualized to level + ingestion amount by pharmacy/toxicology"),
                 KeyValueRow(key: "Methylene blue", value: "Methemoglobinemia (severe / symptomatic >30%) · 1–2 mg/kg IV"),
                 KeyValueRow(key: "Physostigmine", value: "Pure anticholinergic delirium · 0.5–2 mg IV slow; AVOID in TCA / mixed OD"),
                 KeyValueRow(key: "Octreotide", value: "Sulfonylurea-induced hypoglycemia · 50–100 mcg SQ q6h"),

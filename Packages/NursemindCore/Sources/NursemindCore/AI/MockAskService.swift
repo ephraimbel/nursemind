@@ -110,25 +110,20 @@ public final class MockAskService: AskService, @unchecked Sendable {
 
         // Prescribing — "should I give", "what dose for X", or asking us to
         // compute a dose/rate from patient parameters (Apple 1.4.2: the app
-        // must never calculate a medication dosage).
+        // must never calculate a medication dosage, infusion rate, or
+        // administration volume — and must not look like it will).
         let prescribingPatterns = [
             "should i give",
             "should we give",
             "what dose should i administer",
             "is it ok to give",
             "can i give",
-            "how much should i give",
-            "calculate the dose",
-            "calculate a dose",
-            "calculate the drip rate",
-            "calculate a drip rate"
+            "how much should i give"
         ]
         if prescribingPatterns.contains(where: { lower.contains($0) }) {
             return .prescribing
         }
-        let asksForAmount = lower.contains("how much") || lower.contains("what dose") || lower.contains("dose for")
-        let suppliesPatientParameters = lower.range(of: #"\d+(\.\d+)?\s*(kg|kilo|lb|pound|month-old|year-old|yo\b)"#, options: .regularExpression) != nil
-        if asksForAmount && suppliesPatientParameters {
+        if asksForDoseComputation(lower) {
             return .prescribing
         }
 
@@ -162,6 +157,48 @@ public final class MockAskService: AskService, @unchecked Sendable {
         }
 
         return nil
+    }
+
+    /// Broad synchronous screen for dose-computation asks (Apple 1.4.2).
+    /// Refuses any request to calculate/convert a medication amount, infusion
+    /// rate, or administration volume — including rate-unit conversions and
+    /// amount-questions that supply patient parameters. Generic published-dose
+    /// questions ("typical dose of vancomycin?") intentionally pass: those are
+    /// answered by restating cited, published reference values only.
+    static func asksForDoseComputation(_ lower: String) -> Bool {
+        func matches(_ pattern: String) -> Bool {
+            lower.range(of: pattern, options: .regularExpression) != nil
+        }
+
+        // Calculate/compute/convert verb near a medication-amount noun, either
+        // order ("calculate the dose", "dose calculation", "dosage calculator").
+        // Deliberately excludes bare "rate"/"volume" (heart rate, stroke volume,
+        // tidal volume are legitimate reference questions) and lab-concentration
+        // units (mg/dL conversions are lab math, not dosing).
+        let computeVerb = #"(calculat\w*|comput\w*|convert\w*|work(\s+\w+)?\s+out|figure(\s+\w+)?\s+out)"#
+        let doseNoun = #"(dose|dosage|dosing|drip(\s+rate)?|(infusion|iv|pump)\s+rate|bolus|(fluid|administration)\s+volume|meq|mme|(morphine\s+)?equivalents?|mg(?!\s*/\s*d?l)|mcg|units?|milliliters?|ml(?!\s*[/ ]?\s*(dl|min))|vials?|tablets?|gtts?)"#
+        if matches("\\b\(computeVerb)\\b[^.?!]{0,60}\\b\(doseNoun)\\b") { return true }
+        if matches("\\b\(doseNoun)\\b[^.?!]{0,30}\\b\(computeVerb)") { return true }
+        if matches(#"\b(dose|dosage|dosing|drip[ -]?rate)\s+calc"#) { return true }
+
+        // Infusion-rate asks and rate-unit conversions — always a computation.
+        // "what rate" is matched adjacently so "what is the normal heart rate"
+        // stays answerable.
+        if matches(#"\b(at\s+)?what\s+rate\b"#) { return true }
+        if matches(#"\b(drip|infusion)\s+rate\b"#) { return true }
+        if matches(#"\bhow\s+fast\b[^.?!]{0,50}\b(run|infuse|give|push|drip|pump|iv)\b"#) { return true }
+        if matches(#"\b(set|run|program)\s+(the\s+)?(pump|drip|infusion)\b"#) { return true }
+        if matches(#"\b(how\s+(much|many)|what|which)\b[^.?!]{0,60}\b(m?l\s*/\s*hr|ml\s+per\s+hour|gtts?\s*/\s*min|drops\s+per\s+min(ute)?|units?\s*/\s*hr)\b"#) { return true }
+        if matches(#"\bm?l\s*/\s*hr\b"#) && matches(#"\b(mcg|mg|units?)\s*/\s*(kg\s*/\s*)?(min|hr)\b"#) { return true }
+
+        // Amount-questions that supply patient parameters (weight/age in any
+        // common spelling, hyphenated or not).
+        let asksForAmount = matches(#"\b(how\s+(much|many)|what\s+dose|dose\s+for|dosage\s+for)\b"#)
+        let suppliesPatientParameters = matches(#"\d+(\.\d+)?[\s-]*(kg|kilo(gram)?s?|lbs?|pounds?|mo(nth)?s?|yrs?|years?|weeks?|days?)([\s-]*old)?\b"#)
+            || matches(#"\b(year|month|week|day)[\s-]*old\b"#)
+        if asksForAmount && suppliesPatientParameters { return true }
+
+        return false
     }
 
     // MARK: - Answer composition

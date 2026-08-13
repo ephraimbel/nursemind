@@ -209,7 +209,7 @@ public enum MedicationNearMissScenarioSample {
         nclexTags: scenarioTags,
         sections: [
             .prose(title: "The situation", AttributedProse(
-                "An OR resident verbally orders 'heparin 5,000 units IV bolus' for a patient about to begin a vascular procedure. The new graduate nurse, 4 weeks off orientation, has just reviewed the heparin protocol and recalls that the standard bolus for this procedure is typically calculated by weight (typically 80 units/kg, equating to ~6,400 units for this 80 kg patient) but has seen 5,000 units used as a flat dose in some institutions. She hesitates — the dose is plausible, the resident is senior, the room is busy. She remembers the Two-Challenge Rule from her orientation. She speaks up: 'Doctor, I want to verify — heparin 5,000 units bolus, not weight-based?' The resident looks up: 'Wait — actually, it's 80 per kilo. Make it 6,400 units. Good catch.'",
+                "An OR resident verbally orders 'heparin 5,000 units IV bolus' for a patient about to begin a vascular procedure. The new graduate nurse, 4 weeks off orientation, has just reviewed the heparin protocol and recalls that the protocol's standard bolus for this procedure is weight-based (80 units/kg) but has seen 5,000 units used as a flat dose in some institutions. She hesitates — the dose is plausible, the resident is senior, the room is busy. She remembers the Two-Challenge Rule from her orientation. She speaks up: 'Doctor, I want to verify — heparin 5,000 units bolus, not weight-based?' The resident looks up: 'Wait — actually, it's 80 per kilo. Make it 6,400 units. Good catch.'",
                 citationIDs: ["ahrq_teamstepps_scenarios"]
             )),
             .bullets(title: "What worked", [

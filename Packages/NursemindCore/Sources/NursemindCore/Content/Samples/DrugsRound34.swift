@@ -476,7 +476,7 @@ public enum LeucovorinRescueSample {
             AttributedBullet("Phenytoin + phenobarbital — folate may reduce anticonvulsant levels.", citationIDs: ["openfda_round34"])
         ],
         nursingImplications: [
-            AttributedBullet("Verify formulation (leucovorin vs levoleucovorin) + dose calculation; two-RN check.", citationIDs: ["ismp_round34"]),
+            AttributedBullet("Verify formulation (leucovorin vs levoleucovorin) + the ordered dose; two-RN check.", citationIDs: ["ismp_round34"]),
             AttributedBullet("Track MTX rescue timing relative to HDMTX completion; Q12-24H MTX levels guide escalation.", citationIDs: ["specialty_round34"]),
             AttributedBullet("Maintain hydration during MTX clearance; alkalinize urine per protocol (sodium bicarbonate).", citationIDs: ["specialty_round34"]),
             AttributedBullet("Monitor for MTX toxicity signs — mucositis, GI, renal, hepatic, hematologic.", citationIDs: ["openfda_round34"])

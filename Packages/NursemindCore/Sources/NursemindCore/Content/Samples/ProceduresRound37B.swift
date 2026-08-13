@@ -381,7 +381,7 @@ public enum RegionalAnesthesiaReferenceSample {
                 KeyValueRow(key: "EARLY signs (CNS)", value: "Perioral numbness, tongue paresthesia, dizziness, tinnitus, metallic taste, agitation; STOP injection + call for help"),
                 KeyValueRow(key: "ADVANCED signs", value: "Seizures → CNS depression + coma + cardiovascular collapse (especially bupivacaine)"),
                 KeyValueRow(key: "Treatment", value: "STOP injection; airway management (100% O2 + intubation if needed); CPR if arrest; LIPID EMULSION 20% (Intralipid) — bolus 1.5 mL/kg over 1 min + infusion 0.25 mL/kg/min × 30+ min (rescue from cardiotoxicity); benzodiazepines for seizures (NOT propofol — large doses contribute to CV collapse); AVOID vasopressin + large epinephrine doses"),
-                KeyValueRow(key: "Prevention", value: "Calculate max dose by weight + concentration; aspirate before injection (check for blood); incremental injection (5 mL aliquots); ultrasound guidance; bedside lipid emulsion + dosing protocol")
+                KeyValueRow(key: "Prevention", value: "Max dose determined by the proceduralist from weight + concentration; aspirate before injection (check for blood); incremental injection (5 mL aliquots); ultrasound guidance; bedside lipid emulsion + dosing protocol")
             ]),
             .bullets(title: "Nursing care for patient with regional anesthesia", [
                 AttributedBullet("Verify ASRA timing for anticoagulation hold/restart; coordinate with anesthesia + surgical team.", citationIDs: ["specialty_p37b"]),

@@ -320,7 +320,7 @@ public enum IronSucroseSample {
             KeyValueRow(key: "Class", value: "Intravenous iron complex (ferric sucrose)"),
             KeyValueRow(key: "Use", value: "Iron deficiency anemia (CKD on dialysis, CKD non-dialysis, chronic GI loss, refractory oral iron) when oral inadequate"),
             KeyValueRow(key: "Dose", value: "100-300 mg per dose; typically 100-200 mg over 5-10 min OR diluted in 100 mL NS over 15-30 min"),
-            KeyValueRow(key: "Course", value: "Total cumulative dose calculated (deficit + storage); typically 1000 mg total over multiple sessions"),
+            KeyValueRow(key: "Course", value: "Total cumulative dose individualized by the prescriber (deficit + storage); typically 1000 mg total over multiple sessions"),
             KeyValueRow(key: "Watch", value: "Hypersensitivity / anaphylaxis; lower risk than iron dextran; no test dose required; observe + epinephrine ready")
         ],
         indications: AttributedProse(
@@ -334,7 +334,7 @@ public enum IronSucroseSample {
         dosing: [
             DosingBlock(label: "CKD on hemodialysis", body: "100 mg IV over 5-10 min OR 100 mg in 100 mL NS over 15 min; typically per dialysis session × 10 sessions per primary source.", citationIDs: ["openfda_round26"]),
             DosingBlock(label: "CKD not on dialysis", body: "200 mg IV over 5-10 min; 5 doses over 14 days (total 1000 mg) per primary source.", citationIDs: ["openfda_round26"]),
-            DosingBlock(label: "Other IDA", body: "100-300 mg per dose; total cumulative dose calculated per Ganzoni formula: deficit (mg) = weight × (target Hb - current Hb) × 2.4 + 500 mg storage.", citationIDs: ["specialty_round26"]),
+            DosingBlock(label: "Other IDA", body: "100-300 mg per dose; the total cumulative dose is individualized by the prescriber per the Ganzoni method, reflecting weight, target vs current hemoglobin, and storage iron.", citationIDs: ["specialty_round26"]),
             DosingBlock(label: "Pediatric", body: "Per weight; specialty supervision; less commonly used than adult.", citationIDs: ["openfda_round26"])
         ],
         contraindications: AttributedProse(
@@ -365,7 +365,7 @@ public enum IronSucroseSample {
             AttributedBullet("INFUSION rate — 100 mg over 5-10 min OR 200-300 mg over 30 min; do NOT exceed manufacturer rate (anaphylaxis risk).", citationIDs: ["openfda_round26"]),
             AttributedBullet("OBSERVE × 30 min after infusion for hypersensitivity reactions; epinephrine + crash cart available.", citationIDs: ["specialty_round26"]),
             AttributedBullet("MONITOR — vital signs during + after infusion; hypersensitivity signs, hypotension.", citationIDs: ["specialty_round26"]),
-            AttributedBullet("CALCULATE total dose — Ganzoni formula OR per institutional protocol; typically 1000 mg total in 5 doses over 2-4 weeks.", citationIDs: ["specialty_round26"]),
+            AttributedBullet("TOTAL COURSE — set by the prescriber per the Ganzoni method or institutional protocol; typically 1000 mg total in 5 doses over 2-4 weeks.", citationIDs: ["specialty_round26"]),
             AttributedBullet("RECHECK Hb + ferritin at 4 weeks after completion; expect Hb rise 1-2 g/dL.", citationIDs: ["specialty_round26"]),
             AttributedBullet("PRE-MEDICATION not routine for iron sucrose; consider for patients with prior reactions.", citationIDs: ["specialty_round26"]),
             AttributedBullet("AVOID EXTRAVASATION — large vein; check IV patency; stop immediately if pain / swelling.", citationIDs: ["specialty_round26"]),

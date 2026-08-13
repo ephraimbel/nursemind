@@ -28,16 +28,16 @@ public enum PedsDosingSample {
     public static let entry: ReferenceEntry = ReferenceEntry(
         id: "peds-weight-based-dosing",
         title: "Pediatric weight-based dosing",
-        subtitle: "Math framework, max-dose ceilings, safety checks",
+        subtitle: "Verification habits, max-dose ceilings, safety checks",
         eyebrow: "REFERENCE · PEDS",
         nclexTags: NCLEXTags(category: .physiologicalIntegrity, subcategory: .pharmacologicalAndParenteralTherapies),
         sections: [
-            .prose(title: "Why pediatric dosing is its own discipline", AttributedProse("Children are not small adults. Drug clearance, volume of distribution, and protein binding shift dramatically through infancy, toddler, and adolescent years. The standard adult dose is meaningless. Always: weight in kg, mg/kg, max-dose ceiling, double-check.", citationIDs: ["openrn_peds"])),
-            .numberedSteps(title: "Five-step dose calculation", [
-                "Get an actual weight in kg — never \"about\" or estimated. Convert lb → kg by dividing by 2.2.",
-                "Confirm the per-kg dose AND the maximum single dose ceiling from the order or reference.",
-                "Calculate: dose = weight (kg) × dose per kg.",
-                "Compare to the max-dose ceiling — if calculated > max, give the max, not the calculated. \"100 mg/kg\" doesn't mean a 30 kg child gets 3000 mg if the adult max is 1000 mg.",
+            .prose(title: "Why pediatric dosing is its own discipline", AttributedProse("Children are not small adults. Drug clearance, volume of distribution, and protein binding shift dramatically through infancy, toddler, and adolescent years. The standard adult dose is meaningless. Pediatric orders are written per kilogram with a maximum-dose ceiling, and every dose deserves an independent double-check.", citationIDs: ["openrn_peds"])),
+            .numberedSteps(title: "Five verification habits before any weight-based dose", [
+                "Confirm an actual measured weight in kg is in the EMR — never \"about,\" estimated, or a lb/kg mix-up. Pound-kilogram confusion is a classic source of dosing error.",
+                "Confirm the ordered dose against the labeled per-kg range AND the maximum single-dose ceiling in the order or reference.",
+                "Question any order above the max-dose ceiling with the prescriber and pharmacy before giving it — \"100 mg/kg\" doesn't mean a 30 kg child receives 3000 mg if the labeled max is 1000 mg.",
+                "Confirm the concentration on the vial or bottle matches the one pharmacy dispensed against — many pediatric liquids come in more than one strength.",
                 "Independent double-check by a second nurse for high-alert pediatric drugs (insulin, opioids, heparin, chemotherapy, electrolytes)."
             ], citationIDs: ["openrn_peds"]),
             .keyValueTable(title: "Common dosing reference points (verify per facility)", [
@@ -53,9 +53,9 @@ public enum PedsDosingSample {
                 AttributedBullet("Use a syringe (not a household spoon) for liquid medications.", citationIDs: ["openrn_peds"]),
                 AttributedBullet("Round to a measurable volume (don't try to measure 0.07 mL — round to 0.1).", citationIDs: ["openrn_peds"]),
                 AttributedBullet("Look up unfamiliar pediatric drugs every time — the per-kg dose may not be intuitive.", citationIDs: ["openrn_peds"]),
-                AttributedBullet("If a calculation \"looks like a lot,\" stop and recheck. Most pediatric overdoses are decimal-point errors (10x).", citationIDs: ["openrn_peds"])
+                AttributedBullet("If a dose \"looks like a lot,\" stop and recheck with pharmacy. Most pediatric overdoses are decimal-point errors (10x).", citationIDs: ["openrn_peds"])
             ]),
-            .prose(title: "Broselow tape", AttributedProse("In emergencies (peds code, trauma), the Broselow tape estimates weight from length and provides pre-calculated drug doses, equipment sizes, and energy levels. Lay tape from head to heel; read the color band; use that band's drug doses. Faster and safer than calculating under stress.", citationIDs: ["openrn_peds"]))
+            .prose(title: "Broselow tape", AttributedProse("In emergencies (peds code, trauma), the Broselow tape estimates weight from length and supplies that band's published drug doses, equipment sizes, and energy levels. Lay tape from head to heel; read the color band; use that band's values. Faster and safer than doing math under stress.", citationIDs: ["openrn_peds"]))
         ],
         citations: [openrnPeds],
         lastSourceFidelityReview: "2026-05-04"
@@ -168,7 +168,7 @@ public enum PedsResuscitationSample {
         eyebrow: "REFERENCE · PEDS",
         nclexTags: NCLEXTags(category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential, priorityConcept: .perfusion),
         sections: [
-            .prose(title: "Why a separate framework", AttributedProse("Pediatric arrests are usually respiratory in origin (asphyxial), not primary cardiac. The choreography is similar to adult ACLS but the doses, energies, and equipment sizes are weight-based. Have the Broselow tape ready; pre-calculate when possible.", citationIDs: ["openrn_peds"])),
+            .prose(title: "Why a separate framework", AttributedProse("Pediatric arrests are usually respiratory in origin (asphyxial), not primary cardiac. The choreography is similar to adult ACLS but the doses, energies, and equipment sizes are weight-based. Have the Broselow tape ready — it supplies the weight band's published values.", citationIDs: ["openrn_peds"])),
             .numberedSteps(title: "First 60 seconds — the BLS sequence", [
                 "Recognize: unresponsive + no normal breathing → start CPR.",
                 "Compressions: 100–120/min; depth 1/3 AP diameter (~1.5\" infant, ~2\" child); 30:2 single rescuer, 15:2 with two rescuers and BVM.",

@@ -58,7 +58,7 @@ public enum MajorBurnSample {
             AttributedBullet("Pain assessment + early multimodal analgesia; psychological support.", citationIDs: ["openrn_dx_round17"])
         ],
         commonInterventions: [
-            AttributedBullet("PARKLAND FORMULA — 4 mL × kg × %TBSA (partial + full only) of LR over 24 hours; HALF in first 8 hours from time of injury, HALF over remaining 16 hours per primary source.", citationIDs: ["specialty_dx_round17"]),
+            AttributedBullet("PARKLAND FORMULA — the published resuscitation reference (4 mL × kg × %TBSA, partial + full only, of LR over 24 hours; HALF in first 8 hours from time of injury, HALF over remaining 16 hours) per primary source; the ordered rate comes from the provider and burn protocol.", citationIDs: ["specialty_dx_round17"]),
             AttributedBullet("TITRATE FLUIDS to urine output 0.5 mL/kg/hr adult or 1 mL/kg/hr peds — Parkland is starting estimate, not target per primary source.", citationIDs: ["specialty_dx_round17"]),
             AttributedBullet("Inhalation injury — early intubation; CO poisoning treated with 100% O2 / HBO; cyanide treated with hydroxocobalamin.", citationIDs: ["specialty_dx_round17"]),
             AttributedBullet("ESCHAROTOMY — circumferential full-thickness extremity / torso burns + impaired perfusion / ventilation.", citationIDs: ["specialty_dx_round17"]),

@@ -416,7 +416,7 @@ public enum CancerPainCrisisSample {
         ],
         commonInterventions: [
             AttributedBullet("RAPID OPIOID TITRATION — IV opioid (morphine 2–5 mg or hydromorphone 0.2–0.5 mg) every 15–30 min until pain controlled; double dose if no response per primary source.", citationIDs: ["specialty_dx_round11"]),
-            AttributedBullet("Convert to PCA or continuous infusion once stable; calculate 24-hour requirement to set up scheduled regimen.", citationIDs: ["openrn_dx_round11"]),
+            AttributedBullet("Convert to PCA or continuous infusion once stable; the provider sets the scheduled regimen from the prior 24-hour requirement.", citationIDs: ["openrn_dx_round11"]),
             AttributedBullet("Identify and treat new cause — surgical for fracture; radiation for bone met or cord compression; antibiotics for abscess.", citationIDs: ["openrn_dx_round11"]),
             AttributedBullet("Adjuvants — gabapentin / pregabalin for neuropathic, dexamethasone for nerve / capsular pain, bisphosphonates for bone, lidocaine patch for localized.", citationIDs: ["openrn_dx_round11"]),
             AttributedBullet("Procedural — nerve block, epidural, intrathecal opioid, neurolytic procedures (celiac plexus block) for refractory per primary source.", citationIDs: ["specialty_dx_round11"]),

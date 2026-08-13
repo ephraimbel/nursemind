@@ -90,7 +90,7 @@ public enum TPAStrokeAdminSample {
             AttributedBullet("Informed consent (document if patient unable / family).", citationIDs: ["openrn_skills_round13"])
         ],
         steps: [
-            ProcedureStep(number: 1, title: "Calculate dose", body: "Alteplase 0.9 mg/kg (max 90 mg). 10% as IV BOLUS over 1 minute. Remaining 90% as IV INFUSION over 60 minutes per primary source.", citationIDs: ["openrn_skills_round13"]),
+            ProcedureStep(number: 1, title: "Verify the ordered dose", body: "Labeled dosing is 0.9 mg/kg (max 90 mg) — determined by the provider and pharmacy. 10% given as IV BOLUS over 1 minute; remaining 90% as IV INFUSION over 60 minutes per primary source. Verify the order and pump settings with a second nurse.", citationIDs: ["openrn_skills_round13"]),
             ProcedureStep(number: 2, title: "Administer bolus", body: "Push 10% of total dose IV over 1 minute via dedicated line; flush with NS.", citationIDs: ["openrn_skills_round13"]),
             ProcedureStep(number: 3, title: "Continuous infusion", body: "Begin 90% via infusion pump over 60 minutes; document start time.", citationIDs: ["openrn_skills_round13"]),
             ProcedureStep(number: 4, title: "Monitor q15 min × 2 hr", body: "Vital signs + neuro exam (NIHSS) every 15 minutes during infusion + first 2 hours; then q30 min × 6 hr; then q1 hr × 16 hr per primary source.", citationIDs: ["openrn_skills_round13"]),

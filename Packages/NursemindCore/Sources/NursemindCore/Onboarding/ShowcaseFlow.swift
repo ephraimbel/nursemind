@@ -27,7 +27,7 @@ struct ShowcaseFlow: View {
             id: 2,
             eyebrow: "TOOLS",
             title: "Calculators\nthat work.",
-            description: "MAP, GFR, MEWS — the math, done for you."
+            description: "MAP, GFR, MEWS — scores and indexes, instantly."
         ),
         DemoPage(
             id: 3,

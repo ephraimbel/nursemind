@@ -138,7 +138,7 @@ public enum ProtamineSulfateSample {
             AttributedBullet("Heparin — neutralized by intended action.", citationIDs: ["openfda_reversal"])
         ],
         nursingImplications: [
-            AttributedBullet("Verify dose calculation — 1 mg per 100 units of UFH given in last 2–3 hr (heparin half-life ~1.5 hr).", citationIDs: ["openrn_pharm_reversal"]),
+            AttributedBullet("Verify the ordered dose with pharmacy against the labeled ratio — 1 mg neutralizes ~100 units of UFH given in the last 2–3 hr (heparin half-life ~1.5 hr).", citationIDs: ["openrn_pharm_reversal"]),
             AttributedBullet("Infuse SLOWLY over 10 minutes; do not exceed 5 mg/min.", citationIDs: ["openrn_pharm_reversal"]),
             AttributedBullet("Continuous BP and HR monitoring; have resuscitation equipment available.", citationIDs: ["openrn_pharm_reversal"]),
             AttributedBullet("Document allergy history; ask specifically about fish allergy, prior heart surgery, NPH insulin use.", citationIDs: ["openrn_pharm_reversal"]),

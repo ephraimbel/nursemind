@@ -55,7 +55,7 @@ public enum PedsAnalgesicDosingSample {
         eyebrow: "REFERENCE · PEDS",
         nclexTags: NCLEXTags(category: .physiologicalIntegrity, subcategory: .pharmacologicalAndParenteralTherapies, priorityConcept: .painComfort),
         sections: [
-            .prose(title: "How to use this", AttributedProse("Pediatric analgesia is weight-based and bounded by max-dose ceilings. The math is the easy part — the safety check is the harder part. Always confirm the actual weight, calculate against the per-kg dose AND the max single-dose ceiling, and double-check before high-alert doses (especially opioids).", citationIDs: ["openrn_pharm_peds"])),
+            .prose(title: "How to use this", AttributedProse("Pediatric analgesia is weight-based and bounded by max-dose ceilings. These are the published reference ranges — the ordered dose comes from the prescriber and pharmacy. Always confirm the actual weight, verify the order against the labeled per-kg range AND the max single-dose ceiling, and double-check before high-alert doses (especially opioids).", citationIDs: ["openrn_pharm_peds"])),
             .keyValueTable(title: "Acetaminophen (Tylenol) — first-line for mild pain and fever", [
                 KeyValueRow(key: "Oral / rectal route", value: "10–15 mg/kg every 4–6 hours"),
                 KeyValueRow(key: "IV (Ofirmev) — children ≥2 yr, ≥10 kg", value: "12.5 mg/kg every 4 hours OR 15 mg/kg every 6 hours; max 75 mg/kg/day or 3.75 g/day, whichever is less"),
@@ -80,11 +80,11 @@ public enum PedsAnalgesicDosingSample {
             ]),
             .bullets(title: "Safety checks every time", [
                 AttributedBullet("Confirm actual measured weight in kg — never \"about\" or by parent recall.", citationIDs: ["openrn_pharm_peds"]),
-                AttributedBullet("Calculate the per-kg dose AND check it doesn't exceed the max single-dose ceiling.", citationIDs: ["openrn_pharm_peds"]),
+                AttributedBullet("Verify the ordered dose against the labeled per-kg range AND the max single-dose ceiling.", citationIDs: ["openrn_pharm_peds"]),
                 AttributedBullet("Double-check by a second nurse for opioid doses — institutional standard.", citationIDs: ["openrn_pharm_peds"]),
                 AttributedBullet("Use a 1 mL syringe for liquid medications <10 mL — household spoons are unreliable.", citationIDs: ["openrn_pharm_peds"]),
                 AttributedBullet("Confirm the formulation concentration (e.g., infant Tylenol drops vs children's Tylenol suspension) — concentrations are NOT the same.", citationIDs: ["openrn_pharm_peds"]),
-                AttributedBullet("If a calculation \"looks like a lot,\" stop and recheck. Most pediatric overdoses are 10× decimal-point errors.", citationIDs: ["openrn_pharm_peds"])
+                AttributedBullet("If a dose \"looks like a lot,\" stop and recheck with pharmacy. Most pediatric overdoses are 10× decimal-point errors.", citationIDs: ["openrn_pharm_peds"])
             ]),
             .bullets(title: "Watch-fors after administration", [
                 AttributedBullet("Acetaminophen: hepatotoxicity in overdose (24–72 hr post-ingestion); track total daily dose across all combination products.", citationIDs: ["fda_peds_labels"]),
@@ -113,13 +113,12 @@ public enum PedsIVFluidsSample {
         eyebrow: "REFERENCE · PEDS",
         nclexTags: NCLEXTags(category: .physiologicalIntegrity, subcategory: .pharmacologicalAndParenteralTherapies, priorityConcept: .fluidElectrolytes),
         sections: [
-            .prose(title: "Why this calculation is mandatory", AttributedProse("Pediatric fluid math affects every infusion, every bolus, every nutritional plan. Adult \"give a liter\" thinking causes harm in kids. Holliday-Segar's 4-2-1 rule is the universal starting point for hourly maintenance; bolus is volume-per-kg with hard caps to avoid overload.", citationIDs: ["openrn_pharm_peds"])),
-            .keyValueTable(title: "Maintenance fluid — Holliday-Segar 4-2-1 rule (per hour)", [
+            .prose(title: "Why pediatric fluid orders are weight-based", AttributedProse("Every pediatric infusion, bolus, and nutritional plan is scaled to weight. Adult \"give a liter\" thinking causes harm in kids. Holliday-Segar's published 4-2-1 tiers are the universal reference for hourly maintenance orders; bolus orders are volume-per-kg with hard caps to avoid overload. The ordered rate comes from the provider — verify it against these published tiers.", citationIDs: ["openrn_pharm_peds"])),
+            .keyValueTable(title: "Maintenance fluid — Holliday-Segar 4-2-1 reference tiers (per hour)", [
                 KeyValueRow(key: "First 10 kg", value: "4 mL/kg/hr"),
-                KeyValueRow(key: "Next 10 kg (10–20 kg)", value: "Add 2 mL/kg/hr"),
-                KeyValueRow(key: "Each kg over 20", value: "Add 1 mL/kg/hr"),
-                KeyValueRow(key: "Quick examples", value: "10 kg → 40 mL/hr · 20 kg → 60 mL/hr · 30 kg → 70 mL/hr · 50 kg → 90 mL/hr"),
-                KeyValueRow(key: "24-hour version (4-2-1 × 24)", value: "Or use 100/50/20: first 10 kg = 100 mL/kg/day, next 10 = 50, each kg over = 20")
+                KeyValueRow(key: "Next 10 kg (10–20 kg)", value: "2 mL/kg/hr"),
+                KeyValueRow(key: "Each kg over 20", value: "1 mL/kg/hr"),
+                KeyValueRow(key: "24-hour version (100/50/20)", value: "First 10 kg = 100 mL/kg/day, next 10 = 50, each kg over = 20")
             ]),
             .keyValueTable(title: "IV fluid choice — typical (verify per protocol)", [
                 KeyValueRow(key: "Maintenance (most patients)", value: "Isotonic: 0.9% NS or LR with D5 added if NPO/glucose support needed (e.g., D5 LR, D5 0.45% NS for some institutions)"),
@@ -138,7 +137,7 @@ public enum PedsIVFluidsSample {
             .bullets(title: "Nursing implementation", [
                 AttributedBullet("Use a programmable infusion pump for ALL pediatric infusions. Never \"set the drip\" by gravity for maintenance fluids.", citationIDs: ["openrn_pharm_peds"]),
                 AttributedBullet("Set high-alert pump limits — many pumps have peds modes with hard maximums.", citationIDs: ["openrn_pharm_peds"]),
-                AttributedBullet("Round to the actual mL/hr the pump can deliver (typically nearest 1 mL/hr); document the calculated rate.", citationIDs: ["openrn_pharm_peds"]),
+                AttributedBullet("Program the pump to the ordered rate exactly; document the rate and pump settings.", citationIDs: ["openrn_pharm_peds"]),
                 AttributedBullet("Use buretrols (Soluset) for infants — limits delivery if pump fails.", citationIDs: ["openrn_pharm_peds"]),
                 AttributedBullet("Empty the buretrol of all but the next 1–2 hours of fluid in infants — reduces accidental infusion volume.", citationIDs: ["openrn_pharm_peds"])
             ]),
@@ -263,7 +262,7 @@ public enum PedsAntibioticReferenceSample {
             ]),
             .bullets(title: "Universal nursing principles for peds antibiotics", [
                 AttributedBullet("Confirm allergy history at every administration — patients change accounts; family adds info.", citationIDs: ["openrn_pharm_peds"]),
-                AttributedBullet("Verify weight matches EMR; recheck dose calculation against ceiling.", citationIDs: ["openrn_pharm_peds"]),
+                AttributedBullet("Verify weight matches EMR; recheck the ordered dose against the labeled ceiling.", citationIDs: ["openrn_pharm_peds"]),
                 AttributedBullet("Liquid concentrations vary widely by manufacturer — always read the bottle, not memory.", citationIDs: ["openrn_pharm_peds"]),
                 AttributedBullet("Confirm completion of culture before first dose if possible (don't lose the sample), but do NOT delay first antibiotic dose for sepsis.", citationIDs: ["openrn_pharm_peds"]),
                 AttributedBullet("Family teaching: complete the full course even if child feels better; refrigerate suspensions if labeled; common side effects.", citationIDs: ["openrn_pharm_peds"])

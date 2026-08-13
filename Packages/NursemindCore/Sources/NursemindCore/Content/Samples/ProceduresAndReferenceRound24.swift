@@ -410,12 +410,12 @@ public enum OpioidConversionSample {
     public static let entry: ReferenceEntry = ReferenceEntry(
         id: "opioid-conversion",
         title: "Opioid conversion + equianalgesic dosing",
-        subtitle: "Convert between opioids · oral morphine equivalent (MME) · INCOMPLETE cross-tolerance · reduce 25-50% when rotating · breakthrough 10-20% daily MME",
+        subtitle: "Equianalgesic reference · oral morphine equivalent (MME) · INCOMPLETE cross-tolerance · 25-50% reduction when rotating · breakthrough 10-20% daily MME",
         eyebrow: "REFERENCE · PAIN MANAGEMENT",
         nclexTags: refTagsR24,
         sections: [
             .prose(title: "Overview", AttributedProse(
-                "Opioid rotation / conversion calculations — when switching between opioids, routes (PO ↔ IV ↔ SC ↔ TD), or escalating chronic pain regimens. Equianalgesic tables provide approximate equivalence (oral morphine = oral morphine equivalent / MME). Account for INCOMPLETE CROSS-TOLERANCE — reduce calculated equivalent by 25-50% when rotating per primary source.",
+                "Opioid rotation / conversion — switching between opioids, routes (PO ↔ IV ↔ SC ↔ TD), or escalating chronic pain regimens. Published equianalgesic tables provide approximate equivalence (oral morphine = oral morphine equivalent / MME). Conversions are performed by the prescriber with pharmacy; published guidance reduces the equivalent by 25-50% for INCOMPLETE CROSS-TOLERANCE when rotating per primary source.",
                 citationIDs: ["specialty_pr_round24"]
             )),
             .keyValueTable(title: "Common equianalgesic doses (oral)", [
@@ -441,14 +441,14 @@ public enum OpioidConversionSample {
                 KeyValueRow(key: "75 mcg/hr patch", value: "≈ 180 mg/24 hr oral morphine"),
                 KeyValueRow(key: "100 mcg/hr patch", value: "≈ 240 mg/24 hr oral morphine")
             ]),
-            .bullets(title: "Conversion principles", [
-                AttributedBullet("CALCULATE total daily oral morphine equivalent (MME) of current regimen.", citationIDs: ["specialty_pr_round24"]),
-                AttributedBullet("CONVERT to MME of target opioid using equianalgesic table.", citationIDs: ["specialty_pr_round24"]),
-                AttributedBullet("REDUCE BY 25-50% to account for INCOMPLETE CROSS-TOLERANCE — patient may be more sensitive to new opioid; balance against under-treatment per primary source.", citationIDs: ["specialty_pr_round24"]),
-                AttributedBullet("REDUCE BY 75-90% if methadone (complex pharmacology + risk).", citationIDs: ["specialty_pr_round24"]),
-                AttributedBullet("CONSIDER patient factors — opioid-naive vs opioid-tolerant, age, renal / hepatic impairment, comorbidities, previous opioid response.", citationIDs: ["specialty_pr_round24"]),
-                AttributedBullet("BREAKTHROUGH dose — 10-20% of total 24-hr oral MME, q1-2h PRN.", citationIDs: ["specialty_pr_round24"]),
-                AttributedBullet("REASSESS at next peak; titrate based on response + side effects.", citationIDs: ["specialty_pr_round24"]),
+            .bullets(title: "Conversion principles (the prescriber's logic — know it to catch errors)", [
+                AttributedBullet("The prescriber totals the daily oral morphine equivalent (MME) of the current regimen.", citationIDs: ["specialty_pr_round24"]),
+                AttributedBullet("The target opioid's equivalent comes from the published equianalgesic table.", citationIDs: ["specialty_pr_round24"]),
+                AttributedBullet("It is REDUCED 25-50% for INCOMPLETE CROSS-TOLERANCE — the patient may be more sensitive to the new opioid; balanced against under-treatment per primary source.", citationIDs: ["specialty_pr_round24"]),
+                AttributedBullet("REDUCED 75-90% if methadone (complex pharmacology + risk).", citationIDs: ["specialty_pr_round24"]),
+                AttributedBullet("PATIENT FACTORS weigh in — opioid-naive vs opioid-tolerant, age, renal / hepatic impairment, comorbidities, previous opioid response.", citationIDs: ["specialty_pr_round24"]),
+                AttributedBullet("BREAKTHROUGH dosing — published guidance is 10-20% of total 24-hr oral MME, q1-2h PRN.", citationIDs: ["specialty_pr_round24"]),
+                AttributedBullet("REASSESS at next peak; the regimen is adjusted on response + side effects.", citationIDs: ["specialty_pr_round24"]),
                 AttributedBullet("CONSULT pharmacy / palliative care for complex conversions, methadone, very high doses.", citationIDs: ["specialty_pr_round24"])
             ]),
             .bullets(title: "Why opioid rotation?", [

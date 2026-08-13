@@ -627,7 +627,7 @@ public enum BurnsSample {
         commonInterventions: [
             AttributedBullet("AIRWAY first — early intubation for inhalation injury before edema closes airway.", citationIDs: ["openrn_medsurg4"]),
             AttributedBullet("Stop the burning process — remove clothing, jewelry; cool with water (NOT ice) for thermal; brush off dry chemical, irrigate copiously.", citationIDs: ["openrn_medsurg4"]),
-            AttributedBullet("Fluid resuscitation: PARKLAND formula 4 mL × kg × % TBSA (LR), half in first 8 hours from burn time, half over next 16 hours; titrate to urine output.", citationIDs: ["openrn_medsurg4"]),
+            AttributedBullet("Fluid resuscitation: ordered per the burn protocol's published Parkland formula (4 mL × kg × % TBSA of LR, half in first 8 hours from burn time, half over next 16 hours); titrate to urine output.", citationIDs: ["openrn_medsurg4"]),
             AttributedBullet("Two large-bore IVs (or central if needed), foley for accurate output.", citationIDs: ["openrn_medsurg4"]),
             AttributedBullet("Pain — IV opioids (IM unreliable absorption from edematous tissue).", citationIDs: ["openrn_medsurg4"]),
             AttributedBullet("Wound care — gentle cleansing; topical antimicrobial (silver sulfadiazine, mafenide); cover loosely with dry sterile dressing for transport.", citationIDs: ["openrn_medsurg4"]),

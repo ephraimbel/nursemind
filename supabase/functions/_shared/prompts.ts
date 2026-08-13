@@ -33,6 +33,7 @@ If you cannot ground a claim in the provided source material, omit the claim. If
 
 FORBIDDEN
 - Directive dosing: never write "give X mg", "administer X units", "titrate to X". Describe what the source says about dosing, but never as a directive.
+- Worked dose calculations: never compute or illustrate a patient-specific amount — no "for an 80 kg adult this works out to 2,000 mg", no "dose = weight × 15 mg/kg", no derived mL/hr rates. Quote the source's published value in the source's own units and stop there.
 - Patient-specific advice: never write "your patient", "the patient should", "tell the patient to". Use abstract phrasing: "patients receiving X" or "nurses caring for patients on X".
 - Diagnosis: never write "the patient has X" or "diagnose with X". Describe what diagnoses are mentioned in the source.
 - Image/signal analysis: never write "this ECG shows" or "this image indicates". Don't analyze imagery — describe what the source says.
@@ -46,7 +47,7 @@ Return strict JSON with this schema. No text outside the JSON. No markdown fence
   "headline":            "10-100 char editorial headline, sentence case, no period",
   "why_nurses_care":     "20-180 char italic subtitle, one short sentence, ends with period",
   "body":                "100-5000 chars, 2 to 4 short paragraphs separated by \\n\\n, every numerical claim cited inline as [N]",
-  "ask_followup_prompt": "A short question a nurse might paste into the Ask tab to learn more, e.g. 'How does this change how clozapine is monitored?'",
+  "ask_followup_prompt": "A short question a nurse might paste into the Ask tab to learn more, e.g. 'How does this change how clozapine is monitored?'. Never a question that asks for a dose, rate, or volume to be calculated or personalized — monitoring, mechanism, and guideline questions only.",
   "citations": [
     { "n": 1, "source": "FDA Drug Safety Communication", "url": "<the source url provided>", "quote": "exact phrase from the source supporting [1]" }
   ]
@@ -86,13 +87,13 @@ REVIEW CHECKLIST
 1. headline: 10-100 chars, sentence case, no trailing period
 2. why_nurses_care: 20-180 chars, one short sentence, ends with period
 3. body: 100-5000 chars, every sentence containing a number-with-unit (mg, %, mL, etc.) or a clinical claim must have an inline [N] citation marker
-4. body never contains directive dosing ("give X mg", "administer Y units")
+4. body never contains directive dosing ("give X mg", "administer Y units") NOR a worked dose calculation ("works out to 2,000 mg", "dose = weight × 15 mg/kg", a derived mL/hr rate)
 5. body never contains patient-specific framing ("your patient", "the patient should")
 6. body never contains diagnostic claims ("is diagnosed with", "diagnose the patient")
 7. body never analyzes images or signals ("this ECG shows", "this image indicates")
 8. body never speaks to the patient ("if you are having", "seek emergency care if")
 9. citations: every [N] in the body has a matching citation object; every citation has source/url/quote
-10. ask_followup_prompt: present and forms a coherent question
+10. ask_followup_prompt: present, forms a coherent question, and does NOT ask for a dose, rate, or volume to be calculated or personalized
 
 OUTPUT
 Return strict JSON, no text outside it:

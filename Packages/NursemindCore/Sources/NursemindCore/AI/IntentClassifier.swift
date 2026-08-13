@@ -36,12 +36,12 @@ public struct IntentClassifier: Sendable {
 
         nursing_clinical — questions about drugs, drips, labs, procedures, scenarios, assessments, equipment, vital signs, normal ranges, or any nursing action. The DEFAULT for ~95% of cases. This includes broad questions like "what's the normal heart rate?", "what does a high lactate mean?", "how do I assess pain?" — these are valid clinical reference questions even without patient specifics.
         diagnostic_request — the user is asking what a SPECIFIC patient has, or whether the SPECIFIC patient has condition X. Generic "what causes hyperkalemia?" is nursing_clinical, NOT diagnostic.
-        prescribing_request — the user is asking you to decide what medication or what dose to give to a specific patient, OR to calculate a dose, infusion rate, or fluid volume from specific patient parameters (e.g., "how much acetaminophen for a 20 kg child?", "what rate for a 70 kg patient?"). Generic "what's the typical dose of vancomycin?" with no patient parameters is nursing_clinical, NOT prescribing.
+        prescribing_request — the user is asking you to decide what medication or what dose to give to a specific patient, OR to calculate, compute, convert, or personalize ANY dose, infusion rate, or fluid volume — from patient parameters ("how much acetaminophen for a 20 kg child?", "what rate for a 70 kg patient?"), between unit forms ("convert 5 mcg/kg/min to mL/hr"), between drugs or routes (opioid conversion, MME), or via a requested "dose calculator". Generic "what's the typical dose of vancomycin?" with no patient parameters and no computation is nursing_clinical, NOT prescribing.
         patient_facing — the user appears to be a patient or family member asking about themselves, not a nurse asking for reference.
         non_clinical — clearly off-topic, personal, or not related to nursing practice (weather, sports, the app itself).
         low_clarity — only use when the question is genuinely incoherent or empty. A short question like "normal heart rate?" is NOT low_clarity — it's nursing_clinical.
 
-        When in doubt between nursing_clinical and any other category, choose nursing_clinical.
+        When in doubt between nursing_clinical and any other category, choose nursing_clinical — EXCEPT when the question involves computing or converting a dose, rate, or volume in any way; when in doubt there, choose prescribing_request.
 
         Output exactly one of: nursing_clinical, diagnostic_request, prescribing_request, patient_facing, non_clinical, low_clarity.
         """
@@ -66,10 +66,17 @@ public struct IntentClassifier: Sendable {
             // Fall through to keyword classifier on parse failure
             return MockAskService.classifyRefusal(question).map(Self.intent(forMockRefusal:)) ?? .nursingClinical
         } catch {
-            // Fail closed — but proceed with nursing_clinical because over-refusal also harms users.
-            // Local keyword classifier catches obvious refusals.
+            // Transport failure. Fail CLOSED for anything dose-adjacent (a dose
+            // question must never slip through because a helper call blipped);
+            // fail open only for questions with no dosing surface at all.
             if let mock = MockAskService.classifyRefusal(question) {
                 return Self.intent(forMockRefusal: mock)
+            }
+            let lower = question.lowercased()
+            let doseAdjacent = lower.range(of: #"\b(dose|dosage|dosing|drip|infusion|titrat)\w*\b"#, options: .regularExpression) != nil
+                && lower.rangeOfCharacter(from: .decimalDigits) != nil
+            if doseAdjacent || MockAskService.asksForDoseComputation(lower) {
+                return .prescribingRequest
             }
             return .nursingClinical
         }

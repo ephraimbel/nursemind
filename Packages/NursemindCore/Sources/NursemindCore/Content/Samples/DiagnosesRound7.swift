@@ -82,7 +82,7 @@ public enum ThermalBurnSample {
         ],
         commonInterventions: [
             AttributedBullet("Airway management — intubate EARLY for facial / inhalation burns per primary source.", citationIDs: ["openrn_ms_round7"]),
-            AttributedBullet("Fluid resuscitation — Parkland formula 4 mL × kg × %TBSA Lactated Ringer's over 24 hr; HALF in first 8 hours from time of burn (not from arrival) per primary source. Titrate to UOP 0.5 mL/kg/hr (adults), 1 mL/kg/hr (peds).", citationIDs: ["specialty_dx_round7"]),
+            AttributedBullet("Fluid resuscitation — ordered per the published Parkland formula (4 mL × kg × %TBSA Lactated Ringer's over 24 hr; HALF in first 8 hours from time of burn, not from arrival) per primary source. Titrate to UOP 0.5 mL/kg/hr (adults), 1 mL/kg/hr (peds).", citationIDs: ["specialty_dx_round7"]),
             AttributedBullet("Wound care — cool with room-temperature sterile water if recent (NEVER ice — worsens injury); cover with clean dry sheet for transport; do NOT apply topical agents pre-burn-center transfer.", citationIDs: ["openrn_ms_round7"]),
             AttributedBullet("Tetanus update; analgesia (IV opioid); NG tube (gastric stasis common); foley.", citationIDs: ["openrn_ms_round7"]),
             AttributedBullet("Burn-center referral per ABA criteria — partial-thickness >10% TBSA, full-thickness any age, burns of face/hands/feet/genitalia/major joints, electrical/chemical/inhalation, comorbidity per primary source.", citationIDs: ["specialty_dx_round7"]),

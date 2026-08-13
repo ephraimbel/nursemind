@@ -22,7 +22,6 @@ struct ContentIntegrityTests {
         "amyotrophic lateral sclerosis als",
         "arterial blood gas abg",
         "atopic dermatitis eczema",
-        "bacterial vaginosis bv",
         "cellulitis",
         "ferritin iron studies",
         "nih stroke scale nihss",
@@ -31,7 +30,6 @@ struct ContentIntegrityTests {
         "patent ductus arteriosus pda",
         "pediatric foreign body aspiration",
         "premature rupture of membranes prom pprom",
-        "propylthiouracil ptu",
         "timolol ophthalmic",
     ]
 

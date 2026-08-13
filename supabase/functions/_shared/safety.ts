@@ -71,6 +71,15 @@ const FORBIDDEN_PATTERNS: ForbiddenPattern[] = [
         rationale: "Directive dosing language. Feed content describes evidence; it never prescribes. FDA CDS safe-harbor.",
     },
     {
+        id: "worked_dose_calculation",
+        // A computed patient-specific amount: "dose = ...", "80 kg × 15 mg/kg",
+        // "works out to 2,000 mg", "= 60 mL/hr". Directive verbs are covered by
+        // directive_dosing above; this catches calculation framing with no verb.
+        // Apple 1.4.2: the product must never calculate a dosage, rate, or volume.
+        regex: /(\b(dose|rate|volume|deficit|total)\s*[=≈]\s*\d)|([×x*]\s*\d+(\.\d+)?\s*kg\b)|(\d+(\.\d+)?\s*kg\s*[×x*]\s*\d)|(\b(works? out to|comes? (out )?to|equat(es?|ing) to)\s*~?\d[\d,.]*\s*(mg|mcg|g|mEq|units?|m?L)\b)|([=≈]\s*\d[\d,.]*\s*(mg|mcg|mEq|units?|m?L)(?!\s*\/\s*d?L)\s*(\/\s*(hr|h|min|day))?\b)/i,
+        rationale: "Worked dose calculation. The product never computes a patient-specific dose, infusion rate, or administration volume. Apple 1.4.2 + FDA CDS safe-harbor.",
+    },
+    {
         id: "patient_specific_advice",
         regex: /\b(your patient|for your patient|the patient should|tell the patient to)\b/i,
         rationale: "Patient-specific recommendation. Apple 1.4.2 + FDA CDS - must not appear to give per-patient guidance.",

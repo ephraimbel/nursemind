@@ -446,13 +446,13 @@ public enum LASTToxicitySample {
             AttributedBullet("Serum levels NOT useful (slow turnaround); no specific lab.", citationIDs: ["specialty_dx_round34"])
         ],
         priorityAssessments: [
-            AttributedBullet("Maximum dose calculated by weight + drug + concentration before injection.", citationIDs: ["specialty_dx_round34"]),
+            AttributedBullet("Maximum dose is determined by the proceduralist from weight + drug + concentration before injection.", citationIDs: ["specialty_dx_round34"]),
             AttributedBullet("Technique — aspirate before injection; ultrasound guidance; incremental 5 mL aliquots.", citationIDs: ["specialty_dx_round34"]),
             AttributedBullet("Patient factors — elderly, cardiac disease, pregnancy, neonates, concurrent antiarrhythmics.", citationIDs: ["specialty_dx_round34"]),
             AttributedBullet("Bedside lipid emulsion 20% + dosing protocol immediately available.", citationIDs: ["specialty_dx_round34"])
         ],
         commonInterventions: [
-            AttributedBullet("PREVENTION — max dose calculation; aspirate; ultrasound guidance; incremental injection; bedside emergency equipment.", citationIDs: ["specialty_dx_round34"]),
+            AttributedBullet("PREVENTION — max-dose verification; aspirate; ultrasound guidance; incremental injection; bedside emergency equipment.", citationIDs: ["specialty_dx_round34"]),
             AttributedBullet("Continuous monitoring during local anesthesia — ECG, BP, SpO2, sedation level.", citationIDs: ["specialty_dx_round34"]),
             AttributedBullet("Recognize early — perioral numbness, dizziness, tinnitus → STOP injection + call for help.", citationIDs: ["specialty_dx_round34"]),
             AttributedBullet("EMERGENT — STOP injection; airway management (100% O2 + intubation as needed); hemodynamic support; CPR if arrest.", citationIDs: ["specialty_dx_round34"]),

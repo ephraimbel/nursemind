@@ -288,7 +288,7 @@ public enum BurnTBSASample {
             ]),
             .bullets(title: "Nursing actions in initial burn assessment", [
                 AttributedBullet("ABCs FIRST; airway management ahead of burn assessment.", citationIDs: ["openrn_ha_round7_proc"]),
-                AttributedBullet("Estimate TBSA → calculate Parkland → start LR via 2 large-bore IVs (in unburned skin if possible).", citationIDs: ["openrn_ha_round7_proc"]),
+                AttributedBullet("Estimate TBSA → fluid resuscitation ordered per the burn protocol (Parkland-based) → start LR via 2 large-bore IVs (in unburned skin if possible).", citationIDs: ["openrn_ha_round7_proc"]),
                 AttributedBullet("Foley to monitor UOP; NG tube (gastric stasis common in major burns).", citationIDs: ["openrn_ha_round7_proc"]),
                 AttributedBullet("Tetanus update; analgesia; cover wounds with clean dry sheet for transfer.", citationIDs: ["openrn_ha_round7_proc"]),
                 AttributedBullet("KEEP PATIENT WARM — limit exposure, warm fluids, warm room.", citationIDs: ["openrn_ha_round7_proc"])

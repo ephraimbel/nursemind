@@ -80,6 +80,38 @@ public struct ResponseValidator: Sendable {
         return ValidationResult(isValid: issues.isEmpty, issues: issues)
     }
 
+    // MARK: - Computed-dose output guard (Apple 1.4.2)
+
+    /// Hard gate run against the accumulating generation. Returns true when the
+    /// text contains what reads as a COMPUTED patient-specific dose, rate, or
+    /// volume — arithmetic on patient parameters producing an amount — as
+    /// opposed to a quoted published value ("labeling lists 15 mg/kg [c001]").
+    /// A hit kills the stream and swaps in the prescribing refusal.
+    public static func containsComputedDose(_ text: String) -> Bool {
+        for pattern in computedDosePatterns {
+            if text.range(of: pattern, options: [.regularExpression, .caseInsensitive]) != nil {
+                return true
+            }
+        }
+        return false
+    }
+
+    private static let computedDosePatterns: [String] = [
+        // "= 1200 mg", "≈ 60 mL/hr", "→ 40 mL/hr" — an equation resolving to an
+        // amount. Lookahead excludes lab concentrations ("= 140 mEq/L", "= 3.5 g/dL").
+        #"[=≈→]\s*~?\d[\d,.]*\s*(mg|mcg|g|meq|units?|m?l)(?!\s*/\s*d?l)\s*(/\s*(hr|h|min|day))?\b"#,
+        // "works out to 2,000 mg", "comes to about 60 mL/hr", "that's 700 mL/hr"
+        #"\b(works? out to|comes? (out )?to|equals?|that('|’)s( about| roughly)?|so you('|’)d (give|run|set))\s*~?(about )?\d[\d,.]*\s*(mg|mcg|g|meq|units?|m?l)(?!\s*/\s*d?l)\b"#,
+        // explicit arithmetic on body weight: "× 70 kg", "x 20kg", "* 80 kg"
+        #"[×x*]\s*\d+(\.\d+)?\s*kg\b"#,
+        #"\d+(\.\d+)?\s*(mg|mcg|units?)\s*/\s*kg\s*[×x*]\s*\d"#,
+        // "for your 70 kg patient, ... mg" — personalized amount sentence
+        #"for (a|your|this) \d+(\.\d+)?\s*kg\b[^.?!]{0,60}\d[\d,.]*\s*(mg|mcg|g|meq|units?|m?l)\b"#,
+        // "20 kg child → maintenance runs at 60 mL/hr" — weight paired with a
+        // derived rate in the same sentence
+        #"\d+(\.\d+)?\s*kg\b[^.?!]{0,60}(→|runs? at|infuses? at|rate of)\s*~?\d[\d,.]*\s*m?l\s*/\s*hr\b"#
+    ]
+
     // MARK: - Patterns
 
     /// Regex patterns for clinical claims that MUST be cited.

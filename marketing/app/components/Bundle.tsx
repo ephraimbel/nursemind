@@ -15,7 +15,7 @@ const items = [
     label: "02",
     eyebrow: "Calculators",
     title: "The complete suite.",
-    body: "Hemodynamics, renal, respiratory, hepatic, hematology, acid-base. Scores, indexes, and conversions — every calculator returns a result, a formula, and an interpretive band.",
+    body: "Hemodynamics, renal, respiratory, hepatic, hematology, acid-base. Scores, indexes, and conversions — every calculator returns a result, a formula, and an interpretive band. NurseMind does not include medication dosage calculators: no tool computes a drug dose, infusion rate, or administration volume.",
     metrics: [
       ["Calculators", "149"],
       ["Free to start", "6"],

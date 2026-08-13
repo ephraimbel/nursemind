@@ -128,8 +128,7 @@ public enum BurnEvaluationSample {
                 KeyValueRow(key: "Pediatric — modified", value: "Head is larger %, legs smaller; use Lund-Browder chart for age-adjusted percentages (infant head 18%, age 5 head 13%, age 10 head 11%)")
             ]),
             .keyValueTable(title: "Parkland formula — fluid resuscitation", [
-                KeyValueRow(key: "Formula", value: "4 mL × weight (kg) × TBSA (%) of LR over first 24 hours; HALF in first 8 hours from time of injury, HALF in next 16 hours"),
-                KeyValueRow(key: "Example", value: "70 kg patient with 40% TBSA: 4 × 70 × 40 = 11,200 mL total; 5,600 mL in first 8 hr (700 mL/hr); 5,600 mL over next 16 hr (350 mL/hr)"),
+                KeyValueRow(key: "Published formula", value: "4 mL × weight (kg) × TBSA (%) of LR over first 24 hours; HALF in first 8 hours from time of injury, HALF in next 16 hours — the ordered rate comes from the provider and burn protocol"),
                 KeyValueRow(key: "Indications", value: "Adult ≥20% TBSA second/third degree; pediatric ≥10% TBSA; smaller burns adequate hydration with maintenance"),
                 KeyValueRow(key: "Adjustments", value: "Time from injury (not from arrival); titrate to URINE OUTPUT 0.5-1 mL/kg/hr adult OR 1 mL/kg/hr peds (NOT TO FORMULA); inhalation injury + electrical may require more"),
                 KeyValueRow(key: "Resuscitation endpoints", value: "Urine output, mental status, hemodynamics, lactate clearance, base deficit improvement; AVOID over-resuscitation (\"fluid creep\" — compartment syndrome, pulmonary edema)")

@@ -238,7 +238,7 @@ public struct CorrectedSodiumCalculatorView: View {
     private var interpretation: (String, CalculatorInterpretationLevel)? {
         guard let r = result, let na = measuredNa else { return nil }
         let delta = r - na
-        if r > 145 { return ("Corrected sodium hypernatremic — consider free-water deficit.", .alert) }
+        if r > 145 { return ("Corrected sodium hypernatremic — true hypernatremia; escalate per protocol.", .alert) }
         if r < 135 { return ("Corrected sodium hyponatremic — true hyponatremia even after glucose correction.", .alert) }
         return ("Corrected sodium within typical range. Glucose correction added \(String(format: "%.1f", delta)) mEq/L.", .neutral)
     }

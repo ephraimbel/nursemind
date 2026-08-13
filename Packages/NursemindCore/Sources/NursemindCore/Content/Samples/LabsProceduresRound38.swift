@@ -462,7 +462,7 @@ public enum PediatricMedAdminSample {
         subtitle: "Weight-based dosing · oral syringe + measurement accuracy · IM site selection by age · rectal · creative + non-coercive techniques · safety double-checks",
         nclexTags: pedsProcTagsR38,
         indications: AttributedProse(
-            "Pediatric medication administration — fundamental nursing skill requiring weight-based dosing, age-appropriate technique, attention to safety + family-centered approach. ALL pediatric medications double-checked for dose calculation. Multiple routes used — oral, rectal, IM, IV, intranasal, transdermal — each with age-specific considerations. Compliance + safety + minimizing trauma + family education are central per primary source.",
+            "Pediatric medication administration — fundamental nursing skill requiring weight-based dosing, age-appropriate technique, attention to safety + family-centered approach. ALL pediatric medication orders independently double-checked against the labeled per-kg range. Multiple routes used — oral, rectal, IM, IV, intranasal, transdermal — each with age-specific considerations. Compliance + safety + minimizing trauma + family education are central per primary source.",
             citationIDs: ["specialty_lpr38"]
         ),
         contraindications: AttributedProse(
@@ -477,7 +477,7 @@ public enum PediatricMedAdminSample {
             AttributedBullet("Documentation tools — eMAR with pediatric-specific dose ranges; smart pumps; barcode medication administration.", citationIDs: ["specialty_lpr38"])
         ],
         preProcedure: [
-            AttributedBullet("WEIGHT-BASED dose verification — current weight (today's), calculated dose vs maximum dose, two-RN check for high-alert medications + opioids + chemotherapy + insulin + heparin + electrolytes.", citationIDs: ["specialty_lpr38"]),
+            AttributedBullet("WEIGHT-BASED dose verification — current weight (today's), ordered dose vs maximum dose, two-RN check for high-alert medications + opioids + chemotherapy + insulin + heparin + electrolytes.", citationIDs: ["specialty_lpr38"]),
             AttributedBullet("RIGHT 5+ — patient (2 identifiers), drug, dose, route, time, plus right reason + right documentation + right response.", citationIDs: ["specialty_lpr38"]),
             AttributedBullet("ALLERGIES verified + reconciled.", citationIDs: ["openrn_lpr38"]),
             AttributedBullet("Age-appropriate explanation — honest (\"this will pinch\" if it will, not \"won't hurt\"); choices when possible (\"which arm?\"), comfort positioning.", citationIDs: ["specialty_lpr38"]),
@@ -505,7 +505,7 @@ public enum PediatricMedAdminSample {
             AttributedBullet("PRN medications — pre + post pain/N-V scores + interval.", citationIDs: ["openrn_lpr38"])
         ],
         watchFor: [
-            AttributedBullet("DOSING ERRORS — pediatric medication dosing errors common + serious; weight-based calculation errors, decimal point errors, look-alike-sound-alike (LASA), wrong concentration; SMART PUMPS + EHR + barcode + double-checks essential.", citationIDs: ["specialty_lpr38"]),
+            AttributedBullet("DOSING ERRORS — pediatric medication dosing errors common + serious; weight-based dosing errors, decimal point errors, look-alike-sound-alike (LASA), wrong concentration; SMART PUMPS + EHR + barcode + double-checks essential.", citationIDs: ["specialty_lpr38"]),
             AttributedBullet("DOSING UNITS confusion — mg vs mcg vs mEq, mg/kg vs mg/m², trailing/leading zeros (write 0.5, NOT .5; write 1, NOT 1.0); use generic names + tall man lettering.", citationIDs: ["specialty_lpr38"]),
             AttributedBullet("OVERDOSE risk — acetaminophen most common (improper measurement, concomitant cold meds with acetaminophen, parental dosing errors at home); REINFORCE one source of acetaminophen at a time + measurement accuracy.", citationIDs: ["specialty_lpr38"]),
             AttributedBullet("CONTRAINDICATED meds in pediatrics — codeine + tramadol <12 yr (FDA contraindication, post-tonsillectomy/adenoidectomy <18 yr); promethazine <2 yr (respiratory depression); aspirin in viral illness (Reye syndrome).", citationIDs: ["specialty_lpr38"]),

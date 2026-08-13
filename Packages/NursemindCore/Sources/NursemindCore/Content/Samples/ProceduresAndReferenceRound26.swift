@@ -67,7 +67,7 @@ public enum PlasmapheresisTPESample {
             AttributedBullet("Patient + family education — purpose, expected duration, sensations, complications.", citationIDs: ["specialty_pr_round26"])
         ],
         steps: [
-            ProcedureStep(number: 1, title: "Calculate plasma volume", body: "Total blood volume × (1 - hematocrit) = plasma volume; typically exchange 1-1.5 plasma volumes (3-4 L for adult) per session.", citationIDs: ["specialty_pr_round26"]),
+            ProcedureStep(number: 1, title: "Plasma volume determination", body: "The apheresis team estimates plasma volume from total blood volume and hematocrit; typically 1-1.5 plasma volumes (3-4 L for an adult) are exchanged per session.", citationIDs: ["specialty_pr_round26"]),
             ProcedureStep(number: 2, title: "Vascular access", body: "Central catheter or large peripheral access; arterial line + venous return.", citationIDs: ["specialty_pr_round26"]),
             ProcedureStep(number: 3, title: "Initiate apheresis", body: "Centrifugal device separates plasma from RBCs; plasma diverted to waste; replacement fluid administered; usually 2-4 hours per session.", citationIDs: ["specialty_pr_round26"]),
             ProcedureStep(number: 4, title: "Monitor during procedure", body: "Continuous BP + HR + ECG; calcium replacement for tetany / paresthesias (citrate chelation); fluid balance; bleeding from catheter site.", citationIDs: ["specialty_pr_round26"]),
@@ -129,7 +129,7 @@ public enum IronIVAdministrationSample {
             AttributedBullet("Verify iron deficiency — ferritin <30 (or <100 in inflammation), transferrin saturation <20%, microcytic anemia.", citationIDs: ["specialty_pr_round26"]),
             AttributedBullet("Confirm oral iron intolerance / inadequate response / contraindication.", citationIDs: ["specialty_pr_round26"]),
             AttributedBullet("ALLERGY history — particularly previous iron reactions; cross-reactivity.", citationIDs: ["specialty_pr_round26"]),
-            AttributedBullet("CALCULATE total iron deficit — Ganzoni formula: deficit (mg) = weight × (target Hb − current Hb) × 2.4 + 500 mg storage.", citationIDs: ["specialty_pr_round26"]),
+            AttributedBullet("TOTAL IRON DEFICIT — individualized by the prescriber per the Ganzoni method, reflecting weight, target vs current hemoglobin, and storage iron.", citationIDs: ["specialty_pr_round26"]),
             AttributedBullet("Choose formulation based on — patient tolerability, desired dosing schedule (single high-dose vs multiple smaller), cost, comorbidities.", citationIDs: ["specialty_pr_round26"])
         ],
         steps: [
