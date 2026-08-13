@@ -4,8 +4,18 @@
 // Pipeline position: runs after feed-author. Scans feed_items where
 // review_state='pending_review' AND faithfulness_passed=false. For each one,
 // calls Haiku to compare the body against the source excerpt. If faithful,
-// flips faithfulness_passed=true. Otherwise leaves it false, so feed-publish
-// won't promote it.
+// flips faithfulness_passed=true.
+//
+// Verdicts are TERMINAL: the check runs at temperature 0.0, so a not-faithful
+// verdict is deterministic — re-verifying it tomorrow re-buys the same answer.
+// Unfaithful items move to review_state='rejected' immediately (same for
+// items whose source excerpt is gone — unverifiable is unpublishable).
+// Only transient API errors leave an item pending for the next run.
+//
+// This terminality is what keeps the pipeline flowing: the old behavior left
+// rejected items in pending_review forever, and because this stage processes
+// oldest-first, ten permanent rejections at the front of the queue starved
+// every newer item behind them — the June 2026 three-week feed outage.
 //
 // Also re-runs the clinical-safety regex from _shared/safety.ts as a
 // defense-in-depth check — feed-author already runs it, but running it
@@ -87,12 +97,14 @@ Deno.serve(async (req: Request): Promise<Response> => {
 
 async function fetchPendingItems(): Promise<FeedItemRow[]> {
     const admin = adminClient()
+    // Newest-first: fresh news verifies (and publishes) same-day. Anything
+    // that repeatedly errors sinks to the back instead of blocking the front.
     const { data, error } = await admin
         .from("feed_items")
         .select("id, source, source_url, headline, why_nurses_care, body")
         .eq("review_state", "pending_review")
         .eq("faithfulness_passed", false)
-        .order("ingested_at", { ascending: true })
+        .order("ingested_at", { ascending: false })
         .limit(MAX_ITEMS)
 
     if (error) {
@@ -114,11 +126,17 @@ async function verifyItem(item: FeedItemRow): Promise<ItemResult> {
         .single<IngestRow>()
 
     if (!queueRow) {
+        // Unverifiable is unpublishable — and permanently so. Reject rather
+        // than leave it wedged in pending_review forever.
+        await admin
+            .from("feed_items")
+            .update({ review_state: "rejected" })
+            .eq("id", item.id)
         return {
             feed_item_id: item.id,
             faithful: false,
             safety_passed: false,
-            error: "queue row not found for verification — source excerpt unavailable",
+            error: "queue row not found for verification — source excerpt unavailable; rejected",
         }
     }
 
@@ -171,6 +189,9 @@ async function verifyItem(item: FeedItemRow): Promise<ItemResult> {
         .update({
             faithfulness_passed: verifyOutput.faithful,
             safety_regex_passed: safetyPassed,
+            // Deterministic verdict at temperature 0 — a fail today is a fail
+            // tomorrow. Terminal-reject so the queue window keeps moving.
+            ...(verifyOutput.faithful ? {} : { review_state: "rejected" }),
         })
         .eq("id", item.id)
 

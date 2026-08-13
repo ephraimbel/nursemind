@@ -48,13 +48,19 @@ Deno.serve(async (req: Request): Promise<Response> => {
 
     const admin = adminClient()
 
-    // Pull candidates: pending_review only. Cap to MAX_ITEMS — typical daily
-    // batch is well under this; the cap exists so a backed-up queue doesn't
-    // blow the function timeout.
+    // Pull candidates: pending_review items that already pass every gate.
+    // Filtering the gates in SQL (not just in the loop below) matters: items
+    // that fail a gate would otherwise occupy the window forever and starve
+    // promotable items behind them — the June 2026 outage. The in-loop gate
+    // checks stay as defense-in-depth. Cap to MAX_ITEMS so a backed-up queue
+    // doesn't blow the function timeout.
     const { data, error } = await admin
         .from("feed_items")
         .select("id, category, priority, faithfulness_passed, safety_regex_passed, specialties")
         .eq("review_state", "pending_review")
+        .eq("faithfulness_passed", true)
+        .eq("safety_regex_passed", true)
+        .not("category", "is", null)
         .order("ingested_at", { ascending: true })
         .limit(MAX_ITEMS)
 
