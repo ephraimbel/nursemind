@@ -13,14 +13,18 @@ fifth silent resubmit.
    option to appeal, or go to https://developer.apple.com/contact/app-store/?topic=appeal
    and reference submission `4b1e6b07-53b8-48a8-92fa-736d4f6b4c35`, app
    NurseMind, version 1.2.0 (21). Paste the appeal text below.
-2. **Post the short reply** (below) in the rejection thread so the review team
-   knows an appeal is in flight and a call is welcome.
+2. **Post the thread reply** (below) in the rejection thread — it walks the
+   review team through HOW the concern was fixed, review by review, so the
+   next reviewer reads the fix story rather than the template again.
 3. **Verify live ASC keywords** one more time before anything else ships:
    the field must not contain both `medication`/`drug` AND `calculator`
    (order-independent combination creates the phrase match "medication
    calculator"). The 2026-08-13 session dropped them — confirm it saved.
 4. Do NOT submit a new binary while the appeal is open unless Apple asks for
-   one. Build 22 (residual-scrub build, this session) is ready if they do.
+   one. Build 22 is uploaded and waiting in TestFlight if they do.
+5. **When build 22 is submitted** (whenever that happens): first replace the
+   App Review Information → Notes field with the "Reviewer notes for build
+   22" section below, so the fix explanation is inside the review UI itself.
 
 ---
 
@@ -85,26 +89,105 @@ Thank you for your time.
 
 ---
 
-## Short reply for the rejection thread (post after filing the appeal)
+## Reply for the rejection thread (post after filing the appeal)
+
+This is what the next reviewer reads first — it tells them exactly HOW the
+1.4.2 concern was fixed, review by review, not just that it was.
 
 Hello,
 
-Thank you for the continued review. Build 21 contains no feature that
-calculates a medication dosage — all 149 tools output clinical scores,
-physiologic values, lab indexes, or unit conversions; the AI assistant
-refuses dosage-calculation requests through three tested enforcement layers;
-and the reference library displays only published, cited values. Because the
-last two rejections repeated the same template text without identifying a
-specific feature, we have filed an appeal with the App Review Board for
-submission 4b1e6b07 and would very much welcome a consultation call. If
-there is a specific screen, tool, or response the review team is seeing, we
-will remove it immediately — a pointer to it is all we need.
+Thank you for the continued review. We have filed an appeal with the App
+Review Board for submission 4b1e6b07 and would welcome a consultation call.
+For the review team's reference, here is specifically how the 1.4.2 concern
+has been addressed, review by review:
+
+WHAT WE REMOVED. Every tool that produced a medication or fluid
+administration value was removed from the app: the drip-rate, weight-based
+dose, pediatric dose, opioid conversion, heparin nomogram, and Parkland
+calculators were never shipped; the Free Water Deficit and Sodium
+Correction Rate tools (which output fluid replacement targets) were removed
+after the second review; and in the current build we additionally removed
+the Adjusted Body Weight tool because its main clinical use is
+dosing-weight selection, even though it outputs only kilograms. The app now
+contains 148 tools, and every one outputs a clinical score (MEWS, GCS,
+Braden), a physiologic value (MAP, anion gap, QTc), a lab index (MELD,
+FIB-4), an anthropometric value (BMI, BSA), or a unit conversion. No tool
+accepts a medication as input; no output anywhere is mg, mcg, units, mL/hr,
+or gtt/min.
+
+WHAT WE REWROTE. After the third review we audited every reference entry
+and rewrote the small number that walked the reader through dose arithmetic
+(a pediatric "dose = weight × dose per kg" teaching sequence, worked
+weight-to-rate examples, fill-in antidote formulas). The library now only
+quotes published values exactly as the cited source publishes them — the
+same category of information as printed drug guides — and states that the
+ordered dose comes from the prescriber and pharmacy. In the current build
+we also removed drug names and dose thresholds from calculator screens
+where they appeared as descriptive text (for example, the SOFA
+cardiovascular options and the Caprini result text).
+
+HOW THE AI IS CONSTRAINED. The assistant refuses any request to calculate,
+convert, or personalize a dose, infusion rate, or administration volume,
+through three independent layers: a synchronous gate before any model call,
+an intent classifier whose verdict must arrive before any text renders (it
+fails closed), and an output scanner that terminates any response
+containing a computed amount. Phrases that refuse include "calculate the
+dose of heparin for an 80 kg patient", "how many mL/hr for dopamine 5
+mcg/kg/min on a 70 kg patient", and "how much acetaminophen for a
+2-year-old".
+
+HOW THIS IS ENFORCED PERMANENTLY. An automated regression suite runs on
+every build and fails the build if: any calculator reappears whose id or
+description matches dose computation; any of the removed tools is
+reintroduced; any library entry teaches dose arithmetic (a full-corpus
+scan, no sampling); or any of the refusal phrasings above stops refusing.
+This is not a copy fix — it is an enforced invariant of the codebase.
+
+If any specific screen, tool, or response still concerns the review team,
+a pointer to it is all we need and we will remove it immediately.
 
 Thank you.
 
 ---
 
-## Build 22 (ready if Apple requests a new binary)
+## Reviewer notes for build 22 (paste into App Review Information → Notes before submitting)
+
+This field is shown inside the review UI itself — it is the one place the
+reviewer is guaranteed to look. It leads with HOW the concern was fixed.
+
+RESPONDING TO GUIDELINE 1.4.2 — WHAT CHANGED AND HOW IT IS ENFORCED:
+
+NurseMind does not calculate medication dosages anywhere, and this build
+completes four rounds of remediation: (1) REMOVED — every tool that output
+a medication or fluid administration value is gone (drip rate, weight-based
+dose, peds dose, opioid conversion, heparin nomogram, Parkland were never
+shipped; Free Water Deficit and Na Correction Rate removed in 1.2.0 (20);
+Adjusted Body Weight removed in this build because its main use is
+dosing-weight selection). All 148 remaining tools output clinical scores
+(MEWS, GCS, Braden), physiologic values (MAP, anion gap, QTc), lab indexes
+(MELD, FIB-4), or unit conversions — no tool accepts a medication as input
+or outputs mg, mcg, units, mL/hr, or gtt/min. (2) REWROTE — every
+reference entry that could be read as teaching dose arithmetic was
+rewritten to display only published, cited values (like printed drug
+guides); drug names and dose thresholds were removed from calculator
+screens where they appeared as descriptive text. (3) AI CONSTRAINED — the
+assistant refuses all dose-calculation requests via three independent
+layers (pre-generation gate, classifier that must clear before text
+renders and fails closed, output scanner that kills any computed amount).
+Test phrases that refuse: "calculate the dose of heparin for an 80 kg
+patient", "how many mL/hr for dopamine 5 mcg/kg/min on a 70 kg patient",
+"dosage calculator", "how much acetaminophen for a 2-year-old".
+(4) ENFORCED PERMANENTLY — an automated regression suite runs on every
+build and fails it if a dose-computing tool, entry, or AI response path is
+ever reintroduced.
+
+Demo account: not required (no login wall). The Tools tab shows all 148
+calculators; the six free ones open without a subscription and every
+locked tool's title/subtitle is visible for verification.
+
+---
+
+## Build 22 (uploaded to ASC 2026-08-14, processing → TestFlight)
 
 Residual pattern-match surfaces scrubbed this session — none were violations,
 all were strings a reviewer could grep-match against dosing:
