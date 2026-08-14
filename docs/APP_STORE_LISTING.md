@@ -1,6 +1,7 @@
 # App Store Listing — Copy-paste source
 
-> **2026-08-11:** The LIVE ASC metadata is canonical and diverges from this doc — it was rewritten in ASC directly during the 1.4.2 remediation (name is "NurseMind: AI Nursing Guide", subtitle "Evidence-based Clinical Tools", keywords `nclex,nursing,drug,medication,calculator,lab,iv,icu,reference,rn,sbar,map,gfr,bnp,anc,nurse,bedside`, description carries the explicit no-dosage-calculators sentence). Read the live fields in ASC before editing; treat the strings below as the v1.0 historical draft.
+> **2026-08-11:** The LIVE ASC metadata was rewritten in ASC directly during the 1.4.2 remediation (name "NurseMind: AI Nursing Guide", subtitle "Evidence-based Clinical Tools"; keywords subsequently de-risked on 2026-08-13 by dropping `medication` + `calculator`). Read the live fields in ASC before editing.
+> **2026-08-14:** Promotional Text, Description, Keywords, and What's New below were rewritten as the NEW canonical paste source (148 count, no drug/calculator phrase-adjacency outside the explicit denial sentence, language mirrors `docs/APP_REVIEW_APPEAL_142.md`). Paste these over the live fields at the next metadata update.
 
 All the strings to paste into App Store Connect. Each section maps to a specific ASC field. Counts assume the ASC limits.
 
@@ -25,9 +26,11 @@ Drug guide, NCLEX, AI co-pilot
 *30 chars. Tight — three highest-volume nursing search terms.*
 
 **Alternate options if you want to swap:**
-- `Drug guide, NCLEX, calculators` *(30 — bundle-forward)*
 - `The cited reference for nurses` *(30 — premium-forward)*
-- `Nursing reference + AI co-pilot` *(31 — over by 1)*
+- `Evidence-based Clinical Tools` *(29 — the current LIVE subtitle)*
+
+*(The former "Drug guide, NCLEX, calculators" alternate is retired — "drug"
+and "calculator" must never share a metadata field sentence; see 1.4.2.)*
 
 ### Privacy Policy URL
 ```
@@ -72,17 +75,17 @@ Every drug, lab, and procedure answer cited to its source. 148 clinical scores, 
 ## Description (4000 chars max)
 
 ```
-NurseMind is a clinical reference and self-directed learning tool for nursing students and licensed nurses. Cited library, the complete suite of nursing calculators, and an AI co-pilot that cites or refuses — in one iOS app.
+NurseMind is a clinical reference and self-directed learning tool for nursing students and licensed nurses. A cited library, 148 clinical scores and tools, and an AI co-pilot that cites or refuses — in one iOS app.
 
 INSIDE
 ————
-The reference, the calculator, and the co-pilot — in one place.
+The reference, the scores, and the co-pilot — in one place.
 
-· LIBRARY · 1,200+ entries across drugs, drips, labs, procedures, diagnoses, scenarios, communication, and reference. Every clinical claim is tied to a primary source — openFDA, DailyMed, Open RN, OpenStax, VA PBM, CDC, NIH, and other accredited references. If we can't cite it, we don't show it.
+· LIBRARY · 1,700+ entries across drugs, drips, labs, procedures, diagnoses, scenarios, communication, and reference. Every clinical claim is tied to a primary source — openFDA, DailyMed, Open RN, OpenStax, VA PBM, CDC, NIH, and other accredited references — and displayed exactly as the source publishes it. If we can't cite it, we don't show it.
 
-· CALCULATORS · 148 calculators across hemodynamics, renal, respiratory, hepatic, hematology, electrolytes, and more — clinical scores, severity indexes, physiologic ratios, and unit conversions. Every result returns the formula and an interpretive band. NurseMind does not include medication dosage calculators: no tool in the app computes a drug dose, infusion rate, or administration volume. Six are free to try; Pro unlocks the full suite.
+· TOOLS · 148 clinical scores, severity indexes, physiologic ratios, and unit conversions across hemodynamics, renal, respiratory, hepatic, hematology, electrolytes, and more. Every result returns the formula, the citation, and an interpretive band. NurseMind does not include medication dosage calculators: no tool accepts a medication as input, and none outputs a drug dose, infusion rate, or administration volume. Six are free to try; Pro unlocks the full suite.
 
-· ASK NURSEMIND · An AI co-pilot grounded in the library. It explains pathophysiology, walks through clinical reasoning concepts, and surfaces guideline-based information for educational purposes. It does not diagnose. It does not prescribe. It does not direct treatment for a specific patient. Every numerical claim is cited; responses without citations are rejected and regenerated.
+· ASK NURSEMIND · An AI co-pilot grounded in the library. It explains pathophysiology, walks through clinical reasoning concepts, and surfaces guideline-based information for educational purposes. It does not diagnose. It does not prescribe. It does not calculate doses. It does not direct treatment for a specific patient. Every numerical claim is cited; responses without citations are rejected and regenerated.
 
 DESIGN
 ——————
@@ -98,7 +101,7 @@ NurseMind is architecturally prevented from collecting Protected Health Informat
 
 PRO
 ———
-Most of NurseMind is free. Pro unlocks the full clinical scenario set, advanced specialty calculators, cross-device sync, offline mode, and a generous 50 daily AI questions (Free is 3/day).
+Most of NurseMind is free. Pro unlocks the full clinical scenario set, the complete tools suite, cross-device sync, offline mode, and a generous 50 daily AI questions (Free is 3/day).
 
 · Pro Monthly — $14.99/month
 · Pro Yearly — $99.99/year, with a 3-day free trial. Billed yearly. Cancel any time in iOS Settings.
@@ -117,13 +120,30 @@ NurseMind, Inc. · Built in the United States · hello@nursemind.app
 
 ## Keywords (100 chars max, comma-separated, no spaces after commas)
 ```
-medications,pharmacology,calculator,labs,RN,LPN,nurse,study,reference,prep,peds,drip,ICU,ER,med
+nclex,nursing,drug,lab,iv,icu,reference,rn,sbar,map,gfr,bnp,anc,nurse,bedside,scores,clinical
 ```
-*99 chars. Targets the top long-tail nursing search terms not already covered by the app name and subtitle (which carry "NCLEX," "drug guide," and "AI co-pilot" — the highest-volume terms).*
+*93 chars. This is the de-risked set: `medication`, `calculator`, and `drip` are deliberately absent — App Store search combines keywords order-independently, so any drug-word + `calculator` in the same field produces "medication calculator"/"drug calculator" phrase matches (a 1.4.2 trigger). Verify this matches the LIVE field in ASC; the live set was edited 2026-08-13.*
 
 ---
 
-## What's New (4000 chars max — first version)
+## What's New (4000 chars max — 1.2.0, build 22)
+```
+NurseMind 1.2.0 — sharper, faster, more findable.
+
+· Search now forgives typos — misspell "levetiracetam" and still land on it
+· Library entries and tools open straight from iPhone Spotlight
+· Smoother, faster streaming answers in Ask
+· Refined copy across the tools and library
+· Stability improvements throughout
+
+Built for clarity. Not for clinical use. Always defer to facility protocols and licensed clinical judgment.
+
+We read every email at hello@nursemind.app. Tell us what to build next.
+```
+
+---
+
+## What's New (historical — 1.0)
 ```
 NurseMind v1.0 — the first release.
 
