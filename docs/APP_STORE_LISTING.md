@@ -63,9 +63,9 @@ https://nursemind.app
 
 ## Promotional Text (170 chars max — updateable without re-review)
 ```
-Now in beta. A nursing reference redesigned for clarity. Cited library, full calculator suite, AI co-pilot that cites or refuses. Drug guide + NCLEX, scoped to your specialty.
+Every drug, lab, and procedure answer cited to its source. 148 clinical scores, indexes, and conversions. An AI co-pilot scoped to nursing that cites or refuses.
 ```
-*169 chars. Use this surface for time-sensitive announcements; it can be edited from ASC any time without triggering a new review.*
+*161 chars. Rewritten 2026-08-14: count corrected to 148, and "calculator" kept out of any sentence containing "drug" (1.4.2 phrase-adjacency); "scores, indexes, and conversions" matches the appeal + reviewer-notes language. Updateable from ASC any time without triggering a new review.*
 
 ---
 
