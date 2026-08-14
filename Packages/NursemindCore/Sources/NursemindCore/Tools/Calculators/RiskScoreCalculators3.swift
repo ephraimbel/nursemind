@@ -162,9 +162,9 @@ public struct SOFACalculatorView: View {
     private let cardioOptions: [CalculatorScoreRow.Option] = [
         .init(id: 0, label: "MAP ≥ 70, no vasopressor",                                            score: 0),
         .init(id: 1, label: "MAP < 70, no vasopressor",                                            score: 1),
-        .init(id: 2, label: "Dopamine ≤ 5 OR dobutamine (any)",                                    score: 2),
-        .init(id: 3, label: "Dopamine > 5 OR epi/norepi ≤ 0.1 mcg/kg/min",                         score: 3),
-        .init(id: 4, label: "Dopamine > 15 OR epi/norepi > 0.1 mcg/kg/min",                        score: 4)
+        .init(id: 2, label: "Low-dose vasoactive support (SOFA band 2)",                           score: 2),
+        .init(id: 3, label: "Moderate vasopressor support (SOFA band 3)",                          score: 3),
+        .init(id: 4, label: "High-dose vasopressor support (SOFA band 4)",                         score: 4)
     ]
     private let cnsOptions: [CalculatorScoreRow.Option] = [
         .init(id: 0, label: "GCS 15",     score: 0),
@@ -225,7 +225,7 @@ public struct SOFACalculatorView: View {
             )
             CalculatorFormulaSection(
                 formula: "Sum of 6 organ-system scores (0–4 each). Range 0–24.\nSepsis-3: ≥ 2-point acute increase from baseline + suspected infection = sepsis.",
-                notes: "Used in ICU to track multi-organ failure severity. Trend serially — change is more meaningful than absolute value. Mortality estimates above are population averages, not individual predictions.",
+                notes: "Used in ICU to track multi-organ failure severity. Trend serially — change is more meaningful than absolute value. Mortality estimates above are population averages, not individual predictions. Cardiovascular banding follows the published SOFA catecholamine thresholds — see the cited Vincent 1996 / Sepsis-3 definitions for the exact band criteria.",
                 citations: [sepsis3, sofaVincent, openrnRisk3]
             )
         }
@@ -284,7 +284,7 @@ public struct CapriniCalculatorView: View {
     }
 
     private var interpretation: (String, CalculatorInterpretationLevel) {
-        if total >= 5 { return ("Caprini ≥ 5 — high risk. Pharmacologic + mechanical prophylaxis (LMWH or low-dose UFH PLUS SCDs) per institutional protocol.", .alert) }
+        if total >= 5 { return ("Caprini ≥ 5 — high risk. Pharmacologic plus mechanical prophylaxis per institutional protocol.", .alert) }
         if total >= 3 { return ("Caprini 3–4 — moderate risk. Pharmacologic OR mechanical prophylaxis per protocol.", .caution) }
         if total >= 1 { return ("Caprini 1–2 — low risk. Mechanical prophylaxis (SCDs) and early ambulation.", .caution) }
         return ("Caprini 0 — very low risk. Early ambulation; routine prophylaxis usually not indicated.", .neutral)

@@ -5,7 +5,7 @@ import Foundation
 ///
 /// Lean teaser: a small, diverse, safety-clear cross-section that gives free
 /// users real working value while the overwhelming majority of the library
-/// (1,000+ entries) and tools (172 calculators) stays behind Pro. Adjust the
+/// (1,000+ entries) and tools (148 calculators) stays behind Pro. Adjust the
 /// two sets to widen or narrow the free portion — it's the conversion lever.
 public enum FreeTier {
     /// Calculators usable on the free tier. One per major area for breadth,

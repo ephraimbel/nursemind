@@ -358,7 +358,7 @@ public struct COWSCalculatorView: View {
         guard let s = total else { return nil }
         if s >= 36 { return ("COWS ≥ 36 — severe-withdrawal band per Wesson 2003.", .alert) }
         if s >= 25 { return ("COWS 25–35 — moderately-severe-withdrawal band.", .alert) }
-        if s >= 13 { return ("COWS 13–24 — moderate-withdrawal band; published buprenorphine-induction protocols typically use ≥ 12 as the threshold.", .caution) }
+        if s >= 13 { return ("COWS 13–24 — moderate-withdrawal band per the published scale.", .caution) }
         if s >= 5  { return ("COWS 5–12 — mild-withdrawal band.", .caution) }
         return ("COWS < 5 — minimal or no withdrawal symptoms per published cutoffs.", .neutral)
     }
@@ -400,7 +400,7 @@ public struct COWSCalculatorView: View {
             )
             CalculatorFormulaSection(
                 formula: "Sum of 11 items with item-specific score ranges. Range 0–48.",
-                notes: "Used to time buprenorphine induction (most protocols require COWS ≥ 8–12) and to titrate symptomatic withdrawal medications. Reassess every 1–2 hours during early withdrawal management.",
+                notes: "Facility protocols use serial COWS scores to guide when opioid-withdrawal treatment begins; treatment decisions come from the provider per protocol. Reassess every 1–2 hours during early withdrawal management.",
                 citations: [cowsWesson, openrnRisk4]
             )
         }

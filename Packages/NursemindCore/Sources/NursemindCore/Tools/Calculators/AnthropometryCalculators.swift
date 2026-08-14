@@ -202,7 +202,7 @@ public struct IBWCalculatorView: View {
             )
             CalculatorFormulaSection(
                 formula: "Men:   IBW = 50 + 2.3 × (inches over 5 ft)\nWomen: IBW = 45.5 + 2.3 × (inches over 5 ft)\n(1 in = 2.54 cm)",
-                notes: "IBW (Devine) is a reference body-weight estimate used across critical-care literature, including the published ARDSNet lung-protective ventilation tables. It is a weight metric, not a medication amount — this app does not calculate medication dosages.",
+                notes: "IBW (Devine) is a reference body-weight estimate used across critical-care and nutrition literature.",
                 citations: [devine, openrnAnthro]
             )
         }

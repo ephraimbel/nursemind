@@ -1350,7 +1350,7 @@ public enum CrossReferenceRegistry {
                 .libraryEntry(id: "delirium", displayCategory: "Diagnosis"),
                 .libraryEntry(id: "parkinson-disease", displayCategory: "Diagnosis")
             ]
-        case "bmi", "bsa", "ibw", "adjbw", "mifflin",
+        case "bmi", "bsa", "ibw", "mifflin",
              "conv-temp", "conv-weight", "conv-length", "conv-volume",
              "aa-gradient", "pack-years", "cardiac-index", "osmolar-gap":
             return []   // anthropometry / generic / conversions don't link to specific clinical entries

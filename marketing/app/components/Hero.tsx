@@ -58,7 +58,7 @@ export function Hero() {
 function HeroStats() {
   const stats: Array<[string, string]> = [
     ["1,200+", "drug entries"],
-    ["149", "calculators"],
+    ["148", "calculators"],
     ["60", "NCLEX-aligned scenarios"],
     ["100%", "cited"],
   ];

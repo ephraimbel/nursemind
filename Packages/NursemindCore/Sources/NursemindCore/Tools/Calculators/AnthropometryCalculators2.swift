@@ -2,16 +2,6 @@ import SwiftUI
 
 // MARK: - Shared citation sources
 
-private let adjbwRef = CitationSource(
-    id: "adjbw_ref",
-    shortName: "Adjusted Body Weight — standard pharmacology reference",
-    detail: "AdjBW = IBW + 0.4 × (actual − IBW)",
-    publisher: "Open RN Nursing Pharmacology",
-    license: .ccBy4,
-    url: "https://wtcs.pressbooks.pub/pharmacology/?s=anthropometry+body+weight",
-    lastRetrieved: "2026-05-04"
-)
-
 private let mifflin1990 = CitationSource(
     id: "mifflin_1990",
     shortName: "Mifflin-St Jeor — Mifflin MD et al., Am J Clin Nutr 1990 (concept citation)",
@@ -30,98 +20,6 @@ private let openrnAnthro2 = CitationSource(
     url: "https://wtcs.pressbooks.pub/healthassessment/?s=anthropometry+bmi+ibw",
     lastRetrieved: "2026-05-04"
 )
-
-// MARK: - AdjBW
-
-public struct AdjBWCalculatorView: View {
-    @CalcPersistedDouble(calculatorID: "adjbw", key: "ht") private var heightCm
-    @CalcPersistedDouble(calculatorID: "adjbw", key: "actual") private var actualKg
-    @CalcPersistedRawValue<SexOption>(calculatorID: "adjbw", key: "sex") private var sex
-
-    enum SexOption: String, CaseIterable, Identifiable {
-        case female, male
-        var id: String { rawValue }
-        var display: String { rawValue.capitalized }
-    }
-
-    private var ibw: Double? {
-        guard let h = heightCm, h > 0, let s = sex else { return nil }
-        let inches = h / 2.54
-        let inchesOver5Ft = max(inches - 60.0, 0)
-        let base: Double = (s == .male) ? 50.0 : 45.5
-        return base + 2.3 * inchesOver5Ft
-    }
-
-    private var adjbw: Double? {
-        guard let i = ibw, let a = actualKg, a > i else { return ibw }
-        return i + 0.4 * (a - i)
-    }
-
-    private var interpretation: (String, CalculatorInterpretationLevel)? {
-        guard let actual = actualKg, let i = ibw else { return nil }
-        if actual < i {
-            return ("Actual weight ≤ IBW — the adjustment does not apply; AdjBW equals IBW here.", .neutral)
-        }
-        let pctOver = ((actual - i) / i) * 100
-        if pctOver >= 30 {
-            return ("Actual weight ≥ 30% above IBW (BMI typically > 30) — the range where institutional protocols most often reference AdjBW. Which weight metric applies to a given medication is a provider and pharmacy decision.", .alert)
-        }
-        if pctOver >= 20 {
-            return ("Actual weight 20–30% above IBW. Institutional protocols vary on which weight metric applies in this range.", .caution)
-        }
-        return ("Actual weight close to IBW. Many institutions use actual or IBW; AdjBW typically not needed.", .neutral)
-    }
-
-    public var body: some View {
-        CalculatorScaffold(
-            eyebrow: CalculatorCategory.anthropometry.eyebrowName,
-            title: "Adjusted Body Weight",
-            subtitle: "Devine-based weight metric in obesity"
-        ) {
-            CalculatorSection("INPUTS") {
-                CalculatorNumberField(label: "Height",        unit: "cm", value: $heightCm)
-                Hairline(color: NMColor.borderSubtle)
-                CalculatorNumberField(label: "Actual weight", unit: "kg", value: $actualKg)
-                Hairline(color: NMColor.borderSubtle)
-                HStack {
-                    Text("Sex at birth").font(NMFont.bodyLG)
-                    Spacer()
-                    Picker("Sex", selection: $sex) {
-                        Text("—").tag(SexOption?.none)
-                        ForEach(SexOption.allCases) { Text($0.display).tag(SexOption?.some($0)) }
-                    }
-                    .pickerStyle(.segmented)
-                    .frame(maxWidth: 200)
-                }
-                .padding(.vertical, NMSpace.base)
-            }
-            if let i = ibw {
-                CalculatorSection("REFERENCE") {
-                    HStack {
-                        Text("IBW (Devine)").font(NMFont.bodyLG)
-                        Spacer()
-                        Text(String(format: "%.1f kg", i))
-                            .font(NMFont.monoXL)
-                            .foregroundStyle(NMColor.textPrimary)
-                    }
-                    .padding(.vertical, NMSpace.base)
-                }
-            }
-            CalculatorResultDisplay(
-                label: "AdjBW",
-                value: adjbw.map { String(format: "%.1f", $0) },
-                unit: "kg",
-                interpretation: interpretation?.0,
-                level: interpretation?.1 ?? .neutral
-            )
-            CalculatorFormulaSection(
-                formula: "IBW (Devine) — see IBW calculator.\nAdjBW = IBW + 0.4 × (actual − IBW)\n(use actual weight if actual ≤ IBW)",
-                notes: "AdjBW is a body-weight metric, not a medication amount — this app does not calculate medication dosages. Which weight metric (AdjBW, IBW, or actual) applies to a given medication varies by drug and institution; that choice belongs to the provider and pharmacist.",
-                citations: [adjbwRef, openrnAnthro2]
-            )
-        }
-    }
-}
 
 // MARK: - Mifflin-St Jeor
 

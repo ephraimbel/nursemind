@@ -96,7 +96,7 @@ public struct RuleOfNinesCalculatorView: View {
             )
             CalculatorFormulaSection(
                 formula: "Adult body surface assignment:\nHead/neck 9% · Each arm 9% · Anterior torso 18% · Posterior torso 18% · Each leg 18% · Perineum 1%\nTotal = 100%",
-                notes: "Wallace's Rule of Nines applies to ADULTS. Pediatric patients have proportionally larger heads and smaller legs — use Lund-Browder chart for accuracy. Estimate first- AND second/third-degree burns separately; only partial- and full-thickness burns count toward TBSA for resuscitation calculations. Patient's PALM (without fingers) is approximately 1% TBSA — useful for scattered or irregular burns.",
+                notes: "Wallace's Rule of Nines applies to ADULTS. Pediatric patients have proportionally larger heads and smaller legs — use Lund-Browder chart for accuracy. Estimate first- AND second/third-degree burns separately; only partial- and full-thickness burns count toward the reported TBSA. Patient's PALM (without fingers) is approximately 1% TBSA — useful for scattered or irregular burns.",
                 citations: [ruleOfNines, abaCriteria, openrnBurns]
             )
         }

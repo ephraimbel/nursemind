@@ -40,7 +40,7 @@ public enum CalculatorRegistry {
         CalculatorEntry(id: "spesi",          title: "sPESI",          subtitle: "Simplified PE Severity Index", category: .respiratory),
         CalculatorEntry(id: "geneva-pe",      title: "Geneva PE",      subtitle: "PE pretest probability · revised", category: .respiratory),
         CalculatorEntry(id: "light",          title: "Light's Criteria", subtitle: "Pleural effusion · transudate vs exudate", category: .respiratory),
-        CalculatorEntry(id: "ardsnet-vt",     title: "Predicted Body Weight", subtitle: "ARDSNet height-based estimate", category: .respiratory),
+        CalculatorEntry(id: "pbw",            title: "Predicted Body Weight", subtitle: "Height-based estimate", category: .respiratory),
 
         // Renal · Metabolic
         CalculatorEntry(id: "gfr",            title: "GFR",            subtitle: "CKD-EPI 2021 (race-free)",   category: .renalMetabolic),
@@ -153,7 +153,6 @@ public enum CalculatorRegistry {
         CalculatorEntry(id: "bmi",            title: "BMI",            subtitle: "Body mass index",            category: .anthropometry),
         CalculatorEntry(id: "bsa",            title: "BSA",            subtitle: "Body surface area · Mosteller", category: .anthropometry),
         CalculatorEntry(id: "ibw",            title: "IBW",            subtitle: "Ideal body weight · Devine", category: .anthropometry),
-        CalculatorEntry(id: "adjbw",          title: "Adjusted Body Weight", subtitle: "Devine-based weight metric in obesity", category: .anthropometry),
         CalculatorEntry(id: "mifflin",        title: "Mifflin-St Jeor", subtitle: "Resting metabolic rate",     category: .anthropometry),
         CalculatorEntry(id: "whr",            title: "Waist-Hip Ratio", subtitle: "Central adiposity · WHO cutoffs", category: .anthropometry),
         CalculatorEntry(id: "whtr",           title: "Waist-Height Ratio", subtitle: "Central adiposity · sex-neutral", category: .anthropometry),

@@ -80,7 +80,7 @@ The reference, the calculator, and the co-pilot — in one place.
 
 · LIBRARY · 1,200+ entries across drugs, drips, labs, procedures, diagnoses, scenarios, communication, and reference. Every clinical claim is tied to a primary source — openFDA, DailyMed, Open RN, OpenStax, VA PBM, CDC, NIH, and other accredited references. If we can't cite it, we don't show it.
 
-· CALCULATORS · 149 calculators across hemodynamics, renal, respiratory, hepatic, hematology, electrolytes, and more — clinical scores, severity indexes, physiologic ratios, and unit conversions. Every result returns the formula and an interpretive band. NurseMind does not include medication dosage calculators: no tool in the app computes a drug dose, infusion rate, or administration volume. Six are free to try; Pro unlocks the full suite.
+· CALCULATORS · 148 calculators across hemodynamics, renal, respiratory, hepatic, hematology, electrolytes, and more — clinical scores, severity indexes, physiologic ratios, and unit conversions. Every result returns the formula and an interpretive band. NurseMind does not include medication dosage calculators: no tool in the app computes a drug dose, infusion rate, or administration volume. Six are free to try; Pro unlocks the full suite.
 
 · ASK NURSEMIND · An AI co-pilot grounded in the library. It explains pathophysiology, walks through clinical reasoning concepts, and surfaces guideline-based information for educational purposes. It does not diagnose. It does not prescribe. It does not direct treatment for a specific patient. Every numerical claim is cited; responses without citations are rejected and regenerated.
 
@@ -128,7 +128,7 @@ medications,pharmacology,calculator,labs,RN,LPN,nurse,study,reference,prep,peds,
 NurseMind v1.0 — the first release.
 
 · The full clinical reference library, cited at every claim
-· 149 nursing calculators with formulas and interpretive bands
+· 148 nursing calculators with formulas and interpretive bands
 · Ask NurseMind — an AI co-pilot grounded in the library that cites or refuses
 · 3 free AI questions a day; Pro unlocks 50 a day, the full scenario set, offline mode, and cross-device sync
 

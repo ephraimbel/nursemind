@@ -291,7 +291,7 @@ public enum HeparinDripSample {
         ),
         dosing: [
             DosingBlock(label: "Loading", body: "80 units/kg IV bolus (cap at 10,000 units typical max).", citationIDs: ["openrn_pharm"]),
-            DosingBlock(label: "Initial infusion", body: "18 units/kg/hr; round to nearest 50 units/hr.", citationIDs: ["openrn_pharm"]),
+            DosingBlock(label: "Initial infusion", body: "18 units/kg/hr; the ordered rate comes from the prescriber and pharmacy per the facility's heparin protocol.", citationIDs: ["openrn_pharm"]),
             DosingBlock(label: "Adjustments (nomogram)", body: "Adjust per facility-specific aPTT or anti-Xa nomogram every 6 hours until therapeutic, then every 24 hours.", citationIDs: ["openrn_pharm"])
         ],
         contraindications: AttributedProse("History of HIT/HITTS, hypersensitivity, uncontrolled active bleeding (except in DIC), severe thrombocytopenia.", citationIDs: ["openrn_pharm"]),
@@ -311,7 +311,7 @@ public enum HeparinDripSample {
             AttributedBullet("Draw aPTT (or anti-Xa) per protocol — typically every 6 hours until therapeutic, then every 24 hours.", citationIDs: ["openrn_drips"]),
             AttributedBullet("Monitor CBC and platelets at baseline and per protocol.", citationIDs: ["openrn_drips"]),
             AttributedBullet("Assess for bleeding every shift — pad placement, gum/nose, urine, stool, neuro signs.", citationIDs: ["openrn_drips"]),
-            AttributedBullet("Have protamine sulfate available as the reversal agent (1 mg neutralizes ~100 units heparin).", citationIDs: ["openrn_drips"]),
+            AttributedBullet("Have protamine sulfate available as the reversal agent per facility protocol.", citationIDs: ["openrn_drips"]),
             AttributedBullet("Hold for 1 hour before invasive procedures per provider; restart per orders.", citationIDs: ["openrn_drips"])
         ],
         patientTeaching: AttributedProse("Report any unusual bleeding, severe headache, or signs of stroke immediately. Avoid IM injections, contact sports, and razors with blades. Inform all providers about heparin therapy.", citationIDs: ["openrn_pharm"]),

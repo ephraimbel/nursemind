@@ -107,7 +107,7 @@ public struct CockcroftGaultCalculatorView: View {
             )
             CalculatorFormulaSection(
                 formula: "CrCl = ((140 − age) × weight in kg) ÷ (72 × Scr)\nMultiply × 0.85 if female",
-                notes: "Cockcroft-Gault remains the renal-function estimate referenced in much FDA drug labeling, even though CKD-EPI 2021 is preferred for staging CKD. Use ACTUAL body weight in non-obese patients; many institutions use ideal or adjusted body weight for obese (BMI > 30) patients — follow your protocol. Not validated in unstable creatinine (AKI), pregnancy, or amputees. This tool estimates renal function only — medication decisions belong to the provider and pharmacist.",
+                notes: "Cockcroft-Gault estimates creatinine clearance; CKD-EPI 2021 is preferred for staging CKD. Uses actual body weight — institutional conventions vary for obese (BMI > 30) patients. Not validated in unstable creatinine (AKI), pregnancy, or amputees.",
                 citations: [cockcroftGault1976, openrnRenal2]
             )
         }

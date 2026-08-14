@@ -95,11 +95,11 @@ public struct CPPCalculatorView: View {
     }
 }
 
-// MARK: - ARDSNet Predicted Body Weight + Tidal Volume Range
+// MARK: - Predicted Body Weight
 
-public struct ARDSNetTidalVolumeCalculatorView: View {
-    @CalcPersistedDouble(calculatorID: "ardsnet-vt", key: "ht") private var heightCm
-    @CalcPersistedRawValue<SexOption>(calculatorID: "ardsnet-vt", key: "sex") private var sex
+public struct PredictedBodyWeightCalculatorView: View {
+    @CalcPersistedDouble(calculatorID: "pbw", key: "ht") private var heightCm
+    @CalcPersistedRawValue<SexOption>(calculatorID: "pbw", key: "sex") private var sex
 
     enum SexOption: String, CaseIterable, Identifiable {
         case female, male
@@ -117,7 +117,7 @@ public struct ARDSNetTidalVolumeCalculatorView: View {
         CalculatorScaffold(
             eyebrow: CalculatorCategory.respiratory.eyebrowName,
             title: "Predicted Body Weight",
-            subtitle: "ARDSNet predicted body weight"
+            subtitle: "Height-based estimate"
         ) {
             CalculatorSection("INPUTS") {
                 CalculatorNumberField(label: "Height", unit: "cm", value: $heightCm)
@@ -138,12 +138,12 @@ public struct ARDSNetTidalVolumeCalculatorView: View {
                 label: "Predicted body weight",
                 value: pbw.map { String(format: "%.1f", $0) },
                 unit: "kg",
-                interpretation: "PBW uses height and sex — not actual weight. Tidal volume set from actual weight overestimates lung size in most adults.",
+                interpretation: "PBW uses height and sex — not actual weight — because lung size tracks height, not body mass.",
                 level: .neutral
             )
             CalculatorFormulaSection(
                 formula: "Men:   PBW = 50 + 0.91 × (height cm − 152.4)\nWomen: PBW = 45.5 + 0.91 × (height cm − 152.4)",
-                notes: "The ARDSNet ARMA trial protocol published an initial tidal volume of 6 mL/kg PBW with a 4–8 mL/kg range, titrated against plateau pressure. This tool estimates PBW only; ventilator settings are ordered by the provider and adjusted by respiratory therapy.",
+                notes: "PBW is the reference body-weight estimate used across the published critical-care ventilation literature (ARDSNet ARMA). Ventilator settings are ordered by the provider and adjusted by respiratory therapy.",
                 citations: [ardsnetARMA, nhlbiARDSNet]
             )
         }

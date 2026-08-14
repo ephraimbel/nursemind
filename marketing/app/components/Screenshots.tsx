@@ -37,9 +37,9 @@ const shots: Shot[] = [
     eyebrow: "Tools · Calculators",
     title: "Calculators, organized clinically.",
     body: "Hemodynamics, renal, respiratory, hepatic, hematology, burns — calculators grouped the way nurses think about systems, not the way alphabetical lists pretend they do. Every result returns the formula and an interpretive band.",
-    detail: "149 calculators · 9 categories · formula + band on every result",
+    detail: "148 calculators · 9 categories · formula + band on every result",
     src: "/screenshots/tools.png",
-    alt: "NurseMind Tools tab — 149 calculators in 9 categories: Cardiovascular, Respiratory, Renal, Hepatic, Hematology, Burns",
+    alt: "NurseMind Tools tab — 148 calculators in 9 categories: Cardiovascular, Respiratory, Renal, Hepatic, Hematology, Burns",
     reverse: false,
   },
   {

@@ -98,7 +98,7 @@ public struct CalculatorDetailRouter: View {
         case "sgarbossa":        SgarbossaCalculatorView()
         case "timi-stemi":       TIMISTEMICalculatorView()
         case "cpp":              CPPCalculatorView()
-        case "ardsnet-vt":       ARDSNetTidalVolumeCalculatorView()
+        case "pbw":              PredictedBodyWeightCalculatorView()
 
         // Respiratory
         case "pf-ratio":         PFRatioCalculatorView()
@@ -230,7 +230,6 @@ public struct CalculatorDetailRouter: View {
         case "bmi":              BMICalculatorView(preset: preset)
         case "bsa":              BSACalculatorView()
         case "ibw":              IBWCalculatorView()
-        case "adjbw":            AdjBWCalculatorView()
         case "mifflin":          MifflinStJeorCalculatorView()
         case "whr":              WaistHipRatioCalculatorView()
         case "whtr":             WaistHeightRatioCalculatorView()

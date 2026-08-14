@@ -142,7 +142,7 @@ public struct CIWAArCalculatorView: View {
             )
             CalculatorFormulaSection(
                 formula: "Sum of 9 items (0–7) + 1 item (0–4). Range 0–67.\nReassess every 1–2 hours per institutional protocol.",
-                notes: "Symptom-triggered protocols (benzodiazepines dosed by serial CIWA-Ar) are associated in published literature with lower total benzodiazepine exposure and shorter withdrawal duration vs. fixed-schedule dosing in alert, communicative patients. CIWA-Ar requires a verbal, cooperative patient — alternative tools (e.g., RASS-based protocols) are used in intubated or non-communicative patients per published consensus.",
+                notes: "Symptom-triggered treatment protocols guided by serial CIWA-Ar scores are associated in published literature with shorter withdrawal duration vs. fixed-schedule approaches in alert, communicative patients; treatment decisions come from the provider per facility protocol. CIWA-Ar requires a verbal, cooperative patient — alternative tools (e.g., RASS-based protocols) are used in intubated or non-communicative patients per published consensus.",
                 citations: [sullivan1989Ciwa, openrnRisk2]
             )
         }

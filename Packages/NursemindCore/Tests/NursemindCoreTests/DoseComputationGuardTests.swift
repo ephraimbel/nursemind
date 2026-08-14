@@ -116,6 +116,44 @@ struct AskPipelineRefusalTests {
     }
 }
 
+@Suite("Calculator registry invariant")
+struct CalculatorRegistryGuardTests {
+
+    // The exact claim made to App Review under 1.4.2: no tool accepts a
+    // medication as input or produces a medication amount, infusion rate, or
+    // administration volume. A reviewer on a free account judges the 140+
+    // locked tools by title and subtitle alone, so those strings must never
+    // read as dose computation either.
+    @Test("No registered calculator advertises dose computation")
+    func registryStringsAreClean() {
+        let forbidden = #"(?i)\b(dose|dosage|dosing|drip|infusion|titrat|resuscitat|vial)\b|mcg/kg|ml/hr|units/kg|gtt|ml/kg"#
+        var violations: [String] = []
+        for entry in CalculatorRegistry.all {
+            let text = "\(entry.title) \(entry.subtitle)"
+            if text.range(of: forbidden, options: [.regularExpression]) != nil {
+                violations.append("\(entry.id): \(text)")
+            }
+        }
+        #expect(violations.isEmpty, "dose-framed calculator strings:\n\(violations.joined(separator: "\n"))")
+    }
+
+    // Ids of every dose/fluid-administration calculator ever cut for 1.4.2,
+    // plus the ones that never shipped. `main` still carries fwd and
+    // na-correction-rate — a merge that resolves toward main must fail here.
+    @Test("Cut dose calculators stay cut")
+    func cutCalculatorsStayCut() {
+        let banned: Set<String> = [
+            "fwd", "free-water-deficit", "na-correction-rate",
+            "adjbw", "ardsnet-vt",
+            "parkland", "drip-rate", "iv-drip-rate", "weight-based-dose",
+            "peds-dose", "opioid-conversion", "mme", "steroid-equivalency",
+            "heparin-nomogram", "peds-maintenance-fluids", "four-two-one"
+        ]
+        let present = Set(CalculatorRegistry.all.map(\.id)).intersection(banned)
+        #expect(present.isEmpty, "cut 1.4.2 calculator ids re-registered: \(present.sorted())")
+    }
+}
+
 @Suite("Corpus dose-calculation scan")
 struct CorpusDoseScanTests {
 
