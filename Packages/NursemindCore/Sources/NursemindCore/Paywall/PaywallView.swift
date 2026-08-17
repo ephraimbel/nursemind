@@ -238,11 +238,17 @@ public struct PaywallView: View {
                 title: "The full reference library",
                 body: "Drugs · drips · labs · scenarios"
             ),
-            PaywallFeature(
-                icon: "function",
-                title: "Every nursing calculator",
-                body: "MAP, GFR, sepsis scores, NIHSS, PESI"
-            ),
+            ToolsAvailability.calculatorsEnabled
+                ? PaywallFeature(
+                    icon: "function",
+                    title: "Every nursing calculator",
+                    body: "MAP, GFR, sepsis scores, NIHSS, PESI"
+                )
+                : PaywallFeature(
+                    icon: "text.book.closed.fill",
+                    title: "Every scenario walkthrough",
+                    body: "Case-based clinical judgment, cited"
+                ),
             PaywallFeature(
                 icon: "bookmark.fill",
                 title: "Save, search, resume",

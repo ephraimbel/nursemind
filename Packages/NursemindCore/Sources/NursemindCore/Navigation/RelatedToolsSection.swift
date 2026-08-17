@@ -12,7 +12,10 @@ public struct RelatedToolsSection: View {
     }
 
     public var body: some View {
-        let destinations = CrossReferenceRegistry.toolsFor(entryID: entryID)
+        let destinations = CrossReferenceRegistry.toolsFor(entryID: entryID).filter {
+            if case .calculator = $0 { return ToolsAvailability.calculatorsEnabled }
+            return true
+        }
         if destinations.isEmpty {
             EmptyView()
         } else {

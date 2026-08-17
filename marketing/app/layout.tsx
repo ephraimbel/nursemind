@@ -29,14 +29,14 @@ export const metadata: Metadata = {
     template: "%s · NurseMind",
   },
   description:
-    "A cited reference library, a complete suite of nursing calculators, and an AI co-pilot — built for nursing students and licensed nurses for study, NCLEX prep, and self-directed learning. Not a clinical decision tool.",
+    "A cited reference library and an AI co-pilot — built for nursing students and licensed nurses for study, NCLEX prep, and self-directed learning. Not a clinical decision tool.",
   applicationName: "NurseMind",
   authors: [{ name: "NurseMind" }],
   keywords: [
     "nursing study",
     "nursing reference",
     "NCLEX prep",
-    "nursing calculators",
+    "nursing school",
     "clinical learning",
     "nurse education",
     "evidence-based nursing",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     type: "website",
     title: "NurseMind",
     description:
-      "A clinical reference, redesigned for clarity. A cited library, the calculator suite, and an AI co-pilot — for studying and self-directed learning.",
+      "A clinical reference, redesigned for clarity. A cited library and an AI co-pilot — for studying and self-directed learning.",
     url: "https://nursemind.app",
     siteName: "NurseMind",
   },

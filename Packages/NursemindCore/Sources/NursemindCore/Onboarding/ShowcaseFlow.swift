@@ -10,32 +10,37 @@ struct ShowcaseFlow: View {
 
     @State private var currentPage: Int = 0
 
-    private let pages: [DemoPage] = [
-        DemoPage(
-            id: 0,
-            eyebrow: "ASK",
-            title: "Cited answers,\nin seconds.",
-            description: "Evidence-based, scoped to nursing practice."
-        ),
-        DemoPage(
-            id: 1,
-            eyebrow: "LIBRARY",
-            title: "A reference,\nrefined.",
-            description: "Drugs, drips, labs, procedures — all cited."
-        ),
-        DemoPage(
-            id: 2,
-            eyebrow: "TOOLS",
-            title: "Calculators\nthat work.",
-            description: "MAP, GFR, MEWS — scores and indexes, instantly."
-        ),
-        DemoPage(
+    private let pages: [DemoPage] = {
+        var pages = [
+            DemoPage(
+                id: 0,
+                eyebrow: "ASK",
+                title: "Cited answers,\nin seconds.",
+                description: "Evidence-based, scoped to nursing practice."
+            ),
+            DemoPage(
+                id: 1,
+                eyebrow: "LIBRARY",
+                title: "A reference,\nrefined.",
+                description: "Drugs, drips, labs, procedures — all cited."
+            )
+        ]
+        if ToolsAvailability.calculatorsEnabled {
+            pages.append(DemoPage(
+                id: 2,
+                eyebrow: "TOOLS",
+                title: "Calculators\nthat work.",
+                description: "MAP, GFR, MEWS — scores and indexes, instantly."
+            ))
+        }
+        pages.append(DemoPage(
             id: 3,
             eyebrow: "NCLEX",
             title: "Aligned to\nthe test plan.",
             description: "2026 NCLEX-RN, 8 client needs categories."
-        )
-    ]
+        ))
+        return pages
+    }()
 
     var body: some View {
         VStack(spacing: 0) {
@@ -53,9 +58,11 @@ struct ShowcaseFlow: View {
 
     private var pageView: some View {
         TabView(selection: $currentPage) {
-            ForEach(pages, id: \.id) { page in
+            // Tag by position, not page id — the TOOLS page is conditionally
+            // absent, and the Continue button advances by +1.
+            ForEach(Array(pages.enumerated()), id: \.element.id) { idx, page in
                 showcasePage(page)
-                    .tag(page.id)
+                    .tag(idx)
             }
         }
         .tabViewStyle(.page(indexDisplayMode: .never))

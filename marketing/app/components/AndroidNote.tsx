@@ -15,7 +15,7 @@ export function AndroidNote() {
             We're shipping iOS first to get the experience right — typography,
             haptics, latency, citation discipline. Android joins this year.{" "}
             <span className="italic font-[family-name:var(--font-serif)]">
-              Same library, same calculators, same posture.
+              Same library, same citations, same posture.
             </span>
           </p>
         </div>

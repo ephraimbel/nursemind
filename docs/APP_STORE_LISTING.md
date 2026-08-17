@@ -3,6 +3,7 @@
 > **2026-08-11:** The LIVE ASC metadata was rewritten in ASC directly during the 1.4.2 remediation (name "NurseMind: AI Nursing Guide", subtitle "Evidence-based Clinical Tools"; keywords subsequently de-risked on 2026-08-13 by dropping `medication` + `calculator`). Read the live fields in ASC before editing.
 > **2026-08-14:** Promotional Text, Description, Keywords, and What's New below were rewritten as the NEW canonical paste source (148 count, no drug/calculator phrase-adjacency outside the explicit denial sentence, language mirrors `docs/APP_REVIEW_APPEAL_142.md`).
 > **2026-08-14 (later, APPLIED TO ASC):** Live 1.2.0 version fields updated directly in ASC and SAVED (not submitted): promo → the 148 "cites or refuses" text; description surgically edited in place (opening decoupled to "148 clinical scores and tools", "Drips — titration monitoring" → "monitoring", AI line gains "never calculates doses", NURSING CALCULATORS section → CLINICAL SCORES & TOOLS with 148 + appeal-language denial sentence, "ideal body weight" dropped from marquee list, "calculator browsing" → "tools browsing"); What's New "and calculator is now searchable" → "and clinical tool"; App Review notes replaced with the build-22 REMOVED/REWROTE/AI-CONSTRAINED/ENFORCED narrative from APP_REVIEW_APPEAL_142.md. Keywords were already the de-risked set. Verified persisted after reload. The old promo was the smoking gun: "Drugs, labs, procedures, and 149 nursing calculators in one place" sat live through all four reviews.
+> **2026-08-17 (FIFTH REJECTION — surface withdrawn):** Build 22 rejected under 1.4.2 with reviewer screenshots of MELD (a mortality score, not a dosage). Response: the ENTIRE calculator/Tools surface is feature-flagged OFF in build 23 (`ToolsAvailability.calculatorsEnabled = false`, pinned by guard test) and the Review Board appeal is filed in parallel. This doc is rewritten below to describe an app with NO calculator surface: no tool counts, no "scores/tools" claims, no TOOLS section. The `tools.png` screenshot slot in ASC MUST be replaced before submitting build 23 — a calculator screenshot with no calculator surface is both a metadata mismatch and a 1.4.2 re-trigger. Subtitle: if the live subtitle is still "Evidence-based Clinical Tools", change it to a non-tools alternate below.
 
 All the strings to paste into App Store Connect. Each section maps to a specific ASC field. Counts assume the ASC limits.
 
@@ -27,11 +28,12 @@ Drug guide, NCLEX, AI co-pilot
 *30 chars. Tight — three highest-volume nursing search terms.*
 
 **Alternate options if you want to swap:**
-- `The cited reference for nurses` *(30 — premium-forward)*
-- `Evidence-based Clinical Tools` *(29 — the current LIVE subtitle)*
+- `The cited reference for nurses` *(30 — premium-forward — RECOMMENDED for build 23; replaces the live "Evidence-based Clinical Tools", which references the withdrawn Tools surface)*
+- `Cited answers for nurses` *(24)*
 
-*(The former "Drug guide, NCLEX, calculators" alternate is retired — "drug"
-and "calculator" must never share a metadata field sentence; see 1.4.2.)*
+*(Retired: "Drug guide, NCLEX, calculators" — "drug" and "calculator" must
+never share a metadata field sentence; "Evidence-based Clinical Tools" —
+the Tools surface is withdrawn as of build 23; see 1.4.2.)*
 
 ### Privacy Policy URL
 ```
@@ -67,24 +69,22 @@ https://nursemind.app
 
 ## Promotional Text (170 chars max — updateable without re-review)
 ```
-Every drug, lab, and procedure answer cited to its source. 148 clinical scores, indexes, and conversions. An AI co-pilot scoped to nursing that cites or refuses.
+Every drug, lab, and procedure answer cited to its source. 1,700+ reference entries across eight categories. An AI co-pilot scoped to nursing that cites or refuses.
 ```
-*161 chars. Rewritten 2026-08-14: count corrected to 148, and "calculator" kept out of any sentence containing "drug" (1.4.2 phrase-adjacency); "scores, indexes, and conversions" matches the appeal + reviewer-notes language. Updateable from ASC any time without triggering a new review.*
+*163 chars. Rewritten 2026-08-17 for build 23: all score/tool/calculator claims removed — the surface is withdrawn. Updateable from ASC any time without triggering a new review.*
 
 ---
 
 ## Description (4000 chars max)
 
 ```
-NurseMind is a clinical reference and self-directed learning tool for nursing students and licensed nurses. A cited library, 148 clinical scores and tools, and an AI co-pilot that cites or refuses — in one iOS app.
+NurseMind is a clinical reference and self-directed learning tool for nursing students and licensed nurses. A cited library and an AI co-pilot that cites or refuses — in one iOS app.
 
 INSIDE
 ————
-The reference, the scores, and the co-pilot — in one place.
+The reference and the co-pilot — in one place.
 
 · LIBRARY · 1,700+ entries across drugs, drips, labs, procedures, diagnoses, scenarios, communication, and reference. Every clinical claim is tied to a primary source — openFDA, DailyMed, Open RN, OpenStax, VA PBM, CDC, NIH, and other accredited references — and displayed exactly as the source publishes it. If we can't cite it, we don't show it.
-
-· TOOLS · 148 clinical scores, severity indexes, physiologic ratios, and unit conversions across hemodynamics, renal, respiratory, hepatic, hematology, electrolytes, and more. Every result returns the formula, the citation, and an interpretive band. NurseMind does not include medication dosage calculators: no tool accepts a medication as input, and none outputs a drug dose, infusion rate, or administration volume. Six are free to try; Pro unlocks the full suite.
 
 · ASK NURSEMIND · An AI co-pilot grounded in the library. It explains pathophysiology, walks through clinical reasoning concepts, and surfaces guideline-based information for educational purposes. It does not diagnose. It does not prescribe. It does not calculate doses. It does not direct treatment for a specific patient. Every numerical claim is cited; responses without citations are rejected and regenerated.
 
@@ -102,7 +102,7 @@ NurseMind is architecturally prevented from collecting Protected Health Informat
 
 PRO
 ———
-Most of NurseMind is free. Pro unlocks the full clinical scenario set, the complete tools suite, cross-device sync, offline mode, and a generous 50 daily AI questions (Free is 3/day).
+Most of NurseMind is free. Pro unlocks the full clinical scenario set, the complete reference library, cross-device sync, offline mode, and a generous 50 daily AI questions (Free is 3/day).
 
 · Pro Monthly — $14.99/month
 · Pro Yearly — $99.99/year, with a 3-day free trial. Billed yearly. Cancel any time in iOS Settings.
@@ -121,20 +121,20 @@ NurseMind, Inc. · Built in the United States · hello@nursemind.app
 
 ## Keywords (100 chars max, comma-separated, no spaces after commas)
 ```
-nclex,nursing,drug,lab,iv,icu,reference,rn,sbar,map,gfr,bnp,anc,nurse,bedside,scores,clinical
+nclex,nursing,drug,lab,iv,icu,reference,rn,sbar,guide,study,nurse,bedside,student,clinical
 ```
-*93 chars. This is the de-risked set: `medication`, `calculator`, and `drip` are deliberately absent — App Store search combines keywords order-independently, so any drug-word + `calculator` in the same field produces "medication calculator"/"drug calculator" phrase matches (a 1.4.2 trigger). Verify this matches the LIVE field in ASC; the live set was edited 2026-08-13.*
+*90 chars. 2026-08-17: `map`, `gfr`, `bnp`, `anc`, and `scores` dropped — they advertised the withdrawn calculator surface; replaced with `guide`, `study`, `student`. `medication`, `calculator`, and `drip` remain deliberately absent — App Store search combines keywords order-independently, so any drug-word + `calculator` in the same field produces "medication calculator"/"drug calculator" phrase matches (a 1.4.2 trigger). Update the LIVE field in ASC to match before submitting build 23.*
 
 ---
 
-## What's New (4000 chars max — 1.2.0, build 22)
+## What's New (4000 chars max — 1.2.0, build 23)
 ```
 NurseMind 1.2.0 — sharper, faster, more findable.
 
 · Search now forgives typos — misspell "levetiracetam" and still land on it
-· Library entries and tools open straight from iPhone Spotlight
+· Library entries open straight from iPhone Spotlight
 · Smoother, faster streaming answers in Ask
-· Refined copy across the tools and library
+· Refined copy across the library
 · Stability improvements throughout
 
 Built for clarity. Not for clinical use. Always defer to facility protocols and licensed clinical judgment.
@@ -198,7 +198,7 @@ Apple's questionnaire. Answer each:
 
 ### Subscription Group
 - Group name: **NurseMind Pro**
-- Group description: *"Unlocks the AI co-pilot, the full clinical scenario set, advanced specialty calculators, offline mode, and cross-device sync."*
+- Group description: *"Unlocks the AI co-pilot, the full clinical scenario set, the complete reference library, offline mode, and cross-device sync."* *(2026-08-17: "advanced specialty calculators" removed — update in ASC if the live group description still carries it.)*
 
 ### Free trial localization
 For the 3-day free trial introductory offer:
@@ -219,9 +219,11 @@ See `docs/APP_STORE_PRIVACY.md` — pre-filled answers for every question in ASC
 
 Required: 6.5" iPhone (1290×2796), 5.5" iPhone (1242×2208), 13" iPad Pro (2064×2752 or 2048×2732 depending on era).
 
+**2026-08-17: `tools.png` (the calculator screenshot) must be REMOVED from the live ASC screenshot set before submitting build 23** — the surface no longer exists in the build, and a calculator screenshot is itself a 1.4.2 trigger. Replace with a Library category, entry-detail, or Scenario capture.
+
 We have four 1206×2622 captures from the running iPhone 17 simulator at:
 - `/Users/ephraimbelachew/Apps/nursemind/marketing/public/screenshots/ask.png`
-- `library.png`, `tools.png`, `answer.png`
+- `library.png`, `tools.png` *(retired — do not upload)*, `answer.png`
 
 These are at 3× iPhone Pro Max scale. Apple now accepts the 6.5" iPhone size as the canonical and auto-scales for smaller devices, so the existing files are usable for the 6.5" slot. We'll need to either re-capture at the exact 1290×2796 spec or upscale carefully (Apple is permissive). For 5.5" iPhone, capture from an iPhone 8 Plus simulator. For iPad, capture from an iPad Pro 12.9" simulator.
 

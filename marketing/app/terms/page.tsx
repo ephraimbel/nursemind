@@ -91,8 +91,8 @@ function Body() {
               clinical claim;
             </Li>
             <Li>
-              A suite of nursing calculators that return both a result and
-              the underlying formula;
+              Case-based clinical scenarios structured for self-directed
+              learning;
             </Li>
             <Li>
               An AI co-pilot ("Ask NurseMind") that responds to nursing
@@ -301,7 +301,7 @@ function Body() {
         <Section number="9" title="Intellectual property">
           <P>
             The Service — including the design, the curated library
-            structure, the calculators, the AI prompts and refusal
+            structure, the AI prompts and refusal
             patterns, and the NurseMind name and logo — is owned by
             NurseMind, Inc. We grant you a personal, non-exclusive,
             non-transferable, revocable license to use the Service for your

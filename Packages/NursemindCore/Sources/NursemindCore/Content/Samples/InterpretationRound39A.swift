@@ -316,7 +316,7 @@ public enum LipidPanelInterpretationSample {
     public static let entry: ReferenceEntry = ReferenceEntry(
         id: "lipid-panel-interpretation",
         title: "Lipid panel interpretation",
-        subtitle: "TC + LDL + HDL + TG + non-HDL · ASCVD risk stratification (10-yr risk calculator) · primary vs secondary prevention · 2018 AHA/ACC + 2022 update treatment thresholds",
+        subtitle: "TC + LDL + HDL + TG + non-HDL · ASCVD risk stratification (10-yr risk estimate) · primary vs secondary prevention · 2018 AHA/ACC + 2022 update treatment thresholds",
         eyebrow: "REFERENCE · LAB INTERPRETATION",
         nclexTags: labRefTagsR39A,
         sections: [

@@ -353,7 +353,7 @@ public enum CKDStagingR19Sample {
             .bullets(title: "Other complications + lifestyle", [
                 AttributedBullet("Acidosis — sodium bicarbonate when HCO3 <22.", citationIDs: ["specialty_pr_round19"]),
                 AttributedBullet("Hyperkalemia — patiromer, sodium zirconium (avoid stopping life-saving RAS drugs).", citationIDs: ["specialty_pr_round19"]),
-                AttributedBullet("CV risk — statin (ASCVD calculator); aspirin selectively.", citationIDs: ["specialty_pr_round19"]),
+                AttributedBullet("CV risk — statin (ASCVD risk estimate); aspirin selectively.", citationIDs: ["specialty_pr_round19"]),
                 AttributedBullet("Avoid nephrotoxins — NSAIDs, IV contrast (use alternatives), aminoglycosides.", citationIDs: ["specialty_pr_round19"]),
                 AttributedBullet("Vaccination — influenza annually, pneumococcal, hepatitis B, COVID, shingles.", citationIDs: ["specialty_pr_round19"]),
                 AttributedBullet("Lifestyle — sodium <2 g/day, moderate protein (avoid excess), exercise, smoking cessation, weight management.", citationIDs: ["openrn_pr_round19"])

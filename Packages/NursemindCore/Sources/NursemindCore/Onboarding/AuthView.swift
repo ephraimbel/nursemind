@@ -87,8 +87,12 @@ struct AuthView: View {
             )
             Hairline(color: NMColor.borderSubtle)
             BenefitRow(
-                title: "Calculators for every unit",
-                subtitle: "Scores, scales, conversions — fast and offline"
+                title: ToolsAvailability.calculatorsEnabled
+                    ? "Calculators for every unit"
+                    : "The full library, offline",
+                subtitle: ToolsAvailability.calculatorsEnabled
+                    ? "Scores, scales, conversions — fast and offline"
+                    : "Drugs, labs, procedures — fast, no network needed"
             )
         }
     }

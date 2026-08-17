@@ -301,7 +301,7 @@ struct MessageRenderer: View {
 
     @ViewBuilder
     private var handoffSection: some View {
-        if let id = message.calculatorSuggestion {
+        if ToolsAvailability.calculatorsEnabled, let id = message.calculatorSuggestion {
             CalculatorHandoffRow(calculatorID: id, preset: message.calculatorPreset)
                 .transition(.opacity)
         }

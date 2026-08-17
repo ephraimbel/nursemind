@@ -24,7 +24,7 @@ const pro = {
   features: [
     "50 AI co-pilot queries / day",
     "All clinical scenarios",
-    "Advanced specialty calculators",
+    "The complete reference library",
     "Cross-device sync",
     "Offline pack",
     "Priority response time",
@@ -45,9 +45,9 @@ export function Pricing() {
             <span className="accent-italic">No</span> tricks.
           </h2>
           <p className="mt-6 max-w-[28rem] text-[16px] leading-[1.6] text-[color:var(--color-ink-muted)]">
-            The library and the calculators are free, forever. Pro unlocks the
+            The core library is free, forever. Pro unlocks the
             AI co-pilot for daily work, the full scenario set, and the
-            advanced specialty calculators.
+            complete reference library.
           </p>
 
           <div

@@ -18,7 +18,7 @@ export function Hero() {
         </h1>
 
         <p className="mt-9 md:mt-14 max-w-[44rem] text-[19px] md:text-[23px] leading-[1.5] tracking-[-0.005em] text-[color:var(--color-ink-muted)] lift lift-delay-2">
-          A cited library, the complete suite of nursing calculators, and an AI
+          A cited library of 1,700+ clinical entries and an AI
           co-pilot that{" "}
           <span className="text-[color:var(--color-ink)] italic font-[family-name:var(--font-serif)]">
             cites or refuses
@@ -58,7 +58,7 @@ export function Hero() {
 function HeroStats() {
   const stats: Array<[string, string]> = [
     ["1,200+", "drug entries"],
-    ["148", "calculators"],
+    ["150+", "lab references"],
     ["60", "NCLEX-aligned scenarios"],
     ["100%", "cited"],
   ];
@@ -134,33 +134,32 @@ function HeroPreview() {
         </div>
       </div>
 
-      {/* Calculator + AI stacked */}
+      {/* Lab + AI stacked */}
       <div className="md:col-span-7 grid grid-cols-1 gap-10 md:gap-12">
-        {/* Calculator */}
+        {/* Lab */}
         <div className="border-t border-[color:var(--color-hairline)] pt-5">
           <div className="flex items-baseline justify-between text-[12px] text-[color:var(--color-ink-muted)]">
             <span className="uppercase tracking-[0.16em] num text-[10.5px]">
-              Calculator · Hemodynamics
+              Lab · Chemistry
             </span>
             <span className="num text-[10.5px]">02 / 03</span>
           </div>
           <h3 className="mt-3 text-[28px] md:text-[32px] leading-[1.1] tracking-[-0.02em]">
-            Mean arterial pressure
+            Potassium
           </h3>
 
           <div className="mt-6 grid grid-cols-3 gap-3 md:gap-6">
-            <Field label="Systolic" value="118" unit="mmHg" />
-            <Field label="Diastolic" value="74" unit="mmHg" />
-            <Field label="MAP" value="89" unit="mmHg" emphasized />
+            <Field label="Reference" value="3.5 – 5.0" unit="mEq/L" />
+            <Field label="Critical low" value="< 2.5" unit="mEq/L" />
+            <Field label="Critical high" value="> 6.5" unit="mEq/L" emphasized />
           </div>
 
           <p className="mt-5 text-[13px] text-[color:var(--color-ink-muted)]">
-            Within target perfusion range. Threshold for sepsis-related concern{" "}
-            <span className="num text-[color:var(--color-ink)]">≥ 65</span>{" "}
-            mmHg.
+            Hypokalemia potentiates digoxin toxicity; watch for flattened T
+            waves and U waves on ECG.
           </p>
           <div className="mt-3 text-[12px] citation">
-            Surviving Sepsis Campaign · 2021
+            MedlinePlus · NLM · Open RN <em>Nursing Skills</em>
           </div>
         </div>
 

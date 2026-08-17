@@ -100,7 +100,7 @@ function Body() {
           </P>
           <H3>Usage and content</H3>
           <P>
-            Library bookmarks, calculator preferences, saved AI answers, and
+            Library bookmarks, in-app preferences, saved AI answers, and
             conversation history. Stored locally on your device and, when
             you're signed in, synced to your account.
           </P>
@@ -167,8 +167,8 @@ function Body() {
             questions with grounded citations, sync your bookmarks and saved
             content across signed-in devices, enforce daily AI quotas, manage
             your subscription state.</P>
-          <P>To improve the Service: triage crashes, identify failing
-            calculators, evaluate which library entries get the most use,
+          <P>To improve the Service: triage crashes,
+            evaluate which library entries get the most use,
             tune the AI co-pilot's retrieval and refusal behaviors. All
             improvement work uses anonymized, aggregated data.</P>
           <P>To communicate with you: respond to support emails and (only

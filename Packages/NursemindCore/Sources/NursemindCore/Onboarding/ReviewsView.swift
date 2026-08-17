@@ -24,12 +24,19 @@ struct ReviewsView: View {
             name: "Maya R.",
             role: "New Grad RN"
         ),
-        Testimonial(
-            title: "The calculators alone are worth it",
-            quote: "Didn't expect to use these as much as I do. MAP, GFR, all the sepsis scores in one place instead of digging through my notes at clinical. Wish I'd found it before pharm, not halfway through.",
-            name: "James T.",
-            role: "BSN Student"
-        ),
+        ToolsAvailability.calculatorsEnabled
+            ? Testimonial(
+                title: "The calculators alone are worth it",
+                quote: "Didn't expect to use these as much as I do. MAP, GFR, all the sepsis scores in one place instead of digging through my notes at clinical. Wish I'd found it before pharm, not halfway through.",
+                name: "James T.",
+                role: "BSN Student"
+            )
+            : Testimonial(
+                title: "Everything in one place",
+                quote: "Drug references, lab ranges, and procedure reviews in one app instead of digging through my notes at clinical. Wish I'd found it before pharm, not halfway through.",
+                name: "James T.",
+                role: "BSN Student"
+            ),
         Testimonial(
             title: "I actually trust what it tells me",
             quote: "Five years in and I still look things up constantly. This is faster than searching and it shows exactly where the information comes from, which is more than I can say for whatever google gives you.",

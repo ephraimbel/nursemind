@@ -42,7 +42,8 @@ public enum SpotlightIndexer {
     /// Indexes on a background task if the corpus or the item format changed.
     /// Cheap no-op on every launch after the first.
     public static func indexIfNeeded(registry: ContentRegistry = .shared) {
-        let expectedCount = registry.all.count + CalculatorRegistry.all.count
+        let expectedCount = registry.all.count
+            + (ToolsAvailability.calculatorsEnabled ? CalculatorRegistry.all.count : 0)
         let defaults = UserDefaults.standard
         let alreadyIndexed = defaults.integer(forKey: versionKey) == indexFormatVersion
             && defaults.integer(forKey: countKey) == expectedCount
@@ -69,9 +70,11 @@ public enum SpotlightIndexer {
 
         let thumbnails = await Thumbnails.render()
         var items = registry.all.map { searchableItem(for: $0, thumbnails: thumbnails) }
-        items.append(contentsOf: CalculatorRegistry.all.map {
-            searchableItem(for: $0, thumbnails: thumbnails)
-        })
+        if ToolsAvailability.calculatorsEnabled {
+            items.append(contentsOf: CalculatorRegistry.all.map {
+                searchableItem(for: $0, thumbnails: thumbnails)
+            })
+        }
 
         // Batched — one 1,900-item transaction is a large allocation and a
         // single point of failure for the whole index.

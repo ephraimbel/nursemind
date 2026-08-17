@@ -152,6 +152,16 @@ struct CalculatorRegistryGuardTests {
         let present = Set(CalculatorRegistry.all.map(\.id)).intersection(banned)
         #expect(present.isEmpty, "cut 1.4.2 calculator ids re-registered: \(present.sorted())")
     }
+
+    // Build-23 posture: after the fifth 1.4.2 rejection (reviewer screenshotted
+    // MELD — a mortality score), the ENTIRE calculator surface is withheld from
+    // App Store builds while the Review Board appeal is pending. This pin makes
+    // flipping the flag a deliberate, reviewed act — change it only after Apple
+    // approves the surface in writing.
+    @Test("Calculator surface stays hidden pending the 1.4.2 appeal")
+    func calculatorSurfaceIsDisabled() {
+        #expect(ToolsAvailability.calculatorsEnabled == false)
+    }
 }
 
 @Suite("Corpus dose-calculation scan")

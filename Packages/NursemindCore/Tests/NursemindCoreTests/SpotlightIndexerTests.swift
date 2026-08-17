@@ -34,17 +34,25 @@ struct SpotlightIndexerTests {
         #expect(router.librarySection == .reference)
     }
 
-    @Test("A calculator identifier opens the Tools section")
+    @Test("A calculator identifier respects the ToolsAvailability gate")
     func routesCalculator() {
         let router = AppRouter.shared
         router.selectedTab = AppRouter.askTab
+        router.librarySection = .reference
 
         let handled = SpotlightIndexer.handle(
             activity: spotlightActivity("calculator:map"), router: router)
 
-        #expect(handled)
-        #expect(router.selectedTab == AppRouter.libraryTab)
-        #expect(router.librarySection == .tools, "calculators live under Tools, not reference")
+        if ToolsAvailability.calculatorsEnabled {
+            #expect(handled)
+            #expect(router.selectedTab == AppRouter.libraryTab)
+            #expect(router.librarySection == .tools, "calculators live under Tools, not reference")
+        } else {
+            // Stale index items from a pre-gate install must not navigate
+            // anywhere — openCalculator is a guarded no-op.
+            #expect(router.selectedTab == AppRouter.askTab)
+            #expect(router.librarySection == .reference)
+        }
     }
 
     @Test("An identifier that no longer resolves is declined, not opened blank")

@@ -473,7 +473,7 @@ public enum OsteoporosisScreeningSample {
                 KeyValueRow(key: "Sites measured", value: "Lumbar spine (vertebral L1-L4), total hip, femoral neck — lowest T-score determines diagnosis")
             ]),
             .keyValueTable(title: "FRAX 10-year fracture risk", [
-                KeyValueRow(key: "Calculator", value: "Online tool — frax.shef.ac.uk — country-specific; inputs age, sex, weight, height, prior fracture, parental hip fracture, smoking, glucocorticoids, RA, alcohol, secondary osteoporosis, femoral neck T-score (optional)"),
+                KeyValueRow(key: "Risk tool", value: "Online tool — frax.shef.ac.uk — country-specific; inputs age, sex, weight, height, prior fracture, parental hip fracture, smoking, glucocorticoids, RA, alcohol, secondary osteoporosis, femoral neck T-score (optional)"),
                 KeyValueRow(key: "Outputs", value: "10-year probability of MAJOR osteoporotic fracture (hip/clinical spine/forearm/humerus) + HIP fracture"),
                 KeyValueRow(key: "Treatment threshold (NOF)", value: "10-year MAJOR fracture risk ≥20% OR 10-year HIP fracture risk ≥3% — treatment indicated"),
                 KeyValueRow(key: "Limitations", value: "Doesn't capture all risks (CKD, recent fracture); supplement with clinical judgment")

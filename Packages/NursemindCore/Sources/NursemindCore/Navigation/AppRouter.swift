@@ -123,6 +123,7 @@ public final class AppRouter {
     /// inside the Library tab — the dedicated Tools tab was retired in favor
     /// of a unified IA where Library contains both reference content and tools.
     public func openCalculator(_ id: String) {
+        guard ToolsAvailability.calculatorsEnabled else { return }
         var newPath = NavigationPath()
         newPath.append(LibraryDestination.calculator(id))
         libraryPath = newPath
@@ -133,6 +134,7 @@ public final class AppRouter {
     /// Switch to Library, set section to Tools, and clear the path so the user
     /// lands on the Tools home view (BROWSE calculator categories visible).
     public func openToolsHome() {
+        guard ToolsAvailability.calculatorsEnabled else { return }
         libraryPath = NavigationPath()
         librarySection = .tools
         selectedTab = AppRouter.libraryTab

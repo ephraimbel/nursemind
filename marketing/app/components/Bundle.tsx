@@ -13,15 +13,15 @@ const items = [
   },
   {
     label: "02",
-    eyebrow: "Calculators",
-    title: "The complete suite.",
-    body: "Hemodynamics, renal, respiratory, hepatic, hematology, acid-base. Scores, indexes, and conversions — every calculator returns a result, a formula, and an interpretive band. NurseMind does not include medication dosage calculators: no tool computes a drug dose, infusion rate, or administration volume.",
+    eyebrow: "Scenarios",
+    title: "Clinical judgment, walked through.",
+    body: "Case-based scenarios structured on the NCSBN Clinical Judgment Measurement Model — recognize, analyze, prioritize, act, evaluate. Each one unfolds the way a shift does, with every clinical claim cited to its source.",
     metrics: [
-      ["Calculators", "148"],
-      ["Free to start", "6"],
-      ["Citations per result", "1+"],
+      ["NGN-aligned scenarios", "60"],
+      ["CJMM steps per case", "6"],
+      ["Citations per claim", "1+"],
     ],
-    sourcedFrom: "Surviving Sepsis · KDIGO · ATS · ACC/AHA",
+    sourcedFrom: "Open RN · OpenStax · NCSBN CJMM structure",
   },
   {
     label: "03",
@@ -43,7 +43,7 @@ export function Bundle() {
       <div className="max-w-[44rem]">
         <div className="eyebrow">What's inside</div>
         <h2 className="mt-5 text-[36px] md:text-[56px] leading-[1.02] tracking-[-0.02em]">
-          The reference, the calculator,
+          The reference, the scenarios,
           <br />
           and the co-pilot —{" "}
           <span className="accent-italic">in one place.</span>

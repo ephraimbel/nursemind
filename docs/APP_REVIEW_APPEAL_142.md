@@ -1,5 +1,59 @@
 # App Review Board appeal — Guideline 1.4.2, submission 4b1e6b07
 
+> **2026-08-17 — FIFTH rejection changes the posture.** Build 22 was rejected
+> with the same 1.4.2 boilerplate plus reviewer screenshots of the MELD
+> (classic) tool — a mortality score with no medication input or output. The
+> screenshots prove the review team applies 1.4.2 to any clinical calculator,
+> not just dosage math, so the "our calculators aren't dose calculators"
+> argument below cannot clear review no matter how true it is. New strategy,
+> executed 2026-08-17: (1) build 23 removes the ENTIRE calculator surface
+> (`ToolsAvailability.calculatorsEnabled = false`, guard-test pinned) and
+> resubmits with calculator-free metadata — see
+> `APP_REVIEW_REPLY_BUILD23.md` for the thread reply, reviewer notes, and
+> submission checklist; (2) THIS appeal is filed the same day, arguing the
+> misapplication and asking whether non-medication clinical scores can be
+> restored in a future update. Use the **"Appeal text (2026-08-17 version)"**
+> section below; the original build-21 appeal text is retained beneath it for
+> history but is superseded.
+
+## Appeal text (2026-08-17 version — paste into the appeal form)
+
+We are appealing the Guideline 1.4.2 rejections of NurseMind 1.2.0
+(submission 4b1e6b07-53b8-48a8-92fa-736d4f6b4c35), most recently build 22 on
+August 17, 2026, and asking for clarification of the guideline's scope.
+
+The build-22 rejection states the app "calculates medical dosages," and the
+attached reviewer screenshots show the MELD (classic) tool. MELD is a
+cirrhosis severity score computed from three laboratory values (bilirubin,
+INR, creatinine). It does not accept any medication as input and does not
+output any medication amount, rate, or volume — nothing in it calculates a
+dosage. The same is true of every tool in build 22: after the build-20
+remediation, the complete tool set consisted of clinical scores (MEWS, GCS,
+Braden, SOFA), physiologic values (MAP, anion gap, QTc), lab-derived indexes
+(MELD, FIB-4), anthropometrics (BMI, BSA), and unit conversions. The
+complete set of output units contained no mg, mcg, units, mL/hr, or gtt/min.
+These are the same instruments that ship in many nursing and medical
+reference apps published by individual developers.
+
+To unblock release, we have removed the entire calculator surface — every
+score, index, ratio, and conversion, including MELD — in build 23, and
+updated all metadata to match. We are not asking the Board to reverse the
+rejection of build 22.
+
+We are asking the Board to clarify: does Guideline 1.4.2's
+manufacturer/institution requirement extend to clinical scoring tools that
+have no medication inputs or outputs (MELD, GCS, Braden, BMI, unit
+conversions)? If it does not, we would like to restore that surface in a
+future update with the review team's guidance. If it does, we will keep it
+removed and would appreciate that being stated so we can plan the product
+accordingly.
+
+We would welcome a consultation call if that is easier. Thank you.
+
+---
+
+## Original build-21 posture (superseded 2026-08-17)
+
 Fourth 1.4.2 rejection (2026-08-14, build 21, iPhone 17 Pro Max) was verbatim
 boilerplate — "the issues we previously identified still need your attention" —
 with no specific feature named, against the build that removed every residual

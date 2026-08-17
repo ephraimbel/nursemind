@@ -26,7 +26,7 @@ export function DownloadCTA() {
             to <span className="accent-italic">understand.</span>
           </h2>
           <p className="mt-7 max-w-[34rem] text-[16.5px] md:text-[18px] leading-[1.55] text-[color:var(--color-ink-muted)]">
-            Free to start, with the full library and the calculator suite from
+            Free to start, with the cited reference library from
             the first launch. Pro joins the AI co-pilot, the full scenario set,
             and cross-device sync when you're ready.
           </p>

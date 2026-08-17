@@ -13,7 +13,7 @@ type Shot = {
 
 const shots: Shot[] = [
   {
-    index: "01 / 04",
+    index: "01 / 03",
     eyebrow: "Ask · Entry",
     title: "Ask, scoped to nursing.",
     body: "The co-pilot opens to a single editorial input. It tells you what it knows — your specialty, the 2026 NCLEX-RN test plan — and how many questions you have left today before you ever type one.",
@@ -23,7 +23,7 @@ const shots: Shot[] = [
     reverse: false,
   },
   {
-    index: "02 / 04",
+    index: "02 / 03",
     eyebrow: "Library · Reference",
     title: "A library that knows your specialty.",
     body: "Drugs, drips, labs, procedures, diagnoses, scenarios — every category opens to entries written and cited for clinical learning. The count next to each row is what's in your specialty alone, not the global catalogue.",
@@ -33,24 +33,14 @@ const shots: Shot[] = [
     reverse: true,
   },
   {
-    index: "03 / 04",
-    eyebrow: "Tools · Calculators",
-    title: "Calculators, organized clinically.",
-    body: "Hemodynamics, renal, respiratory, hepatic, hematology, burns — calculators grouped the way nurses think about systems, not the way alphabetical lists pretend they do. Every result returns the formula and an interpretive band.",
-    detail: "148 calculators · 9 categories · formula + band on every result",
-    src: "/screenshots/tools.png",
-    alt: "NurseMind Tools tab — 148 calculators in 9 categories: Cardiovascular, Respiratory, Renal, Hepatic, Hematology, Burns",
-    reverse: false,
-  },
-  {
-    index: "04 / 04",
+    index: "03 / 03",
     eyebrow: "Answer · In practice",
     title: "Cited, or refused.",
     body: "Every answer surfaces the entries it pulled from before the prose begins. Numerical claims carry a citation chip. Critical findings — like a potassium of 6.5 — are flagged with the relevant guideline source, not buried in a paragraph.",
     detail: "Source chips · guideline citations · grounded retrieval",
     src: "/screenshots/answer.png",
     alt: "NurseMind AI answer in action — interpreting a potassium of 6.5, with reference entries surfaced first and an AHA citation chip on the critical finding",
-    reverse: true,
+    reverse: false,
   },
 ];
 

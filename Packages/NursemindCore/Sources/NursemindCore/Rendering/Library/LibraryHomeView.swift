@@ -25,17 +25,22 @@ public struct LibraryHomeView: View {
                     header
                     SearchFieldButton(prompt: searchPrompt) { router.presentSearch() }
                         .padding(.top, NMSpace.lg)
-                    LibrarySectionSwitcher(selection: $router.librarySection)
-                        .padding(.top, NMSpace.lg)
+                    if ToolsAvailability.calculatorsEnabled {
+                        LibrarySectionSwitcher(selection: $router.librarySection)
+                            .padding(.top, NMSpace.lg)
+                    }
                     Hairline().padding(.bottom, NMSpace.xl)
+                        .padding(.top, ToolsAvailability.calculatorsEnabled ? 0 : NMSpace.lg)
                     Group {
                         switch router.librarySection {
                         case .reference:
                             referenceContent(pinned: pinned, recents: recents)
                                 .transition(sectionTransition(forward: false))
-                        case .tools:
+                        case .tools where ToolsAvailability.calculatorsEnabled:
                             toolsContent(pinnedCalcs: pinnedCalcs, recentCalcs: recentCalcs)
                                 .transition(sectionTransition(forward: true))
+                        case .tools:
+                            referenceContent(pinned: pinned, recents: recents)
                         }
                     }
                 }
@@ -73,9 +78,17 @@ public struct LibraryHomeView: View {
                 case .nclexSubcategory(let sub):
                     NCLEXSubcategoryListView(subcategory: sub, registry: registry)
                 case .calculator(let id):
-                    CalculatorDetailRouter(calculatorID: id)
+                    if ToolsAvailability.calculatorsEnabled {
+                        CalculatorDetailRouter(calculatorID: id)
+                    } else {
+                        Text("Not available").captionText()
+                    }
                 case .calculatorCategory(let category):
-                    CalculatorListView(category: category)
+                    if ToolsAvailability.calculatorsEnabled {
+                        CalculatorListView(category: category)
+                    } else {
+                        Text("Not available").captionText()
+                    }
                 }
             }
             .toolbar(.hidden, for: .navigationBar)

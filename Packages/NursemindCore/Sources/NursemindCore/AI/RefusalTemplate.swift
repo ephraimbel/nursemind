@@ -43,9 +43,13 @@ public enum RefusalType: String, Codable, Sendable, CaseIterable {
         case .patientFacing:
             return "Please direct medical questions to your healthcare provider."
         case .quotaExceeded:
-            return "The Library and Tools tabs stay open — full reference content, all calculators, no limits. Ask resets at midnight, or upgrade to Pro for a higher daily ceiling."
+            return ToolsAvailability.calculatorsEnabled
+                ? "The Library and Tools tabs stay open — full reference content, all calculators, no limits. Ask resets at midnight, or upgrade to Pro for a higher daily ceiling."
+                : "The Library stays open — full reference content, no limits. Ask resets at midnight, or upgrade to Pro for a higher daily ceiling."
         case .serviceUnavailable:
-            return "Connectivity issue, an outage, or temporary configuration problem. Try again in a moment. The Library and Tools tabs work without a network."
+            return ToolsAvailability.calculatorsEnabled
+                ? "Connectivity issue, an outage, or temporary configuration problem. Try again in a moment. The Library and Tools tabs work without a network."
+                : "Connectivity issue, an outage, or temporary configuration problem. Try again in a moment. The Library works without a network."
         }
     }
 

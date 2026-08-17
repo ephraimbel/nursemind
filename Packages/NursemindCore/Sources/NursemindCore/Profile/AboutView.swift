@@ -20,7 +20,11 @@ public struct AboutView: View {
 
                 VStack(alignment: .leading, spacing: NMSpace.md) {
                     EyebrowLabel("WHAT NURSEMIND IS", sparkle: false)
-                    Text("A premium reference and study tool for licensed and student nurses. We bundle a curated library of evidence-based clinical reference content, a strictly-scoped AI co-pilot grounded in that library, and a complete suite of nursing calculators into a single, beautifully designed experience.")
+                    Text(
+                        ToolsAvailability.calculatorsEnabled
+                            ? "A premium reference and study tool for licensed and student nurses. We bundle a curated library of evidence-based clinical reference content, a strictly-scoped AI co-pilot grounded in that library, and a complete suite of nursing calculators into a single, beautifully designed experience."
+                            : "A premium reference and study tool for licensed and student nurses. We bundle a curated library of evidence-based clinical reference content with a strictly-scoped AI co-pilot grounded in that library, in a single, beautifully designed experience."
+                    )
                         .font(NMFont.bodyLG)
                         .foregroundStyle(NMColor.textSecondary)
                         .lineSpacing(4)

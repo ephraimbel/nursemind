@@ -103,7 +103,9 @@ public struct GlobalSearchView: View {
         if Task.isCancelled { return }
 
         let ql = q.lowercased()
-        let calculators = CalculatorRegistry.search(q, limit: 5)
+        let calculators = ToolsAvailability.calculatorsEnabled
+            ? CalculatorRegistry.search(q, limit: 5)
+            : []
         let saved = allSavedAnswers.filter { answer in
             answer.question.lowercased().contains(ql) ||
             answer.answerMarkdown.lowercased().contains(ql) ||
@@ -143,7 +145,12 @@ public struct GlobalSearchView: View {
             Image(systemName: "magnifyingglass")
                 .font(.system(size: 16, weight: .regular))
                 .foregroundStyle(NMColor.textTertiary)
-            TextField("Search drugs, calculators, saved answers", text: $query)
+            TextField(
+                ToolsAvailability.calculatorsEnabled
+                    ? "Search drugs, calculators, saved answers"
+                    : "Search drugs, labs, saved answers",
+                text: $query
+            )
                 .font(NMFont.bodyLG)
                 .foregroundStyle(NMColor.textPrimary)
                 .focused($isSearchFocused)
@@ -191,7 +198,11 @@ public struct GlobalSearchView: View {
     private var hintSection: some View {
         VStack(alignment: .leading, spacing: NMSpace.md) {
             EyebrowLabel("TRY SEARCHING", sparkle: false)
-            Text("Drug names · calculator names · saved answers · NCLEX categories.")
+            Text(
+                ToolsAvailability.calculatorsEnabled
+                    ? "Drug names · calculator names · saved answers · NCLEX categories."
+                    : "Drug names · lab values · saved answers · NCLEX categories."
+            )
                 .font(NMFont.bodyLG)
                 .foregroundStyle(NMColor.textSecondary)
                 .lineSpacing(3)
