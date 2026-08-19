@@ -75,6 +75,7 @@ public struct DiagnosisEntryView: View {
         divider
         citations
         attributionFooter
+        RelatedEntriesSection(entryID: "diagnosis:\(entry.id)")
         RelatedToolsSection(entryID: entry.id)
     }
 

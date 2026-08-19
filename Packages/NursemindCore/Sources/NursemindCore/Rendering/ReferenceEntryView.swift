@@ -67,6 +67,9 @@ public struct ReferenceEntryView: View {
         divider
         citations
         attributionFooter
+        if let id = namespacedID {
+            RelatedEntriesSection(entryID: id)
+        }
         RelatedToolsSection(entryID: entry.id)
     }
 
@@ -84,6 +87,17 @@ public struct ReferenceEntryView: View {
     /// category token. The eyebrow's first segment is the category;
     /// `LibraryEntry`'s case wrapping isn't visible inside this renderer
     /// because the entry was already unwrapped by `LibraryEntryView`.
+    /// This renderer serves three wrapper categories and doesn't know which
+    /// one produced it — resolve the namespaced id against the registry
+    /// instead of trusting the eyebrow-derived heuristic.
+    private var namespacedID: String? {
+        for category in ["scenario", "communication", "reference"] {
+            let id = "\(category):\(entry.id)"
+            if ContentRegistry.shared.entry(byID: id) != nil { return id }
+        }
+        return nil
+    }
+
     private var parsedCategory: String {
         entry.eyebrow
             .split(separator: "·")

@@ -66,6 +66,7 @@ public struct LabEntryView: View {
         divider
         citations
         attributionFooter
+        RelatedEntriesSection(entryID: "lab:\(entry.id)")
         RelatedToolsSection(entryID: entry.id)
     }
 

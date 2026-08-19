@@ -73,6 +73,7 @@ public struct ProcedureEntryView: View {
         divider
         citations
         attributionFooter
+        RelatedEntriesSection(entryID: "procedure:\(entry.id)")
         RelatedToolsSection(entryID: entry.id)
     }
 

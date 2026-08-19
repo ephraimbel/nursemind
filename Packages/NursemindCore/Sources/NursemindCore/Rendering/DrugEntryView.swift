@@ -89,6 +89,7 @@ public struct DrugEntryView: View {
         divider
         citations.id(SectionAnchor.citations.rawValue)
         attributionFooter
+        RelatedEntriesSection(entryID: "\(entryCategory):\(entry.id)")
         RelatedToolsSection(entryID: entry.id)
     }
 
