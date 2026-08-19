@@ -178,7 +178,9 @@ public final class FeedStore {
         // tiebreaker for items with equal scores (e.g. all fresh, zero
         // engagement on cold start, where rank_score collapses to recency).
         // FeedItem ignores the extra rank_score column at decode time.
-        try await client
+        // Rows decode lossily: a single malformed row is dropped (and logged)
+        // instead of failing the array and blanking the feed.
+        let rows: [LossyFeedItem] = try await client
             .from("feed_items_ranked")
             .select()
             .order("rank_score", ascending: false, nullsFirst: false)
@@ -186,6 +188,11 @@ public final class FeedStore {
             .limit(pageSize)
             .execute()
             .value
+        let decoded = rows.compactMap(\.item)
+        if decoded.count != rows.count {
+            feedLog.error("dropped \(rows.count - decoded.count) undecodable feed rows")
+        }
+        return decoded
     }
 
     /// Fire-and-forget engagement signal. Drives the ranked sort and metrics.

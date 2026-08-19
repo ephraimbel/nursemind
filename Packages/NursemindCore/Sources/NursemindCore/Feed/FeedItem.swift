@@ -85,6 +85,36 @@ public struct FeedCitation: Codable, Sendable, Identifiable, Equatable {
     public let quote: String
 
     public var id: Int { n }
+
+    /// Server-authored JSON has occasionally shipped citations missing
+    /// `quote` (2026-08-11 incident: two such rows failed the whole-array
+    /// decode and blanked the feed for every user). The quote is display-only
+    /// supporting text, so tolerate its absence rather than losing the item.
+    public init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        self.n      = try c.decode(Int.self, forKey: .n)
+        self.source = try c.decode(String.self, forKey: .source)
+        self.url    = try c.decode(String.self, forKey: .url)
+        self.quote  = try c.decodeIfPresent(String.self, forKey: .quote) ?? ""
+    }
+
+    public init(n: Int, source: String, url: String, quote: String) {
+        self.n = n
+        self.source = source
+        self.url = url
+        self.quote = quote
+    }
+}
+
+/// Wrapper that turns a row-level decode failure into `nil` instead of
+/// failing the surrounding array. One malformed served row must degrade to
+/// one missing card, never an empty feed.
+struct LossyFeedItem: Decodable {
+    let item: FeedItem?
+
+    init(from decoder: Decoder) {
+        self.item = try? FeedItem(from: decoder)
+    }
 }
 
 public extension FeedItem {

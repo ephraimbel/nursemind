@@ -48,6 +48,23 @@ type FeedItemRow = {
     headline: string
     why_nurses_care: string
     body: string
+    citations: unknown
+}
+
+/// Structural check on the authored citations array. The iOS client decodes
+/// every citation as {n, source, url, quote}; a single malformed object used
+/// to fail the whole feed fetch (2026-08-11: two rows shipped without
+/// `quote`). Malformed structure is a terminal authoring defect — reject.
+function citationsStructurallyValid(citations: unknown): boolean {
+    if (!Array.isArray(citations) || citations.length === 0) return false
+    return citations.every((c) =>
+        c !== null && typeof c === "object" &&
+        Number.isInteger((c as Record<string, unknown>).n) &&
+        ["source", "url", "quote"].every((k) => {
+            const v = (c as Record<string, unknown>)[k]
+            return typeof v === "string" && v.length > 0
+        })
+    )
 }
 
 type IngestRow = {
@@ -101,7 +118,7 @@ async function fetchPendingItems(): Promise<FeedItemRow[]> {
     // that repeatedly errors sinks to the back instead of blocking the front.
     const { data, error } = await admin
         .from("feed_items")
-        .select("id, source, source_url, headline, why_nurses_care, body")
+        .select("id, source, source_url, headline, why_nurses_care, body, citations")
         .eq("review_state", "pending_review")
         .eq("faithfulness_passed", false)
         .order("ingested_at", { ascending: false })
@@ -137,6 +154,19 @@ async function verifyItem(item: FeedItemRow): Promise<ItemResult> {
             faithful: false,
             safety_passed: false,
             error: "queue row not found for verification — source excerpt unavailable; rejected",
+        }
+    }
+
+    if (!citationsStructurallyValid(item.citations)) {
+        await admin
+            .from("feed_items")
+            .update({ review_state: "rejected" })
+            .eq("id", item.id)
+        return {
+            feed_item_id: item.id,
+            faithful: false,
+            safety_passed: false,
+            error: "citations array structurally invalid (missing n/source/url/quote); rejected",
         }
     }
 
