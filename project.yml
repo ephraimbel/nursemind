@@ -9,8 +9,8 @@ settings:
   base:
     SWIFT_VERSION: "6.0"
     DEVELOPMENT_TEAM: "LRDHWBMA87"
-    MARKETING_VERSION: "1.5.0"
-    CURRENT_PROJECT_VERSION: "25"
+    MARKETING_VERSION: "1.5.1"
+    CURRENT_PROJECT_VERSION: "26"
 
 packages:
   NursemindCore:

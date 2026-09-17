@@ -24,3 +24,6 @@ IPA SHA-256: `e14e3de3950b053d509e2e0051fb906406644dae55f313f97526cf0a9d223c3c`.
 Upload succeeded at 08:35 CDT; App Store Connect now confirms processing Complete for 1.5.0 (25).
 
 At the start of distribution work, App Store Connect showed build 24 already Waiting for Review. Replacing it requires withdrawing the existing submission; no withdrawal or new review submission has been performed by this task.
+
+
+Follow-up: before the authorized replacement could run, Apple approved 1.5.0 with build 24. The same onboarding fix was submitted as 1.5.1 (26) and is Waiting for Review; see `docs/RELEASE_1.5.1_BUILD_26.md`. Build 25 remains an uploaded, unsubmitted artifact.
