@@ -1,0 +1,24 @@
+Home
+Research & Funding
+Research Programs & Contacts
+Kidney Clinical Research & Epidemiology
+Laboratory Working Group
+Factors Affecting eGFR Accuracy
+Related Topics
+Factors Affecting eGFR Accuracy
+Estimating equations provide an estimate of glomerular filtration rate (eGFR), not the actual GFR. GFR estimating equations were developed using regression analysis on data from large research study populations to identify the clinical measurements and demographic variables that best estimate the measured GFR (mGFR) for those populations as a whole. While the equations reflect the best estimate of GFR for the population in which they were developed, they are often less accurate when applied at the individual level.
+Equation Accuracy
+Regardless of the equation used, there can be significant variability between mGFR and eGFR. To capture this variability, each estimating equation has a confidence interval (CI) that should be appreciated when interpreting results and making care recommendations. For example, physical characteristics or medical conditions could affect the accuracy of the estimate in any patient. As the estimates are not exact, kidney function is best interpreted by looking at trends in an individual’s eGFR over time—using the same estimating equation—rather than by focusing on a single eGFR value.
+The conventional measure of precision has been the P30, which describes the percent of GFR estimates that are within 30% of the measured GFR. For even the most accurate estimating equations, only about 90% of GFR estimates are within 30% of the measured GFR of the study population (P30), with varying accuracy across populations. For example, if an estimating equation has a P30 value of 90% in a population, then for an individual within that population with measured GFR of 55 ml/min/1.73m2, there is an approximately 90% chance that the person’s eGFR will fall between 38.5 and 71.5 ml/min/1.73m2 of the mGFR. However, it is important to recognize that mGFR can have significant error as well, and mGFR is not standardized and may differ significantly from true GFR. In other words, some of the difference between estimated versus measured GFR is due to the error in mGFR itself.
+Sources of Error
+No single equation offers an overwhelming advantage for all patients or all clinical situations. The following clinical measurements and demographic variables can affect eGFR accuracy.
+error in biomarker measurement (e.g., creatinine, cystatin C)
+individual variability in creatinine and cystatin C metabolism
+difference between an individual and the population in which the estimating equation was derived
+body surface area (BSA) different than 1.73m2
+Accurate estimates of GFR can enhance patient care decision-making, such as treatment planning and drug dosing. Awareness and understanding of factors that affect eGFR accuracy can contribute to more informed patient care decisions.
+References
+Chen DC, Potok OA, Rifkin D, Estrella MM. Advantages, limitations, and clinical considerations in using cystatin C to estimate GFR. Kidney360. 2022;3(10):1807–1814. doi:10.34067/KID.0003202022
+Miller WG, Jones GRD. Estimated glomerular filtration rate; laboratory implementation and current global status. Advances in Chronic Kidney Disease. 2018;25(1):7-13. doi:10.1053/j.ackd.2017.09.013
+Speeckaert MM, Seegmiller J, Glorieux G, et al. Measured glomerular filtration rate: the query for a workable golden standard technique. Journal of Personalized Medicine. 2021;11(10):949. Published 2021 Sep 24. doi:10.3390/jpm11100949
+Last Reviewed May 2025

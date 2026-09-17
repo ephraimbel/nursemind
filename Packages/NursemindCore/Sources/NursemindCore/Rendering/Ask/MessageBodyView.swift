@@ -48,8 +48,7 @@ public struct MessageBodyView: View {
             if let idx = presentedCitationIndex {
                 CitationCardView(
                     number: idx,
-                    source: citations[idx - 1],
-                    totalCount: citations.count
+                    citations: citations
                 )
             }
         }

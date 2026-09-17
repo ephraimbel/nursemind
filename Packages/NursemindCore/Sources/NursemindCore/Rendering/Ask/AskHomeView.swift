@@ -24,12 +24,7 @@ public struct AskHomeView: View {
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Environment(\.colorScheme) private var colorScheme
     @Environment(\.modelContext) private var modelContext
-    /// SwiftUI wrapper around `SKStoreReviewController.requestReview()`.
-    /// Triggered exactly once per user, and only after their third successful
-    /// AI answer — see the `viewModel.isStreaming` onChange handler below.
-    /// Apple rate-limits to 3 prompts / 365 days regardless of how often we
-    /// call this; the client-side flag (`prefs.hasRequestedReview`) keeps us
-    /// to a single ask per user lifetime so we never repeat-ask.
+    /// Fallback for installs that have not requested a review during onboarding.
     @Environment(\.requestReview) private var requestReview
 
     @Query(sort: \SavedAnswer.savedAt, order: .reverse)
@@ -111,21 +106,7 @@ public struct AskHomeView: View {
             .onChange(of: viewModel.conversation.lastUpdatedAt) {
                 persistConversationIfNeeded()
             }
-            // App Store review prompt, engagement-gated per guideline 5.6.3:
-            // never on first launch, never during onboarding, and only after
-            // the user has received their THIRD successful AI answer — by
-            // then they've demonstrably experienced the app's value. Gates:
-            //   • Once per user (prefs.hasRequestedReview)
-            //   • Only on stream completion (isStreaming transition true→false)
-            //   • Only on a real answer (last message is assistant, non-empty,
-            //     no refusal)
-            //   • Only from the 3rd completed answer onward
-            //     (prefs.completedAnswerCount)
-            //   • 1.5s delay so the user reads the answer before the sheet
-            //     interrupts. Apple's RequestReviewAction is itself rate-
-            //     limited to 3 prompts / 365 days, but we self-limit to one
-            //     ask ever — a clearly invitational moment, not a pestering
-            //     pattern.
+            // Share the onboarding request flag so this fallback cannot ask again.
             .onChange(of: viewModel.isStreaming) { _, isStreaming in
                 guard !isStreaming else { return }
                 guard let last = viewModel.conversation.messages.last,
@@ -142,7 +123,9 @@ public struct AskHomeView: View {
                     guard !prefs.hasRequestedReview else { return }
                     requestReview()
                     prefs.hasRequestedReview = true
-                    AnalyticsService.shared.capture("review_prompt_shown")
+                    AnalyticsService.shared.capture("review_prompt_requested", properties: [
+                        "source": "ask_third_answer"
+                    ])
                 }
             }
             // Daily quota gate. ViewModel rejects send() and bumps the token;

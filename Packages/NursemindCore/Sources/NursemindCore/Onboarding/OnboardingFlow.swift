@@ -107,6 +107,7 @@ public struct OnboardingFlow: View {
         prefs.safetyContractAgreedAt = Date()
         AnalyticsService.shared.capture("onboarding_completed")
         TikTokAnalyticsService.shared.trackOnboardingComplete()
+        MetaAnalyticsService.shared.trackOnboardingComplete()
     }
 
     enum Step: Int, CaseIterable {

@@ -1,0 +1,191 @@
+[
+  {
+    "absentSections": [],
+    "category": "reference",
+    "clinicalReviewSignals": [],
+    "id": "reference:c-diff-bedside-infection-prevention",
+    "sectionWords": {
+      "Avoid misleading clearance tests": 39,
+      "Begin precautions during evaluation": 48,
+      "Check whether testing fits": 48,
+      "Choose hand hygiene appropriately": 46,
+      "Clean rooms and shared equipment": 44,
+      "Protect specimen quality": 39,
+      "Recognize illness and colonization": 46,
+      "Understand assay limitations": 46
+    },
+    "sourceLocatorIssues": [],
+    "sourceReview": "2026-09-17",
+    "sourceURLs": [
+      "https://www.cdc.gov/c-diff/hcp/clinical-overview/index.html",
+      "https://www.cdc.gov/c-diff/hcp/clinical-guidance/index.html",
+      "https://www.cdc.gov/c-diff/hcp/diagnosis-testing/index.html",
+      "https://www.cdc.gov/clean-hands/hcp/clinical-safety/index.html"
+    ],
+    "title": "C. difficile — bedside infection prevention",
+    "topicIDs": [
+      "infection-prevention",
+      "pathogen-specific-precautions"
+    ],
+    "uncitedBlocks": [],
+    "unresolvedCitationIDs": [],
+    "words": 356
+  },
+  {
+    "absentSections": [],
+    "category": "reference",
+    "clinicalReviewSignals": [],
+    "id": "reference:candida-auris-bedside-prevention",
+    "sectionWords": {
+      "Avoid false clearance": 45,
+      "Match precautions to the setting": 46,
+      "Preserve care access at transfer": 43,
+      "Prevent equipment transmission": 46,
+      "Recognize risk and identification limits": 41,
+      "Separate colonization from infection": 47,
+      "Support the screening plan": 47,
+      "Understand prevention boundaries": 45
+    },
+    "sourceLocatorIssues": [],
+    "sourceReview": "2026-09-17",
+    "sourceURLs": [
+      "https://www.cdc.gov/candida-auris/hcp/clinical-overview/index.html",
+      "https://www.cdc.gov/candida-auris/hcp/infection-control/index.html",
+      "https://www.cdc.gov/candida-auris/hcp/screening-hcp/index.html"
+    ],
+    "title": "Candida auris — bedside prevention",
+    "topicIDs": [
+      "infection-prevention",
+      "pathogen-specific-precautions"
+    ],
+    "uncitedBlocks": [],
+    "unresolvedCitationIDs": [],
+    "words": 360
+  },
+  {
+    "absentSections": [],
+    "category": "reference",
+    "clinicalReviewSignals": [],
+    "id": "reference:influenza-healthcare-prevention",
+    "sectionWords": {
+      "Apply healthcare precautions": 42,
+      "Communicate movement and clusters": 46,
+      "Know what a rapid test means": 45,
+      "Plan higher-exposure procedures": 48,
+      "Reassess the clinical course": 45,
+      "Recognize atypical influenza": 46,
+      "Support appropriate specimen collection": 45,
+      "Use the healthcare isolation timeline": 47
+    },
+    "sourceLocatorIssues": [],
+    "sourceReview": "2026-09-17",
+    "sourceURLs": [
+      "https://www.cdc.gov/flu/hcp/clinical-signs/index.html",
+      "https://www.cdc.gov/flu/hcp/infection-control/healthcare-settings.html",
+      "https://www.cdc.gov/flu/hcp/testing-methods/clinician_guidance_ridt.html"
+    ],
+    "title": "Influenza — healthcare prevention",
+    "topicIDs": [
+      "infection-prevention",
+      "pathogen-specific-precautions"
+    ],
+    "uncitedBlocks": [],
+    "unresolvedCitationIDs": [],
+    "words": 364
+  },
+  {
+    "absentSections": [],
+    "category": "reference",
+    "clinicalReviewSignals": [],
+    "id": "reference:measles-healthcare-exposure-prevention",
+    "sectionWords": {
+      "Arrange testing and notification": 46,
+      "Distinguish isolation endpoints": 48,
+      "Follow occupational-health assessment": 46,
+      "Plan essential transport": 44,
+      "Recognize a compatible presentation": 44,
+      "Separate the patient at first contact": 46,
+      "Use respiratory protection correctly": 42,
+      "Watch for complications": 44
+    },
+    "sourceLocatorIssues": [],
+    "sourceReview": "2026-09-17",
+    "sourceURLs": [
+      "https://www.cdc.gov/measles/hcp/clinical-overview/index.html",
+      "https://www.cdc.gov/infection-control/hcp/measles/index.html",
+      "https://www.cdc.gov/infection-control/hcp/healthcare-personnel-epidemiology-control/measles.html"
+    ],
+    "title": "Measles — healthcare exposure prevention",
+    "topicIDs": [
+      "infection-prevention",
+      "pathogen-specific-precautions"
+    ],
+    "uncitedBlocks": [],
+    "unresolvedCitationIDs": [],
+    "words": 360
+  },
+  {
+    "absentSections": [],
+    "category": "reference",
+    "clinicalReviewSignals": [],
+    "id": "reference:norovirus-healthcare-outbreak-care",
+    "sectionWords": {
+      "Assess fluid-loss consequences": 43,
+      "Clean beyond the visible spill": 41,
+      "Collect useful specimens": 45,
+      "Communicate beyond the bedside": 45,
+      "Coordinate unit and staff response": 43,
+      "Protect hands and clothing": 47,
+      "Recognize the clinical pattern": 45,
+      "Use outbreak precautions promptly": 45
+    },
+    "sourceLocatorIssues": [],
+    "sourceReview": "2026-09-17",
+    "sourceURLs": [
+      "https://www.cdc.gov/norovirus/about/index.html",
+      "https://www.cdc.gov/infection-control/hcp/norovirus-guidelines/summary-recommendations.html",
+      "https://www.cdc.gov/norovirus/php/laboratories/index.html",
+      "https://www.cdc.gov/norovirus/prevention/index.html"
+    ],
+    "title": "Norovirus — healthcare outbreak care",
+    "topicIDs": [
+      "infection-prevention",
+      "pathogen-specific-precautions"
+    ],
+    "uncitedBlocks": [],
+    "unresolvedCitationIDs": [],
+    "words": 354
+  },
+  {
+    "absentSections": [],
+    "category": "reference",
+    "clinicalReviewSignals": [],
+    "id": "reference:shingles-healthcare-precautions",
+    "sectionWords": {
+      "Address staff exposure promptly": 46,
+      "Cover lesions and prevent exposure": 49,
+      "Distinguish illness from exposure": 44,
+      "Follow symptoms beyond the rash": 47,
+      "Match precautions to immune status": 48,
+      "Recognize higher-risk involvement": 43,
+      "Recognize the pattern and exceptions": 46,
+      "Select a useful diagnostic sample": 44
+    },
+    "sourceLocatorIssues": [],
+    "sourceReview": "2026-09-17",
+    "sourceURLs": [
+      "https://www.cdc.gov/shingles/hcp/clinical-signs/index.html",
+      "https://www.cdc.gov/infection-control/hcp/isolation-precautions/appendix-a-type-duration.html",
+      "https://www.cdc.gov/infection-control/hcp/healthcare-personnel-epidemiology-control/varicella.html",
+      "https://www.cdc.gov/chickenpox/php/laboratories/index.html"
+    ],
+    "title": "Shingles — healthcare precautions",
+    "topicIDs": [
+      "infection-prevention",
+      "pathogen-specific-precautions"
+    ],
+    "uncitedBlocks": [],
+    "unresolvedCitationIDs": [],
+    "words": 367
+  }
+]

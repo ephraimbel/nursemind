@@ -1,0 +1,1498 @@
+{
+  "date": "2026-09-17",
+  "scope": "Ten adult nursing guides for digestive endoscopy and biopsy, urinary instrumentation, functional and imaging tests, BPH follow-up and hematuria assessment. Existing diagnoses and procedures retain their distinct scope and identifiers.",
+  "clinicalReview": {
+    "tier": "A",
+    "status": "pending",
+    "reviewer": null,
+    "publicationApproved": false,
+    "note": "Conservative independent review queue for invasive digestive and urinary procedures, bleeding and obstruction recognition, and procedure preparation. Source-fidelity checks and automated tests are not clinical approval. This manifest is review metadata, not a runtime publication gate."
+  },
+  "sources": [
+    {
+      "id": "du_depth_colonoscopy",
+      "shortName": "NIDDK — Colonoscopy",
+      "detail": "August 2023. Indications, written bowel preparation, sedation, tissue sampling, recovery, delayed bleeding and urgent symptoms. No screening intervals or numerical complication estimates. Original NIDDK federal educational prose adapted and condensed by NurseMind. Images, videos, third-party publications in the bibliography and procedural dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases; NIH",
+      "license": "publicDomain",
+      "url": "https://www.niddk.nih.gov/health-information/diagnostic-tests/colonoscopy",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.niddk.nih.gov/health-information/diagnostic-tests/colonoscopy",
+        "resolvedURL": "https://www.niddk.nih.gov/health-information/diagnostic-tests/colonoscopy",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "d9d90b49f1660ff44d8e8c0c9595a0029e44035569c177fee7fad9546acbc945",
+        "textSHA256": "609d8e3983ae325db8805f375d5b27f48fc0e9073d656226b2c6da4d6ca38b71"
+      }
+    },
+    {
+      "id": "du_depth_egd",
+      "shortName": "NIDDK — Upper GI endoscopy",
+      "detail": "October 2023. Preparation, medicine review, examination, recovery, tissue results and urgent symptoms. No universal fasting or discharge interval. Original NIDDK federal educational prose adapted and condensed by NurseMind. Images, videos, third-party publications in the bibliography and procedural dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases; NIH",
+      "license": "publicDomain",
+      "url": "https://www.niddk.nih.gov/health-information/diagnostic-tests/upper-gi-endoscopy",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.niddk.nih.gov/health-information/diagnostic-tests/upper-gi-endoscopy",
+        "resolvedURL": "https://www.niddk.nih.gov/health-information/diagnostic-tests/upper-gi-endoscopy",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "7cd394b6d2d29b72dd45978d414ff18550668fbe78995f1d7dcde8d407836b1d",
+        "textSHA256": "847b40091ee7fbb0c58b1f720ee0bfa35fadead4d085b0a6736a185861402760"
+      }
+    },
+    {
+      "id": "du_depth_ercp",
+      "shortName": "NIDDK — ERCP",
+      "detail": "January 2024. Duct treatment, preparation, pregnancy discussion, recovery and complications. The source incorrectly groups endoscopic ultrasound with noninvasive tests; that classification is excluded. Original NIDDK federal educational prose adapted and condensed by NurseMind. Images, videos, third-party publications in the bibliography and procedural dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases; NIH",
+      "license": "publicDomain",
+      "url": "https://www.niddk.nih.gov/health-information/diagnostic-tests/endoscopic-retrograde-cholangiopancreatography",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.niddk.nih.gov/health-information/diagnostic-tests/endoscopic-retrograde-cholangiopancreatography",
+        "resolvedURL": "https://www.niddk.nih.gov/health-information/diagnostic-tests/endoscopic-retrograde-cholangiopancreatography",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "ad0b1fecc46829430e2271a22d5a821b08d2eee257bfa0e3b821f4df08933539",
+        "textSHA256": "d8051c09b6d9d6d812ab3a7c5569fd9d1ad60f376db71c98e9f46bbb6af35923"
+      }
+    },
+    {
+      "id": "du_depth_liver_biopsy",
+      "shortName": "NIDDK — Liver biopsy",
+      "detail": "August 2019. Biopsy routes, clotting assessment, preparation, positioning, observation, activity and warning signs. Older educational source; no coagulation thresholds, transfusion triggers or universal observation schedule. Original NIDDK federal educational prose adapted and condensed by NurseMind. Images, videos, third-party publications in the bibliography and procedural dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases; NIH",
+      "license": "publicDomain",
+      "url": "https://www.niddk.nih.gov/health-information/diagnostic-tests/liver-biopsy",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.niddk.nih.gov/health-information/diagnostic-tests/liver-biopsy",
+        "resolvedURL": "https://www.niddk.nih.gov/health-information/diagnostic-tests/liver-biopsy",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "1949885e126e5be9fbb1b9de129280fc29179f97c6ec651470ba0c4b77946e2e",
+        "textSHA256": "edaf2faef1d860b63816c5df61558f823620a9aaaaa31a0a72472f014cfa457b"
+      }
+    },
+    {
+      "id": "du_depth_flex_sig",
+      "shortName": "NIDDK — Flexible sigmoidoscopy",
+      "detail": "July 2024. Extent of examination, preparation, recovery, biopsy follow-up and complications. No universal preparation or screening schedule. Original NIDDK federal educational prose adapted and condensed by NurseMind. Images, videos, third-party publications in the bibliography and procedural dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases; NIH",
+      "license": "publicDomain",
+      "url": "https://www.niddk.nih.gov/health-information/diagnostic-tests/flexible-sigmoidoscopy",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.niddk.nih.gov/health-information/diagnostic-tests/flexible-sigmoidoscopy",
+        "resolvedURL": "https://www.niddk.nih.gov/health-information/diagnostic-tests/flexible-sigmoidoscopy",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "a592ad69a70da07abd335f7015254c460a76ecf9730eff4e32a552166b430ed6",
+        "textSHA256": "b19f3cab0ba4baaa6e6d3e037668156802e29ba648f10188377c39d4c65c2e89"
+      }
+    },
+    {
+      "id": "du_depth_cystoscopy",
+      "shortName": "NIDDK — Cystoscopy and ureteroscopy",
+      "detail": "July 2021. Purpose, anesthesia, urine testing, recovery, stent symptoms and urgent reporting. No universal fluid target, antibiotic prescription or stent removal deadline. Conflicting one-day/two-day symptom persistence wording is resolved using the source’s earlier reporting advice. Original NIDDK federal educational prose adapted and condensed by NurseMind. Images, videos, third-party publications in the bibliography and procedural dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases; NIH",
+      "license": "publicDomain",
+      "url": "https://www.niddk.nih.gov/health-information/diagnostic-tests/cystoscopy-ureteroscopy",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.niddk.nih.gov/health-information/diagnostic-tests/cystoscopy-ureteroscopy",
+        "resolvedURL": "https://www.niddk.nih.gov/health-information/diagnostic-tests/cystoscopy-ureteroscopy",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "5ac494646d686c8d2acb0f6c5e0429b00475f5870568b4ea876e567e993a1243",
+        "textSHA256": "e8b1cd99ded1dfb5fa967a56949ad6e53e1cc5285f32668137e08f21601cd1f4"
+      }
+    },
+    {
+      "id": "du_depth_urodynamic",
+      "shortName": "NIDDK — Urodynamic testing",
+      "detail": "September 2021. Test components, preparation, patient experience, catheter-related infection risk and results. Uroflowmetry described as voided volume and flow; no residual-volume diagnostic cutoff or universal fluid schedule. Original NIDDK federal educational prose adapted and condensed by NurseMind. Images, videos, third-party publications in the bibliography and procedural dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases; NIH",
+      "license": "publicDomain",
+      "url": "https://www.niddk.nih.gov/health-information/diagnostic-tests/urodynamic-testing",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.niddk.nih.gov/health-information/diagnostic-tests/urodynamic-testing",
+        "resolvedURL": "https://www.niddk.nih.gov/health-information/diagnostic-tests/urodynamic-testing",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "af847ea9eb754c11740e071619f6c5928c04fe5ae7c84717698dc7eaf4e25c59",
+        "textSHA256": "7336c6a77ddbc2c70f6c5a173b020fb058320c7f926db4219fcc485b5f96083c"
+      }
+    },
+    {
+      "id": "du_depth_urinary_imaging",
+      "shortName": "NIDDK — Urinary tract imaging",
+      "detail": "April 2020. Imaging purposes and modalities, preparation, implants, pregnancy, reactions and results. Broad contrast-kidney-risk assertions, routine antibiotics and fixed hydration/fasting schedules excluded. Original NIDDK federal educational prose adapted and condensed by NurseMind. Images, videos, third-party publications in the bibliography and procedural dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases; NIH",
+      "license": "publicDomain",
+      "url": "https://www.niddk.nih.gov/health-information/diagnostic-tests/urinary-tract-imaging",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.niddk.nih.gov/health-information/diagnostic-tests/urinary-tract-imaging",
+        "resolvedURL": "https://www.niddk.nih.gov/health-information/diagnostic-tests/urinary-tract-imaging",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "c1875890c297fe15a250ae454a7d332208ae5d2285bfaec5562e3147f7b35f29",
+        "textSHA256": "20b0b2c6b23a7695bc98d3ff128a5c7d1ba67ad9b9755d4e1d134798ab7caf3b"
+      }
+    },
+    {
+      "id": "du_depth_bph",
+      "shortName": "NIDDK — Enlarged prostate",
+      "detail": "June 2024. Symptoms, medicine contributors, evaluation, conservative care, treatment categories, postoperative catheter and complications. No independent prescribing or screening schedule. Original NIDDK federal educational prose adapted and condensed by NurseMind. Images, videos, third-party publications in the bibliography and procedural dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases; NIH",
+      "license": "publicDomain",
+      "url": "https://www.niddk.nih.gov/health-information/urologic-diseases/prostate-problems/prostate-enlargement-benign-prostatic-hyperplasia",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.niddk.nih.gov/health-information/urologic-diseases/prostate-problems/prostate-enlargement-benign-prostatic-hyperplasia",
+        "resolvedURL": "https://www.niddk.nih.gov/health-information/urologic-diseases/prostate-problems/enlarged-prostate-benign-prostatic-hyperplasia?dkrd=/health-information/urologic-diseases/prostate-problems/prostate-enlargement-benign-prostatic-hyperplasia",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "f3d638f993a87d35e338967794f79f8b0e6dbbb96f57046748cb80717eb82789",
+        "textSHA256": "e29a021a946dad272e9ac8bca31a651b919823fd34a45302539fdd693ac4d5b1"
+      }
+    },
+    {
+      "id": "du_depth_hematuria",
+      "shortName": "NIDDK — Blood in the urine",
+      "detail": "October 2022. Visible and microscopic blood, causes, symptom history, repeat testing, menstruation contamination and cause-directed follow-up. Original NIDDK federal educational prose adapted and condensed by NurseMind. Images, videos, third-party publications in the bibliography and procedural dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases; NIH",
+      "license": "publicDomain",
+      "url": "https://www.niddk.nih.gov/health-information/urologic-diseases/hematuria-blood-urine",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.niddk.nih.gov/health-information/urologic-diseases/hematuria-blood-urine",
+        "resolvedURL": "https://www.niddk.nih.gov/health-information/urologic-diseases/hematuria-blood-urine",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "ebf60c8543693e4724a219b313fedb140aa6fcaea0110cb7011d3f5222c80fa2",
+        "textSHA256": "0fa7704b7322e580be48452fcd433e24a94c52a40e11f7402b44f227ce26714a"
+      }
+    },
+    {
+      "id": "du_depth_prostate_tests",
+      "shortName": "NIDDK — Prostate tests",
+      "detail": "March 2023. PSA limitations only: false results and elevated PSA from cancer or benign conditions. No claim that PSA or digital rectal examination rules out cancer; no screening or prostate-massage instructions. Original NIDDK federal educational prose adapted and condensed by NurseMind. Images, videos, third-party publications in the bibliography and procedural dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases; NIH",
+      "license": "publicDomain",
+      "url": "https://www.niddk.nih.gov/health-information/diagnostic-tests/prostate",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.niddk.nih.gov/health-information/diagnostic-tests/prostate",
+        "resolvedURL": "https://www.niddk.nih.gov/health-information/diagnostic-tests/prostate",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "bb0d9a3852070198b51f535f4a38db97757839d06f323dea19c527b1dd388325",
+        "textSHA256": "423dfd12618171c540b5a8d1a87697084201b1a5c3f92188e77496112119cc1f"
+      }
+    },
+    {
+      "id": "du_depth_retention_symptoms",
+      "shortName": "NIDDK — Urinary retention symptoms",
+      "detail": "December 2019. Acute and chronic symptom patterns and immediate evaluation for inability to urinate or severe abdominal pain. No catheter insertion or irrigation instructions. Original NIDDK federal educational prose adapted and condensed by NurseMind. Images, videos, third-party publications in the bibliography and procedural dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases; NIH",
+      "license": "publicDomain",
+      "url": "https://www.niddk.nih.gov/health-information/urologic-diseases/urinary-retention/symptoms-causes",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.niddk.nih.gov/health-information/urologic-diseases/urinary-retention/symptoms-causes",
+        "resolvedURL": "https://www.niddk.nih.gov/health-information/urologic-diseases/urinary-retention/symptoms-causes",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "b1780783fc01fa9fc4b66ebbd1e6c5ad773cad0b5eb143eec24acf6804d5a672",
+        "textSHA256": "1d78b1a1bfbda7131ca5d2c1fa9ba8538a697165b759808f8816868ff1ea268e"
+      }
+    }
+  ],
+  "authoredWordsBySource": {
+    "colonoscopy": 458,
+    "egd": 425,
+    "ercp": 403,
+    "liver_biopsy": 423,
+    "flex_sig": 343,
+    "cystoscopy": 428,
+    "urodynamic": 436,
+    "urinary_imaging": 431,
+    "bph": 397,
+    "prostate_tests": 57,
+    "hematuria": 360,
+    "retention_symptoms": 66
+  },
+  "entries": [
+    {
+      "id": "colonoscopy-preparation-recovery",
+      "title": "Colonoscopy: preparation and recovery",
+      "subtitle": "Bowel preparation, tissue results and delayed complications",
+      "family": "DigestiveEndoscopy",
+      "sections": [
+        {
+          "title": "Identify the reason for the examination",
+          "bullets": [
+            {
+              "text": "Colonoscopy examines the rectum and colon with a flexible camera. It may investigate rectal bleeding, altered bowel movements, abdominal pain or unexplained weight loss, or screen for colorectal polyps and cancer in a person without symptoms.",
+              "source": "colonoscopy",
+              "sourceSnapshot": "source-snapshots/colonoscopy.txt"
+            },
+            {
+              "text": "The clinician can remove polyps and obtain tissue during the examination. Explain whether the planned encounter is screening, investigation of symptoms or follow-up of earlier findings; the indication informs the discussion of results.",
+              "source": "colonoscopy",
+              "sourceSnapshot": "source-snapshots/colonoscopy.txt"
+            }
+          ]
+        },
+        {
+          "title": "Review the preparation plan",
+          "bullets": [
+            {
+              "text": "Review health problems and all prescribed medicines, over-the-counter products, vitamins and supplements with the procedural team. The team selects the bowel preparation and provides written instructions for its timing and the permitted diet.",
+              "source": "colonoscopy",
+              "sourceSnapshot": "source-snapshots/colonoscopy.txt"
+            },
+            {
+              "text": "A clear-liquid diet excludes pulp, solids and cream. The instructions may also restrict red or purple liquids and high-fiber foods before the procedure. Use the actual written plan rather than substituting a standard diet schedule.",
+              "source": "colonoscopy",
+              "sourceSnapshot": "source-snapshots/colonoscopy.txt"
+            }
+          ]
+        },
+        {
+          "title": "Check whether the bowel preparation was completed",
+          "bullets": [
+            {
+              "text": "A clean colon allows the clinician to inspect its lining; remaining stool can obscure the view. Bowel preparation may use liquid, powder or pill laxatives, sometimes with an enema, according to the selected regimen.",
+              "source": "colonoscopy",
+              "sourceSnapshot": "source-snapshots/colonoscopy.txt"
+            },
+            {
+              "text": "The preparation causes diarrhea, so access to a bathroom matters. Contact the procedural team when side effects prevent completion. NIDDK describes clear liquid stool after complete preparation; report incomplete intake or ongoing stool rather than assuming the examination can proceed unchanged.",
+              "source": "colonoscopy",
+              "sourceSnapshot": "source-snapshots/colonoscopy.txt"
+            }
+          ]
+        },
+        {
+          "title": "Explain sedation and sampling",
+          "bullets": [
+            {
+              "text": "Sedatives, anesthesia or pain medicine may be given through an IV. The clinician passes the scope through the anus, introduces air to improve the view and may change the person’s position during examination.",
+              "source": "colonoscopy",
+              "sourceSnapshot": "source-snapshots/colonoscopy.txt"
+            },
+            {
+              "text": "Polyps or abnormal tissue may be sent to a laboratory. Arrange the ride home before the procedure because recovery from sedation or anesthesia takes time and the patient should not drive afterward.",
+              "source": "colonoscopy",
+              "sourceSnapshot": "source-snapshots/colonoscopy.txt"
+            }
+          ]
+        },
+        {
+          "title": "Separate expected discomfort from warning signs",
+          "bullets": [
+            {
+              "text": "Cramping and bloating can occur early in recovery. Light rectal bleeding may follow a biopsy or polyp removal, and the discharge instructions should explain what to expect for the work that was performed.",
+              "source": "colonoscopy",
+              "sourceSnapshot": "source-snapshots/colonoscopy.txt"
+            },
+            {
+              "text": "NIDDK advises prompt medical care for severe abdominal pain, fever, dizziness, weakness, bloody bowel movements that do not improve or rectal bleeding that does not stop. Do not reassure a patient with these symptoms solely because a biopsy was performed.",
+              "source": "colonoscopy",
+              "sourceSnapshot": "source-snapshots/colonoscopy.txt"
+            }
+          ]
+        },
+        {
+          "title": "Include delayed bleeding in discharge teaching",
+          "bullets": [
+            {
+              "text": "Complications include bleeding, a perforation and a reaction to sedation affecting breathing or the heart. Bleeding may develop after discharge, including up to two weeks after the procedure.",
+              "source": "colonoscopy",
+              "sourceSnapshot": "source-snapshots/colonoscopy.txt"
+            },
+            {
+              "text": "Review the urgent-contact instructions before the person leaves. Persistent bleeding or systemic symptoms require assessment even when the immediate recovery period was uncomplicated.",
+              "source": "colonoscopy",
+              "sourceSnapshot": "source-snapshots/colonoscopy.txt"
+            }
+          ]
+        },
+        {
+          "title": "Close the result-follow-up loop",
+          "bullets": [
+            {
+              "text": "The clinician may share visible findings after the sedative wears off. Tissue results take longer because a pathologist examines the samples, and the team may call or arrange another appointment.",
+              "source": "colonoscopy",
+              "sourceSnapshot": "source-snapshots/colonoscopy.txt"
+            },
+            {
+              "text": "Clarify how biopsy or polyp results will be communicated. The person should follow the individual diet and activity instructions and the clinician’s plan for any subsequent examination.",
+              "source": "colonoscopy",
+              "sourceSnapshot": "source-snapshots/colonoscopy.txt"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "reference:flexible-sigmoidoscopy-preparation-recovery",
+        "reference:focused-abdominal-assessment",
+        "reference:stool-sample-collection"
+      ],
+      "topics": [
+        "gastrointestinal",
+        "perioperative-nursing",
+        "labs-specimens"
+      ],
+      "symbol": "DUDepthColonoscopyPreparationRecoverySample",
+      "tags": "category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential",
+      "sourceFile": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/DigestiveUrologyDigestiveEndoscopyReferences.swift",
+      "sourceFileSHA256": "12405e23c16a25a1f841612060c348648b67e15273772b97ddab9f21dae45109",
+      "bodyWords": 458
+    },
+    {
+      "id": "upper-gi-endoscopy-preparation-recovery",
+      "title": "Upper GI endoscopy: preparation and recovery",
+      "subtitle": "EGD, medicine review, swallowing symptoms and tissue follow-up",
+      "family": "DigestiveEndoscopy",
+      "sections": [
+        {
+          "title": "Explain the examination and possible treatment",
+          "bullets": [
+            {
+              "text": "Upper GI endoscopy, also called EGD or esophagogastroduodenoscopy, examines the esophagus, stomach and duodenum. It can investigate persistent heartburn, pain, vomiting or swallowing difficulty.",
+              "source": "egd",
+              "sourceSnapshot": "source-snapshots/egd.txt"
+            },
+            {
+              "text": "The clinician may collect tissue, cells or fluid, treat bleeding, remove a growth or open a narrowed area of the esophagus. The planned procedure may therefore include more than viewing the lining.",
+              "source": "egd",
+              "sourceSnapshot": "source-snapshots/egd.txt"
+            }
+          ]
+        },
+        {
+          "title": "Review medicines and the medical history",
+          "bullets": [
+            {
+              "text": "The procedural team needs the history of health problems, allergies and current symptoms, together with prescription medicines, over-the-counter products, vitamins and supplements. NIDDK specifically highlights blood thinners, aspirin, NSAIDs, iron and medicines for diabetes or blood pressure.",
+              "source": "egd",
+              "sourceSnapshot": "source-snapshots/egd.txt"
+            },
+            {
+              "text": "Some medicines need temporary adjustment, while many can continue. Obtain the procedural team’s instructions for the actual medicine list; this reference does not supply a blanket instruction to stop anticoagulation or diabetes treatment.",
+              "source": "egd",
+              "sourceSnapshot": "source-snapshots/egd.txt"
+            }
+          ]
+        },
+        {
+          "title": "Confirm fasting and the ride home",
+          "bullets": [
+            {
+              "text": "The stomach needs to be prepared according to the team’s food and drink restrictions. Fasting instructions can differ between patients, so confirm the specific start and stop times supplied by the procedural service.",
+              "source": "egd",
+              "sourceSnapshot": "source-snapshots/egd.txt"
+            },
+            {
+              "text": "Arrange transportation before the encounter. Sedation can affect driving after the examination, and discharge teaching may also be shared with the patient’s chosen support person.",
+              "source": "egd",
+              "sourceSnapshot": "source-snapshots/egd.txt"
+            }
+          ]
+        },
+        {
+          "title": "Describe the procedure experience",
+          "bullets": [
+            {
+              "text": "An IV sedative is often used, and a liquid or spray may numb the throat to reduce gagging. The patient generally lies on the side while the clinician passes the scope into the upper digestive tract.",
+              "source": "egd",
+              "sourceSnapshot": "source-snapshots/egd.txt"
+            },
+            {
+              "text": "Air improves the view, and instruments passed through the scope can obtain samples or perform treatment. Some people do not require sedation; explain the actual anesthesia plan rather than promising sleep or a particular experience.",
+              "source": "egd",
+              "sourceSnapshot": "source-snapshots/egd.txt"
+            }
+          ]
+        },
+        {
+          "title": "Support recovery and recognize complications",
+          "bullets": [
+            {
+              "text": "Temporary bloating, nausea or sore throat may occur afterward. The person remains in recovery while the sedative wears off, and some patients need an overnight stay. Follow the individual discharge instructions.",
+              "source": "egd",
+              "sourceSnapshot": "source-snapshots/egd.txt"
+            },
+            {
+              "text": "Potential complications include bleeding, a perforation and a sedative reaction involving breathing or the heart. The possibility of a complication changes how worsening symptoms are assessed after the procedure.",
+              "source": "egd",
+              "sourceSnapshot": "source-snapshots/egd.txt"
+            }
+          ]
+        },
+        {
+          "title": "Teach the symptoms that need prompt care",
+          "bullets": [
+            {
+              "text": "NIDDK advises immediate medical assessment for breathing problems, worsening swallowing difficulty or throat pain, worsening chest or abdominal pain, or fever after EGD.",
+              "source": "egd",
+              "sourceSnapshot": "source-snapshots/egd.txt"
+            },
+            {
+              "text": "Vomiting, particularly vomit containing blood or resembling coffee grounds, and bloody or black tar-colored stool also need prompt evaluation. These findings should not be dismissed as the expected short-lived sore throat or bloating.",
+              "source": "egd",
+              "sourceSnapshot": "source-snapshots/egd.txt"
+            }
+          ]
+        },
+        {
+          "title": "Distinguish visual findings from tissue results",
+          "bullets": [
+            {
+              "text": "Some findings are available immediately, but tissue, cell and fluid studies may take several days or longer. A pathologist examines submitted samples before those results are available.",
+              "source": "egd",
+              "sourceSnapshot": "source-snapshots/egd.txt"
+            },
+            {
+              "text": "Confirm whether the service will call or arrange a follow-up appointment. A reassuring immediate visual report does not replace review of the samples taken during the examination.",
+              "source": "egd",
+              "sourceSnapshot": "source-snapshots/egd.txt"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "diagnosis:upper-gi-bleed",
+        "reference:dysphagia-mealtime-support",
+        "reference:ercp-preparation-recovery"
+      ],
+      "topics": [
+        "gastrointestinal",
+        "perioperative-nursing"
+      ],
+      "symbol": "DUDepthUpperGiEndoscopyPreparationRecoverySample",
+      "tags": "category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential",
+      "sourceFile": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/DigestiveUrologyDigestiveEndoscopyReferences.swift",
+      "sourceFileSHA256": "12405e23c16a25a1f841612060c348648b67e15273772b97ddab9f21dae45109",
+      "bodyWords": 425
+    },
+    {
+      "id": "ercp-preparation-recovery",
+      "title": "ERCP: preparation and recovery",
+      "subtitle": "Bile and pancreatic duct treatment, recovery and complications",
+      "family": "DigestiveEndoscopy",
+      "sections": [
+        {
+          "title": "Understand the purpose of ERCP",
+          "bullets": [
+            {
+              "text": "Endoscopic retrograde cholangiopancreatography combines endoscopy with x-ray imaging to evaluate and treat the bile and pancreatic ducts. It is commonly used when a duct is narrowed, blocked or leaking.",
+              "source": "ercp",
+              "sourceSnapshot": "source-snapshots/ercp.txt"
+            },
+            {
+              "text": "The team generally uses ERCP when treatment is expected. Other tests, such as MRCP or ultrasound, may answer a diagnostic question with less risk; the treating clinician decides which examination fits the problem.",
+              "source": "ercp",
+              "sourceSnapshot": "source-snapshots/ercp.txt"
+            }
+          ]
+        },
+        {
+          "title": "Verify preparation and pregnancy information",
+          "bullets": [
+            {
+              "text": "Review current symptoms, health problems, allergies, prescribed and nonprescription medicines, vitamins and supplements. The team may adjust medicines such as blood thinners or diabetes treatment for the procedure.",
+              "source": "ercp",
+              "sourceSnapshot": "source-snapshots/ercp.txt"
+            },
+            {
+              "text": "Report a known or possible pregnancy before the examination because ERCP involves x-rays and the team may modify the approach. Confirm the individualized fasting instructions and arrange a ride home after sedation or anesthesia.",
+              "source": "ercp",
+              "sourceSnapshot": "source-snapshots/ercp.txt"
+            }
+          ]
+        },
+        {
+          "title": "Explain duct imaging and intervention",
+          "bullets": [
+            {
+              "text": "The clinician passes an endoscope through the mouth to the duodenum, then guides a small catheter through the scope into the ducts. Contrast material and fluoroscopy make duct narrowing or blockage visible.",
+              "source": "ercp",
+              "sourceSnapshot": "source-snapshots/ercp.txt"
+            },
+            {
+              "text": "Small instruments can treat the duct problem or obtain tissue samples. Sedation, throat numbing or general anesthesia may be used according to the procedure plan; the patient’s recovery depends in part on that plan.",
+              "source": "ercp",
+              "sourceSnapshot": "source-snapshots/ercp.txt"
+            }
+          ]
+        },
+        {
+          "title": "Clarify observation and return to eating",
+          "bullets": [
+            {
+              "text": "Bloating, nausea or sore throat can occur for a short time after ERCP. Observation allows sedation or anesthesia to wear off, and some people remain in the hospital overnight.",
+              "source": "ercp",
+              "sourceSnapshot": "source-snapshots/ercp.txt"
+            },
+            {
+              "text": "The clinician may initially recommend clear liquids and delay solid food. Review the actual diet instructions rather than automatically using the diet plan from another endoscopy procedure.",
+              "source": "ercp",
+              "sourceSnapshot": "source-snapshots/ercp.txt"
+            }
+          ]
+        },
+        {
+          "title": "Recognize the important complications",
+          "bullets": [
+            {
+              "text": "ERCP can cause pancreatitis, infection of the bile ducts or gallbladder, bleeding, perforation of a duct or the duodenum, or a reaction to sedation involving the heart or breathing.",
+              "source": "ercp",
+              "sourceSnapshot": "source-snapshots/ercp.txt"
+            },
+            {
+              "text": "Complications may require hospital treatment. Recovery teaching should include which symptoms prompt urgent assessment, because a completed procedure does not exclude a problem developing afterward.",
+              "source": "ercp",
+              "sourceSnapshot": "source-snapshots/ercp.txt"
+            }
+          ]
+        },
+        {
+          "title": "Make urgent-return instructions explicit",
+          "bullets": [
+            {
+              "text": "Seek prompt medical care for severe chest or abdominal pain, fever, breathing difficulty, worsening throat pain or trouble swallowing after ERCP.",
+              "source": "ercp",
+              "sourceSnapshot": "source-snapshots/ercp.txt"
+            },
+            {
+              "text": "Bloody or black tar-colored stool and vomiting, especially blood or coffee-ground material, also require prompt evaluation. Do not wait for a routine follow-up call when these symptoms are present.",
+              "source": "ercp",
+              "sourceSnapshot": "source-snapshots/ercp.txt"
+            }
+          ]
+        },
+        {
+          "title": "Track immediate and pending results",
+          "bullets": [
+            {
+              "text": "The clinician may explain available findings after sedation wears off. If tissue was collected, the pathologist’s report may take several days or longer.",
+              "source": "ercp",
+              "sourceSnapshot": "source-snapshots/ercp.txt"
+            },
+            {
+              "text": "Review the home-care instructions with the patient and their chosen support person, including the plan for diet, results and follow-up. Confirm which findings remain pending after the initial procedure discussion.",
+              "source": "ercp",
+              "sourceSnapshot": "source-snapshots/ercp.txt"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "diagnosis:acute-pancreatitis",
+        "diagnosis:severe-acute-cholangitis",
+        "reference:upper-gi-endoscopy-preparation-recovery"
+      ],
+      "topics": [
+        "gastrointestinal",
+        "perioperative-nursing"
+      ],
+      "symbol": "DUDepthErcpPreparationRecoverySample",
+      "tags": "category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential",
+      "sourceFile": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/DigestiveUrologyDigestiveEndoscopyReferences.swift",
+      "sourceFileSHA256": "12405e23c16a25a1f841612060c348648b67e15273772b97ddab9f21dae45109",
+      "bodyWords": 403
+    },
+    {
+      "id": "liver-biopsy-preparation-recovery",
+      "title": "Liver biopsy: preparation and recovery",
+      "subtitle": "Biopsy routes, bleeding surveillance and follow-up",
+      "family": "Hepatology",
+      "sections": [
+        {
+          "title": "Connect the biopsy with the clinical question",
+          "bullets": [
+            {
+              "text": "A liver biopsy provides tissue for microscopic examination. It may help diagnose a condition that blood tests or imaging have not clarified, assess liver damage, guide treatment or evaluate treatment response.",
+              "source": "liver_biopsy",
+              "sourceSnapshot": "source-snapshots/liver_biopsy.txt"
+            },
+            {
+              "text": "The tissue report is separate from imaging or blood-test results. Explain why the team needs a tissue sample and how the result will be used in follow-up.",
+              "source": "liver_biopsy",
+              "sourceSnapshot": "source-snapshots/liver_biopsy.txt"
+            }
+          ]
+        },
+        {
+          "title": "Confirm which biopsy route is planned",
+          "bullets": [
+            {
+              "text": "A percutaneous biopsy passes a needle through the abdominal skin. A transjugular biopsy reaches the liver through a catheter placed in the jugular vein; a biopsy can also be obtained during another operation.",
+              "source": "liver_biopsy",
+              "sourceSnapshot": "source-snapshots/liver_biopsy.txt"
+            },
+            {
+              "text": "The clinician may choose the transjugular route when clotting problems or ascites make a percutaneous approach less suitable. Confirm the planned route because the puncture site, positioning and recovery instructions differ.",
+              "source": "liver_biopsy",
+              "sourceSnapshot": "source-snapshots/liver_biopsy.txt"
+            }
+          ]
+        },
+        {
+          "title": "Review clotting assessment and medicines",
+          "bullets": [
+            {
+              "text": "The team may obtain clotting tests and imaging before the biopsy. Review allergies and all medicines, including blood thinners, aspirin, NSAIDs, diabetes medicines and supplements.",
+              "source": "liver_biopsy",
+              "sourceSnapshot": "source-snapshots/liver_biopsy.txt"
+            },
+            {
+              "text": "The clinician decides whether medicines need adjustment or additional measures are necessary for a clotting problem. This guide does not set a platelet or coagulation threshold or authorize a transfusion before biopsy.",
+              "source": "liver_biopsy",
+              "sourceSnapshot": "source-snapshots/liver_biopsy.txt"
+            }
+          ]
+        },
+        {
+          "title": "Prepare for positioning and recovery",
+          "bullets": [
+            {
+              "text": "For a percutaneous biopsy, the patient may lie on the back with the right arm above the head and briefly hold the breath when asked. Local anesthetic is used, and sedation or pain medicine may also be given.",
+              "source": "liver_biopsy",
+              "sourceSnapshot": "source-snapshots/liver_biopsy.txt"
+            },
+            {
+              "text": "The transjugular approach uses a neck access site and imaging guidance. Follow the procedural team’s fasting instructions and arrange the ride home; preparation and food restrictions vary by approach.",
+              "source": "liver_biopsy",
+              "sourceSnapshot": "source-snapshots/liver_biopsy.txt"
+            }
+          ]
+        },
+        {
+          "title": "Observe pain and the circulation",
+          "bullets": [
+            {
+              "text": "Recovery includes lying down and repeated vital-sign assessment according to the procedural plan. Mild right upper abdominal or right shoulder discomfort can occur, but all post-biopsy pain should be reported to the team.",
+              "source": "liver_biopsy",
+              "sourceSnapshot": "source-snapshots/liver_biopsy.txt"
+            },
+            {
+              "text": "Severe or persistent pain, low blood pressure or a rapid heartbeat can signal internal bleeding. Escalate these findings promptly rather than treating shoulder or abdominal pain as automatically expected.",
+              "source": "liver_biopsy",
+              "sourceSnapshot": "source-snapshots/liver_biopsy.txt"
+            }
+          ]
+        },
+        {
+          "title": "Recognize other urgent symptoms",
+          "bullets": [
+            {
+              "text": "NIDDK advises prompt medical care for biopsy-site bleeding, pain, redness or swelling; dizziness, fainting or weakness; fever; nausea or vomiting; or abdominal swelling.",
+              "source": "liver_biopsy",
+              "sourceSnapshot": "source-snapshots/liver_biopsy.txt"
+            },
+            {
+              "text": "Chest, shoulder or abdominal pain, difficulty breathing, a racing heartbeat or bloody or black tarry stool also require evaluation. Complications can include bleeding, infection, pneumothorax or injury to another organ.",
+              "source": "liver_biopsy",
+              "sourceSnapshot": "source-snapshots/liver_biopsy.txt"
+            }
+          ]
+        },
+        {
+          "title": "Review activity and tissue-result follow-up",
+          "bullets": [
+            {
+              "text": "The discharge plan specifies when normal activity and lifting can resume. Restrictions vary with the biopsy route and clinical situation, so use the team’s instructions rather than one universal schedule.",
+              "source": "liver_biopsy",
+              "sourceSnapshot": "source-snapshots/liver_biopsy.txt"
+            },
+            {
+              "text": "A pathologist examines the liver tissue, and results usually take several days or longer. Confirm who will review the report and how the patient can obtain help for symptoms before that appointment.",
+              "source": "liver_biopsy",
+              "sourceSnapshot": "source-snapshots/liver_biopsy.txt"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "procedure:liver-biopsy",
+        "reference:lft-liver-function-interpretation",
+        "reference:coagulation-panel-interpretation"
+      ],
+      "topics": [
+        "gastrointestinal",
+        "perioperative-nursing",
+        "labs-specimens"
+      ],
+      "symbol": "DUDepthLiverBiopsyPreparationRecoverySample",
+      "tags": "category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential",
+      "sourceFile": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/DigestiveUrologyHepatologyReferences.swift",
+      "sourceFileSHA256": "66e32e539ebbf8b7d535ccec46f0764c32a855f8b00abd17ed223611220c80bc",
+      "bodyWords": 423
+    },
+    {
+      "id": "flexible-sigmoidoscopy-preparation-recovery",
+      "title": "Flexible sigmoidoscopy: preparation and recovery",
+      "subtitle": "Lower-colon examination, preparation and subsequent colonoscopy",
+      "family": "DigestiveEndoscopy",
+      "sections": [
+        {
+          "title": "Clarify which part of the bowel is examined",
+          "bullets": [
+            {
+              "text": "Flexible sigmoidoscopy examines the rectum and lower colon. It can identify inflammation, ulcers, polyps or cancer and may investigate bleeding, altered bowel movements, abdominal pain or unexplained weight loss.",
+              "source": "flex_sig",
+              "sourceSnapshot": "source-snapshots/flex_sig.txt"
+            },
+            {
+              "text": "The examination does not show the entire colon. A clinician may recommend colonoscopy afterward if polyps or other abnormal tissue are found, so the initial procedure may be one part of the evaluation.",
+              "source": "flex_sig",
+              "sourceSnapshot": "source-snapshots/flex_sig.txt"
+            }
+          ]
+        },
+        {
+          "title": "Use the prescribed preparation",
+          "bullets": [
+            {
+              "text": "Review health problems, medicines, vitamins and supplements with the team. Preparation may include dietary changes and an enema or laxative regimen; it often requires less bowel preparation than colonoscopy.",
+              "source": "flex_sig",
+              "sourceSnapshot": "source-snapshots/flex_sig.txt"
+            },
+            {
+              "text": "Written instructions define what to eat and drink and when to use the preparation. Remaining stool can obscure the lining, so report side effects that prevent completing the plan instead of substituting an unapproved regimen.",
+              "source": "flex_sig",
+              "sourceSnapshot": "source-snapshots/flex_sig.txt"
+            }
+          ]
+        },
+        {
+          "title": "Describe the examination experience",
+          "bullets": [
+            {
+              "text": "The patient generally lies on the left side as the clinician inserts the scope through the anus. Air improves visibility, and pressure or cramping may occur during the examination.",
+              "source": "flex_sig",
+              "sourceSnapshot": "source-snapshots/flex_sig.txt"
+            },
+            {
+              "text": "Sedation or anesthesia is usually unnecessary, but the actual plan should be confirmed. The clinician may remove polyps or take tissue samples through the scope for laboratory examination.",
+              "source": "flex_sig",
+              "sourceSnapshot": "source-snapshots/flex_sig.txt"
+            }
+          ]
+        },
+        {
+          "title": "Match recovery teaching to what was done",
+          "bullets": [
+            {
+              "text": "Cramping or bloating can occur afterward. If no sedative or anesthesia was used, many people can resume normal diet and activities promptly, following their discharge instructions.",
+              "source": "flex_sig",
+              "sourceSnapshot": "source-snapshots/flex_sig.txt"
+            },
+            {
+              "text": "Light rectal bleeding may occur after a biopsy or polyp removal. Explain the expected course alongside the warning signs, rather than presenting all bleeding as harmless.",
+              "source": "flex_sig",
+              "sourceSnapshot": "source-snapshots/flex_sig.txt"
+            }
+          ]
+        },
+        {
+          "title": "Include delayed complications",
+          "bullets": [
+            {
+              "text": "Potential complications include bleeding, perforation and severe abdominal pain. Bleeding may begin several days after the examination, even if the immediate recovery was uncomplicated.",
+              "source": "flex_sig",
+              "sourceSnapshot": "source-snapshots/flex_sig.txt"
+            },
+            {
+              "text": "NIDDK advises prompt care for severe abdominal pain or bloating, fever, vomiting, dizziness, weakness, persistent rectal bleeding or bloody bowel movements that do not improve.",
+              "source": "flex_sig",
+              "sourceSnapshot": "source-snapshots/flex_sig.txt"
+            }
+          ]
+        },
+        {
+          "title": "Complete pathology and whole-colon follow-up",
+          "bullets": [
+            {
+              "text": "Visible findings may be discussed immediately, while a pathologist’s examination of tissue can take several days or longer. The service may call or arrange an appointment to review those results.",
+              "source": "flex_sig",
+              "sourceSnapshot": "source-snapshots/flex_sig.txt"
+            },
+            {
+              "text": "Confirm whether a full colonoscopy is recommended and how it will be arranged. Completion of a lower-colon examination is not the same as completion of a planned whole-colon evaluation.",
+              "source": "flex_sig",
+              "sourceSnapshot": "source-snapshots/flex_sig.txt"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "reference:colonoscopy-preparation-recovery",
+        "reference:ibd-nutrition-follow-up",
+        "reference:focused-abdominal-assessment"
+      ],
+      "topics": [
+        "gastrointestinal",
+        "perioperative-nursing"
+      ],
+      "symbol": "DUDepthFlexibleSigmoidoscopyPreparationRecoverySample",
+      "tags": "category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential",
+      "sourceFile": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/DigestiveUrologyDigestiveEndoscopyReferences.swift",
+      "sourceFileSHA256": "12405e23c16a25a1f841612060c348648b67e15273772b97ddab9f21dae45109",
+      "bodyWords": 343
+    },
+    {
+      "id": "cystoscopy-ureteroscopy-preparation-recovery",
+      "title": "Cystoscopy and ureteroscopy: nursing support",
+      "subtitle": "Urinary tract examination, recovery and temporary stents",
+      "family": "UrologicProcedures",
+      "sections": [
+        {
+          "title": "Distinguish the two examinations",
+          "bullets": [
+            {
+              "text": "Cystoscopy examines the urethra and bladder. Ureteroscopy uses a longer, narrower instrument to examine the ureters and the lining of the kidney’s collecting area.",
+              "source": "cystoscopy",
+              "sourceSnapshot": "source-snapshots/cystoscopy.txt"
+            },
+            {
+              "text": "The clinician may investigate blood in the urine, obstruction, repeated infections or other urinary symptoms, and may also remove a stone, treat abnormal tissue or obtain a biopsy. Confirm the examination and any planned treatment.",
+              "source": "cystoscopy",
+              "sourceSnapshot": "source-snapshots/cystoscopy.txt"
+            }
+          ]
+        },
+        {
+          "title": "Review urine testing and preparation",
+          "bullets": [
+            {
+              "text": "The team may request a urine sample to look for infection before the procedure. Review current medicines, allergies and the anesthesia plan; an identified urinary infection may require treatment first.",
+              "source": "cystoscopy",
+              "sourceSnapshot": "source-snapshots/cystoscopy.txt"
+            },
+            {
+              "text": "Instructions about food, fluids, emptying the bladder and medicine adjustments vary. A simple office cystoscopy may need little preparation, while an examination under anesthesia has a different preparation and transport plan.",
+              "source": "cystoscopy",
+              "sourceSnapshot": "source-snapshots/cystoscopy.txt"
+            }
+          ]
+        },
+        {
+          "title": "Explain bladder filling and anesthesia",
+          "bullets": [
+            {
+              "text": "Sterile saline fills the bladder to improve the view during cystoscopy. Filling may cause discomfort or the urge to urinate; the clinician can remove some fluid during the examination.",
+              "source": "cystoscopy",
+              "sourceSnapshot": "source-snapshots/cystoscopy.txt"
+            },
+            {
+              "text": "Local anesthetic may be used for the urethra, while sedation or general anesthesia is often used for ureteroscopy or more involved procedures. The care team monitors vital signs during the encounter.",
+              "source": "cystoscopy",
+              "sourceSnapshot": "source-snapshots/cystoscopy.txt"
+            }
+          ]
+        },
+        {
+          "title": "Check voiding before discharge",
+          "bullets": [
+            {
+              "text": "Before leaving, the patient is asked to try to urinate so the team can confirm that urination is possible. Review the specific restrictions on rest, driving and physical activity.",
+              "source": "cystoscopy",
+              "sourceSnapshot": "source-snapshots/cystoscopy.txt"
+            },
+            {
+              "text": "Mild burning, small amounts of blood, urinary urgency or mild bladder or kidney-area discomfort may occur. NIDDK advises contacting the team if these problems last beyond a day, or earlier for severe pain, severe bleeding or inability to urinate.",
+              "source": "cystoscopy",
+              "sourceSnapshot": "source-snapshots/cystoscopy.txt"
+            }
+          ]
+        },
+        {
+          "title": "Explain a temporary ureteral stent",
+          "bullets": [
+            {
+              "text": "A stent may be left after ureteroscopy to keep urine draining while swelling resolves. It can cause bladder or kidney-area discomfort and frequent or urgent urination while it remains in place.",
+              "source": "cystoscopy",
+              "sourceSnapshot": "source-snapshots/cystoscopy.txt"
+            },
+            {
+              "text": "The duration varies, and cystoscopy may be needed for removal. Confirm the individual removal or follow-up plan; this reference does not provide instructions for manipulating or removing a stent.",
+              "source": "cystoscopy",
+              "sourceSnapshot": "source-snapshots/cystoscopy.txt"
+            }
+          ]
+        },
+        {
+          "title": "Identify symptoms needing prompt assessment",
+          "bullets": [
+            {
+              "text": "Seek care promptly for inability to urinate with a full-bladder sensation, bright red urine or clots, fever with or without chills, or severe discomfort. These findings should not be attributed automatically to a stent.",
+              "source": "cystoscopy",
+              "sourceSnapshot": "source-snapshots/cystoscopy.txt"
+            },
+            {
+              "text": "Possible complications include infection, abnormal bleeding, injury, urinary retention, scarring and anesthesia-related problems. Persistent or worsening symptoms require contact with the treating service.",
+              "source": "cystoscopy",
+              "sourceSnapshot": "source-snapshots/cystoscopy.txt"
+            }
+          ]
+        },
+        {
+          "title": "Review the home-care instructions",
+          "bullets": [
+            {
+              "text": "The clinician may recommend specific comfort measures, fluids or medicines after the procedure. Use that individualized plan rather than a fixed fluid quantity or routine antibiotic course for every patient.",
+              "source": "cystoscopy",
+              "sourceSnapshot": "source-snapshots/cystoscopy.txt"
+            },
+            {
+              "text": "If biopsy, stone treatment or a stent was part of the procedure, review the corresponding next step with the urology team. Rest, driving and activity instructions depend on the intervention and anesthesia used.",
+              "source": "cystoscopy",
+              "sourceSnapshot": "source-snapshots/cystoscopy.txt"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "reference:hematuria-assessment-follow-up",
+        "reference:kidney-stone-recovery-prevention",
+        "reference:urinary-retention-recognition"
+      ],
+      "topics": [
+        "renal-urinary",
+        "perioperative-nursing",
+        "nutrition-elimination"
+      ],
+      "symbol": "DUDepthCystoscopyUreteroscopyPreparationRecoverySample",
+      "tags": "category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential",
+      "sourceFile": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/DigestiveUrologyUrologicProceduresReferences.swift",
+      "sourceFileSHA256": "d8ccbce4a1f466b71f029e9aab12f7fd23dc03de8fff930d56011bcbf593b6de",
+      "bodyWords": 428
+    },
+    {
+      "id": "urodynamic-testing-preparation",
+      "title": "Urodynamic testing: preparation and interpretation",
+      "subtitle": "Bladder storage, emptying, pressure and coordinated function",
+      "family": "UrologicTesting",
+      "sections": [
+        {
+          "title": "Identify the functional question",
+          "bullets": [
+            {
+              "text": "Urodynamic testing evaluates how the bladder, urethra and sphincters store and release urine. Testing may investigate leakage, urgency, frequent urination, painful urination, difficulty starting, incomplete emptying or repeated infections.",
+              "source": "urodynamic",
+              "sourceSnapshot": "source-snapshots/urodynamic.txt"
+            },
+            {
+              "text": "Different tests answer different questions about storage, contraction and emptying. Confirm which components were ordered so the person understands why the visit may involve more than one measurement.",
+              "source": "urodynamic",
+              "sourceSnapshot": "source-snapshots/urodynamic.txt"
+            }
+          ]
+        },
+        {
+          "title": "Distinguish flow from residual urine",
+          "bullets": [
+            {
+              "text": "Uroflowmetry records the volume passed and the flow rate while the patient urinates into a special toilet or container. The pattern can help the clinician evaluate weak bladder muscles or an obstruction.",
+              "source": "urodynamic",
+              "sourceSnapshot": "source-snapshots/urodynamic.txt"
+            },
+            {
+              "text": "A postvoid residual measurement assesses urine remaining after urination, using ultrasound or a catheter. Flow and residual volume describe different aspects of emptying; the clinician interprets them with the symptoms and other test findings.",
+              "source": "urodynamic",
+              "sourceSnapshot": "source-snapshots/urodynamic.txt"
+            }
+          ]
+        },
+        {
+          "title": "Explain bladder filling and pressure measurement",
+          "bullets": [
+            {
+              "text": "Cystometry measures bladder capacity, pressure during filling and the point at which the urge to urinate occurs. After the bladder is emptied, a small catheter is used to fill it while the patient reports sensations.",
+              "source": "urodynamic",
+              "sourceSnapshot": "source-snapshots/urodynamic.txt"
+            },
+            {
+              "text": "Another catheter may measure pressure in the rectum or vagina. The team may ask the patient to cough or strain to assess pressure changes or leakage, and may identify contractions that occur unexpectedly.",
+              "source": "urodynamic",
+              "sourceSnapshot": "source-snapshots/urodynamic.txt"
+            }
+          ]
+        },
+        {
+          "title": "Clarify leak and pressure-flow testing",
+          "bullets": [
+            {
+              "text": "A leak point measurement records pressure when leakage occurs during filling or a requested maneuver. The result helps the clinician understand the urinary problem; it is not the same measurement as urine flow.",
+              "source": "urodynamic",
+              "sourceSnapshot": "source-snapshots/urodynamic.txt"
+            },
+            {
+              "text": "A pressure-flow study assesses pressure and flow together as the person urinates after filling. This can help investigate a bladder-outlet blockage, including obstruction associated with prostate enlargement or pelvic-organ prolapse.",
+              "source": "urodynamic",
+              "sourceSnapshot": "source-snapshots/urodynamic.txt"
+            }
+          ]
+        },
+        {
+          "title": "Explain muscle and video testing",
+          "bullets": [
+            {
+              "text": "Electromyography records electrical activity around the bladder and sphincters using sensors on the skin or a catheter. It helps assess whether nerve and muscle activity is coordinated.",
+              "source": "urodynamic",
+              "sourceSnapshot": "source-snapshots/urodynamic.txt"
+            },
+            {
+              "text": "Video urodynamics adds ultrasound or x-ray images while the bladder fills and empties. Contrast may be introduced through a catheter for some studies; the team explains which imaging method is planned.",
+              "source": "urodynamic",
+              "sourceSnapshot": "source-snapshots/urodynamic.txt"
+            }
+          ]
+        },
+        {
+          "title": "Confirm preparation and aftercare",
+          "bullets": [
+            {
+              "text": "Many urodynamic tests need little preparation, but the service may request a full bladder, a change in fluid intake or a medicine adjustment. Follow the instructions for the scheduled tests.",
+              "source": "urodynamic",
+              "sourceSnapshot": "source-snapshots/urodynamic.txt"
+            },
+            {
+              "text": "Mild discomfort with urination can occur for a few hours afterward. Catheter-based testing carries a small infection risk; pain, chills or fever suggesting infection should be reported immediately. Use the clinician’s advice for fluids, comfort measures and any prescribed medicine.",
+              "source": "urodynamic",
+              "sourceSnapshot": "source-snapshots/urodynamic.txt"
+            }
+          ]
+        },
+        {
+          "title": "Arrange review of the complete study",
+          "bullets": [
+            {
+              "text": "Results from simple tests may be available immediately. Electromyography or video-study interpretation can take longer, and the clinician reviews the results and possible treatment choices with the patient.",
+              "source": "urodynamic",
+              "sourceSnapshot": "source-snapshots/urodynamic.txt"
+            },
+            {
+              "text": "Avoid interpreting a single residual or flow value as a complete diagnosis. The planned assessment includes how the bladder stores, empties and coordinates with the outlet.",
+              "source": "urodynamic",
+              "sourceSnapshot": "source-snapshots/urodynamic.txt"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "procedure:bladder-scan",
+        "reference:urinary-continence-support",
+        "reference:bph-symptom-treatment-follow-up"
+      ],
+      "topics": [
+        "renal-urinary",
+        "labs-specimens",
+        "nutrition-elimination"
+      ],
+      "symbol": "DUDepthUrodynamicTestingPreparationSample",
+      "tags": "category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential",
+      "sourceFile": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/DigestiveUrologyUrologicTestingReferences.swift",
+      "sourceFileSHA256": "3427dbfd75c3a1942c83f346f9becd0926f2f21208975d0aa6fc0744ad24f664",
+      "bodyWords": 436
+    },
+    {
+      "id": "urinary-tract-imaging-preparation",
+      "title": "Urinary tract imaging: nursing preparation",
+      "subtitle": "Ultrasound, CT, MRI and functional kidney imaging",
+      "family": "UrologicTesting",
+      "sections": [
+        {
+          "title": "Clarify why imaging is requested",
+          "bullets": [
+            {
+              "text": "Imaging may investigate blood in the urine, pain, repeated infections, difficulty emptying the bladder or suspected kidney disease. Different urinary conditions can produce similar symptoms.",
+              "source": "urinary_imaging",
+              "sourceSnapshot": "source-snapshots/urinary_imaging.txt"
+            },
+            {
+              "text": "The test may also monitor a known stone, tumor, obstruction or other abnormality. Review the reason for the examination, current symptoms, previous surgery, medicines and relevant allergies with the ordering team.",
+              "source": "urinary_imaging",
+              "sourceSnapshot": "source-snapshots/urinary_imaging.txt"
+            }
+          ]
+        },
+        {
+          "title": "Explain ultrasound and x-ray examinations",
+          "bullets": [
+            {
+              "text": "Ultrasound uses sound waves and does not expose the patient to x-rays. Kidney and bladder studies can assess structures such as stones, masses, bladder-wall changes or evidence of obstruction.",
+              "source": "urinary_imaging",
+              "sourceSnapshot": "source-snapshots/urinary_imaging.txt"
+            },
+            {
+              "text": "Other urinary studies use x-rays. A voiding cystourethrogram images the bladder and urethra during filling and urination, while other x-ray examinations may assess stones or the drainage pathway. Confirm the actual study rather than assuming all imaging is an external scan.",
+              "source": "urinary_imaging",
+              "sourceSnapshot": "source-snapshots/urinary_imaging.txt"
+            }
+          ]
+        },
+        {
+          "title": "Differentiate CT and MRI",
+          "bullets": [
+            {
+              "text": "CT combines x-rays and computer processing to show urinary stones, obstruction, infection, tumors or injury. MRI uses magnets and radio waves to produce detailed images without x-rays.",
+              "source": "urinary_imaging",
+              "sourceSnapshot": "source-snapshots/urinary_imaging.txt"
+            },
+            {
+              "text": "Some studies use contrast. Magnetic resonance urography examines the urinary tract, while magnetic resonance angiography can evaluate the kidney arteries. The ordering clinician and radiology team determine which technique answers the question.",
+              "source": "urinary_imaging",
+              "sourceSnapshot": "source-snapshots/urinary_imaging.txt"
+            }
+          ]
+        },
+        {
+          "title": "Describe functional kidney imaging",
+          "bullets": [
+            {
+              "text": "A radionuclide renal scan uses a small amount of radioactive material and a special camera to provide information about kidney function. Its purpose differs from simply showing the shape of an organ.",
+              "source": "urinary_imaging",
+              "sourceSnapshot": "source-snapshots/urinary_imaging.txt"
+            },
+            {
+              "text": "The clinician may combine information from a renal scan with ultrasound, CT or MRI. Explain which test is planned and direct questions about the tracer or procedure to the imaging service.",
+              "source": "urinary_imaging",
+              "sourceSnapshot": "source-snapshots/urinary_imaging.txt"
+            }
+          ]
+        },
+        {
+          "title": "Confirm study-specific preparation",
+          "bullets": [
+            {
+              "text": "Some examinations require a full bladder, fasting, bowel preparation or another instruction; many do not. Obtain the written preparation for the scheduled study rather than applying one instruction to every urinary scan.",
+              "source": "urinary_imaging",
+              "sourceSnapshot": "source-snapshots/urinary_imaging.txt"
+            },
+            {
+              "text": "Tell the imaging team about possible pregnancy, implanted devices, metal fragments or surgical hardware. Discuss difficulty remaining still or tolerating an enclosed scanner, because the service may plan additional support or sedation.",
+              "source": "urinary_imaging",
+              "sourceSnapshot": "source-snapshots/urinary_imaging.txt"
+            }
+          ]
+        },
+        {
+          "title": "Recognize symptoms after instrumentation or contrast",
+          "bullets": [
+            {
+              "text": "A catheter can cause mild temporary urethral discomfort. Pain, chills or fever suggesting infection require prompt contact with the treating team after a catheter-based examination.",
+              "source": "urinary_imaging",
+              "sourceSnapshot": "source-snapshots/urinary_imaging.txt"
+            },
+            {
+              "text": "Report hives, itching, nausea, vomiting, headache or dizziness after contrast, and changes in breathing or heart rate after sedation. These symptoms need clinical assessment rather than being assumed to be an expected result of imaging.",
+              "source": "urinary_imaging",
+              "sourceSnapshot": "source-snapshots/urinary_imaging.txt"
+            }
+          ]
+        },
+        {
+          "title": "Review recovery and result timing",
+          "bullets": [
+            {
+              "text": "After many imaging tests, normal activity can resume promptly, but the instructions depend on any catheter, contrast or sedative used. Follow the imaging service’s discharge advice.",
+              "source": "urinary_imaging",
+              "sourceSnapshot": "source-snapshots/urinary_imaging.txt"
+            },
+            {
+              "text": "Results from a simple examination may be available sooner than a CT or MRI report. Confirm when and with whom the results will be discussed; completing the scan does not complete clinical interpretation.",
+              "source": "urinary_imaging",
+              "sourceSnapshot": "source-snapshots/urinary_imaging.txt"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "reference:hematuria-assessment-follow-up",
+        "reference:kidney-stone-recovery-prevention",
+        "reference:urodynamic-testing-preparation"
+      ],
+      "topics": [
+        "renal-urinary",
+        "labs-specimens"
+      ],
+      "symbol": "DUDepthUrinaryTractImagingPreparationSample",
+      "tags": "category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential",
+      "sourceFile": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/DigestiveUrologyUrologicTestingReferences.swift",
+      "sourceFileSHA256": "3427dbfd75c3a1942c83f346f9becd0926f2f21208975d0aa6fc0744ad24f664",
+      "bodyWords": 431
+    },
+    {
+      "id": "bph-symptom-treatment-follow-up",
+      "title": "BPH: symptom assessment and treatment follow-up",
+      "subtitle": "Bladder emptying, medicines, conservative care and procedures",
+      "family": "UrologicCare",
+      "sections": [
+        {
+          "title": "Assess symptoms as well as prostate size",
+          "bullets": [
+            {
+              "text": "Benign prostatic hyperplasia is noncancerous enlargement of the prostate. Compression of the urethra can make the bladder work harder and eventually contribute to incomplete emptying.",
+              "source": "bph",
+              "sourceSnapshot": "source-snapshots/bph.txt"
+            },
+            {
+              "text": "A large prostate may cause few symptoms, while a smaller enlargement may cause substantial difficulty. Ask about hesitancy, weak or interrupted flow, dribbling, urgency, frequency, nighttime urination and the effect on daily life.",
+              "source": "bph",
+              "sourceSnapshot": "source-snapshots/bph.txt"
+            }
+          ]
+        },
+        {
+          "title": "Review contributors and competing causes",
+          "bullets": [
+            {
+              "text": "Cold and cough products containing decongestants or antihistamines, as well as some tranquilizers, antidepressants or diuretics, can worsen urinary symptoms. Include over-the-counter products in the medicine history.",
+              "source": "bph",
+              "sourceSnapshot": "source-snapshots/bph.txt"
+            },
+            {
+              "text": "Urinary symptoms may also reflect infection, prostatitis, bladder problems or prostate cancer. Report symptoms for assessment rather than assuming that a prior BPH diagnosis explains every new change.",
+              "source": "bph",
+              "sourceSnapshot": "source-snapshots/bph.txt"
+            }
+          ]
+        },
+        {
+          "title": "Recognize urgent urinary problems",
+          "bullets": [
+            {
+              "text": "Prompt evaluation is needed when the person cannot urinate at all, has blood in the urine, has severe lower abdominal or urinary-tract pain, or has painful urgent and frequent urination with fever and chills.",
+              "source": "bph",
+              "sourceSnapshot": "source-snapshots/bph.txt"
+            },
+            {
+              "text": "Possible complications of BPH include urinary retention, repeated infection, bladder stones and kidney disease. These concerns should be communicated during follow-up rather than treated solely as inconvenience from aging.",
+              "source": "bph",
+              "sourceSnapshot": "source-snapshots/bph.txt"
+            }
+          ]
+        },
+        {
+          "title": "Understand the evaluation and PSA limits",
+          "bullets": [
+            {
+              "text": "Evaluation combines the medical and family history, examination and selected tests such as urinalysis, urodynamics, cystoscopy, ultrasound or prostate tests. Describe onset, frequency, previous infections, medicines and usual fluid, caffeine and alcohol intake.",
+              "source": "bph",
+              "sourceSnapshot": "source-snapshots/bph.txt"
+            }
+          ]
+        },
+        {
+          "title": "Interpret prostate testing in context",
+          "bullets": [
+            {
+              "text": "An elevated prostate-specific antigen, or PSA, can occur with prostate cancer or with noncancerous problems such as BPH or prostatitis. PSA testing can produce false-positive and false-negative results.",
+              "source": "prostate_tests",
+              "sourceSnapshot": "source-snapshots/prostate_tests.txt"
+            },
+            {
+              "text": "The clinician considers the result and its trend alongside the rest of the evaluation. A PSA value alone does not establish the cause of urinary symptoms or exclude cancer.",
+              "source": "prostate_tests",
+              "sourceSnapshot": "source-snapshots/prostate_tests.txt"
+            }
+          ]
+        },
+        {
+          "title": "Support the selected conservative plan",
+          "bullets": [
+            {
+              "text": "When symptoms have little effect on quality of life, watchful waiting with follow-up may be appropriate. Advice may include regular activity, avoiding prolonged holding of urine and changing the timing of evening fluids.",
+              "source": "bph",
+              "sourceSnapshot": "source-snapshots/bph.txt"
+            },
+            {
+              "text": "Reducing alcohol or caffeine may help symptoms. Discuss the individual plan and medicine contributors with the clinician rather than independently stopping treatment or imposing a fixed daily fluid restriction.",
+              "source": "bph",
+              "sourceSnapshot": "source-snapshots/bph.txt"
+            }
+          ]
+        },
+        {
+          "title": "Explain treatment categories and monitoring",
+          "bullets": [
+            {
+              "text": "Prescribed options include alpha blockers that relax outlet muscles, medicines that reduce prostate growth and other selected agents. Procedures can widen the urinary passage or remove obstructing prostate tissue when indicated.",
+              "source": "bph",
+              "sourceSnapshot": "source-snapshots/bph.txt"
+            },
+            {
+              "text": "Treatment depends on symptom burden, response and complications. Report adverse effects and persistent difficulty urinating so the clinician can reassess the plan; this guide does not choose a drug, dose or operation.",
+              "source": "bph",
+              "sourceSnapshot": "source-snapshots/bph.txt"
+            }
+          ]
+        },
+        {
+          "title": "Review recovery after a BPH procedure",
+          "bullets": [
+            {
+              "text": "Swelling after surgery may make urination difficult, and a temporary Foley catheter may be needed. Bladder spasms, urinary urgency or leakage can occur and should be discussed with the surgical team.",
+              "source": "bph",
+              "sourceSnapshot": "source-snapshots/bph.txt"
+            },
+            {
+              "text": "Potential complications include infection, blood or clots in urine, difficult urination, scar-related narrowing and sexual problems. Review the expected recovery, catheter plan and follow-up; symptoms can recur and may require further treatment.",
+              "source": "bph",
+              "sourceSnapshot": "source-snapshots/bph.txt"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "diagnosis:bph",
+        "reference:urinary-retention-recognition",
+        "reference:urodynamic-testing-preparation"
+      ],
+      "topics": [
+        "renal-urinary",
+        "nutrition-elimination",
+        "perioperative-nursing"
+      ],
+      "symbol": "DUDepthBphSymptomTreatmentFollowUpSample",
+      "tags": "category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential",
+      "sourceFile": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/DigestiveUrologyUrologicCareReferences.swift",
+      "sourceFileSHA256": "cab91f8ee68ff206520b19f40249e2e8d8493518661f89713841cb2da2ac59f0",
+      "bodyWords": 454
+    },
+    {
+      "id": "hematuria-assessment-follow-up",
+      "title": "Hematuria: assessment and diagnostic follow-up",
+      "subtitle": "Visible blood, specimen context and cause-focused evaluation",
+      "family": "UrologicCare",
+      "sections": [
+        {
+          "title": "Distinguish visible and microscopic blood",
+          "bullets": [
+            {
+              "text": "Gross hematuria is visible blood in the urine; microscopic hematuria is detected by testing even when the urine looks normal. Visible blood may make urine pink, red or brown.",
+              "source": "hematuria",
+              "sourceSnapshot": "source-snapshots/hematuria.txt"
+            },
+            {
+              "text": "A small amount of blood can change urine color. Microscopic hematuria often has no symptoms, and gross hematuria may also be painless, so pain and color alone do not establish the seriousness or cause.",
+              "source": "hematuria",
+              "sourceSnapshot": "source-snapshots/hematuria.txt"
+            }
+          ]
+        },
+        {
+          "title": "Ask about clots and urinary flow",
+          "bullets": [
+            {
+              "text": "Blood clots can be painful to pass or can block urinary flow. Ask about clots, bladder or back pain and whether urine is passing, rather than documenting color alone.",
+              "source": "hematuria",
+              "sourceSnapshot": "source-snapshots/hematuria.txt"
+            },
+            {
+              "text": "An assessment for hematuria includes the medical history, physical examination and urinalysis. Communicate associated symptoms and the course of the bleeding so the clinician can choose the next evaluation.",
+              "source": "hematuria",
+              "sourceSnapshot": "source-snapshots/hematuria.txt"
+            }
+          ]
+        },
+        {
+          "title": "Escalate possible acute retention",
+          "bullets": [
+            {
+              "text": "Inability to urinate or severe abdominal pain requires immediate medical assessment. Acute urinary retention may also cause an urgent need to void and lower abdominal swelling, and can be life threatening.",
+              "source": "retention_symptoms",
+              "sourceSnapshot": "source-snapshots/retention_symptoms.txt"
+            },
+            {
+              "text": "A person may also have chronic incomplete emptying with few symptoms, small frequent voids or leakage. These patterns need clinical evaluation; passing small amounts of urine does not establish that the bladder is emptying normally.",
+              "source": "retention_symptoms",
+              "sourceSnapshot": "source-snapshots/retention_symptoms.txt"
+            }
+          ]
+        },
+        {
+          "title": "Review possible causes without assuming one",
+          "bullets": [
+            {
+              "text": "Causes include urinary infection or inflammation, stones, trauma, a recent urinary procedure, BPH and vigorous exercise. Kidney disease, urinary-tract cancer and bleeding disorders are other possible explanations.",
+              "source": "hematuria",
+              "sourceSnapshot": "source-snapshots/hematuria.txt"
+            },
+            {
+              "text": "Medicines such as blood thinners, aspirin and some antibiotics are relevant to the history. A medicine exposure or recent procedure does not, by itself, establish why blood is present; the clinician evaluates the underlying cause.",
+              "source": "hematuria",
+              "sourceSnapshot": "source-snapshots/hematuria.txt"
+            }
+          ]
+        },
+        {
+          "title": "Account for specimen context",
+          "bullets": [
+            {
+              "text": "Urinalysis checks a sample for blood, and repeat testing may be needed to confirm the finding. Menstrual blood can contaminate a specimen and create an apparent urinary finding.",
+              "source": "hematuria",
+              "sourceSnapshot": "source-snapshots/hematuria.txt"
+            },
+            {
+              "text": "When a specimen was collected during menstruation, the clinician may request another sample afterward. Record the collection context and follow the requested repeat-testing plan rather than dismissing or diagnosing hematuria from context alone.",
+              "source": "hematuria",
+              "sourceSnapshot": "source-snapshots/hematuria.txt"
+            }
+          ]
+        },
+        {
+          "title": "Explain additional testing",
+          "bullets": [
+            {
+              "text": "Depending on the findings, evaluation may include blood tests, urinary-tract ultrasound, CT or MRI, cystoscopy or kidney biopsy. These studies answer different questions about the kidneys, bladder and urinary pathway.",
+              "source": "hematuria",
+              "sourceSnapshot": "source-snapshots/hematuria.txt"
+            },
+            {
+              "text": "Cystoscopy views the urethra and bladder, while a kidney biopsy examines kidney tissue microscopically. Explain the purpose of the ordered test and which service will review its result.",
+              "source": "hematuria",
+              "sourceSnapshot": "source-snapshots/hematuria.txt"
+            }
+          ]
+        },
+        {
+          "title": "Connect follow-up with the identified cause",
+          "bullets": [
+            {
+              "text": "Treatment addresses the cause of hematuria. Some people do not need treatment when evaluation finds no serious underlying condition; others need care directed at infection, stones, kidney disease or another identified problem.",
+              "source": "hematuria",
+              "sourceSnapshot": "source-snapshots/hematuria.txt"
+            },
+            {
+              "text": "NIDDK has not identified a diet that causes or prevents hematuria. Do not substitute a dietary remedy for completing the recommended assessment and review of results.",
+              "source": "hematuria",
+              "sourceSnapshot": "source-snapshots/hematuria.txt"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "lab:urinalysis",
+        "reference:cystoscopy-ureteroscopy-preparation-recovery",
+        "reference:kidney-biopsy-preparation-recovery"
+      ],
+      "topics": [
+        "renal-urinary",
+        "labs-specimens",
+        "nutrition-elimination"
+      ],
+      "symbol": "DUDepthHematuriaAssessmentFollowUpSample",
+      "tags": "category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential",
+      "sourceFile": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/DigestiveUrologyUrologicCareReferences.swift",
+      "sourceFileSHA256": "cab91f8ee68ff206520b19f40249e2e8d8493518661f89713841cb2da2ac59f0",
+      "bodyWords": 426
+    }
+  ],
+  "sourceFidelityReview": {
+    "date": "2026-09-17",
+    "method": "Read the primary NIDDK educational prose and compare each of the 139 adapted content blocks against the retained source. Preserve preparation and treatment decisions with the procedural team. This is not independent clinician sign-off.",
+    "status": "completed",
+    "scope": "These ten new guides only; linked legacy entries retain their existing review status."
+  }
+}

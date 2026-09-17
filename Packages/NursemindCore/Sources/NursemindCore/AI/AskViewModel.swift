@@ -16,13 +16,6 @@ public final class AskViewModel {
     public var quotaBlockedToken: Int = 0
 
     private let service: AskService
-    /// Single post-answer Anthropic call that produces both follow-up
-    /// suggestions and the calculator handoff id. Replaces what used to be
-    /// two separate helpers (`FollowUpService` + `CalculatorSuggester`) —
-    /// merged to save ~$0.0012 per question (~10% of total AI cost). The
-    /// `FollowUpService` and `CalculatorSuggester` protocols/mocks still
-    /// exist for preview/test ergonomics but the live pipeline no longer
-    /// invokes them.
     private let enrichmentService: AnswerEnrichmentService?
     private var streamingTask: Task<Void, Never>?
 
@@ -55,8 +48,7 @@ public final class AskViewModel {
         let raw = inputText.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !raw.isEmpty, !isStreaming else { return }
 
-        // Daily quota gate. Server-side enforcement comes when the AI proxy
-        // edge function lands; for now this caps client-driven cost.
+        // Immediate UI gate; the server independently enforces the subscription allowance.
         let prefs = UserPreferences.shared
         if prefs.askQuotaExceeded {
             quotaBlockedToken &+= 1
@@ -116,12 +108,6 @@ public final class AskViewModel {
            let idx = conversation.messages.firstIndex(where: { $0.id == assistantID }) {
             conversation.messages[idx].calculatorPreset = extractedValues
         }
-        // Calculator suggestion is now produced by the post-stream merged
-        // `enrichmentService` call (see fetchEnrichment below), bundled with
-        // follow-ups in a single Anthropic call. Local value extraction (the
-        // calculatorPreset) still runs synchronously above — that's regex-only,
-        // no API cost — so when the suggestion arrives, the preset is already
-        // there waiting.
         // Specialty + sub-specialty are derived from the user's profile each
         // send — no per-message UI control. The Ask page front door stays
         // clean; nurses still steer mid-message ("on my Peds shift today…")
@@ -130,6 +116,8 @@ public final class AskViewModel {
         let icuSubspecialty = (activeSpecialty == .icu) ? prefs.icuSubspecialty : nil
         streamingTask = Task { [weak self] in
             guard let self else { return }
+            let started = ContinuousClock.now
+            var firstAnswerMilliseconds: Int?
             do {
                 let context = self.conversation.messages.dropLast(2).suffix(6)
                 let stream = self.service.stream(
@@ -167,6 +155,9 @@ public final class AskViewModel {
                         }
                     case .delta(let chunk):
                         guard refusal == nil else { continue }
+                        if firstAnswerMilliseconds == nil {
+                            firstAnswerMilliseconds = Self.milliseconds(started.duration(to: .now))
+                        }
                         self.revealBuffer += chunk
                         self.scheduleReveal(for: assistantID)
                     case .citations(let cits):
@@ -202,6 +193,7 @@ public final class AskViewModel {
                         break
                     }
                 }
+                guard !Task.isCancelled else { return }
                 // Let the reveal loop drain what the network already
                 // delivered, then finalize. The drain accelerates once the
                 // stream is done, so this tail lasts a beat, not seconds.
@@ -221,10 +213,15 @@ public final class AskViewModel {
                         "refusal": final?.refusal?.rawValue ?? "none",
                         "citation_count": final?.citations.count ?? 0,
                         "answer_char_count": final?.content.count ?? 0,
+                        "latency_ms": Self.milliseconds(started.duration(to: .now)),
+                        "first_answer_ms": firstAnswerMilliseconds ?? -1,
                         "phi_redacted": scrub.redacted
                     ]
                 )
+            } catch is CancellationError {
+                return
             } catch {
+                guard !Task.isCancelled else { return }
                 self.stopReveal()
                 prefs.refundAskQuota()
                 if let idx = self.conversation.messages.firstIndex(where: { $0.id == assistantID }) {
@@ -238,7 +235,7 @@ public final class AskViewModel {
                 }
                 AnalyticsService.shared.capture(
                     "question_failed",
-                    properties: ["error": String(describing: error)]
+                    properties: ["error_type": "ask_transport_failure"]
                 )
             }
             self.isStreaming = false
@@ -254,6 +251,10 @@ public final class AskViewModel {
         if let last = conversation.messages.last, last.role == .assistant, last.isStreaming {
             conversation.messages.removeLast()
         }
+    }
+
+    private static func milliseconds(_ duration: Duration) -> Int {
+        Int(duration.components.seconds * 1_000 + duration.components.attoseconds / 1_000_000_000_000_000)
     }
 
     /// Pre-establishes the network path to the AI service (DNS, TLS, edge
@@ -369,20 +370,7 @@ public final class AskViewModel {
         focusRequestToken &+= 1
     }
 
-    /// Fires once after a successful stream. Makes a single Anthropic call
-    /// that returns both follow-up suggestions and a calculator handoff id,
-    /// then applies both to the message at the same animation tick. Replaces
-    /// the prior two helpers (calculator suggester firing in parallel with
-    /// the stream, follow-ups firing after) — collapsing them halves the
-    /// post-answer helper cost and gives the calculator suggester access to
-    /// the answer text, which improves match accuracy ("calculate the MAP"
-    /// phrasing in the answer becomes a usable signal).
-    ///
-    /// Skips refusals entirely — no enrichment is meaningful on an apology.
-    /// Does NOT gate on answer length: very short answers (e.g., "MAP = 76.7
-    /// mmHg") still benefit from a calculator handoff even though follow-up
-    /// quality drops, and the model returns empty followups gracefully when
-    /// none make sense.
+    /// Follow-ups are attached only to completed, validated answers.
     private func fetchEnrichment(for messageID: UUID, originalQuestion: String) {
         guard let service = enrichmentService,
               let idx = conversation.messages.firstIndex(where: { $0.id == messageID }) else { return }

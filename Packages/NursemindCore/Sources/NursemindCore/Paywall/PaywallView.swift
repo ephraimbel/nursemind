@@ -2,38 +2,16 @@ import SwiftUI
 import UIKit
 import RevenueCat
 
-/// One-page editorial paywall, fully self-owned. The brand mark sits at
-/// the top with a close button, then a confident hero, an auto-advancing
-/// feature carousel that walks the user through what Pro unlocks, the
-/// plan picker (yearly preselected with savings chip), the primary CTA,
-/// and a small legal footer.
-///
-/// Real prices come from the live RevenueCat offering when one is loaded;
-/// when offerings haven't synced yet (cold launch, no internet, dev),
-/// fall back to the dashboard-locked display prices defined in
-/// `PaywallPlan` so the layout is never empty.
-///
-/// Pricing strategy: $14.99/mo and $99.99/yr (44% savings vs. monthly,
-/// 3-day free trial on yearly). Yearly is preselected because it converts
-/// better and is the better deal for the user.
 public struct PaywallView: View {
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var selectedPlan: PaywallPlan = .yearly
-    @State private var isWorking: Bool = false
+    @State private var isWorking = false
     @State private var errorMessage: String?
 
     private let monthlyPackage: Package?
     private let annualPackage: Package?
-    /// When non-nil, this is invoked instead of `dismiss()` on every exit
-    /// path — successful purchase, close button, restore-success, and the
-    /// "Maybe later" affordance that's shown only in this mode. Used by the
-    /// onboarding paywall step to advance the flow rather than dismiss a
-    /// presentation that doesn't exist (the paywall is rendered inline,
-    /// not as a sheet, during onboarding).
     private let onComplete: (() -> Void)?
-    /// Where the paywall was triggered from. Captured on the
-    /// `paywall_viewed` event so the funnel splits cleanly (onboarding vs
-    /// quota-hit vs profile-upgrade).
     private let analyticsSource: String
 
     public init(
@@ -48,17 +26,6 @@ public struct PaywallView: View {
         self.analyticsSource = analyticsSource
     }
 
-    /// Routes every "I'm done with this paywall" signal — purchase complete,
-    /// X tap, restore complete, "Maybe later" — to the right exit. In a
-    /// sheet/fullScreenCover context this falls through to `dismiss()`. In
-    /// an inline-onboarding-step context, the parent flow's `onComplete`
-    /// callback advances to the next step.
-    ///
-    /// The ATT prompt is NOT requested here — it fires from `RootView` on
-    /// the first active scene (the splash) so it reliably appears before
-    /// any IDFA is read. Triggering it from this dismiss transition let iOS
-    /// silently suppress the prompt (the app wasn't cleanly `.active`),
-    /// which is why App Review couldn't find it (Guideline 2.1, 2026-05-30).
     private func exit() {
         if let onComplete {
             onComplete()
@@ -68,110 +35,34 @@ public struct PaywallView: View {
     }
 
     public var body: some View {
-        ZStack(alignment: .topTrailing) {
-            GrainBackground()
-                .ignoresSafeArea()
-
-            // Fits on a tall iPhone exactly as before; scrolls into reach on a
-            // short canvas (iPhone-app-on-iPad compatibility window) so the
-            // plan picker, CTA, and Restore / Terms / Privacy footer are never
-            // clipped below the fold. (Apple review, Guideline 4, 2026-06-26.)
-            FitOrScrollLayout {
-                VStack(spacing: 0) {
-                    // Spacing scaled down universally so the paywall fits on
-                    // iPhone 15 (852pt) and stays balanced on iPhone Pro Max
-                    // (932pt) — the original spacing pushed "Maybe later"
-                    // below the bottom safe area on shorter phones.
-                    //
-                    // The inner gaps are capped. FitOrScrollLayout stretches
-                    // this column to the viewport, so uncapped Spacers here
-                    // split every surplus point between the sections — on a
-                    // 6.9" canvas that was ~170pt each, breaking the page into
-                    // three drifting islands. Bounded gaps keep the wordmark,
-                    // the value props and the purchase block reading as one
-                    // column. Every gap is capped, including this one, so the
-                    // leftover falls past the end of the column — the layout
-                    // is top-aligned — rather than stranding the wordmark in
-                    // the middle of an empty upper half.
-                    Spacer().frame(minHeight: NMSpace.md, maxHeight: NMSpace.huge)
-                    brandMark
-                    header
-                        .padding(.top, NMSpace.md)
-                    Spacer().frame(minHeight: NMSpace.lg, maxHeight: NMSpace.huge)
-                    featureChecklist
-                    Spacer().frame(minHeight: NMSpace.lg, maxHeight: NMSpace.huge)
-                    planSection
-                    continueButton
-                        .padding(.top, NMSpace.md)
-                    if let sub = continueSubcopy {
-                        Text(sub)
-                            .font(NMFont.bodySM)
-                            .italic()
-                            .foregroundStyle(NMColor.textTertiary)
-                            .multilineTextAlignment(.center)
-                            .frame(maxWidth: .infinity)
-                            .padding(.top, NMSpace.xs)
+        ZStack {
+            GrainBackground().ignoresSafeArea()
+            VStack(spacing: 0) {
+                navigationHeader
+                GeometryReader { geometry in
+                    let compact = geometry.size.height < 460
+                    ScrollView {
+                        VStack(spacing: 0) {
+                            header(compact: compact)
+                            featureChecklist(compact: compact)
+                                .padding(.top, compact ? NMSpace.lg : NMSpace.xl)
+                            Spacer(minLength: compact ? NMSpace.base : NMSpace.xl)
+                                .frame(maxHeight: compact ? NMSpace.xl : NMSpace.xxxl)
+                            planSection(compact: compact)
+                        }
+                        .padding(.top, compact ? NMSpace.sm : NMSpace.base)
+                        .padding(.bottom, NMSpace.base)
+                        .frame(maxWidth: 480)
+                        .frame(minHeight: geometry.size.height, alignment: .top)
+                        .padding(.horizontal, NMSpace.xl)
+                        .frame(maxWidth: .infinity)
                     }
-                    if let errorMessage, !errorMessage.isEmpty {
-                        Text(errorMessage)
-                            .font(NMFont.bodySM)
-                            .foregroundStyle(NMColor.alertHigh)
-                            .multilineTextAlignment(.center)
-                            .frame(maxWidth: .infinity)
-                            .padding(.top, NMSpace.xs)
-                    }
-                    legalFooter
-                        .padding(.top, NMSpace.sm)
-                        .padding(.bottom, NMSpace.md)
-                    // The onboarding paywall carries a deliberately faint X in
-                    // the top-right (see the overlay below) as a low-friction
-                    // escape hatch. Subscribe / start-trial and Restore remain
-                    // the primary paths; the subtle dismiss just lets a user
-                    // who isn't ready continue into the app.
+                    .scrollBounceBehavior(.basedOnSize)
+                    .scrollIndicators(.hidden)
                 }
-                .frame(maxWidth: .infinity)
-                .padding(.horizontal, NMSpace.lg)
-            }
-
-            // Dismissal affordance, top-right. Two treatments:
-            //  • Sheet/cover surfaces (onComplete == nil): the standard
-            //    bubbled FloatingIconButton, clearly tappable.
-            //  • Onboarding (onComplete != nil): a very subtle bare glyph —
-            //    no bubble, quaternary tint — so it reads as a quiet escape
-            //    hatch that never competes with the CTA. Tapping it advances
-            //    the flow via exit() → onComplete.
-            if onComplete == nil {
-                FloatingIconButton(
-                    systemName: "xmark",
-                    accessibilityLabel: "Close"
-                ) {
-                    Haptic.light()
-                    exit()
-                }
-                .padding(.trailing, NMSpace.lg)
-                .padding(.top, NMSpace.sm)
-            } else {
-                Button {
-                    Haptic.light()
-                    exit()
-                } label: {
-                    Image(systemName: "xmark")
-                        .font(.system(size: 15, weight: .regular))
-                        .foregroundStyle(NMColor.textQuaternary)
-                        .frame(width: 38, height: 38)
-                        .contentShape(Rectangle())
-                }
-                .buttonStyle(.plain)
-                .accessibilityLabel("Skip for now")
-                .padding(.trailing, NMSpace.lg)
-                .padding(.top, NMSpace.sm)
+                purchaseFooter
             }
         }
-        // Hide nav bar + tab bar so the paywall always presents full-screen
-        // regardless of whether it's surfaced as a fullScreenCover (Ask flow)
-        // or pushed via NavigationLink (Profile → Subscription). Without
-        // this, the Profile-tab presentation eats the top with a back button
-        // and the bottom with the tab bar, clipping the wordmark and footer.
         .toolbar(.hidden, for: .navigationBar)
         .toolbar(.hidden, for: .tabBar)
         .onAppear {
@@ -179,48 +70,56 @@ public struct PaywallView: View {
                 "paywall_viewed",
                 properties: ["source": analyticsSource]
             )
-            TikTokAnalyticsService.shared.trackPaywallView(source: analyticsSource)
+            TikTokAnalyticsService.shared.trackPaywallView()
+            MetaAnalyticsService.shared.trackPaywallView()
         }
     }
 
-    // MARK: - Brand mark
-
-    /// The title steps up a notch on a 15/16-class canvas; the wordmark only
-    /// drifts. It has to stay optically lighter than "Everything, unlocked." —
-    /// at parity the mark reads as the headline and the offer becomes the
-    /// subtitle. Smaller phones keep the original 32.
-    private var brandMark: some View {
-        NursemindLogo(size: PaywallMetrics.current.logo)
+    private var navigationHeader: some View {
+        NursemindLogo(size: 28)
+            .frame(maxWidth: .infinity)
+            .overlay(alignment: .trailing) {
+                Button {
+                    Haptic.light()
+                    exit()
+                } label: {
+                    Image(systemName: "xmark")
+                        .font(.system(size: 15, weight: .medium))
+                        .foregroundStyle(NMColor.textSecondary)
+                        .frame(width: 44, height: 44)
+                        .contentShape(Rectangle())
+                }
+                .buttonStyle(.plain)
+                .disabled(isWorking)
+                .accessibilityLabel(onComplete == nil ? "Close paywall" : "Continue with free")
+                .accessibilityIdentifier("paywall.close")
+            }
+            .frame(maxWidth: 480)
+            .padding(.horizontal, NMSpace.md)
+            .padding(.vertical, NMSpace.xs)
+            .frame(maxWidth: .infinity)
     }
 
-    // MARK: - Header
-
-    private var header: some View {
+    private func header(compact: Bool) -> some View {
         VStack(spacing: NMSpace.sm) {
-            EyebrowLabel("NURSEMIND PRO")
             Text("Everything, unlocked.")
-                .font(PaywallMetrics.current.titleFont)
+                .font(compact ? Font.custom("InstrumentSerif-Regular", size: 32, relativeTo: .title) : NMFont.displayLG)
+                .tracking(-0.9)
                 .foregroundStyle(NMColor.textPrimary)
-                .multilineTextAlignment(.center)
-                .tracking(PaywallMetrics.current.titleTracking)
-            Text("Cited at every claim. Calm at every shift.")
-                .font(NMFont.displayItalicSM)
+                .accessibilityAddTraits(.isHeader)
+            Text("Your nursing essentials, in one place.")
+                .font(compact ? NMFont.displayItalicSM : NMFont.displayItalicMD)
                 .foregroundStyle(NMColor.textSecondary)
-                .multilineTextAlignment(.center)
         }
+        .multilineTextAlignment(.center)
+        .fixedSize(horizontal: false, vertical: true)
         .frame(maxWidth: .infinity)
     }
 
-    // MARK: - Feature checklist
-
-    /// Compact 4-row checklist. Replaces the carousel so the whole paywall
-    /// fits on a single screen — quicker for the user to scan, no
-    /// auto-advance delay before they can decide. Each row: accent badge
-    /// with icon → bold title → italic supporting line.
-    private var featureChecklist: some View {
-        VStack(spacing: PaywallMetrics.current.rowSpacing) {
+    private func featureChecklist(compact: Bool) -> some View {
+        VStack(spacing: compact ? NMSpace.sm : NMSpace.base) {
             ForEach(Array(features.enumerated()), id: \.offset) { _, feature in
-                PaywallFeatureRow(feature: feature)
+                PaywallFeatureRow(feature: feature, compact: compact)
             }
         }
         .frame(maxWidth: .infinity)
@@ -234,7 +133,7 @@ public struct PaywallView: View {
                 body: "Cited, scoped to nursing"
             ),
             PaywallFeature(
-                icon: "books.vertical.fill",
+                icon: "books.vertical",
                 title: "The full reference library",
                 body: "Drugs · drips · labs · scenarios"
             ),
@@ -245,40 +144,39 @@ public struct PaywallView: View {
                     body: "MAP, GFR, sepsis scores, NIHSS, PESI"
                 )
                 : PaywallFeature(
-                    icon: "text.book.closed.fill",
+                    icon: "text.book.closed",
                     title: "Every scenario walkthrough",
                     body: "Case-based clinical judgment, cited"
                 ),
             PaywallFeature(
-                icon: "bookmark.fill",
+                icon: "bookmark",
                 title: "Save, search, resume",
                 body: "Synced across every signed-in device"
             )
         ]
     }
 
-    // MARK: - Plans
-
-    private var planSection: some View {
-        VStack(alignment: .leading, spacing: NMSpace.md) {
+    private func planSection(compact: Bool) -> some View {
+        VStack(spacing: NMSpace.md) {
             EyebrowLabel("CHOOSE YOUR PLAN", sparkle: false)
             VStack(spacing: NMSpace.sm) {
                 ForEach(PaywallPlan.allCases, id: \.self) { plan in
                     PaywallPlanRow(
                         plan: plan,
                         priceText: priceText(for: plan),
-                        unitText: plan.period,
                         secondaryLine: secondaryLine(for: plan),
-                        savings: "Save \(savingsPercent)%",
-                        showSavings: plan == .yearly,
+                        savings: plan == .yearly && savingsPercent > 0 ? "Save \(savingsPercent)%" : nil,
+                        compact: compact,
                         selected: selectedPlan == plan
                     ) {
                         guard selectedPlan != plan else { return }
                         UISelectionFeedbackGenerator().selectionChanged()
-                        withAnimation(.spring(response: 0.35, dampingFraction: 0.85)) {
+                        withAnimation(reduceMotion ? nil : .easeInOut(duration: 0.18)) {
                             selectedPlan = plan
+                            errorMessage = nil
                         }
                     }
+                    .disabled(isWorking)
                 }
             }
         }
@@ -299,9 +197,9 @@ public struct PaywallView: View {
         switch plan {
         case .yearly:
             let perMonth = perMonthYearlyText
-            return "3-day free trial · then \(perMonth)/mo"
+            return "Equivalent to \(perMonth)/month"
         case .monthly:
-            return "Billed monthly · cancel anytime"
+            return "Flexible monthly billing"
         }
     }
 
@@ -336,7 +234,34 @@ public struct PaywallView: View {
         return 44
     }
 
-    // MARK: - CTA
+    private var purchaseFooter: some View {
+        VStack(spacing: 0) {
+            VStack(spacing: NMSpace.sm) {
+                if let errorMessage, !errorMessage.isEmpty {
+                    Text(errorMessage)
+                        .font(NMFont.bodySM)
+                        .foregroundStyle(NMColor.alertHigh)
+                        .multilineTextAlignment(.center)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .accessibilityIdentifier("paywall.error")
+                }
+                continueButton
+                Text(continueSubcopy)
+                    .font(NMFont.bodySM)
+                    .foregroundStyle(NMColor.textSecondary)
+                    .multilineTextAlignment(.center)
+                    .lineSpacing(2)
+                    .fixedSize(horizontal: false, vertical: true)
+                legalFooter
+            }
+            .frame(maxWidth: 480)
+            .padding(.horizontal, NMSpace.xl)
+            .padding(.top, NMSpace.base)
+            .padding(.bottom, NMSpace.xs)
+            .frame(maxWidth: .infinity)
+        }
+        .background(NMColor.bgPrimary)
+    }
 
     private var continueButton: some View {
         Button {
@@ -346,52 +271,48 @@ public struct PaywallView: View {
             HStack(spacing: NMSpace.sm) {
                 if isWorking {
                     ProgressView()
-                        .progressViewStyle(.circular)
-                        .tint(.white)
+                        .tint(NMColor.onAccent)
+                    Text("Please wait…")
                 } else {
                     Text(continueCopy)
-                        .font(NMFont.bodyLG.weight(.semibold))
                 }
             }
-            .frame(maxWidth: .infinity)
-            .frame(height: PaywallMetrics.current.ctaHeight)
-            .background(
-                RoundedRectangle(cornerRadius: 16)
-                    .fill(NMColor.accent)
-            )
-            .foregroundStyle(.white)
+            .font(NMFont.bodyLG.weight(.semibold))
+            .multilineTextAlignment(.center)
+            .padding(.horizontal, NMSpace.base)
+            .padding(.vertical, NMSpace.base)
+            .frame(maxWidth: .infinity, minHeight: 56)
+            .foregroundStyle(NMColor.onAccent)
+            .background(NMColor.accent, in: RoundedRectangle(cornerRadius: 14))
         }
-        .buttonStyle(.plain)
+        .buttonStyle(PaywallPressStyle())
         .disabled(isWorking)
+        .accessibilityIdentifier("paywall.continue")
     }
 
     private var continueCopy: String {
         switch selectedPlan {
-        case .yearly:  return "Start 3-day free trial"
-        case .monthly: return "Start monthly — \(priceText(for: .monthly))"
+        case .yearly: return "Start 3-day free trial"
+        case .monthly: return "Continue with monthly"
         }
     }
 
-    /// One-line subcopy under the CTA so the user knows what happens after
-    /// the free trial. Only shown when yearly is selected.
-    private var continueSubcopy: String? {
+    private var continueSubcopy: String {
         switch selectedPlan {
-        case .yearly:  return "Then \(priceText(for: .yearly))/yr after 3 days. Cancel anytime."
-        case .monthly: return nil
+        case .yearly:
+            return "3 days free, then \(priceText(for: .yearly))/year.\nAuto-renews. Cancel anytime in Settings."
+        case .monthly:
+            return "\(priceText(for: .monthly))/month. No annual commitment.\nAuto-renews. Cancel anytime in Settings."
         }
     }
 
     private func beginPurchase() async {
         guard !isWorking else { return }
         errorMessage = nil
-        // Mid-funnel TikTok signal: user has chosen a plan and tapped the
-        // CTA, just before StoreKit's sheet appears. Fires regardless of
-        // whether `packageFor(selectedPlan)` returns nil (no live offering)
-        // — the intent moment is the same; the absence of an offering is
-        // captured separately via the purchase_error event below.
-        TikTokAnalyticsService.shared.trackAddPaymentInfo()
         if let package = packageFor(selectedPlan) {
             isWorking = true
+            MetaAnalyticsService.shared.trackCheckoutStarted()
+            TikTokAnalyticsService.shared.trackCheckoutStarted()
             do {
                 let outcome = try await RevenueCatService.shared.purchase(package)
                 isWorking = false
@@ -444,29 +365,20 @@ public struct PaywallView: View {
         return ns.localizedDescription
     }
 
-    // MARK: - Legal footer
-
     private var legalFooter: some View {
-        VStack(spacing: NMSpace.xs) {
-            Text("Subscriptions auto-renew. Cancel anytime in iOS Settings.")
-                .font(NMFont.bodySM)
-                .italic()
-                .foregroundStyle(NMColor.textTertiary)
-                .multilineTextAlignment(.center)
-                .frame(maxWidth: .infinity)
-            HStack(spacing: NMSpace.lg) {
-                LegalLink(label: "Restore") {
-                    Haptic.light()
-                    Task { await restore() }
-                }
-                LegalLink(label: "Terms") {
-                    Haptic.light()
-                    UIApplication.shared.open(LegalLinks.termsOfUse)
-                }
-                LegalLink(label: "Privacy") {
-                    Haptic.light()
-                    UIApplication.shared.open(LegalLinks.privacyPolicy)
-                }
+        HStack(spacing: NMSpace.base) {
+            LegalLink(label: "Restore purchases") {
+                Haptic.light()
+                Task { await restore() }
+            }
+            .disabled(isWorking)
+            LegalLink(label: "Terms") {
+                Haptic.light()
+                UIApplication.shared.open(LegalLinks.termsOfUse)
+            }
+            LegalLink(label: "Privacy") {
+                Haptic.light()
+                UIApplication.shared.open(LegalLinks.privacyPolicy)
             }
         }
         .frame(maxWidth: .infinity)
@@ -511,8 +423,6 @@ public struct PaywallView: View {
     }
 }
 
-// MARK: - Plan model
-
 public enum PaywallPlan: String, CaseIterable, Hashable {
     /// Yearly is first so it shows as the recommended default in the list —
     /// also matches `selectedPlan = .yearly` initial state.
@@ -544,171 +454,139 @@ public enum PaywallPlan: String, CaseIterable, Hashable {
     }
 }
 
-// MARK: - Subviews
-
 private struct PaywallFeature {
     let icon: String
     let title: String
     let body: String
 }
 
-
-/// Per-canvas sizing for the paywall. Kept in one table so the three tiers can
-/// be compared at a glance, and so a change to one never silently diverges
-/// from its siblings.
-private struct PaywallMetrics {
-    let logo: CGFloat
-    let titleFont: Font
-    let titleTracking: CGFloat
-    let badge: CGFloat
-    let icon: CGFloat
-    let rowSpacing: CGFloat
-    let ctaHeight: CGFloat
-    let planPadding: CGFloat
-
-    static var current: PaywallMetrics {
-        switch NMDeviceSize.canvasTier {
-        case .large:
-            // 932pt+. The only tier with room for the next step of display
-            // type; below this the headline costs height the screen needs.
-            return PaywallMetrics(
-                logo: 40, titleFont: NMFont.displayLG, titleTracking: -1.2,
-                badge: 46, icon: 21, rowSpacing: NMSpace.lg,
-                ctaHeight: 62, planPadding: NMSpace.base + 2)
-        case .standard, .compact:
-            // Every non-Max phone gets the original sizing — the recipe the
-            // paywall was designed at. Only the 6.9" canvas, which visibly
-            // starves at these sizes, steps up.
-            return PaywallMetrics(
-                logo: 32, titleFont: NMFont.displayMD, titleTracking: -0.6,
-                badge: 40, icon: 18, rowSpacing: NMSpace.md,
-                ctaHeight: 56, planPadding: NMSpace.md)
-        }
-    }
-}
-
 private struct PaywallFeatureRow: View {
     let feature: PaywallFeature
+    let compact: Bool
 
     var body: some View {
-        let metrics = PaywallMetrics.current
-        return HStack(spacing: NMSpace.base + 2) {
-            ZStack {
-                Circle()
-                    .fill(NMColor.linkBg)
-                    .frame(width: metrics.badge, height: metrics.badge)
+        VStack(spacing: NMSpace.xs) {
+            HStack(spacing: NMSpace.sm) {
                 Image(systemName: feature.icon)
-                    .font(.system(size: metrics.icon, weight: .regular))
-                    .foregroundStyle(NMColor.accent)
-            }
-            VStack(alignment: .leading, spacing: 1) {
+                    .font(.system(size: 16, weight: .regular))
+                    .foregroundStyle(NMColor.textSecondary)
+                    .frame(width: 20)
+                    .accessibilityHidden(true)
                 Text(feature.title)
-                    .font(NMFont.displaySM)
+                    .font(NMFont.body.weight(.semibold))
                     .foregroundStyle(NMColor.textPrimary)
-                Text(feature.body)
-                    .font(NMFont.body)
-                    .italic()
-                    .foregroundStyle(NMColor.textTertiary)
             }
-            Spacer(minLength: 0)
+            .frame(minHeight: compact ? 24 : 20)
+            if !compact {
+                Text(feature.body)
+                    .font(NMFont.bodySM)
+                    .foregroundStyle(NMColor.textSecondary)
+            }
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
+        .multilineTextAlignment(.center)
+        .fixedSize(horizontal: false, vertical: true)
+        .frame(maxWidth: .infinity)
+        .accessibilityElement(children: .combine)
     }
 }
 
 private struct PaywallPlanRow: View {
     let plan: PaywallPlan
     let priceText: String
-    let unitText: String
     let secondaryLine: String
-    let savings: String
-    let showSavings: Bool
+    let savings: String?
+    let compact: Bool
     let selected: Bool
     let onTap: () -> Void
 
     var body: some View {
         Button(action: onTap) {
-            HStack(alignment: .center, spacing: NMSpace.base) {
+            HStack(spacing: NMSpace.md) {
                 radio
-                VStack(alignment: .leading, spacing: 2) {
-                    HStack(spacing: NMSpace.sm) {
-                        Text(plan.displayName)
-                            .font(NMFont.displaySM)
-                            .foregroundStyle(NMColor.textPrimary)
-                        if showSavings {
-                            savingsChip(savings)
+                VStack(alignment: .leading, spacing: NMSpace.xs) {
+                    ViewThatFits(in: .horizontal) {
+                        HStack(alignment: .firstTextBaseline, spacing: NMSpace.sm) {
+                            planTitle
+                            Spacer(minLength: NMSpace.sm)
+                            priceBlock
+                        }
+                        VStack(alignment: .leading, spacing: NMSpace.xs) {
+                            planTitle
+                            priceBlock
                         }
                     }
                     Text(secondaryLine)
                         .font(NMFont.bodySM)
-                        .italic()
-                        .foregroundStyle(NMColor.textTertiary)
-                        .lineLimit(1)
-                        .truncationMode(.tail)
-                        .allowsTightening(true)
-                        .minimumScaleFactor(0.7)
+                        .foregroundStyle(NMColor.textSecondary)
+                        .fixedSize(horizontal: false, vertical: true)
                 }
-                Spacer(minLength: 0)
-                priceBlock
             }
-            .padding(.vertical, PaywallMetrics.current.planPadding)
-            .padding(.horizontal, NMSpace.base + 2)
+            .padding(.horizontal, NMSpace.md)
+            .padding(.vertical, compact ? NMSpace.md : NMSpace.base)
+            .frame(maxWidth: .infinity, alignment: .leading)
             .background(
-                RoundedRectangle(cornerRadius: 14)
-                    .fill(selected ? NMColor.linkBg : NMColor.bgElevated)
+                selected ? NMColor.accent.opacity(0.10) : NMColor.bgElevated,
+                in: RoundedRectangle(cornerRadius: 14)
             )
-            .overlay(
+            .overlay {
                 RoundedRectangle(cornerRadius: 14)
-                    .strokeBorder(
-                        selected ? NMColor.accent : NMColor.borderSubtle,
-                        lineWidth: selected ? 1.5 : 1
-                    )
-            )
+                    .strokeBorder(selected ? NMColor.accent : NMColor.border, lineWidth: selected ? 1.5 : 1)
+            }
+            .contentShape(RoundedRectangle(cornerRadius: 14))
         }
         .buttonStyle(.plain)
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel("\(plan.displayName), \(priceText)\(plan.period), \(secondaryLine)\(savings.map { ", \($0)" } ?? "")")
+        .accessibilityAddTraits(.isButton)
+        .accessibilityAddTraits(selected ? .isSelected : [])
+        .accessibilityHint("Select the \(plan.displayName.lowercased()) plan")
+        .accessibilityIdentifier("paywall.plan.\(plan.rawValue)")
+    }
+
+    private var planTitle: some View {
+        HStack(spacing: NMSpace.sm) {
+            Text(plan.displayName)
+                .font(NMFont.body.weight(.semibold))
+                .foregroundStyle(NMColor.textPrimary)
+            if let savings {
+                Text(savings)
+                    .font(NMFont.label)
+                    .foregroundStyle(NMColor.textSecondary)
+            }
+        }
+        .fixedSize()
     }
 
     private var radio: some View {
         ZStack {
             Circle()
-                .strokeBorder(
-                    selected ? NMColor.accent : NMColor.borderSubtle,
-                    lineWidth: 1.5
-                )
-                .frame(width: 24, height: 24)
+                .strokeBorder(selected ? NMColor.accent : NMColor.textTertiary, lineWidth: 1.25)
             if selected {
-                Circle()
-                    .fill(NMColor.accent)
-                    .frame(width: 13, height: 13)
-                    .transition(.scale.combined(with: .opacity))
+                Circle().fill(NMColor.accent)
+                Image(systemName: "checkmark")
+                    .font(.system(size: 10, weight: .semibold))
+                    .foregroundStyle(NMColor.onAccent)
             }
         }
-    }
-
-    private func savingsChip(_ text: String) -> some View {
-        Text(text)
-            .font(NMFont.labelSM)
-            .tracking(0.8)
-            .textCase(.uppercase)
-            .foregroundStyle(NMColor.accent)
-            .padding(.horizontal, 6)
-            .padding(.vertical, 2)
-            .background(
-                RoundedRectangle(cornerRadius: 4)
-                    .fill(NMColor.linkBg)
-            )
+        .frame(width: 20, height: 20)
     }
 
     private var priceBlock: some View {
-        HStack(alignment: .firstTextBaseline, spacing: 0) {
+        HStack(alignment: .firstTextBaseline, spacing: 2) {
             Text(priceText)
                 .font(NMFont.monoXL)
                 .foregroundStyle(NMColor.textPrimary)
-            Text(unitText)
+            Text(plan.period)
                 .font(NMFont.bodySM)
-                .foregroundStyle(NMColor.textTertiary)
+                .foregroundStyle(NMColor.textSecondary)
         }
         .fixedSize()
+    }
+}
+
+private struct PaywallPressStyle: ButtonStyle {
+    func makeBody(configuration: ButtonStyleConfiguration) -> some View {
+        configuration.label.opacity(configuration.isPressed ? 0.82 : 1)
     }
 }
 
@@ -721,6 +599,9 @@ private struct LegalLink: View {
             Text(label)
                 .font(NMFont.bodySM)
                 .foregroundStyle(NMColor.textSecondary)
+                .padding(.horizontal, NMSpace.xs)
+                .frame(minHeight: 44)
+                .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
     }

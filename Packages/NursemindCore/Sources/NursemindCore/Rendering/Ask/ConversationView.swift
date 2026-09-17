@@ -242,6 +242,9 @@ struct MessageRenderer: View {
                     }
             } else {
                 bodyContent
+                if !message.isStreaming {
+                    handoffSection
+                }
                 if !message.citations.isEmpty && !message.isStreaming {
                     Divider()
                         .padding(.vertical, NMSpace.sm)
@@ -276,13 +279,9 @@ struct MessageRenderer: View {
             // dot + cycling phase text). Replaces the bare blinking cursor
             // so the moment between "send tapped" and "first token" reads
             // like deliberate work rather than dead air.
-            VStack(alignment: .leading, spacing: NMSpace.base) {
-                handoffSection
-                ThinkingIndicator(sourceNames: message.citations.map(\.shortName))
-            }
+            ThinkingIndicator()
         } else {
             VStack(alignment: .leading, spacing: NMSpace.base) {
-                handoffSection
                 MessageBodyView(content: message.content, citations: message.citations, cacheKey: message.id)
                 if message.isStreaming {
                     StreamingCursor()

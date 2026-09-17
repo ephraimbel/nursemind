@@ -31,13 +31,13 @@ public enum RefusalType: String, Codable, Sendable, CaseIterable {
     public var body: String {
         switch self {
         case .diagnostic:
-            return "But I can help you think about what to assess and report. Diagnosis is the provider's call. Below is what would be useful to gather before calling."
+            return "I can explain general assessment findings and what nurses monitor or report. Ask about the condition or assessment in general terms, without patient details."
         case .prescribing:
             return "I can help you understand the medication itself — its action, nursing implications, what to monitor, what to watch for. What would you like to know about it?"
         case .phiDetected:
             return "I removed it before processing. Reminder: NurseMind is a reference tool — please describe situations in general terms only."
         case .lowConfidence:
-            return "I'd recommend consulting your facility's policy or protocol, your charge nurse or pharmacist, or the original source for drug specifics."
+            return "Try naming the medication, lab, procedure, or condition and the specific point you want explained. For facility-specific instructions, check your local policy or protocol."
         case .nonClinical:
             return "Try asking me about a drug, drip, lab, scenario, or anything you'd typically look up at the bedside."
         case .patientFacing:

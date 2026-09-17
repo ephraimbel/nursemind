@@ -1,0 +1,1406 @@
+{
+  "date": "2026-09-17",
+  "scope": "Ten adult nursing guides for respiratory procedures and testing, pleural effusion, VTE recovery, PAD limb care, ITP, aplastic anemia, hemolytic anemia and vitamin B12 deficiency follow-up. Existing procedure and diagnosis entries retain their distinct scope and identifiers.",
+  "clinicalReview": {
+    "tier": "A",
+    "status": "pending",
+    "reviewer": null,
+    "publicationApproved": false,
+    "note": "Conservative independent review queue for invasive respiratory procedures, thrombosis and bleeding risk, and hematology care. Source-fidelity checks and automated tests are not clinical approval. This manifest is review metadata, not a runtime publication gate."
+  },
+  "sources": [
+    {
+      "id": "rh_depth_bronchoscopy",
+      "shortName": "MedlinePlus — Bronchoscopy and BAL",
+      "detail": "Medical Tests, August 27, 2024. Preparation, sedation, airway numbness, lavage, risks and results. Public-domain NLM body text only. Original federal educational prose adapted and condensed by NurseMind. Images, videos, third-party reference texts and dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Library of Medicine; NIH",
+      "license": "publicDomain",
+      "url": "https://medlineplus.gov/lab-tests/bronchoscopy-and-bronchoalveolar-lavage-bal/",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://medlineplus.gov/lab-tests/bronchoscopy-and-bronchoalveolar-lavage-bal/",
+        "resolvedURL": "https://medlineplus.gov/lab-tests/bronchoscopy-and-bronchoalveolar-lavage-bal/",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "0e3ec8f1ac121070d3258885b4a82f9dd73ebd7a01a9b6fe44a244a6538d389b",
+        "textSHA256": "3ba6837612c23f53b6268f5bd47f9ffaefc365c49d3ac2df78c539f7b2a87878"
+      }
+    },
+    {
+      "id": "rh_depth_pft",
+      "shortName": "MedlinePlus — Lung function tests",
+      "detail": "Medical Tests. Test purpose, preparation, test experience, monitoring and interpretation limits. The source’s erroneous carbon-dioxide wording in the diffusion section is excluded; no predicted-value equations reproduced. Original federal educational prose adapted and condensed by NurseMind. Images, videos, third-party reference texts and dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Library of Medicine; NIH",
+      "license": "publicDomain",
+      "url": "https://medlineplus.gov/lab-tests/lung-function-tests/",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://medlineplus.gov/lab-tests/lung-function-tests/",
+        "resolvedURL": "https://medlineplus.gov/lab-tests/lung-function-tests/",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "9462f93a7ef70e37638b49b05b497a99e6315034ed2240d5a5f3dd46d0029cfc",
+        "textSHA256": "fd89d4205ded49269210c7140c80e13efc75fb8865ce8064a6b8c294e29ae329"
+      }
+    },
+    {
+      "id": "rh_depth_lung_tests",
+      "shortName": "NHLBI — Tests for lung disease",
+      "detail": "October 4, 2024. Spirometry, lung volumes, diffusion capacity, FeNO and bronchoscopy sections. Original federal educational prose adapted and condensed by NurseMind. Images, videos, third-party reference texts and dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Heart, Lung, and Blood Institute; NIH",
+      "license": "publicDomain",
+      "url": "https://www.nhlbi.nih.gov/health/lung-tests",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.nhlbi.nih.gov/health/lung-tests",
+        "resolvedURL": "https://www.nhlbi.nih.gov/health/lung-tests",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "507815c00e11a5551e8dc5757b0df29e537701c0a409e92a644b9c13cd1172d6",
+        "textSHA256": "58357cf9333e3a7f0db4d8b00c726b2ef08aeb9c12e4e6f0a8973883d5d0bd4d"
+      }
+    },
+    {
+      "id": "rh_depth_lung_treatments",
+      "shortName": "NHLBI — Lung disease treatments",
+      "detail": "March 24, 2022. Thoracentesis section: positioning, local anesthesia, symptoms, specimen testing and complications. Original federal educational prose adapted and condensed by NurseMind. Images, videos, third-party reference texts and dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Heart, Lung, and Blood Institute; NIH",
+      "license": "publicDomain",
+      "url": "https://www.nhlbi.nih.gov/health/lung-treatments",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.nhlbi.nih.gov/health/lung-treatments",
+        "resolvedURL": "https://www.nhlbi.nih.gov/health/lung-treatments",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "d1bf2bbf270390054f64f7c93dd1ea66deb9354fae3dcde7850a17b4c5a682ac",
+        "textSHA256": "1472bafab75ee0dfbbac36a2da0077671e9e5bd35ca9be24c6fa3f50eb219ebf"
+      }
+    },
+    {
+      "id": "rh_depth_pleural_diagnosis",
+      "shortName": "NHLBI — Pleural disorder diagnosis",
+      "detail": "March 24, 2022. Clinical assessment, imaging, thoracentesis and pleural-fluid testing. Original federal educational prose adapted and condensed by NurseMind. Images, videos, third-party reference texts and dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Heart, Lung, and Blood Institute; NIH",
+      "license": "publicDomain",
+      "url": "https://www.nhlbi.nih.gov/health/pleural-disorders/diagnosis",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.nhlbi.nih.gov/health/pleural-disorders/diagnosis",
+        "resolvedURL": "https://www.nhlbi.nih.gov/health/pleural-disorders/diagnosis",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "543f51203ae458e2894dde4710903dd1494920bd8f5e7b113af13b21a8b4a79b",
+        "textSHA256": "19d35a7f0b77f3406ae196faedec98e37d2f965f76b3ea47e3b987af06f73bb9"
+      }
+    },
+    {
+      "id": "rh_depth_pleural_treatment",
+      "shortName": "NHLBI — Pleural disorder treatment",
+      "detail": "March 24, 2022. Emergency symptoms, cause-specific care, pleural drainage, indwelling catheters and pleurodesis. No medication doses, drain rates or device manipulation steps. Original federal educational prose adapted and condensed by NurseMind. Images, videos, third-party reference texts and dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Heart, Lung, and Blood Institute; NIH",
+      "license": "publicDomain",
+      "url": "https://www.nhlbi.nih.gov/health/pleural-disorders/treatment",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.nhlbi.nih.gov/health/pleural-disorders/treatment",
+        "resolvedURL": "https://www.nhlbi.nih.gov/health/pleural-disorders/treatment",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "9c10ca41b436ce83adf65ddfd54be72e92598d3094863486abc16a8e89a4b97b",
+        "textSHA256": "823c43a0f24e225fb1f121bd118749612cdd8a005b6086d38a9c5bd20157c7f7"
+      }
+    },
+    {
+      "id": "rh_depth_pleural_recovery",
+      "shortName": "NHLBI — Pleural disorder recovery",
+      "detail": "March 24, 2022. Follow-up, underlying lung disease and indwelling-catheter review. Pneumothorax-only travel rules are not applied to all effusions. Original federal educational prose adapted and condensed by NurseMind. Images, videos, third-party reference texts and dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Heart, Lung, and Blood Institute; NIH",
+      "license": "publicDomain",
+      "url": "https://www.nhlbi.nih.gov/health/pleural-disorders/recovery",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.nhlbi.nih.gov/health/pleural-disorders/recovery",
+        "resolvedURL": "https://www.nhlbi.nih.gov/health/pleural-disorders/recovery",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "2924f421920e451d011106e0cc540b93619b34d137f58a16950dd893e4db3818",
+        "textSHA256": "1af489917e70f6bdd16e0cc9e10c5b954c304c028e260f78c6f2796d69d60ae2"
+      }
+    },
+    {
+      "id": "rh_depth_pleural_types",
+      "shortName": "NHLBI — Types of pleural disorders",
+      "detail": "March 24, 2022. Fluid, air, inflammation and causes of pleural effusion. Copyrighted Nucleus illustration and caption excluded. Original federal educational prose adapted and condensed by NurseMind. Images, videos, third-party reference texts and dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Heart, Lung, and Blood Institute; NIH",
+      "license": "publicDomain",
+      "url": "https://www.nhlbi.nih.gov/health/pleural-disorders/types",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.nhlbi.nih.gov/health/pleural-disorders/types",
+        "resolvedURL": "https://www.nhlbi.nih.gov/health/pleural-disorders/types",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "a1f0e50c800227611dc92481549dd5f3aa7d15bb5c84e2c6470b7d400bb102cf",
+        "textSHA256": "8650d86b9e40a9379ef82861a63e126c573e6f3a500423af3607dc3f928b0a34"
+      }
+    },
+    {
+      "id": "rh_depth_pleural_symptoms",
+      "shortName": "NHLBI — Pleural disorder symptoms",
+      "detail": "March 24, 2022. Adult symptoms and variable presentation. Pediatric growth content excluded. Original federal educational prose adapted and condensed by NurseMind. Images, videos, third-party reference texts and dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Heart, Lung, and Blood Institute; NIH",
+      "license": "publicDomain",
+      "url": "https://www.nhlbi.nih.gov/health/pleural-disorders/symptoms",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.nhlbi.nih.gov/health/pleural-disorders/symptoms",
+        "resolvedURL": "https://www.nhlbi.nih.gov/health/pleural-disorders/symptoms",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "b5a9321d4e16db0798b5743eb59097b9977962942ecebd50cd5a3496ed9a15a8",
+        "textSHA256": "f5b2fbbf3367c158385a1fd539f2bbde0abad42821948a2db202a7161775e7d4"
+      }
+    },
+    {
+      "id": "rh_depth_vte_recovery",
+      "shortName": "NHLBI — VTE recovery",
+      "detail": "September 20, 2022. Recurrence, bleeding, post-thrombotic symptoms, pulmonary hypertension, medicines, follow-up and activity. No aspirin substitution or fixed treatment duration. Original federal educational prose adapted and condensed by NurseMind. Images, videos, third-party reference texts and dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Heart, Lung, and Blood Institute; NIH",
+      "license": "publicDomain",
+      "url": "https://www.nhlbi.nih.gov/health/venous-thromboembolism/recovery",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.nhlbi.nih.gov/health/venous-thromboembolism/recovery",
+        "resolvedURL": "https://www.nhlbi.nih.gov/health/venous-thromboembolism/recovery",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "28cc08bf5702bda74c65b46fac50292fa32335ae0f2ad15390f157c04d7c71bf",
+        "textSHA256": "5ca68b4a6e50a627453b7762ed3d0c678bd98cc2b34d3ebd388e4f3e9ba70656"
+      }
+    },
+    {
+      "id": "rh_depth_vte_symptoms",
+      "shortName": "NHLBI — VTE symptoms",
+      "detail": "DVT and pulmonary embolism recognition and immediate medical attention. No symptom-only diagnosis. Original federal educational prose adapted and condensed by NurseMind. Images, videos, third-party reference texts and dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Heart, Lung, and Blood Institute; NIH",
+      "license": "publicDomain",
+      "url": "https://www.nhlbi.nih.gov/venous-thromboembolism/symptoms",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.nhlbi.nih.gov/venous-thromboembolism/symptoms",
+        "resolvedURL": "https://www.nhlbi.nih.gov/venous-thromboembolism/symptoms",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "070d3051739ecc85f1e8e07031bc143f8305b9196fb2ec0f37d8c768de3eb0f5",
+        "textSHA256": "2e44297be6678424398347fa88556054a3587a3250f154fdc8f6e0248f792e2b"
+      }
+    },
+    {
+      "id": "rh_depth_pad_living",
+      "shortName": "NHLBI — Living with peripheral artery disease",
+      "detail": "Limb and systemic complications, foot care, risk-factor follow-up and emotional support. The source’s erroneous annual pneumococcal-vaccine wording is excluded. Original federal educational prose adapted and condensed by NurseMind. Images, videos, third-party reference texts and dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Heart, Lung, and Blood Institute; NIH",
+      "license": "publicDomain",
+      "url": "https://www.nhlbi.nih.gov/health/peripheral-artery-disease/living-with",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.nhlbi.nih.gov/health/peripheral-artery-disease/living-with",
+        "resolvedURL": "https://www.nhlbi.nih.gov/health/peripheral-artery-disease/living-with",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "7801bab2cfb40f5504f02157a6868c6e879c856d26259fbbaafa574007fb95bf",
+        "textSHA256": "2f8209d04d65d06b882716553c0196f515d0ab1703e974b3648570050137c068"
+      }
+    },
+    {
+      "id": "rh_depth_platelet_living",
+      "shortName": "NHLBI — Living with platelet disorders",
+      "detail": "March 24, 2022. Bleeding and infection reporting, medicine review, injury prevention and dental care. No blanket instruction to stop prescribed antiplatelet treatment. Original federal educational prose adapted and condensed by NurseMind. Images, videos, third-party reference texts and dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Heart, Lung, and Blood Institute; NIH",
+      "license": "publicDomain",
+      "url": "https://www.nhlbi.nih.gov/health/platelet-disorders/living-with",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.nhlbi.nih.gov/health/platelet-disorders/living-with",
+        "resolvedURL": "https://www.nhlbi.nih.gov/health/platelet-disorders/living-with",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "fc7290ddaaadf6f031e66d14e59385e262b9982409b3ef5d63717253cd0d791e",
+        "textSHA256": "8909b153d61b8978549ac80119d1c721373479ae9fa11c9eddf52570dbf91ae2"
+      }
+    },
+    {
+      "id": "rh_depth_itp",
+      "shortName": "NHLBI — Immune thrombocytopenia",
+      "detail": "July 24, 2025. Bleeding, diagnostic assessment, individualized treatment and splenectomy risks. Incorrect oral-route grouping of romiplostim is excluded; no drug dosing or transfusion threshold. Original federal educational prose adapted and condensed by NurseMind. Images, videos, third-party reference texts and dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Heart, Lung, and Blood Institute; NIH",
+      "license": "publicDomain",
+      "url": "https://www.nhlbi.nih.gov/health/immune-thrombocytopenia",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.nhlbi.nih.gov/health/immune-thrombocytopenia",
+        "resolvedURL": "https://www.nhlbi.nih.gov/health/immune-thrombocytopenia",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "fd290be298a63e96909925b54934468449c9015ecc18d512f0000bfcbc334263",
+        "textSHA256": "c69fa845ca88b4bbe7c1d89ac75609c527eed97c57bfebe19e65a183029ab6e7"
+      }
+    },
+    {
+      "id": "rh_depth_aplastic",
+      "shortName": "NHLBI — Aplastic anemia",
+      "detail": "March 24, 2022. Bone-marrow failure, symptoms, causes, individualized treatment and ongoing surveillance. Original federal educational prose adapted and condensed by NurseMind. Images, videos, third-party reference texts and dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Heart, Lung, and Blood Institute; NIH",
+      "license": "publicDomain",
+      "url": "https://www.nhlbi.nih.gov/health/anemia/aplastic-anemia",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.nhlbi.nih.gov/health/anemia/aplastic-anemia",
+        "resolvedURL": "https://www.nhlbi.nih.gov/health/anemia/aplastic-anemia",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "6b39d66caeba5d3d434b563f868d67708cb1cb7f203be0ab4ce2678b7afe90cd",
+        "textSHA256": "09b0170214df5fbede47c51fee984ac7ef0fb6e8c9fa0b6c78919b6af7e6ee59"
+      }
+    },
+    {
+      "id": "rh_depth_hemolytic",
+      "shortName": "NHLBI — Hemolytic anemia",
+      "detail": "March 24, 2022. Red-cell destruction, causes, testing, treatment options and complications. Original federal educational prose adapted and condensed by NurseMind. Images, videos, third-party reference texts and dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Heart, Lung, and Blood Institute; NIH",
+      "license": "publicDomain",
+      "url": "https://www.nhlbi.nih.gov/health/anemia/hemolytic-anemia",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.nhlbi.nih.gov/health/anemia/hemolytic-anemia",
+        "resolvedURL": "https://www.nhlbi.nih.gov/health/anemia/hemolytic-anemia",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "1e3ada8b683c3bd15c3eeb2430aee459d186010ece71c8735e1e6a6c5fec0fc3",
+        "textSHA256": "24b841b42a1a066da049f3772b35d007ec816fa96bd221018b905129ceaa5961"
+      }
+    },
+    {
+      "id": "rh_depth_b12",
+      "shortName": "NHLBI — Vitamin B12 deficiency anemia",
+      "detail": "March 24, 2022. Neurologic symptoms, absorption risks, testing, replacement and recovery. Numerical diagnostic/intake tables and pediatric claims excluded. Original federal educational prose adapted and condensed by NurseMind. Images, videos, third-party reference texts and dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Heart, Lung, and Blood Institute; NIH",
+      "license": "publicDomain",
+      "url": "https://www.nhlbi.nih.gov/health/anemia/vitamin-b12-deficiency-anemia",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.nhlbi.nih.gov/health/anemia/vitamin-b12-deficiency-anemia",
+        "resolvedURL": "https://www.nhlbi.nih.gov/health/anemia/vitamin-b12-deficiency-anemia",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "cfa54f4d3aef5b3aac62235127eaa8dffb4b46b9630d36e1af44c6c1c1810b9c",
+        "textSHA256": "1db906b395d2bdbeb482e7e1c600c29442bbeab3a5a0a82a133eb2bc18e6d3eb"
+      }
+    },
+    {
+      "id": "rh_depth_anemia_symptoms",
+      "shortName": "NHLBI — Anemia symptoms",
+      "detail": "Anemia symptom assessment; fatigue, breathlessness, headache, dizziness and fainting. Original federal educational prose adapted and condensed by NurseMind. Images, videos, third-party reference texts and dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Heart, Lung, and Blood Institute; NIH",
+      "license": "publicDomain",
+      "url": "https://www.nhlbi.nih.gov/health/anemia/symptoms",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.nhlbi.nih.gov/health/anemia/symptoms",
+        "resolvedURL": "https://www.nhlbi.nih.gov/health/anemia/symptoms",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "d4f0a55be9f68b77f2f2fec27f0a6d7fef8457c23d2870cd6eb48671d83a0c53",
+        "textSHA256": "5095d6de3ea08d038325596ee567c35a6a423b0abfd3a1ee3556fdb78f3f9374"
+      }
+    },
+    {
+      "id": "rh_depth_anemia_diagnosis",
+      "shortName": "NHLBI — Anemia diagnosis",
+      "detail": "December 18, 2025. History, CBC components and cause-focused testing. Reference-range tables and the source’s overbroad high-hemoglobin anemia wording excluded. Original federal educational prose adapted and condensed by NurseMind. Images, videos, third-party reference texts and dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Heart, Lung, and Blood Institute; NIH",
+      "license": "publicDomain",
+      "url": "https://www.nhlbi.nih.gov/health/anemia/diagnosis",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.nhlbi.nih.gov/health/anemia/diagnosis",
+        "resolvedURL": "https://www.nhlbi.nih.gov/health/anemia/diagnosis",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "31744648556d124173a5caa50b90c17ffbeda320eb364877c3d9b8f95583b2b8",
+        "textSHA256": "a05fa1380b4652ad96ed452575a4ef57e9de4515f86f71c08152496010570fbc"
+      }
+    }
+  ],
+  "authoredWordsBySource": {
+    "bronchoscopy": 463,
+    "lung_treatments": 261,
+    "pleural_diagnosis": 131,
+    "pleural_treatment": 193,
+    "pleural_recovery": 117,
+    "pft": 318,
+    "lung_tests": 128,
+    "pleural_types": 71,
+    "pleural_symptoms": 62,
+    "vte_recovery": 364,
+    "vte_symptoms": 68,
+    "pad_living": 428,
+    "itp": 311,
+    "platelet_living": 127,
+    "aplastic": 281,
+    "anemia_diagnosis": 66,
+    "hemolytic": 293,
+    "anemia_symptoms": 65,
+    "b12": 421
+  },
+  "entries": [
+    {
+      "id": "bronchoscopy-preparation-recovery",
+      "title": "Bronchoscopy and BAL: preparation and recovery",
+      "subtitle": "Airway examination, specimen collection and recovery teaching",
+      "family": "RespiratoryProcedures",
+      "sections": [
+        {
+          "title": "Clarify the purpose of the examination",
+          "bullets": [
+            {
+              "text": "Bronchoscopy allows the clinician to inspect the airways using a lighted camera passed through the mouth or nose. It may investigate persistent cough, coughing up blood, abnormal imaging or another suspected lung problem.",
+              "source": "bronchoscopy"
+            },
+            {
+              "text": "The procedure may also remove secretions or a blockage, obtain tissue, or support treatment. Explain the planned purpose and whether sampling or another intervention is expected; the same procedure name can describe different clinical plans.",
+              "source": "bronchoscopy"
+            }
+          ]
+        },
+        {
+          "title": "Distinguish lavage from tissue biopsy",
+          "bullets": [
+            {
+              "text": "Bronchoalveolar lavage, or BAL, washes a selected airway area with saline and collects the returned fluid for testing. Cells and microorganisms in this sample may help investigate infection or another lung condition.",
+              "source": "bronchoscopy"
+            },
+            {
+              "text": "A tissue biopsy and a lavage sample answer different questions. Confirm which samples were obtained and which results are pending so follow-up is not limited to the visual airway examination.",
+              "source": "bronchoscopy"
+            }
+          ]
+        },
+        {
+          "title": "Verify preparation instructions",
+          "bullets": [
+            {
+              "text": "The procedural team specifies how long the person should avoid food and drink. Review all medicines with that team because some may need adjustment; the patient should not stop prescribed treatment without explicit instructions.",
+              "source": "bronchoscopy"
+            },
+            {
+              "text": "Dentures and removable dental appliances may need removal. Explain the planned position and any IV medicine for relaxation, and give the person an opportunity to discuss concerns before the procedure begins.",
+              "source": "bronchoscopy"
+            }
+          ]
+        },
+        {
+          "title": "Explain sedation and airway numbing",
+          "bullets": [
+            {
+              "text": "The team may give a sedative through an IV and a numbing medicine in the mouth and throat. The bronchoscope transmits images while the clinician examines the airways and performs the planned sampling or treatment.",
+              "source": "bronchoscopy"
+            },
+            {
+              "text": "A BAL can be performed during the same examination. Explaining the sequence helps the patient understand why obtaining samples and observing the airway are parts of one encounter, while laboratory interpretation happens afterward.",
+              "source": "bronchoscopy"
+            }
+          ]
+        },
+        {
+          "title": "Protect the return to oral intake",
+          "bullets": [
+            {
+              "text": "The mouth and throat may remain numb for several hours. Eating and drinking wait until numbness has resolved and the procedural team’s recovery criteria are met. Do not substitute a fixed clock interval for the individual recovery instructions.",
+              "source": "bronchoscopy"
+            },
+            {
+              "text": "Sedation may cause drowsiness after the procedure. Arrange an escort or ride home when a sedative was used, and review the discharge instructions before the person leaves.",
+              "source": "bronchoscopy"
+            }
+          ]
+        },
+        {
+          "title": "Assess symptoms during recovery",
+          "bullets": [
+            {
+              "text": "Sore throat, cough or hoarseness may occur after bronchoscopy. Serious complications are uncommon but include airway bleeding, infection and pneumothorax. Report concerning changes for clinical evaluation rather than assuming every symptom is irritation from the scope.",
+              "source": "bronchoscopy"
+            },
+            {
+              "text": "A chest X-ray may be obtained after tissue sampling or when the team needs to check for complications. Explain the purpose of any ordered follow-up imaging; it is not a substitute for assessing how the person is breathing.",
+              "source": "bronchoscopy"
+            }
+          ]
+        },
+        {
+          "title": "Complete result follow-up",
+          "bullets": [
+            {
+              "text": "Abnormal findings may reflect an airway growth, narrowing, infection or another lung disorder. The clinician interprets the visual findings and specimen results together with symptoms, history and other tests.",
+              "source": "bronchoscopy"
+            },
+            {
+              "text": "Make the result-review plan explicit: identify the responsible team and how the patient will learn about laboratory or tissue results. Completion of procedural recovery does not mean the diagnostic evaluation is finished.",
+              "source": "bronchoscopy"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "procedure:bronchoscopy",
+        "reference:focused-respiratory-assessment",
+        "lab:sputum-culture"
+      ],
+      "topics": [
+        "respiratory",
+        "perioperative-nursing",
+        "labs-specimens"
+      ],
+      "symbol": "RHDepthBronchoscopyPreparationRecoverySample",
+      "tags": "category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential"
+    },
+    {
+      "id": "thoracentesis-assessment-recovery",
+      "title": "Thoracentesis: observation and recovery",
+      "subtitle": "Positioning, symptom reporting, fluid testing and follow-up",
+      "family": "RespiratoryProcedures",
+      "sections": [
+        {
+          "title": "Explain why fluid is being removed",
+          "bullets": [
+            {
+              "text": "Thoracentesis removes excess fluid from the space between the lung and chest wall. It may improve breathing while also providing a sample to help identify the cause of a pleural effusion.",
+              "source": "lung_treatments"
+            },
+            {
+              "text": "Relieving symptoms and investigating the fluid are related but distinct goals. Confirm the plan with the procedural team and explain that fluid removal alone may not resolve the condition that caused it.",
+              "source": "lung_treatments"
+            }
+          ]
+        },
+        {
+          "title": "Support the planned position",
+          "bullets": [
+            {
+              "text": "Many patients sit on the edge of a bed or chair with the head and arms supported on a table. Local anesthetic is used after skin preparation before the clinician places the needle into the pleural space.",
+              "source": "lung_treatments"
+            },
+            {
+              "text": "Discuss comfort and the ability to maintain the planned position with the team. The procedural clinician determines the approach; this reference supports observation and education rather than needle placement.",
+              "source": "lung_treatments"
+            }
+          ]
+        },
+        {
+          "title": "Communicate symptoms during drainage",
+          "bullets": [
+            {
+              "text": "Cough or chest discomfort may occur while fluid is withdrawn. Encourage the person to report these symptoms as they happen so the procedural team can assess tolerance.",
+              "source": "lung_treatments"
+            },
+            {
+              "text": "Observe the patient as well as the collection process. The treating clinician determines how much fluid to remove and whether a symptom changes the plan; this guide does not establish a universal drainage volume or rate.",
+              "source": "lung_treatments"
+            }
+          ]
+        },
+        {
+          "title": "Understand imaging and sampling",
+          "bullets": [
+            {
+              "text": "Ultrasound can identify fluid in the pleural space and guide a thoracentesis. Removed fluid may be examined for infection, cancer or other conditions that can cause fluid or blood to accumulate.",
+              "source": "pleural_diagnosis"
+            },
+            {
+              "text": "Communicate which studies have been ordered and ensure that the planned sample reaches the laboratory through the local specimen process. The appearance of the fluid alone does not replace the requested testing and clinical interpretation.",
+              "source": "pleural_diagnosis"
+            }
+          ]
+        },
+        {
+          "title": "Recognize possible complications",
+          "bullets": [
+            {
+              "text": "Potential complications include pneumothorax, bleeding, bruising, pain and infection. The puncture site receives a small dressing after the needle is removed, and a chest X-ray may be ordered to assess for lung problems.",
+              "source": "lung_treatments"
+            },
+            {
+              "text": "Report a change in symptoms during recovery to the team, including concerns about breathing, pain or the procedure site. Follow the individual observation and discharge plan rather than assuming that an uncomplicated needle removal ends monitoring.",
+              "source": "lung_treatments"
+            }
+          ]
+        },
+        {
+          "title": "Know when respiratory symptoms are urgent",
+          "bullets": [
+            {
+              "text": "NHLBI advises emergency help for severe chest pain or trouble breathing in the setting of a pleural disorder. These symptoms require urgent evaluation; they do not identify one complication by themselves.",
+              "source": "pleural_treatment"
+            },
+            {
+              "text": "Outside the hospital, the emergency pathway is 911. In the hospital, activate the appropriate urgent response while the team evaluates the patient. Do not wait for scheduled fluid results before escalating severe symptoms.",
+              "source": "pleural_treatment"
+            }
+          ]
+        },
+        {
+          "title": "Review the ongoing plan",
+          "bullets": [
+            {
+              "text": "Recovery includes follow-up for the pleural disorder and the underlying cause. The treating team determines the timing of repeat examination and imaging.",
+              "source": "pleural_recovery"
+            },
+            {
+              "text": "Confirm who will review fluid studies and continued respiratory symptoms. A discharge plan should make the next contact clear, especially when treatment of the underlying lung or other disease remains active.",
+              "source": "pleural_recovery"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "procedure:thoracentesis",
+        "reference:test-guide-pleural-fluid-analysis",
+        "reference:pleural-effusion-follow-up"
+      ],
+      "topics": [
+        "respiratory",
+        "perioperative-nursing",
+        "critical-care-devices"
+      ],
+      "symbol": "RHDepthThoracentesisAssessmentRecoverySample",
+      "tags": "category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential"
+    },
+    {
+      "id": "pulmonary-function-testing-support",
+      "title": "Pulmonary function tests: nursing preparation",
+      "subtitle": "Spirometry, lung volumes, diffusion and exercise testing",
+      "family": "RespiratoryTesting",
+      "sections": [
+        {
+          "title": "Identify the question behind the test",
+          "bullets": [
+            {
+              "text": "Pulmonary function tests measure different aspects of breathing: airflow, lung volume and transfer of oxygen into the blood. They may help diagnose or monitor lung disease, assess treatment response or evaluate lung function before surgery.",
+              "source": "pft"
+            },
+            {
+              "text": "Verify which test is planned. Spirometry, a lung-volume study, diffusion testing and an exercise test involve different maneuvers; one familiar test name should not be used for all of them.",
+              "source": "pft"
+            }
+          ]
+        },
+        {
+          "title": "Check preparation and medicine instructions",
+          "bullets": [
+            {
+              "text": "The testing team provides instructions about meals, smoking, alcohol, caffeine and heavy exercise. Comfortable, loose clothing helps the person perform the breathing maneuvers.",
+              "source": "pft"
+            },
+            {
+              "text": "Some inhaled medicines may need to be paused for a specified interval, depending on the test’s purpose. Confirm the actual instructions with the clinician or laboratory; patients should not independently stop their medicines.",
+              "source": "pft"
+            }
+          ]
+        },
+        {
+          "title": "Explain spirometry and repeat measurements",
+          "bullets": [
+            {
+              "text": "During spirometry, the person takes a deep breath and blows forcefully through a mouthpiece connected to a measuring device. The test measures how much air is exhaled and how quickly it leaves the lungs.",
+              "source": "lung_tests"
+            },
+            {
+              "text": "The team may repeat measurements after an inhaled medicine that opens the airways. This comparison helps assess the response to that medicine; the clinician interprets it with the rest of the evaluation.",
+              "source": "lung_tests"
+            }
+          ]
+        },
+        {
+          "title": "Distinguish volume and diffusion studies",
+          "bullets": [
+            {
+              "text": "Lung-volume testing measures how much air the lungs can hold. It may use a clear-walled enclosed booth or a special gas-breathing method, so the experience can differ from simple spirometry.",
+              "source": "lung_tests"
+            },
+            {
+              "text": "Diffusion-capacity testing evaluates gas transfer from the inhaled air into blood. A blood sample for hemoglobin may also be needed. Explain the requested test without substituting a pulse-oximeter reading for these measurements.",
+              "source": "lung_tests"
+            }
+          ]
+        },
+        {
+          "title": "Prepare for exercise-based assessment",
+          "bullets": [
+            {
+              "text": "A six-minute walk test assesses function while the person walks under observation. The team follows heart rate, oxygen levels and symptoms, and may compare breathlessness, fatigue and blood pressure before and after.",
+              "source": "pft"
+            },
+            {
+              "text": "Cardiopulmonary exercise testing uses a bicycle or treadmill with breathing and cardiovascular monitoring. The team changes the workload and asks about symptoms; serious symptoms are a reason for the testing team to stop the test.",
+              "source": "pft"
+            }
+          ]
+        },
+        {
+          "title": "Support comfort and participation",
+          "bullets": [
+            {
+              "text": "Forceful breathing can cause coughing, lightheadedness or fatigue. Some people are anxious about the enclosed booth used for lung-volume testing. Tell the testing team about symptoms or concerns so they can support the examination.",
+              "source": "pft"
+            },
+            {
+              "text": "A good seal around the mouthpiece is part of the testing technique. MedlinePlus advises wearing dentures for these tests because they can help the lips close around the mouthpiece.",
+              "source": "pft"
+            }
+          ]
+        },
+        {
+          "title": "Keep interpretation within the clinical context",
+          "bullets": [
+            {
+              "text": "Results are interpreted using the appropriate reference information and the person’s clinical history. Abnormal testing can suggest airflow obstruction or reduced lung capacity, but does not by itself name the exact disease.",
+              "source": "pft"
+            },
+            {
+              "text": "Explain what additional review is planned and who will discuss the results. A follow-up visit may connect the findings with symptoms, other investigations and the treatment plan; avoid independently changing inhalers from a single result.",
+              "source": "pft"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "diagnosis:copd",
+        "reference:oxygenation-versus-ventilation",
+        "reference:bronchoscopy-preparation-recovery"
+      ],
+      "topics": [
+        "respiratory",
+        "labs-specimens"
+      ],
+      "symbol": "RHDepthPulmonaryFunctionTestingSupportSample",
+      "tags": "category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential"
+    },
+    {
+      "id": "pleural-effusion-follow-up",
+      "title": "Pleural effusion: ongoing nursing assessment",
+      "subtitle": "Symptoms, cause-focused testing and drainage follow-up",
+      "family": "RespiratoryCare",
+      "sections": [
+        {
+          "title": "Distinguish fluid from other pleural problems",
+          "bullets": [
+            {
+              "text": "A pleural effusion is excess fluid between the lung and chest wall. Pleurisy refers to inflammation of the pleural lining, while pneumothorax describes air in that space. These terms should not be used interchangeably.",
+              "source": "pleural_types"
+            },
+            {
+              "text": "Fluid may accumulate with inflammation, infection, tumors or injury, or with conditions such as heart, kidney or liver failure. Determining the cause guides treatment; the finding of fluid is not a complete diagnosis of the underlying problem.",
+              "source": "pleural_types"
+            }
+          ]
+        },
+        {
+          "title": "Follow the symptom pattern",
+          "bullets": [
+            {
+              "text": "Pleural disorders can cause chest pain that worsens with deep breathing or cough, shortness of breath, cough, fever or fatigue. Some people have few symptoms despite an abnormal finding.",
+              "source": "pleural_symptoms"
+            },
+            {
+              "text": "Ask how symptoms affect breathing and daily activity, and communicate new or changing findings. The absence of dramatic pain does not establish that an effusion has resolved; follow the clinical and imaging plan.",
+              "source": "pleural_symptoms"
+            }
+          ]
+        },
+        {
+          "title": "Understand cause-focused investigations",
+          "bullets": [
+            {
+              "text": "Evaluation may include examination, lung imaging and tests directed at suspected causes. Ultrasound can show pleural fluid and help guide sampling, while other imaging can identify associated lung or chest problems.",
+              "source": "pleural_diagnosis"
+            },
+            {
+              "text": "Thoracentesis can provide fluid for laboratory analysis, including assessment for infection or cancer. Explain the purpose of the ordered tests and the result-review plan rather than inferring the cause from the drainage color alone.",
+              "source": "pleural_diagnosis"
+            }
+          ]
+        },
+        {
+          "title": "Connect treatment to the cause",
+          "bullets": [
+            {
+              "text": "Treatment may involve medicines for an underlying condition or a procedure to remove fluid. A chest tube, repeated drainage, an indwelling pleural catheter or pleurodesis may be considered in different circumstances.",
+              "source": "pleural_treatment"
+            },
+            {
+              "text": "An indwelling pleural catheter allows ongoing drainage, while pleurodesis aims to limit recurrent accumulation by bringing the pleural surfaces together. The team selects the approach; these options do not share one universal nursing drainage schedule.",
+              "source": "pleural_treatment"
+            }
+          ]
+        },
+        {
+          "title": "Continue device and follow-up review",
+          "bullets": [
+            {
+              "text": "If an indwelling pleural catheter remains in place, follow the clinical team’s care and review instructions. Infection can develop around the insertion site, and the clinician determines assessment and treatment when a concern arises.",
+              "source": "pleural_recovery"
+            },
+            {
+              "text": "Follow-up also addresses the underlying disease and whether further imaging is needed. Include the active drain or catheter plan during care transitions so unresolved symptoms and device needs remain visible.",
+              "source": "pleural_recovery"
+            }
+          ]
+        },
+        {
+          "title": "Escalate severe respiratory symptoms",
+          "bullets": [
+            {
+              "text": "Severe chest pain or trouble breathing requires emergency assessment. NHLBI advises calling 911 outside a healthcare facility; use the facility’s urgent response pathway when the person is already receiving inpatient care.",
+              "source": "pleural_treatment"
+            },
+            {
+              "text": "These symptoms can occur with a serious pleural complication and need prompt evaluation. Do not wait for a routine appointment or manipulate an existing drain independently to try to establish the cause.",
+              "source": "pleural_treatment"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "diagnosis:pleural-effusion",
+        "reference:thoracentesis-assessment-recovery",
+        "reference:chest-tube-drainage"
+      ],
+      "topics": [
+        "respiratory",
+        "critical-care-devices"
+      ],
+      "symbol": "RHDepthPleuralEffusionFollowUpSample",
+      "tags": "category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential"
+    },
+    {
+      "id": "vte-recovery-follow-up",
+      "title": "After DVT or PE: recovery and follow-up",
+      "subtitle": "Recurrent symptoms, bleeding, medicines and longer-term complications",
+      "family": "VascularCare",
+      "sections": [
+        {
+          "title": "Make the follow-up plan explicit",
+          "bullets": [
+            {
+              "text": "After venous thromboembolism, follow-up assesses recovery, the risk of another clot and whether anticoagulation should continue. The duration and choice of treatment depend on the clinical situation.",
+              "source": "vte_recovery"
+            },
+            {
+              "text": "Review the prescribed medicines, appointments and outstanding tests. Feeling better is not a reason to stop a blood thinner independently; changes to treatment belong to the responsible clinician.",
+              "source": "vte_recovery"
+            }
+          ]
+        },
+        {
+          "title": "Recognize possible recurrent thrombosis",
+          "bullets": [
+            {
+              "text": "New swelling, tenderness or pain in a leg can occur with deep vein thrombosis. Shortness of breath or pain with breathing can occur with pulmonary embolism. Symptoms vary, and a serious clot may develop without every typical sign.",
+              "source": "vte_symptoms"
+            },
+            {
+              "text": "NHLBI advises immediate clinical contact for suspected VTE symptoms. Pulmonary embolism can be life-threatening, so acute breathing or chest symptoms need urgent medical assessment rather than waiting for routine follow-up.",
+              "source": "vte_symptoms"
+            }
+          ]
+        },
+        {
+          "title": "Ask directly about bleeding",
+          "bullets": [
+            {
+              "text": "Blood-thinning treatment can cause serious bleeding. Ask about unusual bruising, unexpected gum bleeding, blood when using the toilet and heavier-than-usual menstrual bleeding, and report new findings to the treating team.",
+              "source": "vte_recovery"
+            },
+            {
+              "text": "Excessive bleeding requires prompt medical evaluation. Include the medicine being taken and the observed symptoms when seeking help; this guide does not supply a reversal regimen or tell the person to adjust the dose independently.",
+              "source": "vte_recovery"
+            }
+          ]
+        },
+        {
+          "title": "Explain the actual monitoring requirements",
+          "bullets": [
+            {
+              "text": "Warfarin requires blood testing to assess clotting time and guide its dose. Other anticoagulants have different monitoring needs, and the team may check kidney or liver function or order imaging when indicated.",
+              "source": "vte_recovery"
+            },
+            {
+              "text": "Confirm which tests apply to the prescribed medicine. Warfarin also interacts with changes in vitamin K intake; discuss maintaining a consistent intake and reviewing supplements and alcohol use with the clinician rather than eliminating all green vegetables.",
+              "source": "vte_recovery"
+            }
+          ]
+        },
+        {
+          "title": "Follow persistent leg symptoms",
+          "bullets": [
+            {
+              "text": "Post-thrombotic syndrome can cause ongoing swelling, pain, itching, skin discoloration, cramping or fatigue after DVT. Symptoms may worsen after prolonged standing, and severe cases can cause skin sores.",
+              "source": "vte_recovery"
+            },
+            {
+              "text": "Report persistent symptoms and skin changes. The clinician may recommend compression stockings for symptom relief; a prior DVT does not by itself define the right compression product or replace assessment of a new leg problem.",
+              "source": "vte_recovery"
+            }
+          ]
+        },
+        {
+          "title": "Recognize ongoing cardiopulmonary concerns",
+          "bullets": [
+            {
+              "text": "Pulmonary hypertension can occur after pulmonary embolism. Persistent breathlessness, reduced exercise tolerance, swelling, palpitations, fainting or coughing blood need clinical review.",
+              "source": "vte_recovery"
+            },
+            {
+              "text": "Describe whether symptoms are new, worsening or continuing despite treatment. Longer-term complications require follow-up even after the initial clot episode has been treated; acute deterioration still needs urgent assessment.",
+              "source": "vte_recovery"
+            }
+          ]
+        },
+        {
+          "title": "Support activity and emotional recovery",
+          "bullets": [
+            {
+              "text": "Regular movement supports recovery, but the appropriate activity level and timing should be agreed with the healthcare provider. Smoking cessation and management of relevant health conditions are also part of reducing future risk.",
+              "source": "vte_recovery"
+            },
+            {
+              "text": "A blood clot can leave the person anxious about recurrence. Invite questions and help connect persistent fear, stress or difficulty returning to everyday activity with clinical or mental-health support.",
+              "source": "vte_recovery"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "diagnosis:pulmonary-embolism",
+        "reference:anticoagulation-teaching",
+        "reference:pulmonary-hypertension-follow-up-support"
+      ],
+      "topics": [
+        "cardiovascular",
+        "blood-infection",
+        "community-home-care"
+      ],
+      "symbol": "RHDepthVteRecoveryFollowUpSample",
+      "tags": "category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential"
+    },
+    {
+      "id": "peripheral-artery-disease-foot-care",
+      "title": "Peripheral artery disease: foot and limb care",
+      "subtitle": "Daily inspection, wound concerns and changes in perfusion",
+      "family": "VascularCare",
+      "sections": [
+        {
+          "title": "Assess the impact of poor circulation",
+          "bullets": [
+            {
+              "text": "Peripheral artery disease is a long-term condition that can limit walking and daily activity. Persistent poor blood flow can cause rest pain, wounds, infection and tissue loss. Diabetes and smoking increase the risk of serious complications.",
+              "source": "pad_living"
+            },
+            {
+              "text": "Ask about the person’s usual walking ability, leg symptoms and foot problems. A worsening symptom pattern needs reassessment even when PAD has been diagnosed for years.",
+              "source": "pad_living"
+            }
+          ]
+        },
+        {
+          "title": "Inspect and protect the feet every day",
+          "bullets": [
+            {
+              "text": "Check the feet daily for injuries and sores. Diabetes-related nerve problems may make an injury hard to feel, so absence of pain should not replace looking at the skin.",
+              "source": "pad_living"
+            },
+            {
+              "text": "Wear socks and well-fitting protective shoes, and avoid walking barefoot. Footwear should reduce pressure and protect the skin; the clinical team may recommend a specialist to assess or modify shoes when needed.",
+              "source": "pad_living"
+            }
+          ]
+        },
+        {
+          "title": "Arrange help for skin and nail problems",
+          "bullets": [
+            {
+              "text": "PAD increases the consequences of a small foot injury. NHLBI advises clinical care for corns, calluses, long or ingrown nails and other foot problems instead of attempting self-treatment that can injure the skin.",
+              "source": "pad_living"
+            },
+            {
+              "text": "A foot sore needs follow-up to support healing and prevent infection. After a vascular procedure, follow the specific incision-care instructions and report a new problem to the treating team.",
+              "source": "pad_living"
+            }
+          ]
+        },
+        {
+          "title": "Report possible infection",
+          "bullets": [
+            {
+              "text": "Redness, swelling, pain, drainage or pus around a foot or leg sore can indicate infection. Fever or chills also require clinical contact. Infection may extend into deeper tissue, bone or the bloodstream.",
+              "source": "pad_living"
+            },
+            {
+              "text": "People with both PAD and diabetes have increased complication risk. Describe the wound and associated symptoms promptly; the clinician determines whether wound care, antibiotics or hospital assessment is needed.",
+              "source": "pad_living"
+            }
+          ]
+        },
+        {
+          "title": "Distinguish worsening symptoms from an emergency",
+          "bullets": [
+            {
+              "text": "Contact the provider if leg pain no longer settles after a few minutes of rest or other PAD symptoms worsen. Persistent rest pain and nonhealing sores may reflect severe impairment of blood supply.",
+              "source": "pad_living"
+            },
+            {
+              "text": "Sudden loss of feeling or movement in a foot that becomes colder and pale or blue compared with the other side is an emergency. NHLBI advises calling 911 or obtaining immediate medical help because prompt treatment may save the limb.",
+              "source": "pad_living"
+            }
+          ]
+        },
+        {
+          "title": "Connect limb care with cardiovascular prevention",
+          "bullets": [
+            {
+              "text": "PAD often accompanies atherosclerosis in other arteries and an increased risk of heart attack and stroke. Follow-up includes the prescribed medicines and management of blood pressure, cholesterol and diabetes.",
+              "source": "pad_living"
+            },
+            {
+              "text": "Support smoking cessation and regular vascular follow-up. The care plan should address the person’s overall cardiovascular health as well as the visible foot or leg problem.",
+              "source": "pad_living"
+            }
+          ]
+        },
+        {
+          "title": "Ask about function and emotional burden",
+          "bullets": [
+            {
+              "text": "Reduced mobility and concern about wounds or amputation can cause anxiety, depression or stress. Ask how symptoms affect independence and what help is available for daily tasks.",
+              "source": "pad_living"
+            },
+            {
+              "text": "Encourage discussion of persistent distress with the healthcare team. Support from family, peer groups or counseling may help the person manage the demands of long-term PAD care.",
+              "source": "pad_living"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "reference:focused-cardiovascular-assessment",
+        "reference:test-guide-diabetic-foot-exam",
+        "reference:wound-care-fundamentals"
+      ],
+      "topics": [
+        "cardiovascular",
+        "skin-mobility-comfort",
+        "community-home-care"
+      ],
+      "symbol": "RHDepthPeripheralArteryDiseaseFootCareSample",
+      "tags": "category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential"
+    },
+    {
+      "id": "immune-thrombocytopenia-follow-up",
+      "title": "Immune thrombocytopenia: nursing follow-up",
+      "subtitle": "Bleeding recognition, treatment review and everyday precautions",
+      "family": "Hematology",
+      "sections": [
+        {
+          "title": "Connect platelet loss with the clinical picture",
+          "bullets": [
+            {
+              "text": "Immune thrombocytopenia, or ITP, develops when immune activity destroys platelets and may also reduce their production. Low platelets can make bleeding harder to stop, although some people have no obvious symptoms.",
+              "source": "itp"
+            },
+            {
+              "text": "The course and treatment need vary. Adult disease may persist for years, while some people only require observation; the platelet number must be considered with symptoms and the clinician’s assessment.",
+              "source": "itp"
+            }
+          ]
+        },
+        {
+          "title": "Ask about visible and less visible bleeding",
+          "bullets": [
+            {
+              "text": "Look for new petechiae, larger areas of skin discoloration, hematomas, nose or gum bleeding, blood in urine or stool, and heavy menstrual bleeding. Ask directly because some bleeding may not be visible during a routine examination.",
+              "source": "itp"
+            },
+            {
+              "text": "Bleeding can also contribute to tiredness, pallor or dizziness from anemia. Describe the site and pattern to the treating team. Uncontrollable bleeding that does not stop with pressure requires immediate medical attention.",
+              "source": "itp"
+            }
+          ]
+        },
+        {
+          "title": "Understand the diagnostic follow-up",
+          "bullets": [
+            {
+              "text": "The evaluation includes history, examination and blood tests such as a complete blood count and blood smear. Selected patients may need bone-marrow testing or assessment for an associated infection or immune condition.",
+              "source": "itp"
+            },
+            {
+              "text": "These tests help distinguish ITP from other causes of a low platelet count. Confirm the ordered follow-up and avoid presenting every low platelet result as a diagnosis of ITP.",
+              "source": "itp"
+            }
+          ]
+        },
+        {
+          "title": "Review the individualized treatment plan",
+          "bullets": [
+            {
+              "text": "Treatment may include medicines that reduce immune destruction or support platelet production. Some people need other interventions, while mild cases may be monitored without active treatment.",
+              "source": "itp"
+            },
+            {
+              "text": "Corticosteroids can raise platelet counts but have important adverse effects, particularly with prolonged use. Review the actual prescribed plan and new concerns with the team; this reference does not define a drug sequence, route or dose.",
+              "source": "itp"
+            }
+          ]
+        },
+        {
+          "title": "Reduce avoidable injury and medicine risks",
+          "bullets": [
+            {
+              "text": "Review over-the-counter products, supplements and herbal remedies with the clinical team. Aspirin and ibuprofen can interfere with platelet function or increase bleeding risk; clarify their suitability before using them.",
+              "source": "platelet_living"
+            },
+            {
+              "text": "Choose physical activities and everyday safety measures that limit injury, following the clinician’s advice. Tell the dentist and procedural team about the platelet disorder and current medicines before invasive care; do not independently stop prescribed cardiovascular medicines.",
+              "source": "platelet_living"
+            }
+          ]
+        },
+        {
+          "title": "Plan infection precautions after splenectomy",
+          "bullets": [
+            {
+              "text": "Some patients undergo spleen removal as part of treatment. This can increase infection risk, and the team may plan vaccines, preventive medicines and teaching about infection symptoms.",
+              "source": "itp"
+            },
+            {
+              "text": "Make sure the individual prevention and contact plan is understood before care transitions. New infection concerns should reach the treating team promptly, and vaccination or prophylaxis decisions need the actual clinical history.",
+              "source": "itp"
+            }
+          ]
+        },
+        {
+          "title": "Maintain surveillance beyond symptom improvement",
+          "bullets": [
+            {
+              "text": "Ongoing appointments and laboratory tests help monitor platelet levels and complications. Bleeding can appear suddenly or develop over time, so a previously reassuring result does not remove the need to report a new symptom.",
+              "source": "platelet_living"
+            },
+            {
+              "text": "Report fever or other infection symptoms, especially after spleen removal. Continue routine oral hygiene and dental care to help avoid gum problems and more invasive treatment later.",
+              "source": "platelet_living"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "lab:platelets",
+        "reference:bleeding-disorder-procedure-planning",
+        "reference:test-guide-bone-marrow-tests"
+      ],
+      "topics": [
+        "blood-infection",
+        "medication-transfusion-safety"
+      ],
+      "symbol": "RHDepthImmuneThrombocytopeniaFollowUpSample",
+      "tags": "category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential"
+    },
+    {
+      "id": "aplastic-anemia-nursing-support",
+      "title": "Aplastic anemia: nursing support and follow-up",
+      "subtitle": "Bone-marrow failure, infection, bleeding and treatment continuity",
+      "family": "Hematology",
+      "sections": [
+        {
+          "title": "Recognize that more than red cells are affected",
+          "bullets": [
+            {
+              "text": "Aplastic anemia is bone-marrow failure in which the marrow cannot produce enough new blood cells. It can develop rapidly or gradually and range from milder disease to a serious illness.",
+              "source": "aplastic"
+            },
+            {
+              "text": "The name should not narrow assessment to fatigue alone. Persistent infections and easy bruising or bleeding are also important features to communicate during nursing follow-up.",
+              "source": "aplastic"
+            }
+          ]
+        },
+        {
+          "title": "Track the presenting symptom pattern",
+          "bullets": [
+            {
+              "text": "Ask about fatigue, infections that last unusually long, and new bleeding or bruising. Record how these problems affect function and whether they are new or changing.",
+              "source": "aplastic"
+            },
+            {
+              "text": "Symptoms and treatment needs vary, so communicate the observed pattern to the hematology team. The person’s experience and clinical assessment remain important alongside laboratory monitoring.",
+              "source": "aplastic"
+            }
+          ]
+        },
+        {
+          "title": "Explain blood and marrow testing",
+          "bullets": [
+            {
+              "text": "A complete blood count measures red cells, white cells and platelets. Hemoglobin, hematocrit and red-cell size contribute to the anemia assessment, while the full blood count gives information about other cell types.",
+              "source": "anemia_diagnosis"
+            },
+            {
+              "text": "Bone-marrow aspiration and biopsy evaluate the marrow and its cell production. If these are ordered, explain the procedural plan and arrange result follow-up rather than assuming that a CBC identifies the cause by itself.",
+              "source": "anemia_diagnosis"
+            }
+          ]
+        },
+        {
+          "title": "Review possible exposures and causes",
+          "bullets": [
+            {
+              "text": "Damage to blood-forming stem cells can be associated with certain medicines, including chemotherapy, and with environmental toxins or chemicals. Rarely, the condition is inherited.",
+              "source": "aplastic"
+            },
+            {
+              "text": "Provide the treating team with the medication and exposure history. Any changes to prescribed medicines or steps to avoid an exposure should follow the clinical evaluation rather than an assumption that one product caused the marrow failure.",
+              "source": "aplastic"
+            }
+          ]
+        },
+        {
+          "title": "Clarify the treatment and surveillance plan",
+          "bullets": [
+            {
+              "text": "Treatment may include transfusion support, medicines that reduce immune injury or stimulate blood-cell production, and blood or marrow transplantation in selected patients. The team chooses the approach for the individual condition.",
+              "source": "aplastic"
+            },
+            {
+              "text": "Regular follow-up also screens for other serious blood disorders. Ask which appointments and tests are due and who will coordinate care when treatment involves more than one service.",
+              "source": "aplastic"
+            }
+          ]
+        },
+        {
+          "title": "Support prevention and reporting",
+          "bullets": [
+            {
+              "text": "Immune-suppressing treatment makes infection prevention particularly important. Review the team’s prevention instructions and vaccination plan, and communicate infection concerns and changes in bleeding or fatigue.",
+              "source": "aplastic"
+            },
+            {
+              "text": "Untreated severe disease can lead to serious complications, including bleeding and heart problems. This guide supports ongoing assessment and communication; the hematology team supplies individualized urgent-contact criteria and treatment decisions.",
+              "source": "aplastic"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "diagnosis:aplastic-anemia",
+        "reference:test-guide-bone-marrow-tests",
+        "reference:blood-transfusion-administration"
+      ],
+      "topics": [
+        "blood-infection",
+        "oncology-nursing"
+      ],
+      "symbol": "RHDepthAplasticAnemiaNursingSupportSample",
+      "tags": "category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential"
+    },
+    {
+      "id": "hemolytic-anemia-follow-up",
+      "title": "Hemolytic anemia: assessment and follow-up",
+      "subtitle": "Red-cell destruction, cause-focused testing and monitoring",
+      "family": "Hematology",
+      "sections": [
+        {
+          "title": "Explain what hemolysis means",
+          "bullets": [
+            {
+              "text": "Hemolytic anemia occurs when red blood cells are destroyed faster than they can be replaced. The illness may develop quickly or slowly and can be mild or severe.",
+              "source": "hemolytic"
+            },
+            {
+              "text": "This is a mechanism of anemia with several possible causes. A diagnosis of hemolysis does not by itself identify a medicine, infection or inherited disorder as the explanation.",
+              "source": "hemolytic"
+            }
+          ]
+        },
+        {
+          "title": "Assess symptoms and function",
+          "bullets": [
+            {
+              "text": "Anemia can cause weakness, fatigue, shortness of breath, headache, dizziness or fainting. Some people with mild anemia have few symptoms; yellowing of the skin may also occur in some forms of anemia.",
+              "source": "anemia_symptoms"
+            },
+            {
+              "text": "Describe the symptom trajectory and effect on activity to the clinical team. Symptoms alone do not determine the hemoglobin level or cause, so follow the ordered evaluation rather than interpreting appearance in isolation.",
+              "source": "anemia_symptoms"
+            }
+          ]
+        },
+        {
+          "title": "Review the relevant history",
+          "bullets": [
+            {
+              "text": "Possible causes include immune conditions, infections, inherited blood disorders, certain medicines, marrow disorders and complications of transfusion. The spleen or liver may be enlarged.",
+              "source": "hemolytic"
+            },
+            {
+              "text": "Communicate current medicines, known blood conditions and relevant recent treatment when the team evaluates the anemia. Different causes require different management; a history item is a clue for assessment, not proof of causation.",
+              "source": "hemolytic"
+            }
+          ]
+        },
+        {
+          "title": "Understand the investigation plan",
+          "bullets": [
+            {
+              "text": "Evaluation includes physical examination and blood tests. Depending on the suspected cause, urine testing, marrow testing or genetic testing may also be needed.",
+              "source": "hemolytic"
+            },
+            {
+              "text": "Confirm which results are pending and who will review them. These investigations help the clinician determine the cause and seriousness of red-cell destruction and select an appropriate treatment plan.",
+              "source": "hemolytic"
+            }
+          ]
+        },
+        {
+          "title": "Connect treatment with the underlying cause",
+          "bullets": [
+            {
+              "text": "Some mild cases do not require active treatment. Other patients may need medicines, blood transfusions, spleen surgery or blood and marrow transplantation, depending on the cause and clinical severity.",
+              "source": "hemolytic"
+            },
+            {
+              "text": "When a medicine or another health condition contributes to hemolysis, the clinician may change the treatment of that cause. Do not independently stop a prescribed medicine or assume that every hemolytic anemia needs the same therapy.",
+              "source": "hemolytic"
+            }
+          ]
+        },
+        {
+          "title": "Monitor the ongoing response",
+          "bullets": [
+            {
+              "text": "Serious hemolytic anemia that is not controlled can strain the heart and contribute to rhythm problems, heart enlargement or heart failure. Follow symptoms and the team’s laboratory monitoring during care.",
+              "source": "hemolytic"
+            },
+            {
+              "text": "Communicate persistent or worsening concerns and clarify the next follow-up step. Improvement after an intervention should be evaluated with the treatment plan rather than treated as proof that the underlying cause has resolved.",
+              "source": "hemolytic"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "lab:reticulocyte-count",
+        "lab:haptoglobin",
+        "reference:blood-transfusion-administration"
+      ],
+      "topics": [
+        "blood-infection",
+        "medication-transfusion-safety"
+      ],
+      "symbol": "RHDepthHemolyticAnemiaFollowUpSample",
+      "tags": "category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential"
+    },
+    {
+      "id": "vitamin-b12-deficiency-follow-up",
+      "title": "Vitamin B12 deficiency: nursing follow-up",
+      "subtitle": "Neurologic findings, absorption risks and treatment continuity",
+      "family": "Hematology",
+      "sections": [
+        {
+          "title": "Connect blood and neurologic effects",
+          "bullets": [
+            {
+              "text": "Vitamin B12 supports healthy red-cell production and normal brain and nerve function. Deficiency can cause anemia with fatigue, breathlessness or dizziness, and may also produce neurologic problems.",
+              "source": "b12"
+            },
+            {
+              "text": "Ask about tingling, altered sensation, walking difficulty, slower thinking, memory or mood changes. Neurologic concerns deserve assessment along with the blood results rather than being dismissed as unrelated to the deficiency.",
+              "source": "b12"
+            }
+          ]
+        },
+        {
+          "title": "Review intake and absorption separately",
+          "bullets": [
+            {
+              "text": "Low intake is one possible cause, but impaired absorption is important. Pernicious anemia involves a lack of intrinsic factor, a stomach protein needed for B12 absorption. Stomach or intestinal surgery and some digestive diseases also increase risk.",
+              "source": "b12"
+            },
+            {
+              "text": "The same food advice will not correct every cause. Review the person’s digestive history and dietary pattern so the clinician can distinguish inadequate intake from a problem absorbing the vitamin.",
+              "source": "b12"
+            }
+          ]
+        },
+        {
+          "title": "Include medicines and associated conditions",
+          "bullets": [
+            {
+              "text": "Long-term use of certain acid-suppressing medicines or metformin can affect B12 absorption. Some autoimmune conditions, pancreatic disease and intestinal disorders also increase the likelihood of deficiency.",
+              "source": "b12"
+            },
+            {
+              "text": "Include prescribed and nonprescription medicines in the history. A risk factor may prompt evaluation, but it does not authorize stopping an effective medicine without a discussion with the treating clinician.",
+              "source": "b12"
+            }
+          ]
+        },
+        {
+          "title": "Explain what testing can and cannot establish",
+          "bullets": [
+            {
+              "text": "The evaluation may include a complete blood count, hemoglobin and a blood B12 measurement. Results need interpretation with symptoms and the clinical history; NHLBI notes that deficiency can sometimes be present despite a result within the reported normal range.",
+              "source": "b12"
+            },
+            {
+              "text": "Persistent neurologic symptoms or an unclear result should be discussed with the clinician. This reference does not use one universal laboratory cutoff to diagnose or exclude deficiency.",
+              "source": "b12"
+            }
+          ]
+        },
+        {
+          "title": "Clarify the replacement plan",
+          "bullets": [
+            {
+              "text": "Replacement may be given by mouth, nasal route or injection depending on the cause and severity. Some people need long-term or lifelong treatment, and more serious anemia may require additional support.",
+              "source": "b12"
+            },
+            {
+              "text": "Review the exact prescribed route and follow-up instructions. Feeling less tired does not establish that replacement can stop, particularly when the cause of poor absorption remains present.",
+              "source": "b12"
+            }
+          ]
+        },
+        {
+          "title": "Make food teaching relevant to the cause",
+          "bullets": [
+            {
+              "text": "Food sources include meat, fish, eggs, dairy products and foods fortified with B12, including some cereals and plant-based milk substitutes. Discuss choices that fit the person’s eating pattern.",
+              "source": "b12"
+            },
+            {
+              "text": "Nutrition changes may support the treatment plan, but a problem absorbing B12 may still require prescribed replacement. The clinician determines the appropriate intake and therapy rather than applying a standard supplement dose to everyone.",
+              "source": "b12"
+            }
+          ]
+        },
+        {
+          "title": "Follow recovery over time",
+          "bullets": [
+            {
+              "text": "Some symptoms take months to improve, and established nerve or brain effects may not fully resolve even with treatment. Record changes in sensation, walking, cognition and daily function as well as fatigue.",
+              "source": "b12"
+            },
+            {
+              "text": "Maintain the planned follow-up and report persistent or worsening concerns. Early assessment and treatment matter because some neurologic complications can become permanent.",
+              "source": "b12"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "diagnosis:vitamin-b12-deficiency",
+        "lab:vitamin-b12",
+        "reference:peripheral-neuropathy-daily-support"
+      ],
+      "topics": [
+        "blood-infection",
+        "neurological",
+        "nutrition-elimination"
+      ],
+      "symbol": "RHDepthVitaminB12DeficiencyFollowUpSample",
+      "tags": "category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential"
+    }
+  ]
+}

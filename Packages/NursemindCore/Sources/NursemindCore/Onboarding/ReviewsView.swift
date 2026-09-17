@@ -1,3 +1,4 @@
+import StoreKit
 import SwiftUI
 
 /// Social-proof step that sits between `safetyContract` and `paywall` in
@@ -5,16 +6,16 @@ import SwiftUI
 /// before the paywall — the standard premium-subscription pattern (Calm,
 /// Duolingo Super) where goodwill is highest just before the ask.
 ///
-/// Deliberately does NOT call `requestReview` — App Review guideline 5.6.3
-/// forbids rating prompts during onboarding. The one rating ask lives in
-/// `AskHomeView`, gated on the user's third successful AI answer.
-///
 /// Testimonials stay in study/learning framing — NurseMind is positioned as
 /// a study and reference companion, never a workplace clinical tool.
 struct ReviewsView: View {
     let onContinue: () -> Void
 
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @Environment(\.requestReview) private var requestReview
+    @Environment(\.scenePhase) private var scenePhase
+    @State private var prefs = UserPreferences.shared
+    @State private var hasContinued = false
     @State private var visible: [Bool] = Array(repeating: false, count: 5)
 
     private let testimonials: [Testimonial] = [
@@ -62,6 +63,21 @@ struct ReviewsView: View {
         .task {
             await stagger()
         }
+        .task(id: scenePhase) {
+            guard scenePhase == .active, !prefs.hasRequestedReview, !hasContinued else { return }
+            // Let the onboarding page's 420 ms transition finish before presenting StoreKit.
+            do {
+                try await Task.sleep(for: .milliseconds(450))
+            } catch {
+                return
+            }
+            guard !Task.isCancelled, !hasContinued, !prefs.hasRequestedReview else { return }
+            prefs.hasRequestedReview = true
+            requestReview()
+            AnalyticsService.shared.capture("review_prompt_requested", properties: [
+                "source": "onboarding_social_proof"
+            ])
+        }
     }
 
     // MARK: - Header
@@ -106,6 +122,7 @@ struct ReviewsView: View {
 
     private var actions: some View {
         PrimaryCTAButton(title: "Continue", action: {
+            hasContinued = true
             Haptic.selection()
             onContinue()
         })

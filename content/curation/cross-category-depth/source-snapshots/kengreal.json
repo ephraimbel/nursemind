@@ -1,0 +1,11 @@
+{
+  "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=88b434fa-8891-4fd5-9d86-7ea64667c08f",
+  "retrievalURL": "https://dailymed.nlm.nih.gov/dailymed/services/v2/spls/88b434fa-8891-4fd5-9d86-7ea64667c08f.xml",
+  "resolvedURL": "https://dailymed.nlm.nih.gov/dailymed/services/v2/spls/88b434fa-8891-4fd5-9d86-7ea64667c08f.xml",
+  "retrieved": "2026-09-17",
+  "xmlSHA256": "c98cbff596d951d395b22a77d246dc186e54b734fd78cc2eeeeec3f7d10caddd",
+  "textSHA256": "ab4892fb711a1372482256280b1e3621d47e25afce266b82bd07e1f1d1858c53",
+  "setID": "88b434fa-8891-4fd5-9d86-7ea64667c08f",
+  "version": "10",
+  "effectiveDate": "20251021"
+}

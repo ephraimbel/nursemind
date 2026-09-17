@@ -1,0 +1,72 @@
+April 24, 2024
+Laboratory Testing for Norovirus
+Key points
+Diagnostic methods for norovirus testing focus on detecting viral RNA (genetic material) or viral antigen.
+RT-qPCR assays are the preferred diagnostic method to detect norovirus.
+EIA tests should not replace RT-qPCR during outbreak investigations; they are not recommended for testing single samples from sporadic cases.
+Virus classification
+Noroviruses belong to the family Caliciviridae. They are a group of non-enveloped, single-stranded RNA viruses that primarily cause acute gastroenteritis or inflammation of the stomach and intestines.
+Noroviruses were previously called Norwalk or Norwalk-like viruses. They were named after the original Norwalk strain, which caused a gastroenteritis outbreak in a school in Norwalk, Ohio in 1968.
+Most common norovirus variants‎
+A variant is a viral genome (genetic code) that may contain one or more mutations. Variants of the GII.4 genotype (such as GII.4 Sydney, GII.4 New Orleans, GII.4 Hong Kong, etc.) are the most common cause of norovirus illnesses worldwide.
+Norovirus classification scheme
+The norovirus classification scheme1 was updated in 2019 and includes the following changes:
+Noroviruses are now classified into ten genogroups (GI-GX) and 48 genotypes.
+Some genotypes were reclassified, for example, GII.15 became a new genogroup GIX.
+The naming for 'orphan' P-types was updated to a numbering system, for example, GII.Pe was renamed GII.P31.
+Dual-typing nomenclature (genotype and P-type) was also proposed; the genotype is reported first, followed by the P-type in brackets such as: GI.1[P1].
+Keep Reading:
+Full List of Norovirus Classification Changes
+Types of tests
+What norovirus diagnostic tests detect‎
+Diagnostic tests for norovirus detect viral RNA (genetic material) or viral antigen. Tests are available at all public health laboratories and many clinical laboratories. Most use reverse transcription real-time polymerase chain reaction (RT-qPCR) assays to detect norovirus.
+RT-qPCR Assays
+RT-qPCR assays are the preferred method to detect norovirus. RT-qPCR assays are very sensitive and specific. They can detect as few as 10 to 100 norovirus copies. They use different oligonucleotide primer sets to detect genogroup I, genogroup II, genogroup VIII and GIX noroviruses. RT-qPCR assays can also provide estimates of viral load.
+TaqMan-based RT-qPCR assays detect the RNA of the virus. They can be used to test the following for norovirus:
+Stool
+Vomitus
+Food
+Water
+Environmental specimens
+Multiplex Gastrointestinal Platforms
+Recently, several commercial platforms for detection of multiple gastrointestinal pathogens have become available. They include genogroup I and genogroup II norovirus. The sensitivity of these assays for norovirus is in the same range as RT-qPCR.
+Enzyme Immunoassays
+Rapid commercial enzyme immunoassays (EIAs) that detect norovirus antigen in stool samples are also available. However, these kits have poor sensitivity (50% to 75%) and are generally not recommended for testing single samples from sporadic cases of gastroenteritis.
+These assays can be used for preliminary identification of norovirus when testing multiple specimens during outbreaks. However, samples that test negative should be confirmed by a second technique, such as RT-qPCR. Thus, EIA kits should not replace RT-qPCR during outbreak investigations.
+Genotyping
+Genetic characterization of noroviruses detected in stool and environmental samples can be very useful in epidemiologic investigations by:
+Linking cases
+Suggesting a common source
+Identifying new emerging virus strains
+Norovirus can be genotyped by sequence analysis of a RT-PCR product amplified from a partial region of both the polymerase gene (region B) and capsid gene (region C) in a single reaction for either genogroup I or genogroup II viruses.
+All laboratories participating in CaliciNet use dual typing for norovirus. The sequences obtained are compared to CaliciNet reference sequences for typing. An example of dual typing nomenclature is the GII.4 Sydney[P16] norovirus strain; it has caused the majority of all norovirus outbreaks in the United States in recent years.
+Keep Reading:
+What is the CaliciNet Reporting System?
+Specimen collection overview
+Whole stool is the preferred clinical specimen for laboratory diagnosis of norovirus. If food or water is the suspected cause of an outbreak, collect samples as soon as possible after people were exposed. Then immediately refrigerate the samples.
+Keep Reading:
+Collecting Specimens for Norovirus Testing
+Reporting results
+Healthcare providers should report all outbreaks of acute gastroenteritis, including suspected outbreaks of norovirus, to the appropriate health department.
+Health departments are encouraged to report all suspected and confirmed norovirus outbreaks through the National Outbreak Reporting System (NORS) and CaliciNet.
+Norovirus Reporting and Surveillance
+Identify surveillance and reporting systems for norovirus and different roles in reporting.
+Apr. 24, 2024
+April 24, 2024
+Sources
+Print
+Share
+Facebook
+LinkedIn
+Twitter
+Syndicate
+Content Source:
+National Center for Immunization and Respiratory Diseases; Division of Viral Diseases
+References
+Chhabra P, de Graaf M, Parra GI, et al. Updated classification of norovirus genogroups and genotypes [published correction appears in J Gen Virol. 2020 Aug;101(8):893]. J Gen Virol. 2019;100(10):1393-1406. doi:10.1099/jgv.0.001318
+Sources
+Cannon JL, Barclay L, Collins, NR, et al., Genetic and Epidemiologic Trends of Norovirus Outbreaks in the United States from 2013 to 2016 Demonstrated Emergence of Novel GII.4 Recombinant Viruses. J Clin Microbiol. 2017; 55(7): 2208–2221. doi:10.1128/JCM.00455-17. Correction
+Costantini, V, Grenz, L, Fritzinger, A, et al., Diagnostic Accuracy and Analytical Sensitivity of IDEIA Norovirus Assay for Routine Screening of Human Norovirus. Clin. Microbiol. 2010;48(8):2770-2778; doi:10.1128/JCM.00654-10
+Jonckheere S, Botteldoorn N, Vandecandelaere P, et al., Multicenter evaluation of the revised RIDA® QUICK test (N1402) for rapid detection of norovirus in a diagnostic laboratory setting. Diagn Microbiol Infect Dis. 2017;88(1):31-35. doi:10.1016/j.diagmicrobio.2017.02.006.
+Kirby, A, Gurgel, RQ, Dove, W, et al., An evaluation of the RIDASCREEN and IDEIA enzyme immunoassays and the RIDAQUICK immunochromatographic test for the detection of norovirus in faecal specimens. J Clin Virol. 2010;49(4):254-7. doi:10.1016/j.jcv.2010.08.004.
+Barclay, L, Cannon, JL, Wikswo, ME, et al., Emerging Novel GII.P16 Noroviruses Associated with Multiple Capsid Genotypes. 2019;11(6):535. doi:10.3390/v11060535

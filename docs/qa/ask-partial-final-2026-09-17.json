@@ -1,0 +1,63 @@
+{
+  "path": "deployed external evidence only; no client library context",
+  "clinical_accuracy": "not assessed",
+  "completed_at": "2026-09-17T11:53:14.589310+00:00",
+  "requests": 2,
+  "answers": 1,
+  "median_answer_seconds": 13.206,
+  "slowest_answer_seconds": 13.206,
+  "results": [
+    {
+      "id": "partial-question",
+      "domain": "Evidence gaps",
+      "question": "Explain what A1C measures and describe the exact protocol at my hospital for an abnormal result.",
+      "history": "",
+      "expected": "partial_or_explicit_gap",
+      "clinical_review_status": "pending",
+      "run": 1,
+      "status": 422,
+      "seconds": 12.497,
+      "answer": "",
+      "refusal": "lowConfidence",
+      "sources": [],
+      "evidence": [],
+      "review_scores": {}
+    },
+    {
+      "id": "partial-question",
+      "domain": "Evidence gaps",
+      "question": "Explain what A1C measures and describe the exact protocol at my hospital for an abnormal result.",
+      "history": "",
+      "expected": "partial_or_explicit_gap",
+      "clinical_review_status": "pending",
+      "run": 2,
+      "status": 200,
+      "seconds": 13.206,
+      "answer": "An A1C test measures the percentage of red blood cells that have glucose-coated hemoglobin, reflecting average blood glucose levels over the past two to three months [c001].\n\n- A1C results tell you what percentage of hemoglobin is coated with glucose, and what is normal depends on your health, age, and other factors; your provider determines your specific healthy A1C percentage [c001].\n\n- If your A1C test was done to monitor your diabetes, talk with your provider about what your test results mean [c001].\n\nI don't have a high-confidence source for hospital-specific abnormal result protocol.\n\nReference only \u2014 always follow your facility's policies and verify with your provider.",
+      "refusal": null,
+      "sources": [
+        {
+          "id": "c001",
+          "shortName": "Hemoglobin A1C (HbA1c) Test",
+          "publisher": "National Library of Medicine \u2014 MedlinePlus",
+          "license": "publicDomain",
+          "url": "https://www.medlineplus.gov/lab-tests/hemoglobin-a1c-hba1c-test/",
+          "lastRetrieved": "2026-09-17"
+        },
+        {
+          "id": "c002",
+          "shortName": "A1C Test for Diabetes and Prediabetes",
+          "publisher": "Centers for Disease Control and Prevention",
+          "license": "publicDomain",
+          "url": "https://www.cdc.gov/diabetes/diabetes-testing/prediabetes-a1c-test.html",
+          "lastRetrieved": "2026-09-17"
+        }
+      ],
+      "evidence": [
+        "[c001] (source: Hemoglobin A1C (HbA1c) Test; publisher: National Library of Medicine \u2014 MedlinePlus; retrieved 2026-09-17) Glucose is a type of sugar in your blood that comes from the foods you eat. Your cells use glucose for energy. A hormone called insulin helps glucose get into your cells. If you have diabetes your body doesn't make enough insulin, or your cells don't use it well. As a result, glucose can't get into your cells, so your blood glucose levels increase.\n[c001] (source: Hemoglobin A1C (HbA1c) Test; publisher: National Library of Medicine \u2014 MedlinePlus; retrieved 2026-09-17) Glucose in your blood sticks to hemoglobin, a protein in your red blood cells. As your blood glucose levels increase, more of your hemoglobin will be coated with glucose. An A1C test measures the percentage of your red blood cells that have glucose-coated hemoglobin.\n[c001] (source: Hemoglobin A1C (HbA1c) Test; publisher: National Library of Medicine \u2014 MedlinePlus; retrieved 2026-09-17) Your blood glucose level changes all the time. If you're checking it at home, you are measuring what your blood glucose level is at that time. An A1C test gives you an average level of your blood glucose level over the past two to three months.\n[c001] (source: Hemoglobin A1C (HbA1c) Test; publisher: National Library of Medicine \u2014 MedlinePlus; retrieved 2026-09-17) The Centers for Disease Control (CDC) recommends A1C testing for diabetes and prediabetes if:\n[c001] (source: Hemoglobin A1C (HbA1c) Test; publisher: National Library of Medicine \u2014 MedlinePlus; retrieved 2026-09-17) You are over age 45. If your results are normal, your provider will tell you how often you should be tested based on your age and risk factors. If your results show you have prediabetes, you will usually need to be tested every 1 to 2 years. Ask your provider how often to get tested and what you can do to reduce your risk of developing diabetes. If your results show you have diabetes, you should get an A1C test at least twice a year to monitor your condition and treatment.\n[c001] (source: Hemoglobin A1C (HbA1c) Test; publisher: National Library of Medicine \u2014 MedlinePlus; retrieved 2026-09-17) A1C results tell you what percentage of your hemoglobin is coated with glucose. The ranges are just a guide to what is normal. What's normal for you depends on your health, age, and other factors. Ask your provider what A1C percentage is healthy for you.\n[c001] (source: Hemoglobin A1C (HbA1c) Test; publisher: National Library of Medicine \u2014 MedlinePlus; retrieved 2026-09-17) If your A1C test was done to monitor your diabetes, talk with your provider about what your test results mean.\n[c001] (source: Hemoglobin A1C (HbA1c) Test; publisher: National Library of Medicine \u2014 MedlinePlus; retrieved 2026-09-17) The A1C test is not used to diagnose gestational diabetes. Also, if you have a condition that affects your red blood cells, such as anemia or another type of blood disorder, an A1C test may not be accurate for diagnosing diabetes. Kidney failure and liver disease can also affect A1C results. In these cases, your provider may recommend different tests to diagnose diabetes and prediabetes.\n[c002] (source: A1C Test for Diabetes and Prediabetes; publisher: Centers for Disease Control and Prevention; retrieved 2026-09-17) Find out more about the test, and your A1C goals.\n[c002] (source: A1C Test for Diabetes and Prediabetes; publisher: Centers for Disease Control and Prevention; retrieved 2026-09-17) What does the A1C test measure?\n[c002] (source: A1C Test for Diabetes and Prediabetes; publisher: Centers for Disease Control and Prevention; retrieved 2026-09-17) When you check your blood sugar at home, it's a snapshot of a single point in time. But your blood sugar constantly changes, so this doesn't give you a complete picture. The A1C test measures your average blood sugar levels over the past 3 months.\n[c002] (source: A1C Test for Diabetes and Prediabetes; publisher: Centers for Disease Control and Prevention; retrieved 2026-09-17) The A1C test is done in a doctor's office or at a lab. You will have a blood sample drawn from your finger or arm. You don't need to fast before an A1C test, but your doctor may run other tests like cholesterol at the same time that might require fasting.\n[c002] (source: A1C Test for Diabetes and Prediabetes; publisher: Centers for Disease Control and Prevention; retrieved 2026-09-17) Get an A1C test if you're over age 45. A1C testing is also recommended if you're younger, have overweight, and any other risk factor for prediabetes and type 2 diabetes.\n[c002] (source: A1C Test for Diabetes and Prediabetes; publisher: Centers for Disease Control and Prevention; retrieved 2026-09-17) Your doctor will give you instructions how to manage your condition with lifestyle changes, and may prescribe you medicine. Most people with diabetes have their A1C tested at least twice a year. You may need to check more often based on your management plan or other health conditions. Ask your doctor how often is right for you.\n[c002] (source: A1C Test for Diabetes and Prediabetes; publisher: Centers for Disease Control and Prevention; retrieved 2026-09-17) For most people with diabetes, the A1C goal is 7% or less. Your doctor will determine your specific goal based on your full medical history. Higher A1C levels are linked to health complications, so reaching and maintaining your goal is key to living well with diabetes.\n[c002] (source: A1C Test for Diabetes and Prediabetes; publisher: Centers for Disease Control and Prevention; retrieved 2026-09-17) With lifestyle changes and medicines (if prescribed), some people with diabetes can reach an A1C below 6.5%. This doesn't mean that their condition went away, but it does usually mean their blood sugar is well managed."
+      ],
+      "review_scores": {}
+    }
+  ],
+  "warning": "Internal QA only. Generated answers are unreviewed and may contain clinical errors; do not use as library content or approved answer keys."
+}

@@ -1,0 +1,40 @@
+Clinical Testing and Diagnosis for C. diff Infection
+Mar. 6, 2024
+Key points
+There are four laboratory tests used to diagnose Clostridioides difficile infection or CDI.
+Hospitals are required to report C. diff infections.
+Recommended tests
+Molecular tests
+FDA-approved PCR assays are same-day tests that are highly sensitive and specific for the presence of a toxin-producing C. diff organism.
+Molecular assays can be positive for C. diff in asymptomatic individuals and those who do not have an infection. Patients with other causes of diarrhea might be positive, which leads to over-diagnosis and treatment.
+When using multi-pathogen (multiplex) molecular methods, read the results with caution as the pre-test probability of C. diff infection might be less.
+Antigen tests
+These rapid tests (<1 hour) detect the presence of C. diff antigen glutamate dehydrogenase (GDH).
+Because results of antigen testing alone are nonspecific, antigen assays have been employed in combination with tests for toxin detection, PCR, or toxigenic culture in two-step testing algorithms.
+Toxin tests
+Tissue culture cytotoxicity assay only detects toxin B. This assay requires technical expertise to perform, is costly and requires 24 to 48 hours for a result. It does provide specific and sensitive results for CDI.
+Although a historical gold standard for diagnosing disease caused by C. diff, this assay is less sensitive than PCR or toxigenic culture for patients with diarrhea.
+Enzyme immunoassay detects toxin A, toxin B, or both A and B. With concerns over toxin A-negative and B-positive strains causing disease, most laboratories employ a toxin B-only or A and B assay. Since these are same-day assays that are cheap and easy to perform, they are popular with clinical laboratories. However, there are increasing concerns about their relative insensitivity (less than tissue culture cytotoxicity and PCR or toxigenic culture).
+C. diff toxin is very unstable. The toxin degrades at room temperature and might be undetectable within two hours of stool specimen collection. False-negative results occur when specimens are not tested promptly or kept refrigerated until testing.
+Stool cultures
+This is the most sensitive test available and is most often associated with false-positive results because of the presence of nontoxigenic C. diff strains. However, testing isolates for toxin production like so-called "toxigenic culture" helps to reduce false positive results. Moreover, stool cultures for C. diff are less useful as they are:
+Labor-intensive
+Require an appropriate culture environment to grow anaerobic microorganisms.
+Slow in growth, providing results in 48 to 96 hours.
+Results of toxigenic cultures serve as a gold standard compared to other test modalities in clinical trials of performance.
+Reporting cases
+Hospitals are required to report C. diff infections to CDC's National Healthcare Safety Network (NHSN). Some states also require other healthcare facilities to report C. diff infections, but requirements vary by state.
+Keep Reading
+Clinical Guidance for C. diff Prevention in Acute Care Facilities
+Resources
+Detecting Patients at Increased Risk: See Fig. 2 in the 2017 IDSA/SHEA Clinical Practice Guidelines
+Mar. 6, 2024
+Sources
+Print
+Share
+Facebook
+LinkedIn
+Twitter
+Syndicate
+Content Source:
+National Center for Emerging and Zoonotic Infectious Diseases (NCEZID)

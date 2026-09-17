@@ -1,0 +1,41 @@
+Pulse Oximeter Basics
+A pulse oximeter, or pulse ox, is a device that estimates the amount of oxygen in the blood. Here’s what to know before using one.
+Español中文한국의TagalogTiếng Việt
+We need oxygen to survive. Sometimes the amount of oxygen in the blood falls too low for the body to function well. Asthma, lung cancer, chronic obstructive pulmonary disease, the flu, and heart disease are among the health conditions that can cause oxygen levels to drop. Being at higher altitudes, where the amount of oxygen in the air can be less than at sea level, can be another factor that can cause oxygen levels to drop.
+One way to monitor the level of oxygen in the blood is by using a device called a pulse oximeter, or pulse ox.  A pulse oximeter can estimate the amount of oxygen in the blood without having to draw a blood sample.
+What is a pulse oximeter?
+A pulse oximeter is a device that is usually clipped on a fingertip and uses light beams to estimate a person’s blood oxygen level (oxygen saturation) and their pulse rate.
+Most pulse oximeters show two or three numbers. The most important number, oxygen saturation level, is usually abbreviated SpO2, and is presented as a percentage. The pulse rate (similar to heart rate) is typically abbreviated PR. Sometimes there is a third number for strength of the signal.
+Oxygen saturation values are between 95% and 100% for most healthy individuals but sometimes can be lower in people with lung and heart problems, for example. Oxygen saturation levels are also generally slightly lower for those living at higher altitudes.
+Using a pulse oximeter
+If you are using a pulse oximeter to monitor your oxygen levels at home, in addition to your pulse oximeter reading, keep track of your symptoms and how you feel. Contact a health care provider if you are concerned about the pulse oximeter reading, or your symptoms are serious or get worse.
+To get the best reading when using a pulse oximeter at home:
+Follow your health care provider’s advice about when and how often to check your oxygen levels.
+Follow the manufacturer’s instructions for use.
+When placing the pulse oximeter on your finger, make sure your hand is warm, relaxed, and held below the level of the heart. Remove any fingernail polish on that finger.
+Sit still and do not move the part of your body where the pulse oximeter is located.
+Wait a few seconds until the reading stops changing and displays one steady number.
+Write down your oxygen level and the date and time of the reading so you can track any changes and report these to your health care provider.
+Be familiar with signs or symptoms of low oxygen levels:
+Bluish coloring in the face, lips, or nails.
+Shortness of breath, difficulty breathing, or a cough that gets worse.
+Restlessness and discomfort.
+Chest pain or tightness.
+Fast/racing pulse rate.
+Be aware that some people with low oxygen levels may not show any or all these symptoms. Only a health care provider can diagnose a medical condition such as hypoxia (low oxygen levels). Pulse oximeter readings should be considered in context with other information, including signs and symptoms of low oxygen.
+As with any device, there is always a risk of an inaccurate reading. Be aware multiple factors can affect the accuracy of a pulse oximeter reading, such as poor circulation, skin pigmentation, skin thickness, skin temperature, current tobacco use, and use of fingernail polish.
+Categories of pulse oximeters and FDA clearance
+Certain pulse oximeters are intended for medical purposes and are primarily used in hospital settings or doctors’ offices. Pulse oximeters for medical purposes are typically used to monitor (i.e. trending or spot checking) oxygen saturation levels of patients to help in clinical decision-making.
+Currently, a small number of these pulse oximeters intended for medical purposes are available over the counter (OTC) following clearance by the FDA.
+There also are pulse oximeters that are sold as general wellness products or sporting/aviation products. These are not reviewed or evaluated by the agency before being available to the public. Such products are often sold directly to consumers in stores or online and are intended for estimating oxygen saturation often for purposes of general wellness (such as encouraging a general state of health or healthy lifestyle).
+The FDA recognizes that during the COVID-19 pandemic, many people purchased OTC pulse oximeters that are considered general wellness products. These products are not evaluated by the agency for use in clinical decision-making or determining whether to seek medical intervention.
+Current scientific evidence suggests there are some accuracy differences in pulse oximeter performance between individuals with lighter and darker skin pigmentation. The FDA previously informed patients and health care professionals that although pulse oximetry is useful for estimating blood oxygen levels, pulse oximeters have limitations and a risk of inaccuracy under certain circumstances, including use on patients with darker skin pigmentation, that should be considered.
+In addition to the safety communication, to address concerns around the accuracy of these devices, the FDA held advisory committee meetings, published a discussion paper for comment, and published a draft guidance in January 2025 that outlines proposed recommendations to help improve the accuracy and performance of pulse oximeters that are used for medical purposes across the range of skin pigmentations.
+Reporting Problems with a Device
+If you experienced a problem or injury that you think may be related to a pulse oximeter, you can voluntarily report it through the FDA’s MedWatch program.
+Content current as of:
+03/26/2025
+Regulated Product(s)
+Medical Devices
+Topic(s)
+Consumer Health

@@ -1,23 +1,7 @@
 import Foundation
 
-/// Minimal streaming client for Anthropic's Messages API. Handles the SSE wire
-/// format and exposes an `AsyncThrowingStream<String, Error>` of text deltas.
-///
-/// Two transport modes:
-///   - `.direct`: hits api.anthropic.com directly with `x-api-key`.
-///                DEBUG-only — any key shipped in an iOS bundle is extractable
-///                via reverse engineering, so this path must NOT be used in
-///                App Store / TestFlight builds.
-///   - `.proxy`:  hits a Supabase Edge Function (`/functions/v1/ai-chat`)
-///                with `Authorization: Bearer <supabase-jwt>`. The function
-///                authenticates the caller, then forwards the unmodified
-///                request body to Anthropic with the project-secret API key.
-///                Streaming SSE is preserved end-to-end with no buffering.
-///
-/// The request body shape and SSE response format are identical in both modes —
-/// the proxy is a transparent pass-through, so prompt caching, system block
-/// arrays, model selection, and any future Anthropic-API additions all work
-/// without code changes here.
+/// Anthropic transport. Production requires the server's v2 safety contract;
+/// direct mode is reserved for development and uses the local validation gate.
 public struct AnthropicClient: Sendable {
 
     /// Where the request goes and how it authenticates. Selecting at init
@@ -28,8 +12,7 @@ public struct AnthropicClient: Sendable {
         case direct(apiKey: String)
         /// Send through the Supabase Edge Function. `tokenProvider` returns
         /// the current Supabase JWT (refreshed transparently by the SDK).
-        /// Returns nil when offline / not signed in — request fails cleanly
-        /// in that case and the AskService falls back to MockAskService.
+        /// Missing auth produces an explicit service-unavailable response.
         case proxy(endpoint: URL, tokenProvider: @Sendable () async -> String?)
     }
     public enum Model: String, Sendable {
@@ -107,6 +90,11 @@ public struct AnthropicClient: Sendable {
         }
     }
 
+    var usesProxy: Bool {
+        if case .proxy = mode { return true }
+        return false
+    }
+
     private let mode: Mode
     private let urlSession: URLSession
 
@@ -144,6 +132,7 @@ public struct AnthropicClient: Sendable {
             request.setValue(key, forHTTPHeaderField: "x-api-key")
             request.setValue("2023-06-01", forHTTPHeaderField: "anthropic-version")
         case .proxy(_, let tokenProvider):
+            request.setValue("2", forHTTPHeaderField: "x-nursemind-contract")
             if let token = await tokenProvider() {
                 request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
             }
@@ -163,8 +152,6 @@ public struct AnthropicClient: Sendable {
         _ = try? await urlSession.data(for: request)
     }
 
-    // MARK: - Streaming generation
-
     public func streamMessage(
         model: Model,
         system: String,
@@ -172,122 +159,74 @@ public struct AnthropicClient: Sendable {
         maxTokens: Int = 1024,
         temperature: Double = 0.2
     ) -> AsyncThrowingStream<String, Error> {
-        AsyncThrowingStream { continuation in
+        let events = makeStream(body: try? JSONEncoder().encode(Request(model: model.rawValue, max_tokens: maxTokens,
+            temperature: temperature, system: system, messages: messages, stream: true)))
+        return AsyncThrowingStream { continuation in
             let task = Task {
                 do {
-                    let request = Request(
-                        model: model.rawValue,
-                        max_tokens: maxTokens,
-                        temperature: temperature,
-                        system: system,
-                        messages: messages,
-                        stream: true
-                    )
-                    var urlRequest = URLRequest(url: endpoint)
-                    urlRequest.httpMethod = "POST"
-                    await applyAuthHeaders(to: &urlRequest)
-                    urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-                    urlRequest.setValue("text/event-stream", forHTTPHeaderField: "Accept")
-                    urlRequest.httpBody = try JSONEncoder().encode(request)
-
-                    let (bytes, response) = try await urlSession.bytes(for: urlRequest)
-
-                    guard let http = response as? HTTPURLResponse else {
-                        throw ClientError.invalidResponse
+                    for try await event in events {
+                        if case .text(let text) = event { continuation.yield(text) }
                     }
-
-                    if http.statusCode != 200 {
-                        // Drain bytes for error body
-                        var body = ""
-                        for try await line in bytes.lines {
-                            body += line + "\n"
-                            if body.count > 2000 { break }
-                        }
-                        throw ClientError.requestFailed(status: http.statusCode, body: body)
-                    }
-
-                    for try await line in bytes.lines {
-                        try Task.checkCancellation()
-                        guard line.hasPrefix("data: ") else { continue }
-                        let payload = String(line.dropFirst(6))
-                        if payload == "[DONE]" { break }
-                        if let delta = parseTextDelta(payload) {
-                            continuation.yield(delta)
-                        }
-                    }
-
                     continuation.finish()
-                } catch {
-                    continuation.finish(throwing: error)
-                }
+                } catch { continuation.finish(throwing: error) }
             }
             continuation.onTermination = { _ in task.cancel() }
         }
     }
 
-    // MARK: - Streaming generation with prompt caching
-
-    /// Streaming variant that splits the system prompt into a stable cached
-    /// prefix and a per-request dynamic suffix. Anthropic charges ~10% of
-    /// normal input rates for cached tokens after the initial write, with
-    /// a 5-minute TTL refreshed on every cache hit.
-    ///
-    /// Caching only triggers when the cached block exceeds the model's
-    /// minimum (1024 tokens for Sonnet 4.x, 2048 for Haiku 4.x). For shorter
-    /// prefixes the directive is silently ignored — Anthropic returns
-    /// `cache_creation_input_tokens: 0` and the request bills as uncached.
-    public func streamMessage(
+    func streamAnswer(
         model: Model,
         cachedSystem: String,
         dynamicSystem: String,
         messages: [Message],
         maxTokens: Int = 1024,
         temperature: Double = 0.2
-    ) -> AsyncThrowingStream<String, Error> {
+    ) -> AsyncThrowingStream<AnswerStreamEvent, Error> {
+        // Haiku 4.5 needs 4,096 prefix tokens for caching. Do not pad short prompts to claim cache savings.
+        makeStream(body: try? JSONEncoder().encode(CachedRequest(model: model.rawValue, max_tokens: maxTokens,
+            temperature: temperature, system: [SystemBlock(text: cachedSystem, cached: false),
+                                              SystemBlock(text: dynamicSystem, cached: false)],
+            messages: messages, stream: true)))
+    }
+
+    private func makeStream(body: Data?) -> AsyncThrowingStream<AnswerStreamEvent, Error> {
         AsyncThrowingStream { continuation in
             let task = Task {
                 do {
-                    let request = CachedRequest(
-                        model: model.rawValue,
-                        max_tokens: maxTokens,
-                        temperature: temperature,
-                        system: [
-                            SystemBlock(text: cachedSystem, cached: true),
-                            SystemBlock(text: dynamicSystem, cached: false)
-                        ],
-                        messages: messages,
-                        stream: true
-                    )
-                    var urlRequest = URLRequest(url: endpoint)
-                    urlRequest.httpMethod = "POST"
-                    await applyAuthHeaders(to: &urlRequest)
-                    urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-                    urlRequest.setValue("text/event-stream", forHTTPHeaderField: "Accept")
-                    urlRequest.httpBody = try JSONEncoder().encode(request)
-
-                    let (bytes, response) = try await urlSession.bytes(for: urlRequest)
-
-                    guard let http = response as? HTTPURLResponse else {
+                    guard let body else { throw ClientError.invalidResponse }
+                    var request = URLRequest(url: endpoint)
+                    request.httpMethod = "POST"
+                    request.timeoutInterval = 65
+                    await applyAuthHeaders(to: &request)
+                    request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+                    request.setValue("text/event-stream", forHTTPHeaderField: "Accept")
+                    request.httpBody = body
+                    let (bytes, response) = try await urlSession.bytes(for: request)
+                    guard let http = response as? HTTPURLResponse else { throw ClientError.invalidResponse }
+                    if http.statusCode != 200 {
+                        var errorBody = ""
+                        for try await line in bytes.lines {
+                            errorBody += line
+                            if errorBody.count > 2_000 { break }
+                        }
+                        throw ClientError.requestFailed(status: http.statusCode, body: errorBody)
+                    }
+                    if usesProxy && http.value(forHTTPHeaderField: "x-nursemind-contract") != "2" {
                         throw ClientError.invalidResponse
                     }
-                    if http.statusCode != 200 {
-                        var body = ""
-                        for try await line in bytes.lines {
-                            body += line + "\n"
-                            if body.count > 2000 { break }
-                        }
-                        throw ClientError.requestFailed(status: http.statusCode, body: body)
-                    }
-
+                    var parser = MessageStreamParser()
+                    var sentEvidence = false
                     for try await line in bytes.lines {
                         try Task.checkCancellation()
-                        guard line.hasPrefix("data: ") else { continue }
-                        let payload = String(line.dropFirst(6))
-                        if payload == "[DONE]" { break }
-                        if let delta = parseTextDelta(payload) {
-                            continuation.yield(delta)
+                        let delta = try parser.consume(line)
+                        if let evidence = parser.evidence, !sentEvidence {
+                            guard usesProxy else { throw ClientError.invalidResponse }
+                            continuation.yield(.evidence(evidence))
+                            sentEvidence = true
                         }
+                        if let delta { continuation.yield(.text(delta)) }
                     }
+                    guard parser.isComplete else { throw ClientError.invalidResponse }
                     continuation.finish()
                 } catch {
                     continuation.finish(throwing: error)
@@ -316,6 +255,7 @@ public struct AnthropicClient: Sendable {
         )
         var urlRequest = URLRequest(url: endpoint)
         urlRequest.httpMethod = "POST"
+        urlRequest.timeoutInterval = 20
         await applyAuthHeaders(to: &urlRequest)
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.httpBody = try JSONEncoder().encode(request)
@@ -331,24 +271,12 @@ public struct AnthropicClient: Sendable {
         struct CompletionResponse: Decodable {
             struct Block: Decodable { let type: String; let text: String? }
             let content: [Block]
+            let stop_reason: String?
         }
         let decoded = try JSONDecoder().decode(CompletionResponse.self, from: data)
+        guard decoded.stop_reason == "end_turn" else { throw ClientError.invalidResponse }
         let combined = decoded.content.compactMap { $0.text }.joined()
         return combined.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 
-    // MARK: - SSE parsing
-
-    private func parseTextDelta(_ json: String) -> String? {
-        guard let data = json.data(using: .utf8) else { return nil }
-        // We only care about content_block_delta events with text_delta type
-        struct StreamEvent: Decodable {
-            struct Delta: Decodable { let type: String?; let text: String? }
-            let type: String
-            let delta: Delta?
-        }
-        guard let event = try? JSONDecoder().decode(StreamEvent.self, from: data) else { return nil }
-        guard event.type == "content_block_delta", event.delta?.type == "text_delta" else { return nil }
-        return event.delta?.text
-    }
 }

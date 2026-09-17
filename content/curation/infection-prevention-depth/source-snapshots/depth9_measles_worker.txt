@@ -1,0 +1,82 @@
+Measles
+Infection Control in Healthcare Personnel
+For Health Care Providers
+Apr. 5, 2024
+Healthcare Personnel: Part I
+What to know
+Guideline: Infection Control in Healthcare Personnel
+Segment: Part II: Epidemiology and Control of Selected Infections
+Summary: Recommendations and resources for the management of healthcare personnel exposed to or infected with measles.
+Recommendations
+Recommendations
+For asymptomatic healthcare personnel with presumptive evidence of immunity to measles (https://www.cdc.gov/mmwr/preview/mmwrhtml/rr6204a1.htm#Tab3)1 who have an exposure to measles:
+Postexposure prophylaxis is not necessary.
+Work restrictions are not necessary.
+Implement daily monitoring for signs and symptoms of measles from the 5th day after their first exposure through the 21st day after their last exposure.
+For asymptomatic healthcare personnel without presumptive evidence of immunity to measles who have an exposure to measles:
+Administer postexposure prophylaxis in accordance with CDC and ACIP recommendations (https://www.cdc.gov/vaccines/hcp/acip-recs/vacc-specific/mmr.html).2
+Exclude from work from the 5th day after their first exposure through the 21st day after their last exposure, regardless of receipt of postexposure prophylaxis.
+Work restrictions are not necessary for healthcare personnel who received the first dose of MMR vaccine prior to exposure:
+­
+They should receive their second dose of MMR vaccine as soon as possible (at least 28 days after their first dose).
+Implement daily monitoring for signs and symptoms of measles from the 5th day after their first exposure through the 21st day after their last exposure.
+For healthcare personnel with known or suspected measles, exclude from work for 4 days after the rash
+appears.
+For immunocompromised healthcare personnel with known or suspected measles, exclude from work
+for the duration of their illness.
+During a measles outbreak, administer measles vaccine to healthcare personnel in accordance with CDC
+and ACIP recommendations (https://www.cdc.gov/acip-recs/hcp/vaccine-specific/mmr.html).2
+Background
+Measles was declared eliminated in the US in 2000; however, community-acquired measles cases have persisted as a result of importation.34 Outbreaks of measles in healthcare settings remain well described, and transmission to and from healthcare personnel (HCP) continues to be reported.5678 HCP are considered to be at higher risk for measles acquisition than the general population, as patients with measles often seek medical care due to the severity of their symptoms56789; further, measles is highly contagious and potentially under-recognized, with delays in patient isolation and diagnosis.7
+Prevention of transmission of measles in healthcare settings involves (a) ensuring HCP have presumptive evidence of immunity; (b) using infection prevention and control practices as recommended by CDC (https://www.cdc.gov/infection-control/hcp/isolation-precautions/appendix-a-type-duration.html#M);10 and (c) excluding potentially infectious HCP from work.911 The criteria for presumptive evidence of immunity to measles and recommendations for measles vaccination of HCP are maintained by CDC and ACIP (https://www.cdc.gov/acip-recs/hcp/vaccine-specific/mmr.html).2
+Occupational Exposures
+Measles is a highly contagious viral illness spread primarily via small particles that remain suspended in air. HCP exposures to measles in a healthcare setting are defined as spending any amount of time while unprotected (i.e., not wearing recommended respiratory protection):
+In a shared air space with an infectious measles patient at the same time, or
+In a shared air space vacated by an infectious measles patient for up to 2 hours.
+Measles virus is thought to be contagious to others in the air for up to 2 hours.1213 In general, the time that the air in a room occupied by a measles patient is thought to remain infectious to others depends on several factors including the room’s air changes per hour, up to a maximum of 2 hours.141516 Humidity and air flow dynamics between rooms may impact the efficiency of measles transmission, and distances farther from the source patient may pose decreased risk of transmission to others. An example of an exposure to measles includes HCP providing in-room care to an unmasked patient while not wearing recommended respiratory protection. Information on room air changes per hour and times for estimating 99.9% airborne contaminant removal from the air is provided on the CDC website, in Table B.1., “Air changes/hour (ACH) and time required for airborne contaminant removal by efficiency" (https://www.cdc.gov/infection-control/hcp/environmental-control/appendix-b-air.html#cdc_generic_section_1-airborne-contaminant-removal).17
+Clinical Features
+Measles is characterized by a prodrome of fever, malaise, cough, coryza, conjunctivitis, and Koplik spots (clustered white lesions on the buccal mucosa), followed by onset of a maculopapular rash.18 Because measles is uncommon in the US, providers may have a low index of suspicion for measles and ultimately delay the correct diagnosis.18 The incubation period of measles from exposure to prodrome averages 11 - 12 days. The time from exposure to rash onset averages 14 days, with a range of 7 - 21 days.19 Persons with measles are usually considered infectious from four days before until four days after onset of rash (with rash onset considered as day 0), and immunocompromised persons with measles may shed virus for extended periods.19
+Testing and Diagnosis
+Laboratory testing is used to confirm measles infection, and both detection of measles-specific IgM antibody and measles RNA by real-time polymerase chain reaction tests are recommended to confirm measles infection.20 Information on measles testing is available on the CDC website (https://www.cdc.gov/measles/php/laboratories/index.html).21
+Postexposure Prophylaxis
+Exposed HCP without presumptive evidence of immunity should receive postexposure vaccination as soon as possible in accordance with CDC and ACIP recommendations. In some circumstances, immune globulin may be appropriate to offer these HCP, but this should be done in accordance with CDC and ACIP recommendations (https://www.cdc.gov/acip-recs/hcp/vaccine-specific/mmr.html).2
+Some HCP with documented presumptive evidence of immunity to measles will require administration of vaccine during a measles outbreak.2 Guidance regarding postexposure and outbreak use of vaccine is available on the CDC website (https://www.cdc.gov/mmwr/preview/mmwrhtml/rr6204a1.htm).22
+Apr. 5, 2024
+Sources and Page Info
+Print
+Share
+Facebook
+LinkedIn
+Twitter
+Syndicate
+Content Source
+National Center for Emerging and Zoonotic Infectious Diseases (NCEZID)
+About This Page
+Published: May 15, 2024
+Updated: April 5, 2024
+This page was last updated on this date. Updates may include minor edits, image changes, or other modifications to page content.
+Reviewed: April 5, 2024
+The information on this page was last reviewed by subject matter experts to ensure accuracy.
+References
+McLean HQ, Fiebelkorn AP, Temte JL, Wallace GS. Prevention of Measles, Rubella, Congenital Rubella Syndrome, and Mumps, 2013: Summary Recommendations of the Advisory Committee on Immunization Practices (ACIP): TABLE 3. Acceptable presumptive evidence of immunity to measles, rubella, and mumps. Updated June 14, 2013. Accessed April 3, 2023. https://www.cdc.gov/mmwr/preview/mmwrhtml/rr6204a1.htm#Tab3
+Centers for Disease Control and Prevention. MMR Advisory Committee on Immunization Practices (ACIP) Vaccine Recommendations (Measles, Mumps and Rubella). Updated November 28, 2022. Accessed December 16, 2022. https://www.cdc.gov/acip-recs/hcp/vaccine-specific/mmr.html
+Lee AD, Clemmons NS, Patel M, Gastañaduy PA. International Importations of Measles Virus into the United States During the Postelimination Era, 2001-2016. The Journal of infectious diseases. Apr 19 2019;219(10):1616-1623. doi:10.1093/infdis/jiy701
+Mathis AD, Clemmons NS, Redd SB, et al. Maintenance of Measles Elimination Status in the United States for 20 Years Despite Increasing Challenges. Clinical Infectious Diseases. 2021;doi:10.1093/cid/ciab979
+Chen SY, Anderson S, Kutty PK, et al. Health care-associated measles outbreak in the United States after an importation: challenges and economic impact. The Journal of infectious diseases. Jun 01 2011;203(11):1517-25. doi:10.1093/infdis/jir115
+Fiebelkorn AP, Redd SB, Kuhar DT. Measles in Healthcare Facilities in the United States During the Postelimination Era, 2001-2014. Clinical infectious diseases : an official publication of the Infectious Diseases Society of America. Aug 15 2015;61(4):615-8. doi:10.1093/cid/civ387
+Gohil SK, Okubo S, Klish S, Dickey L, Huang SS, Zahn M. Healthcare Workers and Post-Elimination Era Measles: Lessons on Acquisition and Exposure Prevention. Clinical infectious diseases : an official publication of the Infectious Diseases Society of America. Jan 15 2016;62(2):166-172. doi:10.1093/cid/civ802
+Rosen JB, Rota JS, Hickman CJ, et al. Outbreak of Measles Among Persons With Prior Evidence of Immunity, New York City, 2011. Clinical Infectious Diseases. 2014;58(9):1205-1210. doi:10.1093/cid/ciu105
+Immunization of health-care personnel: recommendations of the Advisory Committee on Immunization Practices (ACIP). MMWR Recommendations and reports : Morbidity and mortality weekly report Recommendations and reports. Nov 25 2011;60(Rr-7):1-45.
+Siegel JD, Rhinehart E, Jackson M, Chiarello L, and the Healthcare Infection Control Practices Advisory Committee. Guideline for Isolation Precautions: Preventing Transmission of Infectious Agents in Healthcare Settings (2007) Appendix A: Type and Duration of Precautions Recommended for Selected Infections and Conditions: Measles (rubeola). Updated July 22, 2019. Accessed February 28, 2023. https://www.cdc.gov/infection-control/hcp/isolation-precautions/appendix-a-type-duration.html#M
+Centers for Disease Control and Prevention. Interim Infection Prevention and Control Recommendations for Measles in Healthcare Settings. Updated July 23, 2019. Accessed September 27, 2022. https://www.cdc.gov/infection-control/hcp/measles/index.html
+Biellik RJ, Clements CJ. Strategies for minimizing nosocomial measles transmission. Bull World Health Organ. 1997;75(4):367-75.
+Sienko DG, Friedman C, McGee HB, et al. A measles outbreak at university medical settings involving health care providers. American Journal of Public Health. 1987;77(9):1222-1224.
+Bloch AB, Orenstein WA, Ewing WM, et al. Measles Outbreak in a Pediatric Practice: Airborne Transmission in an Office Setting. Pediatrics. 1985;75(4):676-683
+De Jong JG, Winkler KC. Survival of Measles Virus in Air. Nature. Mar 7 1964;201:1054-5. doi:10.1038/2011054a0
+Remington PL, Hall WN, Davis IH, Herald A, Gunn RA. Airborne transmission of measles in a physician's office. JAMA. 1985;253(11):1574-1577. doi:10.1001/jama.1985.03350350068022
+Centers for Disease Control and Prevention. Environmental Infection Control Guidelines: Airborne Contaminant Removal: Table B.1. Air changes/hour (ACH) and time required for airborne-contaminant removal by efficiency. Updated July 22, 2019. Accessed December 16, 2022. https://www.cdc.gov/infection-control/hcp/environmental-control/appendix-b-air.html#cdc_generic_section_1-airborne-contaminant-removal
+Botelho-Nevers E, Gautret P, Biellik R, Brouqui P. Nosocomial transmission of measles: an updated review. Vaccine. Jun 08 2012;30(27):3996-4001. doi:10.1016/j. vaccine.2012.04.023
+Gastanaduy PA, Redd SB, Clemmons NS, et al. Manual for the Surveillance of Vaccine-Preventable Diseases: Measles. Updated May 13, 2019. Accessed June 10, 2022. https://www.cdc.gov/surv-manual/php/table-of-contents/chapter-7-measles.html
+Centers for Disease Control and Prevention. Measles (Rubeola): For Healthcare Professionals. Updated November 5, 2020. Accessed June 13, 2022, https://www.cdc.gov/measles/hcp/clinical-overview/index.html
+Centers for Disease Control and Prevention. Measles (Rubeola): Lab Tools. Updated June 5, 2018. Accessed December 16, 2022. https://www.cdc.gov/measles/php/laboratories/index.html
+McLean HQ, Fiebelkorn AP, Temte JL, Wallace GS. Prevention of measles, rubella, congenital rubella syndrome, and mumps, 2013: summary recommendations of the Advisory Committee on Immunization Practices (ACIP). MMWR Recommendations and reports : Morbidity and mortality weekly report Recommendations and reports. Jun 14 2013;62(Rr-04):1-34.

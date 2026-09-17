@@ -10,6 +10,7 @@ public struct IntentClassifier: Sendable {
         case patientFacing      = "patient_facing"
         case nonClinical        = "non_clinical"
         case lowClarity         = "low_clarity"
+        case unavailable        = "unavailable"
 
         public var refusal: RefusalType? {
             switch self {
@@ -19,6 +20,7 @@ public struct IntentClassifier: Sendable {
             case .patientFacing:      return .patientFacing
             case .nonClinical:        return .nonClinical
             case .lowClarity:         return .lowConfidence
+            case .unavailable:        return .serviceUnavailable
             }
         }
     }
@@ -64,11 +66,9 @@ public struct IntentClassifier: Sendable {
                 return intent
             }
             // Fall through to keyword classifier on parse failure
-            return MockAskService.classifyRefusal(question).map(Self.intent(forMockRefusal:)) ?? .nursingClinical
+            return MockAskService.classifyRefusal(question).map(Self.intent(forMockRefusal:)) ?? .unavailable
         } catch {
-            // Transport failure. Fail CLOSED for anything dose-adjacent (a dose
-            // question must never slip through because a helper call blipped);
-            // fail open only for questions with no dosing surface at all.
+            // Missing or malformed safety decisions never authorize an answer.
             if let mock = MockAskService.classifyRefusal(question) {
                 return Self.intent(forMockRefusal: mock)
             }
@@ -78,7 +78,7 @@ public struct IntentClassifier: Sendable {
             if doseAdjacent || MockAskService.asksForDoseComputation(lower) {
                 return .prescribingRequest
             }
-            return .nursingClinical
+            return .unavailable
         }
     }
 

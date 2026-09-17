@@ -63,8 +63,10 @@ public struct DrugEntryView: View {
         sectionJumpRow(proxy: proxy)
             .padding(.top, NMSpace.lg)
         Hairline().padding(.top, NMSpace.md).padding(.bottom, NMSpace.xl)
-        quickReference.id(SectionAnchor.quickReference.rawValue)
-        divider
+        if !entry.quickReference.isEmpty {
+            quickReference.id(SectionAnchor.quickReference.rawValue)
+            divider
+        }
         indicationsAndMechanism.id(SectionAnchor.indications.rawValue)
         divider
         dosing.id(SectionAnchor.dosing.rawValue)
@@ -120,6 +122,7 @@ public struct DrugEntryView: View {
     private var availableAnchors: [SectionAnchor] {
         SectionAnchor.allCases.filter { anchor in
             switch anchor {
+            case .quickReference:    return !entry.quickReference.isEmpty
             case .contraindications: return entry.contraindications != nil
             case .nursing:           return entry.nursingImplications != nil
             case .teaching:          return entry.patientTeaching != nil

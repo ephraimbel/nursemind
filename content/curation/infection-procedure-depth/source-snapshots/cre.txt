@@ -1,0 +1,67 @@
+Carbapenem-resistant Enterobacterales (CRE) Infection Control
+Dec. 17, 2025
+Key points
+Carbapenem-resistant Enterobacterales (CRE) can spread from one facility to the next.
+Healthcare providers should follow these recommendations to reduce the risk of CRE infections in their facility.
+Why it's important
+Carbapenem-resistant Enterobacterales (CRE) infections are difficult to treat.
+These bacteria (germs) can cause outbreaks in healthcare settings and are threats to patient safety. As patients move through the healthcare system, CRE in one facility can lead to CRE in other facilities.
+Providers should adhere to public health guidance for detection, tracking and reporting of CRE.
+CDC has detected a substantial increase in New Delhi metallo-β-lactamase (NDM) CRE from 2019 to 2023. This has serious implications because treatments that would work for most CRE infections are not effective against NDM-CRE, and these infections are associated with high rates of morbidity and mortality. The spread of NDM-CRE could also increase the potential for it to move outside of healthcare facilities and cause difficult-to-treat infections in the community.1
+Recommendation details
+For healthcare providers
+Epidemiology and testing capacity
+Ensure your clinical laboratory can identify CRE and immediately alert clinical and infection prevention staff if identified.
+If your laboratory does not perform testing, talk to your health department's HAI coordinator about testing isolates through CDC's AR Laboratory Network.
+Understand the epidemiology of CRE in your facility or region.
+Healthcare providers, laboratory professionals, and pharmacists should be aware of the increasing threat of NDM-CRE, and testing for NDM should be included in clinical laboratory workflows. Identifying patients with highly resistant pathogens and strictly adhering to good infection control practices during their care are crucial for slowing the spread of CRE and other antibiotic-resistant germs.1
+Infection prevention and control
+Implement targeted infection control measures for patients:
+Isolation and Contact Precautions in acute care settings.
+Enhanced Barrier Precautions or Isolation and Contact Precautions in nursing homes, depending on the situation.
+Enforce policies for core infection control practices like hand hygiene, personal protective equipment and environmental cleaning. Remind healthcare personnel on the importance of adhering to these policies when caring for a patient with CRE.
+Work with public health to prevent spread in your facility by assessing for ongoing transmission.
+Participate in regional and facility-based prevention efforts designed to stop the transmission of antimicrobial-resistant organisms.
+Safe patient transfers
+Assess patients at the time of admission for history of overnight hospitalization or an invasive procedure in another country in the last 6 months. Patients with this history should be screened and placed in pre-emptive isolation.
+Require staff to notify the receiving facility about CRE infection or colonization and other multidrug-resistant organisms when transferring a patient.
+Antibiotic prescribing and use
+Prescribe and use antibiotics appropriately.
+For Everyone
+Antibiotic Prescribing and Use
+For veterinarians
+Veterinary staff can reduce CRE transmission by implementing infection prevention and control measures and educating pet owners.
+For Everyone
+Carbapenem-resistant Enterobacterales and Veterinarian Basics
+For health departments
+Epidemiology
+Understand the prevalence or incidence of carbapenemase-producing CRE (CP-CRE) in your jurisdiction by performing some form of regional surveillance for these organisms.
+Increase awareness among healthcare facilities of the regional prevalence of CP-CRE and prevention strategies and initiatives.
+Safe Patient Transfers
+Provide a standardized form for facilities to use during patient transfers, especially between hospitals and long-term care facilities.
+Prevention expertise
+Include a range of facility types when developing regional CRE prevention projects.
+Be a resource for healthcare facilities on appropriate infection prevention measures and antibiotic stewardship (the practice of measuring and improving how providers prescribe antibiotics and patients use them).
+Resources
+CRE-specific tools and resources
+Carbapenem-Resistant Enterobacteriaceae (CRE) Control and Prevention Toolkit
+CRE Carbapenem-resistant Enterobacterales Handout
+Safe patient transfers
+Inter-Facility Infection Control Transfer Form
+MDRO prevention and response
+Interim Guidance for a Public Health Response to Contain Novel or Targeted Multidrug-resistant Organisms (MDROs)
+Frequently Asked Questions and Example Verbal Scripts to Request Assent for Multidrug-Resistant Organism (MDRO) Screening
+Treatment and antimicrobial resistance
+Controlling the Emergence and Spread of Antimicrobial Resistance
+Dec. 17, 2025
+Sources
+Print
+Share
+Facebook
+LinkedIn
+Twitter
+Syndicate
+Content Source:
+National Center for Emerging and Zoonotic Infectious Diseases (NCEZID)
+References
+Danielle A. Rankin, Anna Stahl, Sarah Sabour, et al. Changes in Carbapenemase-Producing Carbapenem-Resistant Enterobacterales, 2019 to 2023. Ann Intern Med. [Epub 23 September 2025]. doi:10.7326/ANNALS-25-02404

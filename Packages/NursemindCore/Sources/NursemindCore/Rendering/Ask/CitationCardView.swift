@@ -1,128 +1,113 @@
 import SwiftUI
 
-/// Floating card that appears when the user taps an inline citation chip.
-/// Matches OpenEvidence's popover style: "Reference" header, "See All (N)" affordance,
-/// numbered citation with title in accent, publisher/author line, type badge.
 public struct CitationCardView: View {
-    let number: Int
-    let source: CitationSource
-    let totalCount: Int
-    let onSeeAll: () -> Void
-    let onOpen: () -> Void
-
+    let citations: [CitationSource]
+    @State private var selectedNumber: Int?
     @Environment(\.dismiss) private var dismiss
 
-    public init(
-        number: Int,
-        source: CitationSource,
-        totalCount: Int,
-        onSeeAll: @escaping () -> Void = {},
-        onOpen: @escaping () -> Void = {}
-    ) {
-        self.number = number
-        self.source = source
-        self.totalCount = totalCount
-        self.onSeeAll = onSeeAll
-        self.onOpen = onOpen
+    public init(number: Int, citations: [CitationSource]) {
+        self.citations = citations
+        _selectedNumber = State(initialValue: citations.indices.contains(number - 1) ? number : nil)
     }
 
     public var body: some View {
         VStack(alignment: .leading, spacing: NMSpace.md) {
-            header
-            citationBody
-            Spacer(minLength: 0)
+            HStack {
+                Text(selectedNumber == nil ? "References" : "Reference")
+                    .font(NMFont.displayItalicSM)
+                    .foregroundStyle(NMColor.textSecondary)
+                Spacer()
+                if selectedNumber != nil, citations.count > 1 {
+                    Button("See All (\(citations.count))") {
+                        withAnimation { selectedNumber = nil }
+                    }
+                    .foregroundStyle(NMColor.link)
+                }
+                Button("Done") { dismiss() }
+                    .foregroundStyle(NMColor.textSecondary)
+            }
+            .font(NMFont.bodySM)
+            ScrollView {
+                VStack(alignment: .leading, spacing: NMSpace.lg) {
+                    if let number = selectedNumber, citations.indices.contains(number - 1) {
+                        sourceDetail(citations[number - 1], number: number)
+                    } else {
+                        ForEach(Array(citations.enumerated()), id: \.offset) { index, source in
+                            if index > 0 { Hairline() }
+                            Button {
+                                selectedNumber = index + 1
+                            } label: {
+                                HStack(alignment: .top, spacing: NMSpace.sm) {
+                                    Text("\(index + 1).")
+                                    Text(source.shortName).multilineTextAlignment(.leading)
+                                    Spacer(minLength: 0)
+                                    Image(systemName: "chevron.right")
+                                }
+                                .font(NMFont.body)
+                                .foregroundStyle(NMColor.link)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .contentShape(Rectangle())
+                            }
+                            .buttonStyle(.plain)
+                        }
+                    }
+                }
+                .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            .id(selectedNumber)
         }
         .padding(NMSpace.lg)
-        .frame(maxWidth: .infinity, alignment: .topLeading)
         .background(NMColor.bgElevated)
-        // On iPhone (compact width): renders as a constrained sheet from the
-        // bottom — consistent regardless of scroll position. The previous
-        // `.presentationCompactAdaptation(.popover)` tried to anchor to the
-        // tapped pill, which broke when the pill had scrolled out of stable
-        // position. On iPad (regular width): renders as a true popover with
-        // arrow tail.
-        .presentationDetents([.fraction(0.4), .medium])
+        .presentationDetents([.medium, .large])
         .presentationDragIndicator(.visible)
         .presentationBackground(NMColor.bgElevated)
     }
 
-    private var header: some View {
-        HStack {
-            Text("Reference")
-                .font(NMFont.displayItalicSM)
-                .foregroundStyle(NMColor.textSecondary)
-            Spacer()
-            Button {
-                onSeeAll()
-                dismiss()
-            } label: {
-                Text("See All (\(totalCount))")
-                    .font(.system(size: 13, weight: .medium))
-                    .foregroundStyle(NMColor.link)
-            }
-            .buttonStyle(.plain)
-        }
-    }
-
-    private var citationBody: some View {
-        VStack(alignment: .leading, spacing: NMSpace.sm) {
-            Button {
-                onOpen()
-                if let url = URL(string: source.url) {
-                    UIApplication.shared.open(url)
-                }
-                dismiss()
-            } label: {
-                HStack(alignment: .top, spacing: 4) {
-                    Text("\(number).")
-                        .font(NMFont.bodyLG)
-                        .foregroundStyle(source.pillIconColor)
-                    (Text(source.shortName + " ")
-                        .font(NMFont.bodyLG)
-                        .foregroundColor(NMColor.link)
-                     + Text(Image(systemName: "arrow.up.right"))
-                        .font(.system(size: 11, weight: .medium))
-                        .foregroundColor(NMColor.link))
-                        .multilineTextAlignment(.leading)
-                }
-            }
-            .buttonStyle(.plain)
-
+    private func sourceDetail(_ source: CitationSource, number: Int) -> some View {
+        VStack(alignment: .leading, spacing: NMSpace.md) {
+            Text("\(number). \(source.shortName)")
+                .font(NMFont.bodyLG)
+                .foregroundStyle(NMColor.textPrimary)
             if let line = source.referenceFormattedLine {
-                HStack(alignment: .top, spacing: 4) {
-                    iconDot
-                    Text(line)
+                Text(line).font(NMFont.bodySM).foregroundStyle(NMColor.textSecondary)
+            }
+            if !source.lastRetrieved.isEmpty {
+                Text("Retrieved \(source.lastRetrieved)")
+                    .font(NMFont.bodySM)
+                    .foregroundStyle(NMColor.textSecondary)
+            }
+            if let url = URL(string: source.url) {
+                Link(destination: url) {
+                    Label("Open original source", systemImage: "arrow.up.right")
+                        .font(NMFont.body)
+                        .foregroundStyle(NMColor.link)
+                }
+            }
+            if let evidence = source.answerEvidence, !evidence.passages.isEmpty {
+                Hairline()
+                Text(evidence.origin == .retrievedSource ? "Retrieved source passages" : "Library passages used")
+                    .font(NMFont.title)
+                if evidence.origin == .librarySummary {
+                    Text("NurseMind summaries attributed to this source. Open the original to check the full context.")
                         .font(NMFont.bodySM)
                         .foregroundStyle(NMColor.textSecondary)
-                        .lineSpacing(2)
+                } else {
+                    Text("Passages supplied for this answer. Open the original for the full context.")
+                        .font(NMFont.bodySM)
+                        .foregroundStyle(NMColor.textSecondary)
+                }
+                ForEach(Array(evidence.passages.enumerated()), id: \.offset) { index, passage in
+                    if index > 0 { Hairline() }
+                    Text(passage)
+                        .font(NMFont.body)
+                        .foregroundStyle(NMColor.textPrimary)
+                        .textSelection(.enabled)
                 }
             }
-
-            HStack(spacing: NMSpace.xs + 2) {
-                if let tag = source.typeBadgeLabel {
-                    Text(tag)
-                        .font(.system(size: 11, weight: .medium))
-                        .foregroundStyle(source.pillIconColor)
-                        .padding(.horizontal, 8)
-                        .padding(.vertical, 3)
-                        .background(Capsule().fill(source.pillIconColor.opacity(0.12)))
-                }
-                Text(source.licenseDisplayName)
-                    .font(.system(size: 11))
-                    .foregroundStyle(NMColor.textTertiary)
-                Spacer(minLength: 0)
-            }
-            .padding(.top, 2)
+            Hairline()
+            Text(source.licenseDisplayName)
+                .font(NMFont.bodySM)
+                .foregroundStyle(NMColor.textTertiary)
         }
-    }
-
-    private var iconDot: some View {
-        ZStack {
-            Circle().fill(source.pillIconColor).frame(width: 14, height: 14)
-            Image(systemName: source.pillIconSymbol)
-                .font(.system(size: 8, weight: .bold))
-                .foregroundStyle(.white)
-        }
-        .padding(.top, 2)
     }
 }

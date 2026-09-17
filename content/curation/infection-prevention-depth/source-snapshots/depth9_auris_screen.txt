@@ -1,0 +1,66 @@
+Screening Recommendations for Healthcare Facilities
+Dec. 15, 2025
+Key points
+Patients in healthcare facilities can be asymptomatically colonized with C. auris and can spread it to other patients.
+Screening helps identify patients who are colonized with C. auris by testing swabs of the skin.
+Screening results should inform infection and control measures around the patient and in the facility.
+Facilities determine screening strategies based on local epidemiology, patient risk factors, facility characteristics, and intended purpose of screening.
+Background
+C. auris is an emerging, frequently antimicrobial-resistant yeast that can cause severe illness. C. auris can spread easily among patients and cause outbreaks in healthcare settings.
+Patients in healthcare facilities can be asymptomatically colonized with C. auris. Patients who are colonized with C. auris can spread it onto surfaces and objects where it can further spread to other patients.
+Some surfaces and objects that can be contaminated and cause transmission include:
+Bedrails and bedside tables.
+Mobile medical equipment (e.g., glucometers, ultrasound machines.)
+Hands or clothing of healthcare personnel.
+Note
+C. auris can persist on patients and surfaces for long periods of time. Many commonly used hospital grade disinfectants are not effective against it
+Screening
+Screening for C. auris colonization is a key strategy to prevent spread in healthcare facilities.
+Identifying patients or residents who are colonized allows healthcare facilities to implement appropriate infection prevention and control measures. Results from screening can inform the use of barrier precautions and disinfectants that are effective against C. auris.
+Deciding which patients or residents to screen and how often to perform screening should be based on several factors. Important considerations include local C. auris epidemiology and burden, epidemiologic linkages to other cases, patient risk factors, and the purpose of screening.
+Guidance for C. auris colonization screening
+Detailed guidance for who to screen and when to perform C. auris colonization screening can be found in:
+Interim Guidance for a Public Health Response to Contain Novel or Targeted Multidrug-resistant Organisms (MDROs)[MDRO Containment Strategy | HAI | CDC]  Interim Guidance for Public Health Strategies to Prevent the Spread of Novel or Targeted Multidrug-resistant Organisms (MDROs)[MDRO Prevention Strategies | HAI | CDC]These guidance documents apply to multiple multidrug-resistant organisms, including C. auris, and to all healthcare facility types, allowing implementation and adaptation of strategies and measures based on local burden and epidemiologic stage as well as facility type.
+Who and when to screen
+Consider screening patients who are at high risk for C. auris colonization, such as:
+Those with an epidemiologic link to a patient or resident who is infected or colonized with C. auris. Examples of epidemiologic links include:
+Sharing the same room, unit, or other care areas as a patient or resident with C. auris, even if that person has been discharged,
+Receiving care from the same healthcare personnel during the same time as a person with C. auris,or
+Being exposed to common mobile medical equipment that was used by a patient or resident with C. auris, especially if there are concerns about adequate cleaning and disinfection.
+Patients with current or previous healthcare encounters at facilities including:
+Facilities with currently suspected or confirmed C. auris transmission
+High acuity post-acute care facilities including long-term acute care hospitals [LTACHs] and ventilator-capable skilled nursing facilities [vSNFs])
+Facilities located outside the United States or part of the country with a high burden of C. auris
+Patients with risk factors for acquiring C. auris, including:
+Mechanical ventilation- indwelling medical devices, including central lines, feeding tubes, urinary catheters, etc.
+Receipt of complex or high acuity medical care- frequent or long healthcare stays, especially at high-risk facilities
+Colonization or infection with other multidrug-resistant organisms
+Screening strategies for different scenarios
+Screening can be conducted using a prevention-based approach (i.e., not in response to a newly identified case), or a response-based approach (i.e., after detection of a new C. auris case). Screening can be conducted at different points during a patient's healthcare stay, depending on the goal. Patients might be screened
+on admission to identify new introductions of C. auris cases needing appropriate infection prevention and control precautions and to identify other facilities with C. auris cases or transmission,
+during a healthcare stay to identify new cases resulting from intra-facility transmission or to assess the effectiveness of infection control interventions, or
+at discharge or transfer to identify patients or residents needing appropriate infection prevention and control precautions at a receiving facility. However, screening should be used to inform infection control measures to prevent transmission and not be used to deny or delay transfers.
+Scope of screening
+Screening can be conducted using a broad approach by conducting a point prevalence survey (PPS) (e.g., screening of all patients or residents on a unit or in a facility at the time), or by a more targeted approach (e.g., screening only certain patients based on risk factors, epidemiologic links, or clinical characteristics).
+Note
+However, broad screening using PPSs is preferred because a targeted approach may miss patients who are colonized.
+Follow-up screening:
+Expanded screening or follow-up response screening after a PPS is often recommended if there is evidence or suspicion for ongoing transmission and considerations for follow up screening are described in more detail in the MDRO containment guidance.  Routine prevention-based screening may be recommended by health departments at certain frequency intervals as described in the MDRO prevention guidance.
+Reassessment of colonization:
+CDC does not recommend re-screening patients known to be infected or colonized with C. auris because patients in healthcare settings can be colonized for a prolonged period, perhaps indefinitely. Colonized patients and residents may intermittently have negative results followed by a positive result. Negative results for a colonized patient should not be used to discontinue implementation of appropriate infection prevention and control precautions.
+Healthcare worker screening:
+CDC does not recommend screening healthcare workers for C. auris. Following recommended infection control precautions including barrier precautions and hand hygiene will prevent spread to healthcare workers. During studies performed during previous C. auris outbreaks, screening found that colonization of healthcare workers happened rarely, if at all.
+Note
+*For this guidance, the term 'healthcare facility' refers to all acute care hospitals and post-acute care facilities that care for patients or residents who remain overnight and require medical care, nursing care or rehabilitation services. This generally excludes assisted living facilities.
+How to screen
+For C. auris colonization screening, CDC recommends using a composite swab of the patient's bilateral axilla (i.e., armpit) and groin. Testing for C. auris colonization is available through CDC's Antimicrobial Resistance Laboratory Network (AR Lab Network). For laboratories interested in performing colonization testing in house, see CDC's Guidance for Detection of Colonization of Candida auris.
+Dec. 15, 2025
+Sources
+Print
+Share
+Facebook
+LinkedIn
+Twitter
+Syndicate
+Content Source:
+National Center for Emerging and Zoonotic Infectious Diseases (NCEZID)

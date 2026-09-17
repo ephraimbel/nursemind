@@ -1,5 +1,25 @@
 import Foundation
 
+private let depth9_noro_lab = CitationSource(
+    id: "depth9_noro_lab",
+    shortName: "Laboratory Testing for Norovirus",
+    detail: "RT-qPCR; antigen-test limitations; whole-stool specimens; outbreak reporting. Page dated April 24, 2024. Federal prose adapted; images and third-party material excluded. Targeted statement correction only; independent clinical review pending.",
+    publisher: "Centers for Disease Control and Prevention",
+    license: .publicDomain,
+    url: "https://www.cdc.gov/norovirus/php/laboratories/index.html",
+    lastRetrieved: "2026-09-17"
+)
+
+private let depth9_hands = CitationSource(
+    id: "depth9_hands",
+    shortName: "Clinical Safety: Hand Hygiene",
+    detail: "ABHS versus soap and water; C. difficile routine care and outbreaks; glove use. Page dated February 27, 2024. Federal prose adapted; images and third-party material excluded. Targeted statement correction only; independent clinical review pending.",
+    publisher: "Centers for Disease Control and Prevention",
+    license: .publicDomain,
+    url: "https://www.cdc.gov/clean-hands/hcp/clinical-safety/index.html",
+    lastRetrieved: "2026-09-17"
+)
+
 public enum HandHygieneSample {
     public static let entry: ProcedureEntry = {
         let cdc = CitationSource(
@@ -45,7 +65,7 @@ public enum HandHygieneSample {
             contraindications: nil,
             equipment: [
                 AttributedBullet("Alcohol-based hand rub (60–95% alcohol) — preferred for routine decontamination unless hands are visibly soiled.", citationIDs: ["cdc_hand_hygiene"]),
-                AttributedBullet("Soap (plain or antimicrobial) and running water — required when hands are visibly soiled, after using the restroom, or after caring for patients with C. difficile or norovirus (alcohol does not kill spores).", citationIDs: ["cdc_hand_hygiene"]),
+                AttributedBullet("Soap and water — visible soil, restroom use, and C. difficile/norovirus outbreak care.", citationIDs: ["depth9_hands"]),
                 AttributedBullet("Single-use paper towels.", citationIDs: ["cdc_hand_hygiene"])
             ],
             preProcedure: [
@@ -66,10 +86,10 @@ public enum HandHygieneSample {
             ],
             documentation: nil,
             watchFor: [
-                AttributedBullet("Artificial nails are prohibited in direct patient care per CDC — they harbor pathogens and prevent thorough washing.", citationIDs: ["cdc_hand_hygiene"]),
-                AttributedBullet("C. difficile, norovirus, anthrax — soap and water mechanically removes spores; alcohol rub alone does NOT kill them.", citationIDs: ["cdc_hand_hygiene"])
+                AttributedBullet("CDC advises against artificial nails or extensions when caring for high-risk patients, such as in intensive care or operating rooms. Follow facility policy.", citationIDs: ["depth9_hands"]),
+                AttributedBullet("Norovirus is not a spore-forming bacterium. Follow pathogen-specific hand-hygiene guidance.", citationIDs: ["depth9_noro_lab"])
             ],
-            citations: [cdc, openstax, who],
+            citations: [cdc, openstax, who, depth9_hands, depth9_noro_lab],
             lastSourceFidelityReview: "2026-05-03"
         )
     }()

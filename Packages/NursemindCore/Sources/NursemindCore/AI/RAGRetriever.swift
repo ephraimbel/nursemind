@@ -1,10 +1,11 @@
 import Foundation
+import CryptoKit
 
 /// Retrieves relevant library entries for a question, then formats them as the
 /// `[c001] (source: ...) text` chunks the model expects, plus the full
 /// `CitationSource` list to attach to the final answer.
 ///
-/// v1: keyword search via ContentRegistry. v2: pgvector + OpenAI embeddings.
+/// Ranks cited passages across the complete bundled library; context stays bounded.
 public struct RAGRetriever: Sendable {
     private let registry: ContentRegistry
 
@@ -16,61 +17,150 @@ public struct RAGRetriever: Sendable {
         public let formattedContext: String
         public let citations: [CitationSource]
         public let entries: [LibraryEntry]
-        public let confidenceFloor: Bool      // true when fewer than 1 entry matched
+        public let confidenceFloor: Bool
+
+        public var validCitationIDs: Set<String> {
+            Set(citations.indices.map { String(format: "c%03d", $0 + 1) })
+        }
+    }
+
+    private struct Chunk: Sendable {
+        let entry: LibraryEntry
+        let text: String
+        let sources: [CitationSource]
+        let terms: Set<String>
+        let titleTerms: Set<String>
+    }
+
+    private final class IndexCache: @unchecked Sendable {
+        let lock = NSLock()
+        var chunks: [Chunk]?
+        var postings: [String: [Int]] = [:]
+        var vocabulary: [String] = []
+        var vocabularyBytes: [[UInt8]] = []
+    }
+
+    private let cache = IndexCache()
+    public static let contextCharacterLimit = 16_000
+
+    public func prewarm() {
+        _ = indexedChunks()
+    }
+
+    private func indexedChunks() -> [Chunk] {
+        cache.lock.lock()
+        defer { cache.lock.unlock() }
+        if let chunks = cache.chunks { return chunks }
+        let chunks = registry.all.flatMap { entry in
+            let titleTerms = Self.terms(entry.title)
+            return formatEntry(entry).compactMap { text, sources -> Chunk? in
+                // Display permission does not imply permission to send text to an LLM.
+                guard !sources.isEmpty,
+                      !sources.contains(where: { $0.license == .ccBy4WithAIRestriction }) else { return nil }
+                return Chunk(entry: entry, text: text, sources: sources,
+                             terms: Self.terms(text), titleTerms: titleTerms)
+            }
+        }
+        for (index, chunk) in chunks.enumerated() {
+            for term in chunk.terms.union(chunk.titleTerms) { cache.postings[term, default: []].append(index) }
+        }
+        cache.vocabulary = Set(chunks.flatMap(\.titleTerms)).sorted()
+        cache.vocabularyBytes = cache.vocabulary.map { Array($0.utf8) }
+        cache.chunks = chunks
+        return chunks
     }
 
     public func retrieve(for query: String, limit: Int = 5, specialty: NursingSpecialty? = nil) -> Result {
-        let entries = registry.search(query, limit: limit, specialty: specialty)
-        if entries.isEmpty {
-            return Result(formattedContext: "No relevant library entries were found for this question.", citations: [], entries: [], confidenceFloor: true)
-        }
-
-        var chunks: [String] = []
-        var citationOrder: [CitationSource] = []
-        var seenCitationIDs = Set<String>()
-
-        // IMPORTANT: assign citation IDs per-SOURCE, not per-chunk. Multiple chunks
-        // can share the same `[cNNN]` if they come from the same source. This keeps
-        // IDs stable, low-numbered, and trivially mappable to the citations array
-        // by `cNNN → citations[N-1]` on the client.
-        func idForSource(_ source: CitationSource) -> Int {
-            if let existing = citationOrder.firstIndex(where: { $0.id == source.id }) {
-                return existing + 1
-            }
-            citationOrder.append(source)
-            seenCitationIDs.insert(source.id)
-            return citationOrder.count
-        }
-
-        for (entryIdx, entry) in entries.enumerated() {
-            let entryChunks = formatEntry(entry, startingCitationIndex: chunks.count)
-            for (chunkText, sources) in entryChunks {
-                // Skip sourceless chunks — we don't want the model citing [c000].
-                guard let primarySource = sources.first else { continue }
-                let primaryID = idForSource(primarySource)
-                let chunkID = String(format: "c%03d", primaryID)
-                chunks.append("[\(chunkID)] (source: \(primarySource.shortName)) \(chunkText)")
-                // Register secondary sources so they appear in the references list.
-                for source in sources.dropFirst() where !seenCitationIDs.contains(source.id) {
-                    _ = idForSource(source)
-                }
-            }
-            if entryIdx < entries.count - 1 {
-                chunks.append("---")
+        var terms = Self.terms(ClinicalSynonyms.expand(query: query.lowercased()))
+        let corpus = indexedChunks()
+        for term in terms.sorted() where cache.postings[term] == nil {
+            if let correction = FuzzyMatch.bestCorrection(for: term, in: cache.vocabularyBytes) {
+                terms.insert(cache.vocabulary[correction])
             }
         }
+        let seedEntries = registry.search(query, limit: 10, specialty: specialty)
+        let seedScores = Dictionary(uniqueKeysWithValues: seedEntries.enumerated().map { ($0.element.id, 4.0 / Double($0.offset + 1)) })
+        var scores: [Int: Double] = [:]
+        for term in terms {
+            let matches = cache.postings[term, default: []]
+            let weight = log(1 + Double(corpus.count) / Double(1 + matches.count))
+            for index in matches {
+                let chunk = corpus[index]
+                scores[index, default: 0] += weight * (chunk.titleTerms.contains(term) ? 2 : 0)
+                if chunk.terms.contains(term) { scores[index, default: 0] += weight }
+            }
+        }
+        for (index, chunk) in corpus.enumerated() {
+            if let boost = seedScores[chunk.entry.id] { scores[index, default: 0] += boost }
+        }
+        let bestScore = scores.values.max() ?? 0
+        let ranked = scores.filter { $0.value > 0 && $0.value >= bestScore * 0.6 }
+            .sorted { $0.value == $1.value ? $0.key < $1.key : $0.value > $1.value }
 
-        return Result(
-            formattedContext: chunks.joined(separator: "\n"),
-            citations: citationOrder,
-            entries: entries,
-            confidenceFloor: false
-        )
+        var citations: [CitationSource] = []
+        var entries: [LibraryEntry] = []
+        var lines: [String] = []
+        var usedCharacters = 0
+        var perEntry: [String: Int] = [:]
+        for (index, _) in ranked {
+            let chunk = corpus[index]
+            let isNew = perEntry[chunk.entry.id] == nil
+            guard (!isNew || entries.count < max(0, limit)),
+                  perEntry[chunk.entry.id, default: 0] < 8,
+                  lines.count < 24 else { continue }
+            var proposedCitations = citations
+            let markers = chunk.sources.map { source -> String in
+                if !proposedCitations.contains(where: { $0.id == source.id }) { proposedCitations.append(source) }
+                let index = proposedCitations.firstIndex(where: { $0.id == source.id })!
+                return String(format: "[c%03d]", index + 1)
+            }.joined(separator: " ")
+            let line = "\(markers) \(Self.evidenceText(chunk))"
+            guard usedCharacters + line.count + 1 <= Self.contextCharacterLimit else { continue }
+            citations = proposedCitations
+            if isNew { entries.append(chunk.entry) }
+            perEntry[chunk.entry.id, default: 0] += 1
+            lines.append(line)
+            usedCharacters += line.count + 1
+        }
+        return Result(formattedContext: lines.joined(separator: "\n"), citations: citations,
+                      entries: entries, confidenceFloor: lines.isEmpty)
+    }
+
+    private static func evidenceText(_ chunk: Chunk) -> String {
+        let names = chunk.sources.map { "\($0.shortName) (retrieved \($0.lastRetrieved))" }.joined(separator: "; ")
+        // One physical line per passage makes the server's provenance boundary unambiguous.
+        return "(entry: \(chunk.entry.title); source: \(names)) \(chunk.text)"
+            .components(separatedBy: .newlines).joined(separator: " ")
+    }
+
+    func evidenceFingerprints() -> [String] {
+        Set(indexedChunks().map { chunk in
+            SHA256.hash(data: Data(Self.evidenceText(chunk).utf8)).map { String(format: "%02x", $0) }.joined()
+        }).sorted()
+    }
+
+    static func retrievalQuery(_ question: String, history: [AskMessage]) -> String {
+        let lower = question.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
+        let followUp = lower.range(of: #"^(and\b|what about\b|how about\b|what if\b)|\b(it|its|that|those|these|this medication|this drug)\b"#,
+                                  options: .regularExpression) != nil
+        guard followUp, let previous = history.last(where: { $0.role == .user && $0.refusal == nil }) else { return question }
+        return "\(question) \(PHIScrubber.scrub(String(previous.content.prefix(400))).scrubbed)"
+    }
+
+    private static let stopWords: Set<String> = [
+        "a", "an", "the", "is", "are", "was", "were", "be", "for", "of", "to", "in", "on", "at", "and", "or",
+        "what", "which", "how", "why", "when", "where", "do", "does", "can", "could", "should", "would", "i", "my",
+        "it", "its", "this", "that", "these", "those", "with", "without", "about", "tell", "me", "please", "explain"
+    ]
+
+    private static func terms(_ text: String) -> Set<String> {
+        Set(text.lowercased().split(whereSeparator: { !$0.isLetter && !$0.isNumber }).map(String.init)
+            .filter { $0.count > 1 && !stopWords.contains($0) })
     }
 
     /// Returns ordered (chunk_text, sources) pairs for one library entry,
     /// flattened from whatever typed structure the entry has.
-    private func formatEntry(_ entry: LibraryEntry, startingCitationIndex: Int) -> [(String, [CitationSource])] {
+    private func formatEntry(_ entry: LibraryEntry) -> [(String, [CitationSource])] {
         switch entry {
         case .drug(let d), .drip(let d):
             return formatDrug(d)
@@ -98,15 +188,15 @@ public struct RAGRetriever: Sendable {
         if let contras = d.contraindications {
             out.append(("Contraindications: \(contras.text)", sources(contras.citationIDs, in: d.citations)))
         }
-        for warn in d.warnings.prefix(4) {
+        for warn in d.warnings {
             out.append(("Warning: \(warn.text)", sources(warn.citationIDs, in: d.citations)))
         }
         out.append(("Adverse reactions: \(d.adverseReactions.text)", sources(d.adverseReactions.citationIDs, in: d.citations)))
-        for inter in d.drugInteractions.prefix(3) {
+        for inter in d.drugInteractions {
             out.append(("Drug interaction: \(inter.text)", sources(inter.citationIDs, in: d.citations)))
         }
         if let nursing = d.nursingImplications {
-            for bullet in nursing.prefix(6) {
+            for bullet in nursing {
                 out.append(("Nursing implication: \(bullet.text)", sources(bullet.citationIDs, in: d.citations)))
             }
         }
@@ -120,21 +210,24 @@ public struct RAGRetriever: Sendable {
         var out: [(String, [CitationSource])] = []
         out.append(("\(l.title) (\(l.specimen)). Reference ranges:", []))
         for row in l.referenceRanges {
-            out.append(("  \(row.value) — \(row.label)", sources(row.citationIDs, in: l.citations)))
+            out.append(("Reference range (\(l.specimen)): \(row.value) — \(row.label)", sources(row.citationIDs, in: l.citations)))
         }
         for tier in l.interpretationTiers {
             out.append(("\(tier.label): \(tier.summary)", sources(tier.citationIDs, in: l.citations)))
-            for action in tier.nursingActions.prefix(4) {
-                out.append(("  Nursing action: \(action)", sources(tier.citationIDs, in: l.citations)))
+            for action in tier.nursingActions {
+                out.append(("\(tier.label) — nursing action: \(action)", sources(tier.citationIDs, in: l.citations)))
             }
         }
-        for group in l.commonCauses.prefix(2) {
+        for group in l.commonCauses {
             out.append(("\(group.title): \(group.causes.joined(separator: "; "))", sources(group.citationIDs, in: l.citations)))
         }
         if let actions = l.nursingActions {
-            for bullet in actions.prefix(4) {
+            for bullet in actions {
                 out.append(("Nursing action: \(bullet.text)", sources(bullet.citationIDs, in: l.citations)))
             }
+        }
+        for bullet in l.watchFor ?? [] {
+            out.append(("Watch for: \(bullet.text)", sources(bullet.citationIDs, in: l.citations)))
         }
         return out
     }
@@ -142,11 +235,20 @@ public struct RAGRetriever: Sendable {
     private func formatProcedure(_ p: ProcedureEntry) -> [(String, [CitationSource])] {
         var out: [(String, [CitationSource])] = []
         out.append(("\(p.title). Indications: \(p.indications.text)", sources(p.indications.citationIDs, in: p.citations)))
-        for step in p.steps.prefix(5) {
+        if let contraindications = p.contraindications {
+            out.append(("Contraindications: \(contraindications.text)", sources(contraindications.citationIDs, in: p.citations)))
+        }
+        for (label, bullets) in [("Equipment", p.equipment), ("Preparation", p.preProcedure),
+                                 ("After procedure", p.postProcedure), ("Documentation", p.documentation ?? [])] {
+            for bullet in bullets {
+                out.append(("\(label): \(bullet.text)", sources(bullet.citationIDs, in: p.citations)))
+            }
+        }
+        for step in p.steps {
             let title = step.title.map { "\($0): " } ?? ""
             out.append(("Step \(step.number) — \(title)\(step.body)", sources(step.citationIDs, in: p.citations)))
         }
-        for watch in p.watchFor?.prefix(3) ?? [] {
+        for watch in p.watchFor ?? [] {
             out.append(("Watch for: \(watch.text)", sources(watch.citationIDs, in: p.citations)))
         }
         return out
@@ -158,16 +260,21 @@ public struct RAGRetriever: Sendable {
         if let pp = dx.pathophysiology {
             out.append(("Pathophysiology: \(pp.text)", sources(pp.citationIDs, in: dx.citations)))
         }
-        for sign in dx.presentation.prefix(5) {
+        for (label, bullets) in [("Diagnostic reference", dx.diagnosticCriteria ?? []), ("Watch for", dx.watchFor ?? [])] {
+            for bullet in bullets {
+                out.append(("\(label): \(bullet.text)", sources(bullet.citationIDs, in: dx.citations)))
+            }
+        }
+        for sign in dx.presentation {
             out.append(("Presentation: \(sign.text)", sources(sign.citationIDs, in: dx.citations)))
         }
         if let assess = dx.priorityAssessments {
-            for a in assess.prefix(4) {
+            for a in assess {
                 out.append(("Priority assessment: \(a.text)", sources(a.citationIDs, in: dx.citations)))
             }
         }
         if let interv = dx.commonInterventions {
-            for i in interv.prefix(5) {
+            for i in interv {
                 out.append(("Common intervention: \(i.text)", sources(i.citationIDs, in: dx.citations)))
             }
         }
@@ -177,19 +284,18 @@ public struct RAGRetriever: Sendable {
     private func formatReference(_ r: ReferenceEntry) -> [(String, [CitationSource])] {
         var out: [(String, [CitationSource])] = []
         out.append(("\(r.title) [\(r.eyebrow)]", []))
-        for section in r.sections.prefix(4) {
+        for section in r.sections {
             switch section {
             case .prose(let title, let prose):
                 out.append(("\(title): \(prose.text)", sources(prose.citationIDs, in: r.citations)))
             case .bullets(let title, let bullets):
-                let collected = bullets.prefix(6).map(\.text).joined(separator: " | ")
-                let allCitations = bullets.flatMap(\.citationIDs)
-                out.append(("\(title): \(collected)", sources(allCitations, in: r.citations)))
-            case .keyValueTable(let title, let rows):
-                let collected = rows.prefix(8).map { "\($0.key) → \($0.value)" }.joined(separator: "; ")
-                out.append(("\(title): \(collected)", []))
+                for bullet in bullets {
+                    out.append(("\(title): \(bullet.text)", sources(bullet.citationIDs, in: r.citations)))
+                }
+            case .keyValueTable:
+                continue
             case .numberedSteps(let title, let steps, let citIDs):
-                let collected = steps.prefix(6).enumerated().map { "\($0.offset+1). \($0.element)" }.joined(separator: " ")
+                let collected = steps.enumerated().map { "\($0.offset+1). \($0.element)" }.joined(separator: " ")
                 out.append(("\(title): \(collected)", sources(citIDs, in: r.citations)))
             }
         }

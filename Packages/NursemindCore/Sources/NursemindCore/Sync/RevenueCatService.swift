@@ -53,6 +53,7 @@ public final class RevenueCatService {
     private let supabase: SupabaseService
     private let prefs: UserPreferences
     private var observerTask: Task<Void, Never>?
+    private var attributionRefreshTask: Task<Void, Never>?
     private var lastLinkedUserID: UUID?
 
     private init(
@@ -140,6 +141,7 @@ public final class RevenueCatService {
             // appUserID. `created` is true when a brand-new RevenueCat user
             // was created; false when an existing one was resolved.
             let (info, _) = try await Purchases.shared.logIn(userID.uuidString.lowercased())
+            MetaAnalyticsService.shared.synchronizeAttribution()
             applyCustomerInfo(info)
             revenueCatLog.info("RevenueCat appUserID linked to Supabase user=\(userID, privacy: .public)")
         } catch {
@@ -150,6 +152,8 @@ public final class RevenueCatService {
     // MARK: - Customer info bridge
 
     private func applyCustomerInfo(_ info: CustomerInfo) {
+        SKANAttributionService.shared.observeCustomerInfo(info)
+        TikTokAnalyticsService.shared.observeCustomerInfo(info)
         self.customerInfo = info
         let isPro = info.entitlements.active[Self.proEntitlementID] != nil
         self.state = .ready(isPro: isPro)
@@ -213,12 +217,29 @@ public final class RevenueCatService {
         case userCancelled
     }
 
+    public func refreshAttributionSubscription() {
+        guard Purchases.isConfigured, attributionRefreshTask == nil,
+              (SKANAttributionService.shared.needsSubscriptionRefresh
+                || TikTokAnalyticsService.shared.needsSubscriptionRefresh) else { return }
+        attributionRefreshTask = Task { [weak self] in
+            guard let self else { return }
+            defer { self.attributionRefreshTask = nil }
+            if let info = try? await Purchases.shared.customerInfo(fetchPolicy: .fetchCurrent) {
+                self.applyCustomerInfo(info)
+            }
+        }
+    }
+
     /// Initiates a StoreKit 2 purchase for the given package. RevenueCat
     /// invokes the system payment sheet; on success, the customer-info
     /// stream we're already listening to fires and updates
     /// `subscriptionTier` automatically — the caller just needs to dismiss
     /// the paywall when this returns `.completed`.
     public func purchase(_ package: Package) async throws -> PurchaseOutcome {
+        // Attach current consented identifiers before RevenueCat submits the receipt.
+        MetaAnalyticsService.shared.synchronizeAttribution()
+        let requestStartedAt = Date()
+        let purchasingUserID = Purchases.shared.appUserID
         let result = try await Purchases.shared.purchase(package: package)
         if result.userCancelled {
             AnalyticsService.shared.capture(
@@ -227,6 +248,11 @@ public final class RevenueCatService {
             )
             return .userCancelled
         }
+        SKANAttributionService.shared.recordPurchase(
+            customerInfo: result.customerInfo,
+            transaction: result.transaction,
+            requestStartedAt: requestStartedAt
+        )
         // CustomerInfo is included in the result; piping it through our
         // existing apply method updates local state synchronously rather
         // than waiting for the async stream to catch up.
@@ -255,23 +281,12 @@ public final class RevenueCatService {
                 "$revenue": revenue
             ]
         )
-        // Mirror to TikTok so the ad optimization algorithm sees both
-        // trial-start and direct-purchase signals. Trial fires zero
-        // revenue (matches the PostHog branch); subscription books the
-        // StoreKit price + currency.
-        let currency = package.storeProduct.currencyCode ?? "USD"
-        if isTrial {
-            TikTokAnalyticsService.shared.trackTrialStart(
-                productID: package.storeProduct.productIdentifier,
-                currency: currency
-            )
-        } else {
-            TikTokAnalyticsService.shared.trackSubscription(
-                productID: package.storeProduct.productIdentifier,
-                price: package.storeProduct.price as Decimal,
-                currency: currency
-            )
-        }
+        TikTokAnalyticsService.shared.recordPurchase(
+            customerInfo: result.customerInfo,
+            transaction: result.transaction,
+            requestStartedAt: requestStartedAt,
+            purchasingUserID: purchasingUserID
+        )
         return .completed
     }
 

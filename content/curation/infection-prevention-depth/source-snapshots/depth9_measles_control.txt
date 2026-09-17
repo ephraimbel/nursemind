@@ -1,0 +1,151 @@
+Interim Infection Prevention and Control Recommendations for Measles in Healthcare Settings
+Aug. 19, 2025
+What to know
+These recommendations provide guidance on preventing and controlling measles in healthcare settings.
+Measles preparedness and response
+Resource
+Healthcare facilities and health departments can use these resources to support measles infection prevention and control actions in healthcare settings.Measles Preparedness and Response in Healthcare Settings
+Fundamental elements to prevent measles transmission
+Measles is most commonly acquired from persons in the household or community but spread of measles can also occur in healthcare settings.1
+While the most important measure to prevent measles transmission in all settings is ensuring community immunization, core measles prevention in healthcare settings requires a multi-faceted approach including:
+Ensuring HCP have presumptive evidence of immunity to measles (see Recommendations section)
+Rapidly identifying and isolating patients with known or suspected measles
+Adhering to Standard and Airborne Precautions for patients with known or suspected measles
+Routinely promoting and facilitating respiratory hygiene and cough etiquette
+Appropriately managing exposed and ill HCP
+This interim guidance should be implemented in the context of a comprehensive infection prevention program to prevent transmission of all infectious agents among patients, HCP, and visitors.
+Definitions
+Healthcare personnel (HCP)
+"HCP" includes all paid and unpaid persons working in healthcare settings who have the potential for exposure to patients and/or to infectious materials, including body substances, contaminated medical supplies and equipment, contaminated environmental surfaces, or contaminated air. HCP include but are not limited to, emergency medical service personnel, nurses, nursing assistants, physicians, technicians, therapists, phlebotomists, pharmacists, students and trainees, contractual staff not employed by the healthcare facility, and persons not directly involved in patient care, but who could be exposed to infectious agents that can be transmitted in the healthcare setting (e.g., clerical, dietary, environmental services, laundry, security, engineering and facilities management, administrative, billing, and volunteer personnel).
+Healthcare settings
+"Healthcare settings" refers to places where healthcare is delivered and includes, but is not limited to, acute care facilities, long-term acute care facilities, inpatient rehabilitation facilities, nursing homes and assisted living facilities, home healthcare, vehicles where healthcare is delivered (e.g., mobile clinics), and outpatient facilities, such as dialysis centers, physician offices, and others.
+Exposure to measles in healthcare settings
+In healthcare settings, persons potentially exposed to measles include patients, visitors, and HCP who are not wearing recommended respiratory protection* (regardless of presumptive evidence of measles immunity status) who are:
+In a shared air space with an infectious measles patient at the same time, OR
+In a shared air space vacated by an infectious measles patient within the prior 2 hours.** (See Appendix A)
+* Recommended respiratory protection is a respirator that is at least as protective as a fit-tested, NIOSH-certified disposable N95 filtering facepiece respirator.
+**Measles has been reported to remain infectious in air for up to 2 hours. For spaces with a defined rate of air changes per hour (ACH), see the following for additional considerations about estimating the time for 99.9% removal efficiency of airborne contaminants: Table B1 "Air changes/hour (ACH) and time required for airborne-contaminant removal by efficiency" from the 2003 Guidelines for Environmental Infection Control in Health-Care Facilities.
+Recommendations for measles in healthcare settings
+1. Ensure that all HCP have presumptive evidence of immunity to measles
+Presumptive evidence of immunity to measles for HCP includes:
+Written documentation of vaccination with 2 doses of measles virus-containing vaccine (the first dose administered at age ≥12 months; the second dose no earlier than 28 days after the first dose); OR
+Laboratory evidence of immunity (measles immunoglobulin G [IgG] in serum; equivocal results are considered negative); OR
+Laboratory confirmation of disease; OR
+Birth before 1957. Consider vaccinating HCP born before 1957 who do not have other evidence of immunity to measles.
+During a measles outbreak, 2 doses of measles virus-containing vaccine separated by at least 4 weeks (28 days) are recommended for unvaccinated HCP, regardless of year of birth, who lack laboratory evidence of measles immunity or laboratory confirmation of disease.
+Recommendations on immunization of HCP for measles are maintained by CDC and Advisory Committee on Immunization Practices (ACIP).
+2. Minimize potential measles exposures
+A. Before arrival to a healthcare setting
+When scheduling appointments by phone:
+For persons with signs or symptoms of measles, provide instructions for arrival, including which entrance to use and the precautions to take (e.g., how to notify hospital staff, don a facemask upon entry, follow triage procedures).
+Instruct Emergency Services to notify the receiving facility/accepting physician in advance when transporting a patient with known or suspected measles.
+B. Upon arrival to a healthcare setting
+Utilize existing triage stations for rapid identification and isolation of patients with measles.
+Persons with signs or symptoms of measles should be identified, provided a facemask2 to wear, and separated from other patients prior to or as soon as possible after entry into a facility.
+Facilitate adherence to respiratory hygiene, cough etiquette, hand hygiene, and triage procedures.
+Post visual alerts (e.g., signs, posters) in appropriate languages about respiratory hygiene, cough etiquette, and hand hygiene at the facility entrance and in common areas (e.g., waiting areas, elevators, cafeterias).
+Provide persons with signs or symptoms of measles with instructions on all relevant infection control expectations.
+Make supplies to perform hand hygiene available to all persons in the facility.
+Provide supplies (e.g., facemasks) near the visual alerts if possible.
+3. Adhere to standard and airborne precautions
+Adhere to Standard Precautions, which are the foundation for preventing transmission of infectious agents in all healthcare settings.
+Adhere to Airborne Precautions when caring for patients with known or suspected measles.
+Keep Reading
+Isolation Precautions Guideline
+A. Patient placement
+Immediately place patients with known or suspected measles in an airborne infection isolation room (AIIR).
+The patient's facemask could be removed as long as they remain in the AIIR.
+If an AIIR is not available, transfer the patient as soon as possible to a facility where an AIIR is available.
+Pending transfer, place the masked patient in a private room with the door closed. If feasible, the patient should continue to wear the mask for the duration of time spent in the non-AIIR room.
+In advance of such a situation, work with facility engineers to identify a room that minimizes shared air space with other locations. Investigate options to make the room negative pressure and safely exhaust air outdoors or recirculate exhaust with in-duct high-efficiency particulate air (HEPA) filtration. Additional information about possible ventilation mitigation strategies is available. (See Ventilation Mitigation Strategies)
+After the patient leaves the room, it should remain vacant for the appropriate time (up to 2 hours) to allow for 99.9% of airborne-contaminant removal. (See Appendix B, Table B.1) Healthcare personnel who enter the room before the appropriate time for airborne-contaminant removal has passed should wear respiratory protection (i.e., a respirator) that is at least as protective as a fit-tested, NIOSH-certified disposable N95 filtering facepiece respirator.
+An AIIR should meet current standards, including:
+Providing at least six (existing facility) or 12 (new construction/renovation) air changes per hour.
+Directing exhaust of air to the outside.
+If an AIIR does not directly exhaust to the outside, the air may be returned to the air-handling system or adjacent spaces if all air is directed through HEPA filters.
+When an AIIR is in use for a patient on Airborne Precautions, monitor air pressure daily with visual indicators (e.g., smoke tubes, flutter strips), regardless of the presence of differential pressure sensing devices (e.g., manometers).
+Keep the AIIR door closed when not required for entry and exit.
+Keep Reading
+Glossary
+B. Healthcare personnel
+HCP without acceptable presumptive evidence of measles immunity should not enter a known or suspected measles patient's room if HCP with presumptive evidence of immunity are available.
+Respiratory protection:
+HCP should use respiratory protection (i.e., a respirator) that is at least as protective as a fit-tested, NIOSH-certified disposable N95 filtering facepiece respirator, regardless of presumptive evidence of immunity, upon entry to the room or care area of a patient with known or suspected measles.
+Respirator use must be in the context of a complete respiratory protection program in accordance with Occupational Safety and Health Administration (OSHA) Respiratory Protection Standard 29 CFR 1910.134.
+HCP should be medically cleared and fit-tested if using respirators with tight-fitting facepieces (e.g., a NIOSH-certified disposable N95) and trained in the proper use of respirators, safe removal and disposal, and medical contraindications to respirator use.
+C. Transporting patients with known or suspected measles within and between healthcare facilities
+Limit transport of patients with known or suspected measles to essential purposes, such as diagnostic and therapeutic procedures that cannot be performed in the patient's room or in the facility.
+When transport within the facility is necessary,
+The patient should wear a facemask if tolerated.
+The transporter should use respiratory protection (i.e., a respirator) that is at least as protective as a fit-tested, NIOSH-certified disposable N95 filtering facepiece respirator.
+Use a transportation route and process that includes minimal contact with persons not essential for the patient's care.
+Notify HCP in the receiving area of the impending arrival of the patient and of the precautions necessary to prevent transmission.
+When transport outside the facility is necessary, inform the receiving facility and the transport vehicle HCP in advance about airborne precautions being used.
+D. Duration of airborne precautions
+Patients with measles should remain in Airborne Precautions for 4 days after the onset of rash (with onset of rash considered to be Day 0).
+Immunocompromised patients with measles should remain in Airborne Precautions for the duration of illness due to prolonged virus shedding in these individuals.3
+E. Manage visitor access and movement within the facility
+If there are persons with measles in your community, consider screening visitors for signs and symptoms of measles before entering the facility.
+Visitors without acceptable presumptive evidence of immunity should not enter the room of a patient with known or suspected measles.
+Limit visitors to patients with known or suspected measles to those who are necessary for the patient's well-being and care.
+F. Implement environmental infection control
+Standard cleaning and disinfection procedures (e.g., using cleaners and water to pre-clean surfaces prior to applying disinfectants to frequently touched surfaces or objects for indicated contact times) are adequate for measles virus environmental control in all healthcare settings.
+Use an EPA-registered disinfectant for healthcare settings, per manufacturer's instructions.
+Manage used, disposable PPE and other patient care items for measles patients as regulated medical waste according to federal and local regulations.
+Detailed information on environmental cleaning in healthcare settings can be found in CDC's Guidelines for Environmental Infection Control in Healthcare Facilities and
+Guideline for Isolation Precautions: Preventing Transmission of Infectious Agents in Healthcare Settings.
+4. Manage measles exposures
+Evaluate exposed HCP, patients, and visitors for presumptive evidence of measles immunity. (For contact investigations, see Appendix A).
+A. Management of exposed healthcare personnel
+These recommendations have been updated and can be found in CDC's Infection Control in Healthcare Personnel: Epidemiology and Control of Selected Infections Transmitted Among Healthcare Personnel and Patients: Measles Section Updated March 28, 2024.
+Healthcare facilities managing exposed healthcare personnel should be aware that administration of immunoglobulin (IG) postexposure prophylaxis might prolong the incubation period for developing measles among exposed persons from 21 to 28 days. In addition to recommendations in the Infection Control in Healthcare Personnel: Epidemiology and Control of Selected Infections Transmitted Among Healthcare Personnel and Patients, for the management of  asymptomatic healthcare personnel without presumptive evidence of immunity to measles who have an exposure to measles:
+Extend daily monitoring for signs or symptoms of measles from the 5th day after their first exposure through the 28th day after their last exposure if IG was administered as postexposure prophylaxis.
+Consider extending exclusion from work from the 5th day after their first exposure through the 28th day after their last exposure if IG was administered as postexposure prophylaxis.
+Healthcare personnel who develop symptoms of measles earlier than the 5th day after their exposure, should be excluded from work pending further evaluation.
+B. Management of healthcare personnel infected with measles
+These recommendations have been updated and can be found in CDC's Infection Control in Healthcare Personnel: Epidemiology and Control of Selected Infections Transmitted Among Healthcare Personnel and Patients: Measles Section Updated March 28, 2024.
+C. Management of patients exposed to measles who do not have presumptive evidence of measles immunity
+Place the exposed patient without presumptive evidence of measles immunity on Airborne Precautions from the 5th day after the first exposure through the 21st day after the last exposure, or until discharge, if earlier.
+This time period is based on the typical incubation period for measles and is consistent with work exclusion recommendations for asymptomatic healthcare personnel without presumptive evidence of immunity who have an exposure to measles. If the patient in a healthcare setting develops symptoms of measles earlier than the 5th day after their exposure, they should be immediately placed on Airborne Precautions pending further evaluation. For ease of implementation or if the timing of the first exposure is uncertain (e.g., in a community outbreak), healthcare facilities could choose to implement Airborne Precautions earlier in the suspected incubation period (e.g., at admission).
+Administer postexposure prophylaxis in accordance with CDC and ACIP recommendations. IG might prolong the incubation period for measles; for patients who have received IG for PEP, extend the monitoring period through the 28th day after the last exposure. Consider extending the isolation period through the 28th day after the last exposure, or until discharge, if earlier.
+Notify public health authorities about measles-exposed patients who are being, or may have been, discharged so that appropriate follow-up can occur.
+5. Considerations for a measles outbreak
+In the event of an outbreak or exposure involving large numbers of patients who require Airborne Precautions:
+Consult infection control professionals before patient placement to determine the safety of alternative rooms that do not meet engineering requirements for an AIIR.
+Place together (cohort) patients who have confirmed measles in areas of the facility that are separated from the rest of the patient population which is important for protecting patients who are at increased risk for infection (e.g., immunocompromised patients).
+Use temporary portable solutions (e.g., exhaust fans) to create a negative pressure environment in the converted area of the facility to create expedient patient isolation rooms:
+Discharge air directly to the outside, away from people and air intakes, OR
+Direct all air through HEPA filters before it is introduced to other air spaces.
+6. Train and educate healthcare personnel
+Provide all HCP with job- or task-specific education and training, including refresher training, on preventing transmission of measles.
+Train, medically clear, and fit-test HCP for respiratory protection device use (e.g., N95 filtering facepiece respirators).
+Alternatively, train and medically clear HCP in the use of an alternative respiratory protection device (e.g., Powered Air-Purifying Respirator (PAPR)) whenever respirators are required.
+OSHA Respiratory Training Videos.
+Ensure that HCP are educated, trained, and can demonstrate competency in the use of appropriate PPE prior to caring for patients with known or suspected measles.
+7. Establish reporting within hospitals and to public health authorities
+Implement mechanisms and policies that promptly alert key facility staff, including hospital leadership, infection control, healthcare epidemiology, occupational health, clinical laboratory, and frontline staff, about patients with suspected or known measles.
+Communicate and collaborate with public health authorities:
+Promptly notify public health authorities of patients with known or suspected measles.
+Designate specific persons within the facility who are responsible for:
+Communication with public health officials, and
+Dissemination of information to HCP.
+Footnotes
+During 2001-2014, 6% of non-imported measles cases in the United States resulted from transmission in healthcare facilities. Fiebelkorn AP, Redd SB, Kuhar DT. Measles in Healthcare Facilities in the United States During the Postelimination Era, 2001-2014.Clin Infect Dis. 2015 Aug 15;61(4):615-8.
+A facemask is a term that applies collectively to items used to cover the nose and mouth and includes both procedure masks and surgical masks.
+Severely immunocompromised patients include, but are not limited to, patients with severe primary immunodeficiency; patients who have received a bone marrow transplant until at least 12 months after finishing all immunosuppressive treatment, or longer in patients who have developed graft-versus-host disease; patients on treatment for acute lymphocytic leukemia within and until at least 6 months after completion of immunosuppressive chemotherapy; and patients with a diagnosis of AIDS or HIV-infected persons with severe immunosuppression defined as CD4 percent <15% (all ages) or CD4 count <200 lymphocytes/mm3 (aged >5 years) and those who have not received MMR vaccine since receiving effective ART. Some experts include HIV-infected persons who lack recent confirmation of immunologic status or measles immunity. The treating physician for the exposed individual should be consulted to determine if the patient is immunocompromised.
+Print Version
+Interim Infection Prevention and Control Recommendations for Measles in Healthcare Settings
+Aug. 19, 2025
+Sources
+Print
+Share
+Facebook
+LinkedIn
+Twitter
+Syndicate
+Content Source:
+National Center for Emerging and Zoonotic Infectious Diseases (NCEZID)
+References
+During 2001-2014, 6% of non-imported measles cases in the United States resulted from transmission in healthcare facilities. Fiebelkorn AP, Redd SB, Kuhar DT. Measles in Healthcare Facilities in the United States During the Postelimination Era, 2001-2014.Clin Infect Dis. 2015 Aug 15;61(4):615-8.
+A facemask is a term that applies collectively to items used to cover the nose and mouth and includes both procedure masks and surgical masks.
+Severely immunocompromised patients include, but are not limited to, patients with severe primary immunodeficiency; patients who have received a bone marrow transplant until at least 12 months after finishing all immunosuppressive treatment, or longer in patients who have developed graft-versus-host disease; patients on treatment for acute lymphocytic leukemia within and until at least 6 months after completion of immunosuppressive chemotherapy; and patients with a diagnosis of AIDS or HIV-infected persons with severe immunosuppression defined as CD4 percent <15% (all ages) or CD4 count <200 lymphocytes/mm3 (aged >5 years) and those who have not received MMR vaccine since receiving effective ART. Some experts include HIV-infected persons who lack recent confirmation of immunologic status or measles immunity. The treating physician for the exposed individual should be consulted to determine if the patient is immunocompromised.

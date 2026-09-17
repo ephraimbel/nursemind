@@ -32,9 +32,7 @@ struct RootView: View {
         // change notifications. Initial sync runs as soon as Supabase reports
         // signed-in; subsequent local mutations debounce and push.
         ProfileSyncService.shared.attach()
-        // Hook TikTok analytics into the same auth-state stream so Login
-        // + identify fire exactly once per signed-in user. No-op if the
-        // TikTok SDK wasn't initialized (empty Secrets).
+        // Advertising identity follows authentication only after ATT consent.
         TikTokAnalyticsService.shared.attach()
         // Pre-staged behavioral logger — captures library entry view sessions
         // so the v1.5 dynamic suggested feed (BUILD_SPEC §15) has historical
@@ -128,14 +126,25 @@ struct RootView: View {
         }
         #endif
         .onChange(of: scenePhase, initial: true) { _, phase in
-            guard phase == .active, !hasRequestedTracking else { return }
+            if phase == .background {
+                MetaAnalyticsService.shared.applicationDidEnterBackground()
+                TikTokAnalyticsService.shared.applicationDidEnterBackground()
+            }
+            guard phase == .active else { return }
             // Debug screenshot runs skip the ATT sheet so it can't cover the
             // surface under inspection.
             guard !debugDeepLinkActive else { return }
+            SKANAttributionService.shared.applicationDidBecomeActive()
+            TikTokAnalyticsService.shared.applicationDidBecomeActive()
+            RevenueCatService.shared.refreshAttributionSubscription()
+            MetaAnalyticsService.shared.applicationDidBecomeActive()
+            guard !hasRequestedTracking else { return }
             hasRequestedTracking = true
             Task { @MainActor in
                 try? await Task.sleep(for: .milliseconds(500))
-                TikTokAnalyticsService.shared.requestTrackingAuthorization()
+                TikTokAnalyticsService.shared.requestTrackingAuthorization {
+                    MetaAnalyticsService.shared.applicationDidBecomeActive()
+                }
             }
         }
     }
@@ -200,7 +209,7 @@ struct RootView: View {
             return AnthropicClient(apiKey: key)
         }
         #endif
-        let endpoint = Secrets.supabaseURL.appendingPathComponent("functions/v1/ai-chat")
+        let endpoint = Secrets.supabaseURL.appendingPathComponent("functions/v1/ai-chat-v2")
         return AnthropicClient(
             proxyEndpoint: endpoint,
             tokenProvider: { await SupabaseService.shared.currentAccessToken() }
@@ -221,15 +230,8 @@ struct RootView: View {
         return MockAskService()
     }
 
-    /// Post-answer enrichment — one call returns both follow-up chips and
-    /// calculator handoff id. Replaced the prior pair of `followUpService` +
-    /// `calculatorSuggester` factories; each user question now fires 3
-    /// Anthropic calls instead of 4 (intent + generation + enrichment).
     private var enrichmentService: AnswerEnrichmentService {
-        if let client = anthropicClient {
-            return AnthropicAnswerEnrichmentService(client: client)
-        }
-        return MockAnswerEnrichmentService()
+        LocalAnswerEnrichmentService()
     }
 
     // configureTabBar() removed: we no longer use SwiftUI's TabView (which

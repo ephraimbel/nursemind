@@ -1,0 +1,95 @@
+Clinical Guidance for C. diff Infection Prevention in Acute Care Facilities
+For Health Care Providers
+May 13, 2026
+At a glance
+Isolate and initiate contact precautions for suspected or confirmed Clostridioides (also known as Clostridium) difficile infection (CDI).
+Confirm CDI in patients.
+Perform environmental cleaning to prevent CDI.
+Develop infrastructure to support CDI prevention.
+Engage the facility antibiotic stewardship program.
+Overview
+Below are the basic principles and interventions recommended for CDI prevention in acute care facilities.
+Who should use this guidance
+State and local health departments
+Quality improvement organizations
+Hospital associations
+Healthcare facilities
+Isolate and initiate contact precautions
+Create nurse-driven protocolsA to facilitate rapid isolation of patients with suspected or confirmed CDI.
+Patients with diarrhea should be isolated while evaluation for the cause is ongoing. For example, a patient remains isolated during a trial off laxatives.
+Place symptomatic patientsB on contact precautions in a single-patient room with a dedicated toilet.
+If single-patient rooms are not available, room patients with a confirmed CDI test together.
+Adhere to recommended hand hygiene practices.
+Use dedicated patient-care equipment such as blood pressure cuffs and stethoscopes.
+Implement daily patient bathing or showering with soap and water.
+When transferring patients, notify receiving wards or facilities about the patient's CDI status so contact precautions continue at the patient's new location.
+For suspected patients, ensure rapid evaluation by healthcare personnel and infection prevention.
+For patients with confirmed CDI, maintain contact precautions for at least 48 hours after diarrhea has resolved, or longer, up to the duration of hospitalizationC.
+Confirm CDI in patients
+Clinical personnel
+Assess for appropriateness of testing: Consider other infectious or non-infectiousD causes of diarrhea before testing for CDI.
+Discontinue laxatives and wait for at least 48 hours before testing if still symptomatic.
+Once a patient has a positive CDI test, do not repeat testing to detect cure as tests may remain positive for six weeks or longer.
+Laboratory personnel
+Implement laboratory procedures to ensure testing of only appropriate specimens—unformed stool—for C. difficile or its toxins.
+For sites where appropriateness of testing is an issue, consider implementing two-step testing to improve diagnostic accuracy. Examples include high sensitivity NAAT or GDH test followed by high-specificity toxin test, rather than NAAT alone.
+Report test results immediately to clinical care providers and infection control personnel through reliable means such as a laboratory alert system.
+Perform environmental cleaning
+Create daily and terminal cleaning protocols and checklists for patient-care areas and equipment.
+Perform daily cleaning of CDI patient rooms using a C. difficile sporicidal agent(EPA List K agent).
+Clean and disinfect the patient-care environment (including the immediate vicinity around a CDI patient and high-touch surfaces) at least once a day.
+Clean and disinfect all shared equipment prior to use with another patient, including toilets, wheelchairs and gurneys.
+Perform terminal cleaning after CDI patient transfer/discharge with a C. difficile sporicidal agent.
+Clean other areas that are contaminated during transient visits by patients with suspected or confirmed CDI like radiology, emergency departments and physical therapy with a C. difficile sporicidal agent.
+See Also
+EPA List K agents
+Develop infrastructure for prevention
+Incorporate reduction of CDI into the facility healthcare-associated infection prevention program, including but not limited to the design, implementation, evaluation and feedback of intervention results.
+Include a multidisciplinary workgroup—including physicians, nursing, environmental services and antibiotic stewardship—to identify and implement the below strategies and use data for action.
+Monitor facility CDI rates. Target units with highest incidence of CDI for evaluation and intervention.
+Review hospital-onset CDI cases to help identify potential gaps and opportunities for improvement.
+Review should focus on opportunities for improvement across each strategy such as test indications and antibiotic appropriateness.
+Use findings to engage relevant care teams and staff in gap remediation and performance improvement as soon after the CDI case as possible.
+Educate and train healthcare personnel on prevention practices for CDI.
+Routinely audit:
+Adherence to hand hygiene and contact precautions.
+Adequacy of room cleaning using methods described in "Options for Evaluating Environmental Cleaning."
+Provide CDI rates and other performance improvement measures to senior leadership, clinical providers, laboratory personnel, environmental services and other stakeholders.
+Notify appropriate individuals and facility departments about changes in the incidence (or frequency), complications (including recurrences), or severity of CDI.
+Engage antibiotic stewardship program
+Implement the Core Elements of Hospital Antibiotic Stewardship and Targeted Assessment for Prevention (TAP) Strategy.
+Assess the appropriateness of prescribing antibiotics that pose the highest risk for CDI, especially fluoroquinolones, carbapenems, and 3rd and 4th generation cephalosporins.
+Develop facility-specific treatment recommendations for common infections that include first- and second-line antibiotics.
+Evaluate antibiotic treatment of conditions that commonly lead to high-risk antibiotic use, such as asymptomatic bacteriuria and common infections like urinary tract infection and community-acquired pneumonia, to minimize the use of high-risk antibiotics.
+Ensure that patients receive the shortest effective duration of antibiotic therapy.
+Include inpatient antibiotic duration when determining post-discharge antibiotic duration.
+Supplemental interventions
+Supplemental interventions could be considered during an outbreak or if CDI reduction goals are not met with adherence to baseline strategies. Some interventions might have unintended consequences so risks and benefits should be considered prior to implementation.
+The following interventions are listed as supplemental due to a limited evidence base to support their use (theoretical benefit only), cost or logistical difficulty in implementation:
+Dedicate healthcare personnel to the care of only patients with CDI, who are typically cohorted on a single ward or unit, to minimize the risk of transmission to others.
+Limit the use of other medications like proton pump inhibitors that are hypothesized to increase risk for CDI.
+Evaluate and test asymptomatic patients at high risk for CDI to detect carriage.
+Isolate patients who test positive, but do not treat in the absence of symptoms.
+Consider isolating patients with carriage and diarrhea, until the diarrhea resolves, as a routine strategy.
+Conduct additional disinfection of CDI patient rooms with no-touch technologies like UV light.
+Expand the use of environmental disinfection strategies (e.g., sporicidal agents [EPA List K agent]) for daily and terminal cleaning in all rooms on affected units.
+Participate in regional CDI prevention activities.
+May 13, 2026
+Sources
+Print
+Share
+Facebook
+LinkedIn
+Twitter
+Syndicate
+Content Source:
+National Center for Emerging and Zoonotic Infectious Diseases (NCEZID)
+Footnotes
+Protocols that can be immediately initiated by nurses to allow isolation of patients with suspected or confirmed CDI.
+Patients with clinically significant unexplained diarrhea.
+Maintain infection control measures for patients with EIA-positive test result and for those with EIA-negative but PCR-positive test result.
+Non-infectious causes of diarrhea include inflammatory bowel disease and therapies such as eternal tube feeding, intensive cancer chemotherapy or laxatives.
+Sources
+McDonald LC, Gerding DN, Johnson S, Bakken JS, Carroll KC, Coffin SE, Dubberke ER, Garey KW, Gould CV, Kelly C, Loo V, Sammons JS, Sandora TJ, Wilcox MH. Clinical Practice Guidelines for Clostridium difficile Infection in Adults and Children: 2017 Update by the Infectious Diseases Society of America (IDSA) and Society for Healthcare Epidemiology of America (SHEA). Clin Infect Dis. 2018; 66(7):e1-e48. https://doi.org/10.1093/cid/cix1085external iconexternal icon
+Siegel JD, Rhinehart E, Jackson M, Chiarello L, and the Healthcare Infection Control Practices Advisory Committee. 2007 Guideline for Isolation Precautions: Preventing Transmission of Infectious Agents in Healthcare Settings. https://www.cdc.gov/infectioncontrol/guidelines/isolation/index.html
+Banach, D, Bearman G, Barnden M, Hanrahan J, Leekha S, Morgan D, Murthy R, Munoz-Price LS, Sullivan KV, Popovich KJ, Wiemken, T. Duration of Contact Precautions for Acute-Care Settings. Infect Control Hosp Epidemiol. 2018; 39(2):127-144. https://doi.org/10.1017/ice.2017.245external icon.

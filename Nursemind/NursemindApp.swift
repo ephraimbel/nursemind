@@ -18,11 +18,23 @@ struct NursemindApp: App {
             fatalError("Failed to construct ModelContainer: \(error)")
         }
         SavedAnswerSyncService.shared.attach(container: modelContainer)
+        SKANAttributionService.shared.configure()
         // Configure RevenueCat early so its customerInfo cache is hot by the
         // time the user reaches Profile or hits a paywall. The service
         // observes Supabase auth state internally and calls `Purchases.logIn`
         // once a Supabase user_id is available.
         RevenueCatService.shared.configure(apiKey: Secrets.revenueCatAPIKey)
+        #if DEBUG
+        MetaAnalyticsService.shared.configure(
+            appID: Secrets.metaSandboxAppID,
+            clientToken: Secrets.metaSandboxClientToken
+        )
+        #else
+        MetaAnalyticsService.shared.configure(
+            appID: Secrets.metaAppID,
+            clientToken: Secrets.metaClientToken
+        )
+        #endif
         // PostHog before any first-launch event fires so the install event
         // and onboarding funnel land in the same anonymous distinct_id.
         AnalyticsService.shared.configure(

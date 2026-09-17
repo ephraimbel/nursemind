@@ -1,0 +1,62 @@
+
+Tool: CUS | Agency for Healthcare Research and Quality (https://www.ahrq.gov/teamstepps-program/curriculum/mutual/tools/cus.html)
+citeturn109view1 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://www.ahrq.gov/teamstepps-program/curriculum/mutual/tools/cus.html","lineno":null}); Total lines: 109
+L0: cite0†iframe†www.googletagmanager.com L1: 
+L2:   * cite1†Careers L3:   * cite2†Contact Us L4:   * cite3†Español L5:   * cite4†FAQs†info.ahrq.gov L6: 
+L7: Search all AHRQ sites
+L8: 
+L9: cite5†Image: Main Navigation Menu L10: 
+L11: Menu
+L12: 
+L13:   * cite1†Careers L14:   * cite2†Contact Us L15:   * cite6†Español L16:   * cite7†FAQs L17: ## SHARE:
+L18: 
+L19: cite8†Image: linkedIn cite9†Image: Facebook cite10†Image: X cite11†Image: Email AHRQ cite12†Image: Print L20: 
+L21: cite13†TeamSTEPPS Program L22:   * cite14†Curriculum Materials L23:     * cite15†Introduction to Curriculum L24:     * cite16†Module 1: Communication L25:     * cite17†Module 2: Team Leadership L26:     * cite18†Module 3: Situation Monitoring L27:     * cite19†Module 4: Mutual Support L28:       * cite20†Section 1: Overview of Mutual Support Key Concepts and Tools L29:       * cite21†Section 2: Explanation of Mutual Support Key Concepts and Tools L30:         * cite22†Tool: Task Assistance L31:         * cite23†Tool: Formative Feedback L32:         * cite24†Tool: Advocacy and Assertion L33:         * cite25†Concept: Conflict in Teams L34:         * cite26†Tool: Two-Challenge Rule L35:         * cite27†Tool: CUS L36:         * cite28†Tool: DESC L37:       * cite29†Section 3: Teaching Mutual Support Key Concepts and Tools  L38:     * cite30†Implementation of TeamSTEPPS 3.0 L39: # Tool: CUS
+L40: 
+L41: Using the CUS technique provides another tool for advocacy, assertion, and mutual support. Signs with words such as "danger," "warning," and "caution" are common in the medical arena. They catch the viewer’s attention. In verbal communication, "CUS" and other signal phrases have a similar effect. If all team members have a shared mental model and are on the same page, when these words are spoken, all team members will clearly understand the issue and its magnitude.
+L42: To use CUS, proceed as follows:
+L43: 
+L44:   * C: First, state your concern.
+L45:   * U: Then, state why you are uncomfortable.
+L46:   * S: If the conflict is not resolved, state that there is a safety issue. Discuss in what way the concern is related to safety. If the safety issue is not acknowledged, a supervisor should be notified.
+L47: 
+L48: You can watch an example of the use of CUS. After viewing the video, think about how CUS was used.
+L49: 
+L50: cite31†YouTube embedded video: TeamSTEPPS: CUS in Labor & Delivery†www.youtube-nocookie.com L51: TeamSTEPPS: CUS in Labor & Delivery (10 seconds)
+L52: 
+L53:   * It began in the form of a statement, "I am concerned," and then followed up with additional patient vitals.
+L54:   * The nurse stated she was uncomfortable with the late decelerations.
+L55:   * She then said she was concerned that the patient's safety was at risk.
+L56: CUS is also a recommended tool to express concerns regarding the need for a medical interpreter when conversations involve patients with limited English proficiency. A video-based example of using CUS for this purpose is available below.
+L57: 
+L58: cite32†YouTube embedded video: TeamSTEPPS: LEP Safety: Success†www.youtube-nocookie.com L59: 
+L60: TeamSTEPPS: LEP Safety: Success (6:09)
+L61: 
+L62: Page last reviewed May 2023
+L63: 
+L64: Page originally created May 2023
+L65: Internet Citation: Tool: CUS. Content last reviewed May 2023. Agency for Healthcare Research and Quality, Rockville, MD.
+L66: https://www.ahrq.gov/teamstepps-program/curriculum/mutual/tools/cus.html
+L67: 
+L68: cite33†Image: Click to Copy Citation L69: 
+L70: 
+L71: 
+L72: cite34†Back to Top L73: ### Connect With Us
+L74: 
+L75: ### Sign up for Email Updates
+L76: 
+L77: To sign up for updates or to access your subscriber
+L78: preferences, please enter your email address below.
+L79: 
+L80: [Input] [Input]
+L81: 
+L82: Search [Input] [Input]
+L83: ### Agency for Healthcare Research and Quality
+L84: 
+L85: 5600 Fishers Lane
+L86: Rockville, MD 20857
+L87: 
+L88:   * cite1†Careers L89:   * cite2†Contact Us L90:   * cite6†Español L91:   * cite7†FAQs L92: 
+L93:   * cite35†Accessibility L94:   * cite36†Disclaimers L95:   * cite37†EEO L96:   * cite38†Electronic Policies L97: 
+L98:   * cite39†FOIA L99:   * cite40†HHS Digital Strategy†www.hhs.gov L100:   * cite41†HHS Nondiscrimination Notice†www.hhs.gov L101:   * cite42†Inspector General†oig.hhs.gov L102: 
+L103:   * cite43†Plain Writing Act L104:   * cite44†Privacy Policy L105:   * cite45†Viewers & Players†www.hhs.gov L106:   * cite46†U.S. Department of Health & Human Services†www.hhs.gov L107:   * cite47†The White House†www.whitehouse.gov L108:   * cite48†USA.gov†www.usa.gov 

@@ -40,8 +40,7 @@ public struct ReferencesSection: View {
             if let idx = presentedIndex {
                 CitationCardView(
                     number: idx,
-                    source: citations[idx - 1],
-                    totalCount: citations.count
+                    citations: citations
                 )
             }
         }

@@ -1,5 +1,55 @@
 import Foundation
 
+private let depth9_measles_control = CitationSource(
+    id: "depth9_measles_control",
+    shortName: "Measles: Healthcare Infection Prevention",
+    detail: "Interim guidance: triage; AIIR placement; respirators; transport; duration; room clearance. Page dated August 19, 2025. Federal prose adapted; images and third-party material excluded. Targeted statement correction only; independent clinical review pending.",
+    publisher: "Centers for Disease Control and Prevention",
+    license: .publicDomain,
+    url: "https://www.cdc.gov/infection-control/hcp/measles/index.html",
+    lastRetrieved: "2026-09-17"
+)
+
+private let depth9_flu_control = CitationSource(
+    id: "depth9_flu_control",
+    shortName: "Seasonal Influenza: Healthcare Prevention",
+    detail: "Healthcare scope; Droplet Precautions; duration; transport; aerosol-generating procedures. Page dated April 28, 2025. Federal prose adapted; images and third-party material excluded. Targeted statement correction only; independent clinical review pending.",
+    publisher: "Centers for Disease Control and Prevention",
+    license: .publicDomain,
+    url: "https://www.cdc.gov/flu/hcp/infection-control/healthcare-settings.html",
+    lastRetrieved: "2026-09-17"
+)
+
+private let depth9_transmission = CitationSource(
+    id: "depth9_transmission",
+    shortName: "Transmission-Based Precautions",
+    detail: "Droplet Precautions: patient placement, mask upon room entry and transport. Page dated April 3, 2024. Federal prose adapted; images and third-party material excluded. Targeted statement correction only; independent clinical review pending.",
+    publisher: "Centers for Disease Control and Prevention",
+    license: .publicDomain,
+    url: "https://www.cdc.gov/infection-control/hcp/basics/transmission-based-precautions.html",
+    lastRetrieved: "2026-09-17"
+)
+
+private let depth9_hands = CitationSource(
+    id: "depth9_hands",
+    shortName: "Clinical Safety: Hand Hygiene",
+    detail: "ABHS versus soap and water; C. difficile routine care and outbreaks; glove use. Page dated February 27, 2024. Federal prose adapted; images and third-party material excluded. Targeted statement correction only; independent clinical review pending.",
+    publisher: "Centers for Disease Control and Prevention",
+    license: .publicDomain,
+    url: "https://www.cdc.gov/clean-hands/hcp/clinical-safety/index.html",
+    lastRetrieved: "2026-09-17"
+)
+
+private let depth9_cdiff_control = CitationSource(
+    id: "depth9_cdiff_control",
+    shortName: "C. difficile: Clinical Guidance",
+    detail: "Isolation and Contact Precautions; diagnostic stewardship; environmental cleaning. Page dated May 13, 2026. Federal prose adapted; images and third-party material excluded. Targeted statement correction only; independent clinical review pending.",
+    publisher: "Centers for Disease Control and Prevention",
+    license: .publicDomain,
+    url: "https://www.cdc.gov/c-diff/hcp/clinical-guidance/index.html",
+    lastRetrieved: "2026-09-17"
+)
+
 public enum IsolationPrecautionsSample {
     public static let entry: ReferenceEntry = {
         let cdc = CitationSource(
@@ -31,7 +81,7 @@ public enum IsolationPrecautionsSample {
                 .prose(title: "Standard Precautions", standardPrecautions),
                 .bullets(title: "Contact Precautions — when", [
                     AttributedBullet("Multidrug-resistant organisms (MRSA, VRE, ESBL, CRE)", citationIDs: ["cdc_isolation_2007"]),
-                    AttributedBullet("C. difficile (always SOAP AND WATER for hand hygiene; alcohol does not kill spores)", citationIDs: ["cdc_isolation_2007"]),
+                    AttributedBullet("C. difficile — Contact Precautions while suspected infection is evaluated.", citationIDs: ["depth9_cdiff_control"]),
                     AttributedBullet("Norovirus", citationIDs: ["cdc_isolation_2007"]),
                     AttributedBullet("Scabies, lice", citationIDs: ["cdc_isolation_2007"]),
                     AttributedBullet("Major wound infections with uncontained drainage", citationIDs: ["cdc_isolation_2007"]),
@@ -44,7 +94,7 @@ public enum IsolationPrecautionsSample {
                     AttributedBullet("Limit patient transport; if needed, ensure receiving area is notified.", citationIDs: ["cdc_isolation_2007"])
                 ]),
                 .bullets(title: "Droplet Precautions — when", [
-                    AttributedBullet("Influenza, COVID-19 (combined with airborne in some scenarios)", citationIDs: ["cdc_isolation_2007"]),
+                    AttributedBullet("Seasonal influenza. Follow separate pathogen-specific guidance for other respiratory viruses.", citationIDs: ["depth9_flu_control"]),
                     AttributedBullet("Pertussis (whooping cough)", citationIDs: ["cdc_isolation_2007"]),
                     AttributedBullet("Meningococcal disease (until 24 hours of effective therapy)", citationIDs: ["cdc_isolation_2007"]),
                     AttributedBullet("Mumps, rubella, group A strep", citationIDs: ["cdc_isolation_2007"]),
@@ -52,7 +102,7 @@ public enum IsolationPrecautionsSample {
                 ]),
                 .bullets(title: "Droplet Precautions — how", [
                     AttributedBullet("Private room (or cohort with same organism); door may remain open.", citationIDs: ["cdc_isolation_2007"]),
-                    AttributedBullet("Surgical mask within 3–6 feet of patient (per facility).", citationIDs: ["cdc_isolation_2007"]),
+                    AttributedBullet("Wear a facemask on entry to the patient room or patient space.", citationIDs: ["depth9_transmission"]),
                     AttributedBullet("Patient wears surgical mask during transport.", citationIDs: ["cdc_isolation_2007"])
                 ]),
                 .bullets(title: "Airborne Precautions — when", [
@@ -70,13 +120,13 @@ public enum IsolationPrecautionsSample {
                     AttributedBullet("Limit room entry to immune personnel for measles, varicella when possible.", citationIDs: ["cdc_isolation_2007"])
                 ]),
                 .bullets(title: "Common errors — watch for", [
-                    AttributedBullet("Using alcohol hand rub for C. difficile — alcohol does NOT kill spores. Use soap and water mechanical removal.", citationIDs: ["cdc_isolation_2007"]),
+                    AttributedBullet("Skipping gown, gloves or hand hygiene with C. difficile.", citationIDs: ["depth9_hands"]),
                     AttributedBullet("Using a surgical mask for TB or measles — these require an N95 respirator.", citationIDs: ["cdc_isolation_2007"]),
                     AttributedBullet("Failing to don PPE BEFORE entering the room — don in the anteroom or just outside, doff inside.", citationIDs: ["cdc_isolation_2007"]),
-                    AttributedBullet("Combining precautions: varicella, disseminated zoster, and measles often need both Airborne AND Contact.", citationIDs: ["cdc_isolation_2007"])
+                    AttributedBullet("Measles uses Standard and Airborne Precautions; Contact Precautions are added only for another indication.", citationIDs: ["depth9_measles_control"])
                 ])
             ],
-            citations: [cdc],
+            citations: [cdc, depth9_cdiff_control, depth9_hands, depth9_transmission, depth9_flu_control, depth9_measles_control],
             lastSourceFidelityReview: "2026-05-03"
         )
     }()

@@ -1,0 +1,107 @@
+Rapid Influenza Diagnostic Tests
+For Health Care Providers
+June 22, 2026
+Purpose
+This page provides information about rapid influenza diagnostic tests (RIDTs), including how to interpret their results, and their use in clinical decision making and outbreak investigations.
+Background
+Rapid influenza diagnostic tests (RIDTs) are immunoassays that can identify the presence of influenza A and B viral nucleoprotein antigens in respiratory specimens and display the result in a qualitative way (positive vs. negative). RIDTs do not include rapid molecular assays which have higher sensitivity to detect influenza viruses in respiratory specimens compared to RIDTs.
+In the United States, several RIDTs are commercially available. The reference standards for laboratory confirmation of influenza virus infection in respiratory specimens are reverse transcription-polymerase chain reaction (RT-PCR) or viral culture. RIDTs can yield results in a clinically relevant time frame; less than approximately 15 minutes. However, RIDTs have limited sensitivity to detect influenza viruses in respiratory specimens compared to RT-PCR or viral culture and negative RIDT test results should be interpreted with caution given the potential for false negative results, especially during peak influenza activity in a community. Some RIDTs use digital analyzer reader devices to standardize result interpretation and have higher sensitivity to detect influenza viruses than RIDTs without reader devices.
+For information on currently available RIDTs, refer to "Antigen Detection" tests on the FDA webpage.
+Keep Reading
+Information for Clinicians on Rapid Diagnostic Testing for Influenza
+Advantages and disadvantages of RIDTs
+Advantages
+Produce quick results in less than approximately 15 minutes
+Simple to perform
+Some RIDTs are cleared for office/bedside use. RIDTs that have been CLIA waived can be used in settings that include point-of-care. Some RIDTs are authorized or cleared for over-the-counter (home) use.
+Disadvantages
+Sub-optimal test sensitivity, false negative results are common, especially when influenza activity is high compared with RT-PCR.
+Sensitivity of RIDTs to detect influenza B viral antigens is lower than for detection of influenza A viral antigens.
+Although specificity is high, false positive results can also occur, especially during times when influenza activity is low.
+RIDTs can distinguish between influenza A or B viruses but do not provide information on influenza A virus subtype [e.g., A(H1N1)pdm09 versus A(H3N2)] or specific virus strain information (e.g., degree of similarity to vaccine strains). RIDTs cannot distinguish between seasonal influenza A virus infection and novel influenza A virus infection (due to infection with avian or variant influenza A viruses).
+Use of RIDTs in clinical decision-making
+RIDTs may be used to help with diagnostic and treatment decisions for patients in clinical settings, such as whether to prescribe antiviral medications. However, due to the limited sensitivities, negative results of RIDTs do not exclude influenza virus infection in patients with signs and symptoms suggestive of influenza. Therefore, if clinically indicated, antiviral treatment should not be withheld from patients with suspected influenza, even if they test negative by RIDT, and further influenza testing of respiratory specimens by molecular influenza assays may be indicated.
+Keep Reading
+About Influenza Antiviral Medications
+Influenza testing is not needed for all patients with signs and symptoms of influenza to make antiviral treatment decisions. Once influenza activity has been documented in the community or geographic area, a clinical diagnosis of influenza can be made for outpatients with signs and symptoms consistent with suspected influenza, especially during periods of peak influenza activity in the community.
+Use of RIDTs for public health purposes to detect influenza outbreaks
+RIDTs can be useful to identify influenza virus infection as a cause of respiratory outbreaks in any setting, but especially in institutions (such as nursing homes, chronic care facilities, and hospitals), cruise ships, summer camps, schools, etc.
+Positive RIDT results from one or more ill persons with suspected influenza can support decisions to promptly implement infection prevention and control measures for influenza outbreaks. However, negative RIDT results do not exclude influenza virus infection as a cause of a respiratory outbreak because of the limited sensitivity of these tests. Testing respiratory specimens from several persons with suspected influenza will increase the likelihood of detecting influenza virus infection if influenza virus is the cause of the outbreak, and use of molecular influenza assays such as RT-PCR is recommended if the cause of the outbreak is not determined and influenza is suspected.
+Public health authorities should be notified promptly of any suspected institutional outbreak, and respiratory specimens should be collected from ill persons (whether positive or negative by RIDT) and sent to a public health laboratory for more accurate influenza testing by molecular assays and viral culture.
+Factors influencing results of RIDTs
+Many factors can influence the accuracy of RIDTs, including:
+Clinical signs and symptoms consistent with influenza
+Having clinical signs and symptoms consistent with influenza increases the pre-test probability of influenza virus infection, which increases the reliability of a positive RIDT result.
+Prevalence of influenza activity in the population tested
+Influenza activity varies seasonally, which directly affects the predictive values of RIDTs (Infection Prevention and Control Strategies for Seasonal Influenza in Healthcare Settings.)
+Time from illness onset to collection of respiratory specimens for testing
+Testing specimens collected within 3-4 days of illness onset (when influenza viral shedding is highest) is more likely to yield positive RIDT results if the patient has influenza.
+Type of respiratory specimen tested
+RIDTs have different specifications for acceptable specimens (such as nasopharyngeal, nasal or throat swab/aspirate). The package insert for the RIDT test used should be reviewed to ensure that an appropriate specimen is collected, and test procedures are followed. Some tests may require specimen collection using a special swab (some RIDTs must be used with a swab supplied with the test kit; some swab material can interfere with RIDT results).
+RIDTs must also ensure that the appropriate viral transport media or other media is used, consistent with test specifications, if testing is done at a different location from where the specimen is collected from the patient.
+Collection of good quality respiratory specimens (e.g., nasopharyngeal or nasal swab/aspirate/wash or combined nasal/throat swab specimens) also will increase the accuracy of RIDT results.
+Some RIDTs require that the entire collected specimen be used in the test. Consider whether a second specimen should be collected for confirmatory testing using viral culture and/or RT-PCR.
+Accuracy of the test compared to a reference test ("gold standard" = RT-PCR or viral culture)
+Sensitivity of the RIDT
+Proportion of positive RIDT results of all positive "gold standard test" results (RT-PCR or viral culture)
+Fixed characteristic of a test; generally low to moderate (50-70%) for RIDTs
+An RIDT with low sensitivity will produce negative results in some patients with influenza (false negatives)
+Interpretation of rapid influenza diagnostic test results
+Proper interpretation of RIDT results is very important for clinical management of patients and for assessing suspected influenza outbreaks. A number of factors can influence the results of RIDTs. The accuracy of RIDTs depends largely on the conditions under which they are used. Understanding some basic considerations can minimize being misled by false-positive or false-negative results.
+Positive result
+A positive result means that the RIDT detected influenza viral antigen but does not necessarily mean viable influenza virus is present or that the patient is contagious.
+The positive predictive value of an RIDT (the proportion of patients with positive results who have influenza) is highest when influenza activity is high in the population being tested (e.g., community).
+A positive result is most likely a true positive result if the respiratory specimen was collected close to illness onset (within 4 days) during periods of high influenza activity (e.g., winter) in the population being tested (e.g., community).
+A positive result in a person who recently received intranasal administration of live attenuated influenza virus vaccine (LAIV) may indicate detection of vaccine virus. LAIV contains influenza virus strains that undergo viral replication in respiratory tissues of lower temperature (e.g., nasal passages) than internal body temperature. Since the nasal passages are infected with live influenza virus vaccine strains during LAIV administration, sampling the nasal passages within a few days after LAIV vaccination can yield positive influenza testing results. It may be possible to detect LAIV vaccine strains up to 7 days after vaccination, and in rare situations, for longer periods.
+The positive predictive value of an RIDT (the proportion of patients with positive results who have influenza) is lowest when influenza activity is low in the population being tested (e.g., community).
+False-positive results are more likely to occur when influenza prevalence in the population tested (e.g., community) is low, which is generally at the beginning and end of the influenza season and during the summer.
+Negative result
+A negative result means that the RIDT did not detect any influenza viral antigen.
+The negative predictive value of an RIDT (the proportion of patients with negative results who do not have influenza) is highest when influenza activity is low in the population being tested (e.g., community).
+A negative result is most likely a true negative result if the respiratory specimen was collected close to illness onset (within 4 days) during periods of low influenza activity (e.g., summer) in the population being tested (e.g., community).
+The negative predictive value of an RIDT (the proportion of patients with negative results who do not have influenza) is lowest when influenza activity is high in the population being tested (e.g., community).
+False-negative results are more likely to occur when influenza prevalence is high in the community.
+Sensitivities of RIDTs to detect influenza viral antigens are higher for RIDTs with a digital analyzer reader device (76-80%) than RIDTs without reader devices (53-54%) in all ages compared with RT-PCR. RIDTs have higher sensitivities to detect influenza viral antigens in respiratory specimens from children than in adults.
+Specificities of RIDTs are generally very high (≥98%), indicating that false positive results are uncommon. However, negative results of RIDTs do not always exclude influenza virus infection and influenza should still be considered in a patient if clinical suspicion is high based upon history, signs, symptoms and clinical examination.
+Minimize false results
+Collect specimens as early in the illness as possible (ideally less than 4 days from illness onset).
+Follow manufacturer's instructions, including acceptable specimens, and handling.
+Follow-up negative RIDT results with confirmatory tests (RT-PCR) if influenza is still suspected.
+More information about influenza activity
+Clinicians should contact their local or state health department for information about current influenza activity.Weekly U.S. Influenza Surveillance Report (FluView)
+When to consider further influenza testing
+Consider sending respiratory specimens for influenza testing by RT-PCR or other molecular influenza assays to confirm results of an RIDT when:
+A patient test is negative by RIDT when community influenza activity is high and influenza is still suspected.
+A patient test is positive by RIDT and the community prevalence of influenza is low, and a false positive result is a consideration.
+A patient has had recent close exposure to pigs or poultry, or other animals and novel influenza A virus infection is possible.
+For Public Health
+H7N9 Virus Testing for Laboratories
+Hospitalized patients
+Influenza testing is recommended for hospitalized patients with suspected influenza. RIDTs are not recommended for hospitalized patients with suspected influenza; molecular influenza assays such as RT-PCR are recommended for testing hospitalized patients. However, empiric antiviral treatment should be initiated as soon as possible for hospitalized patients with suspected influenza without the need to wait for any influenza testing results (Antiviral Drugs, Information for Health Care Professionals). Antiviral treatment should not be stopped based on negative RIDT results given the lower sensitivities of RIDTs compared with RT-PCR or other molecular assays.
+Infection prevention and control measures should be implemented immediately upon admission for any hospitalized patient with suspected influenza even if RIDT results are negative (Infection Prevention and Control Strategies for Seasonal Influenza in Healthcare Settings).
+Serology for influenza should not be performed for clinical management. Clinicians should understand that negative results of influenza testing do not exclude influenza virus infection, especially if the time from illness onset to collection of respiratory specimens is more than 3 days, or if upper respiratory tract specimens were tested and the patient has lower respiratory tract disease. If influenza is suspected, testing of clinical specimens by RT-PCR or other molecular assays collected from different respiratory sites can be done (e.g., upper and lower respiratory tract) and can be collected on more than one day to increase the likelihood of influenza virus detection; intubated patients should have endotracheal aspirate specimens tested if influenza is suspected, but not yet confirmed.
+Detection of influenza virus infection and prompt implementation of infection prevention and control measures is critical to prevention of nosocomial influenza outbreaks. When there is influenza activity in the community, clinicians should consider influenza molecular testing, for patients who develop signs and symptoms of influenza while they are in a health care facility.
+Keep Reading
+Infection Prevention and Control Strategies for Seasonal Influenza in Healthcare Settings
+Suspected influenza institutional outbreaks
+For suspected influenza outbreaks in institutions, respiratory specimens should be collected from patients with suspected influenza as early as possible once the outbreak is suspected. The use of RT-PCR or other influenza molecular assays is preferred. If RIDTs are used in these settings, clinical specimens should also be sent for influenza testing at a public health laboratory by viral culture and RT-PCR to provide detailed information on specific influenza A virus subtypes and strains, and antiviral susceptibility data and to verify RIDT test results. Active daily surveillance for suspected influenza illness and collection of specimens from patients with suspected influenza should continue through at least 2 weeks after implementation of control measures to assess effectiveness of the measures and to monitor for potential emergence of antiviral resistance. Guidance on controlling influenza outbreaks in nursing homes is available.
+Keep Reading
+Infection Prevention and Control Strategies for Seasonal Influenza in Healthcare Settings
+Influenza surveillance
+Laboratory-based surveillance for influenza viruses by viral culture is critically important to the selection of viruses for the next season's influenza vaccine. Virus isolates are needed to characterize the circulating influenza A virus subtypes and influenza A and B virus strains and to determine how well they are matched antigenically to vaccine strains. Isolates are also needed for obtaining information on the emergence and prevalence of antiviral resistant strains, and the identification of human infection with novel influenza A viruses (e.g., an influenza A virus of animal origin that may sporadically cause illnesses in people) that may have pandemic potential. This information is needed from specimens sent for viral culture and RT-PCR year-round for identification of novel influenza A virus strains or antigenically drifted seasonal influenza virus strains, including during times of low influenza activity such as at the beginning and end of influenza seasonal activity.
+Keep Reading
+Weekly U.S. Influenza Surveillance Report (FluView)
+References
+Merckx J, Wali R, Schiller I, Caya C, Gore GC, Chartrand C, Dendukuri N, Papenburg J. Diagnostic Accuracy of Novel and Traditional Rapid Tests for Influenza Infection Compared With Reverse Transcriptase Polymerase Chain Reaction: A Systematic Review and Meta-analysis. Ann Intern Med. 2017 Sep 19;167(6):394-409. doi: 10.7326/M17-0848.
+Uyeki TM, Bernstein HH, Bradley JS, Englund JA, File TM, Fry AM, Gravenstein S, Hayden FG, Harper SA, Hirshon JM, Ison MG, Johnston BL, Knight SL, McGeer A, Riley LE, Wolfe CR, Alexander PE, Pavia AT.Clinical Practice Guidelines by the Infectious Diseases Society of America: 2018 Update on Diagnosis, Treatment, Chemoprophylaxis, and Institutional Outbreak Management of Seasonal Influenza. Clin Infect Dis. 2019 Mar 5;68(6):e1-e47. doi: 10.1093/cid/ciy866.
+Vos LM, Bruning AHL, Reitsma JB, Schuurman R, Riezebos-Brilman A, Hoepelman AIM, Oosterheert JJ. Rapid Molecular Tests for Influenza, Respiratory Syncytial Virus, and Other Respiratory Viruses: A Systematic Review of Diagnostic Accuracy and Clinical Impact Studies. Clin Infect Dis. 2019 Sep 13;69(7):1243-1253. doi: 10.1093/cid/ciz056.
+June 22, 2026
+Sources
+Print
+Share
+Facebook
+LinkedIn
+Twitter
+Syndicate
+Content Source:
+National Center for Immunization and Respiratory Diseases (NCIRD)

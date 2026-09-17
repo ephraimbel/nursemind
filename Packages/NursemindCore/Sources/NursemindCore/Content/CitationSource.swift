@@ -16,6 +16,7 @@ public struct CitationSource: Identifiable, Hashable, Codable, Sendable {
     public let license: SourceLicense
     public let url: String
     public let lastRetrieved: String   // ISO date string
+    public var answerEvidence: AnswerCitationEvidence?
 
     public init(
         id: String,

@@ -1,217 +1,345 @@
-import Foundation
 import AppTrackingTransparency
+import Foundation
+import RevenueCat
 import TikTokBusinessSDK
+import UIKit
 
-/// Thin wrapper around `TikTokBusiness` that mirrors the surface of
-/// `AnalyticsService` so call sites stay symmetric: configure once at
-/// app launch, then call typed event helpers. The wrapper exists so the
-/// rest of the codebase never imports `TikTokBusinessSDK` directly — that
-/// way we can swap the attribution vendor or scope down without churn.
-///
-/// Privacy: the Events-API access token is a server-to-server credential
-/// that the SDK accepts client-side. It's still stored in `Secrets.swift`
-/// (gitignored) and never logged. The SDK refuses to fire when any of the
-/// three credentials is empty, so DEBUG builds and forks without keys are
-/// inert by default.
-///
-/// ATT: the SDK never auto-prompts. `requestTrackingAuthorization()` is
-/// called explicitly from `RootView` the first time the scene becomes
-/// active — i.e. at the splash, before any IDFA-bearing tracking data is
-/// collected. We call Apple's `ATTrackingManager` directly (rather than
-/// TikTok's wrapper) so the prompt is independent of SDK-config state and
-/// fires deterministically on a fresh install; the TikTok SDK reads the
-/// resulting ATT status itself to gate IDFA. Firing during a view
-/// transition (the old paywall-exit trigger) let iOS silently suppress the
-/// prompt when the app wasn't cleanly `.active` — which is why App Review
-/// 2026-05-30 couldn't locate it (Guideline 2.1).
 @MainActor
 public final class TikTokAnalyticsService {
-    public static let shared = TikTokAnalyticsService()
+    public static let shared = TikTokAnalyticsService(dependencies: .live)
 
-    private var isConfigured = false
+    struct Event: Equatable {
+        var name: String
+        var id: String = UUID().uuidString
+        var productID: String?
+        var value: Double?
+        var currency: String?
+        var isTransaction = false
+    }
 
-    /// Guard against re-firing Login + identify on every auth-state stream
-    /// tick. Same pattern as `RevenueCatService.lastLinkedUserID`.
-    private var lastIdentifiedUserID: UUID?
+    @MainActor
+    struct Dependencies {
+        var authorized: () -> Bool
+        var active: () -> Bool
+        var userID: () -> String?
+        var now: () -> Date
+        var initialize: (String, String, String, @escaping @MainActor @Sendable (Bool) -> Void) -> Void
+        var enableTracking: (Bool) -> Void
+        var identify: (String) -> Void
+        var logout: () -> Void
+        var log: (Event) -> Void
+        var load: () -> Data?
+        var save: (Data) -> Void
 
-    /// Bound at `attach()` time and never released. Service is a singleton
-    /// so the retain is intentional.
-    private var supabase: SupabaseService { SupabaseService.shared }
+        static var live: Self {
+            Self(
+                authorized: { ATTrackingManager.trackingAuthorizationStatus == .authorized },
+                active: { UIApplication.shared.applicationState == .active },
+                userID: {
+                    guard case .signedIn(let id) = SupabaseService.shared.state else { return nil }
+                    return id.uuidString.lowercased()
+                },
+                now: Date.init,
+                initialize: { appID, tiktokAppID, token, completion in
+                    guard let config = TikTokAnalyticsService.sdkConfiguration(
+                        appID: appID, tiktokAppID: tiktokAppID, accessToken: token
+                    ) else { completion(false); return }
+                    TikTokBusiness.initializeSdk(config) { success, _ in
+                        Task { @MainActor in completion(success) }
+                    }
+                },
+                enableTracking: { TikTokBusiness.setTrackingEnabled($0) },
+                identify: {
+                    TikTokBusiness.identify(withExternalID: $0, externalUserName: nil, phoneNumber: nil, email: nil)
+                },
+                logout: { TikTokBusiness.logout() },
+                log: { event in
+                    let sdkEvent = TikTokBaseEvent(eventName: event.name, eventId: event.id)
+                    if let productID = event.productID {
+                        _ = sdkEvent.addProperty(withKey: "content_id", value: productID)
+                    }
+                    if let value = event.value {
+                        _ = sdkEvent.addProperty(withKey: "value", value: NSNumber(value: value))
+                    }
+                    if let currency = event.currency {
+                        _ = sdkEvent.addProperty(withKey: "currency", value: currency)
+                    }
+                    TikTokBusiness.trackTTEvent(sdkEvent)
+                    TikTokBusiness.explicitlyFlush()
+                },
+                load: { UserDefaults.standard.data(forKey: "analytics.tiktok.purchases.v1") },
+                save: { UserDefaults.standard.set($0, forKey: "analytics.tiktok.purchases.v1") }
+            )
+        }
+    }
 
-    private init() {}
+    struct Purchase: Codable {
+        var userID: String
+        var transactionID: String
+        var productID: String
+        var purchaseDate: Date
+        var originalPurchaseDate: Date
+        var isTrial: Bool
+        var amount: Double?
+        var currency: String?
+        var eligible: Bool
+    }
 
-    /// Initialize the TikTok Business SDK with the three credentials from
-    /// `Secrets.swift`. Idempotent — safe to call from `NursemindApp.init`
-    /// even if SwiftUI tears down and rebuilds the root tree. Any empty
-    /// credential short-circuits the call so dev/simulator builds without
-    /// real TikTok IDs stay quiet.
+    private struct PurchaseState: Codable {
+        var emittedIDs: [String] = []
+        var pending: Purchase?
+    }
+
+    private let dependencies: Dependencies
+    private var credentials: (appID: String, tiktokAppID: String, token: String)?
+    private var initialized = false
+    private var initializing = false
+    private var attached = false
+    private var launched = false
+    private var lastUserID: String?
+    private var queue: [Event] = []
+    private var queuedUserID: String?
+    private var purchaseState: PurchaseState
+
+    init(dependencies: Dependencies) {
+        self.dependencies = dependencies
+        purchaseState = dependencies.load().flatMap { try? JSONDecoder().decode(PurchaseState.self, from: $0) }
+            ?? PurchaseState()
+    }
+
+    static func sdkConfiguration(appID: String, tiktokAppID: String, accessToken: String) -> TikTokConfig? {
+        guard !appID.isEmpty, !tiktokAppID.isEmpty, !accessToken.isEmpty,
+              let config = TikTokConfig(accessToken: accessToken, appId: appID, tiktokAppId: tiktokAppID) else { return nil }
+        // One owner per signal: the app owns SKAN and verified RevenueCat payments.
+        config.disableSKAdNetworkSupport()
+        config.disablePaymentTracking()
+        config.disableAutoEnhancedDataPostbackEvent()
+        // Automatic launches would otherwise be queued while consent is revoked.
+        config.disableLaunchTracking()
+        config.disableRetentionTracking()
+        #if DEBUG
+        config.enableDebugMode()
+        #endif
+        return config
+    }
+
     public func configure(appID: String, tiktokAppID: String, accessToken: String) {
-        guard !isConfigured else { return }
-        guard !appID.isEmpty, !tiktokAppID.isEmpty, !accessToken.isEmpty else { return }
-        guard let config = TikTokConfig(
-            accessToken: accessToken,
-            appId: appID,
-            tiktokAppId: tiktokAppID
-        ) else {
+        guard credentials == nil, !appID.isEmpty, !tiktokAppID.isEmpty, !accessToken.isEmpty else { return }
+        credentials = (appID, tiktokAppID, accessToken)
+    }
+
+    public func requestTrackingAuthorization(completion: @escaping @MainActor @Sendable () -> Void = {}) {
+        guard ATTrackingManager.trackingAuthorizationStatus == .notDetermined else {
+            applicationDidBecomeActive()
+            completion()
             return
         }
-        // Install + launch + retention tracking are on by default — that's
-        // the whole point of the SDK. We leave them as-is.
-        // The deprecated `appTrackingDialogSuppressed` is the new default;
-        // we'll prompt ourselves after the paywall.
-        TikTokBusiness.initializeSdk(config) { success, error in
-            if let error, !success {
-                // Stay quiet in release; this is best-effort attribution
-                // and a logging side-channel would be its own privacy risk.
-                #if DEBUG
-                print("[TikTokAnalytics] init failed: \(error.localizedDescription)")
-                #endif
+        ATTrackingManager.requestTrackingAuthorization { _ in
+            Task { @MainActor in
+                self.applicationDidBecomeActive()
+                completion()
             }
         }
-        isConfigured = true
     }
 
-    /// Present the iOS App Tracking Transparency prompt. Called from
-    /// `RootView` on the first `.active` scene phase so the system sheet
-    /// appears at the splash, before any IDFA is read.
-    ///
-    /// Deliberately NOT gated on `isConfigured`: the prompt must show even
-    /// in builds without TikTok keys, and the system API only displays the
-    /// sheet once ever (when status is `.notDetermined`) — every later call
-    /// is a no-op — so the explicit `.notDetermined` guard just avoids the
-    /// pointless re-entry. We call Apple's framework directly; the TikTok
-    /// SDK reads ATT status on its own to decide whether it may use the
-    /// IDFA, so no hand-off is required.
-    public func requestTrackingAuthorization() {
-        guard ATTrackingManager.trackingAuthorizationStatus == .notDetermined else { return }
-        ATTrackingManager.requestTrackingAuthorization { _ in
-            // The status is fine to ignore — TikTok reads it internally and
-            // gates IDFA-bearing requests on it. Nothing else in the app
-            // branches on ATT state today.
-        }
-    }
-
-    /// Hook the Supabase auth-state stream so we fire Login + identify
-    /// exactly once per signed-in user. Idempotent — safe to call from
-    /// RootView.init even when SwiftUI tears down and rebuilds.
-    ///
-    /// Called from `RootView.init` (after `SupabaseService.configure`)
-    /// rather than `NursemindApp.init` because SupabaseService needs its
-    /// URL + anon key set before its `state` stream is meaningful.
     public func attach() {
+        guard !attached else { return }
+        attached = true
         observeAuthState()
     }
 
     private func observeAuthState() {
-        withObservationTracking { [weak self] in
-            _ = self?.supabase.state
-        } onChange: { [weak self] in
-            Task { @MainActor in
-                self?.observeAuthState()
-                self?.handleAuthStateChange()
+        withObservationTracking { _ = SupabaseService.shared.state } onChange: { [weak self] in
+            Task { @MainActor in self?.observeAuthState() }
+        }
+        synchronizeAttribution()
+    }
+
+    public func applicationDidEnterBackground() {
+        launched = false
+        if initialized { dependencies.enableTracking(false) }
+    }
+
+    public func applicationDidBecomeActive() {
+        guard dependencies.active() else { return }
+        synchronizeAttribution()
+        guard credentials != nil, dependencies.authorized(), !launched else { return }
+        launched = true
+        track(Event(name: TTEventName.launchAPP.rawValue))
+    }
+
+    public func synchronizeAttribution() {
+        guard dependencies.authorized() else {
+            queue.removeAll()
+            purchaseState.pending = nil
+            persist()
+            launched = false
+            if initialized {
+                dependencies.enableTracking(false)
+                if lastUserID != nil { dependencies.logout() }
+            }
+            lastUserID = nil
+            return
+        }
+        guard let credentials, dependencies.active() else { return }
+        if initialized {
+            synchronizeIdentity()
+            dependencies.enableTracking(true)
+            flushQueue()
+        } else if !initializing {
+            initializing = true
+            dependencies.initialize(credentials.appID, credentials.tiktokAppID, credentials.token) { [weak self] success in
+                guard let self else { return }
+                self.initializing = false
+                self.initialized = success
+                if success {
+                    self.dependencies.enableTracking(false)
+                    self.dependencies.logout()
+                    self.synchronizeAttribution()
+                }
             }
         }
-        handleAuthStateChange()
     }
 
-    private func handleAuthStateChange() {
-        guard isConfigured else { return }
-        guard case .signedIn(let userID) = supabase.state else { return }
-        guard lastIdentifiedUserID != userID else { return }
-        lastIdentifiedUserID = userID
-        // identify ties subsequent TikTok events to a stable cross-device
-        // user key. We deliberately pass ONLY the Supabase UUID — never
-        // email or phone — to keep the TikTok ad graph from learning
-        // anything that could touch user PII.
-        TikTokBusiness.identify(
-            withExternalID: userID.uuidString.lowercased(),
-            externalUserName: nil,
-            phoneNumber: nil,
-            email: nil
-        )
-        let event = TikTokBaseEvent(eventName: TTEventName.login.rawValue)
-        TikTokBusiness.trackTTEvent(event)
+    private func synchronizeIdentity() {
+        let userID = dependencies.userID()
+        guard userID != lastUserID else { return }
+        if queuedUserID != userID { queue.removeAll() }
+        if lastUserID != nil {
+            dependencies.enableTracking(false)
+            dependencies.logout()
+        }
+        if purchaseState.pending?.userID != userID { purchaseState.pending = nil; persist() }
+        lastUserID = userID
+        if let userID {
+            dependencies.enableTracking(true)
+            dependencies.identify(userID)
+        }
     }
 
-    /// Clear the identify guard so a fresh sign-in re-runs identify.
-    /// Wired into the account-deletion path the same way RevenueCat is.
     public func resetForFreshAccount() {
-        guard isConfigured else { return }
-        lastIdentifiedUserID = nil
-        TikTokBusiness.logout()
+        queue.removeAll()
+        purchaseState.pending = nil
+        persist()
+        if initialized {
+            dependencies.enableTracking(false)
+            dependencies.logout()
+        }
+        lastUserID = nil
     }
 
-    // MARK: - Event helpers
+    public func trackOnboardingComplete() { track(Event(name: TTEventName.registration.rawValue)) }
+    public func trackTutorialComplete() { track(Event(name: TTEventName.completeTutorial.rawValue)) }
+    public func trackCheckoutStarted() { track(Event(name: "Checkout")) }
+    public func trackPaywallView() { track(Event(name: "ViewContent", productID: "paywall")) }
 
-    /// User finished the onboarding flow (after the safety contract +
-    /// paywall step). Maps to TikTok's standard Registration event so it
-    /// lights up as a configurable optimization target in Ads Manager.
-    public func trackOnboardingComplete() {
-        guard isConfigured else { return }
-        let event = TikTokBaseEvent(eventName: TTEventName.registration.rawValue)
-        TikTokBusiness.trackTTEvent(event)
+    private func track(_ event: Event) {
+        synchronizeAttribution()
+        guard credentials != nil, dependencies.authorized(), dependencies.active() else { return }
+        guard !event.isTransaction || !purchaseState.emittedIDs.contains(event.id),
+              !queue.contains(where: { $0.id == event.id }) else { return }
+        if queue.isEmpty { queuedUserID = dependencies.userID() }
+        queue.append(event)
+        flushQueue()
     }
 
-    /// User finished the in-onboarding showcase flow (the feature tour
-    /// between auth and personalization). TikTok's CompleteTutorial event
-    /// fits this conceptually and is a useful mid-funnel signal between
-    /// Login and Registration.
-    public func trackTutorialComplete() {
-        guard isConfigured else { return }
-        let event = TikTokBaseEvent(eventName: TTEventName.completeTutorial.rawValue)
-        TikTokBusiness.trackTTEvent(event)
+    private func flushQueue() {
+        guard initialized, dependencies.authorized(), dependencies.active() else { return }
+        let events = queue
+        queue.removeAll()
+        for event in events {
+            dependencies.log(event)
+            if event.isTransaction {
+                purchaseState.emittedIDs.append(event.id)
+                purchaseState.emittedIDs = Array(purchaseState.emittedIDs.suffix(256))
+                if event.name == "Purchase" { purchaseState.pending = nil }
+                persist()
+            }
+        }
     }
 
-    /// User actively searched (debounced commit, not per-keystroke). We
-    /// deliberately do not pass the query text — search terms in a
-    /// clinical app can carry sensitive intent.
-    public func trackSearch() {
-        guard isConfigured else { return }
-        let event = TikTokBaseEvent(eventName: TTEventName.search.rawValue)
-        TikTokBusiness.trackTTEvent(event)
+    public var needsSubscriptionRefresh: Bool {
+        guard dependencies.authorized(), let pending = purchaseState.pending,
+              pending.userID == dependencies.userID() else { return false }
+        return dependencies.now().timeIntervalSince(pending.purchaseDate) < 35 * 86_400
     }
 
-    /// User selected a plan and tapped the paywall CTA — declared intent
-    /// to purchase, before the StoreKit sheet appears. Mid-funnel signal
-    /// between paywall view and StartTrial/Subscribe.
-    public func trackAddPaymentInfo() {
-        guard isConfigured else { return }
-        let event = TikTokBaseEvent(eventName: TTEventName.addPaymentInfo.rawValue)
-        TikTokBusiness.trackTTEvent(event)
+    func recordPurchase(_ purchase: Purchase, transactionID: String, transactionDate: Date, requestStartedAt: Date) {
+        guard credentials != nil, dependencies.authorized(), purchase.eligible,
+              purchase.userID == dependencies.userID(), !purchase.transactionID.isEmpty,
+              purchase.transactionID == transactionID,
+              transactionDate >= requestStartedAt.addingTimeInterval(-5),
+              transactionDate <= dependencies.now(),
+              abs(purchase.purchaseDate.timeIntervalSince(transactionDate)) <= 5 else { return }
+        let eventName = purchase.isTrial ? TTEventName.startTrial.rawValue : "Purchase"
+        guard !purchaseState.emittedIDs.contains("appstore:\(purchase.transactionID):\(eventName)") else { return }
+        purchaseState.pending = purchase
+        persist()
+        emitPurchase(purchase)
     }
 
-    /// Paywall surfaced — fired from `PaywallView.onAppear` for both the
-    /// onboarding paywall step and the quota-exhaustion paywall. `source`
-    /// matches the existing PostHog `paywall_viewed` source tag so the
-    /// two analytics surfaces stay aligned.
-    public func trackPaywallView(source: String) {
-        guard isConfigured else { return }
-        let event = TikTokViewContentEvent(eventId: UUID().uuidString)
-        event.setContentType("paywall")
-        event.setContentId(source)
-        TikTokBusiness.trackTTEvent(event)
+    func observe(_ purchase: Purchase) {
+        guard dependencies.authorized(), let pending = purchaseState.pending,
+              purchase.eligible, purchase.userID == dependencies.userID(),
+              purchase.userID == pending.userID, purchase.productID == pending.productID,
+              purchase.originalPurchaseDate == pending.originalPurchaseDate,
+              purchase.purchaseDate >= pending.purchaseDate,
+              purchase.purchaseDate <= dependencies.now(),
+              dependencies.now().timeIntervalSince(purchase.purchaseDate) <= 86_400 else { return }
+        emitPurchase(purchase)
     }
 
-    /// Trial started — fires only when StoreKit reports an intro-period
-    /// activation. Revenue is intentionally zero (Apple won't bill until
-    /// day 4); the `trial_converted` signal comes server-side via the
-    /// RevenueCat webhook later.
-    public func trackTrialStart(productID: String, currency: String) {
-        guard isConfigured else { return }
-        let event = TikTokBaseEvent(eventName: TTEventName.startTrial.rawValue)
-        _ = event.addProperty(withKey: "content_id", value: productID)
-        _ = event.addProperty(withKey: "currency", value: currency)
-        TikTokBusiness.trackTTEvent(event)
+    private func emitPurchase(_ purchase: Purchase) {
+        guard !purchase.transactionID.isEmpty,
+              let currency = purchase.currency, currency.count == 3,
+              currency.unicodeScalars.allSatisfy({ (65...90).contains(Int($0.value)) }) else { return }
+        let value: Double
+        if purchase.isTrial {
+            value = 0
+        } else {
+            guard let amount = purchase.amount, amount.isFinite, amount > 0 else { return }
+            value = amount
+        }
+        let name = purchase.isTrial ? TTEventName.startTrial.rawValue : "Purchase"
+        track(Event(name: name, id: "appstore:\(purchase.transactionID):\(name)", productID: purchase.productID,
+                    value: value, currency: currency, isTransaction: true))
     }
 
-    /// Direct subscription purchase (no trial). Booked at the StoreKit
-    /// price the user paid in the StoreKit-reported currency.
-    public func trackSubscription(productID: String, price: Decimal, currency: String) {
-        guard isConfigured else { return }
-        let event = TikTokBaseEvent(eventName: TTEventName.subscribe.rawValue)
-        _ = event.addProperty(withKey: "content_id", value: productID)
-        _ = event.addProperty(withKey: "value", value: NSDecimalNumber(decimal: price))
-        _ = event.addProperty(withKey: "currency", value: currency)
-        TikTokBusiness.trackTTEvent(event)
+    func recordPurchase(customerInfo: CustomerInfo, transaction: StoreTransaction?, requestStartedAt: Date, purchasingUserID: String) {
+        guard purchasingUserID == dependencies.userID(),
+              let transaction, let purchase = purchase(from: customerInfo),
+              transaction.productIdentifier == purchase.productID else { return }
+        recordPurchase(purchase, transactionID: transaction.transactionIdentifier,
+                       transactionDate: transaction.purchaseDate, requestStartedAt: requestStartedAt)
+    }
+
+    func observeCustomerInfo(_ info: CustomerInfo) {
+        guard let purchase = purchase(from: info) else { return }
+        observe(purchase)
+    }
+
+    private func purchase(from info: CustomerInfo) -> Purchase? {
+        guard Purchases.isConfigured, let userID = dependencies.userID(),
+              Purchases.shared.appUserID == userID,
+              let entitlement = info.entitlements.active[RevenueCatService.proEntitlementID],
+              let subscription = info.subscriptionsByProductIdentifier[entitlement.productIdentifier],
+              let original = subscription.originalPurchaseDate,
+              let transactionID = subscription.storeTransactionId else { return nil }
+        #if DEBUG
+        let environmentAllowed = true
+        #else
+        let environmentAllowed = !subscription.isSandbox
+        #endif
+        return Purchase(userID: userID, transactionID: transactionID, productID: subscription.productIdentifier,
+                        purchaseDate: subscription.purchaseDate, originalPurchaseDate: original,
+                        isTrial: subscription.periodType == .trial, amount: subscription.price?.amount,
+                        currency: subscription.price?.currency,
+                        eligible: environmentAllowed && subscription.store == .appStore && subscription.isActive
+                            && subscription.ownershipType == .purchased && subscription.refundedAt == nil
+                            && subscription.billingIssuesDetectedAt == nil)
+    }
+
+    private func persist() {
+        if let data = try? JSONEncoder().encode(purchaseState) { dependencies.save(data) }
     }
 }

@@ -55,6 +55,7 @@ public final class SupabaseService {
     /// sign-in (the in-memory session hasn't settled yet). Reading this
     /// cached copy avoids that race. Refresh handled at next launch.
     public private(set) var cachedAccessToken: String?
+    private var bootstrapTask: Task<Void, Never>?
 
     /// True while the current session is anonymous. Mirrors `client.auth.
     /// currentUser?.isAnonymous` but stored as a tracked property so SwiftUI
@@ -83,7 +84,7 @@ public final class SupabaseService {
         self.supabaseURL = url
         self.anonKey = anonKey
         self.state = .bootstrapping
-        Task { await bootstrap() }
+        bootstrapTask = Task { await bootstrap() }
     }
 
     // MARK: - Bootstrap
@@ -154,13 +155,28 @@ public final class SupabaseService {
     /// authenticate calls to the `ai-chat` Edge Function. Returns nil if no
     /// session has been established yet (e.g., offline first launch).
     public func currentAccessToken() async -> String? {
+        await bootstrapTask?.value
         guard let client else { return nil }
         do {
             let session = try await client.auth.session
+            self.cachedAccessToken = session.accessToken
             return session.accessToken
         } catch {
-            return nil
+            // The SDK can briefly miss its own session after sign-in; never reuse an expired fallback.
+            guard let token = cachedAccessToken, Self.tokenIsUnexpired(token) else { return nil }
+            return token
         }
+    }
+
+    static func tokenIsUnexpired(_ token: String, now: Date = Date()) -> Bool {
+        let parts = token.split(separator: ".")
+        guard parts.count == 3 else { return false }
+        var payload = String(parts[1]).replacingOccurrences(of: "-", with: "+").replacingOccurrences(of: "_", with: "/")
+        payload += String(repeating: "=", count: (4 - payload.count % 4) % 4)
+        guard let data = Data(base64Encoded: payload),
+              let object = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
+              let expiration = object["exp"] as? Double else { return false }
+        return expiration > now.timeIntervalSince1970 + 30
     }
 
     /// Manually retry bootstrap — call from a "Sync now" button or after the

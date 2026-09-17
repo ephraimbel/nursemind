@@ -1,0 +1,242 @@
+February 27, 2024
+Clinical Safety: Hand Hygiene for Healthcare Workers
+Key points
+Protect yourself and your patients from deadly germs by cleaning your hands.
+All healthcare personnel should understand how to care for and clean their hands.
+Why it matters
+Hand hygiene protects both healthcare personnel and patients. Hand hygiene means cleaning your hands with:
+Handwashing with water and soap (e.g., plain soap or with an antiseptic).
+Antiseptic hand rub (alcohol-based foam or gel hand sanitizer).
+Surgical hand antisepsis.
+Cleaning your hands reduces:
+The potential spread of deadly germs to patients.
+The spread of germs, including those resistant to antibiotics.
+The risk of healthcare personnel colonization or infection caused by germs received from the patient.
+Some healthcare personnel may need to clean their hands as often as 100 times during a work shift to keep themselves, patients and staff safe. A common challenge is keeping the skin on your hands healthy and clean.
+Background
+CDC provides the following recommendations for hand hygiene in healthcare settings.
+Recommendations
+Know when to clean your hands
+Immediately before touching a patient.
+Before performing an aseptic task such as placing an indwelling device or handling invasive medical devices.
+Before moving from work on a soiled body site to a clean body site on the same patient.
+After touching a patient or patient's surroundings.
+After contact with blood, body fluids, or contaminated surfaces.
+Immediately after glove removal.
+Know when to use alcohol-based hand sanitizer (ABHS) versus soap and water during routine patient care
+When to use an alcohol-based hand sanitizer (ABHS):
+Unless hands are visibly soiled, ABHS is preferred over soap and water in most clinical situations because it12:
+Is more effective at killing germs on hands than soap.
+Is easier to use when providing care, especially when moving from soiled to clean activities on the same patient or when moving between care of patients in shared rooms.
+Results in improved skin condition with less irritation and dryness than soap and water.
+Improves hand hygiene adherence.
+When to wash with soap and water
+When hands are visibly soiled.
+Before eating.
+After using the restroom.
+During the care of patients with suspected or confirmed infection during outbreaks of C. difficile and norovirus.
+Know how to use alcohol-based hand sanitizer (ABHS)
+Put product on hands and rub hands together.
+The efficacy (effectiveness) of alcohol-based hand sanitizer depends on the volume applied to the hands. Use the right amount of alcohol-based hand sanitizer product to clean your hands.
+Cover all surfaces and rub until hands feel dry.
+This should take around 20 seconds.
+Pay attention to the areas providers frequently miss3:
+Thumbs
+Fingertips
+Between fingers
+Know how to wash hands with soap and water
+Wet hands with water.
+Apply the manufacturer recommended amount of product to your hands.
+Rub hands together vigorously for at least 15 seconds, covering all surfaces of the hands and fingers.
+Rinse hands with water and use disposable towels to dry. Use a towel to turn off the faucet.
+Avoid using hot water to prevent drying of the skin.
+Note: Other entities recommend cleaning hands with soap and water for at least 20 seconds. Either time is acceptable. The focus should be on cleaning your hands at the right times and scrubbing hands and fingers with soap.
+Know the safety risks of refilling or “topping off” alcohol-based hand sanitizer (AHBS) and soap
+Refilling AHBS dispensers
+ABHS is an FDA-regulated over-the-counter product that should be stored and dispensed in an effective and safe manner.
+The safety of refilling or "topping off" containers of ABHS such as pump bottles, pocket-sized dispenser bottles and single-use wall-mounted dispensers of ABHS is not well studied. Safety risks associated with refilling or "topping off" containers of ABHS include:
+Accidental contamination.
+Reduced effectiveness from alcohol evaporation.
+Irritant effects from mixing formulations.
+Therefore, refilling or "topping off" ABHS dispensers should only be considered in accordance with manufacturer's guidance and FDA regulations.
+Refilling soap dispensers
+Refilling or "topping off" containers of liquid soap has been associated with outbreaks of pathogenic bacteria. Soap should not be added to partially empty soap dispensers.2
+Know when to wear (and change) gloves
+Gloves are not a substitute for hand hygiene.
+If your task requires gloves, perform hand hygiene before donning gloves and touching the patient or the patient's surroundings.
+Always clean your hands after removing gloves.
+Remember to remove gloves carefully to prevent hand contamination as dirty gloves can soil hands.
+When to wear gloves
+When needed for Standard Precautions (when you anticipate that you will come in contact with blood or other infectious materials, mucous membranes, non-intact skin, potentially contaminated skin, or contaminated equipment).
+When needed for Transmission-Based Precautions.
+When to change gloves and clean hands
+If gloves become damaged.
+If gloves become soiled with blood or body fluids after a task.
+If moving from work on a soiled body site to a clean body site on the same patient or if a clinical indication for hand hygiene occurs.
+If moving from care on one patient to another patient.
+If they look dirty or have blood or body fluids on them after completing a task4.
+Before exiting a patient room.
+Follow specific recommendations when treating a patient with confirmed or suspected C. difficile infection
+C. difficile is a spore-forming bacterium that can lead to a common healthcare-associated infection causing severe diarrhea. Spores are an inactive form of the germ and have a protective coating allowing them to live on surfaces for months.
+The bacteria can be transferred to patients via the hands of healthcare providers who have touched a contaminated surface or item.
+Unless hands are visibly soiled, alcohol-based hand sanitizer (ABHS) is preferred over soap and water for cleaning hands in most clinical situations15. This recommendation does not vary when caring for patients with C. difficile infection (CDI).
+Although there is a theoretical advantage to cleaning hands with soap and water when caring for patients with CDI, CDC still indicates a preference for ABHS as studies have not shown a clear prevention benefit for soap and water and removing ABHS risks reducing hand hygiene compliance overall.
+When entering the room of a patient with C. difficile, the priority should be to ensure glove use (in addition to a gown) and proper technique when removing gloves to minimize the risk of self-contamination6. Current evidence demonstrates that C. difficile spores may not be fully removed from hands, regardless of the method used to clean hands. This further emphasizes the need for appropriate use of gloves for the care of patients with CDI.
+As an additional precaution during outbreaks of C. difficile, CDC encourages hand washing with soap and water after the care of patients with known or suspected infections.1
+This is recommended due to the theoretical increased efficacy of soap and water for removing spores from hands, although evidence for this recommendation is limited. Proper use of gloves (in addition to a gown) to reduce bioburden on the hands should be emphasized. Access to ABHS should not be restricted.
+C. diff and hand hygiene studies
+One study found that most hand wash products produced less than a 1-log reduction in C. difficile spores and found the number of spores removed did not vary statistically from the number of spores removed from washing hands with tap water alone6.
+Several controlled studies have found alcohol-based hand rub to be ineffective at removing or inactivating C. difficile spores from the hands of volunteers contaminated with a known number of spores compared to hand washing.768
+Notably, one study did find a reduction of spores from the palmar surface of the hand with the alcohol-based hand rub.76
+Although alcohol-based hand rub is ineffective at removing or disinfecting C. difficile spores in controlled laboratory experiments, clinical studies have not demonstrated an increase in CDI with the use of ABHS products or a decrease in CDI with the use of soap and water.6 For example:
+Knight et al. found no evidence of an increase in CDI after implementation of an ABHS policy in a 795-bed community teaching hospital, including during the care of patients with CDI (incidence rate of 3.98 per 10,000 patient-days after implementation, compared with 4.96 before; P=.0036).9
+Boyce et al. demonstrated no increase in the incidence of CDI over a three-year period despite a significant and progressive increase in the use of ABHS in their 500-bed hospital. In addition, they found an increase in the overall hand hygiene compliance rate from 38% at baseline to 63% after ABHS implementation.10
+An observational study compared three years without ABHS use to three years with ABHS as the primary method for cleaning hands and demonstrated a 21% decrease in healthcare-acquired methicillin-resistant Staphylococcus aureus (MRSA), a 41% decrease in vancomycin-resistant Enterococcus (VRE), and no change in the incidence of CDI11.
+Follow hand hygiene recommendations for surgery:
+Bacteria on the hands of surgeons can cause wound infections if present in the operative field during surgery. Bacterial growth slows after preoperative scrubbing with an antiseptic agent.
+Before donning sterile gloves and performing surgery, perform surgical hand antisepsis using the following steps:
+Before the surgical hand scrub, remove rings, watches and bracelets.
+Remove debris from underneath fingernails using a nail cleaner under running water.
+When using an antimicrobial soap:
+Scrub hands and forearms for the length of time recommended by the manufacture, usually 2-6 minutes long. Scrub times like 10 minutes are not needed.
+When using ABHS with persistent activity:
+Follow the manufacturer’s instructions.
+Before you apply the alcohol solution, prewash hands and forearms with a non-antimicrobial soap and completely dry hands and forearms.
+After application of the alcohol-based product as recommended, allow hands and forearms to dry before donning sterile gloves.
+Other recommended steps:
+Rapid growth of bacteria occurs under surgical gloves with hands washed with non-antimicrobial soap. Using antimicrobial soap is important.
+Double glove during invasive procedures such as surgery that pose an increased risk of blood exposure.
+Reducing resident skin flora on the hands of the surgical team for the duration of a procedure reduces the risk of bacteria being released in the surgical field from punctured or torn gloves during surgery.
+Maintain hand skin health
+ABHS is less irritating and drying to skin than soap and water. Use ABHS in most clinical situations.
+Lotions and creams can prevent and decrease skin dryness that happens from cleaning your hands.
+Use hand lotions approved by your healthcare facility because they won't interfere with hand sanitizing products.
+When washing hands, use techniques to promote healthy hand skin, such as:
+Avoiding hot water.
+Patting rather than rubbing hands dry.
+Healthcare personnel with hand irritation should use cotton glove liners and follow guidance on their:
+Laundering
+Discarding
+Maintain fingernail and jewelry safety
+Natural nails should not extend past the fingertip.
+Do not wear artificial fingernails or extensions when having direct contact with high-risk patients like those at intensive-care units or operating rooms.
+Germs can live under artificial fingernails both before and after using an alcohol-based hand sanitizer and handwashing.
+Some studies have shown that skin underneath rings contain more germs than fingers without rings.
+Further studies should determine if wearing rings increases the spread of deadly germs.
+Healthcare facilities: Make hand hygiene a priority
+Require healthcare personnel to perform hand hygiene based on CDC recommendations.
+Ensure that healthcare providers perform hand hygiene with soap and water when hands are visibly soiled.
+Ensure supplies for adhering to hand hygiene are accessible when delivering patient care.
+Special issues: Fire safety and ABHS
+Ensure fire safety when using ABHS
+ABHS contains ethyl alcohol, which evaporates at room temperature into an ignitable vapor, and is considered a flammable liquid. Although ABHS-related fires are rare it is vital that ABHS is stored safely and bulk dispensers are installed and maintained correctly.
+Follow local and state fire safety laws and standards
+Building officers and fire marshals work together to enforce fire safety rules to protect patients and residents.
+Fire safety activities help to:
+Reduce sources of ignition.
+Ensure safe storage of flammable liquids.
+Establish quick exits in case of fire.
+Building officers and local fire marshals also work together to ensure ABHS dispensers are accessible and in locations that do not increase the risk of igniting or spreading a fire.
+Adhere to the Life Safety Code
+Adherence to the National Fire Protection Association (NFPA) Life Safety Code 101 was adopted by CMS. This code is a minimum fire safety requirement for facilities that receive Medicaid or Medicare reimbursement. The Life Safety Code contains national standards for the storage of ABHS, as well as placement and function of dispensers. When facilities use ABHS  the criteria listed in Table 1 must be met.
+Life Safety Code‎
+The Centers for Medicaid and Medicare Services (CMS) requires healthcare facilities to follow the Life Safety Code.
+Work with your local fire official
+Healthcare facilities may contact their local fire officials to ensure they meet all requirements for the installation of ABHS. Local fire officials often inspect commercial buildings and may be required to do so.
+Tours from local fire officials can help healthcare facilities:
+Meet requirements.
+Refresh their familiarity on structure.
+Identify vulnerabilities within the facility.
+There are several benefits to the healthcare facilities requesting a tour such as:
+Building relationships with local fire officials.
+Demonstrating a commitment to safety.
+Table 1. NFPA 101 Life Safety Code Requirements for the use of ABHS Dispensers
+Criteria
+Requirement
+Hand rub solution
+Must not exceed 95% alcohol content by volume. (The Centers for Disease Control and Prevention recommends that ABHS contain at least 60% alcohol.)
+Maximum dispenser fluid capacity
+1.2 liters (41 ounces, 0.32 gallons) for dispensers in rooms, corridors, and areas open to corridors.
+2.0 liters (67 ounces, 0.53 gallons) for dispensers in suites of rooms separated from corridors.
+Maximum quantity in aerosol containers
+18 ounces, limited to Level 1 aerosols as defined by NPFA 30 B.
+Maximum
+quantity of ABHS allowed in-use (i.e., in dispensers)
+Ten gallons (37.8 liters in-use outside of a storage cabinet within a single smoke compartment. (Smoke compartment: A space within a building enclosed by smoke barriers on all sides, including the top and bottom.)
+One dispenser per room off corridors is NOT included in the calculation.
+Minimum
+corridor width
+Six feet (1830 millimeters) wide
+ABHS
+dispenser distance from ignition sources
+One-inch (25 millimeters) distance (horizontal or vertical) above, to the side, or beneath an ignition source. (Sources of ignition: Appliances or equipment that, because of their intended modes of use or operation, are capable of providing sufficient thermal energy to ignite flammable gas-air mixtures.5 Examples include wall outlets, thermostats, and appliances.)
+Note: While one-inch is acceptable, a more conservative approach is to ensure a distance of no less than 6 inches (12.7 millimeters; horizontal or vertical, measured from the center of the dispenser) between ABHS dispensers and source of ignition.
+ABHS
+dispenser separation
+Horizontal spacing not less than 48 inches (1,220 millimeters).
+Carpeted
+areas
+The smoke compartment must be equipped throughout with an approved automatic sprinkler system.
+Operation
+of the dispenser, the dispenser shall:
+Not
+release its contents except when the dispenser is activated, either
+manually or automatically by touch-free activation.
+Not
+dispense more solution than the amount required for hand hygiene
+consistent with label instructions.
+Be
+designed, constructed and operated in a manner that ensures accidental or
+malicious activation is minimized.
+Be
+tested in accordance with the manufacturer’s care and use instructions
+each time a new refill is installed.
+Any activation of the dispenser shall only occur when an object is placed within 4 inches (100 millimeters) of the sensor.
+An object placed within the activation zone and left in place shall not cause more than one activation.
+Storage
+outside of dispensers
+In each smoke compartment, do not store outside of dispensers more than 5 gallons (18.9 liters) or an amount of ABHS that exceeds that which is necessary for normal maintenance of the area, whichever is less.
+Maximum
+quantity for storage in a warehouse
+Up to 120 gallons (460 liters). If need to exceed storage of 120 gallons (460 liters), consult with fire official.12
+Education and training
+CDC provides resources and training on hand hygiene for healthcare providers.
+Keep Reading:
+Hand hygiene in healthcare Training
+Resources
+Guideline for Hand Hygiene in Healthcare Settings [PDF – 495 KB]
+Isolation Precautions
+Surgical Site Infection
+February 27, 2024
+Sources
+Print
+Share
+Facebook
+LinkedIn
+Twitter
+Syndicate
+Content Source:
+National Center for Emerging and Zoonotic Infectious Diseases (NCEZID)
+References
+Glowicz J, Landon E, Sickbert-Bennett E, et al. SHEA/IDSA/APIC Practice Recommendation: Strategies to prevent healthcare-associated infections through hand hygiene: 2022 Update. Infect Control Hosp Epidemiol 2023;44(3), 355-376. doi:10.1017/ice.2022.304
+Guideline for Hand Hygiene in Healthcare Settings
+Widmer, A. F., Dangel, M., & RN. (2007). Introducing alcohol-based hand rub for hand hygiene: the critical need for training. Infection Control and Hospital Epidemiology, 28(1), 50-54.
+Guideline for Prevention of Surgical Site Infection
+Centers for Disease Control and Prevention. Guideline for Hand Hygiene in Health-Care Settings: Recommendations of the Healthcare Infection Control Practices Advisory Committee and the HICPAC/SHEA/APIC/IDSA Hand Hygiene Task Force. MMWR 2002;51 (No. RR-16).
+Kociolek LK, Gerding DN, Carrico R, et al. Strategies to prevent Clostridioides difficile infections in acute-care hospitals: 2022 Update. Infect Control Hosp Epidemiol 2023;44(4), 527–549.
+Jabbar U, Leischner J, Kasper D, et al. Effectiveness of alcohol-based hand rubs for removal of Clostridium difficile spores from hands. Infect Control Hosp Epidemiol 2010;31:565–570.
+Oughton MT, Loo VG, Dendukuri N, et al. Hand hygiene with soap and water is superior to alcohol rub and antiseptic wipes for removal of Clostridium difficile. Infect Control Hosp Epidemiol 2009;30:939–944.
+Knight N, Strait T, Anthony N, et al. Clostridium difficile colitis: a retrospective study of incidence and severity before and after institution of an alcohol-based hand rub policy. Am J Infect Control 2010;38:523–528.
+Boyce JM, Ligi C, Kohan C, et al. Lack of association between the increased incidence of Clostridium difficile–associated disease and the increasing use of alcohol-based hand rubs. Infect Control Hosp Epidemiol 2006;27:479–483.
+Gordin FM, Schultz ME, Huber RA, et al. Reduction in nosocomial transmission of drug-resistant bacteria after introduction of an alcohol-based handrub. Infect Control Hosp Epidemiol. 2005 Jul;26(7):650-3. doi: 10.1086/502596. PMID: 16092747.
+NFPA 30 Flammable and Combustible Liquids Code. 2018 edition. Quincy, MA: National Fire Protection Association, 2018.
+Sources
+Guideline for Isolation Precautions: Preventing Transmission of Infectious Agents in Healthcare Settings
+Nursing Homes and Assisted Living (Long-term Care Facilities [LTCFs])
+HAI Data
+National Fire Protection Association (NFPA). NFPA 101 Life Safety Code. 2018 edition. Quincy, MA: National Fire Protection Association; 2018.
+NFPA Glossary of Terms [PDF – 2052 pages]. Updated February 2019. Accessed February 14, 2019.
+SHEA/IDSA/APIC Practice Recommendation: Strategies to prevent healthcare-associated infections through hand hygiene: 2022 Update | Infection Control & Hospital Epidemiology | Cambridge Core
+Edmonds SL, Zapka C, Kasper D, et al. Effectiveness of hand hygiene for removal of Clostridium difficile spores from hands. Infect Control Hosp Epidemiol 2013;34:302–305.
+Glowicz J, Landon E, Sickbert-Bennett E, et al. SHEA/IDSA/APIC Practice Recommendation: Strategies to prevent healthcare-associated infections through hand hygiene: 2022 Update. Infect Control Hosp Epidemiol 2023;44(3), 355-376. doi:10.1017/ice.2022.304
+Widmer, A. F., Dangel, M., & RN. (2004). Alcohol-based hand rub: evaluation of technique and microbiological efficacy with international infection control professionals. Infection Control and Hospital Epidemiology, 25(3), 207-209.

@@ -37,6 +37,26 @@ private let specialtyDxR11 = CitationSource(
     lastRetrieved: "2026-05-04"
 )
 
+private let depth7_als_options = CitationSource(
+    id: "depth7_als_options",
+    shortName: "Focus on Amyotrophic Lateral Sclerosis",
+    detail: "Opening overview: current therapy examples and SOD1-associated treatment. Source revision date not stated in retrieved text. Federal educational facts adapted; no trial tables or algorithms reproduced.",
+    publisher: "National Institute of Neurological Disorders and Stroke; National Institutes of Health",
+    license: .publicDomain,
+    url: "https://www.ninds.nih.gov/current-research/focus-disorders/focus-amyotrophic-lateral-sclerosis",
+    lastRetrieved: "2026-09-17"
+)
+
+private let depth7_als_relyvrio = CitationSource(
+    id: "depth7_als_relyvrio",
+    shortName: "Amylyx: Relyvrio market-removal announcement",
+    detail: "April 4, 2024 announcement: end of availability for new patients and voluntary market-removal process. Historical regulatory and availability facts paraphrased; not a claim about the exact date of formal NDA withdrawal.",
+    publisher: "Amylyx Pharmaceuticals",
+    license: .factCitationOnly,
+    url: "https://investors.amylyx.com/news-releases/news-release-details/amylyx-pharmaceuticals-announces-formal-intention-remove",
+    lastRetrieved: "2026-09-17"
+)
+
 private let dysrR11 = NCLEXTags(category: .physiologicalIntegrity, subcategory: .physiologicalAdaptation, priorityConcept: .perfusion)
 private let palliativeR11 = NCLEXTags(category: .physiologicalIntegrity, subcategory: .basicCareAndComfort, priorityConcept: .painComfort)
 private let neuroR11 = NCLEXTags(category: .physiologicalIntegrity, subcategory: .physiologicalAdaptation, priorityConcept: .neurologicalRegulation)
@@ -570,7 +590,8 @@ public enum ALSSample {
             AttributedBullet("Family / caregiver burden; advance-care planning.", citationIDs: ["openrn_dx_round11"])
         ],
         commonInterventions: [
-            AttributedBullet("DISEASE-MODIFYING — riluzole (modest survival benefit), edaravone IV, AMX0035 / Relyvrio (short trials supported), tofersen (SOD1) per primary source.", citationIDs: ["specialty_dx_round11"]),
+            AttributedBullet("ALS disease-modifying options include riluzole and edaravone; tofersen is intended for SOD1-associated ALS. Treatment selection belongs with the specialist team.", citationIDs: ["depth7_als_options"]),
+            AttributedBullet("On April 4, 2024, the manufacturer ended Relyvrio availability for new patients and announced its market-removal process. AMX0035 / Relyvrio should not be listed as a current new-start ALS treatment.", citationIDs: ["depth7_als_relyvrio"]),
             AttributedBullet("MULTIDISCIPLINARY clinic — neurology, PT/OT/ST, respiratory, nutrition, social work, palliative care; improves survival per primary source.", citationIDs: ["specialty_dx_round11"]),
             AttributedBullet("Respiratory — non-invasive ventilation (BiPAP) when FVC <50%; cough-assist devices; tracheostomy if patient elects per primary source.", citationIDs: ["openrn_dx_round11"]),
             AttributedBullet("Nutrition — PEG tube before significant aspiration / weight loss (FVC >50% best timing).", citationIDs: ["openrn_dx_round11"]),
@@ -584,7 +605,7 @@ public enum ALSSample {
             AttributedBullet("Suicide / depression — high prevalence; mental-health support.", citationIDs: ["openrn_dx_round11"]),
             AttributedBullet("Caregiver burnout — respite, resources.", citationIDs: ["openrn_dx_round11"])
         ],
-        citations: [openrnDxR11, specialtyDxR11],
+        citations: [openrnDxR11, specialtyDxR11, depth7_als_options, depth7_als_relyvrio],
         lastSourceFidelityReview: "2026-05-04"
     )
 }

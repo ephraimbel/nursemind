@@ -108,7 +108,20 @@ public enum HomeOxygenSafetySample {
             ]),
             .bullets(title: "Report symptoms as well as numbers", [
                 AttributedBullet("Worsening breathlessness, chest discomfort, restlessness or concerning readings warrant clinical attention. Some people with low oxygen have few obvious symptoms. Report the measurement trend together with how the person feels and follow the clinician’s monitoring plan.", citationIDs: ["resp_oximeter"])
-            ])
+            ]),
+            .bullets(title: "Read the display correctly", [
+            AttributedBullet("SpO2 is the estimated oxygen saturation, displayed as a percentage. PR is pulse rate. Some devices also display signal strength. These are different measurements; identify which number is being reported before comparing the trend.", citationIDs: ["resp_oximeter"])
+        ]),
+            .bullets(title: "Use a consistent measurement record", [
+            AttributedBullet("FDA’s home-use technique includes a warm, relaxed hand held below heart level, no polish on the measured finger and a still position. Wait for a stable number, then record the oxygen reading with its date and time. The clinician determines when and how often to measure.", citationIDs: ["resp_oximeter"])
+        ]),
+            .bullets(title: "Include the limits of device performance", [
+            AttributedBullet("Skin pigmentation, skin thickness, poor circulation, temperature, tobacco use and nail polish can affect accuracy. FDA describes performance differences between lighter and darker skin pigmentation. Review symptoms even when a number appears reassuring.", citationIDs: ["resp_oximeter"]),
+            AttributedBullet("Some devices intended for medical use have FDA clearance for over-the-counter sale. General-wellness and sporting or aviation products are a different category and have not been evaluated for deciding whether medical intervention is needed. “Available without prescription” alone does not identify the category.", citationIDs: ["resp_oximeter"])
+        ]),
+            .bullets(title: "Individualize the interpretation", [
+            AttributedBullet("FDA describes 95–100% as typical for most healthy people, while some people with lung or heart conditions or at higher altitude have lower values. That description is not a universal oxygen prescription or an individualized escalation threshold. Use the clinician’s monitoring plan together with symptoms and changes over time.", citationIDs: ["resp_oximeter"])
+        ])
         ],
         citations: [resp_oxygen, resp_oxygen_fire, resp_oximeter],
         lastSourceFidelityReview: "2026-09-17"
@@ -138,7 +151,20 @@ public enum PulmonaryRehabilitationSupportSample {
             .bullets(title: "Include emotional health and follow-up", [
                 AttributedBullet("Anxiety, depression and stress can accompany chronic lung disease. Rehabilitation may include counseling and nutritional support. Repeat assessments help the team determine whether function has improved and guide continuing activity.", citationIDs: ["resp_rehab"]),
                 AttributedBullet("Discuss worsening symptoms or fever with the provider and follow the patient’s flare-up plan. Severe deterioration needs urgent care. Keep contact information accessible and include family or caregiver support when the patient wishes.", citationIDs: ["resp_copd_daily"])
-            ])
+            ]),
+            .bullets(title: "Explain who may benefit", [
+            AttributedBullet("NHLBI includes selected patients with COPD, asthma, pulmonary hypertension and cystic fibrosis, as well as people whose other health conditions affect lung function. Rehabilitation may also be used before or after lung transplantation or lung-cancer surgery. The referral is individualized.", citationIDs: ["resp_rehab"])
+        ]),
+            .bullets(title: "Set functional goals with the team", [
+            AttributedBullet("The program can build strength and make daily tasks, work and social activities easier. Exercise training targets the back, arms, legs and breathing muscles and develops stamina and flexibility. Goals should connect the supervised activities with the person’s actual daily needs.", citationIDs: ["resp_rehab"])
+        ]),
+            .bullets(title: "Prepare for the program schedule", [
+            AttributedBullet("Programs commonly involve two or three sessions each week over several weeks or months. Sessions may occur in a hospital or clinic; selected exercises, breathing practice and monitoring may continue at home as part of the assigned plan.", citationIDs: ["resp_rehab"])
+        ]),
+            .bullets(title: "Understand supervised safety and reassessment", [
+            AttributedBullet("Muscle or bone injury is an uncommon exercise-related risk. NHLBI describes the team stopping activity, providing appropriate treatment and contacting the clinician when a serious problem occurs during a supervised session. New problems belong with the rehabilitation team, not an automatic increase in exercise intensity.", citationIDs: ["resp_rehab"]),
+            AttributedBullet("At the end of the program, repeat lung-function and exercise assessments can show whether breathing and performance have improved. Some are the same tests used at baseline, allowing progress to be discussed in relation to the starting assessment.", citationIDs: ["resp_rehab"])
+        ])
         ],
         citations: [resp_rehab, resp_copd_daily],
         lastSourceFidelityReview: "2026-09-17"

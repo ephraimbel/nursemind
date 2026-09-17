@@ -53,8 +53,10 @@ public struct LabEntryView: View {
         referenceRanges
         divider
         interpretationTiers
-        divider
-        commonCauses
+        if !entry.commonCauses.isEmpty {
+            divider
+            commonCauses
+        }
         if let actions = entry.nursingActions, !actions.isEmpty {
             divider
             nursingActions(actions)

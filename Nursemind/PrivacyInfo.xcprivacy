@@ -16,17 +16,17 @@
     -->
 
     <!--
-        Tracking is enabled because the TikTok Business SDK collects IDFA
+        Tracking is enabled because the Meta and TikTok SDKs collect IDFA
         (when the user grants ATT) for ad attribution across apps/websites.
         Tracking is gated behind the iOS AppTrackingTransparency prompt
-        shown after the onboarding paywall closes — if the user denies, the
-        SDK still receives aggregate install/conversion events but no IDFA.
+        shown when the app first becomes active. Meta SDK initialization and
+        RevenueCat-to-Meta event delivery require authorized ATT consent.
     -->
     <key>NSPrivacyTracking</key>
     <true/>
 
     <!--
-        Domains the TikTok Business SDK contacts for attribution + event
+        Domains the attribution SDKs contact for attribution + event
         ingestion. Listed here so iOS can enforce them as tracking
         endpoints when ATT is denied.
     -->
@@ -35,6 +35,8 @@
         <string>business-api.tiktok.com</string>
         <string>analytics.tiktok.com</string>
         <string>analytics-sg.tiktok.com</string>
+        <string>ep1.facebook.com</string>
+        <string>graph.facebook.com</string>
     </array>
 
     <!--
@@ -107,16 +109,19 @@
             <key>NSPrivacyCollectedDataTypeLinked</key>
             <true/>
             <key>NSPrivacyCollectedDataTypeTracking</key>
-            <false/>
+            <true/>
             <key>NSPrivacyCollectedDataTypePurposes</key>
             <array>
                 <string>NSPrivacyCollectedDataTypePurposeAppFunctionality</string>
+                <string>NSPrivacyCollectedDataTypePurposeAnalytics</string>
+                <string>NSPrivacyCollectedDataTypePurposeThirdPartyAdvertising</string>
+                <string>NSPrivacyCollectedDataTypePurposeDeveloperAdvertising</string>
             </array>
         </dict>
 
         <!--
-            Device ID covers install-scoped IDs (Sentry/PostHog) AND, once
-            the user grants ATT, the IDFA used by the TikTok Business SDK
+            Device ID covers install-scoped IDs and, once
+            the user grants ATT, the IDFA used by Meta and TikTok
             for cross-app ad attribution. Tracking=true reflects the IDFA
             usage; users who deny ATT get no IDFA passed to TikTok.
         -->
@@ -124,7 +129,7 @@
             <key>NSPrivacyCollectedDataType</key>
             <string>NSPrivacyCollectedDataTypeDeviceID</string>
             <key>NSPrivacyCollectedDataTypeLinked</key>
-            <false/>
+            <true/>
             <key>NSPrivacyCollectedDataTypeTracking</key>
             <true/>
             <key>NSPrivacyCollectedDataTypePurposes</key>
@@ -132,6 +137,7 @@
                 <string>NSPrivacyCollectedDataTypePurposeAnalytics</string>
                 <string>NSPrivacyCollectedDataTypePurposeAppFunctionality</string>
                 <string>NSPrivacyCollectedDataTypePurposeThirdPartyAdvertising</string>
+                <string>NSPrivacyCollectedDataTypePurposeDeveloperAdvertising</string>
             </array>
         </dict>
 
@@ -142,25 +148,30 @@
             <key>NSPrivacyCollectedDataTypeLinked</key>
             <true/>
             <key>NSPrivacyCollectedDataTypeTracking</key>
-            <false/>
+            <true/>
             <key>NSPrivacyCollectedDataTypePurposes</key>
             <array>
                 <string>NSPrivacyCollectedDataTypePurposeAppFunctionality</string>
+                <string>NSPrivacyCollectedDataTypePurposeAnalytics</string>
+                <string>NSPrivacyCollectedDataTypePurposeThirdPartyAdvertising</string>
+                <string>NSPrivacyCollectedDataTypePurposeDeveloperAdvertising</string>
             </array>
         </dict>
 
-        <!-- Product interaction: PostHog anonymous events -->
+        <!-- Product interaction: product analytics and consented Meta app activations -->
         <dict>
             <key>NSPrivacyCollectedDataType</key>
             <string>NSPrivacyCollectedDataTypeProductInteraction</string>
             <key>NSPrivacyCollectedDataTypeLinked</key>
-            <false/>
+            <true/>
             <key>NSPrivacyCollectedDataTypeTracking</key>
-            <false/>
+            <true/>
             <key>NSPrivacyCollectedDataTypePurposes</key>
             <array>
                 <string>NSPrivacyCollectedDataTypePurposeAnalytics</string>
                 <string>NSPrivacyCollectedDataTypePurposeAppFunctionality</string>
+                <string>NSPrivacyCollectedDataTypePurposeThirdPartyAdvertising</string>
+                <string>NSPrivacyCollectedDataTypePurposeDeveloperAdvertising</string>
             </array>
         </dict>
 

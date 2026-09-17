@@ -1,5 +1,35 @@
 import Foundation
 
+private let depth9_transmission = CitationSource(
+    id: "depth9_transmission",
+    shortName: "Transmission-Based Precautions",
+    detail: "Droplet Precautions: patient placement, mask upon room entry and transport. Page dated April 3, 2024. Federal prose adapted; images and third-party material excluded. Targeted statement correction only; independent clinical review pending.",
+    publisher: "Centers for Disease Control and Prevention",
+    license: .publicDomain,
+    url: "https://www.cdc.gov/infection-control/hcp/basics/transmission-based-precautions.html",
+    lastRetrieved: "2026-09-17"
+)
+
+private let depth9_cdiff_control = CitationSource(
+    id: "depth9_cdiff_control",
+    shortName: "C. difficile: Clinical Guidance",
+    detail: "Isolation and Contact Precautions; diagnostic stewardship; environmental cleaning. Page dated May 13, 2026. Federal prose adapted; images and third-party material excluded. Targeted statement correction only; independent clinical review pending.",
+    publisher: "Centers for Disease Control and Prevention",
+    license: .publicDomain,
+    url: "https://www.cdc.gov/c-diff/hcp/clinical-guidance/index.html",
+    lastRetrieved: "2026-09-17"
+)
+
+private let depth9_hands = CitationSource(
+    id: "depth9_hands",
+    shortName: "Clinical Safety: Hand Hygiene",
+    detail: "ABHS versus soap and water; C. difficile routine care and outbreaks; glove use. Page dated February 27, 2024. Federal prose adapted; images and third-party material excluded. Targeted statement correction only; independent clinical review pending.",
+    publisher: "Centers for Disease Control and Prevention",
+    license: .publicDomain,
+    url: "https://www.cdc.gov/clean-hands/hcp/clinical-safety/index.html",
+    lastRetrieved: "2026-09-17"
+)
+
 // Curator-model procedures + reference (round 16 — toxicology + ID + dermatology + safety).
 
 private let openrnPRR16 = CitationSource(
@@ -317,7 +347,7 @@ public enum IsolationPrecautionsHierarchySample {
                 citationIDs: ["specialty_pr_round16"]
             )),
             .bullets(title: "Standard precautions (ALL patients, ALL encounters)", [
-                AttributedBullet("Hand hygiene — alcohol-based rub OR soap/water (soap/water for C. diff, B. anthracis spores, visibly soiled hands).", citationIDs: ["specialty_pr_round16"]),
+                AttributedBullet("Hand hygiene — sanitizer for most routine care; soap and water for visible soil or outbreak indications.", citationIDs: ["depth9_hands"]),
                 AttributedBullet("PPE — gloves, gown, mask, eye protection based on anticipated exposure to body fluids / secretions / non-intact skin.", citationIDs: ["specialty_pr_round16"]),
                 AttributedBullet("Safe injection practices — single-use syringe, aseptic technique, sharps disposal.", citationIDs: ["specialty_pr_round16"]),
                 AttributedBullet("Respiratory hygiene / cough etiquette — patients cover cough / sneeze; offer mask + tissues; segregate symptomatic.", citationIDs: ["specialty_pr_round16"]),
@@ -328,11 +358,11 @@ public enum IsolationPrecautionsHierarchySample {
                 AttributedBullet("PPE — gown + gloves on entry; mask if also droplet.", citationIDs: ["specialty_pr_round16"]),
                 AttributedBullet("Private room preferred; cohort if needed.", citationIDs: ["openrn_pr_round16"]),
                 AttributedBullet("Dedicated equipment (BP cuff, stethoscope) when possible.", citationIDs: ["openrn_pr_round16"]),
-                AttributedBullet("C. difficile — SOAP AND WATER (alcohol does not kill spores); bleach environmental disinfection.", citationIDs: ["specialty_pr_round16"])
+                AttributedBullet("C. difficile — facility-directed hand hygiene and a labeled C. difficile sporicidal disinfectant.", citationIDs: ["depth9_cdiff_control"])
             ]),
             .bullets(title: "Droplet precautions", [
                 AttributedBullet("Indications — influenza, pertussis, mumps, rubella, meningococcal, group A strep (until 24h on abx), respiratory diphtheria, plague.", citationIDs: ["specialty_pr_round16"]),
-                AttributedBullet("PPE — surgical mask within 6 feet of patient.", citationIDs: ["specialty_pr_round16"]),
+                AttributedBullet("PPE — facemask on entry to the patient room or patient space.", citationIDs: ["depth9_transmission"]),
                 AttributedBullet("Private room preferred; can cohort with same pathogen.", citationIDs: ["openrn_pr_round16"]),
                 AttributedBullet("Mask patient during transport.", citationIDs: ["openrn_pr_round16"])
             ]),
@@ -357,7 +387,7 @@ public enum IsolationPrecautionsHierarchySample {
                 AttributedBullet("Bundle compliance — daily auditing improves outcomes; CLABSI / CAUTI / VAP / SSI prevention bundles.", citationIDs: ["specialty_pr_round16"])
             ])
         ],
-        citations: [openrnPRR16, specialtyPRR16],
+        citations: [openrnPRR16, specialtyPRR16, depth9_hands, depth9_cdiff_control, depth9_transmission],
         lastSourceFidelityReview: "2026-05-04"
     )
 }

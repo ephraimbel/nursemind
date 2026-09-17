@@ -1,0 +1,72 @@
+Tool: Check-Back (or Repeat-Back) | Agency for Healthcare Research and Quality (https://www.ahrq.gov/teamstepps-program/curriculum/communication/tools/checkback.html)
+citeturn109view0 [wordlim: 200] Crawled: today; Content type: text/html; Source: open({"ref_id":"https://www.ahrq.gov/teamstepps-program/curriculum/communication/tools/checkback.html","lineno":null}); Total lines: 124
+L0: cite0†iframe†www.googletagmanager.com L1: 
+L2:   * cite1†Careers L3:   * cite2†Contact Us L4:   * cite3†Español L5:   * cite4†FAQs†info.ahrq.gov L6: 
+L7: Search all AHRQ sites
+L8: 
+L9: cite5†Image: Main Navigation Menu L10: 
+L11: Menu
+L12: 
+L13:   * cite1†Careers L14:   * cite2†Contact Us L15:   * cite6†Español L16:   * cite7†FAQs L17: ## SHARE:
+L18: 
+L19: cite8†Image: linkedIn cite9†Image: Facebook cite10†Image: X cite11†Image: Email AHRQ cite12†Image: Print L20: 
+L21: cite13†TeamSTEPPS Program L22:   * cite14†Curriculum Materials L23:     * cite15†Introduction to Curriculum L24:     * cite16†Module 1: Communication L25:       * cite17†Section 1: Overview of Key Concepts and Tools L26:       * cite18†Section 2: Explanation of Key Concepts and Tools L27:         * cite19†Tool: SBAR L28:         * cite20†Tool: Closed-Loop Communication L29:         * cite21†Tool: Call-Out L30:         * cite22†Tool: Check-Back (or Repeat-Back) L31:         * cite23†Tool: Teach-Back L32:         * cite24†Tool: Handoff L33:         * cite25†Tool: I-PASS L34:         * cite26†Tool: ANTICipate L35:         * cite27†Tool: SHARQ L36:       * cite28†Section 3: Teaching the Key Concepts and Tools L37:     * cite29†Module 2: Team Leadership L38:     * cite30†Module 3: Situation Monitoring L39:     * cite31†Module 4: Mutual Support L40:     * cite32†Implementation of TeamSTEPPS 3.0 L41: # Tool: Check-Back (or Repeat-Back)
+L42: 
+L43: A check-back, which is sometimes called a repeat-back, is a closed-loop communication strategy used to verify and validate exchanged information. When a team member calls out information, they typically anticipate a check-back in response to verify that the information was received.
+L44: A check-back is an effective tool for all team members, including patients and their family members. Patients and families can use the check-back to verify the receipt of care instructions or confirm understanding of symptoms to monitor. Check-backs are also an important tool to support patients with limited English proficiency (LEP). A video illustration of using them in an LEP context is available.
+L45: 
+L46: cite33†YouTube embedded video: TeamSTEPPS: LEP Safety: Checkback†www.youtube-nocookie.com L47: TeamSTEPPS: Limited English Proficiency Safety: Checkback (57 seconds)
+L48: Misunderstandings are common throughout healthcare and frequently result in inefficiencies and staff or patient frustration and additional burden. Some misunderstandings lead to serious medical errors, including misdiagnoses. Check-backs play a key role in reducing misunderstandings because they require the message recipient to directly acknowledge that the message was received and correctly understood and the message source to confirm that their understanding was accurate.
+L49: Emails and text messages create serious risks of miscommunication because recipients of these messages may not promptly read them. The message may also be misunderstood because of typing errors or autocorrected spellings that change the message meaning. Delayed diagnoses that sometimes cause serious patient harm are often caused by a provider overlooking messages alerting them to a test result or occur when the intended recipient misunderstands the message.
+L50: In an environment where information overload is common, check-backs play a key role in ensuring that messages have been received and that the right message recipients have correctly understood their meaning.
+L51: The cite34†Pocket Guide includes the following example of a check-back.
+L52: 
+L53: cite35†Image: Dr. Moss: "Mary, please share the info pamphlet on cholesterol management with Mr. Garcia and arrange for him to come for a follow-up visit in a month." Mary: "I'll share the info pamphlet on cholesterol management and arrange a follow-up visit with Mr. Garcia in a month." Dr. Moss: "Correct." L54: 
+L55: Other examples of effective check-backs include:
+L56:   * One member of the team calls out, "BP is falling, 80/48 down from 90/60." Another team member verifies and validates receipt of the information by saying, "Got it. BP is falling and at 80/48, down from 90/60." The original sender of the information completes the loop by saying, "Correct."
+L57:   * A nurse is accepting a telephone order from a physician: "Give amoxicillin 875 mg every 12 hours for 7 days." The nurse verifies and validates the order by recording it directly into the chart and reading it back to the physician, "Okay, that was amoxicillin 875 mg every 12 hours for 7 days?" The physician closes the loop by saying, "Correct."
+L58: cite36†YouTube embedded video: TeamSTEPPS: Check-Back in Inpatient Surgical Teams†www.youtube-nocookie.com L59: 
+L60: TeamSTEPPS: Check-Back in Inpatient Surgical Teams (15 seconds)
+L61: 
+L62: 
+L63: 
+L64: cite37†YouTube embedded video: TeamSTEPPS: Check Back (Long-Term Care)†www.youtube-nocookie.com L65: 
+L66: TeamSTEPPS: Check Back (Long-Term Care) (36 seconds)
+L67: 
+L68: To further expand on check-backs or repeat-backs and their uses, consider the following learning options:
+L69:   * Watch available video examples of check-backs in hospital and long-term care settings (cite38†TeamSTEPPS: Check-Back in Inpatient Surgical Terms ; cite39†TeamSTEPPS: Check-Back in Long-Term Care ) and identify each step in the check-back process:
+L70:     * Who was the sender? Who was the receiver?
+L71:     * How did the sender and receiver "close the loop"?
+L72:     * What communication errors were avoided?
+L73:   * Watch this cite40†patient video discussing how a misunderstood message caused patient distress and how a check-back could have prevented it .
+L74: 
+L75: 
+L76: Page last reviewed July 2023
+L77: 
+L78: Page originally created May 2023
+L79: 
+L80: Internet Citation: Tool: Check-Back (or Repeat-Back). Content last reviewed July 2023. Agency for Healthcare Research and Quality, Rockville, MD.
+L81: https://www.ahrq.gov/teamstepps-program/curriculum/communication/tools/checkback.html
+L82: 
+L83: cite41†Image: Click to Copy Citation L84: 
+L85: 
+L86: 
+L87: cite42†Back to Top L88: ### Connect With Us
+L89: 
+L90: ### Sign up for Email Updates
+L91: 
+L92: To sign up for updates or to access your subscriber
+L93: preferences, please enter your email address below.
+L94: 
+L95: [Input] [Input]
+L96: 
+L97: Search [Input] [Input]
+L98: ### Agency for Healthcare Research and Quality
+L99: 
+L100: 5600 Fishers Lane
+L101: Rockville, MD 20857
+L102: 
+L103:   * cite1†Careers L104:   * cite2†Contact Us L105:   * cite6†Español L106:   * cite7†FAQs L107: 
+L108:   * cite43†Accessibility L109:   * cite44†Disclaimers L110:   * cite45†EEO L111:   * cite46†Electronic Policies L112: 
+L113:   * cite47†FOIA L114:   * cite48†HHS Digital Strategy†www.hhs.gov L115:   * cite49†HHS Nondiscrimination Notice†www.hhs.gov L116:   * cite50†Inspector General†oig.hhs.gov L117: 
+L118:   * cite51†Plain Writing Act L119:   * cite52†Privacy Policy L120:   * cite53†Viewers & Players†www.hhs.gov L121:   * cite54†U.S. Department of Health & Human Services†www.hhs.gov L122:   * cite55†The White House†www.whitehouse.gov L123:   * cite56†USA.gov†www.usa.gov 

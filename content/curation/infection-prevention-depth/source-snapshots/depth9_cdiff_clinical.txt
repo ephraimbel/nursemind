@@ -1,0 +1,78 @@
+C. diff: Facts for Clinicians
+Apr. 13, 2026
+Key points
+Clostridioides difficile (C. diff) is a common cause of antibiotic-associated diarrhea (AAD). It accounts for 15 to 25% of all events of AAD.
+Prevent C. diff infections (CDI) by appropriately using antibiotics and implementing infection control recommendations to prevent transmission.
+Use EPA-registered disinfectants (List K) in patient-care areas, as appropriate.
+Background
+C. diff is a spore-forming, Gram-positive anaerobic bacillus that produces two exotoxins: toxin A and toxin B.
+Risk factors
+Antibiotic exposure (especially fluoroquinolones, third or fourth generation cephalosporins, clindamycin, carbapenems).
+Previous history of C. diff infection.
+Older age (65 or older).
+Recent (e.g., within the last 3 months) stay in healthcare settings, such as hospitals and nursing homes.
+Serious underlying and immunocompromising conditions.
+How it spreads
+C. diff sheds in feces. Any surface, device or material that becomes contaminated with feces could serve as a reservoir for the C. diff spores. Examples include:
+Commodes or toilets
+Bathtubs
+Electronic rectal thermometers
+C. diff spores can transfer to patients by the hands of healthcare personnel who have touched a contaminated surface or item.
+Clinical features
+Diarrhea
+Fever
+Loss of appetite
+Nausea
+Abdominal pain or tenderness
+Diagnosis
+Patients with CDI exhibit clinical symptoms and test positive for the C. diff organism or its toxin.
+Colonization vs. infection
+Colonization with C. diff is more common than infection.
+Colonized patients do not have disease caused by C. diff and often exhibit NO clinical symptoms (asymptomatic) like diarrhea.
+Colonized patients do test positive for the C. diff organism or its toxin.
+Treatment and recovery
+If a patient has had three or more stools in 24 hours
+Isolate patients with possible C. diff immediately, even if you only suspect CDI.
+Order a C. diff test if other etiologies of diarrhea such as stool softener or laxative were not used.
+Wear gloves and a gown when treating patients with potential infectious diarrhea, including C. diff infection, even during short visits. Gloves are important because hand sanitizer doesn't kill C. diff. In addition, handwashing alone may not be sufficient to eliminate all C. diff spores.
+Reassess appropriateness of antibiotics in C. diff patients.
+If CDI is confirmed
+Continue isolation and contact precautions.
+Clean and disinfect room surfaces daily with an EPA-approved spore-killing disinfectant while treating a patient with C. diff infection or upon their discharge or transfer.
+If the patient is on an antibiotic (other than those given to treat C. diff infection), evaluate appropriateness of therapy to determine if the antibiotic can be stopped or an alternative agent should be used.
+When a patient transfers, notify the new facility if the patient has or had a C. diff infection using an (Interfacility Infection Control Transfer Form)
+CDI should be treated with an appropriate course (about 10 days) of treatment, including oral vancomycin or fidaxomicin.
+Repeat testing
+After treatment, repeat C. diff testing is not recommended if the patient's symptoms have resolved, as patients often remain colonized.
+Complications
+Toxic megacolon
+Perforations of the colon
+Sepsis
+Death (rarely)
+Cleaning and disinfecting
+Potentially contaminated surfaces and devices
+Surfaces should be clean and body substance spills should be managed promptly, per CDC's Guidelines for Environmental Infection Control in Health-Care Facilities.
+Routine cleaning and disinfecting
+Routine cleaning should be performed before disinfection. EPA-registered disinfectants with a sporicidal claim have been successful in environmental surface disinfection of patient-care areas where surveillance and epidemiology indicate ongoing transmission of C. diff.
+Choosing a disinfectant
+EPA-registered disinfectants (List K) are recommended for patient-care areas. When choosing a disinfectant, check product labels for inactivation claims, indications for use and instructions.
+What CDC is doing
+CDC works with federal and public health partners to reduce C. diff infections in the United States. CDC also discovers, implements and evaluates innovative ways to improve healthcare quality and patient safety.
+For Public Health
+C. diff Initiatives
+Resources
+Improving diagnosis and management
+Clinical Practice Guidelines for Clostridium difficile Infection in Adults and Children: 2017
+Federal initiatives to reduce C. diff
+The National Action Plan to Prevent Health Care-Associated Infections provides a road map for preventing HAIs and for implementing antibiotics stewardship efforts as HAI prevention across various healthcare settings.
+The Healthcare Cost and Utilization Project from the Agency for Healthcare Research and Quality (AHRQ) is a family of databases, software tools and related products developed through a federal-state-industry partnership.
+Apr. 13, 2026
+Sources
+Print
+Share
+Facebook
+LinkedIn
+Twitter
+Syndicate
+Content Source:
+National Center for Emerging and Zoonotic Infectious Diseases (NCEZID)

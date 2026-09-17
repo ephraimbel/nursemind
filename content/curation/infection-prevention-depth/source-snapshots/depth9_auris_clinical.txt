@@ -1,0 +1,73 @@
+Clinical Overview of Candida auris
+Feb. 26, 2026
+What to know
+Candida auris (C. auris) also known as Candidozyma auris is a type of yeast that is often resistant to antifungal treatments.
+C. auris can cause invasive infections and can also colonize patients without causing infection.
+Only clinical infections should be treated.
+Consultation with an infectious disease specialist can be considered for suspected or confirmed cases.
+Overview
+Candida auris (C. auris) also known as Candidozyma auris is a fungus that can cause life-threatening, often multidrug-resistant, infections. C. auris affects ill or immunocompromised patients and is highly transmissible in healthcare settings.
+Patients can be colonized without having symptoms. Colonized patients can easily spread C. auris to other patients.
+In clinical cases, symptoms of infection are nonspecific and range in severity. Echinocandins are typically the first-line treatment in adults.
+Laboratory testing with sequencing or mass spectrometry is required for accurate identification of C. auris.
+Early detection of clinical and colonized cases, followed by measures like screening and infection control, can limit the spread of C. auris.
+Report suspected C. auris
+Healthcare facilities that suspect they have a patient with C. auris infection or colonization should contact state or local public health authorities immediately for guidance.Surveillance
+How it spreads
+C. auris is highly transmissible between patients through contact with contaminated surfaces or objects in healthcare facilities.
+While some patients can become severely ill with C. auris, others can have milder symptoms. Further, some patients can be colonized with C. auris, meaning C. auris can be detected in or on body sites without causing active infection.
+Infected and colonized patients can shed C. auris on objects and surfaces around them including bedrails, doorknobs, and mobile medical equipment. C. auris can live on surfaces for long periods of time making it harder to keep surfaces disinfected.
+Patients have been found to be colonized for a long time after active infection has resolved. The maximum duration of colonization with C. auris is not known. There are currently no efficacious strategies for C. auris decolonization.
+See Also
+Prevention and Management: A Case-Based Course
+Clinical features
+Symptoms of C. auris infections are nonspecific and depend on the location and severity of infection. C. auris can cause invasive infection (e.g., bloodstream, intra-abdominal). C. auris clinical infections may require antifungal therapy.
+Clinical consult
+Healthcare providers can call 404-639-5168 or email fungalconsult@cdc.gov for consultation on diagnosis or treatment for suspected or confirmed fungal diseases.
+Prevention
+Risk factors
+C. auris has been found to affect patients who:
+Require complex medical care.
+Have invasive medical devices (such as ventilators or central lines).
+Have frequent or prolonged stays in healthcare facilities.
+Assess antibiotic and antifungal prophylactics
+Broad-spectrum antibiotic and antifungal use has been linked to C. auris infections and colonization. Assessing risks vs benefits of antibiotic and antifungal prophylactics and discontinuing them when they are not needed may help prevent infection and colonization.
+Infection control
+Recommended infection control measures are the same for both infection and colonization with C. auris and should be continued for all healthcare stays. Persistence of the organism both on patients and in the environment enables its spread.
+Keep Reading
+Infection Control Guidance: Candida auris
+Hand hygiene
+There is very low risk for infection among healthcare providers and colonization is rare. However, C. auris has been found transiently on the hands and in the nostrils. Protect yourself and your patients by cleaning your hands. Be sure you adhere to good hand hygiene practices.
+Environmental cleaning recommendations
+Testing suggests that C. auris can survive on surfaces for weeks. Thorough daily and terminal cleaning and disinfection of these patients' rooms is recommended. Shared medical equipment and procedure rooms used by patients with C. auris also need to be thoroughly cleaned and disinfected after use.
+Screening and diagnosis
+Screening
+Healthcare facilities may adopt different screening strategies based on factors like whether C. auris has been identified in the facility, if it is spreading in the area, and individual patient exposures.
+Patients may be asymptomatically colonized with C. auris on skin and other body sites. Patients colonized with C. auris can transmit C. auris to other patients within healthcare facilities and may be at risk for invasive C. auris infections.
+Healthcare providers can screen patients for C. auris using skin swabs. Screening patients for C. auris colonization allows facilities to identify those with C. auris colonization and implement infection prevention and control measures.
+Keep Reading
+Screening for Colonization in Healthcare Facilities
+Testing
+Healthcare providers testing for C. auris should send samples to laboratories for identification.
+C. auris can be misidentified as a number of different organisms when using traditional biochemical methods for yeast identification. Accurate identification of C. auris requires use of sequencing or mass spectrometry.
+Keep Reading
+Identification of C. auris
+Testing healthcare personnel
+At this time, healthcare providers do not need to be tested for C. auris unless they are identified as a possible source of transmission to patients. Family members of healthcare personnel do not need to be tested for C. auris.
+Patient management
+Echinocandins should be used for initial treatment for clinical infections in adults. Consultation with an infectious disease specialist is recommended.
+Keep Reading
+Clinical Care of C. auris infections
+Antimicrobial resistance
+Reports of echinocandin- or pan-resistant C. auris cases in the US are increasing. Multiple outbreaks have been identified involving people with overlapping healthcare exposures and without previous antifungal treatment, suggesting transmission of antimicrobial-resistant strains.
+Antifungal susceptibility testing should be performed for all clinical C. auris cases to guide therapy.
+Feb. 26, 2026
+Sources
+Print
+Share
+Facebook
+LinkedIn
+Twitter
+Syndicate
+Content Source:
+National Center for Emerging and Zoonotic Infectious Diseases (NCEZID)

@@ -1,5 +1,45 @@
 import Foundation
 
+private let depth9_hands = CitationSource(
+    id: "depth9_hands",
+    shortName: "Clinical Safety: Hand Hygiene",
+    detail: "ABHS versus soap and water; C. difficile routine care and outbreaks; glove use. Page dated February 27, 2024. Federal prose adapted; images and third-party material excluded. Targeted statement correction only; independent clinical review pending.",
+    publisher: "Centers for Disease Control and Prevention",
+    license: .publicDomain,
+    url: "https://www.cdc.gov/clean-hands/hcp/clinical-safety/index.html",
+    lastRetrieved: "2026-09-17"
+)
+
+private let depth9_noro_control = CitationSource(
+    id: "depth9_noro_control",
+    shortName: "Norovirus: Healthcare Outbreak Recommendations",
+    detail: "2011 guideline summary: patient placement; hand hygiene; PPE; environmental cleaning; staff exclusion. Page dated March 21, 2024. Federal prose adapted; images and third-party material excluded. Targeted statement correction only; independent clinical review pending.",
+    publisher: "Centers for Disease Control and Prevention",
+    license: .publicDomain,
+    url: "https://www.cdc.gov/infection-control/hcp/norovirus-guidelines/summary-recommendations.html",
+    lastRetrieved: "2026-09-17"
+)
+
+private let depth9_cdiff_control = CitationSource(
+    id: "depth9_cdiff_control",
+    shortName: "C. difficile: Clinical Guidance",
+    detail: "Isolation and Contact Precautions; diagnostic stewardship; environmental cleaning. Page dated May 13, 2026. Federal prose adapted; images and third-party material excluded. Targeted statement correction only; independent clinical review pending.",
+    publisher: "Centers for Disease Control and Prevention",
+    license: .publicDomain,
+    url: "https://www.cdc.gov/c-diff/hcp/clinical-guidance/index.html",
+    lastRetrieved: "2026-09-17"
+)
+
+private let depth9_transmission = CitationSource(
+    id: "depth9_transmission",
+    shortName: "Transmission-Based Precautions",
+    detail: "Droplet Precautions: patient placement, mask upon room entry and transport. Page dated April 3, 2024. Federal prose adapted; images and third-party material excluded. Targeted statement correction only; independent clinical review pending.",
+    publisher: "Centers for Disease Control and Prevention",
+    license: .publicDomain,
+    url: "https://www.cdc.gov/infection-control/hcp/basics/transmission-based-precautions.html",
+    lastRetrieved: "2026-09-17"
+)
+
 // Curator-model reference entries.
 // Sources: CDC (US gov, public domain), HICPAC, NHSN, ACIP, Joint Commission (concept citation).
 // Each entry restructures public-domain federal guidance into editorial form with attribution.
@@ -31,26 +71,6 @@ private let cdcHandHygiene = CitationSource(
     publisher: "Centers for Disease Control and Prevention",
     license: .publicDomain,
     url: "https://www.cdc.gov/clean-hands/hcp/clinical-safety/",
-    lastRetrieved: "2026-05-04"
-)
-
-private let cdcCLABSI = CitationSource(
-    id: "cdc_clabsi_guideline",
-    shortName: "CDC Guidelines for the Prevention of Intravascular Catheter-Related Infections",
-    detail: "O'Grady NP et al. — HICPAC",
-    publisher: "Centers for Disease Control and Prevention",
-    license: .publicDomain,
-    url: "https://www.cdc.gov/infection-control/hcp/intravascular-catheter-related-infection/",
-    lastRetrieved: "2026-05-04"
-)
-
-private let cdcCAUTI = CitationSource(
-    id: "cdc_cauti_guideline",
-    shortName: "CDC Guideline for Prevention of Catheter-Associated Urinary Tract Infections",
-    detail: "Gould CV et al. — HICPAC",
-    publisher: "Centers for Disease Control and Prevention",
-    license: .publicDomain,
-    url: "https://www.cdc.gov/infection-control/hcp/cauti/",
     lastRetrieved: "2026-05-04"
 )
 
@@ -186,13 +206,13 @@ public enum DropletPrecautionsSample {
     public static let entry: ReferenceEntry = ReferenceEntry(
         id: "droplet-precautions",
         title: "Droplet Precautions",
-        subtitle: "Surgical mask within 3–6 feet · private room",
+        subtitle: "Facemask on room entry · private room",
         eyebrow: "REFERENCE · INFECTION CONTROL",
         nclexTags: infectionControlTags,
         sections: [
             .prose(title: "What it is", AttributedProse(
-                "Droplet Precautions are used for patients with infections transmitted by large respiratory droplets (>5 microns) that travel only short distances (typically less than 3–6 feet) before falling. Unlike airborne pathogens, droplets do not remain suspended — a private room is sufficient and door may remain open. A surgical mask is worn for close patient contact.",
-                citationIDs: ["cdc_isolation_2007_v2"]
+                "Droplet Precautions supplement Standard Precautions for relevant respiratory infections. Use a private room when possible, patient source control and a facemask on staff entry to the room or care space.",
+                citationIDs: ["depth9_transmission"]
             )),
             .bullets(title: "When to use", [
                 AttributedBullet("Influenza.", citationIDs: ["cdc_isolation_2007_v2"]),
@@ -206,12 +226,12 @@ public enum DropletPrecautionsSample {
             .bullets(title: "How to implement", [
                 AttributedBullet("Private room preferred; cohort with same organism if private room unavailable.", citationIDs: ["cdc_isolation_2007_v2"]),
                 AttributedBullet("Door may remain open — droplets do not travel through air over distance.", citationIDs: ["cdc_isolation_2007_v2"]),
-                AttributedBullet("Surgical mask within 3–6 feet of the patient (per facility protocol; some facilities mask on entry).", citationIDs: ["cdc_isolation_2007_v2"]),
+                AttributedBullet("Wear a facemask on entry to the patient room or patient space.", citationIDs: ["depth9_transmission"]),
                 AttributedBullet("Patient wears a surgical mask during transport.", citationIDs: ["cdc_isolation_2007_v2"]),
                 AttributedBullet("Eye protection if splashes/sprays are anticipated.", citationIDs: ["cdc_isolation_2007_v2"])
             ])
         ],
-        citations: [cdcIsolation],
+        citations: [cdcIsolation, depth9_transmission],
         lastSourceFidelityReview: "2026-05-04"
     )
 }
@@ -232,8 +252,8 @@ public enum ContactPrecautionsSample {
             )),
             .bullets(title: "When to use", [
                 AttributedBullet("Multidrug-resistant organisms — MRSA, VRE, ESBL-producing organisms, CRE.", citationIDs: ["cdc_isolation_2007_v2"]),
-                AttributedBullet("Clostridioides difficile — soap and water for hand hygiene; alcohol-based hand rub does NOT inactivate spores.", citationIDs: ["cdc_isolation_2007_v2"]),
-                AttributedBullet("Norovirus — also requires soap and water; alcohol is less effective.", citationIDs: ["cdc_isolation_2007_v2"]),
+                AttributedBullet("C. difficile — use Contact Precautions and the facility hand-hygiene protocol.", citationIDs: ["depth9_cdiff_control"]),
+                AttributedBullet("Norovirus — use outbreak-specific Contact Precautions and hand-hygiene measures.", citationIDs: ["depth9_noro_control"]),
                 AttributedBullet("Scabies, lice (pediculosis).", citationIDs: ["cdc_isolation_2007_v2"]),
                 AttributedBullet("Major non-contained wound infections, abscesses, decubitus ulcers with copious drainage.", citationIDs: ["cdc_isolation_2007_v2"]),
                 AttributedBullet("RSV in pediatric patients (varies by facility — some require Droplet + Contact).", citationIDs: ["cdc_isolation_2007_v2"]),
@@ -247,12 +267,12 @@ public enum ContactPrecautionsSample {
                 AttributedBullet("Limit transport; if transport is necessary, ensure receiving area is notified and equipment is contained.", citationIDs: ["cdc_isolation_2007_v2"])
             ]),
             .bullets(title: "Common errors", [
-                AttributedBullet("Using alcohol hand rub for C. difficile — alcohol does NOT kill spores. Use soap and water mechanical removal.", citationIDs: ["cdc_isolation_2007_v2"]),
+                AttributedBullet("Skipping soap-and-water handwashing during C. difficile or norovirus outbreaks.", citationIDs: ["depth9_hands"]),
                 AttributedBullet("Donning PPE inside the room — don in the anteroom or just outside the door.", citationIDs: ["cdc_isolation_2007_v2"]),
-                AttributedBullet("Removing gloves before gown — sequence is gloves → goggles/face shield → gown → mask/respirator (per CDC PPE doffing sequence).", citationIDs: ["cdc_isolation_2007_v2"])
+                AttributedBullet("Contaminating hands during glove removal or skipping hand hygiene after removing gloves.", citationIDs: ["depth9_hands"])
             ])
         ],
-        citations: [cdcIsolation],
+        citations: [cdcIsolation, depth9_cdiff_control, depth9_noro_control, depth9_hands],
         lastSourceFidelityReview: "2026-05-04"
     )
 }
@@ -268,8 +288,8 @@ public enum HandHygieneReferenceSample {
         nclexTags: infectionControlTags,
         sections: [
             .prose(title: "What it is", AttributedProse(
-                "Hand hygiene is the single most important measure to prevent the transmission of healthcare-associated infections. The CDC HICPAC/SHEA/APIC/IDSA Hand Hygiene Task Force recommends alcohol-based hand rub as the preferred method in most clinical situations because it is faster, more effective against most pathogens, and better tolerated by skin than soap and water. Soap-and-water washing is required when hands are visibly soiled and when caring for patients with C. difficile, norovirus, or other spore-forming or non-enveloped pathogens.",
-                citationIDs: ["cdc_hand_hygiene"]
+                "CDC prefers alcohol-based sanitizer for most routine care unless hands are visibly soiled. Gloves do not replace hand hygiene.",
+                citationIDs: ["depth9_hands"]
             )),
             .bullets(title: "When (CDC indications)", [
                 AttributedBullet("Before touching a patient.", citationIDs: ["cdc_hand_hygiene"]),
@@ -294,92 +314,12 @@ public enum HandHygieneReferenceSample {
             ]),
             .bullets(title: "Use soap and water (not alcohol) when…", [
                 AttributedBullet("Hands are visibly soiled with blood, body fluids, or other contaminants.", citationIDs: ["cdc_hand_hygiene"]),
-                AttributedBullet("Caring for a patient with C. difficile — alcohol does not inactivate spores.", citationIDs: ["cdc_hand_hygiene", "cdc_isolation_2007_v2"]),
-                AttributedBullet("Caring for a patient with norovirus or other non-enveloped viruses — alcohol is less effective.", citationIDs: ["cdc_hand_hygiene"]),
+                AttributedBullet("After C. difficile care during outbreaks.", citationIDs: ["depth9_hands"]),
+                AttributedBullet("After norovirus care during outbreaks.", citationIDs: ["depth9_hands"]),
                 AttributedBullet("Before eating and after using the restroom.", citationIDs: ["cdc_hand_hygiene"])
             ])
         ],
-        citations: [cdcHandHygiene, cdcIsolation],
-        lastSourceFidelityReview: "2026-05-04"
-    )
-}
-
-// MARK: CLABSI Bundle
-
-public enum CLABSIBundleSample {
-    public static let entry: ReferenceEntry = ReferenceEntry(
-        id: "clabsi-bundle",
-        title: "CLABSI prevention bundle",
-        subtitle: "Central line-associated bloodstream infection",
-        eyebrow: "REFERENCE · INFECTION CONTROL",
-        nclexTags: infectionControlTags,
-        sections: [
-            .prose(title: "What it is", AttributedProse(
-                "Central line-associated bloodstream infections (CLABSI) are among the most preventable and most costly healthcare-associated infections. The CDC HICPAC bundle is a small set of evidence-based practices that, performed reliably as a unit, reduce CLABSI rates substantially. Every nurse caring for a patient with a central line is responsible for adhering to and enforcing each bundle element.",
-                citationIDs: ["cdc_clabsi_guideline"]
-            )),
-            .bullets(title: "Insertion bundle (provider + nurse co-monitor)", [
-                AttributedBullet("Hand hygiene immediately before insertion.", citationIDs: ["cdc_clabsi_guideline"]),
-                AttributedBullet("Maximal sterile barrier precautions — cap, mask, sterile gown, sterile gloves, and a full-body sterile drape for the patient.", citationIDs: ["cdc_clabsi_guideline"]),
-                AttributedBullet("Chlorhexidine skin antisepsis (>0.5% chlorhexidine in alcohol) — allow to dry completely before puncture.", citationIDs: ["cdc_clabsi_guideline"]),
-                AttributedBullet("Optimal site selection — subclavian preferred over internal jugular; femoral avoided when possible due to higher infection risk.", citationIDs: ["cdc_clabsi_guideline"]),
-                AttributedBullet("Daily review of line necessity — remove the line as soon as it is no longer required.", citationIDs: ["cdc_clabsi_guideline"])
-            ]),
-            .bullets(title: "Maintenance bundle (every shift)", [
-                AttributedBullet("Hand hygiene before any line manipulation.", citationIDs: ["cdc_clabsi_guideline"]),
-                AttributedBullet("Scrub the hub — disinfect the access port with alcohol or chlorhexidine for at least 15 seconds and allow to dry before access.", citationIDs: ["cdc_clabsi_guideline"]),
-                AttributedBullet("Inspect the dressing every shift — change every 7 days for transparent or every 2 days for gauze, and any time it is wet, soiled, or loose.", citationIDs: ["cdc_clabsi_guideline"]),
-                AttributedBullet("Replace administration sets per protocol — typically every 96 hours for fluids, every 24 hours for blood, every 12 hours for propofol.", citationIDs: ["cdc_clabsi_guideline"]),
-                AttributedBullet("Daily assessment of necessity — advocate for line removal during rounds when no longer indicated.", citationIDs: ["cdc_clabsi_guideline"])
-            ])
-        ],
-        citations: [cdcCLABSI],
-        lastSourceFidelityReview: "2026-05-04"
-    )
-}
-
-// MARK: CAUTI Bundle
-
-public enum CAUTIBundleSample {
-    public static let entry: ReferenceEntry = ReferenceEntry(
-        id: "cauti-bundle",
-        title: "CAUTI prevention bundle",
-        subtitle: "Catheter-associated urinary tract infection",
-        eyebrow: "REFERENCE · INFECTION CONTROL",
-        nclexTags: infectionControlTags,
-        sections: [
-            .prose(title: "What it is", AttributedProse(
-                "Catheter-associated urinary tract infections (CAUTI) are the most common healthcare-associated infection in the United States. The CDC HICPAC guideline emphasizes that the most effective CAUTI prevention is to avoid placing an indwelling catheter when not indicated, and to remove it as soon as it is no longer required. Every nurse on every shift should be assessing the necessity of every Foley.",
-                citationIDs: ["cdc_cauti_guideline"]
-            )),
-            .bullets(title: "Appropriate indications for an indwelling catheter", [
-                AttributedBullet("Acute urinary retention or bladder outlet obstruction.", citationIDs: ["cdc_cauti_guideline"]),
-                AttributedBullet("Need for accurate measurement of urinary output in a critically ill patient.", citationIDs: ["cdc_cauti_guideline"]),
-                AttributedBullet("Selected perioperative use — anticipated prolonged surgery, intraoperative monitoring, urologic surgery.", citationIDs: ["cdc_cauti_guideline"]),
-                AttributedBullet("To assist in healing of open sacral or perineal wounds in incontinent patients.", citationIDs: ["cdc_cauti_guideline"]),
-                AttributedBullet("Patient requires prolonged immobilization (e.g., unstable thoracic or lumbar spine).", citationIDs: ["cdc_cauti_guideline"]),
-                AttributedBullet("End-of-life comfort care.", citationIDs: ["cdc_cauti_guideline"])
-            ]),
-            .bullets(title: "NOT appropriate indications", [
-                AttributedBullet("Convenience or substitute for nursing care of an incontinent patient.", citationIDs: ["cdc_cauti_guideline"]),
-                AttributedBullet("Obtaining urine for culture or other diagnostic tests when the patient can voluntarily void.", citationIDs: ["cdc_cauti_guideline"]),
-                AttributedBullet("Postoperative use without a defined ongoing indication.", citationIDs: ["cdc_cauti_guideline"])
-            ]),
-            .bullets(title: "Insertion bundle", [
-                AttributedBullet("Hand hygiene immediately before and after insertion.", citationIDs: ["cdc_cauti_guideline"]),
-                AttributedBullet("Aseptic technique with sterile equipment, sterile gloves, sterile drape, antiseptic cleansing solution.", citationIDs: ["cdc_cauti_guideline"]),
-                AttributedBullet("Use the smallest catheter that allows good drainage.", citationIDs: ["cdc_cauti_guideline"]),
-                AttributedBullet("Secure the catheter after insertion to prevent movement and urethral traction.", citationIDs: ["cdc_cauti_guideline"])
-            ]),
-            .bullets(title: "Maintenance bundle (every shift)", [
-                AttributedBullet("Maintain a closed, sterile drainage system — disconnect only when necessary, and disinfect the catheter-tubing junction before reconnection.", citationIDs: ["cdc_cauti_guideline"]),
-                AttributedBullet("Keep the drainage bag below the level of the bladder at all times — including during transport.", citationIDs: ["cdc_cauti_guideline"]),
-                AttributedBullet("Empty the drainage bag regularly using a separate, clean container for each patient; avoid contact between the spigot and the container.", citationIDs: ["cdc_cauti_guideline"]),
-                AttributedBullet("Perform routine perineal hygiene with soap and water — antiseptic cleaning of the meatus is NOT recommended.", citationIDs: ["cdc_cauti_guideline"]),
-                AttributedBullet("Daily review of catheter necessity — advocate for removal as soon as the indication has resolved.", citationIDs: ["cdc_cauti_guideline"])
-            ])
-        ],
-        citations: [cdcCAUTI],
+        citations: [cdcHandHygiene, cdcIsolation, depth9_hands],
         lastSourceFidelityReview: "2026-05-04"
     )
 }

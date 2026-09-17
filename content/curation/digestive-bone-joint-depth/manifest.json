@@ -1,0 +1,1263 @@
+{
+  "created": "2026-09-17",
+  "status": "pending_independent_clinical_review",
+  "publication": "local_development_only",
+  "scope": "Adult digestive nutrition, bowel routines, bone/joint function and systemic sclerosis daily support. Source-fidelity checks do not constitute clinical approval.",
+  "sources": {
+    "ibs_symptoms": {
+      "id": "depth8_ibs_symptoms",
+      "title": "IBS: Symptoms & Causes",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/irritable-bowel-syndrome/symptoms-causes",
+      "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases; National Institutes of Health",
+      "sourceDate": "November 2017",
+      "detail": "Symptoms; brain–gut interaction. Source reviewed November 2017. Federal educational prose adapted and condensed by NurseMind; images, logos and third-party material excluded.",
+      "license": "publicDomain",
+      "access": "direct page"
+    },
+    "ibs_diagnosis": {
+      "id": "depth8_ibs_diagnosis",
+      "title": "IBS: Diagnosis",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/irritable-bowel-syndrome/diagnosis",
+      "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases; National Institutes of Health",
+      "sourceDate": "November 2017",
+      "detail": "Symptom history; features suggesting another condition; testing. Source reviewed November 2017. Federal educational prose adapted and condensed by NurseMind; images, logos and third-party material excluded.",
+      "license": "publicDomain",
+      "access": "direct page"
+    },
+    "ibs_diet": {
+      "id": "depth8_ibs_diet",
+      "title": "IBS: Eating, Diet, & Nutrition",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/irritable-bowel-syndrome/eating-diet-nutrition",
+      "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases; National Institutes of Health",
+      "sourceDate": "November 2017",
+      "detail": "Soluble fiber; gradual changes; low-FODMAP trial and reintroduction. Source reviewed November 2017. Federal educational prose adapted and condensed by NurseMind; images, logos and third-party material excluded.",
+      "license": "publicDomain",
+      "access": "direct page"
+    },
+    "ibs_treatment": {
+      "id": "depth8_ibs_treatment",
+      "title": "IBS: Treatment",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/irritable-bowel-syndrome/treatment",
+      "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases; National Institutes of Health",
+      "sourceDate": "November 2017",
+      "detail": "Individualized care; activity, sleep and psychological therapies; drug and probiotic recommendations excluded. Source reviewed November 2017. Federal educational prose adapted and condensed by NurseMind; images, logos and third-party material excluded.",
+      "license": "publicDomain",
+      "access": "direct page"
+    },
+    "constipation_symptoms": {
+      "id": "depth8_constipation_symptoms",
+      "title": "Constipation: Symptoms & Causes",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/constipation/symptoms-causes",
+      "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases; National Institutes of Health",
+      "sourceDate": "May 2018",
+      "detail": "Stool symptoms; warning signs; medicines and routine changes. Source reviewed May 2018. Federal educational prose adapted and condensed by NurseMind; images, logos and third-party material excluded.",
+      "license": "publicDomain",
+      "access": "direct page"
+    },
+    "constipation_diet": {
+      "id": "depth8_constipation_diet",
+      "title": "Constipation: Eating, Diet, & Nutrition",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/constipation/eating-diet-nutrition",
+      "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases; National Institutes of Health",
+      "sourceDate": "May 2018",
+      "detail": "Gradual fiber intake; individual fluid needs. Source reviewed May 2018. Federal educational prose adapted and condensed by NurseMind; images, logos and third-party material excluded.",
+      "license": "publicDomain",
+      "access": "direct page"
+    },
+    "constipation_treatment": {
+      "id": "depth8_constipation_treatment",
+      "title": "Constipation: Treatment",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/constipation/treatment",
+      "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases; National Institutes of Health",
+      "sourceDate": "May 2018",
+      "detail": "Bowel routine; medicine review; biofeedback; laxative hierarchy and taper claims excluded. Source reviewed May 2018. Federal educational prose adapted and condensed by NurseMind; images, logos and third-party material excluded.",
+      "license": "publicDomain",
+      "access": "direct page"
+    },
+    "div_symptoms": {
+      "id": "depth8_div_symptoms",
+      "title": "Diverticular Disease: Symptoms & Causes",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/diverticulosis-diverticulitis/symptoms-causes",
+      "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases; National Institutes of Health",
+      "sourceDate": "August 2021",
+      "detail": "Chronic symptoms; diverticulitis presentation. Source reviewed August 2021. Federal educational prose adapted and condensed by NurseMind; images, logos and third-party material excluded.",
+      "license": "publicDomain",
+      "access": "direct page"
+    },
+    "div_diet": {
+      "id": "depth8_div_diet",
+      "title": "Diverticular Disease: Eating, Diet, & Nutrition",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/diverticulosis-diverticulitis/eating-diet-nutrition",
+      "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases; National Institutes of Health",
+      "sourceDate": "August 2021",
+      "detail": "Individual fiber planning; nuts, seeds and popcorn. Source reviewed August 2021. Federal educational prose adapted and condensed by NurseMind; images, logos and third-party material excluded.",
+      "license": "publicDomain",
+      "access": "direct page"
+    },
+    "div_treatment": {
+      "id": "depth8_div_treatment",
+      "title": "Diverticular Disease: Treatment",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/diverticulosis-diverticulitis/treatment",
+      "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases; National Institutes of Health",
+      "sourceDate": "August 2021",
+      "detail": "Acute diet progression; complications; bleeding; recurrence risk. Source reviewed August 2021. Federal educational prose adapted and condensed by NurseMind; images, logos and third-party material excluded.",
+      "license": "publicDomain",
+      "access": "direct page"
+    },
+    "sbs_symptoms": {
+      "id": "depth8_sbs_symptoms",
+      "title": "Short Bowel Syndrome: Symptoms & Causes",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/short-bowel-syndrome/symptoms-causes",
+      "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases; National Institutes of Health",
+      "sourceDate": "April 2023",
+      "detail": "Adult malabsorption and dehydration recognition. Source reviewed April 2023. Federal educational prose adapted and condensed by NurseMind; images, logos and third-party material excluded.",
+      "license": "publicDomain",
+      "access": "direct page"
+    },
+    "sbs_diet": {
+      "id": "depth8_sbs_diet",
+      "title": "Short Bowel Syndrome: Eating, Diet, & Nutrition",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/short-bowel-syndrome/eating-diet-nutrition",
+      "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases; National Institutes of Health",
+      "sourceDate": "April 2023",
+      "detail": "Diet individualization by anatomy, stage and symptoms. Source reviewed April 2023. Federal educational prose adapted and condensed by NurseMind; images, logos and third-party material excluded.",
+      "license": "publicDomain",
+      "access": "direct page"
+    },
+    "sbs_treatment": {
+      "id": "depth8_sbs_treatment",
+      "title": "Short Bowel Syndrome: Treatment",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/short-bowel-syndrome/treatment",
+      "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases; National Institutes of Health",
+      "sourceDate": "April 2023",
+      "detail": "Adult adaptation; nutrition support; fluid composition; supplements. Source reviewed April 2023. Federal educational prose adapted and condensed by NurseMind; images, logos and third-party material excluded.",
+      "license": "publicDomain",
+      "access": "direct page"
+    },
+    "bone_overview": {
+      "id": "depth8_bone_overview",
+      "title": "Osteoporosis: Overview, Symptoms, & Causes",
+      "url": "https://www.niams.nih.gov/health-topics/osteoporosis",
+      "publisher": "National Institute of Arthritis and Musculoskeletal and Skin Diseases; National Institutes of Health",
+      "sourceDate": "December 2022",
+      "detail": "Overview; symptoms; functional effects. Source reviewed December 2022. Federal educational prose adapted and condensed by NurseMind; images, logos and third-party material excluded.",
+      "license": "publicDomain",
+      "access": "direct page"
+    },
+    "bone_care": {
+      "id": "depth8_bone_care",
+      "title": "Osteoporosis: Diagnosis, Treatment, & Steps to Take",
+      "url": "https://www.niams.nih.gov/health-topics/osteoporosis/diagnosis-treatment-and-steps-to-take",
+      "publisher": "National Institute of Arthritis and Musculoskeletal and Skin Diseases; National Institutes of Health",
+      "sourceDate": "December 2022",
+      "detail": "Assessment; daily support; individualized follow-up; medication regimens excluded. Source reviewed December 2022. Federal educational prose adapted and condensed by NurseMind; images, logos and third-party material excluded.",
+      "license": "publicDomain",
+      "access": "direct page"
+    },
+    "oa_overview": {
+      "id": "depth8_oa_overview",
+      "title": "Osteoarthritis: Overview, Symptoms, & Causes",
+      "url": "https://www.niams.nih.gov/health-topics/osteoarthritis",
+      "publisher": "National Institute of Arthritis and Musculoskeletal and Skin Diseases; National Institutes of Health",
+      "sourceDate": "September 2023",
+      "detail": "Overview; symptoms; functional effects. Source reviewed September 2023. Federal educational prose adapted and condensed by NurseMind; images, logos and third-party material excluded.",
+      "license": "publicDomain",
+      "access": "direct page"
+    },
+    "oa_care": {
+      "id": "depth8_oa_care",
+      "title": "Osteoarthritis: Diagnosis, Treatment, & Steps to Take",
+      "url": "https://www.niams.nih.gov/health-topics/osteoarthritis/diagnosis-treatment-and-steps-to-take",
+      "publisher": "National Institute of Arthritis and Musculoskeletal and Skin Diseases; National Institutes of Health",
+      "sourceDate": "September 2023",
+      "detail": "Assessment; daily support; individualized follow-up; medication regimens excluded. Source reviewed September 2023. Federal educational prose adapted and condensed by NurseMind; images, logos and third-party material excluded.",
+      "license": "publicDomain",
+      "access": "direct page"
+    },
+    "gout_overview": {
+      "id": "depth8_gout_overview",
+      "title": "Gout: Overview, Symptoms, & Causes",
+      "url": "https://www.niams.nih.gov/health-topics/gout",
+      "publisher": "National Institute of Arthritis and Musculoskeletal and Skin Diseases; National Institutes of Health",
+      "sourceDate": "December 2023",
+      "detail": "Overview; symptoms; functional effects. Source reviewed December 2023. Federal educational prose adapted and condensed by NurseMind; images, logos and third-party material excluded.",
+      "license": "publicDomain",
+      "access": "direct page"
+    },
+    "gout_care": {
+      "id": "depth8_gout_care",
+      "title": "Gout: Diagnosis, Treatment, & Steps to Take",
+      "url": "https://www.niams.nih.gov/health-topics/gout/diagnosis-treatment-and-steps-to-take",
+      "publisher": "National Institute of Arthritis and Musculoskeletal and Skin Diseases; National Institutes of Health",
+      "sourceDate": "December 2023",
+      "detail": "Assessment; daily support; individualized follow-up; medication regimens excluded. Source reviewed December 2023. Federal educational prose adapted and condensed by NurseMind; images, logos and third-party material excluded.",
+      "license": "publicDomain",
+      "access": "direct page"
+    },
+    "scl_overview": {
+      "id": "depth8_scl_overview",
+      "title": "Scleroderma: Overview, Symptoms, & Causes",
+      "url": "https://www.niams.nih.gov/health-topics/scleroderma",
+      "publisher": "National Institute of Arthritis and Musculoskeletal and Skin Diseases; National Institutes of Health",
+      "sourceDate": "September 2023",
+      "detail": "Overview; symptoms; functional effects. Source reviewed September 2023. Federal educational prose adapted and condensed by NurseMind; images, logos and third-party material excluded.",
+      "license": "publicDomain",
+      "access": "direct page"
+    },
+    "scl_care": {
+      "id": "depth8_scl_care",
+      "title": "Scleroderma: Diagnosis, Treatment, & Steps to Take",
+      "url": "https://www.niams.nih.gov/health-topics/scleroderma/diagnosis-treatment-and-steps-to-take",
+      "publisher": "National Institute of Arthritis and Musculoskeletal and Skin Diseases; National Institutes of Health",
+      "sourceDate": "September 2023",
+      "detail": "Assessment; daily support; individualized follow-up; medication regimens excluded. Source reviewed September 2023. Federal educational prose adapted and condensed by NurseMind; images, logos and third-party material excluded.",
+      "license": "publicDomain",
+      "access": "direct page"
+    }
+  },
+  "entries": [
+    {
+      "id": "reference:ibs-daily-symptom-food-support",
+      "slug": "ibs-daily-symptom-food-support",
+      "symbol": "IBSDailySymptomFoodSample",
+      "title": "IBS: daily symptoms & food planning",
+      "subtitle": "Adult symptom patterns, food trials and follow-up",
+      "concept": "elimination",
+      "file": "DigestiveSymptomDepthReferences.swift",
+      "proposedTier": "B",
+      "gap": "Existing IBS diagnosis summarizes subtypes and treatments; this guide expands practical food trials, symptom history and shared follow-up.",
+      "sections": [
+        {
+          "title": "Describe the symptom pattern",
+          "bullets": [
+            {
+              "text": "IBS can involve abdominal pain linked to bowel movements, constipation, diarrhea or both. Bloating and a sense of incomplete emptying may also occur.",
+              "citationIDs": [
+                "depth8_ibs_symptoms"
+              ]
+            },
+            {
+              "text": "Symptoms can fluctuate over time. Brain–gut interaction contributes to the disorder; the symptoms are not explained simply by visible intestinal damage.",
+              "citationIDs": [
+                "depth8_ibs_symptoms"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Prepare a useful history",
+          "bullets": [
+            {
+              "text": "Describe when pain occurs, how bowel frequency and stool appearance changed, and how long symptoms have been present. These details support clinical assessment.",
+              "citationIDs": [
+                "depth8_ibs_diagnosis"
+              ]
+            },
+            {
+              "text": "Include medicines, recent infections, usual foods and family history of celiac disease, inflammatory bowel disease or colorectal cancer. Testing depends on the clinical picture.",
+              "citationIDs": [
+                "depth8_ibs_diagnosis"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Distinguish warning signs",
+          "bullets": [
+            {
+              "text": "Rectal bleeding, bloody or black tarry stools, anemia or unexplained weight loss need clinical assessment for conditions beyond IBS.",
+              "citationIDs": [
+                "depth8_ibs_diagnosis"
+              ]
+            },
+            {
+              "text": "Blood, stool or other tests may investigate alternative causes. A symptom label alone does not settle the cause of a new change.",
+              "citationIDs": [
+                "depth8_ibs_diagnosis"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Introduce fiber thoughtfully",
+          "bullets": [
+            {
+              "text": "Soluble fiber, found in foods such as oats, can help IBS symptoms. The response to diet differs between people.",
+              "citationIDs": [
+                "depth8_ibs_diet"
+              ]
+            },
+            {
+              "text": "Increase fiber gradually within the agreed food plan. A rapid increase can worsen gas and bloating; dietitian input can help select changes.",
+              "citationIDs": [
+                "depth8_ibs_diet"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Plan a limited food trial",
+          "bullets": [
+            {
+              "text": "A clinician may recommend a temporary low-FODMAP trial to test whether certain poorly digested carbohydrates contribute to symptoms.",
+              "citationIDs": [
+                "depth8_ibs_diet"
+              ]
+            },
+            {
+              "text": "When a trial helps, gradual food reintroduction identifies what can be tolerated. Broad permanent restrictions are not the intended endpoint of that trial.",
+              "citationIDs": [
+                "depth8_ibs_diet"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Support follow-up and coping",
+          "bullets": [
+            {
+              "text": "Activity, sufficient sleep and stress-management approaches can complement the treatment plan. Several approaches may be tried to find what helps.",
+              "citationIDs": [
+                "depth8_ibs_treatment"
+              ]
+            },
+            {
+              "text": "Cognitive behavioral therapy, gut-directed hypnotherapy or relaxation approaches may be part of care. Medication benefits and unwanted effects belong in follow-up discussions.",
+              "citationIDs": [
+                "depth8_ibs_treatment"
+              ]
+            }
+          ]
+        }
+      ],
+      "links": [
+        "diagnosis:ibs",
+        "reference:focused-abdominal-assessment",
+        "reference:celiac-disease-food-planning"
+      ]
+    },
+    {
+      "id": "reference:adult-constipation-bowel-routine",
+      "slug": "adult-constipation-bowel-routine",
+      "symbol": "AdultConstipationRoutineSample",
+      "title": "Constipation: adult bowel routine",
+      "subtitle": "Assessment, daily habits and when to seek review",
+      "concept": "elimination",
+      "file": "DigestiveSymptomDepthReferences.swift",
+      "proposedTier": "B",
+      "gap": "Existing opioid and cancer constipation entries are cause-specific; this guide adds a general adult routine and symptom review.",
+      "sections": [
+        {
+          "title": "Describe more than frequency",
+          "bullets": [
+            {
+              "text": "Hard or lumpy stool, painful passage and incomplete emptying can indicate constipation even when the person still passes stool.",
+              "citationIDs": [
+                "depth8_constipation_symptoms"
+              ]
+            },
+            {
+              "text": "Constipation can have several contributors at once, including medicines, reduced activity, intake changes and difficulty emptying the pelvic floor.",
+              "citationIDs": [
+                "depth8_constipation_symptoms"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Recognize symptoms needing assessment",
+          "bullets": [
+            {
+              "text": "Constipation with rectal bleeding, persistent abdominal pain, inability to pass gas, vomiting or fever needs prompt medical assessment.",
+              "citationIDs": [
+                "depth8_constipation_symptoms"
+              ]
+            },
+            {
+              "text": "Unintentional weight loss, persistent symptoms despite self-care or a family history of colorectal cancer warrant clinician review.",
+              "citationIDs": [
+                "depth8_constipation_symptoms"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Review medicines and routine",
+          "bullets": [
+            {
+              "text": "Opioids, iron supplements and some anticholinergic medicines can contribute. Include nonprescription products when reviewing potential causes.",
+              "citationIDs": [
+                "depth8_constipation_symptoms"
+              ]
+            },
+            {
+              "text": "Discuss suspected medication effects with the clinician. Changing or stopping a medicine independently can interfere with treatment of the underlying condition.",
+              "citationIDs": [
+                "depth8_constipation_treatment"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Build a consistent toilet routine",
+          "bullets": [
+            {
+              "text": "Regular activity and a predictable time for bowel movements may help. Responding to the urge and allowing enough unhurried time support a routine.",
+              "citationIDs": [
+                "depth8_constipation_treatment"
+              ]
+            },
+            {
+              "text": "Eating stimulates colon movement; a clinician may suggest trying after breakfast. A footstool may make sitting on the toilet more comfortable.",
+              "citationIDs": [
+                "depth8_constipation_treatment"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Individualize food and fluids",
+          "bullets": [
+            {
+              "text": "Introduce fiber gradually with foods such as oats, beans, fruit and vegetables. A dietitian can help set a practical food plan.",
+              "citationIDs": [
+                "depth8_constipation_diet"
+              ]
+            },
+            {
+              "text": "Fluids help fiber work and can soften stools. Daily fluid needs depend on health and activity; use the person’s agreed plan rather than a universal volume.",
+              "citationIDs": [
+                "depth8_constipation_diet"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Reassess unresolved symptoms",
+          "bullets": [
+            {
+              "text": "When routine changes are insufficient, a clinician can select further treatment. Laxative choice and duration depend on the individual situation.",
+              "citationIDs": [
+                "depth8_constipation_treatment"
+              ]
+            },
+            {
+              "text": "Pelvic-floor coordination problems may benefit from biofeedback. Ongoing difficulty emptying deserves evaluation rather than repeated unsupervised treatment changes.",
+              "citationIDs": [
+                "depth8_constipation_treatment"
+              ]
+            }
+          ]
+        }
+      ],
+      "links": [
+        "reference:focused-abdominal-assessment",
+        "procedure:medication-reconciliation",
+        "reference:cancer-treatment-constipation-support"
+      ]
+    },
+    {
+      "id": "reference:diverticular-disease-food-recovery",
+      "slug": "diverticular-disease-food-recovery",
+      "symbol": "DiverticularFoodRecoverySample",
+      "title": "Diverticular disease: food & recovery",
+      "subtitle": "Adult symptom changes, diet progression and follow-up",
+      "concept": "nutrition",
+      "file": "DigestiveSymptomDepthReferences.swift",
+      "proposedTier": "B",
+      "gap": "The diverticulitis diagnosis focuses on acute disease; this guide expands recovery teaching and individualized food planning.",
+      "sections": [
+        {
+          "title": "Clarify the current phase",
+          "bullets": [
+            {
+              "text": "Chronic diverticular symptoms may include bloating, altered bowel habits and lower abdominal discomfort. Similar symptoms can have other causes.",
+              "citationIDs": [
+                "depth8_div_symptoms"
+              ]
+            },
+            {
+              "text": "Diverticulitis can cause abdominal pain with fever, chills, nausea or vomiting. Pain may appear suddenly or become worse over several days.",
+              "citationIDs": [
+                "depth8_div_symptoms"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Recognize the need for reassessment",
+          "bullets": [
+            {
+              "text": "Rectal bleeding needs medical assessment even when the amount seems small. The bleeding source and need for treatment must be evaluated.",
+              "citationIDs": [
+                "depth8_div_treatment"
+              ]
+            },
+            {
+              "text": "Severe illness or complications may require hospital treatment. Failure to improve is a reason for further assessment of the care plan.",
+              "citationIDs": [
+                "depth8_div_treatment"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Follow the acute food plan",
+          "bullets": [
+            {
+              "text": "A clinician may recommend a short period of clear liquids during diverticulitis, with gradual return to solid food as symptoms improve.",
+              "citationIDs": [
+                "depth8_div_treatment"
+              ]
+            },
+            {
+              "text": "The acute plan differs from longer-term fiber advice. Antibiotics are not required for every episode; treatment is selected for the individual situation.",
+              "citationIDs": [
+                "depth8_div_treatment"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Return to individualized fiber intake",
+          "bullets": [
+            {
+              "text": "For chronic symptoms or after an episode, the clinician may suggest more fiber. Introduce changes gradually with a dietitian’s help when needed.",
+              "citationIDs": [
+                "depth8_div_diet"
+              ]
+            },
+            {
+              "text": "Nutrition Facts labels can help identify fiber-containing choices. The amount and timing should fit the current recovery plan.",
+              "citationIDs": [
+                "depth8_div_diet"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Avoid unnecessary food exclusions",
+          "bullets": [
+            {
+              "text": "Most people with diverticular disease do not need to exclude nuts, seeds or popcorn solely because they have diverticula.",
+              "citationIDs": [
+                "depth8_div_diet"
+              ]
+            },
+            {
+              "text": "Discuss individual food concerns with the treating team. A higher-fiber pattern with less red meat may lower diverticulitis risk.",
+              "citationIDs": [
+                "depth8_div_diet"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Review longer-term risk",
+          "bullets": [
+            {
+              "text": "Regular physical activity, smoking cessation and weight management when appropriate may lower diverticulitis risk. These are follow-up topics after acute recovery.",
+              "citationIDs": [
+                "depth8_div_treatment"
+              ]
+            },
+            {
+              "text": "Review medicines with the clinician, including NSAIDs, which may increase complication risk. Recurrence planning depends on the person’s history and health.",
+              "citationIDs": [
+                "depth8_div_treatment"
+              ]
+            }
+          ]
+        }
+      ],
+      "links": [
+        "diagnosis:diverticulitis",
+        "reference:focused-abdominal-assessment",
+        "reference:bedside-nutrition-assessment"
+      ]
+    },
+    {
+      "id": "reference:short-bowel-nutrition-continuity",
+      "slug": "short-bowel-nutrition-continuity",
+      "symbol": "ShortBowelNutritionContinuitySample",
+      "title": "Short bowel: nutrition continuity",
+      "subtitle": "Adult absorption, hydration and changing support needs",
+      "concept": "nutrition",
+      "file": "DigestiveSymptomDepthReferences.swift",
+      "proposedTier": "A",
+      "gap": "Adds a dedicated adult intestinal-failure support path beyond existing ostomy and parenteral nutrition procedures.",
+      "sections": [
+        {
+          "title": "Recognize malabsorption",
+          "bullets": [
+            {
+              "text": "Short bowel syndrome reduces nutrient absorption. Diarrhea, greasy stools, fatigue and weight loss can reflect malabsorption.",
+              "citationIDs": [
+                "depth8_sbs_symptoms"
+              ]
+            },
+            {
+              "text": "Abdominal pain, bloating and gas may accompany intestinal complications. Symptom changes need interpretation with the person’s surgical and disease history.",
+              "citationIDs": [
+                "depth8_sbs_symptoms"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Identify urgent fluid loss",
+          "bullets": [
+            {
+              "text": "Reduced or dark urine, marked thirst, dry mouth, dizziness or fainting can signal dehydration. NIDDK advises immediate medical assessment for these symptoms.",
+              "citationIDs": [
+                "depth8_sbs_symptoms"
+              ]
+            },
+            {
+              "text": "Dehydration also involves electrolyte loss. Without treatment it can progress to organ damage or shock.",
+              "citationIDs": [
+                "depth8_sbs_symptoms"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Understand changing support needs",
+          "bullets": [
+            {
+              "text": "Nutrition support may include intravenous nutrition, tube feeding and oral intake. The combination depends on intestinal function and the stage of recovery.",
+              "citationIDs": [
+                "depth8_sbs_treatment"
+              ]
+            },
+            {
+              "text": "Remaining bowel can adapt. As absorption improves, the clinical team may increase enteral or oral intake and reduce parenteral support.",
+              "citationIDs": [
+                "depth8_sbs_treatment"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Match the plan to anatomy",
+          "bullets": [
+            {
+              "text": "Diet depends on which intestinal segments remain, how well they work, symptoms and the amount of nutrition support already provided.",
+              "citationIDs": [
+                "depth8_sbs_diet"
+              ]
+            },
+            {
+              "text": "A dietitian helps balance nutrients, fluids and electrolytes while supporting adaptation. One generic short-bowel diet cannot meet every patient’s needs.",
+              "citationIDs": [
+                "depth8_sbs_diet"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Clarify fluid composition",
+          "bullets": [
+            {
+              "text": "Prescribed oral rehydration solutions contain glucose and electrolytes. Some people also need intravenous fluids; the team adjusts support as absorption changes.",
+              "citationIDs": [
+                "depth8_sbs_treatment"
+              ]
+            },
+            {
+              "text": "Sugary drinks can worsen dehydration. In selected patients, especially without a colon, excessive low-electrolyte drinks can also worsen losses; drink selection needs individualized advice.",
+              "citationIDs": [
+                "depth8_sbs_treatment"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Maintain follow-up as support changes",
+          "bullets": [
+            {
+              "text": "Vitamin or mineral supplements may be needed when parenteral nutrition is reduced. Supplement selection belongs with the treating team.",
+              "citationIDs": [
+                "depth8_sbs_treatment"
+              ]
+            },
+            {
+              "text": "Persistent intestinal failure may require long-term nutrition support. Its complications and continued need are part of specialist follow-up.",
+              "citationIDs": [
+                "depth8_sbs_treatment"
+              ]
+            }
+          ]
+        }
+      ],
+      "links": [
+        "procedure:tpn-administration",
+        "reference:bowel-ostomy-daily-support",
+        "reference:bedside-nutrition-assessment"
+      ]
+    },
+    {
+      "id": "reference:osteoporosis-daily-fracture-prevention",
+      "slug": "osteoporosis-daily-fracture-prevention",
+      "symbol": "OsteoporosisDailyPreventionSample",
+      "title": "Osteoporosis: daily fracture prevention",
+      "subtitle": "Adult mobility, home safety and ongoing bone care",
+      "concept": "mobility",
+      "file": "BoneJointDailySupportReferences.swift",
+      "proposedTier": "B",
+      "gap": "Adds practical daily fracture prevention to existing screening and postmenopausal disease entries.",
+      "sections": [
+        {
+          "title": "Recognize the silent risk",
+          "bullets": [
+            {
+              "text": "Osteoporosis may have no symptoms before a fracture. Hip, spine and wrist fractures are common consequences of reduced bone strength.",
+              "citationIDs": [
+                "depth8_bone_overview"
+              ]
+            },
+            {
+              "text": "Fragile bones can fracture after a minor fall or ordinary stresses. Severe back pain, height loss or a newly stooped posture can accompany vertebral fracture.",
+              "citationIDs": [
+                "depth8_bone_overview"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Prepare the assessment history",
+          "bullets": [
+            {
+              "text": "Share previous fractures, family history, medicines and illnesses that affect bone health. These details help clinicians assess ongoing risk.",
+              "citationIDs": [
+                "depth8_bone_care"
+              ]
+            },
+            {
+              "text": "Assessment can include height, posture, strength, gait and balance. Bone-density testing can support diagnosis and treatment monitoring.",
+              "citationIDs": [
+                "depth8_bone_care"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Support food and medicine continuity",
+          "bullets": [
+            {
+              "text": "Adequate calcium, vitamin D and protein support bone health; poor intake and excessive dieting can increase risk.",
+              "citationIDs": [
+                "depth8_bone_overview"
+              ]
+            },
+            {
+              "text": "Prescribed osteoporosis medicines can help prevent fractures. Nutrition, activity and avoiding smoking remain parts of ongoing care.",
+              "citationIDs": [
+                "depth8_bone_overview"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Make movement appropriate",
+          "bullets": [
+            {
+              "text": "An individualized exercise plan can support strength and reduce falls. Discuss safe activity with the clinician or physical therapist.",
+              "citationIDs": [
+                "depth8_bone_care"
+              ]
+            },
+            {
+              "text": "Physical and occupational therapists can help with function and daily tasks. The plan should reflect existing fractures and physical limitations.",
+              "citationIDs": [
+                "depth8_bone_care"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Reduce hazards at home",
+          "bullets": [
+            {
+              "text": "Clear cords and clutter, secure loose rugs and improve lighting. Handrails and bathroom grab bars can make movement safer.",
+              "citationIDs": [
+                "depth8_bone_care"
+              ]
+            },
+            {
+              "text": "Keep a phone or emergency-call device accessible. A plan for obtaining help after a fall supports safety at home.",
+              "citationIDs": [
+                "depth8_bone_care"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Review changing fall risk",
+          "bullets": [
+            {
+              "text": "Discuss falls, balance problems, vision changes and medicine effects with the care team. These factors can increase fracture risk.",
+              "citationIDs": [
+                "depth8_bone_care"
+              ]
+            },
+            {
+              "text": "Learning about treatment and involving family or support groups can help people participate in ongoing osteoporosis care.",
+              "citationIDs": [
+                "depth8_bone_care"
+              ]
+            }
+          ]
+        }
+      ],
+      "links": [
+        "reference:osteoporosis-screening-frax",
+        "reference:fall-fracture-prevention",
+        "reference:bedside-mobility-assessment"
+      ]
+    },
+    {
+      "id": "reference:osteoarthritis-daily-function-support",
+      "slug": "osteoarthritis-daily-function-support",
+      "symbol": "OsteoarthritisDailyFunctionSample",
+      "title": "Osteoarthritis: daily function",
+      "subtitle": "Adult movement, task adaptation and symptom follow-up",
+      "concept": "mobility",
+      "file": "BoneJointDailySupportReferences.swift",
+      "proposedTier": "B",
+      "gap": "Existing diagnosis lists therapies; this guide expands task-level function, equipment and participation in care.",
+      "sections": [
+        {
+          "title": "Describe functional impact",
+          "bullets": [
+            {
+              "text": "Osteoarthritis affects more than cartilage and can cause pain, swelling and restricted movement. Symptoms and disability differ between people.",
+              "citationIDs": [
+                "depth8_oa_overview"
+              ]
+            },
+            {
+              "text": "Ask how symptoms affect stairs, chair or toilet transfers, walking and gripping objects. These concrete limitations help describe daily burden.",
+              "citationIDs": [
+                "depth8_oa_overview"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Include sleep and symptom changes",
+          "bullets": [
+            {
+              "text": "Pain often increases with joint use; advanced disease can also disturb sleep. Short stiffness after inactivity is common.",
+              "citationIDs": [
+                "depth8_oa_overview"
+              ]
+            },
+            {
+              "text": "Fatigue, poor sleep and low mood can accompany the symptom burden. They belong in the discussion of function and quality of life.",
+              "citationIDs": [
+                "depth8_oa_overview"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Prepare for clinical reassessment",
+          "bullets": [
+            {
+              "text": "History and examination guide evaluation. Blood tests or joint-fluid testing may investigate other causes, including infection or gout.",
+              "citationIDs": [
+                "depth8_oa_care"
+              ]
+            },
+            {
+              "text": "Early damage may not appear on x-rays. Locking or giving way can prompt additional evaluation rather than assumptions based on prior imaging.",
+              "citationIDs": [
+                "depth8_oa_care"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Build tolerable activity",
+          "bullets": [
+            {
+              "text": "Start activity gradually with professional guidance. A balanced plan may include range of motion, strengthening, balance and low-impact exercise.",
+              "citationIDs": [
+                "depth8_oa_care"
+              ]
+            },
+            {
+              "text": "Water exercise can reduce joint loading. Weight management, when appropriate, may also reduce stress on weight-bearing joints.",
+              "citationIDs": [
+                "depth8_oa_care"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Adapt daily tasks",
+          "bullets": [
+            {
+              "text": "A cane, walker or gripping aid may improve function. Occupational therapy can help protect joints and conserve energy.",
+              "citationIDs": [
+                "depth8_oa_care"
+              ]
+            },
+            {
+              "text": "Prescribed braces should be fitted by a professional. Reducing repetitive bending and choosing appropriate supports may ease daily tasks.",
+              "citationIDs": [
+                "depth8_oa_care"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Keep goals and support visible",
+          "bullets": [
+            {
+              "text": "Follow-up provides a chance to review symptoms and treatment response. Care goals include pain relief, function and participation in daily life.",
+              "citationIDs": [
+                "depth8_oa_care"
+              ]
+            },
+            {
+              "text": "Education classes and support groups may help with coping. Nurse educators and rehabilitation professionals can support understanding and practical self-management.",
+              "citationIDs": [
+                "depth8_oa_care"
+              ]
+            }
+          ]
+        }
+      ],
+      "links": [
+        "diagnosis:osteoarthritis",
+        "reference:bedside-mobility-assessment",
+        "reference:hip-replacement-home-preparation"
+      ]
+    },
+    {
+      "id": "reference:gout-daily-care-follow-up",
+      "slug": "gout-daily-care-follow-up",
+      "symbol": "GoutDailyCareFollowUpSample",
+      "title": "Gout: daily care & follow-up",
+      "subtitle": "Adult flare burden, food choices and treatment continuity",
+      "concept": "painComfort",
+      "file": "BoneJointDailySupportReferences.swift",
+      "proposedTier": "B",
+      "gap": "Existing gout management emphasizes pharmacology; this guide emphasizes day-to-day coping, comorbidity context and continuity.",
+      "sections": [
+        {
+          "title": "Describe the flare pattern",
+          "bullets": [
+            {
+              "text": "Gout can cause sudden severe joint pain, warmth and swelling, often at night. It can affect joints beyond the big toe.",
+              "citationIDs": [
+                "depth8_gout_overview"
+              ]
+            },
+            {
+              "text": "Flares may be separated by symptom-free intervals. Increasing flare frequency or persistent lumps called tophi can indicate a growing disease burden.",
+              "citationIDs": [
+                "depth8_gout_overview"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Keep diagnosis in context",
+          "bullets": [
+            {
+              "text": "High blood urate does not mean everyone will develop gout. Urate buildup and the clinical pattern are distinct parts of the disease picture.",
+              "citationIDs": [
+                "depth8_gout_overview"
+              ]
+            },
+            {
+              "text": "Other conditions can resemble gout. A new or different painful swollen joint needs clinical assessment rather than automatic attribution to a previous diagnosis.",
+              "citationIDs": [
+                "depth8_gout_care"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Support comfort during a flare",
+          "bullets": [
+            {
+              "text": "Resting the affected joint and elevating the limb may help reduce flare-related symptoms.",
+              "citationIDs": [
+                "depth8_gout_care"
+              ]
+            },
+            {
+              "text": "Flare treatment and treatment of the underlying urate burden serve different goals; the clinician individualizes the plan.",
+              "citationIDs": [
+                "depth8_gout_care"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Discuss realistic food changes",
+          "bullets": [
+            {
+              "text": "Review alcohol, sugar-sweetened drinks and purine-rich animal foods with the care team when planning dietary changes.",
+              "citationIDs": [
+                "depth8_gout_care"
+              ]
+            },
+            {
+              "text": "Weight management when appropriate and a balanced eating pattern can support broader health as well as gout care.",
+              "citationIDs": [
+                "depth8_gout_care"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Support treatment continuity",
+          "bullets": [
+            {
+              "text": "Diet changes alone are insufficient for frequent flares or tophi. Regular use of prescribed urate-lowering medicine is central to prevention.",
+              "citationIDs": [
+                "depth8_gout_care"
+              ]
+            },
+            {
+              "text": "A pharmacist or nurse educator can help clarify the treatment plan; discuss proposed medication changes with the clinician.",
+              "citationIDs": [
+                "depth8_gout_care"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Include associated health needs",
+          "bullets": [
+            {
+              "text": "Kidney disease, kidney stones, hypertension and cardiovascular disease are important associated conditions. Follow-up should account for these alongside joint symptoms.",
+              "citationIDs": [
+                "depth8_gout_overview"
+              ]
+            },
+            {
+              "text": "Diuretics and certain other medicines can increase gout risk. A medication history helps clinicians interpret the overall pattern.",
+              "citationIDs": [
+                "depth8_gout_overview"
+              ]
+            }
+          ]
+        }
+      ],
+      "links": [
+        "diagnosis:gout",
+        "procedure:medication-reconciliation",
+        "reference:chronic-pain-management-framework"
+      ]
+    },
+    {
+      "id": "reference:scleroderma-daily-system-support",
+      "slug": "scleroderma-daily-system-support",
+      "symbol": "SclerodermaDailySupportSample",
+      "title": "Scleroderma: daily support",
+      "subtitle": "Adult skin, oral care, function and organ follow-up",
+      "concept": "cellularRegulation",
+      "file": "BoneJointDailySupportReferences.swift",
+      "proposedTier": "A",
+      "gap": "The systemic-sclerosis diagnosis emphasizes organ therapies; this guide expands oral care, daily function and ongoing symptom communication.",
+      "sections": [
+        {
+          "title": "Clarify the disease type",
+          "bullets": [
+            {
+              "text": "Localized scleroderma mainly affects skin and underlying tissues. Systemic sclerosis can involve blood vessels and internal organs, so follow-up needs differ.",
+              "citationIDs": [
+                "depth8_scl_overview"
+              ]
+            },
+            {
+              "text": "Systemic disease may involve the lungs, heart, kidneys or digestive tract. Skin changes alone do not describe the full scope of care.",
+              "citationIDs": [
+                "depth8_scl_overview"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Maintain skin comfort and warmth",
+          "bullets": [
+            {
+              "text": "Layers, gloves and avoiding cold or wet environments may reduce Raynaud-related symptoms. Moisturizers can help with skin stiffness.",
+              "citationIDs": [
+                "depth8_scl_care"
+              ]
+            },
+            {
+              "text": "Avoid very hot washing and harsh cleaning products; protect skin during household cleaning. Smoking can worsen vascular symptoms.",
+              "citationIDs": [
+                "depth8_scl_care"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Support mouth and hand care",
+          "bullets": [
+            {
+              "text": "Dry mouth and a narrowed mouth opening can complicate hygiene. Regular dental care and adapted brushing or flossing tools may help.",
+              "citationIDs": [
+                "depth8_scl_care"
+              ]
+            },
+            {
+              "text": "Mouth pain, sores or loose teeth warrant prompt dental contact. Discuss ways to manage dry mouth with dental and medical clinicians.",
+              "citationIDs": [
+                "depth8_scl_care"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Address eating and daily tasks",
+          "bullets": [
+            {
+              "text": "Small, frequent meals may help digestive symptoms. Swallowing difficulty or poor nutrient absorption requires an individualized diet assessment.",
+              "citationIDs": [
+                "depth8_scl_care"
+              ]
+            },
+            {
+              "text": "Physical and occupational therapy can support mobility and daily activities, including hand and jaw function.",
+              "citationIDs": [
+                "depth8_scl_care"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Recognize organ-related changes",
+          "bullets": [
+            {
+              "text": "Report new breathlessness, dry cough, unusual fatigue or swollen feet. Lung testing can detect problems before symptoms become obvious.",
+              "citationIDs": [
+                "depth8_scl_care"
+              ]
+            },
+            {
+              "text": "Follow the blood-pressure monitoring plan. A reading higher than usual or new headache or breathlessness needs prompt clinician contact because renal crisis can be serious.",
+              "citationIDs": [
+                "depth8_scl_care"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Keep long-term support coordinated",
+          "bullets": [
+            {
+              "text": "Treatment aims to limit progression and relieve symptoms. Ongoing monitoring matters even when the visible skin findings are stable.",
+              "citationIDs": [
+                "depth8_scl_overview"
+              ]
+            },
+            {
+              "text": "The range of possible organ involvement makes a shared account of current symptoms and affected systems useful across follow-up care.",
+              "citationIDs": [
+                "depth8_scl_overview"
+              ]
+            }
+          ]
+        }
+      ],
+      "links": [
+        "diagnosis:systemic-sclerosis",
+        "reference:dysphagia-mealtime-support",
+        "reference:skin-assessment-beyond-wounds"
+      ]
+    }
+  ],
+  "collections": [
+    {
+      "id": "digestive-nutrition-symptoms",
+      "title": "Digestive nutrition & symptoms",
+      "subtitle": "Bowel routines, food planning & nutrition support",
+      "ids": [
+        "reference:ibs-daily-symptom-food-support",
+        "reference:adult-constipation-bowel-routine",
+        "reference:diverticular-disease-food-recovery",
+        "reference:short-bowel-nutrition-continuity",
+        "reference:focused-abdominal-assessment",
+        "reference:bedside-nutrition-assessment",
+        "reference:celiac-disease-food-planning",
+        "reference:gastroparesis-nutrition-support",
+        "reference:ibd-nutrition-follow-up",
+        "reference:gerd-daily-care-follow-up",
+        "reference:cirrhosis-nutrition-daily-support",
+        "reference:pancreatic-insufficiency-nutrition-support",
+        "reference:bowel-ostomy-daily-support",
+        "reference:fecal-incontinence-support",
+        "reference:cancer-treatment-constipation-support",
+        "reference:stool-sample-collection",
+        "procedure:tpn-administration"
+      ]
+    },
+    {
+      "id": "bone-joint-care",
+      "title": "Bone & joint care",
+      "subtitle": "Arthritis, fracture prevention & daily function",
+      "ids": [
+        "reference:osteoporosis-daily-fracture-prevention",
+        "reference:osteoarthritis-daily-function-support",
+        "reference:gout-daily-care-follow-up",
+        "reference:scleroderma-daily-system-support",
+        "reference:musculoskeletal-assessment",
+        "reference:bedside-mobility-assessment",
+        "reference:rheumatoid-arthritis-daily-function",
+        "reference:osteoporosis-screening-frax",
+        "reference:fall-fracture-prevention",
+        "reference:hip-replacement-home-preparation",
+        "reference:fibromyalgia-sleep-pacing-support",
+        "reference:chronic-pain-management-framework",
+        "procedure:ambulatory-aid-teaching",
+        "procedure:cast-care"
+      ]
+    }
+  ],
+  "targetedCorrections": [
+    {
+      "entryID": "diagnosis:gout",
+      "old": "Do NOT start ULT during acute attack (worsens). Continue ULT if patient already on it.",
+      "new": "Flare control and long-term urate reduction have different goals. The clinician individualizes medication selection and timing.",
+      "citationIDs": [
+        "depth8_gout_care"
+      ]
+    },
+    {
+      "entryID": "diagnosis:gout",
+      "old": "URATE-LOWERING THERAPY (ULT) — start 2–4 weeks after acute attack resolves (or sooner if frequent attacks/tophi/CKD): allopurinol first-line; titrate to serum urate <6 mg/dL (<5 with tophi).",
+      "new": "For frequent flares or tophi, lifestyle measures alone are insufficient; regular prescribed urate-lowering treatment helps prevent further flares and reduce tophi.",
+      "citationIDs": [
+        "depth8_gout_care"
+      ]
+    },
+    {
+      "entryID": "diagnosis:osteoarthritis",
+      "old": "No systemic features (no fever, no fatigue) — important distinction from inflammatory arthritis.",
+      "new": "Pain and functional limitations may be accompanied by fatigue, sleep difficulty or depressed mood; these effects deserve assessment.",
+      "citationIDs": [
+        "depth8_oa_overview"
+      ]
+    }
+  ],
+  "clinicalReviewer": null,
+  "clinicalReviewDate": null,
+  "reviewNotes": [
+    "Proposed tiers require independent clinical assessment. Tier A: short-bowel support and systemic sclerosis because of fluid/organ risk. Remaining six guides proposed Tier B.",
+    "NIDDK IBS/constipation source dates are 2017/2018; stable education only, no drug algorithms or supplement endorsements.",
+    "New content uses specific source pages. Older linked entries are not newly approved by navigation membership.",
+    "The manifest records workflow state and is not an application publication gate.",
+    "ACR 2020 guideline primary text confirmed the legacy blanket ban on starting urate-lowering therapy during a flare was inappropriate; replacement statements use NIAMS public-domain prose.",
+    "No dosing protocols, pediatric instructions, copyrighted images or proprietary instruments added."
+  ]
+}

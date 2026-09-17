@@ -46,6 +46,17 @@ private let dermR8 = NCLEXTags(category: .physiologicalIntegrity, subcategory: .
 
 // MARK: - PCOS
 
+
+private let osteoarthritisSymptomsSource2026 = CitationSource(
+    id: "depth8_oa_overview",
+    shortName: "Osteoarthritis: Overview, Symptoms, & Causes",
+    detail: "Overview; symptoms; functional effects. Source reviewed September 2023. Federal educational prose adapted and condensed by NurseMind; images, logos and third-party material excluded.",
+    publisher: "National Institute of Arthritis and Musculoskeletal and Skin Diseases; National Institutes of Health",
+    license: .publicDomain,
+    url: "https://www.niams.nih.gov/health-topics/osteoarthritis",
+    lastRetrieved: "2026-09-17"
+)
+
 public enum PCOSSample {
     public static let entry: DiagnosisEntry = DiagnosisEntry(
         id: "pcos",
@@ -482,7 +493,7 @@ public enum OsteoarthritisSample {
             AttributedBullet("Brief morning stiffness <30 minutes (vs RA stiffness ≥1 hour).", citationIDs: ["openrn_ms_round8"]),
             AttributedBullet("Crepitus on movement.", citationIDs: ["openrn_ms_round8"]),
             AttributedBullet("Hands — Heberden nodes (DIP), Bouchard nodes (PIP); base of thumb (squaring).", citationIDs: ["openrn_ms_round8"]),
-            AttributedBullet("No systemic features (no fever, no fatigue) — important distinction from inflammatory arthritis.", citationIDs: ["openrn_ms_round8"])
+            AttributedBullet("Pain and functional limitations may be accompanied by fatigue, sleep difficulty or depressed mood; these effects deserve assessment.", citationIDs: ["depth8_oa_overview"])
         ],
         diagnosticCriteria: [
             AttributedBullet("Clinical — typical history + exam.", citationIDs: ["openrn_ms_round8"]),
@@ -510,7 +521,7 @@ public enum OsteoarthritisSample {
             AttributedBullet("Opioid prescribing — strongly discouraged for chronic OA per primary source; risk far exceeds benefit long-term.", citationIDs: ["openrn_ms_round8"]),
             AttributedBullet("Mechanical worsening / instability — orthopedic referral; consider imaging for meniscal tear or AVN.", citationIDs: ["openrn_ms_round8"])
         ],
-        citations: [openrnMSr8, specialtyDxR8],
+        citations: [openrnMSr8, specialtyDxR8, osteoarthritisSymptomsSource2026],
         lastSourceFidelityReview: "2026-05-04"
     )
 }

@@ -28,7 +28,8 @@ let package = Package(
         // TikTok Business SDK — install + subscription attribution for the
         // TikTok paid funnel. Off-by-default: SDK only initializes when the
         // three Secrets (appId / tiktokAppId / accessToken) are populated.
-        .package(url: "https://github.com/tiktok/tiktok-business-ios-sdk.git", from: "1.6.0")
+        .package(url: "https://github.com/tiktok/tiktok-business-ios-sdk.git", from: "1.6.0"),
+        .package(url: "https://github.com/facebook/facebook-ios-sdk.git", exact: "18.1.1")
     ],
     targets: [
         .target(
@@ -38,7 +39,8 @@ let package = Package(
                 .product(name: "RevenueCat", package: "purchases-ios-spm"),
                 .product(name: "RevenueCatUI", package: "purchases-ios-spm"),
                 .product(name: "PostHog", package: "posthog-ios"),
-                .product(name: "TikTokBusinessSDK", package: "tiktok-business-ios-sdk")
+                .product(name: "TikTokBusinessSDK", package: "tiktok-business-ios-sdk"),
+                .product(name: "FacebookCore", package: "facebook-ios-sdk")
             ],
             path: "Sources/NursemindCore",
             resources: [

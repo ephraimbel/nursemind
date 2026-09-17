@@ -1,0 +1,1499 @@
+{
+  "created": "2026-09-17",
+  "status": "source_fidelity_checked_clinical_review_pending",
+  "scope": "Six pathogen-specific bedside prevention guides, separate from concurrent device, assessment and bedside-workflow work. Existing diagnosis/test pages remain linked; this is not a claim of comprehensive clinical coverage.",
+  "publication": "local_development_only",
+  "publicationNote": "This manifest is review metadata, not a runtime publication gate. The development registry includes these entries. No release or deployment is authorized by this manifest.",
+  "license": "CDC-authored federal prose only, public domain; original paraphrases. Images, logos and third-party material excluded.",
+  "sources": [
+    {
+      "id": "depth9_cdiff_control",
+      "title": "C. difficile: Clinical Guidance",
+      "url": "https://www.cdc.gov/c-diff/hcp/clinical-guidance/index.html",
+      "sourceDate": "May 13, 2026",
+      "locator": "Isolation and Contact Precautions; diagnostic stewardship; environmental cleaning",
+      "retrieval": {
+        "url": "https://www.cdc.gov/c-diff/hcp/clinical-guidance/index.html",
+        "resolvedURL": "https://www.cdc.gov/c-diff/hcp/clinical-guidance/index.html",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "e1eaa53b9ddffba65f3fe31338e34c7e5943c3ddd0bfe3bd1d9cbbeaec70bfe2",
+        "textSHA256": "c4712ce6dd398d6d7ae3e35a1e39770dfc99440f0eb9deff60fa41e1077e6270"
+      }
+    },
+    {
+      "id": "depth9_cdiff_clinical",
+      "title": "C. difficile: Clinical Overview",
+      "url": "https://www.cdc.gov/c-diff/hcp/clinical-overview/index.html",
+      "sourceDate": "April 13, 2026",
+      "locator": "Clinical features; colonization and infection; complications; transmission",
+      "retrieval": {
+        "url": "https://www.cdc.gov/c-diff/hcp/clinical-overview/index.html",
+        "resolvedURL": "https://www.cdc.gov/c-diff/hcp/clinical-overview/index.html",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "9675c3d52fcba9535607783caa8c05e29339e645ef8aa7e02fd6fe53682a81dc",
+        "textSHA256": "f5bfee6b306b1580caf8f8283f8ec059dd70ce8ccde700fe31618c5d27358106"
+      }
+    },
+    {
+      "id": "depth9_cdiff_test",
+      "title": "Clinical Testing for C. difficile",
+      "url": "https://www.cdc.gov/c-diff/hcp/diagnosis-testing/index.html",
+      "sourceDate": "March 6, 2024",
+      "locator": "Molecular tests; antigen detection; toxin testing and specimen stability",
+      "retrieval": {
+        "url": "https://www.cdc.gov/c-diff/hcp/diagnosis-testing/index.html",
+        "resolvedURL": "https://www.cdc.gov/c-diff/hcp/diagnosis-testing/index.html",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "7384e040149eb131be782b586687fd2b4dba0390c03a0af707bfe2c8fa3759e4",
+        "textSHA256": "50d27140e629a28590be71e331bfa801a18c79a148f9daeb9a835f1c933f1add"
+      }
+    },
+    {
+      "id": "depth9_hands",
+      "title": "Clinical Safety: Hand Hygiene",
+      "url": "https://www.cdc.gov/clean-hands/hcp/clinical-safety/index.html",
+      "sourceDate": "February 27, 2024",
+      "locator": "ABHS versus soap and water; C. difficile routine care and outbreaks; glove use",
+      "retrieval": {
+        "url": "https://www.cdc.gov/clean-hands/hcp/clinical-safety/index.html",
+        "resolvedURL": "https://www.cdc.gov/clean-hands/hcp/clinical-safety/index.html",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "9ec86a5942102cd6716b8d32573ee40a9a5d9e32b42348a24d62c2cb9f9d2c9a",
+        "textSHA256": "e75e37b4c10e655b4f69a1be49803dc86d80b89b23ac825209cadea4a34bea61"
+      }
+    },
+    {
+      "id": "depth9_auris_clinical",
+      "title": "C. auris: Clinical Overview",
+      "url": "https://www.cdc.gov/candida-auris/hcp/clinical-overview/index.html",
+      "sourceDate": "February 26, 2026",
+      "locator": "Infection and colonization; diagnostic identification; reporting",
+      "retrieval": {
+        "url": "https://www.cdc.gov/candida-auris/hcp/clinical-overview/index.html",
+        "resolvedURL": "https://www.cdc.gov/candida-auris/hcp/clinical-overview/index.html",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "becfd57e3ecb30a5318262354ec3d1dea5df35d05722f21ead21ca486c218f45",
+        "textSHA256": "dc8099278fc820d2681a51c909345ac04ad5dc8aba096f26857abd80f6d797e1"
+      }
+    },
+    {
+      "id": "depth9_auris_control",
+      "title": "C. auris: Infection Control Guidance",
+      "url": "https://www.cdc.gov/candida-auris/hcp/infection-control/index.html",
+      "sourceDate": "April 24, 2024",
+      "locator": "Disinfection; shared equipment; setting-specific precautions; transfers; decolonization",
+      "retrieval": {
+        "url": "https://www.cdc.gov/candida-auris/hcp/infection-control/index.html",
+        "resolvedURL": "https://www.cdc.gov/candida-auris/hcp/infection-control/index.html",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "0fd22c36af1e76cd863b0bebb1080ffc8eeced54f3ee80e85756861885e600c2",
+        "textSHA256": "768452089d83727301f08f422469cf766b0460936ab4f02239e90a5a4670361e"
+      }
+    },
+    {
+      "id": "depth9_auris_screen",
+      "title": "C. auris: Screening Recommendations",
+      "url": "https://www.cdc.gov/candida-auris/hcp/screening-hcp/index.html",
+      "sourceDate": "December 15, 2025",
+      "locator": "Who and when to screen; local strategy; reassessment of colonization",
+      "retrieval": {
+        "url": "https://www.cdc.gov/candida-auris/hcp/screening-hcp/index.html",
+        "resolvedURL": "https://www.cdc.gov/candida-auris/hcp/screening-hcp/index.html",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "f6d47734483a0c03151664213f6ca80690b2682af398654cc5c41fbc7b38ec39",
+        "textSHA256": "f6814f95c7b5d1abe79981731c8e32236739d83a8a4078f843e70d02eceb51a4"
+      }
+    },
+    {
+      "id": "depth9_noro_about",
+      "title": "About Norovirus",
+      "url": "https://www.cdc.gov/norovirus/about/index.html",
+      "sourceDate": "April 24, 2024",
+      "locator": "Symptoms; dehydration; spread; supportive treatment",
+      "retrieval": {
+        "url": "https://www.cdc.gov/norovirus/about/index.html",
+        "resolvedURL": "https://www.cdc.gov/norovirus/about/index.html",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "5d8f783b53a3876fdde6f49d447a81baf010b61e342d3e78dd4e3342f821f0b5",
+        "textSHA256": "fec4a83a8f85f7262b4f4d6538b5888f48fe1aacc715e1b90714b2d5e2a6eb74"
+      }
+    },
+    {
+      "id": "depth9_noro_control",
+      "title": "Norovirus: Healthcare Outbreak Recommendations",
+      "url": "https://www.cdc.gov/infection-control/hcp/norovirus-guidelines/summary-recommendations.html",
+      "sourceDate": "March 21, 2024",
+      "locator": "2011 guideline summary: patient placement; hand hygiene; PPE; environmental cleaning; staff exclusion",
+      "retrieval": {
+        "url": "https://www.cdc.gov/infection-control/hcp/norovirus-guidelines/summary-recommendations.html",
+        "resolvedURL": "https://www.cdc.gov/infection-control/hcp/norovirus-guidelines/summary-recommendations.html",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "3629f69838d3306573611d19e41fdc7d75f670dbf720bd4dc2004da3d29d44e3",
+        "textSHA256": "38e285149cabd1cef9c34f1923fdf5db3ed25ad6d160b58c0289f59f5bc1d720"
+      }
+    },
+    {
+      "id": "depth9_noro_lab",
+      "title": "Laboratory Testing for Norovirus",
+      "url": "https://www.cdc.gov/norovirus/php/laboratories/index.html",
+      "sourceDate": "April 24, 2024",
+      "locator": "RT-qPCR; antigen-test limitations; whole-stool specimens; outbreak reporting",
+      "retrieval": {
+        "url": "https://www.cdc.gov/norovirus/php/laboratories/index.html",
+        "resolvedURL": "https://www.cdc.gov/norovirus/php/laboratories/index.html",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "31ea4c4a23e3febe6f7859bb52b1e0fb8ff1b007ca9909137068fa814a13b040",
+        "textSHA256": "203289e9c0ddd6f9815f5cd8fedd01c7fe2d5d36dd65266446accff90ce49594"
+      }
+    },
+    {
+      "id": "depth9_noro_prevent",
+      "title": "How to Prevent Norovirus",
+      "url": "https://www.cdc.gov/norovirus/prevention/index.html",
+      "sourceDate": "January 13, 2025",
+      "locator": "Illness and food handling; soap-and-water hygiene; contaminated linen handling",
+      "retrieval": {
+        "url": "https://www.cdc.gov/norovirus/prevention/index.html",
+        "resolvedURL": "https://www.cdc.gov/norovirus/prevention/index.html",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "09a65e2acc4588c243fdea0ae62f6975c8026a3160ea7ecaf3eb45136d93d739",
+        "textSHA256": "b7ebab4a2e3281adfd347edbb00a908d4dfc18f806a57b23d83b64f90baf8443"
+      }
+    },
+    {
+      "id": "depth9_measles_clinical",
+      "title": "Measles: Clinical Overview",
+      "url": "https://www.cdc.gov/measles/hcp/clinical-overview/index.html",
+      "sourceDate": "August 5, 2026",
+      "locator": "Features; infectious period; reporting; IgM and RT-PCR confirmation",
+      "retrieval": {
+        "url": "https://www.cdc.gov/measles/hcp/clinical-overview/index.html",
+        "resolvedURL": "https://www.cdc.gov/measles/hcp/clinical-overview/index.html",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "6a87799d4ec82b6613aa4a3a967b0d2aa7ec909e29f9d35b73e75e1dc49429eb",
+        "textSHA256": "89a20ca49db2bf342d7c8361e4e52577686f483310f7d3f20a10c087ae06e0e0"
+      }
+    },
+    {
+      "id": "depth9_measles_control",
+      "title": "Measles: Healthcare Infection Prevention",
+      "url": "https://www.cdc.gov/infection-control/hcp/measles/index.html",
+      "sourceDate": "August 19, 2025",
+      "locator": "Interim guidance: triage; AIIR placement; respirators; transport; duration; room clearance",
+      "retrieval": {
+        "url": "https://www.cdc.gov/infection-control/hcp/measles/index.html",
+        "resolvedURL": "https://www.cdc.gov/infection-control/hcp/measles/index.html",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "13faf2b62e6605a3fd78f04e2f0bfe0aa534d19c1067ff6c8ec25007d93da255",
+        "textSHA256": "9b31a1e5932e357567b4fb467b98f4bc8942cf32efdc1657bbb69c031b05217b"
+      }
+    },
+    {
+      "id": "depth9_measles_worker",
+      "title": "Measles: Healthcare Personnel",
+      "url": "https://www.cdc.gov/infection-control/hcp/healthcare-personnel-epidemiology-control/measles.html",
+      "sourceDate": "April 5, 2024",
+      "locator": "Occupational exposure; evidence of immunity; monitoring and work restrictions",
+      "retrieval": {
+        "url": "https://www.cdc.gov/infection-control/hcp/healthcare-personnel-epidemiology-control/measles.html",
+        "resolvedURL": "https://www.cdc.gov/infection-control/hcp/healthcare-personnel-epidemiology-control/measles.html",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "870eb9f097e072254bd65f465b73ab441724bfa5f8ab1cbef21d1e056738d88d",
+        "textSHA256": "8936e537a0d070fc24f8d5422f6db2f2fa5201547cd250b25c1240193dd54f1e"
+      }
+    },
+    {
+      "id": "depth9_zoster_clinical",
+      "title": "Clinical Features of Shingles",
+      "url": "https://www.cdc.gov/shingles/hcp/clinical-signs/index.html",
+      "sourceDate": "May 10, 2024",
+      "locator": "Dermatomal rash; atypical features; ocular and disseminated complications",
+      "retrieval": {
+        "url": "https://www.cdc.gov/shingles/hcp/clinical-signs/index.html",
+        "resolvedURL": "https://www.cdc.gov/shingles/hcp/clinical-signs/index.html",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "660dcc053638fdf86e820d140a5c8340c59f1d9022944945d1ab1b2d5aaece91",
+        "textSHA256": "6d00633371b8eb62065e81ea06d36af77ce731577e9d707a0376b1cc97815094"
+      }
+    },
+    {
+      "id": "depth9_isolation_appendix",
+      "title": "Isolation Precautions: Appendix A",
+      "url": "https://www.cdc.gov/infection-control/hcp/isolation-precautions/appendix-a-type-duration.html",
+      "sourceDate": "September 11, 2026",
+      "locator": "2007 guideline, maintained appendix: H, herpes zoster; localized versus disseminated precautions",
+      "retrieval": {
+        "url": "https://www.cdc.gov/infection-control/hcp/isolation-precautions/appendix-a-type-duration.html",
+        "resolvedURL": "https://www.cdc.gov/infection-control/hcp/isolation-precautions/appendix-a-type-duration.html",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "2053c3bd0d5c3b4f7ac79525b0eca9867facbf415284f633996e685326584459",
+        "textSHA256": "b53fa9e95b39081cf8a5da969bc7d1f3f9230337ef34857c24ec4d2b0238b1e0"
+      }
+    },
+    {
+      "id": "depth9_vzv_test",
+      "title": "Laboratory Testing for VZV",
+      "url": "https://www.cdc.gov/chickenpox/php/laboratories/index.html",
+      "sourceDate": "May 10, 2024",
+      "locator": "PCR of skin lesions; preferred specimens; limitations of serology",
+      "retrieval": {
+        "url": "https://www.cdc.gov/chickenpox/php/laboratories/index.html",
+        "resolvedURL": "https://www.cdc.gov/chickenpox/php/laboratories/index.html",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "e41291b8ce8d7bf1a3587c00e96a9a99ea64445b9657dc4c462fc8eb89a1637c",
+        "textSHA256": "2f461b3da2e292a2d0260fe7bcdb751a6e909a534b7274931b5370aa183d8309"
+      }
+    },
+    {
+      "id": "depth9_vzv_worker",
+      "title": "Varicella-Zoster Virus: Healthcare Personnel",
+      "url": "https://www.cdc.gov/infection-control/hcp/healthcare-personnel-epidemiology-control/varicella.html",
+      "sourceDate": "March 23, 2026",
+      "locator": "Exposure; transmission from zoster; immune and susceptible personnel; lesions and work restrictions",
+      "retrieval": {
+        "url": "https://www.cdc.gov/infection-control/hcp/healthcare-personnel-epidemiology-control/varicella.html",
+        "resolvedURL": "https://www.cdc.gov/infection-control/hcp/healthcare-personnel-epidemiology-control/varicella.html",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "f198fbc31fdfa98f500966c6a043ac0b7ad04be3bd1e3600546a884b6278048a",
+        "textSHA256": "41e400d0d8b66869f96323b5c1d7bd0c0ac0f9b064c09dde7ee607e83008c5b1"
+      }
+    },
+    {
+      "id": "depth9_flu_clinical",
+      "title": "Clinical Signs and Symptoms of Influenza",
+      "url": "https://www.cdc.gov/flu/hcp/clinical-signs/index.html",
+      "sourceDate": "February 4, 2026",
+      "locator": "Atypical older-adult presentation; complications; clinical course",
+      "retrieval": {
+        "url": "https://www.cdc.gov/flu/hcp/clinical-signs/index.html",
+        "resolvedURL": "https://www.cdc.gov/flu/hcp/clinical-signs/index.html",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "3417e0d3d368a88cbd3c99e16ccf095a541d2602df9760820b4e67dbfc53867f",
+        "textSHA256": "d0167748f6674f09bc69118ad359d5fd16d81185d0193e47ef59b7934289184c"
+      }
+    },
+    {
+      "id": "depth9_flu_control",
+      "title": "Seasonal Influenza: Healthcare Prevention",
+      "url": "https://www.cdc.gov/flu/hcp/infection-control/healthcare-settings.html",
+      "sourceDate": "April 28, 2025",
+      "locator": "Healthcare scope; Droplet Precautions; duration; transport; aerosol-generating procedures",
+      "retrieval": {
+        "url": "https://www.cdc.gov/flu/hcp/infection-control/healthcare-settings.html",
+        "resolvedURL": "https://www.cdc.gov/flu/hcp/infection-control/healthcare-settings.html",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "be6a1b1642e3f4e5e1348c666497d5fce47101a18ded3d4f83e04b5717f20593",
+        "textSHA256": "49ba89caa52e6f71e31692f913e8ff0eeed2c375308ca7dc8a218d322ffee723"
+      }
+    },
+    {
+      "id": "depth9_flu_test",
+      "title": "Rapid Influenza Diagnostic Tests",
+      "url": "https://www.cdc.gov/flu/hcp/testing-methods/clinician_guidance_ridt.html",
+      "sourceDate": "June 22, 2026",
+      "locator": "Antigen-test limitations; specimen selection; hospitalized patients; outbreak investigation",
+      "retrieval": {
+        "url": "https://www.cdc.gov/flu/hcp/testing-methods/clinician_guidance_ridt.html",
+        "resolvedURL": "https://www.cdc.gov/flu/hcp/testing-methods/clinician_guidance_ridt.html",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "57599f3d7cf0a056e464f2ed66b05666ebac13b36777d20ae9b8159b79fa943f",
+        "textSHA256": "01b89806bdd2e0755afaef92ba02201a6dc2b974fa5b30eb2f007dd0870cacae"
+      }
+    },
+    {
+      "id": "depth9_transmission",
+      "title": "Transmission-Based Precautions",
+      "url": "https://www.cdc.gov/infection-control/hcp/basics/transmission-based-precautions.html",
+      "sourceDate": "April 3, 2024",
+      "locator": "Droplet Precautions: patient placement, mask upon room entry and transport",
+      "retrieval": {
+        "url": "https://www.cdc.gov/infection-control/hcp/basics/transmission-based-precautions.html",
+        "resolvedURL": "https://www.cdc.gov/infection-control/hcp/basics/transmission-based-precautions.html",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "b90fdd2d880c79dc11ad90aa6ebc7ee540aa3e69115b3914365ee8008de486ff",
+        "textSHA256": "22f3e41b0d6fc792f8af5ee00857678ebffae81823cc41baa9dc7add49fe2964"
+      }
+    }
+  ],
+  "entries": [
+    {
+      "id": "reference:c-diff-bedside-infection-prevention",
+      "slug": "c-diff-bedside-infection-prevention",
+      "symbol": "CdiffBedsidePreventionSample",
+      "title": "C. difficile — bedside infection prevention",
+      "subtitle": "Diarrhea assessment, testing limits & environmental controls",
+      "sections": [
+        {
+          "title": "Recognize illness and colonization",
+          "bullets": [
+            {
+              "text": "Diarrhea with fever, reduced appetite, nausea or abdominal tenderness can occur with C. difficile infection. Severe disease can involve toxic megacolon, perforation or sepsis.",
+              "citationIDs": [
+                "depth9_cdiff_clinical"
+              ]
+            },
+            {
+              "text": "A positive test alone does not establish symptomatic infection. Colonized patients may carry C. difficile without diarrhea; interpretation requires the clinical picture.",
+              "citationIDs": [
+                "depth9_cdiff_clinical"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Begin precautions during evaluation",
+          "bullets": [
+            {
+              "text": "Suspected infectious diarrhea warrants prompt isolation under the facility protocol while the cause is evaluated. A private room with a dedicated toilet is preferred.",
+              "citationIDs": [
+                "depth9_cdiff_control"
+              ]
+            },
+            {
+              "text": "For suspected or confirmed infection, gown and gloves are important even for a brief visit. Spores can move between contaminated surfaces, hands and patients.",
+              "citationIDs": [
+                "depth9_cdiff_clinical"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Check whether testing fits",
+          "bullets": [
+            {
+              "text": "Review stool consistency and possible alternative causes, including laxatives, with the treating team. Follow the local diagnostic pathway rather than testing every loose stool automatically.",
+              "citationIDs": [
+                "depth9_cdiff_control"
+              ]
+            },
+            {
+              "text": "Molecular tests detect toxin-producing organisms but can be positive in colonization or diarrhea from another cause. Broad gastrointestinal panels also require clinical interpretation.",
+              "citationIDs": [
+                "depth9_cdiff_test"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Protect specimen quality",
+          "bullets": [
+            {
+              "text": "Submit unformed stool through the facility testing pathway; some institutions use a multistep organism-and-toxin algorithm to improve diagnostic specificity.",
+              "citationIDs": [
+                "depth9_cdiff_control"
+              ]
+            },
+            {
+              "text": "Toxin degrades at room temperature. Prompt transport and laboratory-directed storage matter; delayed handling can produce a falsely negative toxin result.",
+              "citationIDs": [
+                "depth9_cdiff_test"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Choose hand hygiene appropriately",
+          "bullets": [
+            {
+              "text": "CDC prefers alcohol-based hand sanitizer for most routine clinical care when hands are not visibly soiled, including C. difficile care; gloves remain essential.",
+              "citationIDs": [
+                "depth9_hands"
+              ]
+            },
+            {
+              "text": "Use soap and water for visible soil and after care during C. difficile outbreaks. Follow facility policy; neither method replaces careful glove removal.",
+              "citationIDs": [
+                "depth9_hands"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Clean rooms and shared equipment",
+          "bullets": [
+            {
+              "text": "Use dedicated equipment when possible. Daily and terminal cleaning require a C. difficile sporicidal product, such as an EPA List K product.",
+              "citationIDs": [
+                "depth9_cdiff_control"
+              ]
+            },
+            {
+              "text": "Include shared devices and temporary care areas in cleaning plans. Notify the receiving department of C. difficile status and precautions during transfers.",
+              "citationIDs": [
+                "depth9_cdiff_control"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Avoid misleading clearance tests",
+          "bullets": [
+            {
+              "text": "CDC recommends Contact Precautions for at least 48 hours after diarrhea resolves; facilities may continue them longer, including through hospitalization.",
+              "citationIDs": [
+                "depth9_cdiff_control"
+              ]
+            },
+            {
+              "text": "Do not use repeat testing as a test of cure after symptoms resolve. Tests can remain positive after recovery.",
+              "citationIDs": [
+                "depth9_cdiff_clinical"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Understand assay limitations",
+          "bullets": [
+            {
+              "text": "Glutamate dehydrogenase antigen detects C. difficile but does not establish toxin production. It is usually interpreted with other tests in an institutional algorithm.",
+              "citationIDs": [
+                "depth9_cdiff_test"
+              ]
+            },
+            {
+              "text": "Toxin enzyme immunoassays are less sensitive than molecular testing. A result should be reconciled with symptoms, collection quality and the complete testing algorithm.",
+              "citationIDs": [
+                "depth9_cdiff_test"
+              ]
+            }
+          ]
+        }
+      ],
+      "related": [
+        "lab:c-diff-toxin",
+        "reference:stool-sample-collection",
+        "reference:diarrhea-acute-evaluation"
+      ],
+      "sourceIDs": [
+        "depth9_cdiff_clinical",
+        "depth9_cdiff_control",
+        "depth9_cdiff_test",
+        "depth9_hands"
+      ],
+      "file": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/CdiffBedsidePreventionReference.swift",
+      "clinicalReview": {
+        "tier": "A",
+        "status": "pending_independent_clinical_review",
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "sourceFileSHA256": "a4d69af5c340fa6dae2402fb686d6378ed5dbe24805027460995d25949023f95"
+    },
+    {
+      "id": "reference:candida-auris-bedside-prevention",
+      "slug": "candida-auris-bedside-prevention",
+      "symbol": "CandidaAurisBedsidePreventionSample",
+      "title": "Candida auris — bedside prevention",
+      "subtitle": "Colonization, screening, equipment & care transitions",
+      "sections": [
+        {
+          "title": "Separate colonization from infection",
+          "bullets": [
+            {
+              "text": "C. auris can colonize skin without symptoms or cause serious infection. Both colonized and infected patients can transmit the organism in healthcare settings.",
+              "citationIDs": [
+                "depth9_auris_clinical"
+              ]
+            },
+            {
+              "text": "Invasive infection has no single distinctive symptom pattern. Illness depends on the involved site and severity; a colonization swab is not a bloodstream-infection diagnosis.",
+              "citationIDs": [
+                "depth9_auris_clinical"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Recognize risk and identification limits",
+          "bullets": [
+            {
+              "text": "Risk is associated with complex care, invasive devices and prolonged or repeated healthcare stays. Traditional laboratory methods can misidentify this yeast.",
+              "citationIDs": [
+                "depth9_auris_clinical"
+              ]
+            },
+            {
+              "text": "Suspected infection or colonization should reach infection prevention and public health promptly. Accurate species identification may require specialized laboratory methods.",
+              "citationIDs": [
+                "depth9_auris_clinical"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Match precautions to the setting",
+          "bullets": [
+            {
+              "text": "Acute-care hospitals and long-term acute-care hospitals use Contact Precautions. Nursing homes use Contact or Enhanced Barrier Precautions according to the clinical situation and guidance.",
+              "citationIDs": [
+                "depth9_auris_control"
+              ]
+            },
+            {
+              "text": "Use a single room when possible. Prioritize patients with uncontained secretions, diarrhea or draining wounds; infection prevention should direct any cohorting plan.",
+              "citationIDs": [
+                "depth9_auris_control"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Support the screening plan",
+          "bullets": [
+            {
+              "text": "Screening identifies asymptomatic carriage. Shared rooms, care staff or mobile equipment can establish an epidemiologic link that matters even after an affected patient leaves.",
+              "citationIDs": [
+                "depth9_auris_screen"
+              ]
+            },
+            {
+              "text": "Who and when to screen depends on local transmission, healthcare exposures, risk factors and the purpose of screening; it is a facility/public-health strategy.",
+              "citationIDs": [
+                "depth9_auris_screen"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Prevent equipment transmission",
+          "bullets": [
+            {
+              "text": "Use an EPA List P disinfectant effective against C. auris. A claim against other Candida species does not establish effectiveness against C. auris.",
+              "citationIDs": [
+                "depth9_auris_control"
+              ]
+            },
+            {
+              "text": "Assign responsibility for shared mobile equipment. Clean and disinfect between users, separate clean from contaminated equipment, and include daily and terminal room cleaning.",
+              "citationIDs": [
+                "depth9_auris_control"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Avoid false clearance",
+          "bullets": [
+            {
+              "text": "Known carriers may have negative swabs followed by positive results. CDC does not recommend routine reassessment of colonization or stopping precautions because of a negative swab.",
+              "citationIDs": [
+                "depth9_auris_screen"
+              ]
+            },
+            {
+              "text": "Colonization can persist for prolonged periods. Infection-control measures apply throughout inpatient healthcare stays, including after treatment of active infection.",
+              "citationIDs": [
+                "depth9_auris_clinical"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Preserve care access at transfer",
+          "bullets": [
+            {
+              "text": "Screening should inform receiving-facility precautions; it should not be used to deny or delay transfers. Communicate known status and required infection-control measures.",
+              "citationIDs": [
+                "depth9_auris_screen"
+              ]
+            },
+            {
+              "text": "Discharge decisions depend on clinical needs and the receiving facility’s ability to provide care. Keep infection-control alerts available for subsequent admissions.",
+              "citationIDs": [
+                "depth9_auris_control"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Understand prevention boundaries",
+          "bullets": [
+            {
+              "text": "Alcohol-based hand sanitizer is preferred when hands are not visibly soiled. Clean hands before and after contact; gloves do not replace hand hygiene.",
+              "citationIDs": [
+                "depth9_auris_control"
+              ]
+            },
+            {
+              "text": "No intervention is proven to eliminate C. auris colonization. Chlorhexidine bathing should not be represented as a reliable decolonization or isolation-clearance method.",
+              "citationIDs": [
+                "depth9_auris_control"
+              ]
+            }
+          ]
+        }
+      ],
+      "related": [
+        "reference:contact-precautions",
+        "reference:standard-precautions",
+        "reference:c-diff-bedside-infection-prevention"
+      ],
+      "sourceIDs": [
+        "depth9_auris_clinical",
+        "depth9_auris_control",
+        "depth9_auris_screen"
+      ],
+      "file": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/CandidaAurisBedsidePreventionReference.swift",
+      "clinicalReview": {
+        "tier": "A",
+        "status": "pending_independent_clinical_review",
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "sourceFileSHA256": "36439272e170c92d8af51d035c15c30ce23ebfce34a8cc46d922822cf7c74e46"
+    },
+    {
+      "id": "reference:norovirus-healthcare-outbreak-care",
+      "slug": "norovirus-healthcare-outbreak-care",
+      "symbol": "NorovirusHealthcareOutbreakSample",
+      "title": "Norovirus — healthcare outbreak care",
+      "subtitle": "Vomiting clusters, dehydration, precautions & reporting",
+      "sections": [
+        {
+          "title": "Recognize the clinical pattern",
+          "bullets": [
+            {
+              "text": "Norovirus commonly causes abrupt vomiting, diarrhea, nausea and abdominal pain. It is a gastroenteritis virus, not the influenza virus despite the term “stomach flu.”",
+              "citationIDs": [
+                "depth9_noro_about"
+              ]
+            },
+            {
+              "text": "Symptoms often begin 12–48 hours after exposure and improve within 1–3 days. Clinical recovery does not mean shedding has immediately stopped.",
+              "citationIDs": [
+                "depth9_noro_about"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Assess fluid-loss consequences",
+          "bullets": [
+            {
+              "text": "Reduced urine, dry mouth and dizziness on standing suggest dehydration. Older adults and people with other illnesses may become seriously dehydrated.",
+              "citationIDs": [
+                "depth9_noro_about"
+              ]
+            },
+            {
+              "text": "Treatment is supportive: oral rehydration can help mild dehydration, while severe dehydration may need hospital-based intravenous fluids. Antibiotics do not treat norovirus.",
+              "citationIDs": [
+                "depth9_noro_about"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Use outbreak precautions promptly",
+          "bullets": [
+            {
+              "text": "Place symptomatic patients on Contact Precautions in a single room when possible. Do not wait for laboratory confirmation to begin outbreak controls.",
+              "citationIDs": [
+                "depth9_noro_control"
+              ]
+            },
+            {
+              "text": "During outbreaks, continue Contact Precautions at least 48 hours after symptoms resolve. Infection prevention may extend this for patients with complex medical conditions.",
+              "citationIDs": [
+                "depth9_noro_control"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Protect hands and clothing",
+          "bullets": [
+            {
+              "text": "Wear gown and gloves for contact with suspected or confirmed cases. During outbreaks, wash with soap and water after patient care or contact.",
+              "citationIDs": [
+                "depth9_noro_control"
+              ]
+            },
+            {
+              "text": "Add a surgical mask and eye protection, or a full face shield, when splashes are anticipated, particularly with vomiting. Select PPE for the exposure.",
+              "citationIDs": [
+                "depth9_noro_control"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Collect useful specimens",
+          "bullets": [
+            {
+              "text": "Whole stool is the preferred clinical specimen. RT-qPCR is the preferred diagnostic method; confirm collection requirements with the laboratory or outbreak-response team.",
+              "citationIDs": [
+                "depth9_noro_lab"
+              ]
+            },
+            {
+              "text": "Antigen enzyme immunoassays have lower sensitivity. They should not replace RT-qPCR in outbreak investigations or be relied on for a single sporadic case.",
+              "citationIDs": [
+                "depth9_noro_lab"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Clean beyond the visible spill",
+          "bullets": [
+            {
+              "text": "Increase cleaning of high-touch areas and shared equipment. Use a facility-approved product with an EPA norovirus claim and observe the labeled contact time.",
+              "citationIDs": [
+                "depth9_noro_control"
+              ]
+            },
+            {
+              "text": "Handle stool- or vomit-soiled laundry carefully without shaking it. Wear gloves and wash hands after handling contaminated items.",
+              "citationIDs": [
+                "depth9_noro_prevent"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Coordinate unit and staff response",
+          "bullets": [
+            {
+              "text": "Limit nonessential movement and notify receiving areas before transfer. Infection prevention directs cohorting, visitor restrictions and any changes to group activities.",
+              "citationIDs": [
+                "depth9_noro_control"
+              ]
+            },
+            {
+              "text": "Ill staff should be excluded for at least 48 hours after symptoms stop. Follow occupational-health and outbreak policies for return to work.",
+              "citationIDs": [
+                "depth9_noro_control"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Communicate beyond the bedside",
+          "bullets": [
+            {
+              "text": "Report suspected healthcare gastroenteritis outbreaks through the facility to the appropriate health department. Laboratory identification supports investigation but should not delay notification.",
+              "citationIDs": [
+                "depth9_noro_lab"
+              ]
+            },
+            {
+              "text": "For home teaching, emphasize soap-and-water handwashing and avoiding food preparation or care of others while ill and for at least 48 hours afterward.",
+              "citationIDs": [
+                "depth9_noro_prevent"
+              ]
+            }
+          ]
+        }
+      ],
+      "related": [
+        "reference:diarrhea-acute-evaluation",
+        "reference:stool-sample-collection",
+        "reference:c-diff-bedside-infection-prevention"
+      ],
+      "sourceIDs": [
+        "depth9_noro_about",
+        "depth9_noro_control",
+        "depth9_noro_lab",
+        "depth9_noro_prevent"
+      ],
+      "file": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/NorovirusHealthcareOutbreakReference.swift",
+      "clinicalReview": {
+        "tier": "A",
+        "status": "pending_independent_clinical_review",
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "sourceFileSHA256": "2db5bcc518ebba9c6f361321944cc79cf811cb89f1b65ea2ff3fbbab1dc1338d"
+    },
+    {
+      "id": "reference:measles-healthcare-exposure-prevention",
+      "slug": "measles-healthcare-exposure-prevention",
+      "symbol": "MeaslesHealthcarePreventionSample",
+      "title": "Measles — healthcare exposure prevention",
+      "subtitle": "Triage, airborne isolation, testing & staff follow-up",
+      "sections": [
+        {
+          "title": "Recognize a compatible presentation",
+          "bullets": [
+            {
+              "text": "Fever with cough, runny nose and conjunctivitis can precede a rash spreading from the head downward. Immunocompromised patients may lack the typical rash.",
+              "citationIDs": [
+                "depth9_measles_clinical"
+              ]
+            },
+            {
+              "text": "Measles can spread before the rash: the usual infectious period extends from four days before through four days after rash onset.",
+              "citationIDs": [
+                "depth9_measles_clinical"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Separate the patient at first contact",
+          "bullets": [
+            {
+              "text": "Provide a facemask and separate suspected cases promptly at triage. Use Standard and Airborne Precautions with immediate airborne infection isolation room placement.",
+              "citationIDs": [
+                "depth9_measles_control"
+              ]
+            },
+            {
+              "text": "If no AIIR is available, keep the masked patient in a private room with the door closed while arranging transfer to an appropriate facility.",
+              "citationIDs": [
+                "depth9_measles_control"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Use respiratory protection correctly",
+          "bullets": [
+            {
+              "text": "Staff entering the care area need a fit-tested NIOSH-approved N95 or more protective respirator, regardless of presumptive measles immunity.",
+              "citationIDs": [
+                "depth9_measles_control"
+              ]
+            },
+            {
+              "text": "Unprotected shared-air exposure can occur while an infectious patient is present or for up to two hours after departure. Report potential exposures promptly.",
+              "citationIDs": [
+                "depth9_measles_worker"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Arrange testing and notification",
+          "bullets": [
+            {
+              "text": "Suspected measles requires immediate public-health notification. Coordinate testing through the clinical and public-health teams; do not wait for a confirmed result to report.",
+              "citationIDs": [
+                "depth9_measles_clinical"
+              ]
+            },
+            {
+              "text": "CDC recommends serum plus a throat or nasopharyngeal swab at first contact. Measles-specific IgM and RT-PCR support confirmation; urine can sometimes add detection.",
+              "citationIDs": [
+                "depth9_measles_clinical"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Plan essential transport",
+          "bullets": [
+            {
+              "text": "Limit transport to essential purposes, notify the receiving area and have the patient wear a facemask if tolerated. Transporting staff use appropriate respiratory protection.",
+              "citationIDs": [
+                "depth9_measles_control"
+              ]
+            },
+            {
+              "text": "Before arrival, telephone triage and emergency-service handoffs can arrange the entry route and precautions, reducing exposure in shared waiting areas.",
+              "citationIDs": [
+                "depth9_measles_control"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Distinguish isolation endpoints",
+          "bullets": [
+            {
+              "text": "CDC uses four days after rash onset for routine airborne isolation, counting rash onset as day zero; immunocompromised patients remain isolated through the illness.",
+              "citationIDs": [
+                "depth9_measles_control"
+              ]
+            },
+            {
+              "text": "Empty-room clearance depends on ventilation and facility engineering assessment; it can take up to two hours. Unprotected entry should await the required clearance interval.",
+              "citationIDs": [
+                "depth9_measles_control"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Follow occupational-health assessment",
+          "bullets": [
+            {
+              "text": "Exposed asymptomatic staff with documented immunity usually need daily symptom monitoring from day five after first exposure through day 21 after last exposure.",
+              "citationIDs": [
+                "depth9_measles_worker"
+              ]
+            },
+            {
+              "text": "Staff without evidence of immunity need prompt occupational-health assessment for prophylaxis and work restrictions. Prior vaccination and exposure dates change the applicable pathway.",
+              "citationIDs": [
+                "depth9_measles_worker"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Watch for complications",
+          "bullets": [
+            {
+              "text": "Pneumonia and encephalitis are serious complications. Adults, pregnant people and immunocompromised patients can have increased risk of severe disease.",
+              "citationIDs": [
+                "depth9_measles_clinical"
+              ]
+            },
+            {
+              "text": "An exposed staff member who develops compatible symptoms should contact occupational health before returning to patient care; symptomatic and immunocompromised personnel have specific exclusion requirements.",
+              "citationIDs": [
+                "depth9_measles_worker"
+              ]
+            }
+          ]
+        }
+      ],
+      "related": [
+        "reference:airborne-precautions",
+        "reference:test-guide-measles-and-mumps-tests",
+        "reference:standard-precautions"
+      ],
+      "sourceIDs": [
+        "depth9_measles_clinical",
+        "depth9_measles_control",
+        "depth9_measles_worker"
+      ],
+      "file": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/MeaslesHealthcarePreventionReference.swift",
+      "clinicalReview": {
+        "tier": "A",
+        "status": "pending_independent_clinical_review",
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "sourceFileSHA256": "dd131559fe780916a92e51c6c5de495a5528a18cdfb88db41691efd4741c9dff"
+    },
+    {
+      "id": "reference:shingles-healthcare-precautions",
+      "slug": "shingles-healthcare-precautions",
+      "symbol": "ShinglesHealthcarePrecautionsSample",
+      "title": "Shingles — healthcare precautions",
+      "subtitle": "Rash distribution, immune status, testing & exposure",
+      "sections": [
+        {
+          "title": "Recognize the pattern and exceptions",
+          "bullets": [
+            {
+              "text": "Pain, tingling or itching may precede grouped blisters in one or two neighboring dermatomes, usually on one side. Immunocompromised patients may have atypical disease.",
+              "citationIDs": [
+                "depth9_zoster_clinical"
+              ]
+            },
+            {
+              "text": "Lesions beyond the primary or neighboring dermatomes can represent dissemination. A generalized rash requires clinical assessment rather than assuming uncomplicated localized shingles.",
+              "citationIDs": [
+                "depth9_zoster_clinical"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Match precautions to immune status",
+          "bullets": [
+            {
+              "text": "Localized shingles in an immunocompetent patient whose lesions can be fully contained or covered uses Standard Precautions until lesions are dry and crusted.",
+              "citationIDs": [
+                "depth9_isolation_appendix"
+              ]
+            },
+            {
+              "text": "Disseminated shingles in any patient requires Airborne, Contact and Standard Precautions. The same applies to localized disease in immunocompromised patients until dissemination is ruled out.",
+              "citationIDs": [
+                "depth9_isolation_appendix"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Cover lesions and prevent exposure",
+          "bullets": [
+            {
+              "text": "VZV from shingles can cause chickenpox in a susceptible contact. Covering lesions reduces transmission; active lesions remain infectious until they dry and crust.",
+              "citationIDs": [
+                "depth9_vzv_worker"
+              ]
+            },
+            {
+              "text": "When immune caregivers are available, susceptible staff should not provide direct care. Precaution selection depends on lesion distribution, immune status and whether lesions can be contained.",
+              "citationIDs": [
+                "depth9_isolation_appendix"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Select a useful diagnostic sample",
+          "bullets": [
+            {
+              "text": "PCR of skin lesions is the most useful confirmatory test, particularly for atypical presentations. Vesicles or scabs are preferred specimen sources.",
+              "citationIDs": [
+                "depth9_vzv_test"
+              ]
+            },
+            {
+              "text": "IgM is less sensitive than lesion PCR and cannot reliably distinguish primary infection from reactivation. Serology has a limited role in confirming shingles.",
+              "citationIDs": [
+                "depth9_vzv_test"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Recognize higher-risk involvement",
+          "bullets": [
+            {
+              "text": "Eye-region shingles can threaten vision. Ear or eye involvement can be associated with hearing or vision loss and warrants prompt clinical attention.",
+              "citationIDs": [
+                "depth9_zoster_clinical"
+              ]
+            },
+            {
+              "text": "Disseminated disease may affect lungs, the nervous system or liver. Immunocompromised patients are more likely to develop severe or prolonged disease.",
+              "citationIDs": [
+                "depth9_zoster_clinical"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Address staff exposure promptly",
+          "bullets": [
+            {
+              "text": "Exposure assessment includes unprotected contact with lesions and, for disseminated disease, shared infectious air. Occupational health determines immunity, prophylaxis and any work restrictions.",
+              "citationIDs": [
+                "depth9_vzv_worker"
+              ]
+            },
+            {
+              "text": "Asymptomatic exposed staff with evidence of immunity generally need symptom monitoring from day eight after first exposure through day 21 after last exposure.",
+              "citationIDs": [
+                "depth9_vzv_worker"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Distinguish illness from exposure",
+          "bullets": [
+            {
+              "text": "Staff with localized shingles may work only within occupational-health restrictions, with all lesions covered and avoidance of high-risk patients when feasible.",
+              "citationIDs": [
+                "depth9_vzv_worker"
+              ]
+            },
+            {
+              "text": "If staff lesions cannot be covered, exclude from work until dry and crusted. Disseminated disease and immunocompromised staff with possible dissemination require exclusion.",
+              "citationIDs": [
+                "depth9_vzv_worker"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Follow symptoms beyond the rash",
+          "bullets": [
+            {
+              "text": "Persistent pain after the rash resolves can represent postherpetic neuralgia. Pain burden and function deserve follow-up even when skin lesions have healed.",
+              "citationIDs": [
+                "depth9_zoster_clinical"
+              ]
+            },
+            {
+              "text": "A typical rash helps recognition, but absence of rash or an atypical eruption can make clinical diagnosis uncertain. Lesion testing can clarify an appropriate case.",
+              "citationIDs": [
+                "depth9_zoster_clinical"
+              ]
+            }
+          ]
+        }
+      ],
+      "related": [
+        "reference:test-guide-chickenpox-and-shingles-tests",
+        "reference:airborne-precautions",
+        "reference:skin-assessment-beyond-wounds"
+      ],
+      "sourceIDs": [
+        "depth9_zoster_clinical",
+        "depth9_isolation_appendix",
+        "depth9_vzv_worker",
+        "depth9_vzv_test"
+      ],
+      "file": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/ShinglesHealthcarePrecautionsReference.swift",
+      "clinicalReview": {
+        "tier": "A",
+        "status": "pending_independent_clinical_review",
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "sourceFileSHA256": "a145b0daab35128ca4d7290d7691c9fe83db276748c8e1369385a543f24f67f1"
+    },
+    {
+      "id": "reference:influenza-healthcare-prevention",
+      "slug": "influenza-healthcare-prevention",
+      "symbol": "InfluenzaHealthcarePreventionSample",
+      "title": "Influenza — healthcare prevention",
+      "subtitle": "Seasonal flu, test limitations & bedside precautions",
+      "sections": [
+        {
+          "title": "Recognize atypical influenza",
+          "bullets": [
+            {
+              "text": "Abrupt cough, fever, aches and malaise are common, but older or immunosuppressed adults may have no fever. Absence of fever does not exclude influenza.",
+              "citationIDs": [
+                "depth9_flu_clinical"
+              ]
+            },
+            {
+              "text": "Frail older adults may develop mental-status or behavioral changes and reduced appetite. Consider these changes alongside respiratory symptoms and the clinical assessment.",
+              "citationIDs": [
+                "depth9_flu_clinical"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Apply healthcare precautions",
+          "bullets": [
+            {
+              "text": "For suspected or confirmed seasonal influenza, use Standard and Droplet Precautions. Place patients in a private room or an infection-prevention-approved cohort.",
+              "citationIDs": [
+                "depth9_flu_control"
+              ]
+            },
+            {
+              "text": "Wear a facemask on entry to the room or patient space. Patient masking and respiratory hygiene provide source control when tolerated.",
+              "citationIDs": [
+                "depth9_flu_control"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Know what a rapid test means",
+          "bullets": [
+            {
+              "text": "Rapid antigen influenza tests are different from rapid molecular assays. Antigen tests have limited sensitivity, so a negative result does not rule out influenza.",
+              "citationIDs": [
+                "depth9_flu_test"
+              ]
+            },
+            {
+              "text": "Interpret results with community activity, symptom timing and specimen quality. False-positive antigen results are more likely when influenza prevalence is low.",
+              "citationIDs": [
+                "depth9_flu_test"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Support appropriate specimen collection",
+          "bullets": [
+            {
+              "text": "Use the specimen type, collection device and transport medium specified for the assay. Collection early in illness generally improves the chance of detecting influenza.",
+              "citationIDs": [
+                "depth9_flu_test"
+              ]
+            },
+            {
+              "text": "Molecular testing is recommended for hospitalized patients. A negative rapid antigen result should not delay indicated precautions or clinician-directed treatment decisions.",
+              "citationIDs": [
+                "depth9_flu_test"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Use the healthcare isolation timeline",
+          "bullets": [
+            {
+              "text": "In healthcare settings, CDC recommends Droplet Precautions for seven days after illness onset or until 24 hours after fever and respiratory symptoms resolve, whichever is longer.",
+              "citationIDs": [
+                "depth9_flu_control"
+              ]
+            },
+            {
+              "text": "Some patients, including severely immunocompromised people, may require longer precautions. Clinical discharge decisions and the receiving facility’s precautions should be coordinated.",
+              "citationIDs": [
+                "depth9_flu_control"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Plan higher-exposure procedures",
+          "bullets": [
+            {
+              "text": "For medically necessary aerosol-generating procedures, limit staff and use an AIIR when feasible. Staff need gown, gloves, eye protection and a fit-tested N95 or equivalent.",
+              "citationIDs": [
+                "depth9_flu_control"
+              ]
+            },
+            {
+              "text": "Room entry afterward follows the facility’s ventilation-based clearance interval. These seasonal-influenza recommendations do not replace guidance for novel influenza A, including avian strains.",
+              "citationIDs": [
+                "depth9_flu_control"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Communicate movement and clusters",
+          "bullets": [
+            {
+              "text": "Limit transport to essential care, notify receiving staff and have the patient wear a facemask if tolerated. Maintain cleaning and disinfection of shared equipment.",
+              "citationIDs": [
+                "depth9_flu_control"
+              ]
+            },
+            {
+              "text": "A suspected institutional influenza outbreak warrants public-health consultation and appropriate molecular testing. Negative rapid antigen tests should not end an outbreak investigation.",
+              "citationIDs": [
+                "depth9_flu_test"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Reassess the clinical course",
+          "bullets": [
+            {
+              "text": "Cough and malaise can outlast other symptoms, especially in older adults or people with chronic lung disease. Recovery patterns should be assessed in context.",
+              "citationIDs": [
+                "depth9_flu_clinical"
+              ]
+            },
+            {
+              "text": "Complications include viral or secondary bacterial pneumonia, dehydration and worsening chronic illness. Respiratory failure and sepsis are possible with severe disease.",
+              "citationIDs": [
+                "depth9_flu_clinical"
+              ]
+            }
+          ]
+        }
+      ],
+      "related": [
+        "reference:test-guide-flu-influenza-test",
+        "reference:droplet-precautions",
+        "reference:norovirus-healthcare-outbreak-care"
+      ],
+      "sourceIDs": [
+        "depth9_flu_clinical",
+        "depth9_flu_control",
+        "depth9_flu_test"
+      ],
+      "file": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/InfluenzaHealthcarePreventionReference.swift",
+      "clinicalReview": {
+        "tier": "A",
+        "status": "pending_independent_clinical_review",
+        "reviewer": null,
+        "reviewedAt": null
+      },
+      "sourceFileSHA256": "1658206a5924e9ab6a4bdba464458951b921b0fe2d40e19860510aae6c0d041a"
+    }
+  ],
+  "targetedLegacyCorrections": [
+    {
+      "file": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/ReferenceBatch.swift",
+      "symbol": "DropletPrecautionsSample",
+      "before": "AttributedBullet(\"Surgical mask within 3–6 feet of the patient (per facility protocol; some facilities mask on entry).\", citationIDs: [\"cdc_isolation_2007_v2\"])",
+      "after": "AttributedBullet(\"Wear a facemask on entry to the patient room or patient space.\", citationIDs: [\"depth9_transmission\"])",
+      "sourceID": "depth9_transmission"
+    },
+    {
+      "file": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/ReferenceBatch.swift",
+      "symbol": "DropletPrecautionsSample",
+      "before": "\"Droplet Precautions are used for patients with infections transmitted by large respiratory droplets (>5 microns) that travel only short distances (typically less than 3–6 feet) before falling. Unlike airborne pathogens, droplets do not remain suspended — a private room is sufficient and door may remain open. A surgical mask is worn for close patient contact.\",\n                citationIDs: [\"cdc_isolation_2007_v2\"]",
+      "after": "\"Droplet Precautions supplement Standard Precautions for relevant respiratory infections. Use a private room when possible, patient source control and a facemask on staff entry to the room or care space.\",\n                citationIDs: [\"depth9_transmission\"]",
+      "sourceID": "depth9_transmission"
+    },
+    {
+      "file": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/ReferenceBatch.swift",
+      "symbol": "ContactPrecautionsSample",
+      "before": "AttributedBullet(\"Clostridioides difficile — soap and water for hand hygiene; alcohol-based hand rub does NOT inactivate spores.\", citationIDs: [\"cdc_isolation_2007_v2\"])",
+      "after": "AttributedBullet(\"C. difficile — use Contact Precautions and the facility hand-hygiene protocol.\", citationIDs: [\"depth9_cdiff_control\"])",
+      "sourceID": "depth9_cdiff_control"
+    },
+    {
+      "file": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/ReferenceBatch.swift",
+      "symbol": "ContactPrecautionsSample",
+      "before": "AttributedBullet(\"Norovirus — also requires soap and water; alcohol is less effective.\", citationIDs: [\"cdc_isolation_2007_v2\"])",
+      "after": "AttributedBullet(\"Norovirus — use outbreak-specific Contact Precautions and hand-hygiene measures.\", citationIDs: [\"depth9_noro_control\"])",
+      "sourceID": "depth9_noro_control"
+    },
+    {
+      "file": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/ReferenceBatch.swift",
+      "symbol": "ContactPrecautionsSample",
+      "before": "AttributedBullet(\"Using alcohol hand rub for C. difficile — alcohol does NOT kill spores. Use soap and water mechanical removal.\", citationIDs: [\"cdc_isolation_2007_v2\"])",
+      "after": "AttributedBullet(\"Skipping soap-and-water handwashing during C. difficile or norovirus outbreaks.\", citationIDs: [\"depth9_hands\"])",
+      "sourceID": "depth9_hands"
+    },
+    {
+      "file": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/ReferenceBatch.swift",
+      "symbol": "HandHygieneReferenceSample",
+      "before": "\"Hand hygiene is the single most important measure to prevent the transmission of healthcare-associated infections. The CDC HICPAC/SHEA/APIC/IDSA Hand Hygiene Task Force recommends alcohol-based hand rub as the preferred method in most clinical situations because it is faster, more effective against most pathogens, and better tolerated by skin than soap and water. Soap-and-water washing is required when hands are visibly soiled and when caring for patients with C. difficile, norovirus, or other spore-forming or non-enveloped pathogens.\",\n                citationIDs: [\"cdc_hand_hygiene\"]",
+      "after": "\"CDC prefers alcohol-based sanitizer for most routine care unless hands are visibly soiled. Gloves do not replace hand hygiene.\",\n                citationIDs: [\"depth9_hands\"]",
+      "sourceID": "depth9_hands"
+    },
+    {
+      "file": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/ReferenceBatch.swift",
+      "symbol": "HandHygieneReferenceSample",
+      "before": "AttributedBullet(\"Caring for a patient with C. difficile — alcohol does not inactivate spores.\", citationIDs: [\"cdc_hand_hygiene\", \"cdc_isolation_2007_v2\"])",
+      "after": "AttributedBullet(\"After C. difficile care during outbreaks.\", citationIDs: [\"depth9_hands\"])",
+      "sourceID": "depth9_hands"
+    },
+    {
+      "file": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/ReferenceBatch.swift",
+      "symbol": "HandHygieneReferenceSample",
+      "before": "AttributedBullet(\"Caring for a patient with norovirus or other non-enveloped viruses — alcohol is less effective.\", citationIDs: [\"cdc_hand_hygiene\"])",
+      "after": "AttributedBullet(\"After norovirus care during outbreaks.\", citationIDs: [\"depth9_hands\"])",
+      "sourceID": "depth9_hands"
+    },
+    {
+      "file": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/IsolationPrecautions.swift",
+      "symbol": "IsolationPrecautionsSample",
+      "before": "AttributedBullet(\"C. difficile (always SOAP AND WATER for hand hygiene; alcohol does not kill spores)\", citationIDs: [\"cdc_isolation_2007\"])",
+      "after": "AttributedBullet(\"C. difficile — Contact Precautions while suspected infection is evaluated.\", citationIDs: [\"depth9_cdiff_control\"])",
+      "sourceID": "depth9_cdiff_control"
+    },
+    {
+      "file": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/IsolationPrecautions.swift",
+      "symbol": "IsolationPrecautionsSample",
+      "before": "AttributedBullet(\"Using alcohol hand rub for C. difficile — alcohol does NOT kill spores. Use soap and water mechanical removal.\", citationIDs: [\"cdc_isolation_2007\"])",
+      "after": "AttributedBullet(\"Skipping gown, gloves or hand hygiene with C. difficile.\", citationIDs: [\"depth9_hands\"])",
+      "sourceID": "depth9_hands"
+    },
+    {
+      "file": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/IsolationPrecautions.swift",
+      "symbol": "IsolationPrecautionsSample",
+      "before": "AttributedBullet(\"Surgical mask within 3–6 feet of patient (per facility).\", citationIDs: [\"cdc_isolation_2007\"])",
+      "after": "AttributedBullet(\"Wear a facemask on entry to the patient room or patient space.\", citationIDs: [\"depth9_transmission\"])",
+      "sourceID": "depth9_transmission"
+    },
+    {
+      "file": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/IsolationPrecautions.swift",
+      "symbol": "IsolationPrecautionsSample",
+      "before": "AttributedBullet(\"Influenza, COVID-19 (combined with airborne in some scenarios)\", citationIDs: [\"cdc_isolation_2007\"])",
+      "after": "AttributedBullet(\"Seasonal influenza. Follow separate pathogen-specific guidance for other respiratory viruses.\", citationIDs: [\"depth9_flu_control\"])",
+      "sourceID": "depth9_flu_control"
+    },
+    {
+      "file": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/IsolationPrecautions.swift",
+      "symbol": "IsolationPrecautionsSample",
+      "before": "AttributedBullet(\"Combining precautions: varicella, disseminated zoster, and measles often need both Airborne AND Contact.\", citationIDs: [\"cdc_isolation_2007\"])",
+      "after": "AttributedBullet(\"Measles uses Standard and Airborne Precautions; Contact Precautions are added only for another indication.\", citationIDs: [\"depth9_measles_control\"])",
+      "sourceID": "depth9_measles_control"
+    },
+    {
+      "file": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/ProceduresAndReferenceRound16.swift",
+      "symbol": "IsolationPrecautionsHierarchySample",
+      "before": "AttributedBullet(\"Hand hygiene — alcohol-based rub OR soap/water (soap/water for C. diff, B. anthracis spores, visibly soiled hands).\", citationIDs: [\"specialty_pr_round16\"])",
+      "after": "AttributedBullet(\"Hand hygiene — sanitizer for most routine care; soap and water for visible soil or outbreak indications.\", citationIDs: [\"depth9_hands\"])",
+      "sourceID": "depth9_hands"
+    },
+    {
+      "file": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/ProceduresAndReferenceRound16.swift",
+      "symbol": "IsolationPrecautionsHierarchySample",
+      "before": "AttributedBullet(\"C. difficile — SOAP AND WATER (alcohol does not kill spores); bleach environmental disinfection.\", citationIDs: [\"specialty_pr_round16\"])",
+      "after": "AttributedBullet(\"C. difficile — facility-directed hand hygiene and a labeled C. difficile sporicidal disinfectant.\", citationIDs: [\"depth9_cdiff_control\"])",
+      "sourceID": "depth9_cdiff_control"
+    },
+    {
+      "file": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/ProceduresAndReferenceRound16.swift",
+      "symbol": "IsolationPrecautionsHierarchySample",
+      "before": "AttributedBullet(\"PPE — surgical mask within 6 feet of patient.\", citationIDs: [\"specialty_pr_round16\"])",
+      "after": "AttributedBullet(\"PPE — facemask on entry to the patient room or patient space.\", citationIDs: [\"depth9_transmission\"])",
+      "sourceID": "depth9_transmission"
+    },
+    {
+      "file": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/HandHygiene.swift",
+      "symbol": "HandHygieneSample",
+      "before": "AttributedBullet(\"Soap (plain or antimicrobial) and running water — required when hands are visibly soiled, after using the restroom, or after caring for patients with C. difficile or norovirus (alcohol does not kill spores).\", citationIDs: [\"cdc_hand_hygiene\"])",
+      "after": "AttributedBullet(\"Soap and water — visible soil, restroom use, and C. difficile/norovirus outbreak care.\", citationIDs: [\"depth9_hands\"])",
+      "sourceID": "depth9_hands"
+    },
+    {
+      "file": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/HandHygiene.swift",
+      "symbol": "HandHygieneSample",
+      "before": "AttributedBullet(\"C. difficile, norovirus, anthrax — soap and water mechanically removes spores; alcohol rub alone does NOT kill them.\", citationIDs: [\"cdc_hand_hygiene\"])",
+      "after": "AttributedBullet(\"Norovirus is not a spore-forming bacterium. Follow pathogen-specific hand-hygiene guidance.\", citationIDs: [\"depth9_noro_lab\"])",
+      "sourceID": "depth9_noro_lab"
+    },
+    {
+      "file": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/ReferenceBatch.swift",
+      "symbol": "ContactPrecautionsSample",
+      "before": "AttributedBullet(\"Removing gloves before gown — sequence is gloves → goggles/face shield → gown → mask/respirator (per CDC PPE doffing sequence).\", citationIDs: [\"cdc_isolation_2007_v2\"])",
+      "after": "AttributedBullet(\"Contaminating hands during glove removal or skipping hand hygiene after removing gloves.\", citationIDs: [\"depth9_hands\"])",
+      "sourceID": "depth9_hands"
+    },
+    {
+      "file": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/HandHygiene.swift",
+      "symbol": "HandHygieneSample",
+      "before": "AttributedBullet(\"Artificial nails are prohibited in direct patient care per CDC — they harbor pathogens and prevent thorough washing.\", citationIDs: [\"cdc_hand_hygiene\"])",
+      "after": "AttributedBullet(\"CDC advises against artificial nails or extensions when caring for high-risk patients, such as in intensive care or operating rooms. Follow facility policy.\", citationIDs: [\"depth9_hands\"])",
+      "sourceID": "depth9_hands"
+    }
+  ],
+  "collection": {
+    "id": "pathogen-specific-precautions",
+    "entryIDs": [
+      "reference:c-diff-bedside-infection-prevention",
+      "reference:candida-auris-bedside-prevention",
+      "reference:norovirus-healthcare-outbreak-care",
+      "reference:measles-healthcare-exposure-prevention",
+      "reference:shingles-healthcare-precautions",
+      "reference:influenza-healthcare-prevention",
+      "reference:test-guide-flu-influenza-test",
+      "reference:test-guide-measles-and-mumps-tests",
+      "reference:test-guide-chickenpox-and-shingles-tests",
+      "lab:c-diff-toxin",
+      "reference:stool-sample-collection",
+      "reference:standard-precautions"
+    ]
+  },
+  "broadTopicAdditions": {
+    "infection-prevention": [
+      "reference:c-diff-bedside-infection-prevention",
+      "reference:candida-auris-bedside-prevention",
+      "reference:norovirus-healthcare-outbreak-care",
+      "reference:measles-healthcare-exposure-prevention",
+      "reference:shingles-healthcare-precautions",
+      "reference:influenza-healthcare-prevention"
+    ]
+  },
+  "verification": {
+    "citationResolver": {
+      "entriesChecked": 23,
+      "unresolved": 0
+    },
+    "claimLedgerMatchesSwift": true,
+    "uniqueNewIDsAndTitles": true,
+    "baselineEntryCount": 2089,
+    "baselineEntriesRemoved": 0,
+    "concurrentAddedEntriesRetained": 11,
+    "clinicalAccuracyCertification": false
+  },
+  "resumedByCurrentTask": {
+    "date": "2026-09-17",
+    "userRequest": "Finish the stopped task’s library work and expand the library.",
+    "completed": "Verified all six source-file hashes, 96 claim-map blocks and 20 recorded legacy corrections; retrieved all 22 CDC sources and retained extracted text with hashes. Publication review remains pending.",
+    "independentClinicalApproval": false,
+    "verification": {
+      "finalFocusedTests": 24,
+      "testSuites": 5,
+      "auditTests": 2,
+      "citationVerifierEntries": 23,
+      "citationProblems": 0,
+      "appBuild": "passed",
+      "simulator": "C. difficile reader, matching CDC hand-hygiene citation and the focused collection containing all six guides verified; earlier measles and C. auris screenshots retained. Normal library home restored.",
+      "clinicalReview": "pending; no independent approval",
+      "report": "docs/LIBRARY_EXPANSION_INFECTION_PREVENTION_2026-09-17.md"
+    }
+  }
+}

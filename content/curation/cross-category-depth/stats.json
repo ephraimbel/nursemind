@@ -1,0 +1,125 @@
+{
+  "newEntries": 13,
+  "improvedExistingEntries": 3,
+  "editedEntries": 16,
+  "curatedBlocks": 151,
+  "distinctSources": 22,
+  "newEntryWords": 4770,
+  "allAffectedEntryWords": 5973,
+  "netAddedWords": 5115,
+  "relatedEdgesAdded": 39,
+  "topicMembershipsAdded": 44,
+  "totalEntries": 2139,
+  "categoryCounts": {
+    "communication": 28,
+    "diagnosis": 577,
+    "drip": 34,
+    "drug": 483,
+    "lab": 158,
+    "procedure": 152,
+    "reference": 666,
+    "scenario": 41
+  },
+  "topicCollections": 54,
+  "topicMemberships": 1043,
+  "distinctEntriesInTopics": 693,
+  "entries": [
+    {
+      "id": "drug:cefiderocol",
+      "title": "Cefiderocol",
+      "words": 638,
+      "new": true
+    },
+    {
+      "id": "drug:ceftazidime-avibactam",
+      "title": "Ceftazidime\u2013avibactam",
+      "words": 668,
+      "new": true
+    },
+    {
+      "id": "drip:angiotensin-ii-drip",
+      "title": "Angiotensin II infusion",
+      "words": 471,
+      "new": true
+    },
+    {
+      "id": "drip:cangrelor-drip",
+      "title": "Cangrelor infusion",
+      "words": 541,
+      "new": true
+    },
+    {
+      "id": "lab:cystatin-c",
+      "title": "Cystatin C",
+      "words": 278,
+      "new": true
+    },
+    {
+      "id": "lab:urine-osmolality",
+      "title": "Urine osmolality",
+      "words": 274,
+      "new": true
+    },
+    {
+      "id": "lab:urine-protein-creatinine",
+      "title": "Urine protein and albumin ratios (UPCR / UACR)",
+      "words": 298,
+      "new": false
+    },
+    {
+      "id": "procedure:24-hour-urine-collection",
+      "title": "24-hour urine collection",
+      "words": 323,
+      "new": true
+    },
+    {
+      "id": "procedure:peak-flow-measurement",
+      "title": "Peak flow measurement",
+      "words": 314,
+      "new": true
+    },
+    {
+      "id": "diagnosis:alpha-1-antitrypsin-deficiency",
+      "title": "Alpha-1 antitrypsin deficiency",
+      "words": 337,
+      "new": true
+    },
+    {
+      "id": "diagnosis:central-sleep-apnea",
+      "title": "Central sleep apnea",
+      "words": 301,
+      "new": true
+    },
+    {
+      "id": "scenario:checkback-falling-blood-pressure",
+      "title": "Falling blood pressure: close the loop",
+      "words": 223,
+      "new": true
+    },
+    {
+      "id": "scenario:cus-labor-delivery-escalation",
+      "title": "Labor and delivery: speak up with CUS",
+      "words": 204,
+      "new": true
+    },
+    {
+      "id": "communication:interpreter-safety-escalation",
+      "title": "Speaking up for interpreter support",
+      "words": 198,
+      "new": true
+    },
+    {
+      "id": "reference:home-oxygen-and-oximetry",
+      "title": "Home oxygen and pulse oximetry",
+      "words": 444,
+      "new": false
+    },
+    {
+      "id": "reference:pulmonary-rehabilitation-support",
+      "title": "Pulmonary rehabilitation support",
+      "words": 461,
+      "new": false
+    }
+  ],
+  "localAIEvidenceFingerprints": 42839
+}

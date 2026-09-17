@@ -1,0 +1,2 @@
+# Preserve downloaded source evidence byte-for-byte.
+content/curation/**/source-snapshots/** -text -whitespace

@@ -1,0 +1,1401 @@
+{
+  "date": "2026-09-17",
+  "scope": "Eleven adult reference guides covering resistant-organism precautions, dialysis access and infection, kidney procedures and conditions, cardiac procedures and implanted devices. Concurrent C. difficile, C. auris and norovirus topics reserved by the other task were excluded from this batch.",
+  "clinicalReview": {
+    "tier": "A",
+    "status": "pending",
+    "reviewer": null,
+    "publicationApproved": false,
+    "note": "Conservative independent review queue for infection precautions, dialysis, invasive procedures and cardiac device emergencies. Source-fidelity checks and automated tests are not clinical approval."
+  },
+  "sources": [
+    {
+      "id": "ip_depth_cre",
+      "shortName": "CDC — CRE infection control",
+      "detail": "December 17, 2025; laboratory alerts, acute-care and nursing-home precautions, overseas healthcare history and transfer communication. Federal prose adapted and condensed by NurseMind; images, videos, linked third-party material and dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "Centers for Disease Control and Prevention",
+      "license": "publicDomain",
+      "url": "https://www.cdc.gov/cre/hcp/infection-control/index.html",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.cdc.gov/cre/hcp/infection-control/index.html",
+        "resolvedURL": "https://www.cdc.gov/cre/hcp/infection-control/index.html",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "39f099afc6809cb6942c950a668599e81532fd97544c1b1afe8261de3a004392",
+        "textSHA256": "4d21e71fdbbaabc377079ca657ec89c284a86d792272bf2859b3423cc08b0a60"
+      }
+    },
+    {
+      "id": "ip_depth_hd",
+      "shortName": "NIDDK — Hemodialysis",
+      "detail": "January 2018 source review; access types, access care, treatment tolerance and access complications. No universal dialysis prescription or cannulation protocol. Federal prose adapted and condensed by NurseMind; images, videos, linked third-party material and dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases; NIH",
+      "license": "publicDomain",
+      "url": "https://www.niddk.nih.gov/health-information/kidney-disease/kidney-failure/hemodialysis",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.niddk.nih.gov/health-information/kidney-disease/kidney-failure/hemodialysis",
+        "resolvedURL": "https://www.niddk.nih.gov/health-information/kidney-disease/kidney-failure/hemodialysis",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "de187aab5d21d098e00770a3d03c36236979d30a9167827908e7a6db517665a2",
+        "textSHA256": "a0e623231dacd37c2362efd239fbc2df5ed5ab2c0ae8c8b84dc3c15773ddd840"
+      }
+    },
+    {
+      "id": "ip_depth_pd",
+      "shortName": "NIDDK — Peritoneal dialysis",
+      "detail": "Patient training, exit-site and supply care, exchange preparation, infection symptoms and prompt assessment. Federal prose adapted and condensed by NurseMind; images, videos, linked third-party material and dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases; NIH",
+      "license": "publicDomain",
+      "url": "https://www.niddk.nih.gov/health-information/kidney-disease/kidney-failure/peritoneal-dialysis",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.niddk.nih.gov/health-information/kidney-disease/kidney-failure/peritoneal-dialysis",
+        "resolvedURL": "https://www.niddk.nih.gov/health-information/kidney-disease/kidney-failure/peritoneal-dialysis",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "b402661b7dfff068ad3a8cc1c9568e5c55b1b94b2b31d8e081bb06fe1581c608",
+        "textSHA256": "48fab76e24024b754d1cc5b41982cdf18dc8850f9618e8c08b66a351e8e99b77"
+      }
+    },
+    {
+      "id": "ip_depth_pd_cdc",
+      "shortName": "CDC — Peritoneal dialysis infection prevention",
+      "detail": "July 10, 2026; catheter-related infection risks, prevention, cloudy effluent and exit-site assessment. Federal prose adapted and condensed by NurseMind; images, videos, linked third-party material and dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "Centers for Disease Control and Prevention",
+      "license": "publicDomain",
+      "url": "https://www.cdc.gov/dialysis-safety/hcp/peritoneal-dialysis/index.html",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.cdc.gov/dialysis-safety/hcp/peritoneal-dialysis/index.html",
+        "resolvedURL": "https://www.cdc.gov/dialysis-safety/hcp/peritoneal-dialysis/index.html",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "70a75c47ac04720049671ac6e310feebe11cda6e7b0c5a7f5a6834684a909036",
+        "textSHA256": "908e13ddfcf060c2995042b808084e87b379ec926643d5f11535adc6e94f8110"
+      }
+    },
+    {
+      "id": "ip_depth_biopsy",
+      "shortName": "NIDDK — Kidney biopsy",
+      "detail": "March 2022 source review; preparation, medication review, procedure expectations, monitoring, warning signs and results. Federal prose adapted and condensed by NurseMind; images, videos, linked third-party material and dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases; NIH",
+      "license": "publicDomain",
+      "url": "https://www.niddk.nih.gov/health-information/diagnostic-tests/kidney-biopsy",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.niddk.nih.gov/health-information/diagnostic-tests/kidney-biopsy",
+        "resolvedURL": "https://www.niddk.nih.gov/health-information/diagnostic-tests/kidney-biopsy",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "3bf0ab196e0a077448bead744a5a15a40f7bb818fcb51218870c46daba6645c3",
+        "textSHA256": "0f28d7393161a3d2acfca430fc9f520ef67fadd0299fefa345b712edcd5bb51c"
+      }
+    },
+    {
+      "id": "ip_depth_nephrotic",
+      "shortName": "NIDDK — Nephrotic syndrome in adults",
+      "detail": "October 2020 source review; symptoms, protein loss, complications, tests, cause-specific treatment and individualized diet. Drug regimens and universal anticoagulation rules excluded. Federal prose adapted and condensed by NurseMind; images, videos, linked third-party material and dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases; NIH",
+      "license": "publicDomain",
+      "url": "https://www.niddk.nih.gov/health-information/kidney-disease/nephrotic-syndrome-adults",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.niddk.nih.gov/health-information/kidney-disease/nephrotic-syndrome-adults",
+        "resolvedURL": "https://www.niddk.nih.gov/health-information/kidney-disease/nephrotic-syndrome-adults",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "df5fc8358b858e3481223d8c38d8e2ecea686bc4decb828157ffb8abe04cf380",
+        "textSHA256": "993853cd46f9a552d5cf9283e29c7ae84525772d2a172a10ead0b5b75c58fb64"
+      }
+    },
+    {
+      "id": "ip_depth_stones",
+      "shortName": "NIDDK — Kidney stone treatment",
+      "detail": "May 2017 source review; stone passage, procedures, stone analysis, fluid-plan individualization and recurrence evaluation. Medication table and fixed fluid targets excluded. Federal prose adapted and condensed by NurseMind; images, videos, linked third-party material and dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases; NIH",
+      "license": "publicDomain",
+      "url": "https://www.niddk.nih.gov/health-information/urologic-diseases/kidney-stones/treatment",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.niddk.nih.gov/health-information/urologic-diseases/kidney-stones/treatment",
+        "resolvedURL": "https://www.niddk.nih.gov/health-information/urologic-diseases/kidney-stones/treatment",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "c2425ff292c66e4c815c55f9a609645859a3827ff1c104a88bc6c49ddcf79f2d",
+        "textSHA256": "80e1e2f89e2736e1c043d2770c9808703414e98c4e321b0d8da887cacc42afbc"
+      }
+    },
+    {
+      "id": "ip_depth_stones_symptoms",
+      "shortName": "NIDDK — Kidney stone symptoms",
+      "detail": "May 2017 source review; pain, urinary symptoms and prompt clinical evaluation. Symptoms do not independently establish a stone diagnosis. Federal prose adapted and condensed by NurseMind; images, videos, linked third-party material and dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases; NIH",
+      "license": "publicDomain",
+      "url": "https://www.niddk.nih.gov/health-information/urologic-diseases/kidney-stones/symptoms-causes",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.niddk.nih.gov/health-information/urologic-diseases/kidney-stones/symptoms-causes",
+        "resolvedURL": "https://www.niddk.nih.gov/health-information/urologic-diseases/kidney-stones/symptoms-causes",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "9822e56250b468a74ad4025dfc01bfa50542c6be7a8599f12ed2207741157914",
+        "textSHA256": "9e9eb663ad2ffffcff61da1ddd6c4ea12a90bd4b01e6c4527fc93aac3a67bc1e"
+      }
+    },
+    {
+      "id": "ip_depth_cath_before",
+      "shortName": "NHLBI — Preparing for cardiac catheterization",
+      "detail": "March 24, 2022; history, medication instructions, preprocedure tests and planning. Federal prose adapted and condensed by NurseMind; images, videos, linked third-party material and dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Heart, Lung, and Blood Institute; NIH",
+      "license": "publicDomain",
+      "url": "https://www.nhlbi.nih.gov/health/cardiac-catheterization/preparing",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.nhlbi.nih.gov/health/cardiac-catheterization/preparing",
+        "resolvedURL": "https://www.nhlbi.nih.gov/health/cardiac-catheterization/preparing",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "44dcf15cf17c9231ce6b8c61ce56a92673224948868adfe9b26fa3bd47dc0a09",
+        "textSHA256": "534f126f29694e39aa9ba3167dd0142344a3996b5e23cae89f4fc2a8ddcfe0d6"
+      }
+    },
+    {
+      "id": "ip_depth_cath_during",
+      "shortName": "NHLBI — During cardiac catheterization",
+      "detail": "March 24, 2022; procedure expectations, risks, access-site hemostasis and immediate monitoring. Federal prose adapted and condensed by NurseMind; images, videos, linked third-party material and dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Heart, Lung, and Blood Institute; NIH",
+      "license": "publicDomain",
+      "url": "https://www.nhlbi.nih.gov/health/cardiac-catheterization/during",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.nhlbi.nih.gov/health/cardiac-catheterization/during",
+        "resolvedURL": "https://www.nhlbi.nih.gov/health/cardiac-catheterization/during",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "fa12d8d8766bc1f558deac2caa9355fd606b682b45a3c4824004509e86aee1fd",
+        "textSHA256": "dade56cf7799e597bc76d89cb253c434fc1f9715223145c10090fe9b3eb40776"
+      }
+    },
+    {
+      "id": "ip_depth_cath_after",
+      "shortName": "NHLBI — Recovery from cardiac catheterization",
+      "detail": "March 24, 2022; access-site care, follow-up, concerning symptoms and emergency signs. Federal prose adapted and condensed by NurseMind; images, videos, linked third-party material and dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Heart, Lung, and Blood Institute; NIH",
+      "license": "publicDomain",
+      "url": "https://www.nhlbi.nih.gov/health/cardiac-catheterization/recovery",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.nhlbi.nih.gov/health/cardiac-catheterization/recovery",
+        "resolvedURL": "https://www.nhlbi.nih.gov/health/cardiac-catheterization/recovery",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "a749a05b7ed906c20f3b2b8c4c27514805312f04f2e3d52b0ea7bc3a234b3be3",
+        "textSHA256": "66862bbc1e07596ad10b0673317a485757b3158837771a2ce53b36c81ff98dc4"
+      }
+    },
+    {
+      "id": "ip_depth_heart_procedures",
+      "shortName": "NHLBI — Heart treatments and procedures",
+      "detail": "Cardioversion section only: planned electrical cardioversion, anesthesia, monitoring, clot risk and recovery. Emergency defibrillation wording and shock-energy protocols excluded. Federal prose adapted and condensed by NurseMind; images, videos, linked third-party material and dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Heart, Lung, and Blood Institute; NIH",
+      "license": "publicDomain",
+      "url": "https://www.nhlbi.nih.gov/health/heart-treatments-procedures",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.nhlbi.nih.gov/health/heart-treatments-procedures",
+        "resolvedURL": "https://www.nhlbi.nih.gov/health/heart-treatments-procedures",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "fb0bd1a9c19403986cf1104018f37cdf60d6e1bac524bf5604dac35a2e3229a7",
+        "textSHA256": "1405b70d1c7ca3a2d2b9926df4ef63426bf2cd9e6012c891f7caee6f579bc7fd"
+      }
+    },
+    {
+      "id": "ip_depth_pacemaker_after",
+      "shortName": "NHLBI — After getting a pacemaker",
+      "detail": "March 24, 2022; early device checks, recovery, activity instructions and complication recognition. Fixed recovery intervals and the source’s fluid/pericarditis wording are not reproduced. Federal prose adapted and condensed by NurseMind; images, videos, linked third-party material and dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Heart, Lung, and Blood Institute; NIH",
+      "license": "publicDomain",
+      "url": "https://www.nhlbi.nih.gov/health/pacemakers/after",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.nhlbi.nih.gov/health/pacemakers/after",
+        "resolvedURL": "https://www.nhlbi.nih.gov/health/pacemakers/after",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "0aae458d4936d03695862acf306ee5872657ca05baabc2724a88a599eff43698",
+        "textSHA256": "dfcbbf34c44d3a16be8305c1b2ce1bd2336741e235b6a27aff58b95840716e87"
+      }
+    },
+    {
+      "id": "ip_depth_pacemaker_living",
+      "shortName": "NHLBI — Living with a pacemaker",
+      "detail": "March 24, 2022; identification, device follow-up, interference precautions, medical procedures and symptom reporting. Federal prose adapted and condensed by NurseMind; images, videos, linked third-party material and dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Heart, Lung, and Blood Institute; NIH",
+      "license": "publicDomain",
+      "url": "https://www.nhlbi.nih.gov/health/pacemakers/living-with",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.nhlbi.nih.gov/health/pacemakers/living-with",
+        "resolvedURL": "https://www.nhlbi.nih.gov/health/pacemakers/living-with",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "3dc4680b9a96aae2bf9f59fcb7d1ce37b2f897acdbda72c264f386c2608eb4cb",
+        "textSHA256": "b983bb7dc33ab4cf60954c1e669e8af20a494dc22a11e0bcb0e58d6ada0d1719"
+      }
+    },
+    {
+      "id": "ip_depth_icd",
+      "shortName": "NHLBI — Living with an ICD or WCD",
+      "detail": "Follow-up, shock response, remote monitoring, interference precautions, mental health and goals of care. Fixed battery-life estimates, driving-law claims and wearable-device operating instructions excluded. Federal prose adapted and condensed by NurseMind; images, videos, linked third-party material and dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Heart, Lung, and Blood Institute; NIH",
+      "license": "publicDomain",
+      "url": "https://www.nhlbi.nih.gov/health/defibrillators/living-with",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.nhlbi.nih.gov/health/defibrillators/living-with",
+        "resolvedURL": "https://www.nhlbi.nih.gov/health/defibrillators/living-with",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "9a02cab16d667d7da65b813e4cc5803c5d41a0a3919295a7bb89fd07014a664a",
+        "textSHA256": "b61266ecc6cbe2531e7615743a325647f20c1012f53435acd766687f78b62fdf"
+      }
+    },
+    {
+      "id": "ip_depth_surgery",
+      "shortName": "NHLBI — Heart surgery recovery",
+      "detail": "June 1, 2022; hospital observation, incision care, recovery symptoms, medicines, follow-up and cardiac rehabilitation. Federal prose adapted and condensed by NurseMind; images, videos, linked third-party material and dose tables excluded. Source-fidelity review is not independent clinical approval.",
+      "publisher": "National Heart, Lung, and Blood Institute; NIH",
+      "license": "publicDomain",
+      "url": "https://www.nhlbi.nih.gov/health/heart-surgery/recovery",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.nhlbi.nih.gov/health/heart-surgery/recovery",
+        "resolvedURL": "https://www.nhlbi.nih.gov/health/heart-surgery/recovery",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "ff68fa9a169580789bf4f2bdb32732224c35094831de0d0df76e70145e3ab7fe",
+        "textSHA256": "d0250f0ba6a95cf4b7a50c3bbcbf8ac29c5cb699555c52a44b401cd55cff86ca"
+      }
+    }
+  ],
+  "authoredWordsBySource": {
+    "cre": 368,
+    "hd": 415,
+    "pd_cdc": 246,
+    "pd": 131,
+    "biopsy": 459,
+    "nephrotic": 375,
+    "stones_symptoms": 63,
+    "stones": 312,
+    "cath_before": 133,
+    "cath_during": 131,
+    "cath_after": 203,
+    "heart_procedures": 317,
+    "pacemaker_after": 132,
+    "pacemaker_living": 318,
+    "icd": 462,
+    "surgery": 375
+  },
+  "entries": [
+    {
+      "id": "cre-bedside-transfer-precautions",
+      "title": "CRE: bedside and transfer precautions",
+      "subtitle": "Laboratory alerts, healthcare history and containment",
+      "family": "Infection",
+      "sections": [
+        {
+          "title": "Recognize why the result matters",
+          "bullets": [
+            {
+              "text": "Carbapenem-resistant Enterobacterales can cause difficult-to-treat infections and spread between healthcare facilities. Identification should prompt communication with clinical and infection-prevention staff, not just addition of an organism name to the chart.",
+              "source": "cre"
+            },
+            {
+              "text": "Resistance mechanisms matter. CDC highlights increasing NDM-producing CRE and recommends including NDM testing in laboratory workflows; medicines effective against some other CRE may not be effective against these organisms.",
+              "source": "cre"
+            }
+          ]
+        },
+        {
+          "title": "Connect laboratory and clinical teams",
+          "bullets": [
+            {
+              "text": "Ensure that a new CRE result reaches the responsible clinical and infection-prevention teams promptly. When local testing is unavailable, the laboratory and health department can arrange support through the CDC Antimicrobial Resistance Laboratory Network.",
+              "source": "cre"
+            },
+            {
+              "text": "Follow the facility’s detection, tracking and reporting process. The nursing role includes recognizing that a pending characterization result or an outside-facility report may need attention before routine transfer arrangements proceed.",
+              "source": "cre"
+            }
+          ]
+        },
+        {
+          "title": "Use precautions for the setting",
+          "bullets": [
+            {
+              "text": "CDC recommends isolation and Contact Precautions for affected patients in acute care. Nursing homes may use Enhanced Barrier Precautions or isolation with Contact Precautions depending on the situation.",
+              "source": "cre"
+            },
+            {
+              "text": "Maintain hand hygiene, appropriate protective equipment and environmental cleaning throughout care. Precaution selection belongs to the facility’s infection-prevention process and should be communicated clearly to staff providing direct and indirect care.",
+              "source": "cre"
+            }
+          ]
+        },
+        {
+          "title": "Ask about recent healthcare abroad",
+          "bullets": [
+            {
+              "text": "At admission, assess for overnight hospitalization or an invasive procedure in another country within the preceding six months. CDC recommends screening and pre-emptive isolation for patients with this history.",
+              "source": "cre"
+            },
+            {
+              "text": "Communicate that history promptly through the admission and infection-prevention workflow. A patient may need precautions while screening is arranged; do not wait for an overseas record to arrive before reporting the exposure history.",
+              "source": "cre"
+            }
+          ]
+        },
+        {
+          "title": "Keep the receiving team informed",
+          "bullets": [
+            {
+              "text": "Before transfer, notify the receiving facility about CRE infection or colonization and other known multidrug-resistant organisms. Provide the current precaution plan and available organism or resistance information.",
+              "source": "cre"
+            },
+            {
+              "text": "Use the facility’s infection-control transfer process so the information accompanies the patient across departments and organizations. Infection-prevention planning should account for the receiving setting’s ability to continue the required measures.",
+              "source": "cre"
+            }
+          ]
+        },
+        {
+          "title": "Support coordinated prevention",
+          "bullets": [
+            {
+              "text": "CDC recommends working with public health to assess ongoing transmission and participating in regional and facility prevention efforts. Follow the resulting screening and containment plan rather than creating an independent bedside clearance rule.",
+              "source": "cre"
+            },
+            {
+              "text": "Antibiotic stewardship is part of prevention. Communicate treatment questions and available resistance information to the prescribing and pharmacy teams; this reference does not select an antibiotic or infer susceptibility from the CRE label alone.",
+              "source": "cre"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "reference:contact-precautions",
+        "reference:antimicrobial-stewardship",
+        "reference:clabsi-bundle"
+      ],
+      "topics": [
+        "infection-prevention",
+        "community-home-care"
+      ],
+      "symbol": "IPDepthCreBedsideTransferPrecautionsSample",
+      "tags": "category: .safeAndEffectiveCare, subcategory: .safetyAndInfectionControl, priorityConcept: .infection"
+    },
+    {
+      "id": "hemodialysis-access-observation",
+      "title": "Hemodialysis access: daily observation",
+      "subtitle": "Fistula, graft and catheter identification with early problem recognition",
+      "family": "Renal",
+      "sections": [
+        {
+          "title": "Identify the access before care",
+          "bullets": [
+            {
+              "text": "An arteriovenous fistula connects an artery to a vein, while an arteriovenous graft uses an implanted tube to connect them. A venous catheter provides access through a large vein. Identify the actual access type and the dialysis team’s care instructions.",
+              "source": "hd"
+            },
+            {
+              "text": "Fistulas need time to develop before use; grafts can generally be used sooner but have more clotting and infection problems. Access readiness and suitability require the dialysis and vascular teams’ assessment, not the appearance of the incision alone.",
+              "source": "hd"
+            }
+          ]
+        },
+        {
+          "title": "Inspect the fistula or graft",
+          "bullets": [
+            {
+              "text": "Follow the dialysis team’s daily cleaning instructions and observe the access area for warmth, redness or other changes that may indicate infection. Report concerns to the dialysis center so problems can be assessed before the next treatment.",
+              "source": "hd"
+            },
+            {
+              "text": "NIDDK describes a palpable vibration over a functioning access. If the usual vibration cannot be felt, notify the dialysis center. A change in this finding can be important even when the skin looks unchanged.",
+              "source": "hd"
+            }
+          ]
+        },
+        {
+          "title": "Recognize loss of access function",
+          "bullets": [
+            {
+              "text": "Any vascular access can become infected or develop poor flow or blockage from a clot or scar. Access complications can prevent effective dialysis and may require a procedure to repair or replace the access.",
+              "source": "hd"
+            },
+            {
+              "text": "Communicate the access type, the observed change and any effect on treatment. A functional-access concern needs the dialysis team’s assessment; repeated attempts to use a poorly functioning access are not a substitute for that review.",
+              "source": "hd"
+            }
+          ]
+        },
+        {
+          "title": "Watch the patient during treatment",
+          "bullets": [
+            {
+              "text": "Rapid changes in fluid and chemical balance during hemodialysis can cause muscle cramps or low blood pressure. Weakness, dizziness and nausea can accompany hypotension and should be reported during treatment.",
+              "source": "hd"
+            },
+            {
+              "text": "The dialysis team may adjust the prescribed treatment to improve tolerance. Document the symptoms and response rather than treating cramps or dizziness as an unavoidable part of every dialysis session.",
+              "source": "hd"
+            }
+          ]
+        },
+        {
+          "title": "Prepare for a disconnection or bleeding problem",
+          "bullets": [
+            {
+              "text": "A needle leaving the access or tubing disconnecting from the dialysis system can cause blood loss. Staff and trained home-dialysis partners need to recognize the problem and use the emergency procedure taught by the dialysis program.",
+              "source": "hd"
+            },
+            {
+              "text": "Report an access or circuit problem promptly while obtaining the necessary clinical help. This guide does not authorize cannulation, access manipulation or a universal clamp sequence for unfamiliar dialysis equipment.",
+              "source": "hd"
+            }
+          ]
+        },
+        {
+          "title": "Keep treatment continuity visible",
+          "bullets": [
+            {
+              "text": "Follow-up combines how the person feels with laboratory measures and the dialysis team’s assessment of treatment effectiveness. Access problems, interrupted treatments and recurring intolerance need communication because they can affect delivered therapy.",
+              "source": "hd"
+            },
+            {
+              "text": "Include the current access, recent complications and the dialysis contact plan during transfers or discharge teaching. The goal is a usable access and an achievable treatment plan, with concerns brought to the team before they become a missed-treatment crisis.",
+              "source": "hd"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "reference:hemodialysis-nursing-support",
+        "reference:central-venous-catheter",
+        "reference:dialysis-nutrition-and-fluids"
+      ],
+      "topics": [
+        "renal-urinary",
+        "critical-care-devices",
+        "renal-metabolic-critical-care"
+      ],
+      "symbol": "IPDepthHemodialysisAccessObservationSample",
+      "tags": "category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential"
+    },
+    {
+      "id": "peritoneal-dialysis-infection-recognition",
+      "title": "Peritoneal dialysis: infection recognition",
+      "subtitle": "Cloudy effluent, abdominal symptoms and exit-site changes",
+      "family": "Renal",
+      "sections": [
+        {
+          "title": "Understand where infection can develop",
+          "bullets": [
+            {
+              "text": "Peritoneal dialysis uses the abdominal lining to remove waste and excess fluid. Repeated access through the abdominal catheter creates opportunities for microorganisms to enter during catheter handling and exchanges.",
+              "source": "pd_cdc"
+            },
+            {
+              "text": "Infection may affect the peritoneum or the catheter exit site. Observation should therefore include the person’s symptoms, the drained fluid and the tissue around the catheter, rather than checking only one of these areas.",
+              "source": "pd_cdc"
+            }
+          ]
+        },
+        {
+          "title": "Recognize possible peritonitis",
+          "bullets": [
+            {
+              "text": "Cloudy drained dialysis fluid, abdominal pain or tenderness, and fever or chills are common concerning findings. New symptoms or a change in effluent appearance warrant prompt clinical evaluation and treatment when infection is suspected.",
+              "source": "pd_cdc"
+            },
+            {
+              "text": "Do not wait for every symptom to occur before reporting a concern. Describe the change and its timing to the dialysis team; this guide does not diagnose peritonitis from fluid appearance alone or supply an antibiotic regimen.",
+              "source": "pd_cdc"
+            }
+          ]
+        },
+        {
+          "title": "Assess the exit site separately",
+          "bullets": [
+            {
+              "text": "Look for redness, swelling, drainage, pain or tenderness at the exit site. New local findings need evaluation even if the drained fluid is not visibly cloudy.",
+              "source": "pd_cdc"
+            },
+            {
+              "text": "Preserving catheter-site integrity and performing routine exit-site care are infection-prevention priorities. Follow the dialysis program’s method and report a change instead of independently adding an antiseptic or topical medicine.",
+              "source": "pd_cdc"
+            }
+          ]
+        },
+        {
+          "title": "Prepare a clean exchange environment",
+          "bullets": [
+            {
+              "text": "Use the training provided by the dialysis team. NIDDK describes a clean, dry, well-lit exchange area, handwashing before handling the catheter and a surgical mask during exchanges.",
+              "source": "pd"
+            },
+            {
+              "text": "Store supplies in a cool, clean, dry location and inspect each unused solution bag for evidence of contamination such as cloudiness. These checks concern the fresh supply as well as the appearance of fluid after an exchange.",
+              "source": "pd"
+            }
+          ]
+        },
+        {
+          "title": "Keep technique and support reliable",
+          "bullets": [
+            {
+              "text": "Aseptic technique, hand hygiene, routine catheter care and ongoing training reduce opportunities for contamination. Dialysis teams support patients with teaching and continued monitoring as needs change.",
+              "source": "pd_cdc"
+            },
+            {
+              "text": "Raise questions when the person or caregiver cannot reliably complete the trained steps. Infection prevention depends on a workable process and supplies, not simply on documentation that initial training once occurred.",
+              "source": "pd_cdc"
+            }
+          ]
+        },
+        {
+          "title": "Arrange prompt help and continuity",
+          "bullets": [
+            {
+              "text": "NIDDK advises immediate care for infection symptoms, including abdominal pain, fever, nausea or vomiting, unusual used-fluid color or cloudiness, and pain or redness around the catheter. A catheter cuff moving outward also needs assessment.",
+              "source": "pd"
+            },
+            {
+              "text": "Keep the dialysis team’s urgent contact pathway available. Include recent symptoms, fluid appearance and catheter changes when care transfers. Early evaluation supports timely treatment; the clinician determines specimen collection and the treatment plan.",
+              "source": "pd"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "reference:peritoneal-dialysis-daily-care",
+        "reference:fluid-volume-assessment",
+        "reference:dialysis-nutrition-and-fluids"
+      ],
+      "topics": [
+        "renal-urinary",
+        "renal-metabolic-critical-care",
+        "infection-prevention"
+      ],
+      "symbol": "IPDepthPeritonealDialysisInfectionRecognitionSample",
+      "tags": "category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential"
+    },
+    {
+      "id": "kidney-biopsy-preparation-recovery",
+      "title": "Kidney biopsy: preparation and recovery",
+      "subtitle": "Medication review, observation, bleeding concerns and results",
+      "family": "RenalProcedures",
+      "sections": [
+        {
+          "title": "Clarify the purpose of the biopsy",
+          "bullets": [
+            {
+              "text": "A kidney biopsy collects small tissue samples for a pathologist to examine. It can help clarify persistent blood or excess protein in urine, impaired kidney function, or a problem affecting a transplanted kidney.",
+              "source": "biopsy"
+            },
+            {
+              "text": "Blood and urine tests may not explain the cause or extent of injury on their own. The biopsy can show inflammation, scarring or other changes that help the treating team choose a plan; it is not a treatment for every cause of abnormal kidney tests.",
+              "source": "biopsy"
+            }
+          ]
+        },
+        {
+          "title": "Review bleeding and medication concerns",
+          "bullets": [
+            {
+              "text": "Review prescribed and nonprescription medicines, vitamins and supplements with the procedural team. Aspirin, NSAIDs and blood thinners can affect bleeding risk, while other medicines may affect sedation or anesthesia.",
+              "source": "biopsy"
+            },
+            {
+              "text": "Follow explicit instructions about medicine changes rather than independently stopping or restarting treatment. Report allergies and uncontrolled high blood pressure, which can increase bleeding risk after biopsy.",
+              "source": "biopsy"
+            }
+          ]
+        },
+        {
+          "title": "Confirm the preparation plan",
+          "bullets": [
+            {
+              "text": "Complete the ordered laboratory and imaging checks, fasting instructions and consent process. Arrange a ride home and clarify whether overnight observation is anticipated. Preparation depends on the method and individual clinical condition.",
+              "source": "biopsy"
+            },
+            {
+              "text": "Positioning can differ for a native versus transplanted kidney and for other clinical circumstances. Explain the planned position and communicate difficulty tolerating it so the team can arrange an appropriate approach.",
+              "source": "biopsy"
+            }
+          ]
+        },
+        {
+          "title": "Explain what the person may experience",
+          "bullets": [
+            {
+              "text": "A percutaneous biopsy commonly uses local anesthetic, imaging guidance and sometimes intravenous sedation. The needle may make a clicking sound, more than one sample may be needed, and the clinician may request a brief breath hold.",
+              "source": "biopsy"
+            },
+            {
+              "text": "Other biopsy approaches are used when a percutaneous procedure is unsuitable. The individual procedural team explains the chosen method; this educational guide does not teach needle placement or image interpretation.",
+              "source": "biopsy"
+            }
+          ]
+        },
+        {
+          "title": "Observe during early recovery",
+          "bullets": [
+            {
+              "text": "Recovery observation includes blood pressure, pulse, urine and assessment for internal bleeding at the biopsy site. The person usually rests lying down for several hours, with discharge or overnight monitoring determined by the team.",
+              "source": "biopsy"
+            },
+            {
+              "text": "Some local soreness and a small amount of blood-tinged urine can occur. Evaluate the amount, trajectory and accompanying symptoms rather than assuming that all pain or visibly abnormal urine is expected.",
+              "source": "biopsy"
+            }
+          ]
+        },
+        {
+          "title": "Recognize warning signs after discharge",
+          "bullets": [
+            {
+              "text": "Seek prompt medical help for inability to urinate, new urinary urgency or burning, dark red or brown urine, blood clots in urine, worsening biopsy-site pain, or redness, swelling, bleeding or drainage at the site.",
+              "source": "biopsy"
+            },
+            {
+              "text": "Fever, faintness or dizziness also require prompt assessment. Provide the contact instructions before discharge so the person knows how to obtain help instead of waiting for the routine result appointment.",
+              "source": "biopsy"
+            }
+          ]
+        },
+        {
+          "title": "Complete the follow-up plan",
+          "bullets": [
+            {
+              "text": "Follow the procedural team’s instructions about activity and lifting as the site heals. NIDDK describes avoiding strenuous activity for two weeks; the individual discharge plan should specify applicable limits and medication restart instructions.",
+              "source": "biopsy"
+            },
+            {
+              "text": "Results may take several days or longer, with a preliminary report sometimes available sooner when urgently needed. Confirm who will review the result with the person and how the findings will guide further care.",
+              "source": "biopsy"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "reference:reading-lab-results",
+        "reference:nephrotic-syndrome-follow-up",
+        "reference:kidney-medication-safety"
+      ],
+      "topics": [
+        "renal-urinary",
+        "perioperative-nursing"
+      ],
+      "symbol": "IPDepthKidneyBiopsyPreparationRecoverySample",
+      "tags": "category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential"
+    },
+    {
+      "id": "nephrotic-syndrome-follow-up",
+      "title": "Nephrotic syndrome: nursing follow-up",
+      "subtitle": "Protein loss, edema, complications and the cause-specific plan",
+      "family": "Renal",
+      "sections": [
+        {
+          "title": "Connect the main findings",
+          "bullets": [
+            {
+              "text": "Nephrotic syndrome combines excessive urinary protein loss, low blood albumin, edema and high blood lipids. Damage affecting the kidney’s filtering units allows proteins that should stay in the blood to pass into urine.",
+              "source": "nephrotic"
+            },
+            {
+              "text": "The syndrome has several possible causes, including kidney-limited disorders and systemic conditions such as diabetes or lupus. The cause and degree of kidney injury influence treatment and follow-up; the label alone does not define one regimen.",
+              "source": "nephrotic"
+            }
+          ]
+        },
+        {
+          "title": "Track symptoms and fluid changes",
+          "bullets": [
+            {
+              "text": "Ask about foamy urine, tiredness, appetite and swelling. Edema may involve the eyelids, legs, ankles, feet or lower abdomen, and retained fluid can cause weight gain.",
+              "source": "nephrotic"
+            },
+            {
+              "text": "Communicate the pattern and progression of symptoms to the treating team. Changes in appearance and function contribute to assessment alongside laboratory results rather than replacing urine and blood testing.",
+              "source": "nephrotic"
+            }
+          ]
+        },
+        {
+          "title": "Understand the ordered testing",
+          "bullets": [
+            {
+              "text": "Urine testing identifies protein loss. A timed collection or urine albumin-to-creatinine ratio may be used, while blood tests assess low protein levels and related abnormalities. Explain the actual ordered collection method.",
+              "source": "nephrotic"
+            },
+            {
+              "text": "Additional blood tests, kidney imaging or a biopsy may help identify the underlying cause and assess kidney function. A follow-up result needs interpretation with the clinical picture and the purpose of the test.",
+              "source": "nephrotic"
+            }
+          ]
+        },
+        {
+          "title": "Recognize important complications",
+          "bullets": [
+            {
+              "text": "Nephrotic syndrome increases the risk of blood clots and infection and may be associated with hypertension and worsening kidney function. Loss of protective blood proteins contributes to some of these risks.",
+              "source": "nephrotic"
+            },
+            {
+              "text": "Include infection concerns, new symptoms and changes in kidney or blood-pressure findings in clinical follow-up. The responsible team determines whether additional assessment, preventive measures or treatment is needed.",
+              "source": "nephrotic"
+            }
+          ]
+        },
+        {
+          "title": "Review what each prescribed medicine addresses",
+          "bullets": [
+            {
+              "text": "Treatment may include medicines that reduce blood pressure and urinary protein loss, diuretics for edema, and other medicines for associated complications. Some underlying causes require immune-suppressing treatment.",
+              "source": "nephrotic"
+            },
+            {
+              "text": "Reconcile the prescribed plan and questions with the treating team. This reference does not assume that every patient needs anticoagulation, an immune-suppressing medicine or the same combination of therapies.",
+              "source": "nephrotic"
+            }
+          ]
+        },
+        {
+          "title": "Individualize nutrition and long-term follow-up",
+          "bullets": [
+            {
+              "text": "The team may recommend limiting sodium and fluids to help manage edema and adjusting dietary fat and cholesterol for lipid abnormalities. Nutrition advice supports symptom management; diet has not been shown to cause or prevent the syndrome itself.",
+              "source": "nephrotic"
+            },
+            {
+              "text": "Symptoms may resolve after treatment, recur after remission or progress with kidney disease. Maintain follow-up for the underlying cause and ongoing kidney function rather than assuming that reduced swelling ends the need for monitoring.",
+              "source": "nephrotic"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "diagnosis:nephrotic-syndrome",
+        "reference:kidney-biopsy-preparation-recovery",
+        "reference:fluid-volume-assessment"
+      ],
+      "topics": [
+        "renal-urinary",
+        "nutrition-elimination"
+      ],
+      "symbol": "IPDepthNephroticSyndromeFollowUpSample",
+      "tags": "category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential"
+    },
+    {
+      "id": "kidney-stone-recovery-prevention",
+      "title": "Kidney stones: recovery and recurrence prevention",
+      "subtitle": "Passage, procedures, stone analysis and individualized fluids",
+      "family": "Renal",
+      "sections": [
+        {
+          "title": "Recognize symptoms needing assessment",
+          "bullets": [
+            {
+              "text": "Sharp pain in the back, side, lower abdomen or groin, blood in urine, painful or frequent urination and difficulty passing urine need clinical assessment. The symptoms may reflect a stone or another condition.",
+              "source": "stones_symptoms"
+            },
+            {
+              "text": "Nausea, vomiting, fever or chills can accompany urinary symptoms. Do not assume that recurrent pain is automatically the same uncomplicated stone problem as a previous episode; communicate new symptoms promptly.",
+              "source": "stones_symptoms"
+            }
+          ]
+        },
+        {
+          "title": "Understand why the treatment plan differs",
+          "bullets": [
+            {
+              "text": "Treatment depends on stone size, location and type. Some small stones pass without a removal procedure, while obstruction, severe pain or larger stones may require urgent treatment.",
+              "source": "stones"
+            },
+            {
+              "text": "Persistent vomiting and dehydration may require hospital care. The clinician determines pain treatment, fluids and the need for intervention; this guide does not prescribe forced fluid intake during an obstructed or poorly tolerated episode.",
+              "source": "stones"
+            }
+          ]
+        },
+        {
+          "title": "Prepare for the proposed procedure",
+          "bullets": [
+            {
+              "text": "Removal options include shock-wave treatment, cystoscopy or ureteroscopy, and percutaneous nephrolithotomy. These procedures use different approaches and may involve anesthesia, same-day discharge or a hospital stay.",
+              "source": "stones"
+            },
+            {
+              "text": "A ureteral stent may be left to support drainage or stone passage. Include the stent and the individual urology instructions in the recovery discussion; the presence of a stent does not mean follow-up is optional.",
+              "source": "stones"
+            }
+          ]
+        },
+        {
+          "title": "Preserve the information from the stone",
+          "bullets": [
+            {
+              "text": "If requested, collect a passed stone or stone fragments using the supplied method so the laboratory can determine the type. Stone analysis helps the team identify prevention measures relevant to that person.",
+              "source": "stones"
+            },
+            {
+              "text": "A 24-hour urine collection may assess urine volume and mineral levels after a stone passes or is removed. Follow the collection instructions carefully so the result can inform the recurrence-prevention plan.",
+              "source": "stones"
+            }
+          ]
+        },
+        {
+          "title": "Agree on a safe fluid and food plan",
+          "bullets": [
+            {
+              "text": "Adequate liquid intake helps prevent many stone types, but the appropriate amount depends on health conditions, activity and climate. Kidney failure and other conditions may limit fluid intake, so use the individualized plan.",
+              "source": "stones"
+            },
+            {
+              "text": "Diet changes should be based on stone type and the clinical evaluation. Do not assume one universal food restriction or fluid target is appropriate for everyone with a history of stones.",
+              "source": "stones"
+            }
+          ]
+        },
+        {
+          "title": "Maintain prevention and follow-up",
+          "bullets": [
+            {
+              "text": "Some people receive medicines to reduce recurrence, selected according to stone type and other findings. Review the prescribed purpose, duration and possible adverse effects with the clinical team; this reference does not reproduce a medication regimen.",
+              "source": "stones"
+            },
+            {
+              "text": "Report treatment problems and complete the recommended urology and laboratory follow-up. Removing one stone addresses the immediate event, while understanding its cause supports prevention of another episode.",
+              "source": "stones"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "diagnosis:kidney-stones",
+        "reference:test-guide-kidney-stone-analysis",
+        "reference:kidney-medication-safety"
+      ],
+      "topics": [
+        "renal-urinary",
+        "nutrition-elimination"
+      ],
+      "symbol": "IPDepthKidneyStoneRecoveryPreventionSample",
+      "tags": "category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential"
+    },
+    {
+      "id": "cardiac-catheterization-preparation-recovery",
+      "title": "Cardiac catheterization: preparation and recovery",
+      "subtitle": "Medication review, access-site observation and warning signs",
+      "family": "CardiacProcedures",
+      "sections": [
+        {
+          "title": "Clarify the planned procedure",
+          "bullets": [
+            {
+              "text": "Cardiac catheterization may investigate a heart problem or support a treatment. Review the planned procedure and the person’s questions, including what may happen during it, expected recovery and whether an overnight stay is anticipated.",
+              "source": "cath_before"
+            },
+            {
+              "text": "Relevant preparation includes medical and surgical history, allergies and current medicines. Diabetes and kidney disease can affect the preparation plan, so make sure this history reaches the procedural team.",
+              "source": "cath_before"
+            }
+          ]
+        },
+        {
+          "title": "Verify individualized preparation instructions",
+          "bullets": [
+            {
+              "text": "Confirm the team’s instructions about eating, drinking and which medicines to take or pause. These decisions depend on the procedure and the person’s health; this guide does not supply a universal fasting or medication-hold interval.",
+              "source": "cath_before"
+            },
+            {
+              "text": "Ordered tests may include blood counts, chemistry or clotting studies and selected heart tests. Identify what remains outstanding and the purpose of each test instead of assuming that every patient needs the same preprocedure panel.",
+              "source": "cath_before"
+            }
+          ]
+        },
+        {
+          "title": "Explain what the patient may experience",
+          "bullets": [
+            {
+              "text": "The team places an IV for medicines that help the person relax or sleep and uses local numbing medicine at the vascular access site. Catheters are guided with X-ray imaging; contrast may be used to show blood flow.",
+              "source": "cath_during"
+            },
+            {
+              "text": "Discuss the procedure-specific explanation supplied by the team. Bleeding, rhythm changes, contrast reactions, vessel injury and low blood pressure are among possible complications; concerning symptoms during care need prompt attention.",
+              "source": "cath_during"
+            }
+          ]
+        },
+        {
+          "title": "Observe the immediate recovery",
+          "bullets": [
+            {
+              "text": "After catheter removal, the access site receives a dressing and a pressure-based method to control bleeding. Recovery observation includes heart rhythm and blood pressure, with the individual access and closure method guiding activity restrictions.",
+              "source": "cath_during"
+            },
+            {
+              "text": "Review the procedural handoff and the team’s recovery instructions. The person’s prior health and any treatment performed during catheterization influence monitoring and whether discharge or continued hospitalization is appropriate.",
+              "source": "cath_during"
+            }
+          ]
+        },
+        {
+          "title": "Recognize concerning access-site changes",
+          "bullets": [
+            {
+              "text": "A small bruise or tenderness can occur, but increasing pain, redness, swelling, drainage or worsening bruising needs assessment. New numbness, weakness, coolness or blue discoloration of the access-side limb also requires immediate contact with the care team.",
+              "source": "cath_after"
+            },
+            {
+              "text": "NHLBI advises immediate contact for bleeding at the insertion site that does not stop with firm pressure. Explain the discharge emergency pathway and access-site instructions before the person leaves; persistent bleeding should not wait for a routine appointment.",
+              "source": "cath_after"
+            }
+          ]
+        },
+        {
+          "title": "Recognize symptoms beyond the puncture site",
+          "bullets": [
+            {
+              "text": "Chest pain, shortness of breath, dizziness, fever or an irregular, very fast or very slow heartbeat after catheterization needs prompt clinical attention. A normal-looking dressing does not explain or exclude these problems.",
+              "source": "cath_after"
+            },
+            {
+              "text": "NHLBI advises calling 911 for symptoms of a heart attack or stroke. In the hospital, use the urgent clinical response pathway for deterioration rather than treating the concern only as a routine recovery question.",
+              "source": "cath_after"
+            }
+          ]
+        },
+        {
+          "title": "Close the loop on discharge care",
+          "bullets": [
+            {
+              "text": "Review the individual plan for lifting, activity, bathing, swimming and access-site care. Confirm follow-up appointments and how to reach the team for questions or new symptoms.",
+              "source": "cath_after"
+            },
+            {
+              "text": "Explain the prescribed medicines and any required laboratory follow-up, including monitoring when applicable to a blood thinner. The discharge instructions should describe the actual medication plan after any intervention, rather than relying on the preprocedure list.",
+              "source": "cath_after"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "reference:cardiac-rehabilitation-recovery",
+        "reference:focused-cardiovascular-assessment",
+        "reference:post-op-assessment"
+      ],
+      "topics": [
+        "cardiovascular",
+        "perioperative-nursing"
+      ],
+      "symbol": "IPDepthCardiacCatheterizationPreparationRecoverySample",
+      "tags": "category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential"
+    },
+    {
+      "id": "planned-cardioversion-preparation-recovery",
+      "title": "Planned cardioversion: preparation and recovery",
+      "subtitle": "Anesthesia, monitoring, clot-risk discussion and discharge",
+      "family": "CardiacProcedures",
+      "sections": [
+        {
+          "title": "Identify the purpose and setting",
+          "bullets": [
+            {
+              "text": "Planned electrical cardioversion uses brief external electrical shocks to restore a normal rhythm in selected arrhythmias, including atrial fibrillation. The cardiology team determines whether the procedure fits the person’s rhythm and overall condition.",
+              "source": "heart_procedures"
+            },
+            {
+              "text": "This guide covers preparation and recovery for a planned procedure. Explain the purpose using the treating team’s plan and distinguish it from emergency resuscitation training, which has separate indications and procedures.",
+              "source": "heart_procedures"
+            }
+          ]
+        },
+        {
+          "title": "Clarify anesthesia and procedure expectations",
+          "bullets": [
+            {
+              "text": "Anesthesia is given through an IV so the person does not feel the electrical shocks. The team places electrodes on the chest and possibly the back and records the heart’s electrical activity during the procedure.",
+              "source": "heart_procedures"
+            },
+            {
+              "text": "Explain that the team manages monitoring and delivery of the shocks. Medication selection, shock energy and procedural technique belong to the clinical procedure plan; they are not provided by this nursing education guide.",
+              "source": "heart_procedures"
+            }
+          ]
+        },
+        {
+          "title": "Discuss the clot-risk plan",
+          "bullets": [
+            {
+              "text": "Cardioversion can dislodge a blood clot and cause a stroke. Blood-thinning medicine before and after the procedure can reduce this risk, and the team determines the individual anticoagulation plan.",
+              "source": "heart_procedures"
+            },
+            {
+              "text": "Review the prescribed plan and raise questions about missing or unclear instructions with the treating team. This source does not establish one medication schedule or duration for every patient undergoing cardioversion.",
+              "source": "heart_procedures"
+            }
+          ]
+        },
+        {
+          "title": "Monitor the recovery period",
+          "bullets": [
+            {
+              "text": "The person usually remains for observation after cardioversion while heart rhythm, blood pressure and possible complications are assessed. A successful rhythm change does not eliminate the need for the planned recovery observation.",
+              "source": "heart_procedures"
+            },
+            {
+              "text": "Redness or soreness can occur where electrodes contacted the skin, and bruising may occur at the IV site. Report concerns during recovery so the team can distinguish these local effects from other complications.",
+              "source": "heart_procedures"
+            }
+          ]
+        },
+        {
+          "title": "Complete discharge arrangements",
+          "bullets": [
+            {
+              "text": "Anesthesia affects the discharge plan: arrange for someone else to drive the person home. The team confirms when the person can leave after recovery monitoring.",
+              "source": "heart_procedures"
+            },
+            {
+              "text": "Review the actual discharge medicines, particularly the anticoagulation plan when prescribed. Cardioversion has a small risk of worsening an arrhythmia as well as clot-related complications, so unresolved concerns should reach the clinical team before discharge.",
+              "source": "heart_procedures"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "diagnosis:atrial-fibrillation",
+        "reference:dysrhythmia-identification",
+        "reference:cardiac-catheterization-preparation-recovery"
+      ],
+      "topics": [
+        "cardiovascular",
+        "rhythms-resuscitation",
+        "perioperative-nursing"
+      ],
+      "symbol": "IPDepthPlannedCardioversionPreparationRecoverySample",
+      "tags": "category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential"
+    },
+    {
+      "id": "permanent-pacemaker-follow-up",
+      "title": "Permanent pacemaker: recovery and follow-up",
+      "subtitle": "Device checks, identification, interference and symptom reporting",
+      "family": "CardiacDevices",
+      "sections": [
+        {
+          "title": "Understand the early device checks",
+          "bullets": [
+            {
+              "text": "After implantation, the team observes recovery and checks the pacemaker’s operation. Tests may include a chest X-ray to evaluate lead position and an ECG to assess the heart’s electrical activity.",
+              "source": "pacemaker_after"
+            },
+            {
+              "text": "Before discharge, the team checks and programs the device for the person’s needs. Explain that these checks are part of evaluating the implanted system; feeling well alone does not establish that every setting and lead has been assessed.",
+              "source": "pacemaker_after"
+            }
+          ]
+        },
+        {
+          "title": "Review individualized recovery instructions",
+          "bullets": [
+            {
+              "text": "The implantation site may be sore during early recovery. Follow the team’s wound-care and activity instructions, including restrictions on heavy lifting or movement that could disturb healing or newly placed leads.",
+              "source": "pacemaker_after"
+            },
+            {
+              "text": "Recovery instructions depend on the procedure and device. Confirm the plan before discharge and communicate new symptoms rather than applying one activity timeline to all pacemakers or treating persistent concerns as routine soreness.",
+              "source": "pacemaker_after"
+            }
+          ]
+        },
+        {
+          "title": "Keep device identification available",
+          "bullets": [
+            {
+              "text": "Carry the pacemaker identification card and show it to healthcare professionals and security personnel when relevant. It identifies the device and helps others obtain the information needed for safe care.",
+              "source": "pacemaker_living"
+            },
+            {
+              "text": "Keep the implanting or device-follow-up team’s contact information available. New clinicians need to know about the pacemaker before planning procedures, even if the visit concerns another part of the body.",
+              "source": "pacemaker_living"
+            }
+          ]
+        },
+        {
+          "title": "Maintain device follow-up",
+          "bullets": [
+            {
+              "text": "Regular follow-up checks the battery, leads and programming. Remote monitoring may allow some information to be sent from home, while in-person evaluation remains part of the individual follow-up plan.",
+              "source": "pacemaker_living"
+            },
+            {
+              "text": "Clarify how the monitoring equipment is used and when visits are scheduled. Device checks can identify problems and guide programming changes; they do not replace reporting new symptoms to the clinical team.",
+              "source": "pacemaker_living"
+            }
+          ]
+        },
+        {
+          "title": "Use practical interference precautions",
+          "bullets": [
+            {
+              "text": "NHLBI advises keeping cell phones and headphones at least six inches from the pacemaker. Hold a phone to the opposite ear and avoid carrying it in a pocket directly over the device.",
+              "source": "pacemaker_living"
+            },
+            {
+              "text": "Properly working household appliances are generally safe, but strong electrical or magnetic fields may interfere with a pacemaker. Use the device team’s and manufacturer’s instructions when unsure about equipment, and show the device card during security screening.",
+              "source": "pacemaker_living"
+            }
+          ]
+        },
+        {
+          "title": "Plan medical procedures with the device team",
+          "bullets": [
+            {
+              "text": "MRI, electrocautery, radiation treatment and some other therapies require review for possible effects on the device. Tell medical and dental teams about the pacemaker before treatment.",
+              "source": "pacemaker_living"
+            },
+            {
+              "text": "Compatibility and precautions depend on the implanted system and procedure. Avoid a blanket assumption that every MRI is prohibited or that every device needs the same adjustment; the responsible teams determine the safe plan.",
+              "source": "pacemaker_living"
+            }
+          ]
+        },
+        {
+          "title": "Recognize symptoms that need contact",
+          "bullets": [
+            {
+              "text": "Contact the healthcare provider immediately for shortness of breath, dizziness or fainting that may indicate a device or heart problem. Fever, chills, or pain or redness near the device can indicate infection and also require prompt contact.",
+              "source": "pacemaker_living"
+            },
+            {
+              "text": "Infection concerns can develop after the initial healing period. Include current symptoms and device history when reporting a change, and continue the follow-up plan even if the incision previously appeared healed.",
+              "source": "pacemaker_living"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "procedure:transcutaneous-pacing",
+        "reference:dysrhythmia-identification",
+        "reference:icd-shock-follow-up"
+      ],
+      "topics": [
+        "cardiovascular",
+        "critical-care-devices",
+        "rhythms-resuscitation"
+      ],
+      "symbol": "IPDepthPermanentPacemakerFollowUpSample",
+      "tags": "category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential"
+    },
+    {
+      "id": "icd-shock-follow-up",
+      "title": "Implanted defibrillator: shocks and follow-up",
+      "subtitle": "Emergency symptoms, device review and everyday precautions",
+      "family": "CardiacDevices",
+      "sections": [
+        {
+          "title": "Identify the implanted system",
+          "bullets": [
+            {
+              "text": "Carry the implanted cardioverter-defibrillator identification card and keep the device team’s contact information available. Some systems also provide pacing, and the specific device matters when planning procedures or discussing its functions.",
+              "source": "icd"
+            },
+            {
+              "text": "Explain the person’s own monitoring and follow-up arrangements. Remote equipment can transmit information about the heart and device, but a new symptom or shock still requires the response specified by the clinical team.",
+              "source": "icd"
+            }
+          ]
+        },
+        {
+          "title": "Report every shock to the clinical team",
+          "bullets": [
+            {
+              "text": "NHLBI advises contacting the healthcare provider whenever the device delivers a shock. A person may feel a strong brief jolt, and shocks can occur for appropriate rhythm treatment or because of a device-related problem.",
+              "source": "icd"
+            },
+            {
+              "text": "A shock that ends and is followed by feeling better still needs contact with the device team. The team evaluates the event and device information; symptoms alone cannot establish whether the shock was appropriate.",
+              "source": "icd"
+            }
+          ]
+        },
+        {
+          "title": "Recognize an emergency response situation",
+          "bullets": [
+            {
+              "text": "Several strong shocks within a short time require emergency assessment. NHLBI also advises emergency care for heart-attack symptoms or warning signs of cardiac arrest; call 911 outside the hospital or use the hospital emergency response pathway.",
+              "source": "icd"
+            },
+            {
+              "text": "Do not dismiss repeated shocks or concerning symptoms because a defibrillator is implanted. The device does not eliminate the need for urgent medical care when these events occur.",
+              "source": "icd"
+            }
+          ]
+        },
+        {
+          "title": "Maintain scheduled interrogation and monitoring",
+          "bullets": [
+            {
+              "text": "Follow-up reviews the device’s programming, battery and lead function along with the person’s heart condition and medicines. Programming changes or further treatment may be needed when the device is not working as intended.",
+              "source": "icd"
+            },
+            {
+              "text": "Contact the provider for dizziness, fainting, breathlessness, fever or palpitations. Confirm that home monitoring is being used as instructed and keep appointments even when there has been no obvious shock.",
+              "source": "icd"
+            }
+          ]
+        },
+        {
+          "title": "Review interference and procedure precautions",
+          "bullets": [
+            {
+              "text": "Keep cell phones and headphones at least six inches from the implanted device, and avoid storing a phone directly over it. Strong magnets and some electrical equipment may interfere with device operation; ask the device team about unfamiliar equipment.",
+              "source": "icd"
+            },
+            {
+              "text": "Inform medical and dental teams about the implant before a procedure. Some tests and therapies require special precautions or device programming; compatibility depends on the device and procedure, so planning should involve the appropriate clinicians.",
+              "source": "icd"
+            }
+          ]
+        },
+        {
+          "title": "Address activity and the emotional response",
+          "bullets": [
+            {
+              "text": "Discuss returning to activity with the healthcare provider, including activities that could damage the implanted system. Recovery and longer-term restrictions depend on the person’s condition and the device plan.",
+              "source": "icd"
+            },
+            {
+              "text": "Living with the possibility of shocks can cause anxiety or distress, and some people develop depression or post-traumatic stress symptoms. Encourage discussion with the clinical team so emotional support is part of follow-up.",
+              "source": "icd"
+            }
+          ]
+        },
+        {
+          "title": "Include device preferences in goals of care",
+          "bullets": [
+            {
+              "text": "When health declines, discuss the benefits and burdens of ongoing shocks with the treating and palliative-care teams. For some transvenous ICD or CRT-D systems, clinicians can disable shock therapy while pacing continues.",
+              "source": "icd"
+            },
+            {
+              "text": "Document the person’s preferences through the advance-care planning process. Device deactivation is a clinician-managed decision based on the actual system and goals of care; this guide does not provide instructions for independently disabling a device.",
+              "source": "icd"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "reference:permanent-pacemaker-follow-up",
+        "reference:dysrhythmia-identification",
+        "reference:advance-directives-polst"
+      ],
+      "topics": [
+        "cardiovascular",
+        "critical-care-devices",
+        "rhythms-resuscitation"
+      ],
+      "symbol": "IPDepthIcdShockFollowUpSample",
+      "tags": "category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential"
+    },
+    {
+      "id": "cardiac-surgery-recovery-support",
+      "title": "Heart surgery: recovery and nursing support",
+      "subtitle": "Hospital observation, discharge teaching and rehabilitation",
+      "family": "CardiacProcedures",
+      "sections": [
+        {
+          "title": "Understand the transition through hospital care",
+          "bullets": [
+            {
+              "text": "Early recovery after heart surgery commonly involves intensive-care observation, IV treatment and oxygen when needed. As recovery progresses, care continues on a hospital unit before discharge.",
+              "source": "surgery"
+            },
+            {
+              "text": "The team monitors heart rate, blood pressure, breathing and the surgical incision. Recovery needs depend on the operation and the person’s prior health, so the observation and discharge plan should be individualized.",
+              "source": "surgery"
+            }
+          ]
+        },
+        {
+          "title": "Discuss common recovery symptoms",
+          "bullets": [
+            {
+              "text": "Possible recovery problems include incision discomfort, reduced appetite, sleep difficulty, constipation related to pain medicine, and changes in mood or memory. Ask about how these symptoms affect eating, rest and daily function.",
+              "source": "surgery"
+            },
+            {
+              "text": "Review symptoms with the clinical team and follow the supplied recovery instructions. A list of common effects should help the person describe concerns, rather than become a reason to ignore a new or worsening problem.",
+              "source": "surgery"
+            }
+          ]
+        },
+        {
+          "title": "Make incision and complication teaching usable",
+          "bullets": [
+            {
+              "text": "Before discharge, the care team provides instructions about incision care, signs of infection and other complications, and when to call. Check that the person and caregiver understand those instructions and have the appropriate contact details.",
+              "source": "surgery"
+            },
+            {
+              "text": "Use the actual surgical discharge plan for wound care and reporting criteria. Different operations and recoveries may need different instructions; this reference does not establish a universal dressing method or symptom threshold.",
+              "source": "surgery"
+            }
+          ]
+        },
+        {
+          "title": "Reconcile medicines and follow-up",
+          "bullets": [
+            {
+              "text": "Review prescribed medicines and how they fit the postoperative plan. Some patients need blood-thinning treatment depending on their operation and condition; the clinical team determines the specific medicine and monitoring.",
+              "source": "surgery"
+            },
+            {
+              "text": "Continued checkups may include heart tests or blood tests. Confirm who will review recovery and medication questions, and keep the follow-up plan available during transfer from hospital care to home or rehabilitation.",
+              "source": "surgery"
+            }
+          ]
+        },
+        {
+          "title": "Resume activity through the individual plan",
+          "bullets": [
+            {
+              "text": "The discharge instructions should explain when daily activities, driving and work may resume. Recovery time varies with the operation and overall health, so avoid using another patient’s recovery schedule as the expected standard.",
+              "source": "surgery"
+            },
+            {
+              "text": "Follow the team’s advice about physical activity and other heart-healthy habits, including smoking cessation when relevant. Discuss limitations or difficulty carrying out the plan at follow-up so support can be adjusted.",
+              "source": "surgery"
+            }
+          ]
+        },
+        {
+          "title": "Connect recovery with cardiac rehabilitation",
+          "bullets": [
+            {
+              "text": "Cardiac rehabilitation combines supervised exercise with education and counseling to support recovery and heart health. Ask about the recommended program and how the person will access it.",
+              "source": "surgery"
+            },
+            {
+              "text": "Include rehabilitation and emotional concerns in the ongoing care discussion. Recovery after surgery extends beyond incision healing and includes function, confidence and the ability to follow the long-term treatment plan.",
+              "source": "surgery"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "reference:cardiac-rehabilitation-recovery",
+        "reference:post-op-assessment",
+        "reference:chest-tube-drainage"
+      ],
+      "topics": [
+        "cardiovascular",
+        "perioperative-nursing",
+        "community-home-care"
+      ],
+      "symbol": "IPDepthCardiacSurgeryRecoverySupportSample",
+      "tags": "category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential"
+    }
+  ]
+}

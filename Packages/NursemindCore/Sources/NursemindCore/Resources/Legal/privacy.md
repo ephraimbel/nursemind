@@ -1,7 +1,7 @@
 # NurseMind — Privacy Policy
 
 **Effective Date:** May 13, 2026
-**Last Updated:** May 13, 2026
+**Last Updated:** September 17, 2026
 
 **NurseMind** ("we," "our," or "us") operates the NurseMind iOS application (the "App"). This Privacy Policy explains what data we collect, how we use it, and the choices you have. It applies to your use of the App and any related online services. By using the App, you agree to the practices described here.
 
@@ -96,6 +96,14 @@ If you tap the flag icon on an AI answer to report it as inaccurate, we receive:
 
 This data is used solely for internal review and quality improvement of the App's content and AI responses.
 
+### 1.9 Advertising Measurement
+
+With your permission through Apple's App Tracking Transparency (ATT) prompt, Meta receives device and app identifiers, app activations, onboarding and tutorial completion, paywall views, checkout starts, and trial/subscription events to measure NurseMind ads. RevenueCat sends the subscription events, including product, price, currency, and timestamps. Matching information can include the advertising identifier (IDFA), vendor and app-scoped identifiers, IP address, device information, and a pseudonymous account identifier. We do not provide Meta with your name, email, phone number, profile details, clinical questions, answers, or library activity.
+
+NurseMind also uses the TikTok Business SDK for install and subscription attribution. It receives app and subscription events and an internal account identifier; it reads IDFA only when ATT permission is granted. We do not send clinical questions or library content to TikTok.
+
+You can decline tracking or change your choice in iOS Settings → Privacy & Security → Tracking. NurseMind's core features and subscription access do not depend on granting tracking permission. Meta event sharing requires authorized ATT consent. Changing this choice does not delete events already received by a partner; contact hello@nursemind.app for a privacy request.
+
 ## 2. What We Do NOT Collect
 
 We never collect or process:
@@ -118,29 +126,30 @@ We use the data described in Section 1 to:
 - Process AI questions and return responses
 - Process subscription purchases and grant subscription benefits
 - Improve the App through analysis of anonymous diagnostic data
+- Measure advertising as described in Section 1.9
 - Review flagged content for accuracy
 - Communicate with you about service-related matters (if you have provided an email through Sign in with Apple)
 
 We do **not**:
 
 - Sell your data to anyone
-- Share your data with advertisers
-- Use your data for advertising or tracking purposes
 - Use your AI questions to train AI models
-- Build a profile of you for marketing
+- Use your clinical questions, answers, or library activity for advertising
 
 ## 4. Third-Party Services
 
-The App relies on the following third parties. We have data processing agreements with each, and we encourage you to review their privacy policies:
+The App uses the following service providers and advertising partners for the purposes below. Their own privacy policies also describe how they process information:
 
 | Service | Purpose | Data Shared |
 |---|---|---|
 | **Apple Inc.** | App Store, In-App Purchase, Sign in with Apple, Speech Recognition (on-device), Push Notifications | Subscription details (Apple manages payments), Apple ID identifier if you sign in with Apple |
 | **Supabase, Inc.** | Authentication, database, serverless backend functions | Anonymous user ID, profile data, library state, AI conversation history, flag reports |
 | **Anthropic, PBC** | AI text generation (Claude) | Scrubbed questions, scrubbed conversation context, retrieved library snippets for grounding |
-| **RevenueCat, Inc.** | Subscription management and analytics | Anonymous user ID, subscription tier, purchase events |
+| **RevenueCat, Inc.** | Subscription management, analytics, and consented Meta event delivery | Pseudonymous user ID, subscription tier, purchase events, and attribution identifiers |
+| **Meta Platforms, Inc.** | Consented advertising measurement | Device/app identifiers, app activation and subscription-funnel events described in Section 1.9 |
+| **TikTok** | Advertising attribution | App/device identifiers, internal account identifier, install and subscription events |
 
-We do not use marketing or advertising trackers such as Google Analytics, Facebook SDK, or third-party advertising networks.
+We use the Meta and TikTok SDKs for the measurement described above. Clinical questions, answers, and library activity are excluded from advertising events.
 
 ## 5. Data Security
 

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 };
 
 const EFFECTIVE_DATE = "May 9, 2026";
-const LAST_UPDATED = "May 9, 2026";
+const LAST_UPDATED = "September 17, 2026";
 
 export default function PrivacyPage() {
   return (
@@ -176,14 +176,31 @@ function Body() {
             number of useful product notifications.</P>
           <P>
             <Em>
-              We do not use your information for advertising, sell it,
-              license it to data brokers, or share it for cross-context
-              behavioral advertising.
+              We do not sell your data or license it to data brokers.
+              We do not send clinical questions, answers, or library activity
+              to advertising partners.
             </Em>
+          </P>
+          <P>
+            With your App Tracking Transparency permission, Meta receives
+            device and app identifiers, app activations, onboarding and tutorial
+            completion, paywall views, checkout starts, and trial and subscription events to measure NurseMind ads. RevenueCat sends subscription events,
+            including product, price, currency, and timestamps. Matching information
+            can include IDFA, vendor and app-scoped identifiers, IP address, device
+            information, and a pseudonymous account identifier. We do not provide
+            Meta with your name, email, phone number, or profile details.
+          </P>
+          <P>
+            The TikTok Business SDK also measures installs and subscription events
+            using app/device identifiers and an internal account identifier. It
+            reads IDFA only with your tracking permission. You can decline or
+            change tracking permission in iOS Settings → Privacy &amp; Security →
+            Tracking. Meta event sharing requires authorized consent. App features
+            and subscription access do not depend on granting permission.
           </P>
         </Section>
 
-        <Section number="5" title="Subprocessors">
+        <Section number="5" title="Service providers and advertising partners">
           <P>We share information only with the third-party services listed
             below, each used for a specific purpose disclosed here:</P>
           <ul className="mt-4 space-y-3">
@@ -199,7 +216,17 @@ function Body() {
             />
             <Subprocessor
               name="RevenueCat, Inc."
-              purpose="Subscription entitlement management"
+              purpose="Subscription entitlement management and consented Meta subscription-event delivery"
+              region="United States"
+            />
+            <Subprocessor
+              name="Meta Platforms, Inc."
+              purpose="Consented advertising measurement using device/app identifiers, app activations, and subscription-funnel events"
+              region="United States"
+            />
+            <Subprocessor
+              name="TikTok"
+              purpose="Advertising attribution using app/device identifiers, an internal account identifier, and install and subscription events"
               region="United States"
             />
             <Subprocessor
@@ -229,11 +256,10 @@ function Body() {
             />
           </ul>
           <P className="mt-6">
-            We have signed data processing terms with each of these vendors
-            requiring them to use your information only on our instructions
-            and to maintain reasonable security practices. None of these
-            vendors are HIPAA Business Associates because the Service does
-            not handle PHI.
+            These services process information under their applicable terms
+            and privacy policies. Clinical questions, answers, and library activity
+            are excluded from advertising events. The Service is not designed
+            to receive Protected Health Information.
           </P>
         </Section>
 
@@ -312,11 +338,11 @@ function Body() {
           </P>
           <P>
             <Em>
-              We do not sell or share your personal information for
-              cross-context behavioral advertising as those terms are
-              defined under California law.
+              We do not sell your data for money. Advertising measurement
+              disclosures and tracking controls are described in Section 4.
+              You can withdraw tracking permission in iOS Settings.
             </Em>{" "}
-            To exercise any of the other rights, email{" "}
+            To request access, correction, deletion, or an opt-out of sharing, email{" "}
             <A href="mailto:hello@nursemind.app">hello@nursemind.app</A> from
             the email address associated with your account. We will respond
             within 45 days.

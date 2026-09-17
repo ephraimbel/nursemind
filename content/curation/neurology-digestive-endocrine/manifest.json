@@ -1,0 +1,572 @@
+{
+  "created": "2026-09-17",
+  "status": "pending_independent_clinical_review",
+  "publication": "local_development_only",
+  "scope": "Neurological rehabilitation, digestive nutrition and endocrine follow-up. Source comparison is not clinical approval.",
+  "sources": {
+    "pd": {
+      "id": "depth7_pd",
+      "title": "Parkinson’s Disease",
+      "url": "https://www.ninds.nih.gov/current-research/focus-disorders/parkinsons-disease-research/parkinsons-disease-challenges-progress-and-promise",
+      "detail": "Symptoms; lifestyle changes and supportive therapies. Source revision date not stated in retrieved text. Federal educational prose adapted and condensed by NurseMind; images, logos and third-party material excluded.",
+      "publisher": "National Institute of Neurological Disorders and Stroke; National Institutes of Health",
+      "sourceDate": null,
+      "access": "indexed primary-source text; direct page returned HTTP 403"
+    },
+    "als": {
+      "id": "depth7_als",
+      "title": "Amyotrophic Lateral Sclerosis (ALS)",
+      "url": "https://www.ninds.nih.gov/sites/default/files/2025-05/NINDS_ALS_Booklet_Digital-508c.pdf",
+      "detail": "Publication 25-NS-916, pages 9–10: rehabilitation, communication, nutrition, breathing and caregiver support. Published March 2025. Federal educational prose adapted and condensed by NurseMind; images, logos and third-party material excluded.",
+      "publisher": "National Institute of Neurological Disorders and Stroke; National Institutes of Health",
+      "sourceDate": "March 2025",
+      "access": "indexed primary-source booklet text; direct PDF returned HTTP 403"
+    },
+    "gbs": {
+      "id": "depth7_gbs",
+      "title": "Guillain-Barré Syndrome",
+      "url": "https://www.ninds.nih.gov/health-information/disorders/guillain-barre-syndrome",
+      "detail": "Supportive care; rehabilitation; long-term outlook. Source revision date not stated in retrieved text. Federal educational prose adapted and condensed by NurseMind; images, logos and third-party material excluded.",
+      "publisher": "National Institute of Neurological Disorders and Stroke; National Institutes of Health",
+      "sourceDate": null,
+      "access": "indexed primary-source text; direct page returned HTTP 403"
+    },
+    "neuropathy": {
+      "id": "depth7_neuropathy",
+      "title": "Peripheral Neuropathy",
+      "url": "https://www.ninds.nih.gov/health-information/disorders/peripheral-neuropathy",
+      "detail": "Symptoms; diagnosis; supportive treatment and pain management. Source revision date not stated in retrieved text. Federal educational prose adapted and condensed by NurseMind; images, logos and third-party material excluded.",
+      "publisher": "National Institute of Neurological Disorders and Stroke; National Institutes of Health",
+      "sourceDate": null,
+      "access": "indexed primary-source text; direct page returned HTTP 403"
+    },
+    "cirrhosis_nutrition": {
+      "id": "depth7_cirrhosis_nutrition",
+      "title": "Eating, Diet, & Nutrition for Cirrhosis",
+      "url": "https://www.niddk.nih.gov/health-information/liver-disease/cirrhosis/eating-diet-nutrition",
+      "detail": "Malnutrition; meal planning; food safety. Source reviewed June 2023. Federal educational prose adapted and condensed by NurseMind; images, logos and third-party material excluded.",
+      "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases; National Institutes of Health",
+      "sourceDate": "June 2023",
+      "access": "direct page"
+    },
+    "epi_symptoms": {
+      "id": "depth7_epi_symptoms",
+      "title": "Symptoms & Causes for Exocrine Pancreatic Insufficiency",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/exocrine-pancreatic-insufficiency/symptoms-causes",
+      "detail": "Symptoms and associated conditions. Source reviewed January 2023. Federal educational prose adapted and condensed by NurseMind; images, logos and third-party material excluded.",
+      "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases; National Institutes of Health",
+      "sourceDate": "January 2023",
+      "access": "direct page"
+    },
+    "epi_treatment": {
+      "id": "depth7_epi_treatment",
+      "title": "Treatment for Exocrine Pancreatic Insufficiency",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/exocrine-pancreatic-insufficiency/treatment",
+      "detail": "Pancreatic enzymes; nutritional complications. Source reviewed January 2023. Federal educational prose adapted and condensed by NurseMind; images, logos and third-party material excluded.",
+      "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases; National Institutes of Health",
+      "sourceDate": "January 2023",
+      "access": "direct page"
+    },
+    "epi_nutrition": {
+      "id": "depth7_epi_nutrition",
+      "title": "Eating, Diet, & Nutrition for Exocrine Pancreatic Insufficiency",
+      "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/exocrine-pancreatic-insufficiency/eating-diet-nutrition",
+      "detail": "Malabsorption; individualized nutrition. Source reviewed January 2023. Federal educational prose adapted and condensed by NurseMind; images, logos and third-party material excluded.",
+      "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases; National Institutes of Health",
+      "sourceDate": "January 2023",
+      "access": "direct page"
+    },
+    "adrenal_facts": {
+      "id": "depth7_adrenal_facts",
+      "title": "Definition & Facts of Adrenal Insufficiency & Addison’s Disease",
+      "url": "https://www.niddk.nih.gov/health-information/endocrine-diseases/adrenal-insufficiency-addisons-disease/definition-facts",
+      "detail": "Adrenal crisis recognition; medical identification; emergency preparation. Source reviewed September 2018. Federal educational prose adapted and condensed by NurseMind; images, logos and third-party material excluded.",
+      "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases; National Institutes of Health",
+      "sourceDate": "September 2018",
+      "access": "direct page"
+    },
+    "adrenal_treatment": {
+      "id": "depth7_adrenal_treatment",
+      "title": "Treatment for Adrenal Insufficiency & Addison’s Disease",
+      "url": "https://www.niddk.nih.gov/health-information/endocrine-diseases/adrenal-insufficiency-addisons-disease/treatment",
+      "detail": "Treatment during illness, surgery and injury; pregnancy dose claims excluded. Source reviewed September 2018. Federal educational prose adapted and condensed by NurseMind; images, logos and third-party material excluded.",
+      "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases; National Institutes of Health",
+      "sourceDate": "September 2018",
+      "access": "direct page"
+    },
+    "thyroid": {
+      "id": "depth7_thyroid",
+      "title": "Hypothyroidism (Underactive Thyroid)",
+      "url": "https://www.niddk.nih.gov/health-information/endocrine-diseases/hypothyroidism",
+      "detail": "Symptoms; treatment follow-up; nutrition and pregnancy contact. Source reviewed March 2021. Federal educational prose adapted and condensed by NurseMind; images, logos and third-party material excluded.",
+      "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases; National Institutes of Health",
+      "sourceDate": "March 2021",
+      "access": "direct page"
+    }
+  },
+  "entries": [
+    {
+      "id": "reference:parkinson-daily-function-support",
+      "title": "Parkinson disease: daily function support",
+      "file": "NeuromuscularDailySupportReferences.swift",
+      "proposedReviewTier": "B",
+      "clinicalReviewStatus": "pending",
+      "reviewer": null,
+      "clinicalReviewDate": null,
+      "sourceFidelityChecked": "2026-09-17",
+      "sourceRefreshRequired": true,
+      "claims": [
+        {
+          "section": "Support movement",
+          "text": "Slower movement can make washing and dressing take longer. Balance and gait changes increase fall risk.",
+          "citationID": "depth7_pd"
+        },
+        {
+          "section": "Support movement",
+          "text": "Physical and occupational therapy can support walking and daily function. Exercise may improve balance, flexibility and strength; a clinician should review new exercise plans.",
+          "citationID": "depth7_pd"
+        },
+        {
+          "section": "Support communication and meals",
+          "text": "A quiet voice, rapid speech or hesitation can make communication difficult. Speech therapy can support communication.",
+          "citationID": "depth7_pd"
+        },
+        {
+          "section": "Support communication and meals",
+          "text": "Chewing and swallowing problems may cause choking, drooling or reduced intake. Speech and swallowing support may be needed.",
+          "citationID": "depth7_pd"
+        },
+        {
+          "section": "Recognize nonmotor symptoms",
+          "text": "Depression, anxiety, constipation and urinary symptoms are also part of Parkinson disease; care extends beyond tremor.",
+          "citationID": "depth7_pd"
+        },
+        {
+          "section": "Recognize nonmotor symptoms",
+          "text": "Blood pressure can fall on standing, causing lightheadedness or fainting. Sleep disruption and daytime sleepiness may also affect daily safety.",
+          "citationID": "depth7_pd"
+        },
+        {
+          "section": "Include nutrition in follow-up",
+          "text": "Fiber and fluids may help constipation when consistent with the person’s nutrition and fluid plan.",
+          "citationID": "depth7_pd"
+        },
+        {
+          "section": "Include nutrition in follow-up",
+          "text": "Dietary protein can affect carbidopa-levodopa absorption. Review food and medicine timing with the treating team; this guide gives no protein-restriction regimen.",
+          "citationID": "depth7_pd"
+        }
+      ]
+    },
+    {
+      "id": "reference:als-communication-daily-support",
+      "title": "ALS: communication and daily support",
+      "file": "NeuromuscularDailySupportReferences.swift",
+      "proposedReviewTier": "A",
+      "clinicalReviewStatus": "pending",
+      "reviewer": null,
+      "clinicalReviewDate": null,
+      "sourceFidelityChecked": "2026-09-17",
+      "sourceRefreshRequired": true,
+      "claims": [
+        {
+          "section": "Maintain communication",
+          "text": "Speech therapy can help preserve communication as speech becomes less clear.",
+          "citationID": "depth7_als"
+        },
+        {
+          "section": "Maintain communication",
+          "text": "Speech-generating devices may use eye tracking. Voice banking records the person’s own voice for possible later use.",
+          "citationID": "depth7_als"
+        },
+        {
+          "section": "Adapt daily activities",
+          "text": "Physical therapy can support movement, reduce falls and joint discomfort, and maintain independence. Rehabilitation should match individual needs.",
+          "citationID": "depth7_als"
+        },
+        {
+          "section": "Adapt daily activities",
+          "text": "Occupational therapy can identify feeding, bathing and grooming aids that make self-care easier.",
+          "citationID": "depth7_als"
+        },
+        {
+          "section": "Support nutrition and breathing",
+          "text": "Dietitians can plan small, nutritious meals when chewing or swallowing becomes difficult. Feeding support requires individualized planning.",
+          "citationID": "depth7_als"
+        },
+        {
+          "section": "Support nutrition and breathing",
+          "text": "Breathing-muscle weakness may cause breathlessness during activity, at night or when lying down. Noninvasive ventilation can provide breathing support.",
+          "citationID": "depth7_als"
+        },
+        {
+          "section": "Plan for changing support needs",
+          "text": "A weakened cough may need assistance to clear secretions. Respiratory support options include prescribed cough-assist devices.",
+          "citationID": "depth7_als"
+        },
+        {
+          "section": "Plan for changing support needs",
+          "text": "Increasing dependence can place substantial demands on caregivers. Home-care services and caregiver support can help sustain care.",
+          "citationID": "depth7_als"
+        }
+      ]
+    },
+    {
+      "id": "reference:guillain-barre-recovery-support",
+      "title": "Guillain-Barré syndrome: recovery support",
+      "file": "NeuromuscularDailySupportReferences.swift",
+      "proposedReviewTier": "A",
+      "clinicalReviewStatus": "pending",
+      "reviewer": null,
+      "clinicalReviewDate": null,
+      "sourceFidelityChecked": "2026-09-17",
+      "sourceRefreshRequired": true,
+      "claims": [
+        {
+          "section": "Keep monitoring needs visible",
+          "text": "Guillain-Barré syndrome can affect breathing, heart rate and blood pressure. Hospital monitoring helps identify complications as weakness changes.",
+          "citationID": "depth7_gbs"
+        },
+        {
+          "section": "Keep monitoring needs visible",
+          "text": "Swallowing weakness can cause choking and pneumonia; swallowing support remains relevant during recovery.",
+          "citationID": "depth7_gbs"
+        },
+        {
+          "section": "Rebuild movement",
+          "text": "Physical rehabilitation helps restore strength and daily function after acute stabilization.",
+          "citationID": "depth7_gbs"
+        },
+        {
+          "section": "Rebuild movement",
+          "text": "Therapists may use positioning and limb movement to preserve flexibility. Exercises can target weaker muscles when stronger muscles compensate for them.",
+          "citationID": "depth7_gbs"
+        },
+        {
+          "section": "Adapt home and work tasks",
+          "text": "Occupational therapy can help a person find new ways to manage everyday activities.",
+          "citationID": "depth7_gbs"
+        },
+        {
+          "section": "Adapt home and work tasks",
+          "text": "Vocational therapy and adaptive equipment may help with work demands and persistent functional limitations.",
+          "citationID": "depth7_gbs"
+        },
+        {
+          "section": "Set realistic recovery expectations",
+          "text": "Recovery varies and may take weeks to years. Some people continue to have weakness, numbness, fatigue or pain.",
+          "citationID": "depth7_gbs"
+        },
+        {
+          "section": "Set realistic recovery expectations",
+          "text": "Sudden dependence can be emotionally difficult. Counseling and peer support can help people adjust; recovery is not only a strength goal.",
+          "citationID": "depth7_gbs"
+        }
+      ]
+    },
+    {
+      "id": "reference:peripheral-neuropathy-daily-support",
+      "title": "Peripheral neuropathy: daily function and safety",
+      "file": "NeuromuscularDailySupportReferences.swift",
+      "proposedReviewTier": "B",
+      "clinicalReviewStatus": "pending",
+      "reviewer": null,
+      "clinicalReviewDate": null,
+      "sourceFidelityChecked": "2026-09-17",
+      "sourceRefreshRequired": true,
+      "claims": [
+        {
+          "section": "Describe the pattern",
+          "text": "Sensory neuropathy can reduce awareness of pain, temperature and limb position. Motor involvement may cause weakness or cramps.",
+          "citationID": "depth7_neuropathy"
+        },
+        {
+          "section": "Describe the pattern",
+          "text": "Autonomic involvement can affect sweating, blood pressure and digestion; neuropathy does not always present as painful feet.",
+          "citationID": "depth7_neuropathy"
+        },
+        {
+          "section": "Connect symptoms to daily function",
+          "text": "Loss of position sense can affect balance, walking and tasks such as fastening buttons.",
+          "citationID": "depth7_neuropathy"
+        },
+        {
+          "section": "Connect symptoms to daily function",
+          "text": "Appropriate braces or orthopedic footwear can support walking and help prevent foot injuries when motor nerves are affected.",
+          "citationID": "depth7_neuropathy"
+        },
+        {
+          "section": "Support symptom management",
+          "text": "Nerve pain may worsen at night or occur with light touch, including contact with bedsheets.",
+          "citationID": "depth7_neuropathy"
+        },
+        {
+          "section": "Support symptom management",
+          "text": "Counseling and other behavioral approaches may help with chronic pain and associated anxiety or depression.",
+          "citationID": "depth7_neuropathy"
+        },
+        {
+          "section": "Review contributing factors",
+          "text": "Evaluation includes medical conditions, medicines, alcohol or toxin exposure, and vitamin deficiencies. Treatment depends on the cause and nerve pattern.",
+          "citationID": "depth7_neuropathy"
+        },
+        {
+          "section": "Review contributing factors",
+          "text": "Managing diabetes and other contributing conditions may improve symptoms. Discuss medication changes with the clinician; do not stop treatment independently.",
+          "citationID": "depth7_neuropathy"
+        }
+      ]
+    },
+    {
+      "id": "reference:cirrhosis-nutrition-daily-support",
+      "title": "Cirrhosis: nutrition and daily food planning",
+      "file": "LiverPancreaticNutritionReferences.swift",
+      "proposedReviewTier": "B",
+      "clinicalReviewStatus": "pending",
+      "reviewer": null,
+      "clinicalReviewDate": null,
+      "sourceFidelityChecked": "2026-09-17",
+      "sourceRefreshRequired": false,
+      "claims": [
+        {
+          "section": "Recognize nutrition risk",
+          "text": "Cirrhosis can impair digestion and nutrient absorption. Nausea or vomiting may further reduce food intake.",
+          "citationID": "depth7_cirrhosis_nutrition"
+        },
+        {
+          "section": "Recognize nutrition risk",
+          "text": "Dietitian support can help match calories, protein and other nutrients to disease severity and individual needs.",
+          "citationID": "depth7_cirrhosis_nutrition"
+        },
+        {
+          "section": "Limit long fasting periods",
+          "text": "Cirrhosis changes how the body stores and uses energy. Long periods without food can be a concern.",
+          "citationID": "depth7_cirrhosis_nutrition"
+        },
+        {
+          "section": "Limit long fasting periods",
+          "text": "The care team may recommend smaller, frequent meals and a bedtime snack or early breakfast.",
+          "citationID": "depth7_cirrhosis_nutrition"
+        },
+        {
+          "section": "Use individual dietary instructions",
+          "text": "Sodium limits may be recommended. Use the person’s prescribed plan instead of applying one limit to everyone.",
+          "citationID": "depth7_cirrhosis_nutrition"
+        },
+        {
+          "section": "Use individual dietary instructions",
+          "text": "Review vitamins, herbs and other supplements with the clinician; supplementation depends on identified needs.",
+          "citationID": "depth7_cirrhosis_nutrition"
+        },
+        {
+          "section": "Address food and alcohol safety",
+          "text": "Raw or undercooked seafood and meat, and unpasteurized dairy products, can cause severe infections in people with cirrhosis.",
+          "citationID": "depth7_cirrhosis_nutrition"
+        },
+        {
+          "section": "Address food and alcohol safety",
+          "text": "Alcohol can cause additional liver damage. NIDDK advises complete avoidance of alcohol in cirrhosis.",
+          "citationID": "depth7_cirrhosis_nutrition"
+        }
+      ]
+    },
+    {
+      "id": "reference:pancreatic-insufficiency-nutrition-support",
+      "title": "Pancreatic insufficiency: nutrition support",
+      "file": "LiverPancreaticNutritionReferences.swift",
+      "proposedReviewTier": "B",
+      "clinicalReviewStatus": "pending",
+      "reviewer": null,
+      "clinicalReviewDate": null,
+      "sourceFidelityChecked": "2026-09-17",
+      "sourceRefreshRequired": false,
+      "claims": [
+        {
+          "section": "Recognize possible malabsorption",
+          "text": "Exocrine pancreatic insufficiency can cause loose, greasy, foul-smelling stools, bloating, abdominal discomfort and weight loss.",
+          "citationID": "depth7_epi_symptoms"
+        },
+        {
+          "section": "Recognize possible malabsorption",
+          "text": "It can occur with pancreatitis, cystic fibrosis, pancreatic cancer or pancreatic and upper gastrointestinal surgery.",
+          "citationID": "depth7_epi_symptoms"
+        },
+        {
+          "section": "Connect enzymes with eating",
+          "text": "Prescribed pancreatic enzyme replacement therapy helps digest food and improve nutrient absorption.",
+          "citationID": "depth7_epi_treatment"
+        },
+        {
+          "section": "Connect enzymes with eating",
+          "text": "NIDDK describes taking prescribed enzymes during meals and snacks. Follow the individual product and clinician instructions; this guide does not set doses.",
+          "citationID": "depth7_epi_treatment"
+        },
+        {
+          "section": "Build the nutrition plan",
+          "text": "A dietitian may recommend smaller, more frequent meals and other changes based on the underlying condition.",
+          "citationID": "depth7_epi_nutrition"
+        },
+        {
+          "section": "Build the nutrition plan",
+          "text": "Alcohol avoidance and smoking cessation may be part of treatment. Food changes should address nutritional needs as well as symptoms.",
+          "citationID": "depth7_epi_nutrition"
+        },
+        {
+          "section": "Review longer-term complications",
+          "text": "Follow-up may assess malnutrition, low levels of vitamins A, D, E and K, and reduced bone mass.",
+          "citationID": "depth7_epi_treatment"
+        },
+        {
+          "section": "Review longer-term complications",
+          "text": "Vitamin or other nutrient supplements may be recommended for identified deficits. Discuss supplements with the clinician before starting them.",
+          "citationID": "depth7_epi_treatment"
+        }
+      ]
+    },
+    {
+      "id": "reference:adrenal-insufficiency-illness-preparation",
+      "title": "Adrenal insufficiency: illness preparation",
+      "file": "EndocrineFollowUpReferences.swift",
+      "proposedReviewTier": "A",
+      "clinicalReviewStatus": "pending",
+      "reviewer": null,
+      "clinicalReviewDate": null,
+      "sourceFidelityChecked": "2026-09-17",
+      "sourceRefreshRequired": false,
+      "claims": [
+        {
+          "section": "Recognize urgent illness",
+          "text": "Severe infection or diarrhea, or vomiting that prevents retention of corticosteroid tablets, requires immediate medical attention. These situations can lead to adrenal crisis.",
+          "citationID": "depth7_adrenal_treatment"
+        },
+        {
+          "section": "Recognize urgent illness",
+          "text": "Illness, injury and surgery can change steroid requirements. The clinician supplies the individual adjustment plan; this guide does not provide a dose multiplier.",
+          "citationID": "depth7_adrenal_treatment"
+        },
+        {
+          "section": "Know crisis warning signs",
+          "text": "Sudden severe back, abdominal or leg pain, vomiting, diarrhea, marked weakness, confusion or loss of consciousness may signal adrenal crisis. Emergency assessment is needed.",
+          "citationID": "depth7_adrenal_facts"
+        },
+        {
+          "section": "Know crisis warning signs",
+          "text": "Adrenal crisis can be life-threatening. Emergency medication preparation complements urgent medical care; it does not replace assessment.",
+          "citationID": "depth7_adrenal_facts"
+        },
+        {
+          "section": "Prepare emergency identification",
+          "text": "Medical-alert identification or an emergency card can communicate adrenal insufficiency when the person cannot explain it.",
+          "citationID": "depth7_adrenal_facts"
+        },
+        {
+          "section": "Prepare emergency identification",
+          "text": "NIDDK advises carrying prescribed emergency corticosteroid injection supplies and ensuring family or friends know when and how to use them.",
+          "citationID": "depth7_adrenal_facts"
+        },
+        {
+          "section": "Prepare for procedures and recovery",
+          "text": "Surgery under general anesthesia may require intravenous hormone replacement until oral treatment is possible. Discuss the plan with the treating team before surgery.",
+          "citationID": "depth7_adrenal_treatment"
+        },
+        {
+          "section": "Prepare for procedures and recovery",
+          "text": "The clinician adjusts treatment back toward the usual regimen as illness or injury resolves. Recovery instructions are part of the plan.",
+          "citationID": "depth7_adrenal_treatment"
+        }
+      ]
+    },
+    {
+      "id": "reference:hypothyroidism-treatment-follow-up",
+      "title": "Hypothyroidism: treatment follow-up",
+      "file": "EndocrineFollowUpReferences.swift",
+      "proposedReviewTier": "B",
+      "clinicalReviewStatus": "pending",
+      "reviewer": null,
+      "clinicalReviewDate": null,
+      "sourceFidelityChecked": "2026-09-17",
+      "sourceRefreshRequired": false,
+      "claims": [
+        {
+          "section": "Keep symptoms in context",
+          "text": "Fatigue, cold intolerance and weight changes can occur with hypothyroidism, but symptoms alone do not establish the diagnosis.",
+          "citationID": "depth7_thyroid"
+        },
+        {
+          "section": "Keep symptoms in context",
+          "text": "Blood tests and clinical assessment help evaluate thyroid function and the cause of symptoms.",
+          "citationID": "depth7_thyroid"
+        },
+        {
+          "section": "Support medicine continuity",
+          "text": "Thyroid hormone replacement controls hypothyroidism when taken as prescribed. Do not stop it without discussing the plan with the clinician.",
+          "citationID": "depth7_thyroid"
+        },
+        {
+          "section": "Support medicine continuity",
+          "text": "Excess thyroid replacement can cause harm, including atrial fibrillation or bone loss; symptom changes do not justify unsupervised dose changes.",
+          "citationID": "depth7_thyroid"
+        },
+        {
+          "section": "Keep monitoring on the plan",
+          "text": "Blood testing follows treatment initiation and dose changes. The clinician uses results to adjust therapy and arrange ongoing checks.",
+          "citationID": "depth7_thyroid"
+        },
+        {
+          "section": "Keep monitoring on the plan",
+          "text": "Notify the clinician promptly if pregnancy occurs because thyroid replacement needs may change.",
+          "citationID": "depth7_thyroid"
+        },
+        {
+          "section": "Review iodine exposure",
+          "text": "Excess iodine, including iodine supplements or large amounts of seaweed, can worsen some autoimmune thyroid disorders.",
+          "citationID": "depth7_thyroid"
+        },
+        {
+          "section": "Review iodine exposure",
+          "text": "Discuss supplements and iodine-containing cough medicines with the care team. Pregnancy-related iodine needs require individualized advice.",
+          "citationID": "depth7_thyroid"
+        }
+      ]
+    }
+  ],
+  "legacyCorrections": [
+    {
+      "id": "diagnosis:als",
+      "file": "DiagnosesRound11.swift",
+      "scope": "Treatment-options bullet only; remaining content and whole-entry source-review date unchanged.",
+      "proposedReviewTier": "A",
+      "clinicalReviewStatus": "pending",
+      "reviewer": null,
+      "clinicalReviewDate": null,
+      "sources": [
+        {
+          "id": "depth7_als_options",
+          "title": "Focus on Amyotrophic Lateral Sclerosis",
+          "url": "https://www.ninds.nih.gov/current-research/focus-disorders/focus-amyotrophic-lateral-sclerosis",
+          "detail": "Opening overview: current therapy examples and SOD1-associated treatment. Source revision date not stated in retrieved text. Federal educational facts adapted; no trial tables or algorithms reproduced.",
+          "publisher": "National Institute of Neurological Disorders and Stroke; National Institutes of Health",
+          "license": "publicDomain"
+        },
+        {
+          "id": "depth7_als_relyvrio",
+          "title": "Amylyx: Relyvrio market-removal announcement",
+          "url": "https://investors.amylyx.com/news-releases/news-release-details/amylyx-pharmaceuticals-announces-formal-intention-remove",
+          "detail": "April 4, 2024 announcement: end of availability for new patients and voluntary market-removal process. Historical regulatory and availability facts paraphrased; not a claim about the exact date of formal NDA withdrawal.",
+          "publisher": "Amylyx Pharmaceuticals",
+          "license": "factCitationOnly"
+        }
+      ],
+      "claims": [
+        {
+          "text": "ALS disease-modifying options include riluzole and edaravone; tofersen is intended for SOD1-associated ALS. Treatment selection belongs with the specialist team.",
+          "citationID": "depth7_als_options"
+        },
+        {
+          "text": "On April 4, 2024, the manufacturer ended Relyvrio availability for new patients and announced its market-removal process. AMX0035 / Relyvrio should not be listed as a current new-start ALS treatment.",
+          "citationID": "depth7_als_relyvrio"
+        }
+      ]
+    }
+  ]
+}

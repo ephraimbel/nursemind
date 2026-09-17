@@ -150,6 +150,11 @@ sed -i '' -E "s/(CURRENT_PROJECT_VERSION:[[:space:]]*)\"[0-9]+\"/\1\"${BUILD_NUM
 log "xcodegen generate"
 xcodegen generate
 
+# The generated app project must use the same dependency versions as package tests.
+APP_PACKAGE_LOCK="${REPO_ROOT}/Nursemind.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved"
+mkdir -p "$(dirname "$APP_PACKAGE_LOCK")"
+cp "${REPO_ROOT}/Packages/NursemindCore/Package.resolved" "$APP_PACKAGE_LOCK"
+
 # ─── 3. Archive ───────────────────────────────────────────────────────
 
 if [[ "$SKIP_ARCHIVE" != "true" ]]; then
@@ -161,6 +166,7 @@ if [[ "$SKIP_ARCHIVE" != "true" ]]; then
     -configuration Release \
     -destination "generic/platform=iOS" \
     -archivePath "$ARCHIVE_PATH" \
+    -disableAutomaticPackageResolution \
     -allowProvisioningUpdates \
     | xcbeautify 2>/dev/null || xcodebuild archive \
         -project "$PROJECT" \
@@ -168,6 +174,7 @@ if [[ "$SKIP_ARCHIVE" != "true" ]]; then
         -configuration Release \
         -destination "generic/platform=iOS" \
         -archivePath "$ARCHIVE_PATH" \
+        -disableAutomaticPackageResolution \
         -allowProvisioningUpdates
 else
   [[ -d "$ARCHIVE_PATH" ]] || die "--skip-archive but no archive at ${ARCHIVE_PATH}"
@@ -198,6 +205,8 @@ cat > "$EXPORT_OPTIONS_PLIST" <<EOF
   <false/>
   <key>generateAppStoreInformation</key>
   <true/>
+  <key>manageAppVersionAndBuildNumber</key>
+  <false/>
 </dict>
 </plist>
 EOF

@@ -1,0 +1,271 @@
+March 21, 2024
+II. Summary of Recommendations
+Guideline for the Prevention and Control of Norovirus Gastroenteritis Outbreaks in Healthcare Settings (2011)
+At a glance
+Summary of Recommendations from the Guideline for the Prevention and Control of Norovirus Gastroenteritis Outbreaks in Healthcare Settings (2011).
+Table 1. HICPAC Recommendation Categories
+Rank
+Description
+Category IA
+A strong recommendation supported by high to moderate quality evidence suggesting net clinical benefits or harms.
+Category IB
+A strong recommendation supported by low-quality evidence suggesting net clinical benefits or harms, or an accepted practice (e.g., aseptic technique) supported by low to very low-quality evidence.
+Category IC
+A strong recommendation required by state or federal regulation.
+Category II
+A weak recommendation supported by any quality evidence suggesting a tradeoff between clinical benefits and harms.
+Recommendation for further research
+An unresolved issue for which there is low to very low-quality evidence with uncertain tradeoffs between benefits and harms.
+Patient Cohorting and Isolation Precautions
+Recommendations for norovirus patient cohorting and isolation precautions by ID number and category.
+#
+Recommendation
+Category
+1.
+Avoid exposure to vomitus or diarrhea. Place patients on Contact Precautions in a single occupancy room if they have symptoms consistent with norovirus gastroenteritis.
+IB
+1.a.
+When patients with norovirus gastroenteritis cannot be accommodated in single occupancy rooms, efforts should be made to separate them from asymptomatic patients. Dependent upon facility characteristics, approaches for cohorting patients during outbreaks may include placing patients in multi-occupancy rooms, or designating patient care areas or contiguous sections within a facility for patient cohorts.
+IB
+2.
+During outbreaks, place patients with norovirus gastroenteritis on Contact Precautions for a minimum of 48 hours after the resolution of symptoms to prevent further exposure of susceptible patients
+IB
+2.a.
+Consider longer periods of isolation or cohorting precautions for complex medical patients (e.g., those with cardiovascular, autoimmune, immunosuppressive, or renal disorders) as they can experience protracted episodes of diarrheaand prolonged viral shedding. Patients with these or other comorbidities have the potential to relapse, and facilities may choose longer periods of isolation based on clinical judgment.
+II
+2.b.
+Consider extending the duration of isolation or cohorting precautions for outbreaks among infants and young children (e.g., under 2 years), even after resolution of symptoms, as there is a potential for prolonged viral shedding and environmental contamination. Among infants, there is evidence to consider extending contact precautions for up to 5 days after the resolution of symptoms.
+II
+3.
+Further research is needed to understand the correlation between prolonged shedding of norovirus and the risk of infection to susceptible patients
+No recommendation / unresolved issue
+4.
+Consider minimizing patient movements within a ward or unit during norovirus gastroenteritis outbreaks.
+II
+4.a.
+Consider restricting symptomatic and recovering patients from leaving the patient-care area unless it is for essential care or treatment to reduce the likelihood of environmental contamination and transmission of norovirus in unaffected clinical areas.
+II
+5.
+Consider suspending group activities (e.g., dining events) for the duration of a norovirus outbreak.
+II
+6.
+Staff who have recovered from recent suspected norovirus infection associated with an outbreak may be best suited to care for symptomatic patients until the outbreak resolves.
+II
+Hand Hygiene
+Recommendations for hand hygiene by ID number and category.
+#
+Recommendation
+Category
+7.
+Actively promote adherence to hand hygiene among healthcare personnel, patients, and visitors in patient care areas affected by outbreaks of norovirus gastroenteritis.
+IB
+8.
+During outbreaks, use soap and water for hand hygiene after providing care or having contact with patients suspected or confirmed with norovirus gastroenteritis.
+IB
+8.a.
+For all other hand hygiene indications (e.g., before having contact with norovirus patients) refer to the 2002 HICPAC Guideline for Hand Hygiene in Health-Care Settings Cdc-pdf[PDF – 494 KB], which includes the indications for use of FDA-compliant alcohol-based hand sanitizer.
+IB
+8.a.i.
+Consider ethanol-based hand sanitizers (60-95%) as the preferred active agent compared to other alcohol or non-alcohol based hand sanitizer products during outbreaks of norovirus gastroenteritis.
+II
+8.b.
+Further research is required to directly evaluate the efficacy of alcohol-based hand sanitizers against human strains of norovirus, or against a surrogate virus with properties convergent with human strains of norovirus.
+No recommendation / unresolved issue
+9.
+More research is required to evaluate the virucidal capabilities of alcohol-based as well as non-alcohol based hand sanitizers against norovirus.
+No recommendation / unresolved issue
+Patient Transfer and Ward Closure
+Recommendations for patient transfer and ward closure by ID number and category.
+#
+Recommendation
+Category
+10.
+Consider the closure of wards to new admissions or transfers as a measure to attenuate the magnitude of an outbreak of norovirus gastroenteritis. The threshold for ward closure varies and depends on risk assessments by infection prevention personnel and facility leadership.
+II
+11.
+Consider limiting transfers to those for which the receiving facility is able to maintain Contact Precautions; otherwise, it may be prudent to postpone transfers until patients no longer require Contact Precautions. During outbreaks, medically suitable individuals recovering from norovirus gastroenteritis can be discharged to their place of residence.
+II
+12.
+Implement systems to designate patients with symptomatic norovirus and to notify receiving healthcare facilities or personnel prior to transfer of such patients within or between facilities.
+IC
+Indirect Patient Care Staff – Food Handlers in Healthcare
+Recommendations for indirect patient care staff – food handlers in healthcare by ID number and category.
+#
+Recommendation
+Category
+13.
+To prevent food-related outbreaks of norovirus gastroenteritis in healthcare settings, food handlers must perform hand hygiene prior to contact with or the preparation of food items and beverages. For more information visit the FDA Food CodeExternal website.
+IC
+14.
+Personnel who work with, prepare or distribute food must be excluded from duty if they develop symptoms of acute gastroenteritis. Personnel should not return to these activities until a minimum of 48 hours after the resolution of symptoms or longer as required by local health regulations. For more information visit FDA Food CodeExternal website.
+IC
+15.
+Remove all shared or communal food items for patients or staff from clinical areas for the duration of the outbreak.
+IB
+Diagnostics
+Recommendations for norovirus diagnostics by ID number and category.
+#
+Recommendation
+Category
+16.
+Consider the development and adoption of facility policies to enable rapid clinical and virological confirmation of suspected cases of symptomatic norovirus infection while implementing prompt control measures to reduce the magnitude of a potential norovirus outbreak.
+II
+17.
+In the absence of clinical laboratory diagnostics or in the case of delay in obtaining laboratory results, use Kaplan’s clinical and epidemiologic criteria to identify a norovirus gastroenteritis outbreak (see Table 4 for Kaplan’s criteria).
+IA
+18.
+Further research is needed to compare the Kaplan criteria with other early detection criteria for outbreaks of norovirus gastroenteritis in healthcare settings, and to assess whether additional clinical or epidemiologic criteria can be applied to detect norovirus clusters or outbreaks in healthcare settings.
+No recommendation / unresolved issue
+19.
+Consider submitting stool specimens as early as possible during a suspected norovirus gastroenteritis outbreak and ideally from individuals during the acute phase of illness (within 2-3 days of onset). It is suggested that healthcare facilities consult with state or local public health authorities regarding the types of and number of specimens to obtain for testing.
+II
+20.
+Use effective laboratory diagnostic protocols for testing of suspected cases of viral gastroenteritis (e.g., refer to the Centers for Disease Control and Prevention (CDC)’s most current recommendations for norovirus diagnostic testing Cdc-pdf[PDF – 854 KB]
+IB
+21.
+Routine collecting and processing of environmental swabs during a norovirus outbreak is not required. When supported by epidemiologic evidence, environmental sampling can be considered useful to confirm specific sources of contamination during investigations.
+II
+22.
+Specimens obtained from vomitus can be submitted for laboratory identification of norovirus when fecal specimens are unavailable. Testing of vomitus as compared to fecal specimens can be less sensitive due to lower detectable viral concentrations.
+II
+Personal Protective Equipment
+Recommendations for personal protective equipment by ID number and category.
+#
+Recommendation
+Category
+23.
+If norovirus infection is suspected, adherence to PPE use according to Contact and Standard Precautions is recommended for individuals entering the patient care area (i.e., gowns and gloves upon entry) to reduce the likelihood of exposure to infectious vomitus or fecal material.
+IB
+24.
+Use a surgical or procedure mask and eye protection or a full face shield if there is an anticipated risk of splashes to the face during the care of patients, particularly among those who are vomiting.
+IB
+25.
+More research is needed to evaluate the utility of implementing Universal Gloving (e.g., routine use of gloves for all patient care) during norovirus outbreaks.
+No recommendation / unresolved issue
+Environmental Cleaning
+Recommendations for environmental cleaning by ID number and category.
+#
+Recommendation
+Category
+26.
+Perform routine cleaning and disinfection of frequently touched environmental surfaces and equipment in isolation and cohorted areas, as well as high-traffic clinical areas. Frequently touched surfaces include, but are not limited to, commodes, toilets, faucets, hand/bedrailing, telephones, door handles, computer equipment, and kitchen preparation surfaces.
+IB
+27.
+Clean and disinfect shared equipment between patients using EPA-registered products with label claims for use in healthcare. Follow the manufacturer’s recommendations for application and contact times. The EPA lists products with activity against norovirus on their website.
+IC
+28.
+Increase the frequency of cleaning and disinfection of patient care areas and frequently touched surfaces during outbreaks of norovirus gastroenteritis (e.g., increase ward/unit level cleaning to twice daily to maintain cleanliness, with frequently touched surfaces cleaned and disinfected three times daily using EPA-approved products for healthcare settings).
+IB
+29.
+Clean and disinfect surfaces starting from the areas with a lower likelihood of norovirus contamination (e.g.,tray tables, counter tops) to areas with highly contaminated surfaces (e.g., toilets, bathroom fixtures). Change mop heads when a new bucket of cleaning solution is prepared, or after cleaning large spills of emesis or fecal material.
+IB
+30.
+Consider discarding all disposable patient-care items and laundering unused linens from patient rooms after patients on isolation for norovirus gastroenteritis are discharged or transferred. Facilities can minimize waste by limiting the number of disposable items brought into rooms/areas on Contact Precautions.
+II
+31.
+No additional provisions for using disposable patient service items such as utensils or dishware are suggested for patients with symptoms of norovirus infection. Silverware and dishware may undergo normal processing and cleaning using standard procedures.
+II
+32.
+Use Standard Precautions for handling soiled patient-service items or linens, including the use of appropriate PPE.
+IB
+33.
+Consider avoiding the use of upholstered furniture and rugs or carpets in patient care areas, as these objects are difficult to clean and disinfect completely. If this option is not possible, immediately clean soilage, such as emesis or fecal material, from upholstery, using a manufacturer-approved cleaning agent or detergent. Opt for seating in patient-care areas that can withstand routine cleaning and disinfection.
+II
+34.
+Consider steam cleaning of upholstered furniture in patient rooms upon discharge. Consult with manufacturer’s recommendations for cleaning and disinfection of these items. Consider discarding items that cannot be appropriately cleaned/disinfected.
+II
+35.
+During outbreaks, change privacy curtains when they are visibly soiled and upon patient discharge or transfer.
+IB
+36.
+Handle soiled linens carefully, without agitating them, to avoid dispersal of virus. Use Standard Precautions, including the use of appropriate PPE (e.g., gloves and gowns), to minimize the likelihood of cross-contamination.
+IB
+37.
+Double bagging, incineration, or modifications for laundering are not indicated for handling or processing soiled linen.
+II
+38.
+Clean surfaces and patient equipment prior to the application of a disinfectant. Follow the manufacturer’s recommendations for optimal disinfectant dilution, application, and surface contact time with an EPA-approved product with claims against norovirus.
+IC
+39.
+More research is required to clarify the effectiveness of cleaning and disinfecting agents against norovirus, either through the use of surrogate viruses or the development of human norovirus culture system.
+No recommendation / unresolved issue
+40
+More research is required to clarify the effectiveness and reliability of fogging, UV irradiation, and ozone mists to reduce norovirus environmental contamination.
+No recommendation / unresolved issue
+41.
+Further research is required to evaluate the utility of medications that might attenuate the duration and severity of norovirus illness.
+No recommendation / unresolved issue
+Staff Leave and Policy
+Recommendations for staff leave and policy by ID number and category.
+#
+Recommendation
+Category
+42.
+Develop and adhere to sick leave policies for healthcare personnel who have symptoms consistent with norovirus infection.
+IB
+42.a.
+Exclude ill personnel from work for a minimum of 48 hours after the resolution of symptoms. Once personnel return to work, the importance of performing frequent hand hygiene should be reinforced, especially before and after each patient contact.
+IB
+43.
+Establish protocols for staff cohorting in the event of an outbreak of norovirus gastroenteritis. Ensure staff care for one patient cohort on their ward and do not move between patient cohorts (e.g., patient cohorts may include symptomatic, asymptomatic exposed, or asymptomatic unexposed patient groups).
+IB
+44.
+Exclude non-essential staff, students, and volunteers from working in areas experiencing outbreaks of norovirus gastroenteritis.
+IB
+Visitors
+Recommendations for visitors of norovirus patients by ID number and category.
+#
+Recommendation
+Category
+45.
+Establish visitor policies for acute gastroenteritis (e.g., norovirus) outbreaks.
+IB
+46.
+Restrict non-essential visitors from affected areas of the facility during outbreaks of norovirus gastroenteritis.
+IB
+46a.
+For those affected areas where it is necessary to have continued visitor privileges during outbreaks, screen and exclude visitors with symptoms consistent with norovirus infection and ensure that they comply with hand hygiene and Contact Precautions.
+IB
+Education
+Recommendations for norovirus education by ID number and category.
+#
+Recommendation
+Category
+47.
+Provide education to staff, patients, and visitors, including recognition of norovirus symptoms, preventing infection, and modes of transmission upon the recognition and throughout the duration of a norovirus gastroenteritis outbreak.
+IB
+48.
+Consider providing educational sessions and making resources available on the prevention and management of norovirus before outbreaks occur, as part of annual trainings, and when sporadic cases are detected.
+II
+Active Case-Finding
+Recommendations for active norovirus case-finding by ID number and category.
+#
+Recommendation
+Category
+49.
+Begin active case-finding when a cluster of acute gastroenteritis cases is detected in the healthcare facility. Use a specified case definition, and implement line lists to track both exposed and symptomatic patients and staff. Collect relevant epidemiological, clinical, and demographic data as well as information on patient location and outcomes.
+IB
+Communication and Notification
+Recommendations for norovirus outbreak communication and notification by ID number and category.
+#
+Recommendation
+Category
+50.
+Develop written policies that specify the chains of communication needed to manage and report outbreaks of norovirus gastroenteritis. Key stakeholders such as clinical staff, environmental services, laboratory administration, healthcare facility administration and public affairs, as well as state or local public health authorities, should be included in the framework.
+IB
+50.a.
+Provide timely communication to personnel and visitors when an outbreak of norovirus gastroenteritis is suspected and outline what policies and provisions need to be followed to prevent further transmission.
+IB
+51.
+As with all outbreaks, notify appropriate local and state health departments, as required by state and local public health regulations, if an outbreak of norovirus gastroenteritis is suspected.
+IC
+March 21, 2024
+Sources
+Print
+Share
+Facebook
+LinkedIn
+Twitter
+Syndicate
+Content Source:
+National Center for Emerging and Zoonotic Infectious Diseases (NCEZID)

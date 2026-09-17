@@ -19,7 +19,7 @@ public struct ResponseValidator: Sendable {
                 switch self {
                 case .unsupportedClaim(let c):       return "Unsupported clinical claim (no nearby citation): \(c)"
                 case .hallucinatedCitation(let id):  return "Citation ID not in retrieved context: \(id)"
-                case .overLength(let w):             return "Response too long (\(w) words; max 600)"
+                case .overLength(let w):             return "Response too long (\(w) words; max 500)"
                 case .suspectedDirective(let s):     return "Suspected directive language: \(s)"
                 }
             }
@@ -28,56 +28,109 @@ public struct ResponseValidator: Sendable {
 
     public init() {}
 
-    public func validate(_ response: String, validCitationIDs: Set<String>) -> ValidationResult {
+    public func validate(_ response: String, validCitationIDs: Set<String>, retrievedContext: String? = nil) -> ValidationResult {
         var issues: [ValidationResult.Issue] = []
-
-        // 1. Citation enforcement — every numerical clinical claim needs [cXXX] within 100 chars
-        for pattern in Self.numericalClaimPatterns {
-            guard let regex = try? NSRegularExpression(pattern: pattern, options: []) else { continue }
-            let range = NSRange(response.startIndex..., in: response)
-            let matches = regex.matches(in: response, options: [], range: range)
-            for match in matches {
-                let claimRange = match.range
-                let windowStart = max(0, claimRange.location - 100)
-                let windowEnd = min((response as NSString).length, claimRange.location + claimRange.length + 100)
-                let windowRange = NSRange(location: windowStart, length: windowEnd - windowStart)
-                let window = (response as NSString).substring(with: windowRange)
-                if !window.contains("[c") {
-                    let claimText = (response as NSString).substring(with: claimRange)
-                    issues.append(.unsupportedClaim(claim: claimText))
+        let markers = Self.citationIDs(in: response)
+        for id in markers.subtracting(validCitationIDs).sorted() {
+            issues.append(.hallucinatedCitation(id: id))
+        }
+        if response.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || markers.isEmpty {
+            issues.append(.unsupportedClaim(claim: "No cited answer"))
+        }
+        let withoutMarkers = response.replacingOccurrences(of: #"\[c[0-9]{3}\]"#, with: "", options: .regularExpression)
+        if withoutMarkers.range(of: #"\[c[0-9]|\[c\]"#, options: .regularExpression) != nil {
+            issues.append(.hallucinatedCitation(id: "malformed"))
+        }
+        // A citation in another bullet or sentence cannot support this claim.
+        let statements = Self.normalizedStatements(response)
+            .replacingOccurrences(of: #"(?<=[.!?])\s+(?=[A-Z*])"#, with: "\n", options: .regularExpression)
+        for line in statements.components(separatedBy: .newlines) {
+            let statement = line.trimmingCharacters(in: .whitespacesAndNewlines)
+            let undecorated = statement.trimmingCharacters(in: CharacterSet(charactersIn: "*_"))
+            guard !statement.isEmpty, undecorated != SystemPrompt.referenceFooter,
+                  statement.range(of: #"^[-*_]{3,}$"#, options: .regularExpression) == nil else { continue }
+            let hasNumber = statement.rangeOfCharacter(from: .decimalDigits) != nil
+            if !hasNumber && statement.hasPrefix("#") && statement.split(whereSeparator: \.isWhitespace).count <= 8 { continue }
+            if !hasNumber && statement.hasSuffix(":") && statement.split(whereSeparator: \.isWhitespace).count <= 8 { continue }
+            if !hasNumber && statement.hasPrefix("I don't have a high-confidence source for") { continue }
+            guard !Self.citationIDs(in: statement).intersection(validCitationIDs).isEmpty else {
+                issues.append(.unsupportedClaim(claim: "Uncited statement"))
+                continue
+            }
+            if let retrievedContext {
+                let cited = Self.citationIDs(in: statement)
+                let supporting = retrievedContext.components(separatedBy: .newlines)
+                    .filter { !Self.citationIDs(in: $0).intersection(cited).isEmpty }.joined(separator: "\n")
+                if !Self.numbers(in: statement).isSubset(of: Self.numbers(in: supporting)) ||
+                    !Self.quantities(in: statement).isSubset(of: Self.quantities(in: supporting)) {
+                    issues.append(.unsupportedClaim(claim: "Value or unit absent from cited passages"))
                 }
             }
         }
-
-        // 2. Hallucinated citation IDs
-        if let citationRegex = try? NSRegularExpression(pattern: #"\[c\d{1,4}\]"#) {
-            let range = NSRange(response.startIndex..., in: response)
-            let matches = citationRegex.matches(in: response, options: [], range: range)
-            for m in matches {
-                let raw = (response as NSString).substring(with: m.range)
-                let id = String(raw.dropFirst().dropLast())   // strip [ ]
-                if !validCitationIDs.contains(id) {
-                    issues.append(.hallucinatedCitation(id: id))
-                }
-            }
+        let words = response.split(whereSeparator: \.isWhitespace).count
+        if words > 500 { issues.append(.overLength(words: words)) }
+        if Self.containsComputedDose(response) {
+            issues.append(.suspectedDirective(snippet: "Computed patient-specific amount"))
         }
-
-        // 3. Length
-        let words = response.split(separator: " ").count
-        if words > 600 {
-            issues.append(.overLength(words: words))
+        if response.range(of: #"\b(give|administer|inject|push|infuse|start|increase to|titrate to)\s+(?:the patient\s+)?\d+(?:\.\d+)?\s*(?:mg|mcg|g|mL|units?)\b"#,
+                          options: [.regularExpression, .caseInsensitive]) != nil {
+            issues.append(.suspectedDirective(snippet: "Directive medication amount"))
         }
-
-        // 4. Soft check: directive phrasing
-        let lowered = response.lowercased()
-        for phrase in Self.directivePhrases {
-            if lowered.contains(phrase) {
-                issues.append(.suspectedDirective(snippet: phrase))
-                break
-            }
+        if PHIScrubber.scrub(response).redacted {
+            issues.append(.unsupportedClaim(claim: "Potential identifier in answer"))
         }
-
         return ValidationResult(isValid: issues.isEmpty, issues: issues)
+    }
+
+    public static func citationIDs(in text: String) -> Set<String> {
+        guard let expression = try? NSRegularExpression(pattern: #"\[(c[0-9]{3})\]"#) else { return [] }
+        let ns = text as NSString
+        return Set(expression.matches(in: text, range: NSRange(location: 0, length: ns.length))
+            .map { ns.substring(with: $0.range(at: 1)) })
+    }
+
+    private static func normalizedStatements(_ text: String) -> String {
+        text.components(separatedBy: .newlines).map { line in
+            let trimmed = line.trimmingCharacters(in: .whitespaces)
+            if trimmed.hasPrefix("**"), trimmed.hasSuffix("**"), trimmed.count > 4 {
+                let title = String(trimmed.dropFirst(2).dropLast(2))
+                if title.range(of: #"\d|[.!?]"#, options: .regularExpression) == nil,
+                   title.split(whereSeparator: \.isWhitespace).count <= 8 { return "## " + title }
+            }
+            return line
+        }.joined(separator: "\n")
+            .replacingOccurrences(of: #"\*\*|__"#, with: "", options: .regularExpression)
+            .replacingOccurrences(of: #"(?m)^(\s*(?:#{1,6}\s+)?)(?:\d+[.)]|Step\s+\d+:)\s+"#, with: "$1", options: .regularExpression)
+    }
+
+    private static func numbers(in text: String) -> Set<String> {
+        let withoutMarkers = text.replacingOccurrences(of: #"\[c[0-9]{3}\]"#, with: "", options: .regularExpression)
+        return matches(#"(?<![\w.])\d+(?:[.,]\d+)*"#, in: withoutMarkers)
+            .reduce(into: Set<String>()) { result, value in
+                result.insert(NSDecimalNumber(string: value.replacingOccurrences(of: ",", with: "")).stringValue)
+            }
+    }
+
+    private static func quantities(in text: String) -> Set<String> {
+        let pattern = #"(?<![\w.])(\d+(?:[.,]\d+)*)(?:\s*(?:[-–—]|to)\s*(\d+(?:[.,]\d+)*))?\s*((?:mcg|µg|μg|mg|g|mL|mEq|mmol|units?|U|mm\s*Hg|bpm|%)(?:\s*/\s*(?:kg|min|hr|h|day|dL|L|mL|m2|m²|dose))*)(?![A-Za-z])"#
+        guard let regex = try? NSRegularExpression(pattern: pattern, options: .caseInsensitive) else { return [] }
+        let ns = text as NSString
+        var values: Set<String> = []
+        for match in regex.matches(in: text, range: NSRange(location: 0, length: ns.length)) {
+            let unit = ns.substring(with: match.range(at: 3)).lowercased().filter { !$0.isWhitespace }
+                .replacingOccurrences(of: "µg", with: "mcg").replacingOccurrences(of: "μg", with: "mcg")
+            for index in 1...2 where match.range(at: index).location != NSNotFound {
+                let number = ns.substring(with: match.range(at: index)).replacingOccurrences(of: ",", with: "")
+                values.insert(NSDecimalNumber(string: number).stringValue + unit)
+            }
+        }
+        return values
+    }
+
+    private static func matches(_ pattern: String, in text: String) -> [String] {
+        guard let regex = try? NSRegularExpression(pattern: pattern, options: .caseInsensitive) else { return [] }
+        let ns = text as NSString
+        return regex.matches(in: text, range: NSRange(location: 0, length: ns.length)).map { ns.substring(with: $0.range) }
     }
 
     // MARK: - Computed-dose output guard (Apple 1.4.2)
@@ -112,27 +165,4 @@ public struct ResponseValidator: Sendable {
         #"\d+(\.\d+)?\s*kg\b[^.?!]{0,60}(→|runs? at|infuses? at|rate of)\s*~?\d[\d,.]*\s*m?l\s*/\s*hr\b"#
     ]
 
-    // MARK: - Patterns
-
-    /// Regex patterns for clinical claims that MUST be cited.
-    /// Order: dose with units, lab values with units, threshold expressions.
-    private static let numericalClaimPatterns: [String] = [
-        // Doses: "30 mg", "0.1 mcg/kg/min", "500 mL"
-        #"\b\d+(?:\.\d+)?\s*(?:mg|mcg|mL|ml|kg|lb|cc|units|U|mEq|gtt)(?:/(?:kg|min|hr|day|h|kg/min))?"#,
-        // Lab thresholds: "2.0 mmol/L", "MAP > 65"
-        #"\b\d+(?:\.\d+)?\s*(?:mmol/L|mEq/L|mg/dL|mmHg|g/dL|ng/mL|ng/L|U/L|μL|mcg/mL|mcg/L|pg/mL)"#,
-        // Thresholds: "MAP > 65", "K+ < 3.5"
-        #"\b(?:MAP|HR|SBP|DBP|K\+|Na\+|Hgb|Plt)\s*[><]=?\s*\d+(?:\.\d+)?"#,
-    ]
-
-    /// Phrases that look like directives (which the model is told not to use).
-    /// These are advisory only — the LLM may legitimately use phrases like "you'd typically administer."
-    /// We flag for review, not auto-reject.
-    private static let directivePhrases: [String] = [
-        "you should give",
-        "you must give",
-        "administer 1 mg",
-        "give the patient",
-        "i recommend you administer"
-    ]
 }

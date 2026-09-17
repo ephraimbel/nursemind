@@ -1,0 +1,1162 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet href="https://www.accessdata.fda.gov/spl/stylesheet/spl.xsl" type="text/xsl"?>
+<document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3" xsi:schemaLocation="urn:hl7-org:v3 https://www.accessdata.fda.gov/spl/schema/spl.xsd">
+   <id root="2c555078-770d-43d9-93e5-40e4cf5a4acf"/>
+   <code code="34391-3" codeSystem="2.16.840.1.113883.6.1" displayName="HUMAN PRESCRIPTION DRUG LABEL"/>
+   <title>These highlights do not include all the information needed to use GIAPREZA safely and effectively. See full prescribing information for GIAPREZA.<br/>
+      <br/>
+      <br/>
+      <br/>GIAPREZA® (angiotensin II) Injection for Intravenous Infusion<br/>
+      <br/>Initial U.S. Approval: 2017</title>
+   <effectiveTime value="20260722"/>
+   <setId root="c265d69a-3efe-4107-9a9e-e6fd3d531c48"/>
+   <versionNumber value="18"/>
+   <author>
+      <time/>
+      <assignedEntity>
+         <representedOrganization>
+            <id root="1.3.6.1.4.1.519.1" extension="613541192"/>
+            <name>La Jolla Pharmaceutical Company</name>
+            <assignedEntity>
+               <assignedOrganization>
+                  <assignedEntity>
+                     <assignedOrganization>
+                        <id root="1.3.6.1.4.1.519.1" extension="119352788"/>
+                        <name>Bora Pharmaceuticals Injectables Inc.</name>
+                     </assignedOrganization>
+                     <performance>
+                        <actDefinition>
+                           <code code="C43360" displayName="manufacture" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                           <product>
+                              <manufacturedProduct classCode="MANU">
+                                 <manufacturedMaterialKind>
+                                    <code code="68547-501" codeSystem="2.16.840.1.113883.6.69"/>
+                                 </manufacturedMaterialKind>
+                              </manufacturedProduct>
+                           </product>
+                        </actDefinition>
+                     </performance>
+                     <performance>
+                        <actDefinition>
+                           <code code="C25391" displayName="analysis" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                           <product>
+                              <manufacturedProduct classCode="MANU">
+                                 <manufacturedMaterialKind>
+                                    <code code="68547-501" codeSystem="2.16.840.1.113883.6.69"/>
+                                 </manufacturedMaterialKind>
+                              </manufacturedProduct>
+                           </product>
+                        </actDefinition>
+                     </performance>
+                     <performance>
+                        <actDefinition>
+                           <code code="C43360" displayName="manufacture" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                           <product>
+                              <manufacturedProduct classCode="MANU">
+                                 <manufacturedMaterialKind>
+                                    <code code="68547-005" codeSystem="2.16.840.1.113883.6.69"/>
+                                 </manufacturedMaterialKind>
+                              </manufacturedProduct>
+                           </product>
+                        </actDefinition>
+                     </performance>
+                     <performance>
+                        <actDefinition>
+                           <code code="C25391" displayName="analysis" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                           <product>
+                              <manufacturedProduct classCode="MANU">
+                                 <manufacturedMaterialKind>
+                                    <code code="68547-005" codeSystem="2.16.840.1.113883.6.69"/>
+                                 </manufacturedMaterialKind>
+                              </manufacturedProduct>
+                           </product>
+                        </actDefinition>
+                     </performance>
+                  </assignedEntity>
+               </assignedOrganization>
+            </assignedEntity>
+         </representedOrganization>
+      </assignedEntity>
+   </author>
+   <component>
+      <structuredBody>
+         <component>
+            <section>
+               <id root="73529b4b-68ee-4338-b591-ab3bed55b343"/>
+               <code code="48780-1" codeSystem="2.16.840.1.113883.6.1" displayName="SPL product data elements section"/>
+               <effectiveTime value="20211223"/>
+               <subject>
+                  <manufacturedProduct>
+                     <manufacturedProduct>
+                        <code code="68547-501" codeSystem="2.16.840.1.113883.6.69"/>
+                        <name>Giapreza</name>
+                        <formCode code="C42946" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="INJECTION"/>
+                        <asEntityWithGeneric>
+                           <genericMedicine>
+                              <name>angiotensin II</name>
+                           </genericMedicine>
+                        </asEntityWithGeneric>
+                        <ingredient classCode="ACTIB">
+                           <quantity>
+                              <numerator unit="mg" value="2.5"/>
+                              <denominator unit="mL" value="1"/>
+                           </quantity>
+                           <ingredientSubstance>
+                              <code code="M089EFU921" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>ANGIOTENSIN II</name>
+                              <activeMoiety>
+                                 <activeMoiety>
+                                    <code code="M089EFU921" codeSystem="2.16.840.1.113883.4.9"/>
+                                    <name>ANGIOTENSIN II</name>
+                                 </activeMoiety>
+                              </activeMoiety>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <quantity>
+                              <numerator unit="mg" value="25"/>
+                              <denominator unit="mL" value="1"/>
+                           </quantity>
+                           <ingredientSubstance>
+                              <code code="3OWL53L36A" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>MANNITOL</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="059QF0KO0R" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>WATER</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="55X04QC32I" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>SODIUM HYDROXIDE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="QTT17582CB" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>HYDROCHLORIC ACID</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <asContent>
+                           <quantity>
+                              <numerator value="1" unit="mL"/>
+                              <denominator value="1"/>
+                           </quantity>
+                           <containerPackagedProduct>
+                              <code/>
+                              <formCode code="C43215" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="VIAL, SINGLE-DOSE"/>
+                              <asContent>
+                                 <quantity>
+                                    <numerator value="1" unit="1"/>
+                                    <denominator value="1"/>
+                                 </quantity>
+                                 <containerPackagedProduct>
+                                    <code code="68547-501-02" codeSystem="2.16.840.1.113883.6.69"/>
+                                    <formCode code="C43182" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="CARTON"/>
+                                 </containerPackagedProduct>
+                                 <subjectOf>
+                                    <marketingAct>
+                                       <code code="C53292" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                                       <statusCode code="active"/>
+                                       <effectiveTime>
+                                          <low value="20180205"/>
+                                       </effectiveTime>
+                                    </marketingAct>
+                                 </subjectOf>
+                              </asContent>
+                           </containerPackagedProduct>
+                           <subjectOf>
+                              <characteristic>
+                                 <code code="SPLCMBPRDTP" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                                 <value code="C112160" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="Type 0: Not a Combination Product" xsi:type="CV"/>
+                              </characteristic>
+                           </subjectOf>
+                        </asContent>
+                        <asContent>
+                           <quantity>
+                              <numerator value="1" unit="mL"/>
+                              <denominator value="1"/>
+                           </quantity>
+                           <containerPackagedProduct>
+                              <formCode code="C43215" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="VIAL, SINGLE-DOSE"/>
+                              <asContent>
+                                 <quantity>
+                                    <numerator value="1" unit="1"/>
+                                    <denominator value="1"/>
+                                 </quantity>
+                                 <containerPackagedProduct>
+                                    <code code="68547-501-07" codeSystem="2.16.840.1.113883.6.69"/>
+                                    <formCode code="C43182" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="CARTON"/>
+                                 </containerPackagedProduct>
+                                 <subjectOf>
+                                    <marketingAct>
+                                       <code code="C96974" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                                       <statusCode code="active"/>
+                                       <effectiveTime>
+                                          <low value="20260810"/>
+                                       </effectiveTime>
+                                    </marketingAct>
+                                 </subjectOf>
+                              </asContent>
+                           </containerPackagedProduct>
+                           <subjectOf>
+                              <characteristic>
+                                 <code code="SPLCMBPRDTP" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                                 <value code="C112160" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="Type 0: Not a Combination Product" xsi:type="CV"/>
+                              </characteristic>
+                           </subjectOf>
+                        </asContent>
+                     </manufacturedProduct>
+                     <subjectOf>
+                        <approval>
+                           <id extension="NDA209360" root="2.16.840.1.113883.3.150"/>
+                           <code code="C73594" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="NDA"/>
+                           <author>
+                              <territorialAuthority>
+                                 <territory>
+                                    <code code="USA" codeSystem="2.16.840.1.113883.5.28"/>
+                                 </territory>
+                              </territorialAuthority>
+                           </author>
+                        </approval>
+                     </subjectOf>
+                     <subjectOf>
+                        <marketingAct>
+                           <code code="C53292" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                           <statusCode code="active"/>
+                           <effectiveTime>
+                              <low value="20180205"/>
+                           </effectiveTime>
+                        </marketingAct>
+                     </subjectOf>
+                     <consumedIn>
+                        <substanceAdministration>
+                           <routeCode code="C38276" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="INTRAVENOUS"/>
+                        </substanceAdministration>
+                     </consumedIn>
+                  </manufacturedProduct>
+               </subject>
+               <subject>
+                  <manufacturedProduct>
+                     <manufacturedProduct>
+                        <code code="68547-005" codeSystem="2.16.840.1.113883.6.69"/>
+                        <name>Giapreza</name>
+                        <formCode code="C42946" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="INJECTION"/>
+                        <asEntityWithGeneric>
+                           <genericMedicine>
+                              <name>angiotensin II</name>
+                           </genericMedicine>
+                        </asEntityWithGeneric>
+                        <ingredient classCode="ACTIB">
+                           <quantity>
+                              <numerator unit="mg" value="0.5"/>
+                              <denominator unit="mL" value="1"/>
+                           </quantity>
+                           <ingredientSubstance>
+                              <code code="M089EFU921" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>ANGIOTENSIN II</name>
+                              <activeMoiety>
+                                 <activeMoiety>
+                                    <code code="M089EFU921" codeSystem="2.16.840.1.113883.4.9"/>
+                                    <name>ANGIOTENSIN II</name>
+                                 </activeMoiety>
+                              </activeMoiety>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <quantity>
+                              <numerator unit="mg" value="25"/>
+                              <denominator unit="mL" value="1"/>
+                           </quantity>
+                           <ingredientSubstance>
+                              <code code="3OWL53L36A" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>MANNITOL</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="059QF0KO0R" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>WATER</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="55X04QC32I" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>SODIUM HYDROXIDE</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <ingredient classCode="IACT">
+                           <ingredientSubstance>
+                              <code code="QTT17582CB" codeSystem="2.16.840.1.113883.4.9"/>
+                              <name>HYDROCHLORIC ACID</name>
+                           </ingredientSubstance>
+                        </ingredient>
+                        <asContent>
+                           <quantity>
+                              <numerator value="1" unit="mL"/>
+                              <denominator value="1"/>
+                           </quantity>
+                           <containerPackagedProduct>
+                              <code/>
+                              <formCode code="C43215" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="VIAL, SINGLE-DOSE"/>
+                              <asContent>
+                                 <quantity>
+                                    <numerator value="1" unit="1"/>
+                                    <denominator value="1"/>
+                                 </quantity>
+                                 <containerPackagedProduct>
+                                    <code code="68547-005-01" codeSystem="2.16.840.1.113883.6.69"/>
+                                    <formCode code="C43182" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="CARTON"/>
+                                 </containerPackagedProduct>
+                                 <subjectOf>
+                                    <marketingAct>
+                                       <code code="C53292" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                                       <statusCode code="active"/>
+                                       <effectiveTime>
+                                          <low value="20220915"/>
+                                       </effectiveTime>
+                                    </marketingAct>
+                                 </subjectOf>
+                              </asContent>
+                           </containerPackagedProduct>
+                           <subjectOf>
+                              <characteristic>
+                                 <code code="SPLCMBPRDTP" codeSystem="2.16.840.1.113883.1.11.19255"/>
+                                 <value code="C112160" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="Type 0: Not a Combination Product" xsi:type="CV"/>
+                              </characteristic>
+                           </subjectOf>
+                        </asContent>
+                     </manufacturedProduct>
+                     <subjectOf>
+                        <approval>
+                           <id extension="NDA209360" root="2.16.840.1.113883.3.150"/>
+                           <code code="C73594" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="NDA"/>
+                           <author>
+                              <territorialAuthority>
+                                 <territory>
+                                    <code code="USA" codeSystem="2.16.840.1.113883.5.28"/>
+                                 </territory>
+                              </territorialAuthority>
+                           </author>
+                        </approval>
+                     </subjectOf>
+                     <subjectOf>
+                        <marketingAct>
+                           <code code="C53292" codeSystem="2.16.840.1.113883.3.26.1.1"/>
+                           <statusCode code="active"/>
+                           <effectiveTime>
+                              <low value="20220915"/>
+                           </effectiveTime>
+                        </marketingAct>
+                     </subjectOf>
+                     <consumedIn>
+                        <substanceAdministration>
+                           <routeCode code="C38276" codeSystem="2.16.840.1.113883.3.26.1.1" displayName="INTRAVENOUS"/>
+                        </substanceAdministration>
+                     </consumedIn>
+                  </manufacturedProduct>
+               </subject>
+            </section>
+         </component>
+         <component>
+            <section ID="id_link_c9736d5f-766c-cb3b-e053-2a95a90a5f0d">
+               <id root="c485a57e-25d5-42c1-b8f1-ba051f009c6d"/>
+               <code code="43683-2" codeSystem="2.16.840.1.113883.6.1" displayName="RECENT MAJOR CHANGES SECTION"/>
+               <title>RECENT MAJOR CHANGES</title>
+               <effectiveTime value="20211223"/>
+               <excerpt>
+                  <highlight>
+                     <text>
+                        <table border="0" width="100%">
+                           <tbody>
+                              <tr>
+                                 <td>Dosage and Administration, Preparation (<linkHtml href="#S2.1">2.1</linkHtml>)</td>
+                                 <td>12/2021</td>
+                              </tr>
+                           </tbody>
+                        </table>
+                        <paragraph/>
+                     </text>
+                  </highlight>
+               </excerpt>
+            </section>
+         </component>
+         <component>
+            <section ID="S1">
+               <id root="33ad6fc7-3a23-4e3c-8f32-ef99e61c5a43"/>
+               <code code="34067-9" codeSystem="2.16.840.1.113883.6.1" displayName="INDICATIONS &amp; USAGE SECTION"/>
+               <title>1. INDICATIONS AND USAGE</title>
+               <text>
+                  <paragraph>GIAPREZA increases blood pressure in adults with septic or other distributive shock <content styleCode="italics">
+                        <linkHtml href="#S14">[see Clinical Studies (14)]</linkHtml>
+                     </content>.</paragraph>
+               </text>
+               <effectiveTime value="20211223"/>
+               <excerpt>
+                  <highlight>
+                     <text>
+                        <paragraph>GIAPREZA is a vasoconstrictor to increase blood pressure in adults with septic or other distributive shock. ( <linkHtml href="#S1">1</linkHtml>)</paragraph>
+                     </text>
+                  </highlight>
+               </excerpt>
+            </section>
+         </component>
+         <component>
+            <section ID="S2">
+               <id root="b1cf0d5d-e4cf-4498-8c5d-919d8cac3eb3"/>
+               <code code="34068-7" codeSystem="2.16.840.1.113883.6.1" displayName="DOSAGE &amp; ADMINISTRATION SECTION"/>
+               <title>2. DOSAGE AND ADMINISTRATION</title>
+               <effectiveTime value="20211223"/>
+               <excerpt>
+                  <highlight>
+                     <text>
+                        <paragraph>Dilute GIAPREZA in 0.9% sodium chloride prior to use. See Full Prescribing Information for instructions on preparation and administration of injection. Diluted solution may be stored at room temperature or under refrigeration and should be discarded after 24 hours. GIAPREZA must be administered as an intravenous infusion. ( <linkHtml href="#S2.1">2.1</linkHtml>)</paragraph>
+                        <list listType="unordered">
+                           <item>Start GIAPREZA intravenously at 20 nanograms (ng)/kg/min. Titrate as frequently as every 5 minutes by increments of up to 15 ng/kg/min as needed. During the first 3 hours, the maximum dose should not exceed 80 ng/kg/min. Maintenance dose should not exceed 40 ng/kg/min. Doses as low as 1.25 ng/kg/min may be used.( <linkHtml href="#S2.2">2.2</linkHtml>)</item>
+                        </list>
+                     </text>
+                  </highlight>
+               </excerpt>
+               <component>
+                  <section ID="S2.1">
+                     <id root="02104c48-7bc2-4f1f-baf0-b0bec50069fe"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>2.1. Preparation</title>
+                     <text>
+                        <paragraph>Parenteral drug products should be inspected visually for particulate matter and discoloration prior to administration, whenever solution and container permit.</paragraph>
+                        <paragraph>
+                           <content styleCode="xmChange">GIAPREZA must be administered as an intravenous infusion. GIAPREZA must be diluted in 0.9% sodium chloride prior to use. Dilute the appropriate amount of GIAPREZA in a normal saline (0.9% sodium chloride) infusion bag to achieve the desired final concentration of 5,000 ng/mL or 10,000 ng/mL.</content>
+                        </paragraph>
+                        <paragraph>Discard vial and any unused portion of the drug product after use.</paragraph>
+                        <paragraph>Diluted solution may be stored at room temperature (20°C to 25°C [68°F to 77°F]) or under refrigeration (2°C to 8°C [36°F to 46°F]). Discard prepared solution after 24 hours at room temperature or under refrigeration.</paragraph>
+                     </text>
+                     <effectiveTime value="20211223"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="S2.2">
+                     <id root="65fb5532-9040-49a0-863c-747333dcb17a"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>2.2. Administration</title>
+                     <text>
+                        <paragraph>The recommended starting dosage of GIAPREZA is 20 nanograms (ng)/kg/min via continuous intravenous infusion.  Administration through a central venous line is recommended.</paragraph>
+                        <paragraph>Monitor blood pressure response and titrate GIAPREZA as frequently as every 5 minutes by increments of up to 15 ng/kg/min as needed to achieve or maintain target blood pressure.  Do not exceed 80 ng/kg/min during the first 3 hours of treatment.  Maintenance dose should not exceed 40 ng/kg/min.  Doses as low as 1.25 ng/kg/min may be used.</paragraph>
+                        <paragraph>Once the underlying shock has sufficiently improved, down-titrate every 5 to 15 minutes by increments of up to 15 ng/kg/min based on blood pressure.</paragraph>
+                     </text>
+                     <effectiveTime value="20211223"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="S3">
+               <id root="db9b94ad-6dda-4b44-ab07-9c6414c36a74"/>
+               <code code="43678-2" codeSystem="2.16.840.1.113883.6.1" displayName="DOSAGE FORMS &amp; STRENGTHS SECTION"/>
+               <title>3. DOSAGE FORMS AND STRENGTHS</title>
+               <text>
+                  <paragraph>Injection: 0.5 mg/mL angiotensin II and 2.5 mg/mL angiotensin II in a vial.</paragraph>
+                  <paragraph>GIAPREZA is a clear, aqueous solution.</paragraph>
+               </text>
+               <effectiveTime value="20211223"/>
+               <excerpt>
+                  <highlight>
+                     <text>
+                        <paragraph>Injection: 0.5 mg/mL and 2.5 mg/mL in a vial.</paragraph>
+                     </text>
+                  </highlight>
+               </excerpt>
+            </section>
+         </component>
+         <component>
+            <section ID="S4">
+               <id root="9ccc709c-eec1-4c9c-80d6-f5cb6d736345"/>
+               <code code="34070-3" codeSystem="2.16.840.1.113883.6.1" displayName="CONTRAINDICATIONS SECTION"/>
+               <title>4. CONTRAINDICATIONS</title>
+               <text>
+                  <paragraph>None.</paragraph>
+               </text>
+               <effectiveTime value="20211223"/>
+               <excerpt>
+                  <highlight>
+                     <text>
+                        <paragraph>None (4.1)</paragraph>
+                     </text>
+                  </highlight>
+               </excerpt>
+            </section>
+         </component>
+         <component>
+            <section ID="S5">
+               <id root="d7a30c06-0c25-4e13-b97d-7aa6c6c5c37d"/>
+               <code code="43685-7" codeSystem="2.16.840.1.113883.6.1" displayName="WARNINGS AND PRECAUTIONS SECTION"/>
+               <title>5. WARNINGS AND PRECAUTIONS</title>
+               <effectiveTime value="20211223"/>
+               <excerpt>
+                  <highlight>
+                     <text>
+                        <list listType="unordered">
+                           <item>There is a potential for venous and arterial thrombotic and thromboembolic events in patients who receive GIAPREZA. Use concurrent venous thromboembolism (VTE) prophylaxis. ( <linkHtml href="#S5.1">5.1</linkHtml>, <linkHtml href="#S6.1">6.1</linkHtml>)</item>
+                        </list>
+                     </text>
+                  </highlight>
+               </excerpt>
+               <component>
+                  <section ID="S5.1">
+                     <id root="dbb58b35-385d-42cf-82e9-0837c141aa5c"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>5.1 Risk for Thrombosis</title>
+                     <text>
+                        <paragraph>The safety of GIAPREZA was evaluated in 321 adults with septic or other distributive shock in a randomized, double-blind, placebo-controlled study, ATHOS-3.  There was a higher incidence of arterial and venous thrombotic and thromboembolic events in patients who received GIAPREZA compared to placebo-treated patients in the ATHOS-3 study (13% vs. 5%). The major imbalance was in deep venous thromboses. Use concurrent venous thromboembolism (VTE) prophylaxis.</paragraph>
+                     </text>
+                     <effectiveTime value="20211223"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="S6">
+               <id root="870d5fca-ec79-4263-80bc-672b2d888b8d"/>
+               <code code="34084-4" codeSystem="2.16.840.1.113883.6.1" displayName="ADVERSE REACTIONS SECTION"/>
+               <title>6. ADVERSE REACTIONS</title>
+               <effectiveTime value="20211223"/>
+               <excerpt>
+                  <highlight>
+                     <text>
+                        <paragraph>The most common adverse reactions reported in greater than 10% of GIAPREZA treated patients were thromboembolic events. ( <linkHtml href="#S6.1">6.1</linkHtml>)</paragraph>
+                        <paragraph/>
+                        <paragraph/>
+                        <paragraph>
+                           <content styleCode="bold">To report SUSPECTED ADVERSE REACTIONS, contact La Jolla Pharmaceutical Company at 1-800-651-3861 or FDA at 1-800-FDA-1088 or <content styleCode="italics">www.fda.gov/medwatch</content>. </content>
+                        </paragraph>
+                        <paragraph/>
+                        <paragraph/>
+                     </text>
+                  </highlight>
+               </excerpt>
+               <component>
+                  <section ID="S6.1">
+                     <id root="c7788002-568c-4b3e-aeff-23d683c23bc8"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>6.1. Clinical Trials Experience</title>
+                     <text>
+                        <paragraph>Because clinical trials are conducted under widely varying conditions, adverse reaction rates observed in the clinical trials of a drug cannot be directly compared to rates in the clinical trials of another drug and may not reflect the rates observed in practice.</paragraph>
+                     </text>
+                     <effectiveTime value="20211223"/>
+                     <component>
+                        <section ID="id_link_d4280751-1faa-537e-e053-2a95a90a7cdb">
+                           <id root="f638ebfd-92a0-4c5f-9161-e68c8a10c6b3"/>
+                           <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                           <text>
+                              <paragraph>
+                                 <content styleCode="bold">ATHOS-3</content>
+                              </paragraph>
+                              <paragraph>The safety of GIAPREZA was evaluated in ATHOS-3 <content styleCode="italics">[see <linkHtml href="#S5.1">Warnings and Precautions(5.1)</linkHtml>] </content>. Patients in ATHOS-3 were receiving other vasopressors in addition to GIAPREZA or placebo, which were titrated to effect on mean arterial pressure (MAP).</paragraph>
+                              <paragraph>Table 1 summarizes adverse reactions with an incidence of at least 4% among patients treated with GIAPREZA and with a rate of at least 1.5% higher with GIAPREZA than with placebo.</paragraph>
+                              <table width="75%">
+                                 <caption>Table 1: Adverse Reactions Occurring in ≥ 4% of Patients Treated with GIAPREZA and ≥ 1.5% More Often than in Placebo-treated Patients in ATHOS-3</caption>
+                                 <colgroup>
+                                    <col align="left" valign="top" width="34%"/>
+                                    <col align="center" valign="top" width="33%"/>
+                                    <col align="center" valign="top" width="33%"/>
+                                 </colgroup>
+                                 <thead>
+                                    <tr>
+                                       <th styleCode="Lrule Rrule">Adverse Event</th>
+                                       <th styleCode="Rrule">GIAPREZA<br/>
+                                          <br/>			N=163</th>
+                                       <th styleCode="Rrule">Placebo<br/>
+                                          <br/>			N=158</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr styleCode="Botrule">
+                                       <td styleCode="Lrule Rrule">Thromboembolic events <footnote ID="K802">Including arterial and venous thrombotic events</footnote>
+                                       </td>
+                                       <td styleCode="Rrule">21 (12.9%)</td>
+                                       <td styleCode="Rrule">8 (5.1%)</td>
+                                    </tr>
+                                    <tr styleCode="Botrule">
+                                       <td styleCode="Lrule Rrule">  Deep vein thrombosis</td>
+                                       <td styleCode="Rrule">7 (4.3%)</td>
+                                       <td styleCode="Rrule">0 (0.0%)</td>
+                                    </tr>
+                                    <tr styleCode="Botrule">
+                                       <td styleCode="Lrule Rrule">Thrombocytopenia</td>
+                                       <td styleCode="Rrule">16 (9.8%)</td>
+                                       <td styleCode="Rrule">11 (7.0%)</td>
+                                    </tr>
+                                    <tr styleCode="Botrule">
+                                       <td styleCode="Lrule Rrule">Tachycardia</td>
+                                       <td styleCode="Rrule">14 (8.6%)</td>
+                                       <td styleCode="Rrule">9 (5.7%)</td>
+                                    </tr>
+                                    <tr styleCode="Botrule">
+                                       <td styleCode="Lrule Rrule">Fungal infection</td>
+                                       <td styleCode="Rrule">10 (6.1%)</td>
+                                       <td styleCode="Rrule">2 (1.3%)</td>
+                                    </tr>
+                                    <tr styleCode="Botrule">
+                                       <td styleCode="Lrule Rrule">Delirium</td>
+                                       <td styleCode="Rrule">9 (5.5%)</td>
+                                       <td styleCode="Rrule">1 (0.6%)</td>
+                                    </tr>
+                                    <tr styleCode="Botrule">
+                                       <td styleCode="Lrule Rrule">Acidosis</td>
+                                       <td styleCode="Rrule">9 (5.5%)</td>
+                                       <td styleCode="Rrule">1 (0.6%)</td>
+                                    </tr>
+                                    <tr styleCode="Botrule">
+                                       <td styleCode="Lrule Rrule">Hyperglycemia</td>
+                                       <td styleCode="Rrule">7 (4.3%)</td>
+                                       <td styleCode="Rrule">4 (2.5%)</td>
+                                    </tr>
+                                    <tr>
+                                       <td styleCode="Lrule Rrule">Peripheral ischemia</td>
+                                       <td styleCode="Rrule">7 (4.3%)</td>
+                                       <td styleCode="Rrule">4 (2.5%)</td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </text>
+                           <effectiveTime value="20211223"/>
+                        </section>
+                     </component>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="S7">
+               <id root="919561f7-b4db-42cd-87e8-8bf0fc6e4bb6"/>
+               <code code="34073-7" codeSystem="2.16.840.1.113883.6.1" displayName="DRUG INTERACTIONS SECTION"/>
+               <title>7. DRUG INTERACTIONS</title>
+               <effectiveTime value="20211223"/>
+               <excerpt>
+                  <highlight>
+                     <text>
+                        <list listType="unordered">
+                           <item>Angiotensin converting enzyme (ACE) inhibitors<br/>
+                              <br/>	ACE inhibitors may increase response to GIAPREZA. ( <linkHtml href="#S7.1">7.1</linkHtml>)</item>
+                           <item>Angiotensin II Receptor Blockers (ARB)<br/>
+                              <br/>	ARBs may reduce response to GIAPREZA. ( <linkHtml href="#S7.2">7.2</linkHtml>)</item>
+                        </list>
+                     </text>
+                  </highlight>
+               </excerpt>
+               <component>
+                  <section ID="S7.1">
+                     <id root="aa191414-a302-4a08-b82e-b40a9888e5e4"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>7.1. Angiotensin Converting Enzyme (ACE) Inhibitors</title>
+                     <text>
+                        <paragraph>Concomitant use of angiotensin converting enzyme (ACE) inhibitors may increase the response to GIAPREZA.</paragraph>
+                     </text>
+                     <effectiveTime value="20211223"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="S7.2">
+                     <id root="38dc0421-9203-415f-86ad-6d75b37f0006"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>7.2. Angiotensin II Receptor Blockers (ARB)</title>
+                     <text>
+                        <paragraph>Concomitant use of angiotensin II receptor blockers (ARBs) may decrease the response to GIAPREZA.</paragraph>
+                     </text>
+                     <effectiveTime value="20211223"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="S8">
+               <id root="f8ba1f10-efe7-47d4-b3c6-6829d5e5a054"/>
+               <code code="43684-0" codeSystem="2.16.840.1.113883.6.1" displayName="USE IN SPECIFIC POPULATIONS SECTION"/>
+               <title>8. USE IN SPECIFIC POPULATIONS</title>
+               <effectiveTime value="20211223"/>
+               <component>
+                  <section ID="S8.1">
+                     <id root="4a256c9e-f610-46cd-a77a-9006dfa036cd"/>
+                     <code code="42228-7" codeSystem="2.16.840.1.113883.6.1" displayName="PREGNANCY SECTION"/>
+                     <title>8.1. Pregnancy</title>
+                     <effectiveTime value="20211223"/>
+                     <component>
+                        <section ID="id_link_c9734a1e-1c77-3c1d-e053-2995a90ac096">
+                           <id root="830d133b-0a9f-4cec-ba1e-3dbd995c6d18"/>
+                           <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                           <text>
+                              <paragraph>
+                                 <content styleCode="underline">Risk Summary</content>
+                              </paragraph>
+                              <paragraph>The published data on angiotensin II use in pregnant women are not sufficient to determine a drug-associated risk of adverse developmental outcomes. Animal reproduction studies have not been conducted with GIAPREZA.</paragraph>
+                              <paragraph>All pregnancies have a background risk of birth defects, loss, or other adverse outcomes. The estimated background risk of major birth defects and miscarriage for the indicated population is unknown. In the U.S. general population, the estimated background risk of major birth defects and miscarriage in clinically recognized pregnancies is 2 to 4% and 15 to 20%, respectively.</paragraph>
+                           </text>
+                           <effectiveTime value="20211223"/>
+                        </section>
+                     </component>
+                     <component>
+                        <section>
+                           <id root="cb321c76-085f-4812-88e2-f90fc073afef"/>
+                           <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                           <text>
+                              <paragraph>
+                                 <content styleCode="underline">Clinical Considerations</content>
+                              </paragraph>
+                           </text>
+                           <effectiveTime value="20211223"/>
+                           <component>
+                              <section>
+                                 <id root="01993a4e-4ad3-4f9f-95a0-88847baae578"/>
+                                 <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                                 <text>
+                                    <paragraph>
+                                       <content styleCode="italics">Disease-associated maternal and/or embryo/fetal risk</content>
+                                    </paragraph>
+                                    <paragraph>Septic or other distributive shock is a medical emergency that can be fatal if left untreated. Delaying treatment in pregnant women with hypotension associated with septic or other distributive shock is likely to increase the risk of maternal and fetal morbidity and mortality.</paragraph>
+                                 </text>
+                                 <effectiveTime value="20211223"/>
+                              </section>
+                           </component>
+                        </section>
+                     </component>
+                  </section>
+               </component>
+               <component>
+                  <section ID="S8.2">
+                     <id root="47a4c4e7-066f-4ce6-8651-b65c1d7a5dc8"/>
+                     <code code="77290-5" codeSystem="2.16.840.1.113883.6.1" displayName="LACTATION SECTION"/>
+                     <title>8.2. Lactation</title>
+                     <effectiveTime value="20211223"/>
+                     <component>
+                        <section ID="id_link_c97384b6-af8b-162e-e053-2995a90ac785">
+                           <id root="4766b591-5e65-4564-b71e-8c1bb74b233f"/>
+                           <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                           <text>
+                              <paragraph>
+                                 <content styleCode="underline">Risk Summary</content>
+                              </paragraph>
+                              <paragraph>It is not known whether GIAPREZA is present in human milk. No data are available on the effects of angiotensin II on the breastfed child or the effects on milk production.</paragraph>
+                           </text>
+                           <effectiveTime value="20211223"/>
+                        </section>
+                     </component>
+                  </section>
+               </component>
+               <component>
+                  <section ID="S8.4">
+                     <id root="5e0f60ef-b5cc-43d5-83fe-faa4f4ce2be9"/>
+                     <code code="34081-0" codeSystem="2.16.840.1.113883.6.1" displayName="PEDIATRIC USE SECTION"/>
+                     <title>8.4. Pediatric Use</title>
+                     <text>
+                        <paragraph>The safety and efficacy of GIAPREZA in pediatric patients have not been established.</paragraph>
+                     </text>
+                     <effectiveTime value="20211223"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="S8.5">
+                     <id root="dee2011d-f84f-4660-9bbe-c8902a14c929"/>
+                     <code code="34082-8" codeSystem="2.16.840.1.113883.6.1" displayName="GERIATRIC USE SECTION"/>
+                     <title>8.5. Geriatric Use</title>
+                     <text>
+                        <paragraph>In ATHOS-3, 48% of the total patient population was aged 65 years and older. There was no significant difference in safety or efficacy between patients less than 65 and those 65 years or older when treated with GIAPREZA<content styleCode="italics">.</content>
+                        </paragraph>
+                     </text>
+                     <effectiveTime value="20211223"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="S10">
+               <id root="c44803a0-3706-4f36-a0a1-ab1cf4eedd44"/>
+               <code code="34088-5" codeSystem="2.16.840.1.113883.6.1" displayName="OVERDOSAGE SECTION"/>
+               <title>10. OVERDOSAGE</title>
+               <text>
+                  <paragraph>Overdose of GIAPREZA would be expected to result in hypertension, necessitating close monitoring and supportive care. Effects are expected to be brief because the half-life of angiotensin II is less than one minute.</paragraph>
+               </text>
+               <effectiveTime value="20211223"/>
+            </section>
+         </component>
+         <component>
+            <section ID="S11">
+               <id root="fa077df0-caa6-4a20-bff2-972132848902"/>
+               <code code="34089-3" codeSystem="2.16.840.1.113883.6.1" displayName="DESCRIPTION SECTION"/>
+               <title>11. DESCRIPTION</title>
+               <text>
+                  <paragraph>Angiotensin II is a naturally occurring peptide hormone of the renin-angiotensin-aldosterone system (RAAS) that causes vasoconstriction and an increase in blood pressure. GIAPREZA is a sterile, aqueous solution of synthetic human angiotensin II for intravenous administration by infusion. Each 2.5 mg/mL vial of GIAPREZA contains 2.5 mg angiotensin II equivalent to an average of 2.9 mg angiotensin II acetate, 25 mg mannitol, and Water for Injection adjusted with sodium hydroxide and/or hydrochloric acid to pH of 5.5.  Each 0.5 mg/mL vial of GIAPREZA contains 0.5 mg angiotensin II equivalent to an average of 0.6 mg angiotensin II acetate, 25 mg mannitol, and Water for Injection adjusted with sodium hydroxide and/or hydrochloric acid to pH of 5.5.</paragraph>
+                  <paragraph>The chemical name of the synthetic angiotensin II acetate is L-Aspartyl-L-arginyl-L-valyl-Ltyrosyl-L-isoleucyl-L-histidyl-L-prolyl-L-phenylalanine, acetate salt.  The counter ion acetate is present in a non-stoichiometric ratio.  It is a white to off-white powder, soluble in water.</paragraph>
+                  <paragraph>The structure of angiotensin II acetate is shown below.</paragraph>
+                  <paragraph>
+                     <renderMultiMedia referencedObject="img_a70b1d6b-ee19-f5e3-e053-2a95a90a3461"/>
+                  </paragraph>
+                  <paragraph/>
+                  <paragraph>Molecular formula: C <sub>50</sub>H <sub>71</sub>N <sub>13</sub>O <sub>12</sub> ∙ (C <sub>2</sub>H <sub>4</sub>O <sub>2</sub>) <sub>n</sub>; (n= number of acetate molecules; theoretical n = 3)</paragraph>
+                  <paragraph>Average molecular weight: 1046.2 (as free base).</paragraph>
+               </text>
+               <effectiveTime value="20211223"/>
+               <component>
+                  <observationMedia ID="img_a70b1d6b-ee19-f5e3-e053-2a95a90a3461">
+                     <text>giapreza-structure</text>
+                     <value mediaType="image/jpeg" xsi:type="ED">
+                        <reference value="giapreza structure.jpg"/>
+                     </value>
+                  </observationMedia>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="S12">
+               <id root="016a966b-a71f-4471-a24d-b237e98cc123"/>
+               <code code="34090-1" codeSystem="2.16.840.1.113883.6.1" displayName="CLINICAL PHARMACOLOGY SECTION"/>
+               <title>12. CLINICAL PHARMACOLOGY</title>
+               <effectiveTime value="20211223"/>
+               <component>
+                  <section ID="S12.1">
+                     <id root="255071af-5d66-4646-a044-26dee3413651"/>
+                     <code code="43679-0" codeSystem="2.16.840.1.113883.6.1" displayName="MECHANISM OF ACTION SECTION"/>
+                     <title>12.1. Mechanism of Action</title>
+                     <text>
+                        <paragraph>Angiotensin II raises blood pressure by vasoconstriction and increased aldosterone release. Direct action of angiotensin II on the vessel wall is mediated by binding to the G-protein-coupled angiotensin II receptor type 1 on vascular smooth muscle cells, which stimulates Ca<sup>2+</sup>/calmodulin-dependent phosphorylation of myosin and causes smooth muscle contraction.</paragraph>
+                     </text>
+                     <effectiveTime value="20211223"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="S12.2">
+                     <id root="39dea1ed-f068-4c9f-b925-360e41c7cd60"/>
+                     <code code="43681-6" codeSystem="2.16.840.1.113883.6.1" displayName="PHARMACODYNAMICS SECTION"/>
+                     <title>12.2. Pharmacodynamics</title>
+                     <text>
+                        <paragraph>For the 114 (70%) patients in the GIAPREZA arm who reached the target MAP at Hour 3, the median time to reach the target MAP endpoint was approximately 5 minutes.  GIAPREZA is titrated to effect for each individual patient.</paragraph>
+                     </text>
+                     <effectiveTime value="20211223"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="S12.3">
+                     <id root="5a96195d-a4a4-4fb2-bc99-2acff40f5600"/>
+                     <code code="43682-4" codeSystem="2.16.840.1.113883.6.1" displayName="PHARMACOKINETICS SECTION"/>
+                     <title>12.3. Pharmacokinetics</title>
+                     <text>
+                        <paragraph>Following intravenous infusion of angiotensin II in adults with septic or other distributive shock, serum levels of angiotensin II are similar at Baseline and Hour 3 after intravenous infusion.  After 3 hours of treatment, however, the serum level of angiotensin I (the angiotensin II precursor peptide) is reduced by approximately 40%.</paragraph>
+                     </text>
+                     <effectiveTime value="20211223"/>
+                     <component>
+                        <section>
+                           <id root="087a94c8-70c4-4d41-b8ff-be71b9a026bc"/>
+                           <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                           <text>
+                              <paragraph>
+                                 <content styleCode="bold">Distribution:</content>
+                              </paragraph>
+                              <paragraph>No specific studies were conducted that examined the distribution of GIAPREZA.</paragraph>
+                           </text>
+                           <effectiveTime value="20211223"/>
+                        </section>
+                     </component>
+                     <component>
+                        <section ID="id_link_c9737c7a-db53-08a1-e053-2a95a90ac74d">
+                           <id root="a640043c-d7f9-4763-95a9-62232c5cd169"/>
+                           <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                           <text>
+                              <paragraph>
+                                 <content styleCode="bold">Metabolism and Excretion:</content>
+                              </paragraph>
+                              <paragraph>No specific studies were conducted that examined the metabolism and excretion of GIAPREZA.</paragraph>
+                              <paragraph>The plasma half-life of IV administered angiotensin II is less than one minute.  It is metabolized by aminopeptidase A and angiotensin converting enzyme 2 to angiotensin-(2-8) [angiotensin III] and angiotensin-(1-7), respectively in plasma, erythrocytes and many of the major organs (i.e., intestine, kidney, liver and lung).  Angiotensin II type 1 receptor (AT1) mediated activity of angiotensin III is approximately 40% of angiotensin II; however, aldosterone synthesis activity is similar to angiotensin II.  Angiotensin-(1-7) exerts the opposite effects of angiotensin II on AT1 receptors and causes vasodilation.</paragraph>
+                           </text>
+                           <effectiveTime value="20211223"/>
+                        </section>
+                     </component>
+                     <component>
+                        <section ID="id_link_d5cb3333-a785-01b4-e053-2995a90a3927">
+                           <id root="2b872c1a-4e22-4fbc-9cf7-11541c55e856"/>
+                           <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                           <text>
+                              <paragraph>
+                                 <content styleCode="bold">Specific Populations</content>
+                              </paragraph>
+                              <paragraph>No formal pharmacokinetic studies were conducted with GIAPREZA in the following specific populations.</paragraph>
+                           </text>
+                           <effectiveTime value="20211223"/>
+                           <component>
+                              <section ID="id_link_c9734a1e-1c7c-3c1d-e053-2995a90ac096">
+                                 <id root="7d0f48ad-f8fe-40b4-b58f-c86d3244ee53"/>
+                                 <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                                 <text>
+                                    <paragraph>
+                                       <content styleCode="italics">Renal Impairment</content>
+                                    </paragraph>
+                                    <paragraph>The clearance of angiotensin II is not dependent on renal function.  Therefore, the pharmacokinetics of GIAPREZA are not expected to be influenced by renal impairment.</paragraph>
+                                 </text>
+                                 <effectiveTime value="20211223"/>
+                              </section>
+                           </component>
+                           <component>
+                              <section ID="id_link_c97384b6-af90-162e-e053-2995a90ac785">
+                                 <id root="737659d0-3874-46b6-9913-0a621272fd5d"/>
+                                 <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                                 <text>
+                                    <paragraph>
+                                       <content styleCode="italics">Hepatic Impairment</content>
+                                    </paragraph>
+                                    <paragraph>The clearance of angiotensin II is not dependent on hepatic function.  Therefore, the pharmacokinetics of GIAPREZA are not expected to be influenced by hepatic impairment.</paragraph>
+                                 </text>
+                                 <effectiveTime value="20211223"/>
+                              </section>
+                           </component>
+                           <component>
+                              <section ID="id_link_c97384b6-af92-162e-e053-2995a90ac785">
+                                 <id root="6061b45d-f6b1-489a-84d2-55b0899a8729"/>
+                                 <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                                 <text>
+                                    <paragraph>
+                                       <content styleCode="italics">Age</content>
+                                    </paragraph>
+                                    <paragraph>The effect of age was analyzed in the 163 patients receiving GIAPREZA in ATHOS-3.  There were no significant differences in pharmacokinetics between age groups (&lt; 65 years / ≥ 65 years).</paragraph>
+                                 </text>
+                                 <effectiveTime value="20211223"/>
+                              </section>
+                           </component>
+                           <component>
+                              <section ID="id_link_c97384b6-af94-162e-e053-2995a90ac785">
+                                 <id root="0c742262-74b8-4a75-a607-a0e8bf3a5e7a"/>
+                                 <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                                 <text>
+                                    <paragraph>
+                                       <content styleCode="italics">Male and Female Patients</content>
+                                    </paragraph>
+                                    <paragraph>The effect of sex was analyzed in the 163 patients receiving GIAPREZA in ATHOS-3.  There were no significant differences in pharmacokinetics between male and female patients.</paragraph>
+                                 </text>
+                                 <effectiveTime value="20211223"/>
+                              </section>
+                           </component>
+                        </section>
+                     </component>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="S13">
+               <id root="47bcb598-0c17-4c95-b280-16984a04379d"/>
+               <code code="43680-8" codeSystem="2.16.840.1.113883.6.1" displayName="NONCLINICAL TOXICOLOGY SECTION"/>
+               <title>13. NONCLINICAL TOXICOLOGY</title>
+               <effectiveTime value="20211223"/>
+               <component>
+                  <section ID="S13.1">
+                     <id root="889754a3-ca16-46d4-a3a0-278112e3e67c"/>
+                     <code code="34083-6" codeSystem="2.16.840.1.113883.6.1" displayName="CARCINOGENESIS &amp; MUTAGENESIS &amp; IMPAIRMENT OF FERTILITY SECTION"/>
+                     <title>13.1. Carcinogenesis, Mutagenesis, Impairment of Fertility</title>
+                     <text>
+                        <paragraph>No genetic toxicity studies have been conducted with GIAPREZA.  No carcinogenicity or fertility studies with GIAPREZA have been conducted in animals.</paragraph>
+                     </text>
+                     <effectiveTime value="20211223"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="S13.2">
+                     <id root="f1808779-a9df-4bbb-82ac-66067802faee"/>
+                     <code code="34091-9" codeSystem="2.16.840.1.113883.6.1" displayName="ANIMAL PHARMACOLOGY &amp; OR TOXICOLOGY SECTION"/>
+                     <title>13.2. Animal Toxicology and/or Pharmacology</title>
+                     <text>
+                        <paragraph>No animal toxicology studies were conducted with GIAPREZA.</paragraph>
+                     </text>
+                     <effectiveTime value="20211223"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="S13.3">
+                     <id root="8a08d5fb-f6ba-4a24-94fc-dec207cdf325"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>13.3. Safety Pharmacology</title>
+                     <text>
+                        <paragraph>In a cardiovascular safety pharmacology study in normotensive dogs, GIAPREZA doses of 150, 450, and 1,800 ng/kg (5, 15, and 60 ng/kg/min) were infused intravenously for 30 minutes each. At ≥ 450 ng/kg, GIAPREZA caused significantly elevated MAP and systemic vascular resistance, as expected.  The 1,800 ng/kg dose also caused increased heart rate, increased systemic vascular resistance, increased left ventricular systolic and end-diastolic pressures, and PR interval prolongation.  GIAPREZA did not significantly alter respiratory rate or cause electrocardiographic changes in QRS duration or QTc.</paragraph>
+                     </text>
+                     <effectiveTime value="20211223"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="S14">
+               <id root="721d20d3-c3cb-4eca-b1b5-a7fa479515bc"/>
+               <code code="34092-7" codeSystem="2.16.840.1.113883.6.1" displayName="CLINICAL STUDIES SECTION"/>
+               <title>14. CLINICAL STUDIES</title>
+               <effectiveTime value="20211223"/>
+               <component>
+                  <section ID="S14.1">
+                     <id root="5f716262-9981-4359-8fc1-d286c105caa6"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>14.1. ATHOS-3</title>
+                     <text>
+                        <paragraph>The Angiotensin II for the Treatment of High-Output Shock (ATHOS-3) trial was a double-blind study in which 321 adults with septic or other distributive shock who remained hypotensive despite fluid and vasopressor therapy were randomized 1:1 and treated with either GIAPREZA or placebo, both in addition to background vasopressor therapy. Doses of GIAPREZA or placebo were titrated to a target MAP of ≥ 75 mmHg during the first 3 hours of treatment while doses of other vasopressors were maintained. From Hour 3 to Hour 48, GIAPREZA or placebo were titrated to maintain MAP between 65 and 70 mmHg while reducing doses of other vasopressors. The primary endpoint was the percentage of subjects who achieved either a MAP ≥ 75 mmHg or a ≥ 10 mmHg increase in MAP without an increase in baseline vasopressor therapy at 3 hours.</paragraph>
+                        <paragraph>91% of subjects had septic shock; the remaining subjects had other forms of distributive shock such as neurogenic shock. At the time of study drug administration, 97% of subjects were receiving norepinephrine, 67% vasopressin, 15% phenylephrine, 13% epinephrine, and 2% dopamine. 83% of subjects had received two or more vasopressors and 47% three or more vasopressors prior to study drug administration. 61% of subjects were male, 80% were White, 10% were Black, and 10% were other races. The median age of subjects was 64 years (range: 22-89 years). Patients requiring high doses of steroids, patients with a history of asthma or bronchospasm, and patients with Raynaud's syndrome were not included.</paragraph>
+                        <paragraph>The primary endpoint was achieved by 70% of patients randomized to GIAPREZA compared to 23% of placebo patients; p &lt; 0.0001 (a treatment effect of 47%). Figure 1 shows the results in all patients and in selected subgroups.</paragraph>
+                        <paragraph>
+                           <content styleCode="bold">Figure 1: ATHOS-3: Primary Endpoint – Overall Result and Results in Selected Subgroups</content>
+                        </paragraph>
+                        <paragraph>
+                           <renderMultiMedia referencedObject="img_a70b3585-ca2a-bf4c-e053-2995a90a49a6"/>
+                        </paragraph>
+                        <paragraph/>
+                        <paragraph>NE Equiv = norepinephrine equivalent dose: the sum of all vasopressor doses with each vasopressor dose converted to the clinically equivalent norepinephrine dose.</paragraph>
+                        <paragraph>Note: The figure above presents effects in various subgroups, all of which are baseline characteristics. The 95% confidence limits that are shown do not take into account the number of comparisons made and may not reflect the effect of a particular factor after adjustment for all other factors. Apparent homogeneity or heterogeneity among groups should not be over-interpreted.</paragraph>
+                        <paragraph>In the GIAPREZA-treated group, the median time to reach the target MAP endpoint was 5 minutes. The effect on MAP was sustained for at least the first three hours of treatment. The median dose of GIAPREZA was 10 ng/kg/min at 30 minutes. Of the 114 responders at Hour 3, only 2 (1.8%) received more than 80 ng/kg/min.</paragraph>
+                        <paragraph>Patients were not necessarily on maximum doses of other vasopressors at the time of randomization. The effect of GIAPREZA when added to maximum doses of other vasopressors is unknown.</paragraph>
+                        <paragraph>Mortality through Day 28 was 46% on GIAPREZA and 54% on placebo (hazard ratio 0.78; 95% confidence interval 0.57 – 1.07).</paragraph>
+                     </text>
+                     <effectiveTime value="20211223"/>
+                     <component>
+                        <observationMedia ID="img_a70b3585-ca2a-bf4c-e053-2995a90a49a6">
+                           <text>giapreza-forest-plot</text>
+                           <value mediaType="image/jpeg" xsi:type="ED">
+                              <reference value="giapreza forest plot.jpg"/>
+                           </value>
+                        </observationMedia>
+                     </component>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="S16">
+               <id root="8ae9b1ae-a619-4f8e-9217-ac6ed986f393"/>
+               <code code="34069-5" codeSystem="2.16.840.1.113883.6.1" displayName="HOW SUPPLIED SECTION"/>
+               <title>16. HOW SUPPLIED/STORAGE AND HANDLING</title>
+               <effectiveTime value="20211223"/>
+               <component>
+                  <section ID="S16.1">
+                     <id root="23961b3d-f70e-42dc-8a75-3ed283a33b8a"/>
+                     <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+                     <title>16.1. How Supplied</title>
+                     <text>
+                        <paragraph>GIAPREZA (angiotensin II) Injection is a clear, aqueous solution for administration by intravenous infusion supplied as a single-dose vial:</paragraph>
+                        <list listType="unordered">
+                           <item>2.5 mg/mL vial: NDC 68547-501-02: A carton of one 1 mL single-dose vial containing 2.5 mg angiotensin II (as a sterile liquid).</item>
+                           <item>0.5 mg/mL vial: NDC 68547-005-05: A carton of five 1 mL single-dose vials (NDC 68547-005-01) containing 0.5 mg angiotensin II (as a sterile liquid).</item>
+                           <item>0.5 mg/mL vial: NDC 68547-005-01: A carton of one 1 mL single-dose vial containing 0.5 mg angiotensin II (as a sterile liquid).</item>
+                        </list>
+                     </text>
+                     <effectiveTime value="20211223"/>
+                  </section>
+               </component>
+               <component>
+                  <section ID="S16.2">
+                     <id root="afcdc0f7-5666-41f4-b471-d15140bfe7e1"/>
+                     <code code="44425-7" codeSystem="2.16.840.1.113883.6.1" displayName="STORAGE AND HANDLING SECTION"/>
+                     <title>16.2. Storage and Handling</title>
+                     <text>
+                        <list listType="unordered">
+                           <item>GIAPREZA vials should be stored in the refrigerator between 2°C to 8°C (36°F to 46°F).</item>
+                           <item>Discard prepared diluted solution after 24 hours at room temperature or under refrigeration.</item>
+                        </list>
+                     </text>
+                     <effectiveTime value="20211223"/>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="id_link_c9739ef3-aee5-3269-e053-2a95a90aa037">
+               <id root="c335280b-83d2-4921-8adb-82a1da3ed270"/>
+               <code code="42229-5" codeSystem="2.16.840.1.113883.6.1" displayName="SPL UNCLASSIFIED SECTION"/>
+               <text>
+                  <paragraph>Manufactured for:</paragraph>
+                  <paragraph>La Jolla Pharmaceutical Company<br/>Waltham, MA 02451 USA</paragraph>
+                  <paragraph/>
+                  <paragraph>GIAPREZA® is a registered trademark of La Jolla Pharmaceutical Company.</paragraph>
+                  <paragraph>©2021, La Jolla Pharmaceutical Company. All rights reserved.</paragraph>
+               </text>
+               <effectiveTime value="20211223"/>
+            </section>
+         </component>
+         <component>
+            <section ID="Lf3f2d761-8b73-47ba-a229-fae137b2ce21">
+               <id root="a99d5c5c-aead-4f9a-a1b1-2a5ff6f8ea8d"/>
+               <code code="51945-4" codeSystem="2.16.840.1.113883.6.1" displayName="PACKAGE LABEL.PRINCIPAL DISPLAY PANEL"/>
+               <title>Package Label – 2.5 mg/mL Single-Dose Vial Label</title>
+               <text>
+                  <paragraph>
+                     <renderMultiMedia referencedObject="img_f0fdbf6e-d5dc-52ce-e053-2995a90ad6e6"/>
+                  </paragraph>
+               </text>
+               <effectiveTime value="20211223"/>
+               <component>
+                  <observationMedia ID="img_f0fdbf6e-d5dc-52ce-e053-2995a90ad6e6">
+                     <text>2.5-vial-label</text>
+                     <value mediaType="image/jpeg" xsi:type="ED">
+                        <reference value="New-2.5-vial-jpg.jpg"/>
+                     </value>
+                  </observationMedia>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="L81bfcedd-5ea0-46b1-8a11-91e31c564ace">
+               <id root="0f71b6b6-20dd-46de-87ac-d98df142b31d"/>
+               <code code="51945-4" codeSystem="2.16.840.1.113883.6.1" displayName="PACKAGE LABEL.PRINCIPAL DISPLAY PANEL"/>
+               <title>Package Label – 2.5 mg/mL Single Vial Carton Label</title>
+               <text>
+                  <paragraph>
+                     <renderMultiMedia referencedObject="img_f0fdbf6e-d5dd-52ce-e053-2995a90ad6e6"/>
+                  </paragraph>
+               </text>
+               <effectiveTime value="20211223"/>
+               <component>
+                  <observationMedia ID="img_f0fdbf6e-d5dd-52ce-e053-2995a90ad6e6">
+                     <text>2.5-carton-label</text>
+                     <value mediaType="image/jpeg" xsi:type="ED">
+                        <reference value="New-2.5-carton-jpg.jpg"/>
+                     </value>
+                  </observationMedia>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="id_link_d428127a-cc49-7272-e053-2995a90a959d">
+               <id root="40418322-229c-4eac-8363-481d8c2e0604"/>
+               <code code="51945-4" codeSystem="2.16.840.1.113883.6.1" displayName="PACKAGE LABEL.PRINCIPAL DISPLAY PANEL"/>
+               <title>Package Label - 0.5 mg/mL Single-Dose Vial Label</title>
+               <text>
+                  <paragraph>
+                     <renderMultiMedia referencedObject="img_d5cae8eb-1ebe-4098-e053-2a95a90a592a"/>
+                  </paragraph>
+               </text>
+               <effectiveTime value="20211223"/>
+               <component>
+                  <observationMedia ID="img_d5cae8eb-1ebe-4098-e053-2a95a90a592a">
+                     <text>0.5-vial-label</text>
+                     <value mediaType="image/jpeg" xsi:type="ED">
+                        <reference value="0.5 vial new.jpg"/>
+                     </value>
+                  </observationMedia>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section ID="id_link_d4280fe7-430d-726f-e053-2995a90a7adb">
+               <id root="78a7bc49-edcf-4700-8beb-16a5402fa85b"/>
+               <code code="51945-4" codeSystem="2.16.840.1.113883.6.1" displayName="PACKAGE LABEL.PRINCIPAL DISPLAY PANEL"/>
+               <title>Package Label - 0.5 mg/mL Single Vial Carton Label</title>
+               <text>
+                  <paragraph>
+                     <renderMultiMedia referencedObject="img_d5cac651-3540-0126-e053-2a95a90aa03f"/>
+                  </paragraph>
+               </text>
+               <effectiveTime value="20211223"/>
+               <component>
+                  <observationMedia ID="img_d5cac651-3540-0126-e053-2a95a90aa03f">
+                     <text>0.5-vial-carton-label</text>
+                     <value mediaType="image/jpeg" xsi:type="ED">
+                        <reference value="0.5 carton new.jpg"/>
+                     </value>
+                  </observationMedia>
+               </component>
+            </section>
+         </component>
+      </structuredBody>
+   </component>
+</document>

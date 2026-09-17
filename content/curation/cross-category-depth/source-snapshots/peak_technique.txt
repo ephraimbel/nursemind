@@ -1,0 +1,216 @@
+SECTION 3, COMPONENT 2:  EDUCATION FOR A PARTNERSHIP IN ASTHMA CARE (https://www.nhlbi.nih.gov/files/docs/guidelines/05_sec3_comp2.pdf)
+citeturn114view0 [wordlim: 200] Crawled: today; Content type: application/pdf; Number of pages: 72; Source: open({"ref_id":"turn112view1","lineno":1167}); Total lines: 3098
+L1121@P28: useful concept for written asthma action plans and can be determined by using the highest PEF
+L1122@P28: over the previous 2 weeks. Additionally, the patient must be educated, understand how to use
+L1123@P28: the action plan, and be willing to incorporate peak flow monitoring into asthma care. Use of
+L1124@P28: peak flow monitoring should not replace symptom recognition but should facilitate additional
+L1125@P28: discussion with the health care provider.
+L1126@P28: Peak flow monitoring for self-management of asthma may be less effective for children. In a
+L1127@P28: small RCT of peak flow monitoring and diary recording in children, Kamps and coworkers (2001)
+L1128@P28: found low levels of adherence over a 4-week period of monitoring peak flow twice daily.
+L1129@P28: Children and their parents were not told the electronic monitor was recording date and time of
+L1130@P28: measurement. Actual compliance recorded electronically was significantly lower than reported
+L1131@P28: compliance in both study groups, and 50 percent of the values were either recorded incorrectly
+L1132@P28: or invented. Eid and colleagues (2000) showed that PEF monitoring in children may be
+L1133@P28: inaccurate compared to FEV1, especially as the severity of airway obstruction increases. The
+L1134@P28: addition of peak flow monitoring to symptom-based guided self-management was not shown to
+L1135@P28: contribute to self-management decisionmaking in children 7–14 years of age in another RCT
+L1136@P28: (Wensley and Silverman 2004). During acute episodes of asthma, children responded to
+L1137@P28: increased symptoms by taking more ICS when PEF was greater than 70 percent of personal
+L1138@P28: best. In contrast to the finding of Eid and colleagues (2000), these investigators found no
+L1139@P28: evidence that FEV1 was more sensitive than PEF in detecting airflow obstruction. In the findings
+L1140@P28: of an RCT comparing symptom monitoring to PEF monitoring only when symptoms occurred, to
+L1141@P28: daily and symptom-time PEF monitoring, children and their parents perceived benefit from
+L1142@P28: symptom monitoring whether or not it was accompanied by peak flow measurement (McMullen
+L1143@P28: et al. 2002). These investigators found no evidence of benefit from more intensive daily
+L1144@P28: monitoring.
+L1145@P28: Periodic daily peak flow monitoring may be useful to evaluate responses to changes in
+L1146@P28: treatment, identify the temporal relationship between environmental or occupational exposures
+L1147@P28: and bronchospasm, and provide guidance for patients who have poor perception of airflow
+L1148@P28: obstruction.
+L1149@P28: See “Component 1: Assessment and Monitoring” for additional discussion. See “How To Use
+L1150@P28: Your Peak Flow Meter” (figure 3–11) for a sample handout for patients.
+L1151@P28: GOALS OF ASTHMA SELF-MANAGEMENT EDUCATION AND KEY EDUCATIONAL
+L1152@P28: MESSAGES
+L1153@P28: Patient education is an essential component of successful asthma management. Current
+L1154@P28: management approaches require patients and families to effectively carry out complex
+L1155@P28: pharmacologic regimens, institute environmental control strategies, detect and self-treat most
+L1156@P28: asthma exacerbations, and communicate appropriately with health care providers. Patient
+L1157@P28: education is the mechanism through which patients learn to accomplish those tasks
+L1158@P28: successfully. It is also a powerful tool for helping patients gain the motivation, skill, and
+L1159@P28: confidence to control their asthma (Butz et al. 2005; Gibson et al. 2000; Guevara et al. 2003;
+L1160@P28: Levy et al. 2000; Perneger et al. 2002). Research shows that asthma education can be
+L1161@P28: cost-effective and can reduce morbidity for both adults and children, especially among high-risk
+L1162@P28: patients (Gallefoss and Bakke 2001; Gibson et al. 2000, 2003; Guevara et al. 2003; Schermer
+L1163@P28: et al. 2002; Sullivan et al. 2002).
+L1164@P28: This section covers strategies for enhancing the delivery of patient education and improving the
+L1165@P28-29: likelihood that patients will follow clinical recommendations. Section 3, Component 2: Education for a Partnership in Asthma Care
+L1166@P29: 122
+L1167@P29: August 28, 2007
+L1168@P29: FIGURE 3–11. HOW TO USE YOUR PEAK FLOW METER
+L1169@P29: A peak flow meter is a device that measures how
+L1170@P29: well air moves out of your lungs. During an
+L1171@P29: asthma episode, the airways of the lungs usually
+L1172@P29: begin to narrow slowly. The peak flow meter may
+L1173@P29: tell you if there is narrowing in the airways
+L1174@P29: hours—sometimes even days—before you have
+L1175@P29: any asthma symptoms.
+L1176@P29: By taking your medicine(s) early (before
+L1177@P29: symptoms), you may be able to stop the episode
+L1178@P29: quickly and avoid a severe asthma episode.
+L1179@P29: Peak flow meters are used to check your asthma
+L1180@P29: the way that blood pressure cuffs are used to
+L1181@P29: check high blood pressure.
+L1182@P29: The peak flow meter also can be used to help you
+L1183@P29: and your doctor:
+L1184@P29:  Learn what makes your asthma worse.
+L1185@P29:  Decide if your treatment plan is working well.
+L1186@P29:  Decide when to add or stop medicine.
+L1187@P29:  Decide when to seek emergency care.
+L1188@P29: A peak flow meter is most helpful for patients who
+L1189@P29: must take asthma medicine daily. Patients age 5
+L1190@P29: and older are usually able to use a peak flow
+L1191@P29: meter. Ask your doctor or nurse to show you how
+L1192@P29: to use a peak flow meter.
+L1193@P29: How To Use Your Peak Flow Meter
+L1194@P29:  Do the following five steps with your peak
+L1195@P29: flow meter:
+L1196@P29: 1. Move the indicator to the bottom of the
+L1197@P29: numbered scale.
+L1198@P29: 2. Stand up.
+L1199@P29: 3. Take a deep breath, filling your lungs
+L1200@P29: completely.
+L1201@P29: 4. Place the mouthpiece in your mouth and
+L1202@P29: close your lips around it. Do not put your
+L1203@P29: tongue inside the hole.
+L1204@P29: 5. Blow out as hard and fast as you can in a
+L1205@P29: single blow.
+L1206@P29:  Write down the number you get. But if you
+L1207@P29: cough or make a mistake, don’t write down
+L1208@P29: the number. Do it over again.
+L1209@P29:  Repeat steps 1 through 5 two more times,
+L1210@P29: and write down the best of the three blows in
+L1211@P29: your asthma diary.
+L1212@P29: Find Your Personal Best Peak Flow
+L1213@P29: Number
+L1214@P29: Your personal best peak flow number is the
+L1215@P29: highest peak flow number you can achieve over a
+L1216@P29: 2-week period when your asthma is under good
+L1217@P29: control. Good control is when you feel good and
+L1218@P29: do not have any asthma symptoms.
+L1219@P29: Each patient’s asthma is different, and your best
+L1220@P29: peak flow may be higher or lower than the peak
+L1221@P29: flow of someone of your same height, weight, and
+L1222@P29: sex. This means that it is important for you to find
+L1223@P29: your own personal best peak flow number. Your
+L1224@P29: treatment plan needs to be based on your own
+L1225@P29: personal best peak flow number.
+L1226@P29: To find out your personal best peak flow number,
+L1227@P29: take peak flow readings:
+L1228@P29:  At least twice a day for 2 to 3 weeks.
+L1229@P29:  When you wake up and in late afternoon or
+L1230@P29: early evening.
+L1231@P29:  15–20 minutes after you take your inhaled
+L1232@P29: short-acting beta2-agonist for quick relief.
+L1233@P29-30:  As instructed by your doctor. Section 3, Component 2: Education for a Partnership in Asthma Care
+L1234@P30: 123
+L1235@P30: August 28, 2007
+L1236@P30: FIGURE 3–11. HOW TO USE YOUR PEAK FLOW METER
+L1237@P30: (CONTINUED)
+L1238@P30: The Peak Flow Zone System
+L1239@P30: Once you know your personal best peak flow
+L1240@P30: number, your doctor will give you the numbers
+L1241@P30: that tell you what to do. The peak flow numbers
+L1242@P30: are put into zones that are set up like a traffic
+L1243@P30: light. This will help you know what to do when
+L1244@P30: your peak flow number changes. For example:
+L1245@P30: Green Zone (more than __L/min [80 percent of
+L1246@P30: your personal best number]) signals good control.
+L1247@P30: No asthma symptoms are present. Take your
+L1248@P30: medicines as usual.
+L1249@P30: Yellow Zone (between __L/min and __L/min
+L1250@P30: [50 to less than 80 percent of your personal best
+L1251@P30: number]) signals caution. If you remain in the
+L1252@P30: yellow zone after several measures of peak flow,
+L1253@P30: take an inhaled short-acting beta2-agonist. If you
+L1254@P30: continue to register peak flow readings in the
+L1255@P30: yellow zone, your asthma may not be under good
+L1256@P30: control. Ask your doctor if you need to change or
+L1257@P30: increase your daily medicines.
+L1258@P30: Red Zone (below __L/min [less than 50 percent
+L1259@P30: of your personal best number]) signals a medical
+L1260@P30: alert. You must take an inhaled short-acting
+L1261@P30: beta2-agonist (quick-relief medicine) right away.
+L1262@P30: Call your doctor or emergency room and ask what
+L1263@P30: to do, or go directly to the hospital emergency
+L1264@P30: room.
+L1265@P30: Record your personal best peak flow number and
+L1266@P30: peak flow zones in your asthma diary.
+L1267@P30: Use the Diary To Keep Track of Your Peak
+L1268@P30: Flow
+L1269@P30: Measure your peak flow when you wake up,
+L1270@P30: before taking medicine. Write down your peak
+L1271@P30: flow number in the diary every day, or as
+L1272@P30: instructed by your doctor.
+L1273@P30: Actions To Take When Peak Flow
+L1274@P30: Numbers Change
+L1275@P30:  PEF goes between __L/min and __L/min
+L1276@P30: (50 to less than 80 percent of personal best,
+L1277@P30: yellow zone).
+L1278@P30: ACTION: Take an inhaled short-acting
+L1279@P30: beta2-agonist (quick-relief medicine) as
+L1280@P30: prescribed by your doctor.
+L1281@P30:  PEF increases 20 percent or more when
+L1282@P30: measured before and after taking an inhaled
+L1283@P30: short-acting beta2-agonist (quick-relief
+L1284@P30: medicine).
+L1285@P30: ACTION: Talk to your doctor about adding
+L1286@P30: more medicine to control your asthma better
+L1287@P30: (for example, an anti-inflammatory
+L1288@P30: medication).
+L1289@P30: Source: Adapted from Expert Panel Report 2: Guidelines for the Diagnosis and Management of Asthma. National Asthma
+L1290@P30-31: Education and Prevention Program, National Heart, Lung, and Blood Institute, 1997. Section 3, Component 2: Education for a Partnership in Asthma Care
+L1291@P31: 124
+L1292@P31: August 28, 2007
+L1293@P31: Establish and Maintain a Partnership
+L1294@P31: The Expert Panel recommends that a
+L1295@P31: partnership between patient and clinician be
+L1296@P31: established to promote effective asthma
+L1297@P31: management (Evidence A).
+L1298@P31: Building a partnership requires that clinicians
+L1299@P31: promote open communication and ensure that
+L1300@P31: patients have a basic and accurate foundation
+L1301@P31: of knowledge about asthma, understand the
+L1302@P31: treatment approach, and have the selfmanagement skills necessary to monitor the
+L1303@P31: disease objectively and take medication
+L1304@P31: effectively (Clark et al. 1995, 1998, 2000; Evans
+L1305@P31: et al. 1997; Love et al. 2000; Marabini et al.
+L1306@P31: 2002; Smith et al. 2005; Wilson et al. 2005,
+L1307@P31: 2006).
+L1308@P31: The Expert Panel recommends that when
+L1309@P31: nurses, pharmacists, respiratory therapists,
+L1310@P31: and other health care professionals are
+L1311@P31: available to provide and support patient
+L1312@P31: self-management education, a team
+L1313@P31: approach through multiple points of care
+L1314@P31: should be used (NHLBI 1995b,c). The
+L1315@P31: principal clinician, care manager, or any other
+L1316@P31: health professional trained in asthma
+L1317@P31: management and self-management education
+L1318@P31: can introduce the key educational messages
+L1319@P31: (See figure 3–12.) and negotiate agreements
+L1320@P31: with patients about the goals of treatment,
+L1321@P31: medications to use, and the actions the patient
+L1322@P31: will take to promote asthma control (Clark et al.
+L1323@P31: 1995, 1998, 2000; Marabini et al. 2002; Wilson
+L1324@P31: et al. 2005, 2006). All health care professionals
+L1325@P31: who encounter patients who have asthma are
+L1326@P31: members of the health care team and should
+L1327@P31: reinforce and expand these messages during
+L1328@P31: clinic visits, ED visits, pharmacy visits,
+L1329@P31: telephone calls, and in community centers and
+L1330@P31: schools. National certification for asthma
+L1331@P31: educators is available in the United States. Although no published data are available comparing
+L1332@P31: certified to noncertified educators, certification requires a minimum number of hours of
+L1333@P31: experience and passing a standardized test.
+L1334@P31: It is the opinion of the Expert Panel that the health professional team members

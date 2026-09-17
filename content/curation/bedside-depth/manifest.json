@@ -1,0 +1,1893 @@
+{
+  "date": "2026-09-17",
+  "scope": "Adult nursing reference: six existing pages rewritten, eight new focused guides. All content remains educational; no pediatric or patient-specific prescribing protocol.",
+  "clinicalReview": {
+    "tier": "A",
+    "status": "pending",
+    "reviewer": null,
+    "publicationApproved": false,
+    "note": "Conservative review queue for invasive devices, transfusion and deterioration content. Source-fidelity checks and automated tests are not independent clinical sign-off."
+  },
+  "sources": [
+    {
+      "id": "bedside_depth_central",
+      "shortName": "Open RN — Manage Central Lines",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK594495/",
+      "license": "ccBy4",
+      "detail": "Nursing Advanced Skills (2023). Sections 4.2–4.4, device identification, assessment and maintenance. Original nursing prose adapted and condensed by NurseMind under CC BY 4.0: https://creativecommons.org/licenses/by/4.0/. Images, videos and learning activities excluded. Separately attributed noncommercial or no-derivatives material excluded; permitted text adaptations are credited below. The outdated chlorhexidine-dressing statement in 4.3 is superseded here by the CDC 2017 update; no third-party device comparison table reproduced. Source-fidelity review is not independent clinical approval.",
+      "publisher": "Open Resources for Nursing (Open RN); Ernstmeyer K, Christman E, editors; Chippewa Valley Technical College",
+      "lastRetrieved": "2026-09-17"
+    },
+    {
+      "id": "bedside_depth_chest",
+      "shortName": "Open RN — Manage Chest Tube Drainage Systems",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK594490/",
+      "license": "ccBy4",
+      "detail": "Nursing Advanced Skills (2023). Section 6.3 nursing responsibilities and section 6.2 chamber descriptions. Original nursing prose adapted and condensed by NurseMind under CC BY 4.0: https://creativecommons.org/licenses/by/4.0/. Images, videos and learning activities excluded. Separately attributed noncommercial or no-derivatives material excluded; permitted text adaptations are credited below. The chamber descriptions also adapt Clinical Procedures for Safer Patient Care by the British Columbia Institute of Technology, CC BY 4.0. StatPearls-derived anatomy, indications and placement passages excluded. Device-specific emergency procedures are not reproduced. Source-fidelity review is not independent clinical approval.",
+      "publisher": "Open Resources for Nursing (Open RN); Ernstmeyer K, Christman E, editors; Chippewa Valley Technical College",
+      "lastRetrieved": "2026-09-17"
+    },
+    {
+      "id": "bedside_depth_wound",
+      "shortName": "Open RN — Wound Care",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK596725/",
+      "license": "ccBy4",
+      "detail": "Nursing Skills, 2nd edition (2023). Sections 20.3 assessment, 20.12 cleansing and 20.13 drain management. Original nursing prose adapted and condensed by NurseMind under CC BY 4.0: https://creativecommons.org/licenses/by/4.0/. Images, videos and learning activities excluded. Separately attributed noncommercial or no-derivatives material excluded; permitted text adaptations are credited below. StatPearls-derived basic concepts, staging tables, Braden tool and third-party illustrations excluded. No debridement or drain-removal protocol. Source-fidelity review is not independent clinical approval.",
+      "publisher": "Open Resources for Nursing (Open RN); Ernstmeyer K, Christman E, editors; Chippewa Valley Technical College",
+      "lastRetrieved": "2026-09-17"
+    },
+    {
+      "id": "bedside_depth_blood",
+      "shortName": "Open RN — Administer Blood Products",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK594497/",
+      "license": "ccBy4",
+      "detail": "Nursing Advanced Skills (2023). Sections 3.3 and 3.5, nursing workflow, monitoring and documentation. Original nursing prose adapted and condensed by NurseMind under CC BY 4.0: https://creativecommons.org/licenses/by/4.0/. Images, videos and learning activities excluded. Separately attributed noncommercial or no-derivatives material excluded; permitted text adaptations are credited below. StatPearls-derived product/reaction tables in 3.2 excluded. Product-specific time limits, rates, compatibility and reaction workup remain subject to blood-bank policy; no copied dosage protocol. Source-fidelity review is not independent clinical approval.",
+      "publisher": "Open Resources for Nursing (Open RN); Ernstmeyer K, Christman E, editors; Chippewa Valley Technical College",
+      "lastRetrieved": "2026-09-17"
+    },
+    {
+      "id": "bedside_depth_placement",
+      "shortName": "Open RN — Insert Nasogastric and Feeding Tubes",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK594494/",
+      "license": "ccBy4",
+      "detail": "Nursing Advanced Skills (2023). Sections 5.2–5.3, tube purpose, initial radiographic confirmation and ongoing placement assessment. Original nursing prose adapted and condensed by NurseMind under CC BY 4.0: https://creativecommons.org/licenses/by/4.0/. Images, videos and learning activities excluded. Separately attributed noncommercial or no-derivatives material excluded; permitted text adaptations are credited below. No insertion procedure or auscultation-based placement confirmation. Source-fidelity review is not independent clinical approval.",
+      "publisher": "Open Resources for Nursing (Open RN); Ernstmeyer K, Christman E, editors; Chippewa Valley Technical College",
+      "lastRetrieved": "2026-09-17"
+    },
+    {
+      "id": "bedside_depth_enteral",
+      "shortName": "Open RN — Enteral Tube Management",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK596741/",
+      "license": "ccBy4",
+      "detail": "Nursing Skills, 2nd edition (2023). Sections 17.2–17.6, tube maintenance, tolerance, misconnection prevention, assessment and NG suction. Original nursing prose adapted and condensed by NurseMind under CC BY 4.0: https://creativecommons.org/licenses/by/4.0/. Images, videos and learning activities excluded. Separately attributed noncommercial or no-derivatives material excluded; permitted text adaptations are credited below. Placement confirmation follows the more explicit Advanced Skills chapter 5; residual volumes are not presented as a stand-alone aspiration test or universal stopping threshold. Source-fidelity review is not independent clinical approval.",
+      "publisher": "Open Resources for Nursing (Open RN); Ernstmeyer K, Christman E, editors; Chippewa Valley Technical College",
+      "lastRetrieved": "2026-09-17"
+    },
+    {
+      "id": "bedside_depth_medication",
+      "shortName": "Open RN — Administration of Enteral Medications",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK596740/",
+      "license": "ccBy4",
+      "detail": "Nursing Skills, 2nd edition (2023). Enteral-tube medication preparation, administration and evaluation sections. Original nursing prose adapted and condensed by NurseMind under CC BY 4.0: https://creativecommons.org/licenses/by/4.0/. Images, videos and learning activities excluded. Separately attributed noncommercial or no-derivatives material excluded; permitted text adaptations are credited below. Medication-administration checklist also adapts Clinical Procedures for Safer Patient Care by the British Columbia Institute of Technology, CC BY 4.0. Exact formulations, flush volumes, feeding holds and water selection require the individual order, pharmacy review and facility policy; no medication dosing. Source-fidelity review is not independent clinical approval.",
+      "publisher": "Open Resources for Nursing (Open RN); Ernstmeyer K, Christman E, editors; Chippewa Valley Technical College",
+      "lastRetrieved": "2026-09-17"
+    },
+    {
+      "id": "bedside_depth_neuro",
+      "shortName": "Open RN — Neurological Assessment",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK596731/",
+      "license": "ccBy4",
+      "detail": "Nursing Skills, 2nd edition (2023). Sections 6.3–6.5, history, mental status, pupils, motor and sensory assessment. Original nursing prose adapted and condensed by NurseMind under CC BY 4.0: https://creativecommons.org/licenses/by/4.0/. Images, videos and learning activities excluded. Separately attributed noncommercial or no-derivatives material excluded; permitted text adaptations are credited below. No reproduced copyrighted scoring instrument, diagnostic algorithm, painful-stimulus technique or GCS numerical bounds from the source. Source-fidelity review is not independent clinical approval.",
+      "publisher": "Open Resources for Nursing (Open RN); Ernstmeyer K, Christman E, editors; Chippewa Valley Technical College",
+      "lastRetrieved": "2026-09-17"
+    },
+    {
+      "id": "bedside_depth_fluid",
+      "shortName": "Open RN — Fluids and Electrolytes",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK610839/",
+      "license": "ccBy4",
+      "detail": "Nursing Fundamentals, 2nd edition (2024). Section 15.6, applying the nursing process: history, examination, weights, intake/output and reassessment. Original nursing prose adapted and condensed by NurseMind under CC BY 4.0: https://creativecommons.org/licenses/by/4.0/. Images, videos and learning activities excluded. Separately attributed noncommercial or no-derivatives material excluded; permitted text adaptations are credited below. StatPearls-derived fluid and acid-base passages and third-party treatment guidance outside 15.6 excluded. No fluid-resuscitation formula or electrolyte replacement regimen. Source-fidelity review is not independent clinical approval.",
+      "publisher": "Open Resources for Nursing (Open RN); Ernstmeyer K, Christman E, editors; Chippewa Valley Technical College",
+      "lastRetrieved": "2026-09-17"
+    },
+    {
+      "id": "bedside_depth_iv",
+      "shortName": "Open RN — IV Therapy Management",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK596734/",
+      "license": "ccBy4",
+      "detail": "Nursing Skills, 2nd edition (2023). Sections 23.2–23.5, local complications, bedside assessment and infusion checks. Original nursing prose adapted and condensed by NurseMind under CC BY 4.0: https://creativecommons.org/licenses/by/4.0/. Images, videos and learning activities excluded. Separately attributed noncommercial or no-derivatives material excluded; permitted text adaptations are credited below. No medication-specific antidote, thermal treatment or dosing protocol. Source-fidelity review is not independent clinical approval.",
+      "publisher": "Open Resources for Nursing (Open RN); Ernstmeyer K, Christman E, editors; Chippewa Valley Technical College",
+      "lastRetrieved": "2026-09-17"
+    },
+    {
+      "id": "bedside_depth_clabsi",
+      "shortName": "CDC — Intravascular catheter infection prevention",
+      "url": "https://www.cdc.gov/infection-control/hcp/intravascular-catheter-related-infections/summary-recommendations.html",
+      "license": "publicDomain",
+      "detail": "2011 guideline summary, CDC page updated February 28, 2024. Adult site selection, asepsis, dressings, access, replacement and administration-set recommendations restructured from federal prose. Guideline year is distinct from webpage update. Source-fidelity review is not independent clinical approval.",
+      "publisher": "Centers for Disease Control and Prevention / HICPAC",
+      "lastRetrieved": "2026-09-17"
+    },
+    {
+      "id": "bedside_depth_chg",
+      "shortName": "CDC — Chlorhexidine dressing update (2017)",
+      "url": "https://www.cdc.gov/infection-control/hcp/c-i-dressings/summary-recommendations.html",
+      "license": "publicDomain",
+      "detail": "2017 update, CDC webpage April 12, 2024. Recommendation for FDA-cleared dressings with a clinical infection-reduction indication in adults with short-term, non-tunneled CVCs. Not generalized to every vascular device or age group. Source-fidelity review is not independent clinical approval.",
+      "publisher": "Centers for Disease Control and Prevention / HICPAC",
+      "lastRetrieved": "2026-09-17"
+    },
+    {
+      "id": "bedside_depth_cauti",
+      "shortName": "CDC — CAUTI prevention recommendations",
+      "url": "https://www.cdc.gov/infection-control/hcp/cauti/summary-of-recommendations.html",
+      "license": "publicDomain",
+      "detail": "2009 guideline summary, CDC webpage March 25, 2024. Sections I–V, appropriate use, sterile insertion, closed-system maintenance, specimen collection and quality improvement. Adapted and condensed federal prose. Source-fidelity review is not independent clinical approval.",
+      "publisher": "Centers for Disease Control and Prevention / HICPAC",
+      "lastRetrieved": "2026-09-17"
+    },
+    {
+      "id": "bedside_depth_extravasation",
+      "shortName": "eviQ — Extravasation management: clinical procedure",
+      "url": "https://www.eviq.org.au/clinical-resources/extravasation/4156-extravasation-management-clinical-procedure",
+      "license": "factCitationOnly",
+      "detail": "Clinical procedure 4156, primary actions and drug-specific management. Brief original factual paraphrase; no reproduced flowchart, assessment tool, dose table or algorithm. Australian cancer/contrast guidance cited for initial precautions, not a universal US protocol. Source-fidelity review is not independent clinical approval.",
+      "publisher": "Cancer Institute NSW / eviQ",
+      "lastRetrieved": "2026-09-17"
+    }
+  ],
+  "authoredWordsBySource": {
+    "central": 307,
+    "clabsi": 743,
+    "chg": 78,
+    "cauti": 595,
+    "chest": 599,
+    "wound": 1087,
+    "blood": 579,
+    "placement": 687,
+    "enteral": 939,
+    "medication": 507,
+    "fluid": 605,
+    "neuro": 524,
+    "iv": 454,
+    "extravasation": 80
+  },
+  "entries": [
+    {
+      "id": "central-venous-catheter",
+      "title": "Central venous catheters (CVC)",
+      "subtitle": "Device identification, site assessment, access and daily maintenance",
+      "family": "Vascular",
+      "sections": [
+        {
+          "title": "Know which device is present",
+          "bullets": [
+            {
+              "text": "Identify whether the line is non-tunneled, tunneled, a peripherally inserted central catheter (PICC), or an implanted port. A PICC is a central catheter despite entering through the arm; its maintenance needs should not be inferred from an ordinary peripheral IV.",
+              "source": "central"
+            },
+            {
+              "text": "Review the documented indication, insertion information, tip-verification record, number of lumens and permitted uses before accessing the device. An implanted port requires the appropriate non-coring needle and staff competent in that device’s care.",
+              "source": "central"
+            }
+          ]
+        },
+        {
+          "title": "Assess the patient and insertion site",
+          "bullets": [
+            {
+              "text": "Ask about pain, tenderness, burning, numbness or tingling near the line. Inspect and palpate as appropriate for swelling, erythema or other color change, drainage, warmth and a palpable cord. Include the surrounding arm, neck or chest rather than looking only at the puncture.",
+              "source": "central"
+            },
+            {
+              "text": "Compare findings with baseline and assess at the frequency required by the patient’s condition and local policy. Fever or a new local change warrants evaluation; the appearance of a dressing alone cannot establish whether the catheter is free of complications.",
+              "source": "central"
+            }
+          ]
+        },
+        {
+          "title": "Check securement and migration",
+          "bullets": [
+            {
+              "text": "Inspect the stabilization device, connections and dressing. Compare the visible external catheter length with the insertion record and prior measurements. A changed length or new ipsilateral swelling needs prompt assessment before continuing routine use.",
+              "source": "central"
+            },
+            {
+              "text": "Keep the catheter protected from traction during turning, transfers and dressing care. Document the location and extent of swelling or skin changes so the receiving nurse can recognize progression instead of relying on an undocumented impression.",
+              "source": "central"
+            }
+          ]
+        },
+        {
+          "title": "Maintain a clean, intact dressing",
+          "bullets": [
+            {
+              "text": "Use sterile gauze or a sterile transparent semipermeable dressing. Replace a dressing when it becomes damp, loose or visibly soiled; a scheduled change date does not justify leaving a compromised dressing in place. Gauze is preferred when the site is bleeding, oozing or the patient is diaphoretic.",
+              "source": "clabsi"
+            },
+            {
+              "text": "For short-term CVCs, CDC recommends gauze changes every two days and transparent dressing changes at least every seven days. Follow the applicable device and facility procedure, with aseptic technique and skin antiseptic allowed to dry according to its instructions.",
+              "source": "clabsi"
+            }
+          ]
+        },
+        {
+          "title": "Apply the current chlorhexidine recommendation",
+          "bullets": [
+            {
+              "text": "For adults with short-term, non-tunneled CVCs, CDC recommends chlorhexidine-impregnated dressings with an FDA-cleared label indicating reduction of catheter-related or catheter-associated bloodstream infection. Check the product indication and patient tolerance. This recommendation should not be generalized to every catheter type or age group.",
+              "source": "chg"
+            }
+          ]
+        },
+        {
+          "title": "Protect every access point",
+          "bullets": [
+            {
+              "text": "Perform hand hygiene before and after catheter manipulation and dressing care. Disinfect access ports with an appropriate antiseptic and access them only with sterile devices. Maintain aseptic technique during each connection, sampling episode and infusion change.",
+              "source": "clabsi"
+            },
+            {
+              "text": "Keep unused access points protected and connections secure. Scrub and drying requirements depend on the antiseptic and connector instructions; one memorized scrub duration does not replace the validated process for the equipment in use.",
+              "source": "clabsi"
+            }
+          ]
+        },
+        {
+          "title": "Distinguish flushing from locking",
+          "bullets": [
+            {
+              "text": "Flushing clears the lumen of blood, medicines or incompatible solutions; locking instills the prescribed solution when the catheter will not be used. Device design, therapy and local policy determine the solution, volume and technique. Do not apply one heparin or saline regimen to every device.",
+              "source": "central"
+            },
+            {
+              "text": "Assess line function and investigate resistance, pump pressure alarms, leakage or pain. Do not force a resistant catheter. Bring patency concerns to the vascular-access or treating team and follow the prescribed assessment pathway before further use.",
+              "source": "central"
+            }
+          ]
+        },
+        {
+          "title": "Review necessity and communicate changes",
+          "bullets": [
+            {
+              "text": "Review whether each catheter is still essential and arrange prompt removal when no longer needed. Routine scheduled replacement of CVCs or PICCs solely to prevent infection is not recommended. Fever alone is not an automatic reason to remove a central line.",
+              "source": "clabsi"
+            },
+            {
+              "text": "Communicate the current indication, site and dressing findings, function concerns and changes in patient condition. Removal and replacement decisions require the responsible team’s assessment of infectious, mechanical and treatment needs.",
+              "source": "clabsi"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "reference:clabsi-bundle",
+        "reference:peripheral-iv-complication-assessment"
+      ],
+      "topics": [
+        "critical-care-devices"
+      ],
+      "symbol": "CentralVenousCatheterSample",
+      "oldFile": "EquipmentReference.swift",
+      "tags": "category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential"
+    },
+    {
+      "id": "clabsi-bundle",
+      "title": "CLABSI prevention bundle",
+      "subtitle": "Adult insertion, access, dressings and maintenance checks",
+      "family": "Vascular",
+      "sections": [
+        {
+          "title": "Start with necessity and the right device",
+          "bullets": [
+            {
+              "text": "A central line should have a current clinical indication. Review its need regularly and remove it promptly when it is no longer essential. Use the minimum number of ports or lumens needed for the patient’s treatment rather than adding lumens without a purpose.",
+              "source": "clabsi"
+            },
+            {
+              "text": "A prevention bundle spans insertion and every subsequent access. Staff education, demonstrated competence, supplies and consistent observation of aseptic practice matter throughout the catheter’s life, including transport and handoff.",
+              "source": "clabsi"
+            }
+          ]
+        },
+        {
+          "title": "Understand adult site-selection tradeoffs",
+          "bullets": [
+            {
+              "text": "CDC advises avoiding femoral access in adults and favors the subclavian site over jugular or femoral sites for infection prevention with non-tunneled CVCs. Selection must also weigh mechanical risks, patient anatomy and the clinician’s expertise.",
+              "source": "clabsi"
+            },
+            {
+              "text": "Subclavian access should be avoided in advanced kidney disease or patients receiving hemodialysis because of subclavian vein stenosis risk. Site choice is therefore not a universal infection-risk ranking that overrides future dialysis-access preservation.",
+              "source": "clabsi"
+            }
+          ]
+        },
+        {
+          "title": "Check insertion precautions",
+          "bullets": [
+            {
+              "text": "CVC and PICC insertion and guidewire exchange use maximal sterile barriers: cap, mask, sterile gown, sterile gloves and a full-body sterile drape. Hand hygiene and aseptic technique remain required even when gloves are worn.",
+              "source": "clabsi"
+            },
+            {
+              "text": "For central venous insertion and dressing changes, CDC recommends an alcohol-based preparation containing more than 0.5% chlorhexidine. When contraindicated, its listed alternatives include tincture of iodine, an iodophor or 70% alcohol. Allow the preparation to dry according to the manufacturer.",
+              "source": "clabsi"
+            }
+          ]
+        },
+        {
+          "title": "Keep dressings intact",
+          "bullets": [
+            {
+              "text": "Cover the site with sterile gauze or a sterile transparent semipermeable dressing. Change a damp, loose or visibly soiled dressing promptly. Use gauze when bleeding, oozing or diaphoresis interferes with a transparent dressing.",
+              "source": "clabsi"
+            },
+            {
+              "text": "For short-term CVCs, change gauze every two days and transparent dressings at least every seven days, alongside earlier changes for loss of integrity. Avoid submerging the catheter; showering requires protection that prevents water entering the catheter or connecting device.",
+              "source": "clabsi"
+            }
+          ]
+        },
+        {
+          "title": "Use the adult chlorhexidine update",
+          "bullets": [
+            {
+              "text": "CDC’s 2017 update recommends chlorhexidine-impregnated dressings for adults with short-term, non-tunneled CVCs when the FDA-cleared label includes an infection-reduction indication. The 2011 summary’s older dressing language should be read together with this update, not used alone.",
+              "source": "chg"
+            }
+          ]
+        },
+        {
+          "title": "Protect hubs and medication connections",
+          "bullets": [
+            {
+              "text": "Disinfect catheter access ports with an appropriate antiseptic and use sterile devices to access them. Follow the product’s friction and drying instructions and maintain aseptic technique when changing caps, tubing or connections.",
+              "source": "clabsi"
+            },
+            {
+              "text": "Do not routinely apply topical antibiotic ointments or creams to insertion sites; dialysis catheters have separate recommendations. Routine systemic antibiotic prophylaxis solely to prevent catheter colonization or bloodstream infection is not recommended.",
+              "source": "clabsi"
+            }
+          ]
+        },
+        {
+          "title": "Match tubing changes to the infusion",
+          "bullets": [
+            {
+              "text": "For continuously used sets not administering blood, blood products or fat emulsions, CDC recommends replacement no more frequently than every 96 hours but at least every seven days. Its summary does not establish an interval for intermittently used sets; use institutional policy.",
+              "source": "clabsi"
+            },
+            {
+              "text": "Tubing for blood, blood products or fat emulsions is replaced within 24 hours of starting the infusion. Propofol tubing is changed every 6 or 12 hours when the vial is changed, according to the manufacturer. Do not apply one interval to all infusions.",
+              "source": "clabsi"
+            }
+          ]
+        },
+        {
+          "title": "Recognize when the plan needs review",
+          "bullets": [
+            {
+              "text": "Assess for local tenderness and other signs of infection. If a site hidden beneath a dressing needs inspection because of unexplained fever, tenderness or other concern, follow the sterile assessment procedure rather than leaving the concern unexamined.",
+              "source": "clabsi"
+            },
+            {
+              "text": "Do not routinely replace functioning CVCs or PICCs to prevent infection, and do not remove a CVC solely for fever. If asepsis could not be ensured during emergency insertion, CDC recommends replacement as soon as possible, within 48 hours, through the responsible clinical team.",
+              "source": "clabsi"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "reference:central-venous-catheter",
+        "reference:standard-precautions"
+      ],
+      "topics": [
+        "infection-prevention"
+      ],
+      "symbol": "CLABSIBundleSample",
+      "oldFile": "ReferenceBatch.swift",
+      "tags": "category: .safeAndEffectiveCare, subcategory: .safetyAndInfectionControl, priorityConcept: .infection"
+    },
+    {
+      "id": "cauti-bundle",
+      "title": "CAUTI prevention bundle",
+      "subtitle": "Indications, closed drainage, specimens and removal review",
+      "family": "CatheterSafety",
+      "sections": [
+        {
+          "title": "Confirm an appropriate indication",
+          "bullets": [
+            {
+              "text": "Indwelling urinary catheters should be used only for an appropriate indication and for the shortest necessary duration. Examples include acute retention or outlet obstruction, accurate output measurement in critically ill patients, selected operations, certain open sacral or perineal wounds, prolonged immobilization and comfort at end of life.",
+              "source": "cauti"
+            },
+            {
+              "text": "Incontinence alone is not an indication, and a catheter should not replace routine nursing continence care. Reassess perioperative catheters after surgery; CDC recommends removal as soon as possible, preferably within 24 hours, unless an ongoing indication exists.",
+              "source": "cauti"
+            }
+          ]
+        },
+        {
+          "title": "Consider suitable alternatives",
+          "bullets": [
+            {
+              "text": "Alternatives depend on the clinical problem. External catheters may be appropriate for cooperative male patients without retention or outlet obstruction. Intermittent catheterization is preferable to an indwelling catheter for selected bladder-emptying dysfunction.",
+              "source": "cauti"
+            },
+            {
+              "text": "A bladder scanner can help assess urine volume and reduce unnecessary catheterization. Staff need training in its use and cleaning. The choice of an alternative should address the reason for drainage rather than simply replacing one device with another.",
+              "source": "cauti"
+            }
+          ]
+        },
+        {
+          "title": "Use trained, aseptic insertion",
+          "bullets": [
+            {
+              "text": "In acute care, trained personnel insert urinary catheters using aseptic technique and sterile equipment. Hand hygiene is required immediately before and after insertion or manipulation. Appropriate sterile gloves, drapes and supplies help protect the system at placement.",
+              "source": "cauti"
+            },
+            {
+              "text": "Unless otherwise indicated, use the smallest bore that permits adequate drainage to reduce urethral trauma. Secure the catheter after insertion to prevent movement and traction. Record the indication, insertion date and time, and who inserted it.",
+              "source": "cauti"
+            }
+          ]
+        },
+        {
+          "title": "Maintain the closed system",
+          "bullets": [
+            {
+              "text": "Maintain a closed drainage system after aseptic insertion. If aseptic technique is breached, a disconnection occurs or leakage develops, CDC recommends replacing both the catheter and collecting system using aseptic technique and sterile equipment. Simply disinfecting and reconnecting the same broken system is not its recommendation.",
+              "source": "cauti"
+            },
+            {
+              "text": "Avoid opening the drainage pathway for convenience. During handoff, include any disconnection, leak or concern about asepsis, together with what corrective action occurred, so the next nurse does not mistake a compromised system for an intact one.",
+              "source": "cauti"
+            }
+          ]
+        },
+        {
+          "title": "Keep urine flowing freely",
+          "bullets": [
+            {
+              "text": "Keep the catheter and collecting tubing free from kinks. Maintain the bag below bladder level at all times and off the floor. Check its position after transfers and repositioning rather than assuming that it remained unchanged.",
+              "source": "cauti"
+            },
+            {
+              "text": "Empty the bag regularly into a separate clean container for each patient. Prevent splashing and avoid contact between the drainage spigot and the container. Use standard precautions during all manipulation of the catheter and collecting system.",
+              "source": "cauti"
+            }
+          ]
+        },
+        {
+          "title": "Provide routine hygiene and targeted maintenance",
+          "bullets": [
+            {
+              "text": "Routine meatal cleansing during daily bathing is appropriate; antiseptic cleansing solely to prevent CAUTI is not recommended while the catheter remains in place. Do not change catheters or drainage bags at fixed intervals without a clinical indication.",
+              "source": "cauti"
+            },
+            {
+              "text": "Routine systemic antibiotics and antimicrobial bladder irrigation are not recommended for CAUTI prevention. Irrigation is generally avoided unless obstruction is anticipated, such as bleeding after selected urologic surgery; prescribed closed continuous irrigation has a separate clinical purpose.",
+              "source": "cauti"
+            }
+          ]
+        },
+        {
+          "title": "Collect a useful urine specimen",
+          "bullets": [
+            {
+              "text": "For a small fresh urine sample for urinalysis or culture, disinfect the needleless sampling port and aspirate aseptically with a sterile syringe or adapter. A sample from stagnant urine in the drainage bag is not an appropriate culture specimen.",
+              "source": "cauti"
+            },
+            {
+              "text": "CDC allows aseptic collection from the bag for large-volume special analyses other than culture. Follow the ordered test’s collection and transport instructions. Routine screening for asymptomatic bacteriuria in catheterized patients is not recommended.",
+              "source": "cauti"
+            }
+          ]
+        },
+        {
+          "title": "Review removal and document continuity",
+          "bullets": [
+            {
+              "text": "Use the facility’s daily review or reminder process to identify when the indication has ended. Nurse-directed removal protocols require local authorization and defined criteria. Clamping a catheter before removal is not necessary.",
+              "source": "cauti"
+            },
+            {
+              "text": "Document removal date and time and follow the facility’s post-removal voiding and retention assessment process. Quality improvement relies on accurate records of indications, catheter use and infection events, not merely a checked insertion-bundle box.",
+              "source": "cauti"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "procedure:foley-catheter-management",
+        "procedure:bladder-scan",
+        "reference:urinary-retention-recognition"
+      ],
+      "topics": [
+        "infection-prevention",
+        "nutrition-elimination"
+      ],
+      "symbol": "CAUTIBundleSample",
+      "oldFile": "ReferenceBatch.swift",
+      "tags": "category: .safeAndEffectiveCare, subcategory: .safetyAndInfectionControl, priorityConcept: .infection"
+    },
+    {
+      "id": "chest-tube-drainage",
+      "title": "Chest tube drainage system",
+      "subtitle": "Chambers, respiratory assessment, drainage and troubleshooting",
+      "family": "ChestDrain",
+      "sections": [
+        {
+          "title": "Identify the prescribed system",
+          "bullets": [
+            {
+              "text": "Confirm the tube’s purpose, the prescribed suction or water-seal plan, and the model of drainage device. Systems differ in how suction is set and displayed. The manufacturer’s instructions and current orders determine the setup; a wall regulator number alone does not describe the entire system.",
+              "source": "chest"
+            },
+            {
+              "text": "Review the prior respiratory examination, drainage measurements and device findings at handoff. These establish a comparison for new symptoms, increasing losses, changes in bubbling or unexpected cessation of drainage.",
+              "source": "chest"
+            }
+          ]
+        },
+        {
+          "title": "Assess the patient before the chambers",
+          "bullets": [
+            {
+              "text": "Assess respiratory rate and effort, oxygen saturation, breath sounds, dyspnea, blood pressure and pain. Reassess trends during the shift. Worsening breathing or circulation may reflect a complication even when the drainage unit appears to be operating.",
+              "source": "chest"
+            },
+            {
+              "text": "Inspect the insertion-site dressing for integrity and drainage. Assess nearby skin for bleeding, inflammation and crepitus, the crackling associated with subcutaneous air. New or increasing subcutaneous emphysema needs prompt communication and assessment.",
+              "source": "chest"
+            }
+          ]
+        },
+        {
+          "title": "Read the collection chamber",
+          "bullets": [
+            {
+              "text": "Record the amount, color and characteristics of drainage, with a time interval. Mark the collection level with date and time according to local practice so subsequent output can be compared with a clear baseline.",
+              "source": "chest"
+            },
+            {
+              "text": "Report excessive bleeding or an unexpected drainage change with the patient’s condition and the measured interval. If flow stops, assess tubing and the patient; a quiet collection chamber by itself does not establish that the underlying problem has resolved.",
+              "source": "chest"
+            }
+          ]
+        },
+        {
+          "title": "Understand water-seal behavior",
+          "bullets": [
+            {
+              "text": "The water seal permits air to leave while limiting its return into the pleural space. Maintain the specified water level when the device uses one. Tidaling is movement with breathing; absent tidaling may reflect obstruction, a system problem or lung re-expansion and requires clinical context.",
+              "source": "chest"
+            },
+            {
+              "text": "Continuous bubbling in the water-seal chamber can indicate an air leak. Inspect external connections and the insertion site for a correctable problem. Notify the responsible clinician if the tube is dislodged or an external leak cannot be identified and corrected.",
+              "source": "chest"
+            }
+          ]
+        },
+        {
+          "title": "Distinguish wet from dry suction",
+          "bullets": [
+            {
+              "text": "In a wet suction system, the suction-control chamber uses a water column and generally shows gentle continuous bubbling when connected appropriately. This expected bubbling is different from continuous bubbling in the water-seal chamber.",
+              "source": "chest"
+            },
+            {
+              "text": "Dry suction systems use their control dial and a manufacturer-specific indicator such as a float or bellows. Verify the prescribed setting and indicator. Do not increase wall suction simply to produce vigorous bubbling or treat all chambers as if they had the same function.",
+              "source": "chest"
+            }
+          ]
+        },
+        {
+          "title": "Protect the drainage pathway",
+          "bullets": [
+            {
+              "text": "Keep the drainage unit upright, stable and below the chest. Prevent tubing from kinking and secure connections and the chest tube according to policy. Account for the device during transfers so it is not pulled, tipped or raised unintentionally.",
+              "source": "chest"
+            },
+            {
+              "text": "Do not routinely clamp a chest tube because trapped air can create a tension pneumothorax. Brief clamping for a defined clinical procedure requires the applicable protocol and trained team. Do not strip the tubing; this can produce harmful intraluminal pressures.",
+              "source": "chest"
+            }
+          ]
+        },
+        {
+          "title": "Prepare for deterioration or disconnection",
+          "bullets": [
+            {
+              "text": "Breathing difficulty, falling oxygenation, cyanosis, chest pain, rapid or shallow breathing, new subcutaneous emphysema or excessive bleeding require immediate assessment and notification; activate the facility’s emergency response when indicated. Keep the patient under observation while help is obtained.",
+              "source": "chest"
+            },
+            {
+              "text": "Know where the locally required emergency supplies are kept. A displaced tube or disconnected unit needs the facility’s device-specific emergency procedure and prompt clinical help. This reference does not substitute a universal dressing or improvised water-seal maneuver for that procedure.",
+              "source": "chest"
+            }
+          ]
+        },
+        {
+          "title": "Support comfort and a clear handoff",
+          "bullets": [
+            {
+              "text": "Assess insertion-site pain and the response to prescribed analgesia and repositioning. Explain that new breathing difficulty should be reported immediately, and support ordered coughing, deep breathing and movement while protecting the tube.",
+              "source": "chest"
+            },
+            {
+              "text": "Hand off the current suction or water-seal plan, respiratory findings, insertion-site condition, drainage amount and character, bubbling or tidaling changes, and any escalation. Document both the observation and the patient’s response to care.",
+              "source": "chest"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "reference:focused-respiratory-assessment",
+        "reference:surgical-drain-monitoring",
+        "reference:oxygen-device-bedside-checks"
+      ],
+      "topics": [
+        "critical-care-devices",
+        "airway-ventilation"
+      ],
+      "symbol": "ChestTubeSample",
+      "oldFile": "EquipmentReference.swift",
+      "tags": "category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential"
+    },
+    {
+      "id": "wound-care-fundamentals",
+      "title": "Wound assessment and care",
+      "subtitle": "Consistent measurements, tissue description and response to care",
+      "family": "WoundDrain",
+      "sections": [
+        {
+          "title": "Identify the wound and clinical context",
+          "bullets": [
+            {
+              "text": "Record the exact anatomic location and distinguish each wound when several are present. Review the suspected cause, current treatment order and prior description. A reproducible baseline is necessary to identify improvement or deterioration at later dressing changes.",
+              "source": "wound"
+            },
+            {
+              "text": "Ask about pain before care and during cleansing or movement. Sensory impairment can reduce pain even with a substantial wound; absence of discomfort does not establish that skin and underlying tissue are intact.",
+              "source": "wound"
+            }
+          ]
+        },
+        {
+          "title": "Describe the bed and edges",
+          "bullets": [
+            {
+              "text": "Describe visible tissue by appearance, including granulation tissue, slough and eschar, and estimate their extent using the facility’s documentation approach. Report unexpected tissue change rather than choosing debridement solely from a color description.",
+              "source": "wound"
+            },
+            {
+              "text": "Assess whether wound edges are approximated, separated, rolled or otherwise changing. For a surgical incision, document any new separation and communicate it promptly. The wound bed, edges and surrounding skin each contribute different information.",
+              "source": "wound"
+            }
+          ]
+        },
+        {
+          "title": "Measure consistently",
+          "bullets": [
+            {
+              "text": "Use the facility’s standardized method and centimeters to record length, width and depth. Consistent orientation, technique and documentation allow comparison; measurements obtained by different methods can create a misleading impression of healing or enlargement.",
+              "source": "wound"
+            },
+            {
+              "text": "Assess tunneling and undermining only with the approved technique and appropriate competence. Document their location and extent, commonly using a clock-face convention with 12 o’clock toward the head. Do not force a measuring instrument into tissue.",
+              "source": "wound"
+            }
+          ]
+        },
+        {
+          "title": "Characterize drainage",
+          "bullets": [
+            {
+              "text": "Record the amount, color, consistency and odor of exudate. Serous drainage is thin and watery; sanguineous drainage is bloody; serosanguineous drainage contains both. Describe what is observed and compare it with the prior assessment.",
+              "source": "wound"
+            },
+            {
+              "text": "Thick opaque purulent drainage, a new odor or an unexpected increase in bleeding needs evaluation. Drainage should be interpreted alongside wound appearance, symptoms and the surrounding skin rather than used alone to assign an infectious diagnosis.",
+              "source": "wound"
+            }
+          ]
+        },
+        {
+          "title": "Inspect surrounding skin",
+          "bullets": [
+            {
+              "text": "Assess the periwound area for erythema or other color change, warmth, swelling, induration, tenderness and maceration. Excess moisture and leaking exudate can damage surrounding skin, so dressing performance is part of the assessment.",
+              "source": "wound"
+            },
+            {
+              "text": "Report new inflammation, purulent drainage, increasing pain or other concerning changes to the responsible team. Record the location and extent of the findings so subsequent assessments can determine whether the changes are spreading or resolving.",
+              "source": "wound"
+            }
+          ]
+        },
+        {
+          "title": "Match care to the order",
+          "bullets": [
+            {
+              "text": "Verify the prescribed cleansing solution, dressing and packing plan before starting. Cleansing removes surface debris and makes assessment easier; use a method that cleans effectively without damaging tissue or forcing debris deeper into the wound.",
+              "source": "wound"
+            },
+            {
+              "text": "When irrigation or packing is ordered, follow the specific technique and equipment requirements. Packing should not be forced or compressed tightly into the wound. Keep wet packing from overlapping intact wound edges, and use the prescribed outer dressing.",
+              "source": "wound"
+            }
+          ]
+        },
+        {
+          "title": "Evaluate the dressing and tolerance",
+          "bullets": [
+            {
+              "text": "The outer dressing should remain dry enough to maintain its protective function. A dressing saturated before the next scheduled change needs attention rather than simply waiting for the scheduled time. Report recurring saturation so the care plan can be reassessed.",
+              "source": "wound"
+            },
+            {
+              "text": "Reassess pain and comfort after care and inspect for bleeding or other adverse response. Compare the wound and periwound findings over time rather than documenting only that the dressing was changed.",
+              "source": "wound"
+            }
+          ]
+        },
+        {
+          "title": "Document an assessment that can be repeated",
+          "bullets": [
+            {
+              "text": "Include location, measurements, tissue and edge findings, drainage, surrounding skin, pain, solution and dressing used, and the patient’s response. Record concerning findings and who was notified, along with any revised orders or follow-up plan.",
+              "source": "wound"
+            },
+            {
+              "text": "Use the next assessment to evaluate whether the current plan is meeting its goals. A stable technique and descriptive documentation make a change easier for another nurse or wound-care clinician to recognize.",
+              "source": "wound"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "reference:surgical-drain-monitoring",
+        "procedure:wound-dressing-change",
+        "reference:skin-assessment-beyond-wounds"
+      ],
+      "topics": [
+        "skin-mobility-comfort"
+      ],
+      "symbol": "WoundCareSample",
+      "oldFile": "MedSurgReference.swift",
+      "tags": "category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential"
+    },
+    {
+      "id": "blood-transfusion-administration",
+      "title": "Blood transfusion administration",
+      "subtitle": "Verification, observation, reaction recognition and documentation",
+      "family": "Transfusion",
+      "sections": [
+        {
+          "title": "Establish readiness before collecting blood",
+          "bullets": [
+            {
+              "text": "Verify the order, required consent, indication, planned component and relevant compatibility testing. Review allergies and any prior transfusion reaction. Confirm that the patient understands the reason for treatment and knows how to report new symptoms.",
+              "source": "blood"
+            },
+            {
+              "text": "Complete required baseline assessments before the component arrives, including vital signs and relevant respiratory, skin and pain findings. Clarify an unexplained fever or other concern with the team so a pre-existing abnormality is not mistaken for a new transfusion reaction.",
+              "source": "blood"
+            }
+          ]
+        },
+        {
+          "title": "Prepare access and equipment",
+          "bullets": [
+            {
+              "text": "Confirm appropriate, patent vascular access and use the blood-bank-approved administration set and filter for the component. Have the prescribed compatible solution and monitoring equipment ready. Equipment requirements can differ by component and method of administration.",
+              "source": "blood"
+            },
+            {
+              "text": "Do not add medicines to a blood component or administer them through its tubing. Use a separate route for incompatible therapy. Follow the blood bank’s compatibility policy; the Open RN workflow describes 0.9% sodium chloride as the standard compatible solution.",
+              "source": "blood"
+            }
+          ]
+        },
+        {
+          "title": "Perform the bedside identity check",
+          "bullets": [
+            {
+              "text": "Complete the required independent bedside verification using the patient’s identifiers, order, compatibility documentation and component label. Verify the unit identification, component type, applicable blood-group compatibility and expiration. Follow local requirements for qualified staff and electronic verification.",
+              "source": "blood"
+            },
+            {
+              "text": "Inspect the component for an unexpected appearance, leakage or other concern. Any discrepancy must be resolved before starting. A previous check elsewhere does not replace the final match between the patient and the actual unit at the bedside.",
+              "source": "blood"
+            }
+          ]
+        },
+        {
+          "title": "Protect the component during handling",
+          "bullets": [
+            {
+              "text": "Collect the component only when the patient, staff and equipment are ready. Blood components require controlled storage and handling; do not put a unit in an ordinary ward refrigerator. Contact the blood bank when a delay makes the planned administration uncertain.",
+              "source": "blood"
+            },
+            {
+              "text": "Follow the component-specific issue, start, completion and return rules. Do not apply a single time limit or infusion rate to every product and clinical situation. The prescribed plan and blood-bank policy determine these details.",
+              "source": "blood"
+            }
+          ]
+        },
+        {
+          "title": "Observe closely during initiation",
+          "bullets": [
+            {
+              "text": "Begin according to the ordered rate and local protocol, remaining especially attentive during the first 15 minutes. Ask about new chills, itching, breathing difficulty, pain or a sudden sense of feeling unwell, and compare objective findings with baseline.",
+              "source": "blood"
+            },
+            {
+              "text": "Continue scheduled vital signs, IV-site checks and symptom assessment throughout the transfusion. Early tolerance does not remove the need for observation later in the infusion. Document the rate and time with the patient’s response.",
+              "source": "blood"
+            }
+          ]
+        },
+        {
+          "title": "Respond to a suspected reaction",
+          "bullets": [
+            {
+              "text": "A suspected reaction requires stopping the transfusion, assessing the patient and obtaining help according to the severity of the findings. Notify the responsible clinician and blood bank and follow the facility’s transfusion-reaction procedure.",
+              "source": "blood"
+            },
+            {
+              "text": "Maintain needed IV access using new tubing and the compatible solution specified by policy; do not flush residual suspect blood into the patient. Retain the component and administration set for the blood bank, and obtain the ordered specimens and repeat identity checks.",
+              "source": "blood"
+            }
+          ]
+        },
+        {
+          "title": "Reassess the clinical response",
+          "bullets": [
+            {
+              "text": "Evaluate respiratory status, vital signs, comfort, skin findings and IV-site condition during and after administration. New symptoms need assessment even when the component has finished; report and document their timing in relation to the transfusion.",
+              "source": "blood"
+            },
+            {
+              "text": "Review the ordered follow-up laboratory results and the intended treatment goal with the team. Completion of a unit does not by itself demonstrate that the desired clinical outcome has been achieved.",
+              "source": "blood"
+            }
+          ]
+        },
+        {
+          "title": "Close the record and handoff",
+          "bullets": [
+            {
+              "text": "Document the component and unit identification, start and finish times, volume administered, required checks, vital signs and patient response. Include any interruption, suspected reaction, notifications and specimens sent for investigation.",
+              "source": "blood"
+            },
+            {
+              "text": "If care transfers before monitoring or follow-up is complete, communicate what was administered, the current status, any symptoms and the remaining observation or laboratory plan. Keep the blood-bank investigation and treating-team instructions available to the receiving nurse.",
+              "source": "blood"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "procedure:blood-transfusion",
+        "reference:transfusion-reaction-protocol",
+        "reference:peripheral-iv-complication-assessment"
+      ],
+      "topics": [
+        "medication-transfusion-safety"
+      ],
+      "symbol": "BloodTransfusionAdminSample",
+      "oldFile": "MedSurgReference.swift",
+      "tags": "category: .physiologicalIntegrity, subcategory: .pharmacologicalAndParenteralTherapies"
+    },
+    {
+      "id": "feeding-tube-placement-safety",
+      "title": "Feeding tubes: placement and connection safety",
+      "subtitle": "Initial confirmation, migration checks and safe use",
+      "family": "Enteral",
+      "sections": [
+        {
+          "title": "Identify the route and intended use",
+          "bullets": [
+            {
+              "text": "Confirm the type of tube, its intended endpoint and whether it is ordered for feeding, medication delivery or gastric decompression. A feeding tube and a sump tube are not interchangeable merely because both enter through the nose.",
+              "source": "placement"
+            },
+            {
+              "text": "Review the documented insertion and placement-confirmation information before use. Communicate uncertainty about the route, tip location or authorized use to the responsible clinician; the external appearance of the tubing cannot resolve those questions.",
+              "source": "placement"
+            }
+          ]
+        },
+        {
+          "title": "Confirm initial placement appropriately",
+          "bullets": [
+            {
+              "text": "For a blindly inserted nasogastric or feeding tube, obtain the required radiographic confirmation before initial use for feeding or medication. Verify that the result and authorization to use the tube are documented through the facility’s process.",
+              "source": "placement"
+            },
+            {
+              "text": "Bedside checks do not replace this initial confirmation. NurseMind does not interpret the radiograph; image interpretation and the decision that the tube is correctly positioned belong to the qualified clinical team.",
+              "source": "placement"
+            }
+          ]
+        },
+        {
+          "title": "Establish an external-length baseline",
+          "bullets": [
+            {
+              "text": "Mark and document the tube’s external length at the exit site after confirmed placement. Compare this measurement with the baseline during ongoing assessments and before use. Secure the tube to reduce unintentional movement.",
+              "source": "placement"
+            },
+            {
+              "text": "Reassess when coughing, vomiting, movement or other events raise concern for migration. A changed external length is a reason to investigate; unchanged length is only one part of assessment and does not prove that every internal part of the tube remains correctly positioned.",
+              "source": "placement"
+            }
+          ]
+        },
+        {
+          "title": "Avoid unreliable confirmation shortcuts",
+          "bullets": [
+            {
+              "text": "Injecting air and listening over the abdomen for a sound is not a reliable placement-confirmation method. Appearance of aspirated material alone is also unreliable. Do not treat either finding as permission to begin feeding.",
+              "source": "placement"
+            },
+            {
+              "text": "Bedside pH testing may be part of the local ongoing-assessment process, but its interpretation depends on conditions and policy. When position is uncertain, withhold use and obtain the responsible clinician’s assessment and any required repeat imaging.",
+              "source": "placement"
+            }
+          ]
+        },
+        {
+          "title": "Watch for intolerance or respiratory change",
+          "bullets": [
+            {
+              "text": "Assess for coughing, respiratory difficulty or other signs suggesting possible aspiration or displacement. If aspiration or malposition is suspected, stop feeding and tube-medication administration and notify the responsible clinician while the patient is assessed.",
+              "source": "placement"
+            },
+            {
+              "text": "Clinical deterioration requires the appropriate urgent response. A tube-placement checklist should not delay assessment of breathing, oxygenation or consciousness when the person becomes unwell.",
+              "source": "placement"
+            }
+          ]
+        },
+        {
+          "title": "Trace the entire connection",
+          "bullets": [
+            {
+              "text": "Trace each line from the patient to its source before connecting and reconnecting it, and repeat this during handoff. Work in adequate lighting and distinguish enteral delivery tubing from intravenous tubing.",
+              "source": "enteral"
+            },
+            {
+              "text": "Use the intended enteral equipment and connectors. Do not alter or improvise adapters that defeat a device’s safety design. A secure-looking connection is not enough if it joins the wrong delivery route.",
+              "source": "enteral"
+            }
+          ]
+        },
+        {
+          "title": "Inspect the exit site and securement",
+          "bullets": [
+            {
+              "text": "For a nasal tube, inspect the nares and nearby skin for pressure injury, redness, swelling or bleeding. Check securement and assess for tubing curled in the mouth. Record pain and discomfort that may interfere with care.",
+              "source": "enteral"
+            },
+            {
+              "text": "For an abdominal feeding access, assess the surrounding skin and insertion site according to the device’s care plan. New pain, leakage or skin breakdown warrants reassessment; tube care includes the tissue around the access, not just patency.",
+              "source": "enteral"
+            }
+          ]
+        },
+        {
+          "title": "Make the next use safer",
+          "bullets": [
+            {
+              "text": "Document the confirmation method, recorded external length, assessment findings, any suspected migration and what action followed. Include whether the tube is currently cleared for use or remains on hold pending review.",
+              "source": "placement"
+            },
+            {
+              "text": "At transfer, communicate the type and purpose of the tube and unresolved placement concerns. Ongoing placement assessment continues after the first verified image; the original insertion record is not a permanent guarantee against later displacement.",
+              "source": "placement"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "procedure:ng-tube",
+        "reference:enteral-feeding-tolerance",
+        "reference:enteral-medication-safety"
+      ],
+      "topics": [
+        "nutrition-elimination",
+        "critical-care-devices"
+      ],
+      "symbol": "BedsideDepthFeedingTubePlacementSafetySample",
+      "oldFile": null,
+      "tags": "category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential"
+    },
+    {
+      "id": "enteral-feeding-tolerance",
+      "title": "Enteral feeding: tolerance and monitoring",
+      "subtitle": "Delivery checks, gastrointestinal symptoms, hydration and reassessment",
+      "family": "Enteral",
+      "sections": [
+        {
+          "title": "Match the prescription to the tube",
+          "bullets": [
+            {
+              "text": "Verify the formula, route, volume, administration method, rate and ordered water-flush plan. Know whether the tube ends in the stomach or small intestine. Review the feeding plan with the treating team and dietitian rather than assuming that any tube can receive the same schedule.",
+              "source": "enteral"
+            },
+            {
+              "text": "Check formula expiration and the handling requirements for the product and delivery system. Record what is actually delivered; interrupted feeds, missed flushes and discarded formula affect the intake record and the nutrition plan.",
+              "source": "enteral"
+            }
+          ]
+        },
+        {
+          "title": "Confirm readiness for each use",
+          "bullets": [
+            {
+              "text": "Verify that required initial placement confirmation is documented and reassess the external length and other placement checks before use. If the tube may have migrated or placement is uncertain, hold use and obtain assessment through the facility’s process.",
+              "source": "placement"
+            },
+            {
+              "text": "New coughing, respiratory difficulty or suspected aspiration during feeding requires stopping the feed and prompt clinical assessment. Do not use an abdominal sound after air injection as reassurance that feeding can continue.",
+              "source": "placement"
+            }
+          ]
+        },
+        {
+          "title": "Reduce aspiration risk",
+          "bullets": [
+            {
+              "text": "Maintain the head of the bed at 30–45 degrees during feeding unless contraindicated, following the individual care plan. Positioning, ongoing placement checks and assessment for gastrointestinal intolerance work together; no single check eliminates aspiration risk.",
+              "source": "enteral"
+            },
+            {
+              "text": "Recheck position after procedures, hygiene and transfers. If the prescribed positioning cannot be maintained, communicate with the team and follow the feeding plan for that situation instead of overlooking the conflict.",
+              "source": "enteral"
+            }
+          ]
+        },
+        {
+          "title": "Assess gastrointestinal tolerance",
+          "bullets": [
+            {
+              "text": "Ask about fullness, nausea, vomiting, cramping, bloating, diarrhea and constipation. Examine the abdomen and compare findings with baseline. The person’s report is useful even when the pump shows that the ordered volume is being delivered.",
+              "source": "enteral"
+            },
+            {
+              "text": "Report intolerance and follow the local hold or rate-adjustment protocol and provider orders. A change in formula or delivery rate requires clinical review; recurring symptoms should not be recorded without a reassessment of the feeding plan.",
+              "source": "enteral"
+            }
+          ]
+        },
+        {
+          "title": "Use residual measurements in context",
+          "bullets": [
+            {
+              "text": "Follow the institution’s policy on whether and how to measure gastric residual volume. Interpret a measured residual together with symptoms and the feeding plan; it should not be used as a stand-alone guarantee of aspiration safety.",
+              "source": "enteral"
+            },
+            {
+              "text": "Unnecessary interruptions can reduce nutrient delivery, and frequent aspiration of gastric contents may contribute to tube occlusion. This guide does not prescribe a universal residual threshold or replace the unit’s enteral-nutrition protocol.",
+              "source": "enteral"
+            }
+          ]
+        },
+        {
+          "title": "Track fluid and metabolic observations",
+          "bullets": [
+            {
+              "text": "Document formula, water flushes and other fluids given through the tube. Review the ordered intake/output, weight and nutrition-monitoring plan so delivery can be compared with the patient’s ongoing needs.",
+              "source": "enteral"
+            },
+            {
+              "text": "Monitor blood glucose and electrolytes as ordered and report significant changes. Feeding tolerance includes metabolic and hydration observations as well as the absence of nausea; the team determines any formula, fluid or medication adjustments.",
+              "source": "enteral"
+            }
+          ]
+        },
+        {
+          "title": "Protect tube patency",
+          "bullets": [
+            {
+              "text": "Follow the prescribed flush schedule around intermittent or continuous feeding and medication administration. Insufficient flushing, inappropriate medication preparation and contamination can contribute to clogging and interrupt nutrition or medicine delivery.",
+              "source": "enteral"
+            },
+            {
+              "text": "When clogging occurs, use the facility’s approved gentle water-based first approach. Do not substitute cranberry juice or carbonated beverages; acidic liquids can worsen precipitation of formula proteins. Persistent blockage requires the approved clinical pathway rather than force.",
+              "source": "enteral"
+            }
+          ]
+        },
+        {
+          "title": "Document the response and next plan",
+          "bullets": [
+            {
+              "text": "Record the amount and method of feeding, water provided, placement checks, relevant abdominal findings and tolerance. When feeding is stopped or changed, document the reason, notifications and the ordered reassessment or restart plan.",
+              "source": "enteral"
+            },
+            {
+              "text": "Include tube-site skin findings and the person’s concerns at handoff. A clear record of symptoms, timing and delivered volume helps the next nurse distinguish a continuing problem from a new one.",
+              "source": "enteral"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "reference:feeding-tube-placement-safety",
+        "reference:enteral-medication-safety",
+        "reference:bedside-nutrition-assessment",
+        "reference:fluid-volume-assessment"
+      ],
+      "topics": [
+        "nutrition-elimination",
+        "gastrointestinal"
+      ],
+      "symbol": "BedsideDepthEnteralFeedingToleranceSample",
+      "oldFile": null,
+      "tags": "category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential"
+    },
+    {
+      "id": "enteral-medication-safety",
+      "title": "Enteral tubes: medication safety",
+      "subtitle": "Formulation checks, separate administration and feeding coordination",
+      "family": "EnteralMedication",
+      "sections": [
+        {
+          "title": "Verify the medicine and route",
+          "bullets": [
+            {
+              "text": "Check the order against the medication record, patient identifiers, allergies and the required pre-administration assessment. Confirm that the medicine is intended for this enteral route and that the patient’s tube and current feeding plan are understood.",
+              "source": "medication"
+            },
+            {
+              "text": "Review the medicine’s purpose and any response that should be evaluated afterward. A feeding tube changes preparation and delivery; it does not remove the usual medication checks or the need to address an unclear order.",
+              "source": "medication"
+            }
+          ]
+        },
+        {
+          "title": "Check the exact formulation",
+          "bullets": [
+            {
+              "text": "Consult the pharmacist or an authoritative product reference before crushing a tablet or opening a capsule. Extended-release and enteric-coated products generally require an alternative plan; crushing can change how the medicine is delivered.",
+              "source": "medication"
+            },
+            {
+              "text": "An available liquid is not automatically interchangeable with every tablet or capsule. Confirm suitability, preparation instructions and the ordered formulation with pharmacy, especially when a substitution would change concentration, absorption or delivery characteristics.",
+              "source": "medication"
+            }
+          ]
+        },
+        {
+          "title": "Verify tube readiness",
+          "bullets": [
+            {
+              "text": "Confirm the documented initial placement verification and the required ongoing checks before giving medicine through the tube. Compare the external length with baseline and investigate any concern for displacement.",
+              "source": "placement"
+            },
+            {
+              "text": "Do not administer through a tube of uncertain position. Auscultation after air injection is unreliable, and aspirate appearance alone is not adequate confirmation. Suspected aspiration or malposition requires holding use and clinical assessment.",
+              "source": "placement"
+            }
+          ]
+        },
+        {
+          "title": "Position for administration",
+          "bullets": [
+            {
+              "text": "Elevate the head of the bed at least 30–45 degrees for tube-medication administration when the individual care plan permits. Maintain the required positioning afterward and during continuous feeding. If positioning is contraindicated, clarify the administration plan with the treating team.",
+              "source": "medication"
+            }
+          ]
+        },
+        {
+          "title": "Prepare each medicine separately",
+          "bullets": [
+            {
+              "text": "Prepare medicines individually using the approved technique for the exact formulation. Do not combine multiple medicines into one mixture and do not mix them directly into enteral formula. Separate preparation reduces incompatibility and tube-clogging problems.",
+              "source": "medication"
+            },
+            {
+              "text": "Use the correct enteral syringe and prescribed route. Maintain clean medication preparation and connection practices, keeping enteral equipment distinct from intravenous equipment throughout the process.",
+              "source": "medication"
+            }
+          ]
+        },
+        {
+          "title": "Coordinate feeds and suction",
+          "bullets": [
+            {
+              "text": "Pause feeding or suction when required by the medication-administration procedure and the medicine’s absorption requirements. Ask pharmacy about medicine–nutrition interactions and the necessary interval before restarting feeds.",
+              "source": "medication"
+            },
+            {
+              "text": "There is no single feeding-hold or suction-restart interval appropriate for every medicine. Confirm the individual instructions, then document when delivery was interrupted and resumed so missed nutrition or loss of the administered medicine can be recognized.",
+              "source": "medication"
+            }
+          ]
+        },
+        {
+          "title": "Flush according to the care plan",
+          "bullets": [
+            {
+              "text": "Use the prescribed water type and flush volume before medication, between separately administered medicines and after the final medicine. Individualize the plan for fluid restriction, tube characteristics and the patient’s needs in accordance with pharmacy and facility guidance.",
+              "source": "medication"
+            },
+            {
+              "text": "Count medication water and flushes in the intake record. Do not silently omit required flushing to meet a fluid limit; clarify a feasible plan with the responsible team so medication delivery, patency and fluid goals can all be addressed.",
+              "source": "medication"
+            }
+          ]
+        },
+        {
+          "title": "Recognize a delivery problem",
+          "bullets": [
+            {
+              "text": "Resistance, inability to deliver a medicine or uncertainty that the full preparation entered the tube requires assessment through the facility’s medication and tube-care process. Avoid forceful administration and obtain help when the route is not usable.",
+              "source": "medication"
+            },
+            {
+              "text": "Report a missed, delayed, refused or incompletely administered medicine according to policy. Do not record a dose as successfully given when delivery remains uncertain; the treating team needs that information before deciding the next step.",
+              "source": "medication"
+            }
+          ]
+        },
+        {
+          "title": "Evaluate and document",
+          "bullets": [
+            {
+              "text": "Document the medicine, route, time, relevant assessment and any administration problem. Evaluate the expected response, including the effectiveness of a medicine given as needed, and assess for an adverse response.",
+              "source": "medication"
+            },
+            {
+              "text": "Communicate unresolved formulation questions, feed or suction holds and tube-patency concerns at handoff. Clear timing and response documentation help the next nurse maintain the medication and nutrition plan safely.",
+              "source": "medication"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "procedure:enteral-medication-tube",
+        "reference:do-not-crush",
+        "reference:feeding-tube-placement-safety",
+        "reference:enteral-feeding-tolerance"
+      ],
+      "topics": [
+        "medication-transfusion-safety",
+        "nutrition-elimination"
+      ],
+      "symbol": "BedsideDepthEnteralMedicationSafetySample",
+      "oldFile": null,
+      "tags": "category: .physiologicalIntegrity, subcategory: .pharmacologicalAndParenteralTherapies"
+    },
+    {
+      "id": "nasogastric-decompression-monitoring",
+      "title": "NG decompression: bedside monitoring",
+      "subtitle": "Tube purpose, suction, output and abdominal reassessment",
+      "family": "Enteral",
+      "sections": [
+        {
+          "title": "Identify the decompression plan",
+          "bullets": [
+            {
+              "text": "Gastric decompression removes stomach contents through a nasogastric tube connected to suction. Confirm the tube type and clinical purpose. A double-lumen sump tube has a drainage lumen and a smaller air-vent lumen that helps protect the gastric mucosa during suction.",
+              "source": "placement"
+            },
+            {
+              "text": "Know which lumen has which function and follow the device’s instructions. A vent is not a medication or feeding port. The presence of a gastric tube does not by itself authorize feeding or medicine administration through it.",
+              "source": "placement"
+            }
+          ]
+        },
+        {
+          "title": "Check placement and securement",
+          "bullets": [
+            {
+              "text": "Review the placement-confirmation record and compare the external length with the documented baseline. Reassess if the tube has been pulled, the patient has vomited or other findings suggest movement. A suspected displaced tube needs review before continued use.",
+              "source": "placement"
+            },
+            {
+              "text": "Check that securement limits traction without creating skin injury. Include placement concerns and the current authorization for use in the handoff rather than assuming that the next nurse has seen the insertion record.",
+              "source": "placement"
+            }
+          ]
+        },
+        {
+          "title": "Assess the abdomen and symptoms",
+          "bullets": [
+            {
+              "text": "Ask about nausea, vomiting, fullness and abdominal discomfort. Inspect for distension, auscultate and palpate as appropriate, and compare with previous findings. Assessment helps determine whether decompression is having the intended effect.",
+              "source": "enteral"
+            },
+            {
+              "text": "New or worsening symptoms despite apparent suction require reassessment. Document the time course and accompanying output or equipment changes; the suction sound alone is not a measure of clinical improvement.",
+              "source": "enteral"
+            }
+          ]
+        },
+        {
+          "title": "Verify suction against the order",
+          "bullets": [
+            {
+              "text": "Connect the appropriate drainage lumen to the collection system and verify the prescribed suction setting and mode. Observe whether gastric contents travel through the tubing into the canister. Use the ordered setup and equipment instructions rather than one setting for all patients.",
+              "source": "enteral"
+            },
+            {
+              "text": "Inspect the path for visible problems when expected drainage is absent and communicate persistent concerns. Changes to suction, flushing or tube position require the applicable order and device procedure; do not resolve resistance by escalating force.",
+              "source": "enteral"
+            }
+          ]
+        },
+        {
+          "title": "Describe output precisely",
+          "bullets": [
+            {
+              "text": "Measure and document output amount, color, odor and consistency with its time interval. A meaningful report identifies how the current output differs from the prior pattern and what abdominal or other symptoms accompany it.",
+              "source": "enteral"
+            },
+            {
+              "text": "Unexpected dark or bloody-appearing drainage, a marked increase in output or worsening nausea and distension requires prompt clinical review. Preserve the timing and measured observations so the team can assess the significance.",
+              "source": "enteral"
+            }
+          ]
+        },
+        {
+          "title": "Include losses in fluid assessment",
+          "bullets": [
+            {
+              "text": "Review gastrointestinal losses together with other output, intake, daily weights, vital signs, examination findings and ordered laboratory results. Repeated gastric losses can contribute to fluid and electrolyte imbalance and should remain visible in the ongoing assessment.",
+              "source": "fluid"
+            },
+            {
+              "text": "Communicate increasing losses, reduced urine output, weakness, dizziness or other changing findings. The treating team determines replacement and laboratory monitoring; a canister measurement does not independently define a fluid or electrolyte prescription.",
+              "source": "fluid"
+            }
+          ]
+        },
+        {
+          "title": "Protect nasal and oral tissues",
+          "bullets": [
+            {
+              "text": "Inspect the nares for pressure damage, swelling, redness or bleeding and check surrounding skin at the securement site. Ask about discomfort and inspect for tubing curled in the mouth. Include these findings in routine tube reassessment.",
+              "source": "enteral"
+            },
+            {
+              "text": "Report skin breakdown, persistent bleeding, pain or a change in tube appearance. Maintaining the access site and comfort is part of tube management even when suction output remains adequate.",
+              "source": "enteral"
+            }
+          ]
+        },
+        {
+          "title": "Hand off the purpose and response",
+          "bullets": [
+            {
+              "text": "Document the prescribed suction mode and setting, output with time interval, abdominal findings, tube-site condition and patient tolerance. Include interventions and who was notified about abnormal findings.",
+              "source": "enteral"
+            },
+            {
+              "text": "At transfer, communicate continuing symptoms and any unresolved drainage or placement concern. Reassessment should establish whether the treatment is relieving symptoms and whether complications or a revised plan need attention.",
+              "source": "enteral"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "procedure:ng-tube",
+        "reference:feeding-tube-placement-safety",
+        "reference:focused-abdominal-assessment",
+        "reference:fluid-volume-assessment"
+      ],
+      "topics": [
+        "nutrition-elimination",
+        "gastrointestinal",
+        "critical-care-devices"
+      ],
+      "symbol": "BedsideDepthNasogastricDecompressionMonitoringSample",
+      "oldFile": null,
+      "tags": "category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential"
+    },
+    {
+      "id": "serial-neurological-assessment",
+      "title": "Neurological checks: serial bedside assessment",
+      "subtitle": "Baseline, mental status, pupils, movement and change over time",
+      "family": "Assessment",
+      "sections": [
+        {
+          "title": "Establish the reason and baseline",
+          "bullets": [
+            {
+              "text": "Review why neurological observation is required, the ordered frequency and the person’s usual cognitive, sensory and motor function. Ask about prior neurological conditions, current symptoms, medicines and recent changes in daily function.",
+              "source": "neuro"
+            },
+            {
+              "text": "Record a clear initial examination rather than relying only on the word normal. Serial assessment is most useful when the next examination can be compared with specific observations of consciousness, speech, pupils, movement and sensation.",
+              "source": "neuro"
+            }
+          ]
+        },
+        {
+          "title": "Describe consciousness and orientation",
+          "bullets": [
+            {
+              "text": "Observe whether the person is awake spontaneously, responds to voice, or requires further assessment under the trained examination protocol. Note the quality and consistency of interaction, not simply whether the eyes are open.",
+              "source": "neuro"
+            },
+            {
+              "text": "Assess orientation to person, place and time using appropriate questions and document the actual difficulties. Confusion, reduced attention and a change in responsiveness require comparison with baseline and the patient’s clinical context.",
+              "source": "neuro"
+            }
+          ]
+        },
+        {
+          "title": "Assess speech and understanding",
+          "bullets": [
+            {
+              "text": "Observe speech clarity, word finding, ability to express needs and understanding of simple requests. Distinguish what the person says from what they appear to understand, and report a new difficulty in either area.",
+              "source": "neuro"
+            },
+            {
+              "text": "Account for communication needs and the person’s usual language when assessing cognition. An assessment should describe observed behavior and limitations instead of assigning a neurological conclusion from a short or incomplete conversation.",
+              "source": "neuro"
+            }
+          ]
+        },
+        {
+          "title": "Examine pupil findings",
+          "bullets": [
+            {
+              "text": "Assess pupil size, symmetry and reaction to light using the approved technique. Compare the two eyes and previous findings; record the actual observation rather than only documenting a familiar abbreviation.",
+              "source": "neuro"
+            },
+            {
+              "text": "An unexpected change in size or reactivity needs prompt evaluation with the rest of the examination. Pupil findings are one part of neurological assessment and do not alone determine the diagnosis or prognosis.",
+              "source": "neuro"
+            }
+          ]
+        },
+        {
+          "title": "Compare movement on both sides",
+          "bullets": [
+            {
+              "text": "Observe spontaneous movement and assess strength using the facility’s standardized method. Compare the right and left sides, including upper and lower limbs, and note any difficulty following the requested movement.",
+              "source": "neuro"
+            },
+            {
+              "text": "Describe weakness, asymmetry and change from baseline precisely. A movement that is limited by pain or inability to understand the task needs that context in the record; the reason the examination is incomplete should remain visible.",
+              "source": "neuro"
+            }
+          ]
+        },
+        {
+          "title": "Assess sensation and safe coordination",
+          "bullets": [
+            {
+              "text": "Ask about numbness, tingling or altered sensation and compare findings on both sides when testing is appropriate. Report a new sensory change with its location and associated motor or functional findings.",
+              "source": "neuro"
+            },
+            {
+              "text": "Coordination, balance and gait assessment depend on the patient’s condition and ability to participate safely. Use assistance and fall precautions as indicated rather than asking an unstable patient to walk solely to complete a checklist.",
+              "source": "neuro"
+            }
+          ]
+        },
+        {
+          "title": "Recognize deterioration promptly",
+          "bullets": [
+            {
+              "text": "New reduced consciousness, speech difficulty, unequal strength or other acute focal change requires prompt escalation through the facility’s emergency or stroke-assessment pathway. Repeat observations and clear timing support the team’s assessment but should not delay urgent help.",
+              "source": "neuro"
+            },
+            {
+              "text": "Compare the whole examination with prior findings and communicate the specific change. A total score or general description can obscure which function changed; retain the underlying observations used in any local assessment tool.",
+              "source": "neuro"
+            }
+          ]
+        },
+        {
+          "title": "Document a usable trend",
+          "bullets": [
+            {
+              "text": "Record assessment time, level of consciousness, orientation, speech, pupils, movement and relevant sensory findings. Include examination limitations and the reason a component could not be assessed.",
+              "source": "neuro"
+            },
+            {
+              "text": "Hand off new findings, the time they were recognized, notifications and the current monitoring plan. Reassess after care or a change in condition as required so the record shows the trajectory rather than isolated examination labels.",
+              "source": "neuro"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "procedure:neuro-check",
+        "reference:mental-status-exam",
+        "reference:stroke-recovery-daily-support"
+      ],
+      "topics": [
+        "assessment-deterioration",
+        "neurological"
+      ],
+      "symbol": "BedsideDepthSerialNeurologicalAssessmentSample",
+      "oldFile": null,
+      "tags": "category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential"
+    },
+    {
+      "id": "fluid-volume-assessment",
+      "title": "Fluid volume: interpreting bedside trends",
+      "subtitle": "History, weights, intake/output and signs of excess or deficit",
+      "family": "Assessment",
+      "sections": [
+        {
+          "title": "Identify the relevant risks",
+          "bullets": [
+            {
+              "text": "Review oral and enteral intake, recent vomiting or diarrhea, surgery, trauma, chronic disease and medicines. Kidney disease and heart failure can increase the risk of fluid excess, while diuretics and gastrointestinal losses can contribute to deficit and electrolyte imbalance.",
+              "source": "fluid"
+            },
+            {
+              "text": "Ask about the person’s usual weight, intake, urine pattern and symptoms. Verify chart information with the patient or caregiver when possible; an inaccurate baseline can make a real change harder to recognize.",
+              "source": "fluid"
+            }
+          ]
+        },
+        {
+          "title": "Look for findings of possible deficit",
+          "bullets": [
+            {
+              "text": "Assess thirst, dry mucous membranes, weakness, dizziness and changes in urine output alongside blood pressure, pulse and mental status. A falling pressure with a faster, weak pulse may accompany fluid deficit and needs clinical assessment.",
+              "source": "fluid"
+            },
+            {
+              "text": "Older adults may have a reduced thirst response and limited ability to obtain fluids because of decreased mobility. Assess access to drinks and usual intake alongside observed findings, and report deterioration through the facility’s escalation process.",
+              "source": "fluid"
+            }
+          ]
+        },
+        {
+          "title": "Look for findings of possible excess",
+          "bullets": [
+            {
+              "text": "Assess swelling, weight change, breathing difficulty, lung sounds, blood pressure and pulse quality. Crackles may be heard first in the posterior lower lung fields, and increasing edema or respiratory symptoms should prompt reassessment.",
+              "source": "fluid"
+            },
+            {
+              "text": "Interpret these findings with the patient’s history and ongoing treatment. A new respiratory change needs prompt attention; documentation of a positive fluid balance alone does not establish the cause of breathlessness.",
+              "source": "fluid"
+            }
+          ]
+        },
+        {
+          "title": "Make weight measurements comparable",
+          "bullets": [
+            {
+              "text": "Use the same scale, a consistent time of day and similar clothing for serial weights. Check whether measurement conditions changed before interpreting an apparent gain or loss. Accurate daily weights help identify fluid changes that a single examination may miss.",
+              "source": "fluid"
+            },
+            {
+              "text": "Report a meaningful rapid change together with the interval and other findings. Compare the weight trend with measured intake and output rather than treating either record as a complete assessment by itself.",
+              "source": "fluid"
+            }
+          ]
+        },
+        {
+          "title": "Reconcile intake and output",
+          "bullets": [
+            {
+              "text": "Review the completeness of the intake and output record over a defined period. Include the relevant sources of administered fluid and measured losses, and communicate missing measurements or collection problems that make the balance uncertain.",
+              "source": "fluid"
+            },
+            {
+              "text": "Compare urine trends with the person’s baseline and clinical status. Reduced output requires assessment and reporting according to the ordered parameters and institutional protocol; it should not automatically trigger an independent fluid prescription.",
+              "source": "fluid"
+            }
+          ]
+        },
+        {
+          "title": "Use laboratory results as part of the picture",
+          "bullets": [
+            {
+              "text": "Review ordered electrolytes, kidney-function studies and other relevant results with the physical examination, weight and intake/output trend. Changes may support a concern but require interpretation in the patient’s overall clinical context.",
+              "source": "fluid"
+            },
+            {
+              "text": "Report important abnormalities and associated symptoms promptly. Fluid, electrolyte and acid-base status can change rapidly, so the responsible team determines repeat testing and treatment rather than relying on an earlier stable result.",
+              "source": "fluid"
+            }
+          ]
+        },
+        {
+          "title": "Evaluate the response to the plan",
+          "bullets": [
+            {
+              "text": "After prescribed interventions, reassess symptoms, vital signs, lung sounds, edema, urine output and relevant laboratory trends. Evaluate whether the intended outcome is occurring and whether new signs of imbalance have appeared.",
+              "source": "fluid"
+            },
+            {
+              "text": "Document the response rather than only the amount of fluid given or removed. Ongoing observation helps the team adjust the care plan when the original approach is not producing the expected result.",
+              "source": "fluid"
+            }
+          ]
+        },
+        {
+          "title": "Communicate the trend clearly",
+          "bullets": [
+            {
+              "text": "A useful report includes risk factors, what changed, when it changed, weight and output trends, examination findings and available laboratory results. State uncertainties such as an unmeasured loss or a different weighing method.",
+              "source": "fluid"
+            },
+            {
+              "text": "At handoff, include the active fluid plan, ordered monitoring and unresolved concerns. The next nurse should be able to continue a comparable assessment and recognize worsening status without reconstructing the entire shift.",
+              "source": "fluid"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "reference:fluid-balance-monitoring",
+        "reference:focused-cardiovascular-assessment",
+        "reference:kidney-medication-safety"
+      ],
+      "topics": [
+        "assessment-deterioration",
+        "renal-urinary"
+      ],
+      "symbol": "BedsideDepthFluidVolumeAssessmentSample",
+      "oldFile": null,
+      "tags": "category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential"
+    },
+    {
+      "id": "surgical-drain-monitoring",
+      "title": "Surgical drains: assessment and output",
+      "subtitle": "Closed reservoirs, securement, measurement and postoperative trends",
+      "family": "WoundDrain",
+      "sections": [
+        {
+          "title": "Identify each drain separately",
+          "bullets": [
+            {
+              "text": "Review the procedure, drain location, type and current care orders. A patient may have several drains serving different sites. Label and document each one distinctly so output from one location is not mistaken for another.",
+              "source": "wound"
+            },
+            {
+              "text": "Closed systems such as Jackson-Pratt and Hemovac drains collect fluid in a reservoir using negative pressure. Their expected output depends on the operation and location; one output pattern is not appropriate for every surgical drain.",
+              "source": "wound"
+            }
+          ]
+        },
+        {
+          "title": "Assess the site and patient",
+          "bullets": [
+            {
+              "text": "Inspect the insertion site, dressing and surrounding skin for leakage, bleeding, inflammation or other change. Ask about discomfort and compare the site with prior findings. Include the patient’s overall postoperative condition in the assessment.",
+              "source": "wound"
+            },
+            {
+              "text": "Check the site and device throughout the shift according to the clinical situation and policy. A functioning reservoir does not remove the need to look for pain, skin injury or drainage around the tube.",
+              "source": "wound"
+            }
+          ]
+        },
+        {
+          "title": "Protect securement during movement",
+          "bullets": [
+            {
+              "text": "Check that the tube and reservoir are secured according to the device and facility procedure. Maintain enough slack for movement so turning or walking does not pull on the insertion site.",
+              "source": "wound"
+            },
+            {
+              "text": "For the closed surgical drains described in Open RN, keep the reservoir below the wound to support drainage. Recheck positioning after transfers and personal care, when the device can become caught, pulled or displaced.",
+              "source": "wound"
+            }
+          ]
+        },
+        {
+          "title": "Empty with contamination prevention",
+          "bullets": [
+            {
+              "text": "Use hand hygiene and the appropriate protective equipment. Open the reservoir as directed while protecting the plug and opening from contamination. Point the opening away from the face to reduce splash exposure.",
+              "source": "wound"
+            },
+            {
+              "text": "Pour drainage into the measuring container without touching the reservoir opening to that container. Follow the device’s cleaning and closure instructions rather than handling the opening as an ordinary household container.",
+              "source": "wound"
+            }
+          ]
+        },
+        {
+          "title": "Reestablish the prescribed reservoir suction",
+          "bullets": [
+            {
+              "text": "For compressible closed reservoirs, the prescribed emptying procedure includes compressing the reservoir before replacing its plug to reestablish the vacuum. Confirm that the device remains correctly closed and functioning afterward.",
+              "source": "wound"
+            },
+            {
+              "text": "Assess the tubing, placement and reservoir when drainage does not appear to be functioning normally. Persistent leakage or failure to maintain the expected reservoir state needs clinical review; the emptying procedure does not authorize drain repositioning or removal.",
+              "source": "wound"
+            }
+          ]
+        },
+        {
+          "title": "Measure and characterize output",
+          "bullets": [
+            {
+              "text": "Record volume, color, consistency and odor for each drain and identify the collection interval. Drainage belongs in the patient’s output record. Measure with the designated container rather than estimating from the appearance of a partly filled bulb.",
+              "source": "wound"
+            },
+            {
+              "text": "Empty and assess frequently enough for the postoperative plan and local policy. A heavy, full reservoir can add traction and makes ongoing drainage assessment more difficult; do not wait for it to become an obstacle to safe movement.",
+              "source": "wound"
+            }
+          ]
+        },
+        {
+          "title": "Recognize an unexpected change",
+          "bullets": [
+            {
+              "text": "Report concerning wound or drain findings, including new bleeding, changed drainage character, leakage, increasing pain or inflammation. Compare with the previous measurements and describe the change in concrete terms.",
+              "source": "wound"
+            },
+            {
+              "text": "Evaluate the site and system when drainage changes unexpectedly rather than assuming that less output always indicates healing. The clinical team determines whether the drain needs additional assessment or a revised plan.",
+              "source": "wound"
+            }
+          ]
+        },
+        {
+          "title": "Record the care and response",
+          "bullets": [
+            {
+              "text": "Document each drain’s site, securement, output, reservoir function and patient tolerance, together with care performed and any notifications. Include the response after emptying or other ordered care.",
+              "source": "wound"
+            },
+            {
+              "text": "Hand off which drains remain in place, their recent output and unresolved concerns. This guide covers routine observation and reservoir care; surgical drain flushing, manipulation and removal require their own device-specific orders and trained procedure.",
+              "source": "wound"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "reference:wound-care-fundamentals",
+        "reference:post-op-assessment",
+        "reference:fluid-volume-assessment"
+      ],
+      "topics": [
+        "critical-care-devices",
+        "perioperative-nursing",
+        "skin-mobility-comfort"
+      ],
+      "symbol": "BedsideDepthSurgicalDrainMonitoringSample",
+      "oldFile": null,
+      "tags": "category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential"
+    },
+    {
+      "id": "peripheral-iv-complication-assessment",
+      "title": "Peripheral IV: complications and reassessment",
+      "subtitle": "Site findings, patency, infusion checks and escalation",
+      "family": "Vascular",
+      "sections": [
+        {
+          "title": "Check the infusion and patient context",
+          "bullets": [
+            {
+              "text": "Verify the prescribed fluid or medicine, route and rate against the medication record. Review allergies and conditions such as heart failure or kidney disease that increase vulnerability to fluid overload.",
+              "source": "iv"
+            },
+            {
+              "text": "Inspect the fluid container for leakage, abnormal color or cloudiness and check expiration. Trace the tubing and review the access type; a PICC placed in the arm is a central catheter and needs its own maintenance and assessment requirements.",
+              "source": "iv"
+            }
+          ]
+        },
+        {
+          "title": "Ask about the site repeatedly",
+          "bullets": [
+            {
+              "text": "Ask about pain or discomfort at rest and during the infusion. Encourage the patient to report tenderness, swelling or a new sensation promptly instead of waiting for the next scheduled observation.",
+              "source": "iv"
+            },
+            {
+              "text": "Inspect the site before initiating therapy and throughout treatment. Compare the findings with baseline and reassess during interactions with the patient; a site that was comfortable before the infusion may become painful after delivery begins.",
+              "source": "iv"
+            }
+          ]
+        },
+        {
+          "title": "Recognize local abnormal findings",
+          "bullets": [
+            {
+              "text": "Look for redness, swelling, tenderness, unusual coolness or warmth, leakage and a change in the surrounding skin. An expected site is free of these findings, and the infusion should flow without local pain.",
+              "source": "iv"
+            },
+            {
+              "text": "Infiltration occurs when fluid enters the surrounding tissue rather than remaining in the vein. Swelling, discomfort and cool skin can be clues. Phlebitis involves inflammation along a vein and may cause redness and tenderness.",
+              "source": "iv"
+            }
+          ]
+        },
+        {
+          "title": "Assess a flow or patency problem",
+          "bullets": [
+            {
+              "text": "Poor flow, pain during a flush, leaking around the insertion site or swelling during infusion requires assessment. Stop delivery through a site suspected of infiltration and follow the facility’s evaluation and replacement procedure.",
+              "source": "iv"
+            },
+            {
+              "text": "Check the patient and access site when a delivery problem occurs, not only the tubing or pump display. Do not treat a previously normal check as proof that a newly painful or swollen site remains suitable for use.",
+              "source": "iv"
+            }
+          ]
+        },
+        {
+          "title": "Recognize when tissue injury is possible",
+          "bullets": [
+            {
+              "text": "Extravasation describes leakage of a tissue-damaging infused medicine into surrounding tissue and can lead to serious injury. Identify the exact drug or solution when a site problem occurs; different agents require different management.",
+              "source": "iv"
+            },
+            {
+              "text": "Redness, warmth or blistering at the site requires immediate reporting and evaluation. Distinguishing a simple mechanical problem from tissue-damaging leakage requires the clinical team and the applicable drug-specific procedure.",
+              "source": "iv"
+            }
+          ]
+        },
+        {
+          "title": "Use the drug-specific emergency pathway",
+          "bullets": [
+            {
+              "text": "For suspected extravasation of anti-cancer therapy or contrast, eviQ advises immediately stopping delivery and obtaining assistance. Initially leave the access device in place for trained assessment and aspiration; do not flush it. Notify the treating team and pharmacist and use the local extravasation procedure.",
+              "source": "extravasation"
+            },
+            {
+              "text": "Antidotes, warm or cold applications, device removal and follow-up depend on the agent and injury. Do not apply one compress or removal rule to every medication. This brief precaution is not a complete extravasation treatment protocol.",
+              "source": "extravasation"
+            }
+          ]
+        },
+        {
+          "title": "Assess systemic tolerance too",
+          "bullets": [
+            {
+              "text": "Monitor for fluid overload, especially in older adults and people with heart or kidney disease. Increasing respiratory rate or blood pressure, falling oxygen saturation, peripheral edema and new posterior lung crackles warrant assessment and communication.",
+              "source": "iv"
+            },
+            {
+              "text": "Include breathing and circulation findings when reporting an infusion concern. A normal-looking insertion site does not establish that the administered fluid or rate is being tolerated systemically.",
+              "source": "iv"
+            }
+          ]
+        },
+        {
+          "title": "Document findings and follow-up",
+          "bullets": [
+            {
+              "text": "Record the site location, fluid or medicine, rate, symptom onset, observed changes and actions taken. Include the response after the infusion was stopped or the access plan changed, and any notifications.",
+              "source": "iv"
+            },
+            {
+              "text": "Communicate unresolved pain, swelling, skin changes or systemic symptoms at handoff. Reassessment should verify the patient’s response and whether ongoing treatment has a safe, functional route.",
+              "source": "iv"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "reference:central-venous-catheter",
+        "reference:chemo-extravasation",
+        "reference:fluid-volume-assessment"
+      ],
+      "topics": [
+        "critical-care-devices",
+        "medication-transfusion-safety"
+      ],
+      "symbol": "BedsideDepthPeripheralIvComplicationAssessmentSample",
+      "oldFile": null,
+      "tags": "category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential"
+    }
+  ]
+}

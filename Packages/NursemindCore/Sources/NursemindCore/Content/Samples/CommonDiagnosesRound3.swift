@@ -62,6 +62,17 @@ private let painTags = NCLEXTags(category: .physiologicalIntegrity, subcategory:
 
 // MARK: - Diverticulitis
 
+
+private let goutContinuitySource2026 = CitationSource(
+    id: "depth8_gout_care",
+    shortName: "Gout: Diagnosis, Treatment, & Steps to Take",
+    detail: "Assessment; daily support; individualized follow-up; medication regimens excluded. Source reviewed December 2023. Federal educational prose adapted and condensed by NurseMind; images, logos and third-party material excluded.",
+    publisher: "National Institute of Arthritis and Musculoskeletal and Skin Diseases; National Institutes of Health",
+    license: .publicDomain,
+    url: "https://www.niams.nih.gov/health-topics/gout/diagnosis-treatment-and-steps-to-take",
+    lastRetrieved: "2026-09-17"
+)
+
 public enum DiverticulitisSample {
     public static let entry: DiagnosisEntry = DiagnosisEntry(
         id: "diverticulitis",
@@ -382,8 +393,8 @@ public enum GoutSample {
         ],
         commonInterventions: [
             AttributedBullet("ACUTE ATTACK: NSAIDs (ibuprofen 800 mg TID, naproxen 500 mg BID, indomethacin) — first-line if no contraindication. Colchicine 1.2 mg PO then 0.6 mg in 1 hour, then 0.6 mg BID daily. Corticosteroid (prednisone 30–40 mg taper × 5–10 days) when NSAIDs/colchicine contraindicated. Intra-articular steroid for 1–2 joints.", citationIDs: ["acr_round3"]),
-            AttributedBullet("Do NOT start ULT during acute attack (worsens). Continue ULT if patient already on it.", citationIDs: ["acr_round3"]),
-            AttributedBullet("URATE-LOWERING THERAPY (ULT) — start 2–4 weeks after acute attack resolves (or sooner if frequent attacks/tophi/CKD): allopurinol first-line; titrate to serum urate <6 mg/dL (<5 with tophi).", citationIDs: ["acr_round3"]),
+            AttributedBullet("Flare control and long-term urate reduction have different goals. The clinician individualizes medication selection and timing.", citationIDs: ["depth8_gout_care"]),
+            AttributedBullet("For frequent flares or tophi, lifestyle measures alone are insufficient; regular prescribed urate-lowering treatment helps prevent further flares and reduce tophi.", citationIDs: ["depth8_gout_care"]),
             AttributedBullet("Concomitant prophylaxis when starting ULT — colchicine 0.6 mg daily or low-dose NSAID × 3–6 months to prevent flare.", citationIDs: ["acr_round3"]),
             AttributedBullet("Febuxostat — alternative; cardiac concerns in some studies.", citationIDs: ["acr_round3"]),
             AttributedBullet("Probenecid — uricosuric (avoid if CKD, kidney stones).", citationIDs: ["acr_round3"]),
@@ -398,7 +409,7 @@ public enum GoutSample {
             AttributedBullet("CKD — colchicine and NSAIDs need caution.", citationIDs: ["openrn_ms_round3"]),
             AttributedBullet("Tophi — joint destruction and disfigurement if undertreated.", citationIDs: ["openrn_ms_round3"])
         ],
-        citations: [openrnMS3, openstaxMS3, acrConcept],
+        citations: [openrnMS3, openstaxMS3, acrConcept, goutContinuitySource2026],
         lastSourceFidelityReview: "2026-05-04"
     )
 }

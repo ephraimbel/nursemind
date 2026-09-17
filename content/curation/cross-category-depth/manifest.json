@@ -1,0 +1,3399 @@
+{
+  "date": "2026-09-17",
+  "scope": "Thirteen new entries and three expanded entries across all eight library categories. Existing UPCR/UACR and respiratory-reference identifiers preserved.",
+  "clinicalReview": {
+    "tier": "A",
+    "status": "pending",
+    "publicationApproved": false,
+    "reviewer": null,
+    "note": "Conservative pre-publication review for ICU infusion dosing, antimicrobial treatment, interpretation and emergency communication. Source fidelity and tests are not clinical approval. This manifest is metadata, not a runtime publication gate."
+  },
+  "sources": [
+    {
+      "id": "cc_depth_fetroja",
+      "shortName": "FDA SPL — FETROJA (cefiderocol)",
+      "publisher": "FDA prescribing information distributed by DailyMed; National Library of Medicine",
+      "license": "cc0",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=75c0c785-38e0-4049-a6fb-b77581f5b35c",
+      "detail": "SPL set 75c0c785-38e0-4049-a6fb-b77581f5b35c, version 11, effective 20260224. Adult prescribing-information excerpts and source-grounded summaries; sections 1, 2, 4–7 and 12.4 (antibiotics) or 12.1 (infusions). Dosing blocks are label reference, not patient-specific orders. Tables reformatted for readability. Pediatric dosing excluded. Source-fidelity review is not independent clinical approval.",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=75c0c785-38e0-4049-a6fb-b77581f5b35c",
+        "retrievalURL": "https://dailymed.nlm.nih.gov/dailymed/services/v2/spls/75c0c785-38e0-4049-a6fb-b77581f5b35c.xml",
+        "resolvedURL": "https://dailymed.nlm.nih.gov/dailymed/services/v2/spls/75c0c785-38e0-4049-a6fb-b77581f5b35c.xml",
+        "retrieved": "2026-09-17",
+        "xmlSHA256": "eae149d3140ecdb92b3ca741254964d9a2f682077330561f3d9cb30dfa5c8e2f",
+        "textSHA256": "d72711fc77cd571d1b5ae67ab1dafad4f314916e3a479a0b402e7eafb2f5b606",
+        "setID": "75c0c785-38e0-4049-a6fb-b77581f5b35c",
+        "version": "11",
+        "effectiveDate": "20260224"
+      }
+    },
+    {
+      "id": "cc_depth_avycaz",
+      "shortName": "FDA SPL — AVYCAZ (ceftazidime and avibactam)",
+      "publisher": "FDA prescribing information distributed by DailyMed; National Library of Medicine",
+      "license": "cc0",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d9c2803f-dc9c-4b19-b4a3-8303bc8c15fd",
+      "detail": "SPL set d9c2803f-dc9c-4b19-b4a3-8303bc8c15fd, version 25, effective 20250430. Adult prescribing-information excerpts and source-grounded summaries; sections 1, 2, 4–7 and 12.4 (antibiotics) or 12.1 (infusions). Dosing blocks are label reference, not patient-specific orders. Tables reformatted for readability. Pediatric dosing excluded. Source-fidelity review is not independent clinical approval.",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d9c2803f-dc9c-4b19-b4a3-8303bc8c15fd",
+        "retrievalURL": "https://dailymed.nlm.nih.gov/dailymed/services/v2/spls/d9c2803f-dc9c-4b19-b4a3-8303bc8c15fd.xml",
+        "resolvedURL": "https://dailymed.nlm.nih.gov/dailymed/services/v2/spls/d9c2803f-dc9c-4b19-b4a3-8303bc8c15fd.xml",
+        "retrieved": "2026-09-17",
+        "xmlSHA256": "04c1e43db0be258682dbbef20d204ca4f94ce4f0367103e9d79595fb5d2ee07e",
+        "textSHA256": "a1e4ad6772a9531c9fe24d6c48b522bac84e16f357d5b0bac5e8d808af49179f",
+        "setID": "d9c2803f-dc9c-4b19-b4a3-8303bc8c15fd",
+        "version": "25",
+        "effectiveDate": "20250430"
+      }
+    },
+    {
+      "id": "cc_depth_giapreza",
+      "shortName": "FDA SPL — GIAPREZA (angiotensin II)",
+      "publisher": "FDA prescribing information distributed by DailyMed; National Library of Medicine",
+      "license": "cc0",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c265d69a-3efe-4107-9a9e-e6fd3d531c48",
+      "detail": "SPL set c265d69a-3efe-4107-9a9e-e6fd3d531c48, version 18, effective 20260722. Adult prescribing-information excerpts and source-grounded summaries; sections 1, 2, 4–7 and 12.4 (antibiotics) or 12.1 (infusions). Dosing blocks are label reference, not patient-specific orders. Tables reformatted for readability. Pediatric dosing excluded. Source-fidelity review is not independent clinical approval.",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c265d69a-3efe-4107-9a9e-e6fd3d531c48",
+        "retrievalURL": "https://dailymed.nlm.nih.gov/dailymed/services/v2/spls/c265d69a-3efe-4107-9a9e-e6fd3d531c48.xml",
+        "resolvedURL": "https://dailymed.nlm.nih.gov/dailymed/services/v2/spls/c265d69a-3efe-4107-9a9e-e6fd3d531c48.xml",
+        "retrieved": "2026-09-17",
+        "xmlSHA256": "46652b61b23d2c2ebc9ee50fb6fbd7fc1fb823244be0b77288cec7f3d9d7511c",
+        "textSHA256": "fa4c46785fcff396e90dc4588f0bc0e2ceca9fa71e627cbbaf2f152ec00b56f0",
+        "setID": "c265d69a-3efe-4107-9a9e-e6fd3d531c48",
+        "version": "18",
+        "effectiveDate": "20260722"
+      }
+    },
+    {
+      "id": "cc_depth_kengreal",
+      "shortName": "FDA SPL — KENGREAL (cangrelor)",
+      "publisher": "FDA prescribing information distributed by DailyMed; National Library of Medicine",
+      "license": "cc0",
+      "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=88b434fa-8891-4fd5-9d86-7ea64667c08f",
+      "detail": "SPL set 88b434fa-8891-4fd5-9d86-7ea64667c08f, version 10, effective 20251021. Adult prescribing-information excerpts and source-grounded summaries; sections 1, 2, 4–7 and 12.4 (antibiotics) or 12.1 (infusions). Dosing blocks are label reference, not patient-specific orders. Tables reformatted for readability. Pediatric dosing excluded. Source-fidelity review is not independent clinical approval.",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=88b434fa-8891-4fd5-9d86-7ea64667c08f",
+        "retrievalURL": "https://dailymed.nlm.nih.gov/dailymed/services/v2/spls/88b434fa-8891-4fd5-9d86-7ea64667c08f.xml",
+        "resolvedURL": "https://dailymed.nlm.nih.gov/dailymed/services/v2/spls/88b434fa-8891-4fd5-9d86-7ea64667c08f.xml",
+        "retrieved": "2026-09-17",
+        "xmlSHA256": "c98cbff596d951d395b22a77d246dc186e54b734fd78cc2eeeeec3f7d10caddd",
+        "textSHA256": "ab4892fb711a1372482256280b1e3621d47e25afce266b82bd07e1f1d1858c53",
+        "setID": "88b434fa-8891-4fd5-9d86-7ea64667c08f",
+        "version": "10",
+        "effectiveDate": "20251021"
+      }
+    },
+    {
+      "id": "cc_depth_cystatin",
+      "shortName": "NIDDK — Estimated GFR calculators",
+      "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases; NIH",
+      "license": "publicDomain",
+      "url": "https://www.niddk.nih.gov/health-information/professionals/clinical-tools-patient-management/kidney-disease/laboratory-evaluation/estimated-gfr-calculators",
+      "detail": "May 2024. Race-free combined creatinine–cystatin C estimation and interpretation near clinical decision values. Original federal educational prose only; linked third-party references excluded. Source-fidelity review is not independent clinical approval.",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.niddk.nih.gov/health-information/professionals/clinical-tools-patient-management/kidney-disease/laboratory-evaluation/estimated-gfr-calculators",
+        "resolvedURL": "https://www.niddk.nih.gov/health-information/professionals/clinical-tools-patient-management/kidney-disease/laboratory-evaluation/estimated-gfr-calculators",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "8609465744dc6c7020553722dad9e8ba416e380a9b78859adad03c531c0e37e9",
+        "textSHA256": "fb71fba6f9cff5648ca4628789a078cbd9af16a2dbd7c62abda7c7227f0dc3a5"
+      }
+    },
+    {
+      "id": "cc_depth_gfr_accuracy",
+      "shortName": "NIDDK — Factors affecting eGFR accuracy",
+      "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases; NIH",
+      "license": "publicDomain",
+      "url": "https://www.niddk.nih.gov/research-funding/research-programs/kidney-clinical-research-epidemiology/laboratory/factors-affecting-egfr-accuracy",
+      "detail": "May 2025. Estimate uncertainty, biomarker variability, population differences and longitudinal interpretation. Original federal educational prose only; linked third-party references excluded. Source-fidelity review is not independent clinical approval.",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.niddk.nih.gov/research-funding/research-programs/kidney-clinical-research-epidemiology/laboratory/factors-affecting-egfr-accuracy",
+        "resolvedURL": "https://www.niddk.nih.gov/research-funding/research-programs/kidney-clinical-research-epidemiology/laboratory/factors-affecting-egfr-accuracy",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "dbcafcca19c9b91c9d8b6b1a1d4d0e59474b4327f4e871764135279178bde568",
+        "textSHA256": "6c79d5ed3ccd8bab0fa62ffcad5d41a657bd2a0002472e90a76fee9b6ac2f911"
+      }
+    },
+    {
+      "id": "cc_depth_uacr",
+      "shortName": "NIDDK — Assess urine albumin",
+      "publisher": "National Institute of Diabetes and Digestive and Kidney Diseases; NIH",
+      "license": "publicDomain",
+      "url": "https://www.niddk.nih.gov/health-information/professionals/clinical-tools-patient-management/kidney-disease/identify-manage-patients/evaluate-ckd/assess-urine-albumin",
+      "detail": "March 2012. Spot UACR, specimen choice and monitoring; older source, used for test principles rather than contemporary treatment algorithms. Original federal educational prose only; linked third-party references excluded. Source-fidelity review is not independent clinical approval.",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.niddk.nih.gov/health-information/professionals/clinical-tools-patient-management/kidney-disease/identify-manage-patients/evaluate-ckd/assess-urine-albumin",
+        "resolvedURL": "https://www.niddk.nih.gov/health-information/professionals/clinical-tools-patient-management/kidney-disease/identify-manage-patients/evaluate-ckd/assess-urine-albumin",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "48139b6d2f01556a725c682584b92d12a99feffc242427228e5afa624287cf45",
+        "textSHA256": "51a261a8d9e67b3f0aec82663ef029a5062b82842d2a89b81ebfa2206df45fc5"
+      }
+    },
+    {
+      "id": "cc_depth_lab_context",
+      "shortName": "MedlinePlus — Understanding lab results",
+      "publisher": "National Library of Medicine; NIH",
+      "license": "publicDomain",
+      "url": "https://medlineplus.gov/lab-tests/how-to-understand-your-lab-results/",
+      "detail": "Reference intervals, units, preparation and interpretation limits. Original NLM medical-test prose; no A.D.A.M., AHFS or third-party bibliography content used. Source-fidelity review is not independent clinical approval.",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://medlineplus.gov/lab-tests/how-to-understand-your-lab-results/",
+        "resolvedURL": "https://medlineplus.gov/lab-tests/how-to-understand-your-lab-results/",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "24ac9bf0672619f423836d817c52db62e8ecd072647ffcabf2c552ec6029b803",
+        "textSHA256": "c4990d7010d7eaa572f1a9692b49c5033fd90bdc57e14dc08f77eeeac9a37e05"
+      }
+    },
+    {
+      "id": "cc_depth_osmolality",
+      "shortName": "MedlinePlus — Osmolality tests",
+      "publisher": "National Library of Medicine; NIH",
+      "license": "publicDomain",
+      "url": "https://medlineplus.gov/lab-tests/osmolality-tests/",
+      "detail": "Urine testing, paired serum interpretation, collection, preparation and qualitative associations; no unsourced interval. Original NLM medical-test prose; no A.D.A.M., AHFS or third-party bibliography content used. Source-fidelity review is not independent clinical approval.",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://medlineplus.gov/lab-tests/osmolality-tests/",
+        "resolvedURL": "https://medlineplus.gov/lab-tests/osmolality-tests/",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "478b40c8642b72399cabe69f9ce9a004abba91d9122e9df320551e8701a8bf84",
+        "textSHA256": "cde76170ca0cd832ebe0a4335f5c08b92c85150d84519cea7c27a4f591d60f67"
+      }
+    },
+    {
+      "id": "cc_depth_protein_urine",
+      "shortName": "MedlinePlus — Protein in urine",
+      "publisher": "National Library of Medicine; NIH",
+      "license": "publicDomain",
+      "url": "https://medlineplus.gov/lab-tests/protein-in-urine/",
+      "detail": "Purpose, transient proteinuria and repeat testing. Original NLM article only; bibliography excluded. Original NLM medical-test prose; no A.D.A.M., AHFS or third-party bibliography content used. Source-fidelity review is not independent clinical approval.",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://medlineplus.gov/lab-tests/protein-in-urine/",
+        "resolvedURL": "https://medlineplus.gov/lab-tests/protein-in-urine/",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "991b7d2b0b3b0a391889cc8c0cb6db3fc4e2f30dcebfe610f000c942e92ebeea",
+        "textSHA256": "66500b2cf571f63fb3a6dd7885c86ae41bb3ad74cf300d308d5c1f63aec61d34"
+      }
+    },
+    {
+      "id": "cc_depth_uric_collection",
+      "shortName": "MedlinePlus — Uric acid test — 24-hour urine collection",
+      "publisher": "National Library of Medicine; NIH",
+      "license": "publicDomain",
+      "url": "https://medlineplus.gov/lab-tests/uric-acid-test/",
+      "detail": "The five collection steps under What happens during a uric acid test, plus medicine preparation. Collection method adapted with the specific test and laboratory instructions retained. Original NLM medical-test prose; no A.D.A.M., AHFS or third-party bibliography content used. Source-fidelity review is not independent clinical approval.",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://medlineplus.gov/lab-tests/uric-acid-test/",
+        "resolvedURL": "https://medlineplus.gov/lab-tests/uric-acid-test/",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "6e11c5294249936210da4e9061557b770f4254e59e3d7bda44a172c593877a84",
+        "textSHA256": "dbd5ba441b4b35cb0954feca8750ea07c4e10097aba102d4d525b12ff86ce16e"
+      }
+    },
+    {
+      "id": "cc_depth_aat",
+      "shortName": "NHLBI — Alpha-1 antitrypsin deficiency",
+      "publisher": "National Heart, Lung, and Blood Institute; NIH",
+      "license": "publicDomain",
+      "url": "https://www.nhlbi.nih.gov/health/alpha-1-antitrypsin-deficiency",
+      "detail": "October 2023. Inheritance, pulmonary and hepatic symptoms, blood/genetic testing and treatment overview. No augmentation-therapy dosing. Federal educational text condensed; no images, videos or third-party material. Source-fidelity review is not independent clinical approval.",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.nhlbi.nih.gov/health/alpha-1-antitrypsin-deficiency",
+        "resolvedURL": "https://www.nhlbi.nih.gov/health/alpha-1-antitrypsin-deficiency",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "f446ab443a62c9bd01733e2cd26127311045151228de4d01573609c395dbd59e",
+        "textSHA256": "6a4a2b21f3241fec2c42d1aab57cc19ed4eeac95d1d7161fadb36401444105e9"
+      }
+    },
+    {
+      "id": "cc_depth_apnea",
+      "shortName": "NHLBI — Sleep apnea",
+      "publisher": "National Heart, Lung, and Blood Institute; NIH",
+      "license": "publicDomain",
+      "url": "https://www.nhlbi.nih.gov/health/sleep-apnea",
+      "detail": "January 2025. Central versus obstructive mechanisms and general sleep-apnea symptoms. No inference that airway surgery treats central apnea. Federal educational text condensed; no images, videos or third-party material. Source-fidelity review is not independent clinical approval.",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.nhlbi.nih.gov/health/sleep-apnea",
+        "resolvedURL": "https://www.nhlbi.nih.gov/health/sleep-apnea",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "cefdcee747f9309750d4412fe3b9f8842503668cbc91bdae253b6e38b180cd8d",
+        "textSHA256": "48243f79a9be454378565e2dae9f7dba25c39b3c272cd45490add51542fd30d1"
+      }
+    },
+    {
+      "id": "cc_depth_apnea_causes",
+      "shortName": "NHLBI — Sleep apnea — Causes",
+      "publisher": "National Heart, Lung, and Blood Institute; NIH",
+      "license": "publicDomain",
+      "url": "https://www.nhlbi.nih.gov/health/sleep-apnea/causes",
+      "detail": "January 2025. Central-apnea risk factors; obstructive-apnea risk factors not relabeled as central apnea. Federal educational text condensed; no images, videos or third-party material. Source-fidelity review is not independent clinical approval.",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.nhlbi.nih.gov/health/sleep-apnea/causes",
+        "resolvedURL": "https://www.nhlbi.nih.gov/health/sleep-apnea/causes",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "ef721867203d5ad195e557a06a2f32ea02b62cb78d7eef0f6c404a65c9585406",
+        "textSHA256": "2704150d6319bebd7c08bf32fa48e873a51170bd2528b32957bcb66a02cd8f99"
+      }
+    },
+    {
+      "id": "cc_depth_apnea_diagnosis",
+      "shortName": "NHLBI — Sleep apnea — Diagnosis",
+      "publisher": "National Heart, Lung, and Blood Institute; NIH",
+      "license": "publicDomain",
+      "url": "https://www.nhlbi.nih.gov/health/sleep-apnea/diagnosis",
+      "detail": "January 2025. Sleep study, sleep diary, medication and altitude history. Federal educational text condensed; no images, videos or third-party material. Source-fidelity review is not independent clinical approval.",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.nhlbi.nih.gov/health/sleep-apnea/diagnosis",
+        "resolvedURL": "https://www.nhlbi.nih.gov/health/sleep-apnea/diagnosis",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "15eeb0edacb179bc3f6c24040fd45035cd41e9682cc5c4b63cb5a24eaf0da201",
+        "textSHA256": "c31e76c53e03dbf74a21412524b44f755b7d2719c780f2e1e81721bc4c3bab49"
+      }
+    },
+    {
+      "id": "cc_depth_peak_flow",
+      "shortName": "NHLBI — Asthma — Living with",
+      "publisher": "National Heart, Lung, and Blood Institute; NIH",
+      "license": "publicDomain",
+      "url": "https://www.nhlbi.nih.gov/health/asthma/living-with",
+      "detail": "Current asthma monitoring and individualized action-plan context. Federal educational text condensed; no images, videos or third-party material. Source-fidelity review is not independent clinical approval.",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.nhlbi.nih.gov/health/asthma/living-with",
+        "resolvedURL": "https://www.nhlbi.nih.gov/health/asthma/living-with",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "74ee355d41450003d6db1bea82e6c45dfd0ab636c484df3ce90ad530a5c5cef6",
+        "textSHA256": "f49df4a0303b9a675e88ec09995568375587cbca6bd48f05315c103459ce83dc"
+      }
+    },
+    {
+      "id": "cc_depth_asthma_attack",
+      "shortName": "NHLBI — Asthma attacks",
+      "publisher": "National Heart, Lung, and Blood Institute; NIH",
+      "license": "publicDomain",
+      "url": "https://www.nhlbi.nih.gov/health/asthma/attacks",
+      "detail": "Urgent symptoms and emergency help when reliever treatment is ineffective. Federal educational text condensed; no images, videos or third-party material. Source-fidelity review is not independent clinical approval.",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.nhlbi.nih.gov/health/asthma/attacks",
+        "resolvedURL": "https://www.nhlbi.nih.gov/health/asthma/attacks",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "f9d6dca9892e4770409b52e69b77614e6a35f9109ab60aef231a3c3704b44ab8",
+        "textSHA256": "5352a88643210c08b65a4004b35642b7f5c509c97087f0ed51829acddcf0dc39"
+      }
+    },
+    {
+      "id": "cc_depth_peak_technique",
+      "shortName": "NHLBI EPR-3 — Peak flow technique, Figure 3–11",
+      "publisher": "National Heart, Lung, and Blood Institute; NIH",
+      "license": "publicDomain",
+      "url": "https://www.nhlbi.nih.gov/files/docs/guidelines/05_sec3_comp2.pdf",
+      "detail": "August 2007, printed page 122 (PDF page 30). Only mechanical measurement technique and best-of-three recording adapted; older medication and zone algorithms excluded. Original federal figure text, no third-party illustrations. Source-fidelity review is not independent clinical approval.",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.nhlbi.nih.gov/files/docs/guidelines/05_sec3_comp2.pdf",
+        "resolvedURL": "https://www.nhlbi.nih.gov/files/docs/guidelines/05_sec3_comp2.pdf",
+        "retrieved": "2026-09-17",
+        "pdfSHA256": "1f7f32a863c8f59e3ab6857af3be320d800493dabfb4400018a55fbb2c48cdef",
+        "textSHA256": "532404c673b0845b547be192e8d3a25b528ed08bb731787a8c38e1c1aa636318"
+      }
+    },
+    {
+      "id": "cc_depth_checkback",
+      "shortName": "AHRQ TeamSTEPPS — Check-Back",
+      "publisher": "Agency for Healthcare Research and Quality",
+      "license": "publicDomain",
+      "url": "https://www.ahrq.gov/teamstepps-program/curriculum/communication/tools/checkback.html",
+      "detail": "July 2023. Published falling-blood-pressure dialogue reproduced with attribution; discussion of closed-loop communication. Source-fidelity review is not independent clinical approval.",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.ahrq.gov/teamstepps-program/curriculum/communication/tools/checkback.html",
+        "resolvedURL": "https://www.ahrq.gov/teamstepps-program/curriculum/communication/tools/checkback.html",
+        "retrieved": "2026-09-17",
+        "method": "Web tool extracted page text; direct HTTP returned 403",
+        "textSHA256": "b37f81802c8dfa22bed6484e8d1e061fc9584dc2a9b11e44e127858e30705f65"
+      }
+    },
+    {
+      "id": "cc_depth_cus",
+      "shortName": "AHRQ TeamSTEPPS — CUS",
+      "publisher": "Agency for Healthcare Research and Quality",
+      "license": "publicDomain",
+      "url": "https://www.ahrq.gov/teamstepps-program/curriculum/mutual/tools/cus.html",
+      "detail": "May 2023. CUS steps and the written debrief of the labor-and-delivery teaching example. Video not reviewed; no invented vital signs, fetal tracing or outcome. Medical-interpreter use explicitly supported. Source-fidelity review is not independent clinical approval.",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.ahrq.gov/teamstepps-program/curriculum/mutual/tools/cus.html",
+        "resolvedURL": "https://www.ahrq.gov/teamstepps-program/curriculum/mutual/tools/cus.html",
+        "retrieved": "2026-09-17",
+        "method": "Web tool extracted page text; direct HTTP returned 403",
+        "textSHA256": "8f43bc8242b6157cdbd005c5b96be96911149f61aa6038a73bf4bfad523c5d4b"
+      }
+    },
+    {
+      "id": "resp_oximeter",
+      "shortName": "FDA — Pulse oximeter basics",
+      "publisher": "U.S. Food and Drug Administration",
+      "license": "publicDomain",
+      "url": "https://www.fda.gov/consumers/consumer-updates/pulse-oximeter-basics",
+      "detail": "Measurement technique, pigmentation-related performance differences, device categories and symptom context. Federal text only. Source-fidelity review is not independent clinical approval.",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.fda.gov/consumers/consumer-updates/pulse-oximeter-basics",
+        "resolvedURL": "https://www.fda.gov/consumers/consumer-updates/pulse-oximeter-basics",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "7cda907357c02078fcede192909cd35cd7dfb928eed7a766580fa5644b60fd8e",
+        "textSHA256": "5126f15454fc30ed3b653555d388303231a136758b1558f4484bf1372f5d4237"
+      }
+    },
+    {
+      "id": "resp_rehab",
+      "shortName": "NHLBI — Pulmonary rehabilitation",
+      "publisher": "National Heart, Lung, and Blood Institute; NIH",
+      "license": "publicDomain",
+      "url": "https://www.nhlbi.nih.gov/health/pulmonary-rehabilitation",
+      "detail": "March 2022. Assessment, supervised training, program components and reassessment. Federal educational text condensed; no images, videos or third-party material. Source-fidelity review is not independent clinical approval.",
+      "lastRetrieved": "2026-09-17",
+      "retrieval": {
+        "url": "https://www.nhlbi.nih.gov/health/pulmonary-rehabilitation",
+        "resolvedURL": "https://www.nhlbi.nih.gov/health/pulmonary-rehabilitation",
+        "retrieved": "2026-09-17",
+        "htmlSHA256": "a9de8d31856baec5455d140352b86e8d2594431b931ae9126764e73252fd4420",
+        "textSHA256": "40cf55b532b2540a4e09a9f146cc305fa54db086a64b72b4e541714caed25916"
+      }
+    }
+  ],
+  "entries": [
+    {
+      "category": "drug",
+      "id": "cefiderocol",
+      "title": "Cefiderocol",
+      "subtitle": "Fetroja · adult IV antibacterial reference",
+      "topics": [
+        "blood-infection",
+        "medication-transfusion-safety",
+        "airway-ventilation"
+      ],
+      "related": [
+        "drug:ceftazidime-avibactam",
+        "drug:meropenem",
+        "diagnosis:septic-shock"
+      ],
+      "drugCategory": "Siderophore cephalosporin antibacterial",
+      "isHighRisk": true,
+      "indications": {
+        "text": "FETROJA ® is indicated in patients 18 years of age or older for the treatment of complicated urinary tract infections (cUTIs), including pyelonephritis caused by the following susceptible Gram-negative microorganisms: Escherichia coli , Klebsiella pneumoniae , Proteus mirabilis , Pseudomonas aeruginosa , and Enterobacter cloacae complex [see Clinical Studies (14.1) ] .\n\nFETROJA is indicated in patients 18 years of age or older for the treatment of hospital-acquired bacterial pneumonia and ventilator-associated bacterial pneumonia, caused by the following susceptible Gram-negative microorganisms: Acinetobacter baumannii complex, Escherichia coli , Enterobacter cloacae complex, Klebsiella pneumoniae , Pseudomonas aeruginosa , and Serratia marcescens [see Clinical Studies (14.2) ].",
+        "citationIDs": [
+          "cc_depth_fetroja"
+        ],
+        "sourceLocator": "§1.1–1.2"
+      },
+      "mechanism": {
+        "text": "Cefiderocol binds extracellular ferric iron and enters Gram-negative bacteria through iron-uptake transport as well as porin channels. Binding to penicillin-binding proteins inhibits cell-wall biosynthesis. The label does not describe clinically relevant activity against most Gram-positive or anaerobic bacteria.",
+        "citationIDs": [
+          "cc_depth_fetroja"
+        ],
+        "sourceLocator": "§12.4 Mechanism of action"
+      },
+      "dosing": [
+        {
+          "label": "FDA adult label — CrCl 60–119 mL/min",
+          "body": "The recommended dosage of FETROJA is 2 grams administered every 8 hours by intravenous (IV) infusion over 3 hours in adults with a creatinine clearance (CLcr) of 60 to 119 mL/min. Dosage adjustment of FETROJA is recommended for patients with CLcr less than 60 mL/min, including patients receiving intermittent hemodialysis (HD) or continuous renal replacement therapy (CRRT), and for patients with CLcr 120 mL/min or greater [see Dosage and Administration (2.2) ]. The recommended duration of treatment with FETROJA is 7 to 14 days. The duration of therapy should be guided by the patient's clinical status.",
+          "citationIDs": [
+            "cc_depth_fetroja"
+          ],
+          "sourceLocator": "§2.1"
+        },
+        {
+          "label": "FDA adult label — renal adjustment, Table 1",
+          "body": "Creatinine clearance estimated with Cockcroft–Gault. Each listed dose is infused over 3 hours.\n30–59 mL/min: 1.5 grams every 8 hours.\n15–29 mL/min: 1 gram every 8 hours.\nLess than 15 mL/min, with or without intermittent hemodialysis: 0.75 grams every 12 hours.\nThe label specifies administration immediately after intermittent hemodialysis and monitoring of fluctuating renal function. This table does not replace the separate CRRT regimen.",
+          "citationIDs": [
+            "cc_depth_fetroja"
+          ],
+          "sourceLocator": "§2.2, Table 1"
+        },
+        {
+          "label": "FDA adult label — augmented clearance",
+          "body": "For patients with CLcr greater than or equal to 120 mL/min, FETROJA 2 grams administered every 6 hours by IV infusion over 3 hours is recommended [see Use in Specific Populations (8.6) ] .",
+          "citationIDs": [
+            "cc_depth_fetroja"
+          ],
+          "sourceLocator": "§2.2, CrCl ≥120 mL/min"
+        },
+        {
+          "label": "CRRT requires the separate label table",
+          "body": "The label bases initial CRRT dosing on effluent flow, with potential tailoring for residual renal function and clinical status. CVVH, CVVHD and CVVHDF use different components of effluent flow. The prescribing and pharmacy teams must use section 2.2, Table 2; an intermittent-hemodialysis dose cannot be substituted.",
+          "citationIDs": [
+            "cc_depth_fetroja"
+          ],
+          "sourceLocator": "§2.2, Table 2"
+        }
+      ],
+      "contraindications": {
+        "text": "FETROJA is contraindicated in patients with a known history of severe hypersensitivity to cefiderocol or other beta-lactam antibacterial drugs, or any other component of FETROJA [see Warnings and Precautions (5.2) and Adverse Reactions (6.1) ] .",
+        "citationIDs": [
+          "cc_depth_fetroja"
+        ],
+        "sourceLocator": "§4"
+      },
+      "warnings": [
+        {
+          "text": "Mortality warning: the label reports increased all-cause mortality versus best available therapy in a study of critically ill patients with carbapenem-resistant Gram-negative infections. The cause has not been established. The label calls for close monitoring of the clinical response in cUTI and HABP/VABP.",
+          "citationIDs": [
+            "cc_depth_fetroja"
+          ],
+          "sourceLocator": "§5.1"
+        },
+        {
+          "text": "Serious hypersensitivity, including anaphylaxis and severe skin reactions, has been reported with beta-lactam antibacterials. The label calls for a careful allergy history and discontinuation if an allergic reaction occurs.",
+          "citationIDs": [
+            "cc_depth_fetroja"
+          ],
+          "sourceLocator": "§5.2"
+        },
+        {
+          "text": "C. difficile-associated diarrhea can occur during or after antibacterial exposure. Persistent or severe diarrhea requires evaluation; it is not automatically an uncomplicated medication side effect.",
+          "citationIDs": [
+            "cc_depth_fetroja"
+          ],
+          "sourceLocator": "§5.3"
+        },
+        {
+          "text": "Seizures, encephalopathy and other CNS reactions are concerns, especially with epilepsy or excessive exposure in renal impairment. The label calls for renal-based dose adjustment and neurological evaluation if CNS adverse reactions occur.",
+          "citationIDs": [
+            "cc_depth_fetroja"
+          ],
+          "sourceLocator": "§5.4"
+        }
+      ],
+      "adverseReactions": {
+        "text": "Reported reactions include diarrhea, infusion-site reactions, rash, candidiasis, nausea, vomiting, liver-test elevations and electrolyte abnormalities. The pneumonia trial also reported hypomagnesemia and atrial fibrillation. Trial frequencies depend on the population and do not predict an individual patient’s risk.",
+        "citationIDs": [
+          "cc_depth_fetroja"
+        ],
+        "sourceLocator": "§6.1, Tables 4–5"
+      },
+      "drugInteractions": [
+        {
+          "text": "Cefiderocol may result in false-positive results in dipstick tests (urine protein, ketones, or occult blood). Use alternate clinical laboratory methods of testing to confirm positive tests.",
+          "citationIDs": [
+            "cc_depth_fetroja"
+          ],
+          "sourceLocator": "§7.1"
+        }
+      ],
+      "swiftEnum": "CCDepthCefiderocolSample",
+      "file": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/CrossCategoryDepthDrugEntries.swift",
+      "claimMap": [
+        {
+          "path": "entry.indications",
+          "text": "FETROJA ® is indicated in patients 18 years of age or older for the treatment of complicated urinary tract infections (cUTIs), including pyelonephritis caused by the following susceptible Gram-negative microorganisms: Escherichia coli , Klebsiella pneumoniae , Proteus mirabilis , Pseudomonas aeruginosa , and Enterobacter cloacae complex [see Clinical Studies (14.1) ] .\n\nFETROJA is indicated in patients 18 years of age or older for the treatment of hospital-acquired bacterial pneumonia and ventilator-associated bacterial pneumonia, caused by the following susceptible Gram-negative microorganisms: Acinetobacter baumannii complex, Escherichia coli , Enterobacter cloacae complex, Klebsiella pneumoniae , Pseudomonas aeruginosa , and Serratia marcescens [see Clinical Studies (14.2) ].",
+          "citationIDs": [
+            "cc_depth_fetroja"
+          ],
+          "sourceLocator": "§1.1–1.2"
+        },
+        {
+          "path": "entry.mechanism",
+          "text": "Cefiderocol binds extracellular ferric iron and enters Gram-negative bacteria through iron-uptake transport as well as porin channels. Binding to penicillin-binding proteins inhibits cell-wall biosynthesis. The label does not describe clinically relevant activity against most Gram-positive or anaerobic bacteria.",
+          "citationIDs": [
+            "cc_depth_fetroja"
+          ],
+          "sourceLocator": "§12.4 Mechanism of action"
+        },
+        {
+          "path": "entry.dosing[0]",
+          "label": "FDA adult label — CrCl 60–119 mL/min",
+          "body": "The recommended dosage of FETROJA is 2 grams administered every 8 hours by intravenous (IV) infusion over 3 hours in adults with a creatinine clearance (CLcr) of 60 to 119 mL/min. Dosage adjustment of FETROJA is recommended for patients with CLcr less than 60 mL/min, including patients receiving intermittent hemodialysis (HD) or continuous renal replacement therapy (CRRT), and for patients with CLcr 120 mL/min or greater [see Dosage and Administration (2.2) ]. The recommended duration of treatment with FETROJA is 7 to 14 days. The duration of therapy should be guided by the patient's clinical status.",
+          "citationIDs": [
+            "cc_depth_fetroja"
+          ],
+          "sourceLocator": "§2.1"
+        },
+        {
+          "path": "entry.dosing[1]",
+          "label": "FDA adult label — renal adjustment, Table 1",
+          "body": "Creatinine clearance estimated with Cockcroft–Gault. Each listed dose is infused over 3 hours.\n30–59 mL/min: 1.5 grams every 8 hours.\n15–29 mL/min: 1 gram every 8 hours.\nLess than 15 mL/min, with or without intermittent hemodialysis: 0.75 grams every 12 hours.\nThe label specifies administration immediately after intermittent hemodialysis and monitoring of fluctuating renal function. This table does not replace the separate CRRT regimen.",
+          "citationIDs": [
+            "cc_depth_fetroja"
+          ],
+          "sourceLocator": "§2.2, Table 1"
+        },
+        {
+          "path": "entry.dosing[2]",
+          "label": "FDA adult label — augmented clearance",
+          "body": "For patients with CLcr greater than or equal to 120 mL/min, FETROJA 2 grams administered every 6 hours by IV infusion over 3 hours is recommended [see Use in Specific Populations (8.6) ] .",
+          "citationIDs": [
+            "cc_depth_fetroja"
+          ],
+          "sourceLocator": "§2.2, CrCl ≥120 mL/min"
+        },
+        {
+          "path": "entry.dosing[3]",
+          "label": "CRRT requires the separate label table",
+          "body": "The label bases initial CRRT dosing on effluent flow, with potential tailoring for residual renal function and clinical status. CVVH, CVVHD and CVVHDF use different components of effluent flow. The prescribing and pharmacy teams must use section 2.2, Table 2; an intermittent-hemodialysis dose cannot be substituted.",
+          "citationIDs": [
+            "cc_depth_fetroja"
+          ],
+          "sourceLocator": "§2.2, Table 2"
+        },
+        {
+          "path": "entry.contraindications",
+          "text": "FETROJA is contraindicated in patients with a known history of severe hypersensitivity to cefiderocol or other beta-lactam antibacterial drugs, or any other component of FETROJA [see Warnings and Precautions (5.2) and Adverse Reactions (6.1) ] .",
+          "citationIDs": [
+            "cc_depth_fetroja"
+          ],
+          "sourceLocator": "§4"
+        },
+        {
+          "path": "entry.warnings[0]",
+          "text": "Mortality warning: the label reports increased all-cause mortality versus best available therapy in a study of critically ill patients with carbapenem-resistant Gram-negative infections. The cause has not been established. The label calls for close monitoring of the clinical response in cUTI and HABP/VABP.",
+          "citationIDs": [
+            "cc_depth_fetroja"
+          ],
+          "sourceLocator": "§5.1"
+        },
+        {
+          "path": "entry.warnings[1]",
+          "text": "Serious hypersensitivity, including anaphylaxis and severe skin reactions, has been reported with beta-lactam antibacterials. The label calls for a careful allergy history and discontinuation if an allergic reaction occurs.",
+          "citationIDs": [
+            "cc_depth_fetroja"
+          ],
+          "sourceLocator": "§5.2"
+        },
+        {
+          "path": "entry.warnings[2]",
+          "text": "C. difficile-associated diarrhea can occur during or after antibacterial exposure. Persistent or severe diarrhea requires evaluation; it is not automatically an uncomplicated medication side effect.",
+          "citationIDs": [
+            "cc_depth_fetroja"
+          ],
+          "sourceLocator": "§5.3"
+        },
+        {
+          "path": "entry.warnings[3]",
+          "text": "Seizures, encephalopathy and other CNS reactions are concerns, especially with epilepsy or excessive exposure in renal impairment. The label calls for renal-based dose adjustment and neurological evaluation if CNS adverse reactions occur.",
+          "citationIDs": [
+            "cc_depth_fetroja"
+          ],
+          "sourceLocator": "§5.4"
+        },
+        {
+          "path": "entry.adverseReactions",
+          "text": "Reported reactions include diarrhea, infusion-site reactions, rash, candidiasis, nausea, vomiting, liver-test elevations and electrolyte abnormalities. The pneumonia trial also reported hypomagnesemia and atrial fibrillation. Trial frequencies depend on the population and do not predict an individual patient’s risk.",
+          "citationIDs": [
+            "cc_depth_fetroja"
+          ],
+          "sourceLocator": "§6.1, Tables 4–5"
+        },
+        {
+          "path": "entry.drugInteractions[0]",
+          "text": "Cefiderocol may result in false-positive results in dipstick tests (urine protein, ketones, or occult blood). Use alternate clinical laboratory methods of testing to confirm positive tests.",
+          "citationIDs": [
+            "cc_depth_fetroja"
+          ],
+          "sourceLocator": "§7.1"
+        }
+      ],
+      "contentSHA256": "a2021e7e792b0952001421ef4eb1a8c9ffe48fd7d6c6559abd84fc389195a843"
+    },
+    {
+      "category": "drug",
+      "id": "ceftazidime-avibactam",
+      "title": "Ceftazidime–avibactam",
+      "subtitle": "Avycaz · adult IV antibacterial reference",
+      "topics": [
+        "blood-infection",
+        "medication-transfusion-safety",
+        "renal-metabolic-critical-care"
+      ],
+      "related": [
+        "drug:cefiderocol",
+        "drug:meropenem",
+        "lab:creatinine"
+      ],
+      "drugCategory": "Cephalosporin / beta-lactamase inhibitor",
+      "isHighRisk": true,
+      "indications": {
+        "text": "FDA indication excerpts (the dosing below is restricted to adults):\n\nAVYCAZ (ceftazidime and avibactam) in combination with metronidazole, is indicated for the treatment of complicated intra-abdominal infections (cIAI) in adult and pediatric patients (at least 31 weeks gestational age) caused by the following susceptible gram-negative microorganisms: Escherichia coli , Klebsiella pneumoniae , Proteus mirabilis, Enterobacter cloacae, Klebsiella oxytoca, Citrobacter freundii complex, and Pseudomonas aeruginosa .\n\nAVYCAZ (ceftazidime and avibactam) is indicated for the treatment of complicated urinary tract infections (cUTI) including pyelonephritis in adult and pediatric patients (at least 31 weeks gestational age) caused by the following susceptible gram-negative microorganisms: Escherichia coli , Klebsiella pneumoniae, Enterobacter cloacae, Citrobacter freundii complex, Proteus mirabilis , and Pseudomonas aeruginosa .\n\nAVYCAZ (ceftazidime and avibactam) is indicated for the treatment of hospital-acquired bacterial pneumonia and ventilator-associated bacterial pneumonia (HABP/VABP) in adult and pediatric patients (at least 31 weeks gestational age) caused by the following susceptible gram-negative microorganisms: Klebsiella pneumoniae, Enterobacter cloacae, Escherichia coli, Serratia marcescens, Proteus mirabilis, Pseudomonas aeruginosa, and Haemophilus influenzae .",
+        "citationIDs": [
+          "cc_depth_avycaz"
+        ],
+        "sourceLocator": "§1.1–1.3"
+      },
+      "mechanism": {
+        "text": "Ceftazidime binds penicillin-binding proteins; avibactam inhibits certain beta-lactamases that degrade ceftazidime. The label describes activity against some KPC, AmpC and OXA enzymes, but not metallo-beta-lactamase-producing bacteria. Susceptibility and the infection site remain essential to selection.",
+        "citationIDs": [
+          "cc_depth_avycaz"
+        ],
+        "sourceLocator": "§1.4; §12.4"
+      },
+      "dosing": [
+        {
+          "label": "FDA adult label — CrCl above 50 mL/min",
+          "body": "The recommended dosage of AVYCAZ is 2.5 grams (ceftazidime 2 grams and avibactam 0.5 grams) administered every 8 hours by intravenous (IV) infusion over 2 hours in patients 18 years of age and older with CrCl greater than 50 mL/min. For treatment of cIAI, metronidazole should be given concurrently.",
+          "citationIDs": [
+            "cc_depth_avycaz"
+          ],
+          "sourceLocator": "§2.1"
+        },
+        {
+          "label": "FDA adult label — renal adjustment, Table 3",
+          "body": "Adult creatinine clearance is estimated with Cockcroft–Gault. All doses below are infused over 2 hours.\n31–50 mL/min: 1.25 grams (ceftazidime 1 gram / avibactam 0.25 grams) every 8 hours.\n16–30 mL/min: 0.94 grams (0.75 grams / 0.19 grams) every 12 hours.\n6–15 mL/min: 0.94 grams every 24 hours.\n5 mL/min or less: 0.94 grams every 48 hours.\nBoth components are hemodialyzable; the label specifies administration after hemodialysis on dialysis days. For changing renal function, the label specifies at least daily CrCl monitoring and corresponding dose adjustment.",
+          "citationIDs": [
+            "cc_depth_avycaz"
+          ],
+          "sourceLocator": "§2.3, adult Table 3"
+        },
+        {
+          "label": "Preparation and compatibility",
+          "body": "The supplied powder requires constitution and further dilution before infusion. Section 2.4 contains the preparation volumes; section 2.5 lists tested Y-site combinations and concentrations. Compatibility is specific to the listed conditions, not a general statement that other IV medicines may share the line.",
+          "citationIDs": [
+            "cc_depth_avycaz"
+          ],
+          "sourceLocator": "§2.4–2.5"
+        }
+      ],
+      "contraindications": {
+        "text": "AVYCAZ is contraindicated in patients with known serious hypersensitivity to the components of AVYCAZ (ceftazidime and avibactam), avibactam containing products, or other members of the cephalosporin class [see Warnings and Precautions ( 5.2 )] .",
+        "citationIDs": [
+          "cc_depth_avycaz"
+        ],
+        "sourceLocator": "§4"
+      },
+      "warnings": [
+        {
+          "text": "Reduced clinical response occurred in a cIAI subgroup with moderate renal impairment in the trial, where the dose was lower than the currently recommended regimen. This finding makes changes in renal function and correct adjustment particularly important; it was not observed in the corresponding cUTI and HABP/VABP subgroups.",
+          "citationIDs": [
+            "cc_depth_avycaz"
+          ],
+          "sourceLocator": "§5.1"
+        },
+        {
+          "text": "Serious and sometimes fatal hypersensitivity and serious skin reactions have occurred with beta-lactams. Review the cephalosporin, penicillin and carbapenem allergy history; the label specifies discontinuation for an allergic reaction.",
+          "citationIDs": [
+            "cc_depth_avycaz"
+          ],
+          "sourceLocator": "§5.2"
+        },
+        {
+          "text": "C. difficile-associated diarrhea ranges from mild diarrhea to fatal colitis and may occur more than two months after antibacterial exposure. Evaluate new diarrhea in the context of recent therapy.",
+          "citationIDs": [
+            "cc_depth_avycaz"
+          ],
+          "sourceLocator": "§5.3"
+        },
+        {
+          "text": "Seizures, nonconvulsive status epilepticus (NCSE), encephalopathy, coma, asterixis, neuromuscular excitability, and myoclonia have been reported in patients treated with ceftazidime, particularly in the setting of renal impairment. Adjust dosing based on creatinine clearance [ see Dosage and Administration ( 2.2 ) ] .",
+          "citationIDs": [
+            "cc_depth_avycaz"
+          ],
+          "sourceLocator": "§5.4"
+        }
+      ],
+      "adverseReactions": {
+        "text": "Adult trial reactions included diarrhea, nausea, vomiting and headache. The HABP/VABP population also had hypokalemia. Review the source’s indication-specific trial tables rather than applying a pooled frequency to every patient.",
+        "citationIDs": [
+          "cc_depth_avycaz"
+        ],
+        "sourceLocator": "§6.1"
+      },
+      "drugInteractions": [
+        {
+          "text": "Co-administration with probenecid is not recommended: inhibition of renal transport may reduce avibactam elimination; a clinical interaction study was not conducted.",
+          "citationIDs": [
+            "cc_depth_avycaz"
+          ],
+          "sourceLocator": "§7.1"
+        },
+        {
+          "text": "The administration of ceftazidime may result in a false-positive reaction for glucose in the urine with certain methods. It is recommended that glucose tests based on enzymatic glucose oxidase reactions be used.",
+          "citationIDs": [
+            "cc_depth_avycaz"
+          ],
+          "sourceLocator": "§7.2"
+        }
+      ],
+      "swiftEnum": "CCDepthCeftazidimeAvibactamSample",
+      "file": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/CrossCategoryDepthDrugEntries.swift",
+      "claimMap": [
+        {
+          "path": "entry.indications",
+          "text": "FDA indication excerpts (the dosing below is restricted to adults):\n\nAVYCAZ (ceftazidime and avibactam) in combination with metronidazole, is indicated for the treatment of complicated intra-abdominal infections (cIAI) in adult and pediatric patients (at least 31 weeks gestational age) caused by the following susceptible gram-negative microorganisms: Escherichia coli , Klebsiella pneumoniae , Proteus mirabilis, Enterobacter cloacae, Klebsiella oxytoca, Citrobacter freundii complex, and Pseudomonas aeruginosa .\n\nAVYCAZ (ceftazidime and avibactam) is indicated for the treatment of complicated urinary tract infections (cUTI) including pyelonephritis in adult and pediatric patients (at least 31 weeks gestational age) caused by the following susceptible gram-negative microorganisms: Escherichia coli , Klebsiella pneumoniae, Enterobacter cloacae, Citrobacter freundii complex, Proteus mirabilis , and Pseudomonas aeruginosa .\n\nAVYCAZ (ceftazidime and avibactam) is indicated for the treatment of hospital-acquired bacterial pneumonia and ventilator-associated bacterial pneumonia (HABP/VABP) in adult and pediatric patients (at least 31 weeks gestational age) caused by the following susceptible gram-negative microorganisms: Klebsiella pneumoniae, Enterobacter cloacae, Escherichia coli, Serratia marcescens, Proteus mirabilis, Pseudomonas aeruginosa, and Haemophilus influenzae .",
+          "citationIDs": [
+            "cc_depth_avycaz"
+          ],
+          "sourceLocator": "§1.1–1.3"
+        },
+        {
+          "path": "entry.mechanism",
+          "text": "Ceftazidime binds penicillin-binding proteins; avibactam inhibits certain beta-lactamases that degrade ceftazidime. The label describes activity against some KPC, AmpC and OXA enzymes, but not metallo-beta-lactamase-producing bacteria. Susceptibility and the infection site remain essential to selection.",
+          "citationIDs": [
+            "cc_depth_avycaz"
+          ],
+          "sourceLocator": "§1.4; §12.4"
+        },
+        {
+          "path": "entry.dosing[0]",
+          "label": "FDA adult label — CrCl above 50 mL/min",
+          "body": "The recommended dosage of AVYCAZ is 2.5 grams (ceftazidime 2 grams and avibactam 0.5 grams) administered every 8 hours by intravenous (IV) infusion over 2 hours in patients 18 years of age and older with CrCl greater than 50 mL/min. For treatment of cIAI, metronidazole should be given concurrently.",
+          "citationIDs": [
+            "cc_depth_avycaz"
+          ],
+          "sourceLocator": "§2.1"
+        },
+        {
+          "path": "entry.dosing[1]",
+          "label": "FDA adult label — renal adjustment, Table 3",
+          "body": "Adult creatinine clearance is estimated with Cockcroft–Gault. All doses below are infused over 2 hours.\n31–50 mL/min: 1.25 grams (ceftazidime 1 gram / avibactam 0.25 grams) every 8 hours.\n16–30 mL/min: 0.94 grams (0.75 grams / 0.19 grams) every 12 hours.\n6–15 mL/min: 0.94 grams every 24 hours.\n5 mL/min or less: 0.94 grams every 48 hours.\nBoth components are hemodialyzable; the label specifies administration after hemodialysis on dialysis days. For changing renal function, the label specifies at least daily CrCl monitoring and corresponding dose adjustment.",
+          "citationIDs": [
+            "cc_depth_avycaz"
+          ],
+          "sourceLocator": "§2.3, adult Table 3"
+        },
+        {
+          "path": "entry.dosing[2]",
+          "label": "Preparation and compatibility",
+          "body": "The supplied powder requires constitution and further dilution before infusion. Section 2.4 contains the preparation volumes; section 2.5 lists tested Y-site combinations and concentrations. Compatibility is specific to the listed conditions, not a general statement that other IV medicines may share the line.",
+          "citationIDs": [
+            "cc_depth_avycaz"
+          ],
+          "sourceLocator": "§2.4–2.5"
+        },
+        {
+          "path": "entry.contraindications",
+          "text": "AVYCAZ is contraindicated in patients with known serious hypersensitivity to the components of AVYCAZ (ceftazidime and avibactam), avibactam containing products, or other members of the cephalosporin class [see Warnings and Precautions ( 5.2 )] .",
+          "citationIDs": [
+            "cc_depth_avycaz"
+          ],
+          "sourceLocator": "§4"
+        },
+        {
+          "path": "entry.warnings[0]",
+          "text": "Reduced clinical response occurred in a cIAI subgroup with moderate renal impairment in the trial, where the dose was lower than the currently recommended regimen. This finding makes changes in renal function and correct adjustment particularly important; it was not observed in the corresponding cUTI and HABP/VABP subgroups.",
+          "citationIDs": [
+            "cc_depth_avycaz"
+          ],
+          "sourceLocator": "§5.1"
+        },
+        {
+          "path": "entry.warnings[1]",
+          "text": "Serious and sometimes fatal hypersensitivity and serious skin reactions have occurred with beta-lactams. Review the cephalosporin, penicillin and carbapenem allergy history; the label specifies discontinuation for an allergic reaction.",
+          "citationIDs": [
+            "cc_depth_avycaz"
+          ],
+          "sourceLocator": "§5.2"
+        },
+        {
+          "path": "entry.warnings[2]",
+          "text": "C. difficile-associated diarrhea ranges from mild diarrhea to fatal colitis and may occur more than two months after antibacterial exposure. Evaluate new diarrhea in the context of recent therapy.",
+          "citationIDs": [
+            "cc_depth_avycaz"
+          ],
+          "sourceLocator": "§5.3"
+        },
+        {
+          "path": "entry.warnings[3]",
+          "text": "Seizures, nonconvulsive status epilepticus (NCSE), encephalopathy, coma, asterixis, neuromuscular excitability, and myoclonia have been reported in patients treated with ceftazidime, particularly in the setting of renal impairment. Adjust dosing based on creatinine clearance [ see Dosage and Administration ( 2.2 ) ] .",
+          "citationIDs": [
+            "cc_depth_avycaz"
+          ],
+          "sourceLocator": "§5.4"
+        },
+        {
+          "path": "entry.adverseReactions",
+          "text": "Adult trial reactions included diarrhea, nausea, vomiting and headache. The HABP/VABP population also had hypokalemia. Review the source’s indication-specific trial tables rather than applying a pooled frequency to every patient.",
+          "citationIDs": [
+            "cc_depth_avycaz"
+          ],
+          "sourceLocator": "§6.1"
+        },
+        {
+          "path": "entry.drugInteractions[0]",
+          "text": "Co-administration with probenecid is not recommended: inhibition of renal transport may reduce avibactam elimination; a clinical interaction study was not conducted.",
+          "citationIDs": [
+            "cc_depth_avycaz"
+          ],
+          "sourceLocator": "§7.1"
+        },
+        {
+          "path": "entry.drugInteractions[1]",
+          "text": "The administration of ceftazidime may result in a false-positive reaction for glucose in the urine with certain methods. It is recommended that glucose tests based on enzymatic glucose oxidase reactions be used.",
+          "citationIDs": [
+            "cc_depth_avycaz"
+          ],
+          "sourceLocator": "§7.2"
+        }
+      ],
+      "contentSHA256": "a2021e7e792b0952001421ef4eb1a8c9ffe48fd7d6c6559abd84fc389195a843"
+    },
+    {
+      "category": "drip",
+      "id": "angiotensin-ii-drip",
+      "title": "Angiotensin II infusion",
+      "subtitle": "Giapreza · adult distributive shock label reference",
+      "topics": [
+        "shock-perfusion",
+        "medication-transfusion-safety",
+        "critical-care-devices"
+      ],
+      "related": [
+        "diagnosis:septic-shock",
+        "reference:shock-hemodynamic-patterns",
+        "lab:lactate"
+      ],
+      "drugCategory": "Vasoconstrictor",
+      "isHighRisk": true,
+      "indications": {
+        "text": "GIAPREZA increases blood pressure in adults with septic or other distributive shock [see Clinical Studies (14)] .",
+        "citationIDs": [
+          "cc_depth_giapreza"
+        ],
+        "sourceLocator": "§1"
+      },
+      "mechanism": {
+        "text": "Angiotensin II raises blood pressure through vasoconstriction and increased aldosterone release. It acts directly at angiotensin II type 1 receptors on vascular smooth muscle.",
+        "citationIDs": [
+          "cc_depth_giapreza"
+        ],
+        "sourceLocator": "§12.1"
+      },
+      "dosing": [
+        {
+          "label": "FDA adult label — starting dose and titration",
+          "body": "The recommended starting dosage of GIAPREZA is 20 nanograms (ng)/kg/min via continuous intravenous infusion. Administration through a central venous line is recommended. Monitor blood pressure response and titrate GIAPREZA as frequently as every 5 minutes by increments of up to 15 ng/kg/min as needed to achieve or maintain target blood pressure. Do not exceed 80 ng/kg/min during the first 3 hours of treatment. Maintenance dose should not exceed 40 ng/kg/min. Doses as low as 1.25 ng/kg/min may be used. Once the underlying shock has sufficiently improved, down-titrate every 5 to 15 minutes by increments of up to 15 ng/kg/min based on blood pressure.",
+          "citationIDs": [
+            "cc_depth_giapreza"
+          ],
+          "sourceLocator": "§2.2"
+        },
+        {
+          "label": "FDA label — dilution and storage",
+          "body": "Parenteral drug products should be inspected visually for particulate matter and discoloration prior to administration, whenever solution and container permit. GIAPREZA must be administered as an intravenous infusion. GIAPREZA must be diluted in 0.9% sodium chloride prior to use. Dilute the appropriate amount of GIAPREZA in a normal saline (0.9% sodium chloride) infusion bag to achieve the desired final concentration of 5,000 ng/mL or 10,000 ng/mL. Discard vial and any unused portion of the drug product after use. Diluted solution may be stored at room temperature (20°C to 25°C [68°F to 77°F]) or under refrigeration (2°C to 8°C [36°F to 46°F]). Discard prepared solution after 24 hours at room temperature or under refrigeration.",
+          "citationIDs": [
+            "cc_depth_giapreza"
+          ],
+          "sourceLocator": "§2.1"
+        },
+        {
+          "label": "Vial strength and infusion units",
+          "body": "The current label lists 0.5 mg/mL and 2.5 mg/mL vial strengths. The final infusion concentrations are 5,000 or 10,000 ng/mL, and the dose is expressed in ng/kg/min. These are distinct quantities: vial concentration, final infusion concentration and weight-based dose rate.",
+          "citationIDs": [
+            "cc_depth_giapreza"
+          ],
+          "sourceLocator": "§2.1–3"
+        }
+      ],
+      "contraindications": {
+        "text": "The FDA label lists no contraindications. This does not remove the thrombosis warning or the need to monitor the blood-pressure response.",
+        "citationIDs": [
+          "cc_depth_giapreza"
+        ],
+        "sourceLocator": "§4; §5.1; §2.2"
+      },
+      "warnings": [
+        {
+          "text": "Thrombosis warning: arterial and venous thrombotic or thromboembolic events were more frequent with GIAPREZA than placebo in ATHOS-3 (13% versus 5%); deep-vein thrombosis accounted for the major imbalance. The label specifies concurrent VTE prophylaxis.",
+          "citationIDs": [
+            "cc_depth_giapreza"
+          ],
+          "sourceLocator": "§5.1"
+        },
+        {
+          "text": "The label ties titration and down-titration to blood-pressure response and improvement of the underlying shock. Its early-treatment ceiling and maintenance ceiling differ; the cited adult protocol must be reconciled with the prescribed target and local infusion policy.",
+          "citationIDs": [
+            "cc_depth_giapreza"
+          ],
+          "sourceLocator": "§2.2"
+        }
+      ],
+      "adverseReactions": {
+        "text": "ATHOS-3 reported thromboembolic events, thrombocytopenia, tachycardia, fungal infection, delirium, acidosis, hyperglycemia and peripheral ischemia more often in the GIAPREZA group under the table’s reporting criteria. Trial rates do not establish causality for an individual event.",
+        "citationIDs": [
+          "cc_depth_giapreza"
+        ],
+        "sourceLocator": "§6.1, Table 1"
+      },
+      "drugInteractions": [
+        {
+          "text": "ACE inhibitors may increase the response to GIAPREZA; angiotensin II receptor blockers may decrease it. These effects belong in the medication review when assessing an unexpected blood-pressure response.",
+          "citationIDs": [
+            "cc_depth_giapreza"
+          ],
+          "sourceLocator": "§7.1–7.2"
+        }
+      ],
+      "swiftEnum": "CCDepthAngiotensinIiDripSample",
+      "file": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/CrossCategoryDepthDripEntries.swift",
+      "claimMap": [
+        {
+          "path": "entry.indications",
+          "text": "GIAPREZA increases blood pressure in adults with septic or other distributive shock [see Clinical Studies (14)] .",
+          "citationIDs": [
+            "cc_depth_giapreza"
+          ],
+          "sourceLocator": "§1"
+        },
+        {
+          "path": "entry.mechanism",
+          "text": "Angiotensin II raises blood pressure through vasoconstriction and increased aldosterone release. It acts directly at angiotensin II type 1 receptors on vascular smooth muscle.",
+          "citationIDs": [
+            "cc_depth_giapreza"
+          ],
+          "sourceLocator": "§12.1"
+        },
+        {
+          "path": "entry.dosing[0]",
+          "label": "FDA adult label — starting dose and titration",
+          "body": "The recommended starting dosage of GIAPREZA is 20 nanograms (ng)/kg/min via continuous intravenous infusion. Administration through a central venous line is recommended. Monitor blood pressure response and titrate GIAPREZA as frequently as every 5 minutes by increments of up to 15 ng/kg/min as needed to achieve or maintain target blood pressure. Do not exceed 80 ng/kg/min during the first 3 hours of treatment. Maintenance dose should not exceed 40 ng/kg/min. Doses as low as 1.25 ng/kg/min may be used. Once the underlying shock has sufficiently improved, down-titrate every 5 to 15 minutes by increments of up to 15 ng/kg/min based on blood pressure.",
+          "citationIDs": [
+            "cc_depth_giapreza"
+          ],
+          "sourceLocator": "§2.2"
+        },
+        {
+          "path": "entry.dosing[1]",
+          "label": "FDA label — dilution and storage",
+          "body": "Parenteral drug products should be inspected visually for particulate matter and discoloration prior to administration, whenever solution and container permit. GIAPREZA must be administered as an intravenous infusion. GIAPREZA must be diluted in 0.9% sodium chloride prior to use. Dilute the appropriate amount of GIAPREZA in a normal saline (0.9% sodium chloride) infusion bag to achieve the desired final concentration of 5,000 ng/mL or 10,000 ng/mL. Discard vial and any unused portion of the drug product after use. Diluted solution may be stored at room temperature (20°C to 25°C [68°F to 77°F]) or under refrigeration (2°C to 8°C [36°F to 46°F]). Discard prepared solution after 24 hours at room temperature or under refrigeration.",
+          "citationIDs": [
+            "cc_depth_giapreza"
+          ],
+          "sourceLocator": "§2.1"
+        },
+        {
+          "path": "entry.dosing[2]",
+          "label": "Vial strength and infusion units",
+          "body": "The current label lists 0.5 mg/mL and 2.5 mg/mL vial strengths. The final infusion concentrations are 5,000 or 10,000 ng/mL, and the dose is expressed in ng/kg/min. These are distinct quantities: vial concentration, final infusion concentration and weight-based dose rate.",
+          "citationIDs": [
+            "cc_depth_giapreza"
+          ],
+          "sourceLocator": "§2.1–3"
+        },
+        {
+          "path": "entry.contraindications",
+          "text": "The FDA label lists no contraindications. This does not remove the thrombosis warning or the need to monitor the blood-pressure response.",
+          "citationIDs": [
+            "cc_depth_giapreza"
+          ],
+          "sourceLocator": "§4; §5.1; §2.2"
+        },
+        {
+          "path": "entry.warnings[0]",
+          "text": "Thrombosis warning: arterial and venous thrombotic or thromboembolic events were more frequent with GIAPREZA than placebo in ATHOS-3 (13% versus 5%); deep-vein thrombosis accounted for the major imbalance. The label specifies concurrent VTE prophylaxis.",
+          "citationIDs": [
+            "cc_depth_giapreza"
+          ],
+          "sourceLocator": "§5.1"
+        },
+        {
+          "path": "entry.warnings[1]",
+          "text": "The label ties titration and down-titration to blood-pressure response and improvement of the underlying shock. Its early-treatment ceiling and maintenance ceiling differ; the cited adult protocol must be reconciled with the prescribed target and local infusion policy.",
+          "citationIDs": [
+            "cc_depth_giapreza"
+          ],
+          "sourceLocator": "§2.2"
+        },
+        {
+          "path": "entry.adverseReactions",
+          "text": "ATHOS-3 reported thromboembolic events, thrombocytopenia, tachycardia, fungal infection, delirium, acidosis, hyperglycemia and peripheral ischemia more often in the GIAPREZA group under the table’s reporting criteria. Trial rates do not establish causality for an individual event.",
+          "citationIDs": [
+            "cc_depth_giapreza"
+          ],
+          "sourceLocator": "§6.1, Table 1"
+        },
+        {
+          "path": "entry.drugInteractions[0]",
+          "text": "ACE inhibitors may increase the response to GIAPREZA; angiotensin II receptor blockers may decrease it. These effects belong in the medication review when assessing an unexpected blood-pressure response.",
+          "citationIDs": [
+            "cc_depth_giapreza"
+          ],
+          "sourceLocator": "§7.1–7.2"
+        }
+      ],
+      "contentSHA256": "d64070ae5369b685cbac6eb58368afbe9ea8b4abbe6fe113d98c1d96caea1116"
+    },
+    {
+      "category": "drip",
+      "id": "cangrelor-drip",
+      "title": "Cangrelor infusion",
+      "subtitle": "Kengreal · PCI infusion and oral transition",
+      "topics": [
+        "cardiovascular",
+        "medication-transfusion-safety",
+        "perioperative-nursing"
+      ],
+      "related": [
+        "drug:cangrelor",
+        "reference:cardiac-catheterization-preparation-recovery",
+        "reference:coagulation-panel-interpretation"
+      ],
+      "drugCategory": "P2Y12 platelet inhibitor",
+      "isHighRisk": true,
+      "indications": {
+        "text": "KENGREAL is indicated as an adjunct to percutaneous coronary intervention (PCI) to reduce the risk of periprocedural myocardial infarction (MI), repeat coronary revascularization, and stent thrombosis (ST) in patients who have not been treated with a P2Y 12 platelet inhibitor and are not being given a glycoprotein IIb/IIIa inhibitor [see Clinical Studies ( 14.1 )].",
+        "citationIDs": [
+          "cc_depth_kengreal"
+        ],
+        "sourceLocator": "§1"
+      },
+      "mechanism": {
+        "text": "Cangrelor is a direct P2Y 12 platelet receptor inhibitor that blocks ADP-induced platelet activation and aggregation. Cangrelor binds selectively and reversibly to the P2Y 12 receptor to prevent further signaling and platelet activation.",
+        "citationIDs": [
+          "cc_depth_kengreal"
+        ],
+        "sourceLocator": "§12.1"
+      },
+      "dosing": [
+        {
+          "label": "FDA adult PCI label — bolus and infusion",
+          "body": "The recommended dosage of KENGREAL is a 30 mcg/kg IV bolus followed immediately by a 4 mcg/kg/min IV infusion. Initiate the bolus infusion prior to PCI. The maintenance infusion should ordinarily be continued for at least 2 hours or for the duration of PCI, whichever is longer.",
+          "citationIDs": [
+            "cc_depth_kengreal"
+          ],
+          "sourceLocator": "§2.1"
+        },
+        {
+          "label": "FDA label — oral P2Y12 transition",
+          "body": "To maintain platelet inhibition after discontinuation of KENGREAL infusion, administer an oral P2Y 12 platelet inhibitor, as described below: Ticagrelor: 180 mg at any time during KENGREAL infusion or immediately after discontinuation [see Clinical Pharmacology ( 12.2 )] . Prasugrel: 60 mg immediately after discontinuation of KENGREAL [see Drug Interactions ( 7.1 ) and Clinical Pharmacology ( 12.2 )] . Clopidogrel: 600 mg immediately after discontinuation of KENGREAL [see Drug Interactions ( 7.1 ) and Clinical Pharmacology ( 12.2 )] .",
+          "citationIDs": [
+            "cc_depth_kengreal"
+          ],
+          "sourceLocator": "§2.2"
+        },
+        {
+          "label": "Preparation and administration — label summary",
+          "body": "The 50 mg vial is reconstituted with 5 mL sterile water, gently swirled and further diluted in a 250 mL bag of normal saline or 5% dextrose, yielding 200 mcg/mL. The label requires a dedicated IV line, the bolus from the diluted bag before PCI, and immediate infusion after the bolus. Patients weighing 100 kg or more require at least two bags. The full preparation instructions remain in section 2.3.",
+          "citationIDs": [
+            "cc_depth_kengreal"
+          ],
+          "sourceLocator": "§2.3"
+        },
+        {
+          "label": "Storage after dilution — label summary",
+          "body": "Reconstituted solution is diluted immediately. At room temperature, the diluted infusion is stable up to 12 hours in 5% dextrose or 24 hours in normal saline. Discard unused reconstituted solution remaining in the vial.",
+          "citationIDs": [
+            "cc_depth_kengreal"
+          ],
+          "sourceLocator": "§2.3"
+        }
+      ],
+      "contraindications": {
+        "text": "KENGREAL is contraindicated in patients with significant active bleeding [see Warnings and Precautions ( 5.1 ) and Adverse Reactions ( 6.1 )] .\n\nKENGREAL is contraindicated in patients with known hypersensitivity (e.g., anaphylaxis) to KENGREAL or any component of the product [see Adverse Reactions ( 6.1 )] .",
+        "citationIDs": [
+          "cc_depth_kengreal"
+        ],
+        "sourceLocator": "§4.1–4.2"
+      },
+      "warnings": [
+        {
+          "text": "Bleeding can be serious. The label reports more bleeding events of all severities with cangrelor than clopidogrel in CHAMPION PHOENIX. It states that the antiplatelet effect is no longer present one hour after discontinuation; that pharmacologic offset does not establish that an active bleed has resolved.",
+          "citationIDs": [
+            "cc_depth_kengreal"
+          ],
+          "sourceLocator": "§5.1"
+        },
+        {
+          "text": "The label’s oral transition timing differs by drug: ticagrelor may overlap the infusion, while clopidogrel and prasugrel are given after it ends. A transition plan must identify the actual oral agent and timing rather than simply stating “start oral antiplatelet.”",
+          "citationIDs": [
+            "cc_depth_kengreal"
+          ],
+          "sourceLocator": "§2.2; §7.1"
+        }
+      ],
+      "adverseReactions": {
+        "text": "Bleeding is the principal adverse reaction; dyspnea and hypersensitivity reactions are also described. The trial discussion includes severe bleeding events.",
+        "citationIDs": [
+          "cc_depth_kengreal"
+        ],
+        "sourceLocator": "§6.1"
+      },
+      "drugInteractions": [
+        {
+          "text": "Clopidogrel or prasugrel administered during KENGREAL infusion will have no antiplatelet effect until the next dose is administered. Therefore, administer clopidogrel or prasugrel after KENGREAL infusion is discontinued [see Dosage and Administration ( 2.2 ) and Clinical Pharmacology ( 12.3 )].",
+          "citationIDs": [
+            "cc_depth_kengreal"
+          ],
+          "sourceLocator": "§7.1"
+        }
+      ],
+      "swiftEnum": "CCDepthCangrelorDripSample",
+      "file": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/CrossCategoryDepthDripEntries.swift",
+      "claimMap": [
+        {
+          "path": "entry.indications",
+          "text": "KENGREAL is indicated as an adjunct to percutaneous coronary intervention (PCI) to reduce the risk of periprocedural myocardial infarction (MI), repeat coronary revascularization, and stent thrombosis (ST) in patients who have not been treated with a P2Y 12 platelet inhibitor and are not being given a glycoprotein IIb/IIIa inhibitor [see Clinical Studies ( 14.1 )].",
+          "citationIDs": [
+            "cc_depth_kengreal"
+          ],
+          "sourceLocator": "§1"
+        },
+        {
+          "path": "entry.mechanism",
+          "text": "Cangrelor is a direct P2Y 12 platelet receptor inhibitor that blocks ADP-induced platelet activation and aggregation. Cangrelor binds selectively and reversibly to the P2Y 12 receptor to prevent further signaling and platelet activation.",
+          "citationIDs": [
+            "cc_depth_kengreal"
+          ],
+          "sourceLocator": "§12.1"
+        },
+        {
+          "path": "entry.dosing[0]",
+          "label": "FDA adult PCI label — bolus and infusion",
+          "body": "The recommended dosage of KENGREAL is a 30 mcg/kg IV bolus followed immediately by a 4 mcg/kg/min IV infusion. Initiate the bolus infusion prior to PCI. The maintenance infusion should ordinarily be continued for at least 2 hours or for the duration of PCI, whichever is longer.",
+          "citationIDs": [
+            "cc_depth_kengreal"
+          ],
+          "sourceLocator": "§2.1"
+        },
+        {
+          "path": "entry.dosing[1]",
+          "label": "FDA label — oral P2Y12 transition",
+          "body": "To maintain platelet inhibition after discontinuation of KENGREAL infusion, administer an oral P2Y 12 platelet inhibitor, as described below: Ticagrelor: 180 mg at any time during KENGREAL infusion or immediately after discontinuation [see Clinical Pharmacology ( 12.2 )] . Prasugrel: 60 mg immediately after discontinuation of KENGREAL [see Drug Interactions ( 7.1 ) and Clinical Pharmacology ( 12.2 )] . Clopidogrel: 600 mg immediately after discontinuation of KENGREAL [see Drug Interactions ( 7.1 ) and Clinical Pharmacology ( 12.2 )] .",
+          "citationIDs": [
+            "cc_depth_kengreal"
+          ],
+          "sourceLocator": "§2.2"
+        },
+        {
+          "path": "entry.dosing[2]",
+          "label": "Preparation and administration — label summary",
+          "body": "The 50 mg vial is reconstituted with 5 mL sterile water, gently swirled and further diluted in a 250 mL bag of normal saline or 5% dextrose, yielding 200 mcg/mL. The label requires a dedicated IV line, the bolus from the diluted bag before PCI, and immediate infusion after the bolus. Patients weighing 100 kg or more require at least two bags. The full preparation instructions remain in section 2.3.",
+          "citationIDs": [
+            "cc_depth_kengreal"
+          ],
+          "sourceLocator": "§2.3"
+        },
+        {
+          "path": "entry.dosing[3]",
+          "label": "Storage after dilution — label summary",
+          "body": "Reconstituted solution is diluted immediately. At room temperature, the diluted infusion is stable up to 12 hours in 5% dextrose or 24 hours in normal saline. Discard unused reconstituted solution remaining in the vial.",
+          "citationIDs": [
+            "cc_depth_kengreal"
+          ],
+          "sourceLocator": "§2.3"
+        },
+        {
+          "path": "entry.contraindications",
+          "text": "KENGREAL is contraindicated in patients with significant active bleeding [see Warnings and Precautions ( 5.1 ) and Adverse Reactions ( 6.1 )] .\n\nKENGREAL is contraindicated in patients with known hypersensitivity (e.g., anaphylaxis) to KENGREAL or any component of the product [see Adverse Reactions ( 6.1 )] .",
+          "citationIDs": [
+            "cc_depth_kengreal"
+          ],
+          "sourceLocator": "§4.1–4.2"
+        },
+        {
+          "path": "entry.warnings[0]",
+          "text": "Bleeding can be serious. The label reports more bleeding events of all severities with cangrelor than clopidogrel in CHAMPION PHOENIX. It states that the antiplatelet effect is no longer present one hour after discontinuation; that pharmacologic offset does not establish that an active bleed has resolved.",
+          "citationIDs": [
+            "cc_depth_kengreal"
+          ],
+          "sourceLocator": "§5.1"
+        },
+        {
+          "path": "entry.warnings[1]",
+          "text": "The label’s oral transition timing differs by drug: ticagrelor may overlap the infusion, while clopidogrel and prasugrel are given after it ends. A transition plan must identify the actual oral agent and timing rather than simply stating “start oral antiplatelet.”",
+          "citationIDs": [
+            "cc_depth_kengreal"
+          ],
+          "sourceLocator": "§2.2; §7.1"
+        },
+        {
+          "path": "entry.adverseReactions",
+          "text": "Bleeding is the principal adverse reaction; dyspnea and hypersensitivity reactions are also described. The trial discussion includes severe bleeding events.",
+          "citationIDs": [
+            "cc_depth_kengreal"
+          ],
+          "sourceLocator": "§6.1"
+        },
+        {
+          "path": "entry.drugInteractions[0]",
+          "text": "Clopidogrel or prasugrel administered during KENGREAL infusion will have no antiplatelet effect until the next dose is administered. Therefore, administer clopidogrel or prasugrel after KENGREAL infusion is discontinued [see Dosage and Administration ( 2.2 ) and Clinical Pharmacology ( 12.3 )].",
+          "citationIDs": [
+            "cc_depth_kengreal"
+          ],
+          "sourceLocator": "§7.1"
+        }
+      ],
+      "contentSHA256": "d64070ae5369b685cbac6eb58368afbe9ea8b4abbe6fe113d98c1d96caea1116"
+    },
+    {
+      "category": "lab",
+      "id": "cystatin-c",
+      "title": "Cystatin C",
+      "subtitle": "Serum biomarker used with creatinine to estimate GFR",
+      "topics": [
+        "labs-specimens",
+        "renal-urinary",
+        "renal-metabolic-critical-care"
+      ],
+      "related": [
+        "lab:creatinine",
+        "lab:urine-protein-creatinine",
+        "reference:kidney-biopsy-preparation-recovery"
+      ],
+      "specimen": "Serum",
+      "nclex": [
+        "physiologicalIntegrity",
+        "reductionOfRiskPotential",
+        "elimination"
+      ],
+      "referenceRanges": [
+        {
+          "value": "Use the laboratory’s assay-specific interval",
+          "label": "Cystatin C concentration",
+          "citationIDs": [
+            "cc_depth_lab_context"
+          ]
+        }
+      ],
+      "interpretationTiers": [
+        {
+          "severity": "normal",
+          "label": "Read the concentration and the estimate separately",
+          "summary": "Cystatin C can be combined with serum creatinine in an equation to estimate glomerular filtration rate. NIDDK supports the combined approach because it is generally more accurate and less biased than creatinine alone. A laboratory concentration and an estimated GFR describe different measurements.",
+          "citationIDs": [
+            "cc_depth_cystatin"
+          ]
+        },
+        {
+          "severity": "low",
+          "label": "When estimated GFR is near a decision value",
+          "summary": "NIDDK highlights combined creatinine–cystatin C estimation when eGFR is close to a value that affects drug dosing or transplant evaluation. The estimate still has uncertainty; it does not independently establish a diagnosis or a patient-specific dose.",
+          "citationIDs": [
+            "cc_depth_cystatin",
+            "cc_depth_gfr_accuracy"
+          ]
+        }
+      ],
+      "nursingActions": [
+        {
+          "text": "Review which equation the laboratory used and whether it includes both markers. NIDDK recommends equations without a race coefficient. When comparing results over time, a change in equation can alter the estimate even without a true change in kidney function.",
+          "citationIDs": [
+            "cc_depth_cystatin"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "text": "Assess trends using the same estimating equation. NIDDK cautions that population-based estimates can be less accurate for an individual; an isolated number deserves interpretation with the clinical picture.",
+          "citationIDs": [
+            "cc_depth_gfr_accuracy"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "text": "Biomarker measurement error, individual metabolism, differences from the equation’s development population and body-surface area can affect accuracy. Discuss a result that does not fit the broader assessment with the treating team.",
+          "citationIDs": [
+            "cc_depth_gfr_accuracy"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "text": "Urine albumin assessment provides additional information about kidney disease alongside eGFR. A cystatin C-based estimate does not replace the ordered urine assessment.",
+          "citationIDs": [
+            "cc_depth_cystatin"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "text": "Reference intervals vary by laboratory, assay, and population. Always verify against your facility's reported reference range. Not for diagnostic decision-making.",
+          "citationIDs": [
+            "cc_depth_lab_context"
+          ],
+          "sourceLocator": null
+        }
+      ],
+      "watchFor": [
+        {
+          "text": "Do not interpret a result within the laboratory reference interval as proof that no kidney problem exists. NLM emphasizes that results within an interval can coexist with illness and that symptoms may require further evaluation.",
+          "citationIDs": [
+            "cc_depth_lab_context"
+          ],
+          "sourceLocator": null
+        }
+      ],
+      "swiftEnum": "CCDepthCystatinCSample",
+      "file": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/CrossCategoryDepthLabEntries.swift",
+      "claimMap": [
+        {
+          "path": "entry.referenceRanges[0]",
+          "value": "Use the laboratory’s assay-specific interval",
+          "label": "Cystatin C concentration",
+          "citationIDs": [
+            "cc_depth_lab_context"
+          ]
+        },
+        {
+          "path": "entry.interpretationTiers[0]",
+          "severity": "normal",
+          "label": "Read the concentration and the estimate separately",
+          "summary": "Cystatin C can be combined with serum creatinine in an equation to estimate glomerular filtration rate. NIDDK supports the combined approach because it is generally more accurate and less biased than creatinine alone. A laboratory concentration and an estimated GFR describe different measurements.",
+          "citationIDs": [
+            "cc_depth_cystatin"
+          ]
+        },
+        {
+          "path": "entry.interpretationTiers[1]",
+          "severity": "low",
+          "label": "When estimated GFR is near a decision value",
+          "summary": "NIDDK highlights combined creatinine–cystatin C estimation when eGFR is close to a value that affects drug dosing or transplant evaluation. The estimate still has uncertainty; it does not independently establish a diagnosis or a patient-specific dose.",
+          "citationIDs": [
+            "cc_depth_cystatin",
+            "cc_depth_gfr_accuracy"
+          ]
+        },
+        {
+          "path": "entry.nursingActions[0]",
+          "text": "Review which equation the laboratory used and whether it includes both markers. NIDDK recommends equations without a race coefficient. When comparing results over time, a change in equation can alter the estimate even without a true change in kidney function.",
+          "citationIDs": [
+            "cc_depth_cystatin"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.nursingActions[1]",
+          "text": "Assess trends using the same estimating equation. NIDDK cautions that population-based estimates can be less accurate for an individual; an isolated number deserves interpretation with the clinical picture.",
+          "citationIDs": [
+            "cc_depth_gfr_accuracy"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.nursingActions[2]",
+          "text": "Biomarker measurement error, individual metabolism, differences from the equation’s development population and body-surface area can affect accuracy. Discuss a result that does not fit the broader assessment with the treating team.",
+          "citationIDs": [
+            "cc_depth_gfr_accuracy"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.nursingActions[3]",
+          "text": "Urine albumin assessment provides additional information about kidney disease alongside eGFR. A cystatin C-based estimate does not replace the ordered urine assessment.",
+          "citationIDs": [
+            "cc_depth_cystatin"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.nursingActions[4]",
+          "text": "Reference intervals vary by laboratory, assay, and population. Always verify against your facility's reported reference range. Not for diagnostic decision-making.",
+          "citationIDs": [
+            "cc_depth_lab_context"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.watchFor[0]",
+          "text": "Do not interpret a result within the laboratory reference interval as proof that no kidney problem exists. NLM emphasizes that results within an interval can coexist with illness and that symptoms may require further evaluation.",
+          "citationIDs": [
+            "cc_depth_lab_context"
+          ],
+          "sourceLocator": null
+        }
+      ],
+      "contentSHA256": "19bb19ad3dda061df586b7f9d4acd68ff66968401311e4512081a77af74846e0"
+    },
+    {
+      "category": "lab",
+      "id": "urine-osmolality",
+      "title": "Urine osmolality",
+      "subtitle": "Urine concentration in the context of fluid balance",
+      "topics": [
+        "labs-specimens",
+        "renal-urinary",
+        "renal-metabolic-critical-care"
+      ],
+      "related": [
+        "lab:serum-osmolality",
+        "reference:fluid-volume-assessment",
+        "lab:sodium"
+      ],
+      "specimen": "Urine",
+      "nclex": [
+        "physiologicalIntegrity",
+        "reductionOfRiskPotential",
+        "fluidElectrolytes"
+      ],
+      "referenceRanges": [
+        {
+          "value": "Use the reported reference interval",
+          "label": "Interpret with preparation and fluid status",
+          "citationIDs": [
+            "cc_depth_lab_context",
+            "cc_depth_osmolality"
+          ]
+        }
+      ],
+      "interpretationTiers": [
+        {
+          "severity": "high",
+          "label": "More concentrated urine",
+          "summary": "Osmolality describes dissolved-particle concentration. NLM explains that when blood osmolality rises, kidneys normally retain water and urine becomes more concentrated. A high urine value is not a standalone diagnosis.",
+          "citationIDs": [
+            "cc_depth_osmolality"
+          ]
+        },
+        {
+          "severity": "low",
+          "label": "More dilute urine",
+          "summary": "When blood osmolality falls as the water content rises, urine normally becomes more dilute. Urine results are often considered with serum osmolality, symptoms, history and other blood tests.",
+          "citationIDs": [
+            "cc_depth_osmolality"
+          ]
+        }
+      ],
+      "commonCauses": [
+        {
+          "title": "Conditions considered with abnormal urine osmolality",
+          "causes": [
+            "Dehydration or overhydration",
+            "Heart failure",
+            "Liver disease",
+            "Kidney disease"
+          ],
+          "citationIDs": [
+            "cc_depth_osmolality"
+          ]
+        }
+      ],
+      "nursingActions": [
+        {
+          "text": "Confirm that the sample ordered is urine, not serum. Urine osmolality commonly complements serum testing and may help evaluate unusually high or low urine output.",
+          "citationIDs": [
+            "cc_depth_osmolality"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "text": "Follow the supplied collection instructions. When a clean-catch sample is requested, avoid touching the inside of the container, use the provided cleansing method, collect the middle portion and return the closed container as instructed.",
+          "citationIDs": [
+            "cc_depth_osmolality"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "text": "Preparation is test-specific. Follow the ordering clinician’s instructions about food or fluids; the source does not establish routine water restriction for every urine osmolality sample.",
+          "citationIDs": [
+            "cc_depth_osmolality"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "text": "The clinical history may include thirst, nausea, vomiting, headache, confusion or fatigue. The team interprets these observations alongside fluid balance and the paired laboratory findings.",
+          "citationIDs": [
+            "cc_depth_osmolality"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "text": "Reference intervals vary by laboratory, assay, and population. Always verify against your facility's reported reference range. Not for diagnostic decision-making.",
+          "citationIDs": [
+            "cc_depth_lab_context"
+          ],
+          "sourceLocator": null
+        }
+      ],
+      "watchFor": [
+        {
+          "text": "A urine result alone cannot distinguish all causes of a fluid imbalance. NLM lists overlapping conditions and stresses the role of symptoms, medical history and other tests in interpretation.",
+          "citationIDs": [
+            "cc_depth_osmolality"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "text": "Confusion, seizures or breathing difficulty are among concerning symptoms described in the source’s fluid-imbalance and poisoning assessment. Clinical evaluation must not depend on a urine result alone.",
+          "citationIDs": [
+            "cc_depth_osmolality",
+            "cc_depth_lab_context"
+          ],
+          "sourceLocator": null
+        }
+      ],
+      "swiftEnum": "CCDepthUrineOsmolalitySample",
+      "file": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/CrossCategoryDepthLabEntries.swift",
+      "claimMap": [
+        {
+          "path": "entry.referenceRanges[0]",
+          "value": "Use the reported reference interval",
+          "label": "Interpret with preparation and fluid status",
+          "citationIDs": [
+            "cc_depth_lab_context",
+            "cc_depth_osmolality"
+          ]
+        },
+        {
+          "path": "entry.interpretationTiers[0]",
+          "severity": "high",
+          "label": "More concentrated urine",
+          "summary": "Osmolality describes dissolved-particle concentration. NLM explains that when blood osmolality rises, kidneys normally retain water and urine becomes more concentrated. A high urine value is not a standalone diagnosis.",
+          "citationIDs": [
+            "cc_depth_osmolality"
+          ]
+        },
+        {
+          "path": "entry.interpretationTiers[1]",
+          "severity": "low",
+          "label": "More dilute urine",
+          "summary": "When blood osmolality falls as the water content rises, urine normally becomes more dilute. Urine results are often considered with serum osmolality, symptoms, history and other blood tests.",
+          "citationIDs": [
+            "cc_depth_osmolality"
+          ]
+        },
+        {
+          "path": "entry.commonCauses[0]",
+          "title": "Conditions considered with abnormal urine osmolality",
+          "causes": [
+            "Dehydration or overhydration",
+            "Heart failure",
+            "Liver disease",
+            "Kidney disease"
+          ],
+          "citationIDs": [
+            "cc_depth_osmolality"
+          ]
+        },
+        {
+          "path": "entry.nursingActions[0]",
+          "text": "Confirm that the sample ordered is urine, not serum. Urine osmolality commonly complements serum testing and may help evaluate unusually high or low urine output.",
+          "citationIDs": [
+            "cc_depth_osmolality"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.nursingActions[1]",
+          "text": "Follow the supplied collection instructions. When a clean-catch sample is requested, avoid touching the inside of the container, use the provided cleansing method, collect the middle portion and return the closed container as instructed.",
+          "citationIDs": [
+            "cc_depth_osmolality"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.nursingActions[2]",
+          "text": "Preparation is test-specific. Follow the ordering clinician’s instructions about food or fluids; the source does not establish routine water restriction for every urine osmolality sample.",
+          "citationIDs": [
+            "cc_depth_osmolality"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.nursingActions[3]",
+          "text": "The clinical history may include thirst, nausea, vomiting, headache, confusion or fatigue. The team interprets these observations alongside fluid balance and the paired laboratory findings.",
+          "citationIDs": [
+            "cc_depth_osmolality"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.nursingActions[4]",
+          "text": "Reference intervals vary by laboratory, assay, and population. Always verify against your facility's reported reference range. Not for diagnostic decision-making.",
+          "citationIDs": [
+            "cc_depth_lab_context"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.watchFor[0]",
+          "text": "A urine result alone cannot distinguish all causes of a fluid imbalance. NLM lists overlapping conditions and stresses the role of symptoms, medical history and other tests in interpretation.",
+          "citationIDs": [
+            "cc_depth_osmolality"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.watchFor[1]",
+          "text": "Confusion, seizures or breathing difficulty are among concerning symptoms described in the source’s fluid-imbalance and poisoning assessment. Clinical evaluation must not depend on a urine result alone.",
+          "citationIDs": [
+            "cc_depth_osmolality",
+            "cc_depth_lab_context"
+          ],
+          "sourceLocator": null
+        }
+      ],
+      "contentSHA256": "19bb19ad3dda061df586b7f9d4acd68ff66968401311e4512081a77af74846e0"
+    },
+    {
+      "category": "lab",
+      "id": "urine-protein-creatinine",
+      "title": "Urine protein and albumin ratios (UPCR / UACR)",
+      "subtitle": "Separate total protein assessment from albumin-specific testing",
+      "topics": [
+        "labs-specimens",
+        "renal-urinary",
+        "renal-metabolic-critical-care"
+      ],
+      "related": [
+        "lab:cystatin-c",
+        "lab:creatinine",
+        "procedure:24-hour-urine-collection"
+      ],
+      "existing": true,
+      "existingFile": "CommonLabsRound19.swift",
+      "existingEnum": "UPCRSample",
+      "specimen": "Spot urine; collection method depends on the ordered test",
+      "nclex": [
+        "physiologicalIntegrity",
+        "reductionOfRiskPotential",
+        "elimination"
+      ],
+      "referenceRanges": [
+        {
+          "value": "Use the laboratory’s reported interval and units",
+          "label": "Total urine protein / protein-to-creatinine result",
+          "citationIDs": [
+            "cc_depth_protein_urine",
+            "cc_depth_lab_context"
+          ]
+        },
+        {
+          "value": "UACR >30 mg/g",
+          "label": "Abnormal urine albumin by the cited NIDDK source",
+          "citationIDs": [
+            "cc_depth_uacr"
+          ]
+        }
+      ],
+      "interpretationTiers": [
+        {
+          "severity": "high",
+          "label": "Identify the analyte before interpreting the ratio",
+          "summary": "UACR compares urine albumin with urine creatinine and corrects for differences in urine concentration. Total urine protein testing and albumin-specific testing are distinct; an albumin cutoff must not be applied to a total-protein result.",
+          "citationIDs": [
+            "cc_depth_uacr",
+            "cc_depth_protein_urine"
+          ]
+        },
+        {
+          "severity": "high",
+          "label": "Persistent versus transient findings",
+          "summary": "Protein can rise temporarily with strenuous exercise, dehydration, diet, stress or pregnancy. Repeat testing may help determine whether it remains elevated; a single high result does not identify the cause.",
+          "citationIDs": [
+            "cc_depth_protein_urine"
+          ]
+        },
+        {
+          "severity": "normal",
+          "label": "Follow the trend in context",
+          "summary": "NIDDK describes stable or falling albuminuria as a possible sign of treatment response and increasing albuminuria as a possible sign of progression. Interpret the trend with the rest of the kidney assessment.",
+          "citationIDs": [
+            "cc_depth_uacr"
+          ]
+        }
+      ],
+      "nursingActions": [
+        {
+          "text": "For UACR, NIDDK prefers a first-morning specimen but accepts a random specimen when that is unavailable. Routine urine-albumin assessment does not require a 24-hour collection.",
+          "citationIDs": [
+            "cc_depth_uacr"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "text": "Record the test name and units with the result. Ratios reported in mg/g, raw urine concentrations and total daily excretion are not the same reported measurement. Verify the actual laboratory report before comparing values.",
+          "citationIDs": [
+            "cc_depth_uacr",
+            "cc_depth_lab_context"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "text": "Review symptoms and conditions that affect interpretation. Proteinuria can precede symptoms; diabetes, hypertension, heart disease and family kidney history are reasons for closer kidney assessment.",
+          "citationIDs": [
+            "cc_depth_protein_urine"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "text": "Persistent urine protein usually prompts further evaluation to determine the cause. The quantity alone cannot establish a specific kidney diagnosis or choose treatment.",
+          "citationIDs": [
+            "cc_depth_protein_urine"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "text": "Reference intervals vary by laboratory, assay, and population. Always verify against your facility's reported reference range. Not for diagnostic decision-making.",
+          "citationIDs": [
+            "cc_depth_lab_context"
+          ],
+          "sourceLocator": null
+        }
+      ],
+      "watchFor": [
+        {
+          "text": "A negative protein test means excessive protein was not detected in that sample; it does not guarantee overall health. Results within a reference interval may still need follow-up when symptoms or other findings are concerning.",
+          "citationIDs": [
+            "cc_depth_protein_urine",
+            "cc_depth_lab_context"
+          ],
+          "sourceLocator": null
+        }
+      ],
+      "swiftEnum": "UPCRSample",
+      "file": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/CrossCategoryDepthLabEntries.swift",
+      "claimMap": [
+        {
+          "path": "entry.referenceRanges[0]",
+          "value": "Use the laboratory’s reported interval and units",
+          "label": "Total urine protein / protein-to-creatinine result",
+          "citationIDs": [
+            "cc_depth_protein_urine",
+            "cc_depth_lab_context"
+          ]
+        },
+        {
+          "path": "entry.referenceRanges[1]",
+          "value": "UACR >30 mg/g",
+          "label": "Abnormal urine albumin by the cited NIDDK source",
+          "citationIDs": [
+            "cc_depth_uacr"
+          ]
+        },
+        {
+          "path": "entry.interpretationTiers[0]",
+          "severity": "high",
+          "label": "Identify the analyte before interpreting the ratio",
+          "summary": "UACR compares urine albumin with urine creatinine and corrects for differences in urine concentration. Total urine protein testing and albumin-specific testing are distinct; an albumin cutoff must not be applied to a total-protein result.",
+          "citationIDs": [
+            "cc_depth_uacr",
+            "cc_depth_protein_urine"
+          ]
+        },
+        {
+          "path": "entry.interpretationTiers[1]",
+          "severity": "high",
+          "label": "Persistent versus transient findings",
+          "summary": "Protein can rise temporarily with strenuous exercise, dehydration, diet, stress or pregnancy. Repeat testing may help determine whether it remains elevated; a single high result does not identify the cause.",
+          "citationIDs": [
+            "cc_depth_protein_urine"
+          ]
+        },
+        {
+          "path": "entry.interpretationTiers[2]",
+          "severity": "normal",
+          "label": "Follow the trend in context",
+          "summary": "NIDDK describes stable or falling albuminuria as a possible sign of treatment response and increasing albuminuria as a possible sign of progression. Interpret the trend with the rest of the kidney assessment.",
+          "citationIDs": [
+            "cc_depth_uacr"
+          ]
+        },
+        {
+          "path": "entry.nursingActions[0]",
+          "text": "For UACR, NIDDK prefers a first-morning specimen but accepts a random specimen when that is unavailable. Routine urine-albumin assessment does not require a 24-hour collection.",
+          "citationIDs": [
+            "cc_depth_uacr"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.nursingActions[1]",
+          "text": "Record the test name and units with the result. Ratios reported in mg/g, raw urine concentrations and total daily excretion are not the same reported measurement. Verify the actual laboratory report before comparing values.",
+          "citationIDs": [
+            "cc_depth_uacr",
+            "cc_depth_lab_context"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.nursingActions[2]",
+          "text": "Review symptoms and conditions that affect interpretation. Proteinuria can precede symptoms; diabetes, hypertension, heart disease and family kidney history are reasons for closer kidney assessment.",
+          "citationIDs": [
+            "cc_depth_protein_urine"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.nursingActions[3]",
+          "text": "Persistent urine protein usually prompts further evaluation to determine the cause. The quantity alone cannot establish a specific kidney diagnosis or choose treatment.",
+          "citationIDs": [
+            "cc_depth_protein_urine"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.nursingActions[4]",
+          "text": "Reference intervals vary by laboratory, assay, and population. Always verify against your facility's reported reference range. Not for diagnostic decision-making.",
+          "citationIDs": [
+            "cc_depth_lab_context"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.watchFor[0]",
+          "text": "A negative protein test means excessive protein was not detected in that sample; it does not guarantee overall health. Results within a reference interval may still need follow-up when symptoms or other findings are concerning.",
+          "citationIDs": [
+            "cc_depth_protein_urine",
+            "cc_depth_lab_context"
+          ],
+          "sourceLocator": null
+        }
+      ],
+      "contentSHA256": "19bb19ad3dda061df586b7f9d4acd68ff66968401311e4512081a77af74846e0"
+    },
+    {
+      "category": "procedure",
+      "id": "24-hour-urine-collection",
+      "title": "24-hour urine collection",
+      "subtitle": "Timed collection, complete sampling and laboratory handling",
+      "topics": [
+        "labs-specimens",
+        "renal-urinary",
+        "nutrition-elimination"
+      ],
+      "related": [
+        "lab:urine-protein-creatinine",
+        "lab:urine-osmolality",
+        "reference:kidney-stone-recovery-prevention"
+      ],
+      "nclex": [
+        "physiologicalIntegrity",
+        "reductionOfRiskPotential",
+        "elimination"
+      ],
+      "indications": {
+        "text": "Timed urine collection measures substances excreted over a full day. NLM describes it for urine uric acid, including kidney-stone evaluation, and selected protein assessments because excretion may vary during the day. The specific ordered test determines preparation and handling.",
+        "citationIDs": [
+          "cc_depth_uric_collection",
+          "cc_depth_protein_urine"
+        ],
+        "sourceLocator": null
+      },
+      "equipment": [
+        {
+          "text": "Use the special collection container supplied by the laboratory and its written collection and storage instructions. The NLM uric-acid method uses refrigeration or a cooler with ice during collection.",
+          "citationIDs": [
+            "cc_depth_uric_collection"
+          ],
+          "sourceLocator": null
+        }
+      ],
+      "preProcedure": [
+        {
+          "text": "Confirm the start time specified by the provider and the method for returning the specimen. Explain that all urine over the collection period is needed, not only a small sample from selected voids.",
+          "citationIDs": [
+            "cc_depth_uric_collection"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "text": "Review medicines and supplements with the provider; aspirin and niacin can affect uric-acid results. Medication changes require that discussion rather than an automatic hold for collection.",
+          "citationIDs": [
+            "cc_depth_uric_collection"
+          ],
+          "sourceLocator": null
+        }
+      ],
+      "steps": [
+        {
+          "number": 1,
+          "title": "Start with an empty bladder",
+          "body": "At the agreed start time, urinate into the toilet without collecting that urine. Write down the time; it starts the collection period.",
+          "citationIDs": [
+            "cc_depth_uric_collection"
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Collect every subsequent void",
+          "body": "Collect all urine into the supplied container for the next 24 hours, following the laboratory’s instructions.",
+          "citationIDs": [
+            "cc_depth_uric_collection"
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Maintain the required storage",
+          "body": "For the cited NLM method, keep the container refrigerated or in a cooler with ice during collection. Follow the supplied test-specific handling instructions.",
+          "citationIDs": [
+            "cc_depth_uric_collection"
+          ]
+        },
+        {
+          "number": 4,
+          "title": "Finish at the full interval",
+          "body": "At 24 hours after the start, try to urinate and include that final void. This completes the timed collection.",
+          "citationIDs": [
+            "cc_depth_uric_collection"
+          ]
+        },
+        {
+          "number": 5,
+          "title": "Return the specimen",
+          "body": "Return the complete container to the provider’s office or laboratory as instructed.",
+          "citationIDs": [
+            "cc_depth_uric_collection"
+          ]
+        }
+      ],
+      "postProcedure": [
+        {
+          "text": "The care team interprets the result for the substance ordered. Uric-acid and urine-protein findings have different meanings; an abnormal result may require additional testing to establish its cause.",
+          "citationIDs": [
+            "cc_depth_uric_collection",
+            "cc_depth_protein_urine"
+          ],
+          "sourceLocator": null
+        }
+      ],
+      "documentation": [
+        {
+          "text": "Retain the recorded start time and the end of the collection period with the specimen information. Accurate timing and collecting all urine are part of the source method.",
+          "citationIDs": [
+            "cc_depth_uric_collection"
+          ],
+          "sourceLocator": null
+        }
+      ],
+      "watchFor": [
+        {
+          "text": "A timed collection is different from a single clean-catch sample. Ensure the patient understands which method was ordered and the collection and storage instructions supplied for it.",
+          "citationIDs": [
+            "cc_depth_protein_urine",
+            "cc_depth_uric_collection"
+          ],
+          "sourceLocator": null
+        }
+      ],
+      "swiftEnum": "CCDepth24HourUrineCollectionSample",
+      "file": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/CrossCategoryDepthProcedureEntries.swift",
+      "claimMap": [
+        {
+          "path": "entry.indications",
+          "text": "Timed urine collection measures substances excreted over a full day. NLM describes it for urine uric acid, including kidney-stone evaluation, and selected protein assessments because excretion may vary during the day. The specific ordered test determines preparation and handling.",
+          "citationIDs": [
+            "cc_depth_uric_collection",
+            "cc_depth_protein_urine"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.equipment[0]",
+          "text": "Use the special collection container supplied by the laboratory and its written collection and storage instructions. The NLM uric-acid method uses refrigeration or a cooler with ice during collection.",
+          "citationIDs": [
+            "cc_depth_uric_collection"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.preProcedure[0]",
+          "text": "Confirm the start time specified by the provider and the method for returning the specimen. Explain that all urine over the collection period is needed, not only a small sample from selected voids.",
+          "citationIDs": [
+            "cc_depth_uric_collection"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.preProcedure[1]",
+          "text": "Review medicines and supplements with the provider; aspirin and niacin can affect uric-acid results. Medication changes require that discussion rather than an automatic hold for collection.",
+          "citationIDs": [
+            "cc_depth_uric_collection"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.steps[0]",
+          "number": 1,
+          "title": "Start with an empty bladder",
+          "body": "At the agreed start time, urinate into the toilet without collecting that urine. Write down the time; it starts the collection period.",
+          "citationIDs": [
+            "cc_depth_uric_collection"
+          ]
+        },
+        {
+          "path": "entry.steps[1]",
+          "number": 2,
+          "title": "Collect every subsequent void",
+          "body": "Collect all urine into the supplied container for the next 24 hours, following the laboratory’s instructions.",
+          "citationIDs": [
+            "cc_depth_uric_collection"
+          ]
+        },
+        {
+          "path": "entry.steps[2]",
+          "number": 3,
+          "title": "Maintain the required storage",
+          "body": "For the cited NLM method, keep the container refrigerated or in a cooler with ice during collection. Follow the supplied test-specific handling instructions.",
+          "citationIDs": [
+            "cc_depth_uric_collection"
+          ]
+        },
+        {
+          "path": "entry.steps[3]",
+          "number": 4,
+          "title": "Finish at the full interval",
+          "body": "At 24 hours after the start, try to urinate and include that final void. This completes the timed collection.",
+          "citationIDs": [
+            "cc_depth_uric_collection"
+          ]
+        },
+        {
+          "path": "entry.steps[4]",
+          "number": 5,
+          "title": "Return the specimen",
+          "body": "Return the complete container to the provider’s office or laboratory as instructed.",
+          "citationIDs": [
+            "cc_depth_uric_collection"
+          ]
+        },
+        {
+          "path": "entry.postProcedure[0]",
+          "text": "The care team interprets the result for the substance ordered. Uric-acid and urine-protein findings have different meanings; an abnormal result may require additional testing to establish its cause.",
+          "citationIDs": [
+            "cc_depth_uric_collection",
+            "cc_depth_protein_urine"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.documentation[0]",
+          "text": "Retain the recorded start time and the end of the collection period with the specimen information. Accurate timing and collecting all urine are part of the source method.",
+          "citationIDs": [
+            "cc_depth_uric_collection"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.watchFor[0]",
+          "text": "A timed collection is different from a single clean-catch sample. Ensure the patient understands which method was ordered and the collection and storage instructions supplied for it.",
+          "citationIDs": [
+            "cc_depth_protein_urine",
+            "cc_depth_uric_collection"
+          ],
+          "sourceLocator": null
+        }
+      ],
+      "contentSHA256": "2415c501a8da269c6575a3e9cfed67d75d50c3e4b77e7e2b6f952834bbba5c89"
+    },
+    {
+      "category": "procedure",
+      "id": "peak-flow-measurement",
+      "title": "Peak flow measurement",
+      "subtitle": "Meter technique and the best-of-three reading",
+      "topics": [
+        "respiratory",
+        "airway-ventilation",
+        "community-home-care"
+      ],
+      "related": [
+        "diagnosis:asthma",
+        "reference:asthma-action-plan-daily-support",
+        "reference:pulmonary-function-testing-support"
+      ],
+      "nclex": [
+        "physiologicalIntegrity",
+        "reductionOfRiskPotential",
+        "gasExchange"
+      ],
+      "indications": {
+        "text": "A peak flow meter measures how quickly air moves out of the lungs. It can support asthma monitoring when included in the individual’s care plan. The readings are used with symptom recognition and the clinician’s written action plan.",
+        "citationIDs": [
+          "cc_depth_peak_technique",
+          "cc_depth_peak_flow"
+        ],
+        "sourceLocator": null
+      },
+      "equipment": [
+        {
+          "text": "Use the patient’s peak flow meter and a diary or other place to record results. Ask a nurse or clinician to demonstrate the technique and check that the patient can repeat it.",
+          "citationIDs": [
+            "cc_depth_peak_technique"
+          ],
+          "sourceLocator": null
+        }
+      ],
+      "preProcedure": [
+        {
+          "text": "Know the personal best and the clinician’s action-plan ranges. People of the same height, weight and sex may have different personal-best results; another person’s reading is not the treatment target.",
+          "citationIDs": [
+            "cc_depth_peak_technique"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "text": "Review the monitoring schedule and symptoms with the care team. The measurement technique below is from the federal EPR-3 teaching figure; medicine changes follow the current individualized plan.",
+          "citationIDs": [
+            "cc_depth_peak_technique",
+            "cc_depth_peak_flow"
+          ],
+          "sourceLocator": null
+        }
+      ],
+      "steps": [
+        {
+          "number": 1,
+          "title": "Reset",
+          "body": "Move the indicator to the bottom of the numbered scale.",
+          "citationIDs": [
+            "cc_depth_peak_technique"
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Position and inhale",
+          "body": "Stand up and take a deep breath that fills the lungs completely.",
+          "citationIDs": [
+            "cc_depth_peak_technique"
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Seal the mouthpiece",
+          "body": "Close the lips around the mouthpiece and keep the tongue out of the opening.",
+          "citationIDs": [
+            "cc_depth_peak_technique"
+          ]
+        },
+        {
+          "number": 4,
+          "title": "Blow once",
+          "body": "Blow out as hard and as fast as possible in one blow. Note the reading. If coughing or a technique error occurs, repeat the attempt instead of recording that result.",
+          "citationIDs": [
+            "cc_depth_peak_technique"
+          ]
+        },
+        {
+          "number": 5,
+          "title": "Repeat and retain the best",
+          "body": "Repeat the sequence two more times. Record the best of the three successful blows in the asthma diary.",
+          "citationIDs": [
+            "cc_depth_peak_technique"
+          ]
+        }
+      ],
+      "postProcedure": [
+        {
+          "text": "Compare the reading with the individual action plan and review accompanying symptoms. The care team uses these observations to assess control and whether the treatment plan needs review.",
+          "citationIDs": [
+            "cc_depth_peak_technique",
+            "cc_depth_peak_flow"
+          ],
+          "sourceLocator": null
+        }
+      ],
+      "documentation": [
+        {
+          "text": "Record the best reading in the diary according to the agreed monitoring schedule. Bring the record and meter to follow-up so technique and the action plan can be reviewed.",
+          "citationIDs": [
+            "cc_depth_peak_technique",
+            "cc_depth_peak_flow"
+          ],
+          "sourceLocator": null
+        }
+      ],
+      "watchFor": [
+        {
+          "text": "NHLBI advises emergency help when asthma medicines are not relieving an attack or breathing remains very hard. Do not make repeated meter attempts a prerequisite for seeking help with severe symptoms.",
+          "citationIDs": [
+            "cc_depth_asthma_attack"
+          ],
+          "sourceLocator": null
+        }
+      ],
+      "swiftEnum": "CCDepthPeakFlowMeasurementSample",
+      "file": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/CrossCategoryDepthProcedureEntries.swift",
+      "claimMap": [
+        {
+          "path": "entry.indications",
+          "text": "A peak flow meter measures how quickly air moves out of the lungs. It can support asthma monitoring when included in the individual’s care plan. The readings are used with symptom recognition and the clinician’s written action plan.",
+          "citationIDs": [
+            "cc_depth_peak_technique",
+            "cc_depth_peak_flow"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.equipment[0]",
+          "text": "Use the patient’s peak flow meter and a diary or other place to record results. Ask a nurse or clinician to demonstrate the technique and check that the patient can repeat it.",
+          "citationIDs": [
+            "cc_depth_peak_technique"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.preProcedure[0]",
+          "text": "Know the personal best and the clinician’s action-plan ranges. People of the same height, weight and sex may have different personal-best results; another person’s reading is not the treatment target.",
+          "citationIDs": [
+            "cc_depth_peak_technique"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.preProcedure[1]",
+          "text": "Review the monitoring schedule and symptoms with the care team. The measurement technique below is from the federal EPR-3 teaching figure; medicine changes follow the current individualized plan.",
+          "citationIDs": [
+            "cc_depth_peak_technique",
+            "cc_depth_peak_flow"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.steps[0]",
+          "number": 1,
+          "title": "Reset",
+          "body": "Move the indicator to the bottom of the numbered scale.",
+          "citationIDs": [
+            "cc_depth_peak_technique"
+          ]
+        },
+        {
+          "path": "entry.steps[1]",
+          "number": 2,
+          "title": "Position and inhale",
+          "body": "Stand up and take a deep breath that fills the lungs completely.",
+          "citationIDs": [
+            "cc_depth_peak_technique"
+          ]
+        },
+        {
+          "path": "entry.steps[2]",
+          "number": 3,
+          "title": "Seal the mouthpiece",
+          "body": "Close the lips around the mouthpiece and keep the tongue out of the opening.",
+          "citationIDs": [
+            "cc_depth_peak_technique"
+          ]
+        },
+        {
+          "path": "entry.steps[3]",
+          "number": 4,
+          "title": "Blow once",
+          "body": "Blow out as hard and as fast as possible in one blow. Note the reading. If coughing or a technique error occurs, repeat the attempt instead of recording that result.",
+          "citationIDs": [
+            "cc_depth_peak_technique"
+          ]
+        },
+        {
+          "path": "entry.steps[4]",
+          "number": 5,
+          "title": "Repeat and retain the best",
+          "body": "Repeat the sequence two more times. Record the best of the three successful blows in the asthma diary.",
+          "citationIDs": [
+            "cc_depth_peak_technique"
+          ]
+        },
+        {
+          "path": "entry.postProcedure[0]",
+          "text": "Compare the reading with the individual action plan and review accompanying symptoms. The care team uses these observations to assess control and whether the treatment plan needs review.",
+          "citationIDs": [
+            "cc_depth_peak_technique",
+            "cc_depth_peak_flow"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.documentation[0]",
+          "text": "Record the best reading in the diary according to the agreed monitoring schedule. Bring the record and meter to follow-up so technique and the action plan can be reviewed.",
+          "citationIDs": [
+            "cc_depth_peak_technique",
+            "cc_depth_peak_flow"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.watchFor[0]",
+          "text": "NHLBI advises emergency help when asthma medicines are not relieving an attack or breathing remains very hard. Do not make repeated meter attempts a prerequisite for seeking help with severe symptoms.",
+          "citationIDs": [
+            "cc_depth_asthma_attack"
+          ],
+          "sourceLocator": null
+        }
+      ],
+      "contentSHA256": "2415c501a8da269c6575a3e9cfed67d75d50c3e4b77e7e2b6f952834bbba5c89"
+    },
+    {
+      "category": "diagnosis",
+      "id": "alpha-1-antitrypsin-deficiency",
+      "title": "Alpha-1 antitrypsin deficiency",
+      "subtitle": "Inherited risk for lung and liver disease",
+      "topics": [
+        "respiratory",
+        "gastrointestinal",
+        "community-home-care"
+      ],
+      "related": [
+        "lab:alpha-1-antitrypsin",
+        "reference:bronchiectasis-daily-airway-care",
+        "reference:pulmonary-rehabilitation-support"
+      ],
+      "nclex": [
+        "physiologicalIntegrity",
+        "physiologicalAdaptation",
+        "gasExchange"
+      ],
+      "definition": {
+        "text": "Alpha-1 antitrypsin (AAT) deficiency is an inherited condition that increases the risk of lung and liver disease. AAT is made in the liver and helps protect the lungs. The effect varies: some people have no symptoms, while others develop significant disease.",
+        "citationIDs": [
+          "cc_depth_aat"
+        ],
+        "sourceLocator": null
+      },
+      "pathophysiology": {
+        "text": "Too little protective AAT leaves the lungs more vulnerable to smoking, dust and pollution and may lead to COPD or bronchiectasis. AAT-related disease can also affect the liver. Inherited changes in the AAT genes influence risk; inheritance alone does not predict the same course for every family member.",
+        "citationIDs": [
+          "cc_depth_aat"
+        ],
+        "sourceLocator": null
+      },
+      "presentation": [
+        {
+          "text": "Respiratory symptoms can include an ongoing cough, shortness of breath and wheezing. Some patients are initially treated for asthma because the symptoms overlap.",
+          "citationIDs": [
+            "cc_depth_aat"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "text": "Liver involvement may present with jaundice and leg swelling. Rare skin manifestations include painful lumps or patches. Absence of symptoms does not exclude an inherited deficiency.",
+          "citationIDs": [
+            "cc_depth_aat"
+          ],
+          "sourceLocator": null
+        }
+      ],
+      "diagnosticCriteria": [
+        {
+          "text": "A blood test measures AAT protein. Genetic testing can confirm the deficiency and identify the gene change; a genetic counselor can help explain testing and its implications.",
+          "citationIDs": [
+            "cc_depth_aat"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "text": "Pulmonary function testing may be used to assess the lungs when COPD is related to AAT deficiency. Family history and personal lung or liver disease help inform the evaluation.",
+          "citationIDs": [
+            "cc_depth_aat"
+          ],
+          "sourceLocator": null
+        }
+      ],
+      "priorityAssessments": [
+        {
+          "text": "Review current respiratory symptoms, tobacco exposure, environmental irritants and family history of AAT deficiency or lung and liver disease. Discuss unexplained liver findings along with the respiratory history.",
+          "citationIDs": [
+            "cc_depth_aat"
+          ],
+          "sourceLocator": null
+        }
+      ],
+      "commonInterventions": [
+        {
+          "text": "Avoiding smoking, secondhand smoke, dust and pollution helps protect the lungs. COPD care may include inhaled treatment, vaccination, rehabilitation and oxygen when prescribed; selection depends on the clinical assessment.",
+          "citationIDs": [
+            "cc_depth_aat"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "text": "Some people with emphysema receive lifelong augmentation therapy to raise AAT levels and slow lung damage. This is a clinician-selected treatment, not a universal treatment for every low blood level.",
+          "citationIDs": [
+            "cc_depth_aat"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "text": "Genetic counseling can support decisions about testing and family planning. Patients and families may need help understanding carrier status and the variable effect of inherited changes.",
+          "citationIDs": [
+            "cc_depth_aat"
+          ],
+          "sourceLocator": null
+        }
+      ],
+      "watchFor": [
+        {
+          "text": "The disease can affect both lung and liver health, so respiratory follow-up alone may not address the full presentation. Report new jaundice, leg swelling or changing respiratory symptoms for evaluation.",
+          "citationIDs": [
+            "cc_depth_aat"
+          ],
+          "sourceLocator": null
+        }
+      ],
+      "swiftEnum": "CCDepthAlpha1AntitrypsinDeficiencySample",
+      "file": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/CrossCategoryDepthDiagnosisEntries.swift",
+      "claimMap": [
+        {
+          "path": "entry.definition",
+          "text": "Alpha-1 antitrypsin (AAT) deficiency is an inherited condition that increases the risk of lung and liver disease. AAT is made in the liver and helps protect the lungs. The effect varies: some people have no symptoms, while others develop significant disease.",
+          "citationIDs": [
+            "cc_depth_aat"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.pathophysiology",
+          "text": "Too little protective AAT leaves the lungs more vulnerable to smoking, dust and pollution and may lead to COPD or bronchiectasis. AAT-related disease can also affect the liver. Inherited changes in the AAT genes influence risk; inheritance alone does not predict the same course for every family member.",
+          "citationIDs": [
+            "cc_depth_aat"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.presentation[0]",
+          "text": "Respiratory symptoms can include an ongoing cough, shortness of breath and wheezing. Some patients are initially treated for asthma because the symptoms overlap.",
+          "citationIDs": [
+            "cc_depth_aat"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.presentation[1]",
+          "text": "Liver involvement may present with jaundice and leg swelling. Rare skin manifestations include painful lumps or patches. Absence of symptoms does not exclude an inherited deficiency.",
+          "citationIDs": [
+            "cc_depth_aat"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.diagnosticCriteria[0]",
+          "text": "A blood test measures AAT protein. Genetic testing can confirm the deficiency and identify the gene change; a genetic counselor can help explain testing and its implications.",
+          "citationIDs": [
+            "cc_depth_aat"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.diagnosticCriteria[1]",
+          "text": "Pulmonary function testing may be used to assess the lungs when COPD is related to AAT deficiency. Family history and personal lung or liver disease help inform the evaluation.",
+          "citationIDs": [
+            "cc_depth_aat"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.priorityAssessments[0]",
+          "text": "Review current respiratory symptoms, tobacco exposure, environmental irritants and family history of AAT deficiency or lung and liver disease. Discuss unexplained liver findings along with the respiratory history.",
+          "citationIDs": [
+            "cc_depth_aat"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.commonInterventions[0]",
+          "text": "Avoiding smoking, secondhand smoke, dust and pollution helps protect the lungs. COPD care may include inhaled treatment, vaccination, rehabilitation and oxygen when prescribed; selection depends on the clinical assessment.",
+          "citationIDs": [
+            "cc_depth_aat"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.commonInterventions[1]",
+          "text": "Some people with emphysema receive lifelong augmentation therapy to raise AAT levels and slow lung damage. This is a clinician-selected treatment, not a universal treatment for every low blood level.",
+          "citationIDs": [
+            "cc_depth_aat"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.commonInterventions[2]",
+          "text": "Genetic counseling can support decisions about testing and family planning. Patients and families may need help understanding carrier status and the variable effect of inherited changes.",
+          "citationIDs": [
+            "cc_depth_aat"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.watchFor[0]",
+          "text": "The disease can affect both lung and liver health, so respiratory follow-up alone may not address the full presentation. Report new jaundice, leg swelling or changing respiratory symptoms for evaluation.",
+          "citationIDs": [
+            "cc_depth_aat"
+          ],
+          "sourceLocator": null
+        }
+      ],
+      "contentSHA256": "06cc64cac0200cd8029200ff7e0ebfaf04be3104d0eedd722cd296d2de7ba757"
+    },
+    {
+      "category": "diagnosis",
+      "id": "central-sleep-apnea",
+      "title": "Central sleep apnea",
+      "subtitle": "Sleep-related pauses from impaired breathing signals",
+      "topics": [
+        "respiratory",
+        "neurological",
+        "community-home-care"
+      ],
+      "related": [
+        "diagnosis:osa-obstructive-sleep-apnea",
+        "reference:cpap-daily-support",
+        "reference:home-oxygen-and-oximetry"
+      ],
+      "nclex": [
+        "physiologicalIntegrity",
+        "physiologicalAdaptation",
+        "gasExchange"
+      ],
+      "definition": {
+        "text": "Central sleep apnea occurs when the brain does not send the signals needed for breathing during sleep. It differs from obstructive apnea, where the upper airway repeatedly narrows or becomes blocked. A sleep study helps determine the type and severity.",
+        "citationIDs": [
+          "cc_depth_apnea",
+          "cc_depth_apnea_diagnosis"
+        ],
+        "sourceLocator": null
+      },
+      "pathophysiology": {
+        "text": "Conditions affecting brain control of the airways and chest muscles can disrupt breathing signals. NHLBI lists heart failure, stroke and selected neurological disorders among central-apnea risk factors. Long-term opioid exposure can also interfere with control of breathing during sleep.",
+        "citationIDs": [
+          "cc_depth_apnea_causes"
+        ],
+        "sourceLocator": null
+      },
+      "presentation": [
+        {
+          "text": "Sleep apnea may be noticed as repeated pauses or gasping during sleep, poor sleep quality or excessive daytime sleepiness. These findings alone do not distinguish central from obstructive events.",
+          "citationIDs": [
+            "cc_depth_apnea",
+            "cc_depth_apnea_diagnosis"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "text": "Poor sleep may affect concentration, memory, decision-making and behavior. The history should include daytime effects rather than focusing only on the overnight breathing description.",
+          "citationIDs": [
+            "cc_depth_apnea"
+          ],
+          "sourceLocator": null
+        }
+      ],
+      "diagnosticCriteria": [
+        {
+          "text": "A sleep specialist or sleep center evaluates the pattern with a sleep study. NHLBI describes the study as a way to establish both the apnea type and how serious it is.",
+          "citationIDs": [
+            "cc_depth_apnea_diagnosis"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "text": "A sleep diary can record duration, quality and daytime sleepiness. The clinician may evaluate other contributing conditions and ask about medicines or recent travel to higher altitude.",
+          "citationIDs": [
+            "cc_depth_apnea_diagnosis"
+          ],
+          "sourceLocator": null
+        }
+      ],
+      "priorityAssessments": [
+        {
+          "text": "Review opioid medicines and relevant cardiac or neurological history with the care team. These risk factors prompt assessment; they do not establish central apnea without evaluation.",
+          "citationIDs": [
+            "cc_depth_apnea_causes",
+            "cc_depth_apnea_diagnosis"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "text": "Ask about witnessed breathing pauses, sleep quality and daytime functioning, and bring those observations to the sleep evaluation.",
+          "citationIDs": [
+            "cc_depth_apnea",
+            "cc_depth_apnea_diagnosis"
+          ],
+          "sourceLocator": null
+        }
+      ],
+      "commonInterventions": [
+        {
+          "text": "Support specialist evaluation and follow-up using the sleep-study findings, medication history and associated conditions. The source distinguishes apnea mechanisms; a general airway-opening treatment overview is not a central-apnea device-selection algorithm.",
+          "citationIDs": [
+            "cc_depth_apnea",
+            "cc_depth_apnea_diagnosis"
+          ],
+          "sourceLocator": null
+        }
+      ],
+      "watchFor": [
+        {
+          "text": "Sleep apnea can reduce oxygen delivery during sleep and is associated with serious health problems when untreated. A seemingly acceptable spot oxygen reading does not identify the type of overnight apnea; the sleep study addresses that question.",
+          "citationIDs": [
+            "cc_depth_apnea",
+            "cc_depth_apnea_diagnosis"
+          ],
+          "sourceLocator": null
+        }
+      ],
+      "swiftEnum": "CCDepthCentralSleepApneaSample",
+      "file": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/CrossCategoryDepthDiagnosisEntries.swift",
+      "claimMap": [
+        {
+          "path": "entry.definition",
+          "text": "Central sleep apnea occurs when the brain does not send the signals needed for breathing during sleep. It differs from obstructive apnea, where the upper airway repeatedly narrows or becomes blocked. A sleep study helps determine the type and severity.",
+          "citationIDs": [
+            "cc_depth_apnea",
+            "cc_depth_apnea_diagnosis"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.pathophysiology",
+          "text": "Conditions affecting brain control of the airways and chest muscles can disrupt breathing signals. NHLBI lists heart failure, stroke and selected neurological disorders among central-apnea risk factors. Long-term opioid exposure can also interfere with control of breathing during sleep.",
+          "citationIDs": [
+            "cc_depth_apnea_causes"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.presentation[0]",
+          "text": "Sleep apnea may be noticed as repeated pauses or gasping during sleep, poor sleep quality or excessive daytime sleepiness. These findings alone do not distinguish central from obstructive events.",
+          "citationIDs": [
+            "cc_depth_apnea",
+            "cc_depth_apnea_diagnosis"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.presentation[1]",
+          "text": "Poor sleep may affect concentration, memory, decision-making and behavior. The history should include daytime effects rather than focusing only on the overnight breathing description.",
+          "citationIDs": [
+            "cc_depth_apnea"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.diagnosticCriteria[0]",
+          "text": "A sleep specialist or sleep center evaluates the pattern with a sleep study. NHLBI describes the study as a way to establish both the apnea type and how serious it is.",
+          "citationIDs": [
+            "cc_depth_apnea_diagnosis"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.diagnosticCriteria[1]",
+          "text": "A sleep diary can record duration, quality and daytime sleepiness. The clinician may evaluate other contributing conditions and ask about medicines or recent travel to higher altitude.",
+          "citationIDs": [
+            "cc_depth_apnea_diagnosis"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.priorityAssessments[0]",
+          "text": "Review opioid medicines and relevant cardiac or neurological history with the care team. These risk factors prompt assessment; they do not establish central apnea without evaluation.",
+          "citationIDs": [
+            "cc_depth_apnea_causes",
+            "cc_depth_apnea_diagnosis"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.priorityAssessments[1]",
+          "text": "Ask about witnessed breathing pauses, sleep quality and daytime functioning, and bring those observations to the sleep evaluation.",
+          "citationIDs": [
+            "cc_depth_apnea",
+            "cc_depth_apnea_diagnosis"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.commonInterventions[0]",
+          "text": "Support specialist evaluation and follow-up using the sleep-study findings, medication history and associated conditions. The source distinguishes apnea mechanisms; a general airway-opening treatment overview is not a central-apnea device-selection algorithm.",
+          "citationIDs": [
+            "cc_depth_apnea",
+            "cc_depth_apnea_diagnosis"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.watchFor[0]",
+          "text": "Sleep apnea can reduce oxygen delivery during sleep and is associated with serious health problems when untreated. A seemingly acceptable spot oxygen reading does not identify the type of overnight apnea; the sleep study addresses that question.",
+          "citationIDs": [
+            "cc_depth_apnea",
+            "cc_depth_apnea_diagnosis"
+          ],
+          "sourceLocator": null
+        }
+      ],
+      "contentSHA256": "06cc64cac0200cd8029200ff7e0ebfaf04be3104d0eedd722cd296d2de7ba757"
+    },
+    {
+      "category": "scenario",
+      "id": "checkback-falling-blood-pressure",
+      "title": "Falling blood pressure: close the loop",
+      "subtitle": "Published AHRQ communication teaching example",
+      "topics": [
+        "assessment-deterioration",
+        "shock-perfusion",
+        "communication-transitions"
+      ],
+      "related": [
+        "communication:check-back",
+        "communication:sbar",
+        "reference:shock-hemodynamic-patterns"
+      ],
+      "nclex": [
+        "safeAndEffectiveCare",
+        "managementOfCare",
+        "safety"
+      ],
+      "eyebrow": "SCENARIO · COMMUNICATION",
+      "sections": [
+        {
+          "title": "Published example — AHRQ",
+          "blocks": [
+            {
+              "text": "One member of the team calls out, \"BP is falling, 80/48 down from 90/60.\" Another team member verifies and validates receipt of the information by saying, \"Got it. BP is falling and at 80/48, down from 90/60.\" The original sender of the information completes the loop by saying, \"Correct.\"",
+              "citationIDs": [
+                "cc_depth_checkback"
+              ],
+              "sourceLocator": "Published example beneath Check-Back Video"
+            }
+          ]
+        },
+        {
+          "title": "Recognize and analyze the communication problem",
+          "blocks": [
+            {
+              "text": "The example includes a trend and a current value. The receiver repeats both, allowing the sender to verify that the important information arrived accurately. AHRQ presents this as a communication exercise, without a treatment order or a reported clinical outcome.",
+              "citationIDs": [
+                "cc_depth_checkback"
+              ],
+              "sourceLocator": null
+            }
+          ]
+        },
+        {
+          "title": "Prioritize the shared understanding",
+          "blocks": [
+            {
+              "text": "Identify who sent the observation and who received it. The check-back is complete only when the original sender confirms the receiver’s understanding, as shown by the final “Correct.”",
+              "citationIDs": [
+                "cc_depth_checkback"
+              ],
+              "sourceLocator": null
+            }
+          ]
+        },
+        {
+          "title": "Generate and take the communication action",
+          "blocks": [
+            {
+              "text": "Use the three parts illustrated in the source: the sender states the message, the receiver repeats it, and the sender verifies or corrects the repeat. AHRQ recommends making this routine for information at risk of misunderstanding.",
+              "citationIDs": [
+                "cc_depth_checkback"
+              ],
+              "sourceLocator": null
+            }
+          ]
+        },
+        {
+          "title": "Evaluate the exchange",
+          "blocks": [
+            {
+              "text": "AHRQ’s debrief asks who the sender and receiver were, how closed-loop communication was used and which potential communication error it avoided. Use those questions to evaluate whether the values and direction of change were understood.",
+              "citationIDs": [
+                "cc_depth_checkback"
+              ],
+              "sourceLocator": null
+            }
+          ]
+        },
+        {
+          "title": "Transfer to other messages",
+          "blocks": [
+            {
+              "text": "AHRQ notes that messages in texts, email, test alerts and patient portals can also be misunderstood or missed. Communication needs confirmation of receipt and understanding; a sent message alone does not demonstrate a completed loop.",
+              "citationIDs": [
+                "cc_depth_checkback"
+              ],
+              "sourceLocator": null
+            }
+          ]
+        }
+      ],
+      "swiftEnum": "CCDepthCheckbackFallingBloodPressureSample",
+      "file": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/CrossCategoryDepthScenarioEntries.swift",
+      "claimMap": [
+        {
+          "path": "entry.sections[0].blocks[0]",
+          "text": "One member of the team calls out, \"BP is falling, 80/48 down from 90/60.\" Another team member verifies and validates receipt of the information by saying, \"Got it. BP is falling and at 80/48, down from 90/60.\" The original sender of the information completes the loop by saying, \"Correct.\"",
+          "citationIDs": [
+            "cc_depth_checkback"
+          ],
+          "sourceLocator": "Published example beneath Check-Back Video"
+        },
+        {
+          "path": "entry.sections[1].blocks[0]",
+          "text": "The example includes a trend and a current value. The receiver repeats both, allowing the sender to verify that the important information arrived accurately. AHRQ presents this as a communication exercise, without a treatment order or a reported clinical outcome.",
+          "citationIDs": [
+            "cc_depth_checkback"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.sections[2].blocks[0]",
+          "text": "Identify who sent the observation and who received it. The check-back is complete only when the original sender confirms the receiver’s understanding, as shown by the final “Correct.”",
+          "citationIDs": [
+            "cc_depth_checkback"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.sections[3].blocks[0]",
+          "text": "Use the three parts illustrated in the source: the sender states the message, the receiver repeats it, and the sender verifies or corrects the repeat. AHRQ recommends making this routine for information at risk of misunderstanding.",
+          "citationIDs": [
+            "cc_depth_checkback"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.sections[4].blocks[0]",
+          "text": "AHRQ’s debrief asks who the sender and receiver were, how closed-loop communication was used and which potential communication error it avoided. Use those questions to evaluate whether the values and direction of change were understood.",
+          "citationIDs": [
+            "cc_depth_checkback"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.sections[5].blocks[0]",
+          "text": "AHRQ notes that messages in texts, email, test alerts and patient portals can also be misunderstood or missed. Communication needs confirmation of receipt and understanding; a sent message alone does not demonstrate a completed loop.",
+          "citationIDs": [
+            "cc_depth_checkback"
+          ],
+          "sourceLocator": null
+        }
+      ],
+      "contentSHA256": "a0bdc92b338c1a61ee839010b5b4d66fd3b38f71ac38dbd0618018123e56d758"
+    },
+    {
+      "category": "scenario",
+      "id": "cus-labor-delivery-escalation",
+      "title": "Labor and delivery: speak up with CUS",
+      "subtitle": "AHRQ’s published example and written debrief",
+      "topics": [
+        "maternity-newborn",
+        "assessment-deterioration",
+        "communication-transitions"
+      ],
+      "related": [
+        "communication:cus-assertive",
+        "communication:check-back",
+        "communication:sbar"
+      ],
+      "nclex": [
+        "safeAndEffectiveCare",
+        "managementOfCare",
+        "safety"
+      ],
+      "eyebrow": "SCENARIO · COMMUNICATION",
+      "sections": [
+        {
+          "title": "Source and limits of this exercise",
+          "blocks": [
+            {
+              "text": "AHRQ’s CUS page includes a labor-and-delivery teaching example. This exercise uses its published written debrief: a nurse states concern, describes discomfort with late decelerations and identifies a patient-safety concern. The page does not supply a numeric tracing or treatment outcome in that debrief.",
+              "citationIDs": [
+                "cc_depth_cus"
+              ],
+              "sourceLocator": null
+            }
+          ]
+        },
+        {
+          "title": "Recognize the concern",
+          "blocks": [
+            {
+              "text": "The source describes the nurse beginning with “I am concerned” and then providing additional patient vital signs. The learning point is to name the concern clearly and connect it to the information available.",
+              "citationIDs": [
+                "cc_depth_cus"
+              ],
+              "sourceLocator": null
+            }
+          ]
+        },
+        {
+          "title": "Analyze and prioritize",
+          "blocks": [
+            {
+              "text": "In the written debrief, the nurse says she is uncomfortable with the late decelerations and then says the patient’s safety is at risk. This is a demonstration of escalating the clarity of a safety message; it is not a fetal-monitor interpretation exercise.",
+              "citationIDs": [
+                "cc_depth_cus"
+              ],
+              "sourceLocator": null
+            }
+          ]
+        },
+        {
+          "title": "Generate a clear safety message",
+          "blocks": [
+            {
+              "text": "CUS progresses from stating a concern, to explaining discomfort, to explicitly identifying the safety issue if the conflict remains unresolved. AHRQ recommends explaining how the concern relates to safety.",
+              "citationIDs": [
+                "cc_depth_cus"
+              ],
+              "sourceLocator": null
+            }
+          ]
+        },
+        {
+          "title": "Take action when acknowledgment is missing",
+          "blocks": [
+            {
+              "text": "The source directs notification of a supervisor when the safety issue is not acknowledged. The purpose is to move an unresolved safety concern to someone who can respond.",
+              "citationIDs": [
+                "cc_depth_cus"
+              ],
+              "sourceLocator": null
+            }
+          ]
+        },
+        {
+          "title": "Evaluate the communication",
+          "blocks": [
+            {
+              "text": "Review whether all three elements were recognizable: concern, discomfort and the patient-safety issue. AHRQ’s published debrief uses those elements to show how the nurse communicated effectively with the physician.",
+              "citationIDs": [
+                "cc_depth_cus"
+              ],
+              "sourceLocator": null
+            }
+          ]
+        }
+      ],
+      "swiftEnum": "CCDepthCusLaborDeliveryEscalationSample",
+      "file": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/CrossCategoryDepthScenarioEntries.swift",
+      "claimMap": [
+        {
+          "path": "entry.sections[0].blocks[0]",
+          "text": "AHRQ’s CUS page includes a labor-and-delivery teaching example. This exercise uses its published written debrief: a nurse states concern, describes discomfort with late decelerations and identifies a patient-safety concern. The page does not supply a numeric tracing or treatment outcome in that debrief.",
+          "citationIDs": [
+            "cc_depth_cus"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.sections[1].blocks[0]",
+          "text": "The source describes the nurse beginning with “I am concerned” and then providing additional patient vital signs. The learning point is to name the concern clearly and connect it to the information available.",
+          "citationIDs": [
+            "cc_depth_cus"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.sections[2].blocks[0]",
+          "text": "In the written debrief, the nurse says she is uncomfortable with the late decelerations and then says the patient’s safety is at risk. This is a demonstration of escalating the clarity of a safety message; it is not a fetal-monitor interpretation exercise.",
+          "citationIDs": [
+            "cc_depth_cus"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.sections[3].blocks[0]",
+          "text": "CUS progresses from stating a concern, to explaining discomfort, to explicitly identifying the safety issue if the conflict remains unresolved. AHRQ recommends explaining how the concern relates to safety.",
+          "citationIDs": [
+            "cc_depth_cus"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.sections[4].blocks[0]",
+          "text": "The source directs notification of a supervisor when the safety issue is not acknowledged. The purpose is to move an unresolved safety concern to someone who can respond.",
+          "citationIDs": [
+            "cc_depth_cus"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.sections[5].blocks[0]",
+          "text": "Review whether all three elements were recognizable: concern, discomfort and the patient-safety issue. AHRQ’s published debrief uses those elements to show how the nurse communicated effectively with the physician.",
+          "citationIDs": [
+            "cc_depth_cus"
+          ],
+          "sourceLocator": null
+        }
+      ],
+      "contentSHA256": "a0bdc92b338c1a61ee839010b5b4d66fd3b38f71ac38dbd0618018123e56d758"
+    },
+    {
+      "category": "communication",
+      "id": "interpreter-safety-escalation",
+      "title": "Speaking up for interpreter support",
+      "subtitle": "CUS and check-back when language support is needed",
+      "topics": [
+        "communication-transitions",
+        "community-home-care",
+        "assessment-deterioration"
+      ],
+      "related": [
+        "communication:cus-assertive",
+        "communication:check-back",
+        "reference:health-literacy-teach-back"
+      ],
+      "nclex": [
+        "safeAndEffectiveCare",
+        "managementOfCare",
+        "safety"
+      ],
+      "eyebrow": "COMMUNICATION · TEAM SAFETY",
+      "sections": [
+        {
+          "title": "When this tool applies",
+          "blocks": [
+            {
+              "text": "AHRQ specifically recommends CUS for expressing concern about the need for a medical interpreter when care discussions involve a patient with limited English proficiency. The tool makes an unresolved communication-safety concern explicit.",
+              "citationIDs": [
+                "cc_depth_cus"
+              ],
+              "sourceLocator": null
+            }
+          ]
+        },
+        {
+          "title": "State the concern",
+          "blocks": [
+            {
+              "text": "Begin by identifying the concern that interpreter support is needed. CUS starts with a clear statement of concern; it does not rely on the other team member inferring the issue from a vague objection.",
+              "citationIDs": [
+                "cc_depth_cus"
+              ],
+              "sourceLocator": null
+            }
+          ]
+        },
+        {
+          "title": "Explain the discomfort",
+          "blocks": [
+            {
+              "text": "Explain why the situation makes you uncomfortable. AHRQ separates this step from simply stating concern so the recipient understands what needs to be addressed.",
+              "citationIDs": [
+                "cc_depth_cus"
+              ],
+              "sourceLocator": null
+            }
+          ]
+        },
+        {
+          "title": "Name the safety issue and escalate",
+          "blocks": [
+            {
+              "text": "If the concern remains unresolved, state that it is a safety issue and explain the connection to safety. AHRQ advises notifying a supervisor when the safety issue is not acknowledged.",
+              "citationIDs": [
+                "cc_depth_cus"
+              ],
+              "sourceLocator": null
+            }
+          ]
+        },
+        {
+          "title": "Confirm the team’s understanding",
+          "blocks": [
+            {
+              "text": "Check-back can verify that a message was received and understood: the receiver repeats the information and the original sender confirms or corrects it. Use that closed loop to reduce misunderstanding about the concern being raised.",
+              "citationIDs": [
+                "cc_depth_checkback"
+              ],
+              "sourceLocator": null
+            }
+          ]
+        },
+        {
+          "title": "Keep the communication goals distinct",
+          "blocks": [
+            {
+              "text": "CUS calls attention to a safety concern; check-back verifies the understanding of a message. Acknowledging the message does not by itself show that the underlying concern has been resolved. Review the response to the stated concern as well as whether it was heard.",
+              "citationIDs": [
+                "cc_depth_cus",
+                "cc_depth_checkback"
+              ],
+              "sourceLocator": null
+            }
+          ]
+        }
+      ],
+      "swiftEnum": "CCDepthInterpreterSafetyEscalationSample",
+      "file": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/CrossCategoryDepthCommunicationEntries.swift",
+      "claimMap": [
+        {
+          "path": "entry.sections[0].blocks[0]",
+          "text": "AHRQ specifically recommends CUS for expressing concern about the need for a medical interpreter when care discussions involve a patient with limited English proficiency. The tool makes an unresolved communication-safety concern explicit.",
+          "citationIDs": [
+            "cc_depth_cus"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.sections[1].blocks[0]",
+          "text": "Begin by identifying the concern that interpreter support is needed. CUS starts with a clear statement of concern; it does not rely on the other team member inferring the issue from a vague objection.",
+          "citationIDs": [
+            "cc_depth_cus"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.sections[2].blocks[0]",
+          "text": "Explain why the situation makes you uncomfortable. AHRQ separates this step from simply stating concern so the recipient understands what needs to be addressed.",
+          "citationIDs": [
+            "cc_depth_cus"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.sections[3].blocks[0]",
+          "text": "If the concern remains unresolved, state that it is a safety issue and explain the connection to safety. AHRQ advises notifying a supervisor when the safety issue is not acknowledged.",
+          "citationIDs": [
+            "cc_depth_cus"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.sections[4].blocks[0]",
+          "text": "Check-back can verify that a message was received and understood: the receiver repeats the information and the original sender confirms or corrects it. Use that closed loop to reduce misunderstanding about the concern being raised.",
+          "citationIDs": [
+            "cc_depth_checkback"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.sections[5].blocks[0]",
+          "text": "CUS calls attention to a safety concern; check-back verifies the understanding of a message. Acknowledging the message does not by itself show that the underlying concern has been resolved. Review the response to the stated concern as well as whether it was heard.",
+          "citationIDs": [
+            "cc_depth_cus",
+            "cc_depth_checkback"
+          ],
+          "sourceLocator": null
+        }
+      ],
+      "contentSHA256": "4613bf8e8e54c33c3ee6d0d5b03e4f089ad39c9ee97b08fe96c114f778af1885"
+    },
+    {
+      "category": "reference",
+      "id": "home-oxygen-and-oximetry",
+      "title": "Home oxygen and pulse oximetry",
+      "existing": true,
+      "reviewScope": "Added sections only; earlier sourced sections retained",
+      "sections": [
+        {
+          "title": "Read the display correctly",
+          "blocks": [
+            {
+              "text": "SpO2 is the estimated oxygen saturation, displayed as a percentage. PR is pulse rate. Some devices also display signal strength. These are different measurements; identify which number is being reported before comparing the trend.",
+              "citationIDs": [
+                "resp_oximeter"
+              ],
+              "sourceLocator": null
+            }
+          ]
+        },
+        {
+          "title": "Use a consistent measurement record",
+          "blocks": [
+            {
+              "text": "FDA’s home-use technique includes a warm, relaxed hand held below heart level, no polish on the measured finger and a still position. Wait for a stable number, then record the oxygen reading with its date and time. The clinician determines when and how often to measure.",
+              "citationIDs": [
+                "resp_oximeter"
+              ],
+              "sourceLocator": null
+            }
+          ]
+        },
+        {
+          "title": "Include the limits of device performance",
+          "blocks": [
+            {
+              "text": "Skin pigmentation, skin thickness, poor circulation, temperature, tobacco use and nail polish can affect accuracy. FDA describes performance differences between lighter and darker skin pigmentation. Review symptoms even when a number appears reassuring.",
+              "citationIDs": [
+                "resp_oximeter"
+              ],
+              "sourceLocator": null
+            },
+            {
+              "text": "Some devices intended for medical use have FDA clearance for over-the-counter sale. General-wellness and sporting or aviation products are a different category and have not been evaluated for deciding whether medical intervention is needed. “Available without prescription” alone does not identify the category.",
+              "citationIDs": [
+                "resp_oximeter"
+              ],
+              "sourceLocator": null
+            }
+          ]
+        },
+        {
+          "title": "Individualize the interpretation",
+          "blocks": [
+            {
+              "text": "FDA describes 95–100% as typical for most healthy people, while some people with lung or heart conditions or at higher altitude have lower values. That description is not a universal oxygen prescription or an individualized escalation threshold. Use the clinician’s monitoring plan together with symptoms and changes over time.",
+              "citationIDs": [
+                "resp_oximeter"
+              ],
+              "sourceLocator": null
+            }
+          ]
+        }
+      ],
+      "topics": [
+        "respiratory",
+        "community-home-care"
+      ],
+      "related": [
+        "diagnosis:central-sleep-apnea",
+        "reference:pulmonary-rehabilitation-support"
+      ],
+      "file": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/RespiratoryDailySupportReferences.swift",
+      "swiftEnum": "HomeOxygenSafetySample",
+      "claimMap": [
+        {
+          "path": "entry.sections[0].blocks[0]",
+          "text": "SpO2 is the estimated oxygen saturation, displayed as a percentage. PR is pulse rate. Some devices also display signal strength. These are different measurements; identify which number is being reported before comparing the trend.",
+          "citationIDs": [
+            "resp_oximeter"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.sections[1].blocks[0]",
+          "text": "FDA’s home-use technique includes a warm, relaxed hand held below heart level, no polish on the measured finger and a still position. Wait for a stable number, then record the oxygen reading with its date and time. The clinician determines when and how often to measure.",
+          "citationIDs": [
+            "resp_oximeter"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.sections[2].blocks[0]",
+          "text": "Skin pigmentation, skin thickness, poor circulation, temperature, tobacco use and nail polish can affect accuracy. FDA describes performance differences between lighter and darker skin pigmentation. Review symptoms even when a number appears reassuring.",
+          "citationIDs": [
+            "resp_oximeter"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.sections[2].blocks[1]",
+          "text": "Some devices intended for medical use have FDA clearance for over-the-counter sale. General-wellness and sporting or aviation products are a different category and have not been evaluated for deciding whether medical intervention is needed. “Available without prescription” alone does not identify the category.",
+          "citationIDs": [
+            "resp_oximeter"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.sections[3].blocks[0]",
+          "text": "FDA describes 95–100% as typical for most healthy people, while some people with lung or heart conditions or at higher altitude have lower values. That description is not a universal oxygen prescription or an individualized escalation threshold. Use the clinician’s monitoring plan together with symptoms and changes over time.",
+          "citationIDs": [
+            "resp_oximeter"
+          ],
+          "sourceLocator": null
+        }
+      ],
+      "contentSHA256": "f16d3091262771b6317291b9110ef1d3bd4508f8bff9f52ac38bdde07afcc027"
+    },
+    {
+      "category": "reference",
+      "id": "pulmonary-rehabilitation-support",
+      "title": "Pulmonary rehabilitation support",
+      "existing": true,
+      "reviewScope": "Added sections only; earlier sourced sections retained",
+      "sections": [
+        {
+          "title": "Explain who may benefit",
+          "blocks": [
+            {
+              "text": "NHLBI includes selected patients with COPD, asthma, pulmonary hypertension and cystic fibrosis, as well as people whose other health conditions affect lung function. Rehabilitation may also be used before or after lung transplantation or lung-cancer surgery. The referral is individualized.",
+              "citationIDs": [
+                "resp_rehab"
+              ],
+              "sourceLocator": null
+            }
+          ]
+        },
+        {
+          "title": "Set functional goals with the team",
+          "blocks": [
+            {
+              "text": "The program can build strength and make daily tasks, work and social activities easier. Exercise training targets the back, arms, legs and breathing muscles and develops stamina and flexibility. Goals should connect the supervised activities with the person’s actual daily needs.",
+              "citationIDs": [
+                "resp_rehab"
+              ],
+              "sourceLocator": null
+            }
+          ]
+        },
+        {
+          "title": "Prepare for the program schedule",
+          "blocks": [
+            {
+              "text": "Programs commonly involve two or three sessions each week over several weeks or months. Sessions may occur in a hospital or clinic; selected exercises, breathing practice and monitoring may continue at home as part of the assigned plan.",
+              "citationIDs": [
+                "resp_rehab"
+              ],
+              "sourceLocator": null
+            }
+          ]
+        },
+        {
+          "title": "Understand supervised safety and reassessment",
+          "blocks": [
+            {
+              "text": "Muscle or bone injury is an uncommon exercise-related risk. NHLBI describes the team stopping activity, providing appropriate treatment and contacting the clinician when a serious problem occurs during a supervised session. New problems belong with the rehabilitation team, not an automatic increase in exercise intensity.",
+              "citationIDs": [
+                "resp_rehab"
+              ],
+              "sourceLocator": null
+            },
+            {
+              "text": "At the end of the program, repeat lung-function and exercise assessments can show whether breathing and performance have improved. Some are the same tests used at baseline, allowing progress to be discussed in relation to the starting assessment.",
+              "citationIDs": [
+                "resp_rehab"
+              ],
+              "sourceLocator": null
+            }
+          ]
+        }
+      ],
+      "topics": [
+        "respiratory",
+        "community-home-care"
+      ],
+      "related": [
+        "diagnosis:alpha-1-antitrypsin-deficiency",
+        "reference:home-oxygen-and-oximetry"
+      ],
+      "file": "Packages/NursemindCore/Sources/NursemindCore/Content/Samples/RespiratoryDailySupportReferences.swift",
+      "swiftEnum": "PulmonaryRehabilitationSupportSample",
+      "claimMap": [
+        {
+          "path": "entry.sections[0].blocks[0]",
+          "text": "NHLBI includes selected patients with COPD, asthma, pulmonary hypertension and cystic fibrosis, as well as people whose other health conditions affect lung function. Rehabilitation may also be used before or after lung transplantation or lung-cancer surgery. The referral is individualized.",
+          "citationIDs": [
+            "resp_rehab"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.sections[1].blocks[0]",
+          "text": "The program can build strength and make daily tasks, work and social activities easier. Exercise training targets the back, arms, legs and breathing muscles and develops stamina and flexibility. Goals should connect the supervised activities with the person’s actual daily needs.",
+          "citationIDs": [
+            "resp_rehab"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.sections[2].blocks[0]",
+          "text": "Programs commonly involve two or three sessions each week over several weeks or months. Sessions may occur in a hospital or clinic; selected exercises, breathing practice and monitoring may continue at home as part of the assigned plan.",
+          "citationIDs": [
+            "resp_rehab"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.sections[3].blocks[0]",
+          "text": "Muscle or bone injury is an uncommon exercise-related risk. NHLBI describes the team stopping activity, providing appropriate treatment and contacting the clinician when a serious problem occurs during a supervised session. New problems belong with the rehabilitation team, not an automatic increase in exercise intensity.",
+          "citationIDs": [
+            "resp_rehab"
+          ],
+          "sourceLocator": null
+        },
+        {
+          "path": "entry.sections[3].blocks[1]",
+          "text": "At the end of the program, repeat lung-function and exercise assessments can show whether breathing and performance have improved. Some are the same tests used at baseline, allowing progress to be discussed in relation to the starting assessment.",
+          "citationIDs": [
+            "resp_rehab"
+          ],
+          "sourceLocator": null
+        }
+      ],
+      "contentSHA256": "f16d3091262771b6317291b9110ef1d3bd4508f8bff9f52ac38bdde07afcc027"
+    }
+  ],
+  "topicMembershipsAdded": 44,
+  "relatedEdgesAdded": 39
+}

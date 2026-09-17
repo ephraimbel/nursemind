@@ -1,0 +1,45 @@
+{
+  "date": "2026-09-17",
+  "compiledEntryCount": 2106,
+  "categories": {
+    "reference": 646,
+    "procedure": 150,
+    "drug": 481,
+    "diagnosis": 575,
+    "lab": 156,
+    "communication": 27,
+    "drip": 32,
+    "scenario": 39
+  },
+  "topics": 54,
+  "memberships": 948,
+  "distinctTopicEntries": 659,
+  "outsideCuratedTopics": 1447,
+  "newEntryIDs": [
+    "reference:c-diff-bedside-infection-prevention",
+    "reference:candida-auris-bedside-prevention",
+    "reference:influenza-healthcare-prevention",
+    "reference:measles-healthcare-exposure-prevention",
+    "reference:norovirus-healthcare-outbreak-care",
+    "reference:shingles-healthcare-precautions"
+  ],
+  "newSections": 48,
+  "newCitedBlocks": 96,
+  "newBodyWords": 2161,
+  "newSources": 21,
+  "additionalCorrectionSources": 1,
+  "relatedEdges": 18,
+  "newTopicMemberships": 18,
+  "legacyCorrectedEntries": 6,
+  "legacyCorrectedBlocks": 20,
+  "globalAuditFlags": {
+    "entriesWithUncitedBlocks": 752,
+    "entriesWithUnresolvedCitations": 0,
+    "entriesWithSourceLocatorIssues": 1059
+  },
+  "sourceReview": "Source fidelity only; all six new entries and 20 corrections pending independent Tier A clinical review.",
+  "overlapCheck": "Compared against 2089-entry baseline; no removed IDs. Six new IDs/titles each have exactly one definition. Eleven concurrent additions retained, covering cardiac/renal follow-up and CRE. This is a current-file check, not visibility into another chat’s unpublished plans.",
+  "testsPassed": 24,
+  "testSuites": 5,
+  "finalAppBuild": "passed"
+}

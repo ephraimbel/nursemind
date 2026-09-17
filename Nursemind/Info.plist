@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>FacebookAutoLogAppEventsEnabled</key>
+	<false/>
+	<key>FacebookAdvertiserIDCollectionEnabled</key>
+	<false/>
+	<key>FacebookSKAdNetworkReportEnabled</key>
+	<false/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -44,7 +50,7 @@
 	<key>NSSpeechRecognitionUsageDescription</key>
 	<string>NurseMind transcribes your speech into text so the AI can answer your question. Recognition runs on your device — no audio leaves it.</string>
 	<key>NSUserTrackingUsageDescription</key>
-	<string>Allowing tracking helps us measure which ads bring nurses to NurseMind so we can keep reaching more of you. No clinical, account, or personal information is ever shared.</string>
+	<string>With your permission, device identifiers and app and subscription events help measure NurseMind ads. Your clinical questions and reference content are not shared with advertising partners.</string>
 	<key>UILaunchScreen</key>
 	<dict/>
 	<key>UIRequiresFullScreen</key>

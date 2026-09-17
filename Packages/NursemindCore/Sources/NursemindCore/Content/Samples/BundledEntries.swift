@@ -58,7 +58,15 @@ extension ContentRegistry {
         entries.append(contentsOf: bundledCrossSpecialtyDepth())
         entries.append(contentsOf: bundledClinicalContinuity())
         entries.append(contentsOf: bundledSpecialtySupportDepth())
+        entries.append(contentsOf: bundledNeurologyDigestiveEndocrine())
+        entries.append(contentsOf: bundledDigestiveBoneJointDepth())
         entries.append(contentsOf: bundledCriticalCareDepth())
+        entries.append(contentsOf: bundledBedsideDepth())
+        entries.append(contentsOf: bundledInfectionPreventionDepth())
+        entries.append(contentsOf: bundledInfectionProcedureDepth())
+        entries.append(contentsOf: bundledRespiratoryHematologyDepth())
+        entries.append(contentsOf: bundledDigestiveUrologyDepth())
+        entries.append(contentsOf: bundledCrossCategoryDepth())
         entries.append(.reference(LabResultInterpretationSample.entry))
         entries.append(.reference(LaboratoryTestPreparationSample.entry))
         entries.append(.reference(NursingCarePlanEvaluationSample.entry))
@@ -2375,6 +2383,36 @@ extension ContentRegistry {
         entries.append(.reference(BalanceSymptomSafetySample.entry))
         entries.append(.reference(SmellTasteDailySupportSample.entry))
         entries.append(.reference(HidradenitisDailySupportSample.entry))
+        return entries
+    }
+}
+
+extension ContentRegistry {
+    private static func bundledNeurologyDigestiveEndocrine() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
+        entries.append(.reference(ParkinsonDailyFunctionSample.entry))
+        entries.append(.reference(ALSDailyFunctionSample.entry))
+        entries.append(.reference(GBSRecoverySupportSample.entry))
+        entries.append(.reference(PeripheralNeuropathyDailySample.entry))
+        entries.append(.reference(CirrhosisNutritionDailySample.entry))
+        entries.append(.reference(PancreaticInsufficiencyDailySample.entry))
+        entries.append(.reference(AdrenalIllnessPreparationSample.entry))
+        entries.append(.reference(HypothyroidFollowUpSample.entry))
+        return entries
+    }
+}
+
+extension ContentRegistry {
+    private static func bundledDigestiveBoneJointDepth() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
+        entries.append(.reference(IBSDailySymptomFoodSample.entry))
+        entries.append(.reference(AdultConstipationRoutineSample.entry))
+        entries.append(.reference(DiverticularFoodRecoverySample.entry))
+        entries.append(.reference(ShortBowelNutritionContinuitySample.entry))
+        entries.append(.reference(OsteoporosisDailyPreventionSample.entry))
+        entries.append(.reference(OsteoarthritisDailyFunctionSample.entry))
+        entries.append(.reference(GoutDailyCareFollowUpSample.entry))
+        entries.append(.reference(SclerodermaDailySupportSample.entry))
         return entries
     }
 }

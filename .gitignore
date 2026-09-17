@@ -29,6 +29,8 @@ Nursemind.xcodeproj/
 # Temp / scratch
 /tmp-screenshots/
 *.log
+__pycache__/
+*.py[cod]
 simulator_screenshot_*.png
 .claude/
 .vercel
