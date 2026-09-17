@@ -1,0 +1,32 @@
+{
+  "title": "Lynch syndrome",
+  "sourceUpdated": "Last updated April 15, 2021",
+  "sections": [
+    {
+      "title": "Description",
+      "text": "Lynch syndrome, often called hereditary nonpolyposis colorectal cancer (HNPCC), is an inherited disorder that increases the risk of many types of cancer. This includes cancers of the colon and rectum, which are collectively referred to as colorectal cancer. People with Lynch syndrome also have an increased risk of cancers of the stomach, small intestine, liver, gallbladder ducts, urinary tract, brain, and skin. Additionally, women with this disorder have an increased risk of cancer of the ovaries and the lining of the uterus (endometrial cancer). Women with Lynch syndrome have a higher overall risk of developing cancer than men with the condition because of these cancers of the female reproductive system. In individuals with Lynch syndrome who develop cancer, the cancer typically occurs in their 40s or 50s.\n\nPeople with Lynch syndrome may occasionally have noncancerous (benign) growths in the colon, called colon polyps. In individuals with this disorder, colon polyps occur at a younger age but not in greater numbers than they do in the general population."
+    },
+    {
+      "title": "Frequency",
+      "text": "In the United States, it is estimated that 1 in 279 individuals have a genetic variant (also known as a mutation) that is associated with Lynch syndrome."
+    },
+    {
+      "title": "Causes",
+      "text": "Variants that cause a disease or increase the risk for a disease are sometimes called pathogenic variants. Pathogenic variants in the MLH1, MSH2, MSH6, PMS2, or EPCAM genes can cause Lynch syndrome.\n\nThe MLH1, MSH2, MSH6, and PMS2 genes are involved in repairing the errors that occur when DNA is copied in preparation for cell division, a process called DNA replication. Because these genes work together to fix DNA errors, they are known as mismatch repair (MMR) genes. Pathogenic variants in any of these MMR genes can cause Lynch syndrome. People with pathogenic variants in the MLH1 or MSH2 genes tend to have a higher risk of developing cancer during their lifetime than people with pathogenic variants in the MHS6 or PMS2 genes.\n\nChanges in the EPCAM gene can also disrupt DNA repair, although the gene itself is not directly involved in this process. The EPCAM gene lies next to the MSH2 gene on chromosome 2, and certain EPCAM gene variants cause the MSH2 gene to be turned off (inactivated). As a result, the MSH2 gene's role in DNA repair is disrupted, which can lead to accumulated DNA errors and cancer development."
+    },
+    {
+      "title": "Inheritance",
+      "text": "Lynch syndrome is typically inherited in an autosomal dominant pattern, which means one copy of the altered gene in each cell is sufficient to increase the risk of cancer. Although people with Lynch syndrome have a higher risk of cancer, not all people with Lynch syndrome will develop cancer."
+    },
+    {
+      "title": "Other Names for This Condition",
+      "text": "• Cancer family syndrome\n• Familial nonpolyposis colon cancer\n• Hereditary nonpolyposis colorectal cancer\n• Hereditary nonpolyposis colorectal neoplasms\n• HNPCC"
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/genetics/condition/lynch-syndrome/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "733c6feb0da6661e36bfc481aa0684a5965f88dd3d7b768251d148de954cad64",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace, lists and labeled table formatting adapted. Not clinical review."
+}

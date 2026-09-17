@@ -1,5 +1,15 @@
 import Foundation
 
+private let niamsEczemaBathSafetyR4 = CitationSource(
+    id: "niams_eczema_bath_safety_r4",
+    shortName: "Atopic Dermatitis: Diagnosis, Treatment, and Steps to Take",
+    detail: "Living with atopic dermatitis: clinician-specific bleach-bath instructions; reviewed November 2022. Original NIAMS text adapted and condensed by NurseMind. This source supports the revised bathing bullet only.",
+    publisher: "National Institute of Arthritis and Musculoskeletal and Skin Diseases, National Institutes of Health",
+    license: .publicDomain,
+    url: "https://www.niams.nih.gov/health-topics/atopic-dermatitis/diagnosis-treatment-and-steps-to-take",
+    lastRetrieved: "2026-09-17"
+)
+
 // Curator-model diagnosis entries (round 4 expansion).
 // Sources: Open RN Med-Surg / Health Alterations (CC BY 4.0), CDC (public domain),
 // AAN / ACR / AAD / AAOS / AAFP / IDSA concept citations.
@@ -1092,7 +1102,7 @@ public enum EczemaSample {
             AttributedBullet("TOPICAL STEROIDS for flares — potency matched to body area (low-potency hydrocortisone 1% for face/groin; medium-high for trunk/extremities); apply to active lesions BID × 2–4 weeks. Long-term high-potency on face causes atrophy.", citationIDs: ["openrn_ms_round4"]),
             AttributedBullet("Topical calcineurin inhibitors (tacrolimus, pimecrolimus) — steroid-sparing; OK on face, eyelids; black box warning for theoretical lymphoma risk (controversial).", citationIDs: ["openrn_ms_round4"]),
             AttributedBullet("Crisaborole, ruxolitinib (newer topicals).", citationIDs: ["openrn_ms_round4"]),
-            AttributedBullet("Dilute bleach baths (1/4 cup household bleach in full tub) twice weekly — reduces S. aureus colonization, improves disease.", citationIDs: ["openrn_ms_round4"]),
+            AttributedBullet("Bleach baths should be considered only after discussing them with the treating clinician and receiving specific preparation and use instructions.", citationIDs: ["niams_eczema_bath_safety_r4"]),
             AttributedBullet("Antihistamines — limited benefit for itch (sedating ones may help sleep).", citationIDs: ["openrn_ms_round4"]),
             AttributedBullet("SEVERE / refractory: phototherapy, dupilumab (IL-4/13 monoclonal — highly effective), JAK inhibitors (upadacitinib, abrocitinib, baricitinib), cyclosporine.", citationIDs: ["openrn_ms_round4"]),
             AttributedBullet("Trigger avoidance — fragrance-free products, soft cotton clothing, no wool, avoid extreme temperatures.", citationIDs: ["openrn_ms_round4"]),
@@ -1107,7 +1117,7 @@ public enum EczemaSample {
             AttributedBullet("Sleep, school, work impact — quality of life heavily affected; mood disorders common.", citationIDs: ["openrn_ms_round4"]),
             AttributedBullet("Atopic march — eczema infants at higher risk for asthma, allergic rhinitis, food allergies.", citationIDs: ["openrn_ms_round4"])
         ],
-        citations: [openrnMSr4, openstaxMSr4],
+        citations: [openrnMSr4, openstaxMSr4, niamsEczemaBathSafetyR4],
         lastSourceFidelityReview: "2026-05-04"
     )
 }

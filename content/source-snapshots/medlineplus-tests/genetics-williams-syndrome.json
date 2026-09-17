@@ -1,0 +1,32 @@
+{
+  "title": "Williams syndrome",
+  "sourceUpdated": "Last updated May 31, 2022",
+  "sections": [
+    {
+      "title": "Description",
+      "text": "Williams syndrome is a developmental disorder that affects many parts of the body. This condition is characterized by mild to moderate intellectual disability or learning problems, unique personality characteristics, distinctive facial features, and heart and blood vessel (cardiovascular) problems.\n\nPeople with Williams syndrome typically have difficulty with visual-spatial tasks such as drawing and assembling puzzles, but they tend to do well on tasks that involve spoken language, music, and learning by repetition (rote memorization). Affected individuals have outgoing, engaging personalities and tend to take an extreme interest in other people. Attention deficit disorder (ADD), problems with anxiety, and phobias are common among people with this disorder.\n\nYoung children with Williams syndrome have distinctive facial features including a broad forehead, puffiness around the eyes, a flat bridge of the nose, full cheeks, and a small chin. Many affected people have dental problems such as teeth that are small, widely spaced, crooked, or missing. Older children and adults typically have a longer face with a wide mouth and full lips.\n\nA form of cardiovascular disease called supravalvular aortic stenosis (SVAS) occurs frequently in people with Williams syndrome. Supravalvular aortic stenosis is a narrowing of the large blood vessel that carries blood from the heart to the rest of the body (the aorta). If this condition is not treated, the aortic narrowing can lead to shortness of breath, chest pain, and heart failure. Narrowing of other vessels, including the artery from the heart to the lungs (pulmonary stenosis) and the arteries that supply blood to the heart (coronary artery stenosis) can also occur. Other problems with the heart and blood vessels, including high blood pressure (hypertension) and stiff blood vessels, have also been reported in people with Williams syndrome. Individuals with Williams syndrome have an increased risk of complications with the use of anesthesia.\n\nAdditional signs and symptoms of Williams syndrome include abnormalities of connective tissue (tissue that supports the body's joints and organs) such as joint problems and soft, loose skin. Affected people may also have increased calcium levels in the blood (hypercalcemia) in infancy, developmental delays, problems with coordination, and short stature. Medical problems involving vision or hearing, including sensitivity to sound (hyperacusis), are frequently associated with Williams syndrome. In addition, problems with the digestive tract and the urinary system are also possible. Obesity or diabetes can develop in adulthood."
+    },
+    {
+      "title": "Frequency",
+      "text": "Williams syndrome affects an estimated 1 in 7,500 to 18,000 people."
+    },
+    {
+      "title": "Causes",
+      "text": "Williams syndrome is caused by the loss (deletion) of genetic material from a specific region of chromosome 7. The deleted region includes 25 to 27 genes, and researchers believe that a loss of several of these genes contributes to the characteristic features of this disorder.\n\nELN, GTF2I, GTF2IRD1, and LIMK1 are among the genes that are typically deleted in people with Williams syndrome. Researchers have found that loss of the ELN gene is associated with the connective tissue abnormalities and cardiovascular disease (specifically supravalvular aortic stenosis) found in many people with this disease. Studies suggest that deletion of GTF2I, GTF2IRD1, LIMK1, and perhaps other genes may help explain the characteristic difficulties with visual-spatial tasks, unique behavioral characteristics, and other cognitive difficulties seen in people with Williams syndrome. Loss of the GTF2IRD1 gene may also contribute to the distinctive facial features often associated with this condition.\n\nResearchers believe that the presence or absence of the NCF1 gene on chromosome 7 impacts the risk of developing hypertension in people with Williams syndrome. When the NCF1 gene is included in the part of the chromosome that is deleted, affected individuals are less likely to develop hypertension. Therefore, the loss of this gene appears to be a protective factor. People with Williams syndrome whose NCF1 gene is not deleted have a higher risk of developing hypertension.\n\nSeveral other genes are commonly part of the deletion on chromosome 7. Loss of some of these genes appears to be involved in particular signs and symptoms of the condition, and their relationship to the condition is under investigation. However, it is unknown what role, if any, the loss of many of these other genes plays in Williams syndrome."
+    },
+    {
+      "title": "Inheritance",
+      "text": "Most cases of Williams syndrome are not inherited. The chromosomal alteration usually occurs as a random event during the formation of reproductive cells (eggs or sperm) in a parent of an affected individual. These cases occur in people with no history of the disorder in their family. However, the risk of having a child with Williams syndrome is increased if a parent, who is unaffected, has a chromosomal change called an inversion in the region of chromosome 7 associated with Williams syndrome.\n\nWilliams syndrome is considered an autosomal dominant condition because one copy of the altered chromosome 7 in each cell is sufficient to cause the disorder. In a small percentage of cases, people with Williams syndrome inherit the chromosomal deletion from a parent with the condition."
+    },
+    {
+      "title": "Other Names for This Condition",
+      "text": "• Beuren syndrome\n• Elfin facies syndrome\n• Elfin facies with hypercalcemia\n• Hypercalcemia-supravalvar aortic stenosis\n• WBS\n• Williams-Beuren syndrome\n• WS"
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/genetics/condition/williams-syndrome/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "aa202bd03fbba8d262cd190c146b159b0b66701d9f5d79749515d1e1eb25ef37",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace, lists and labeled table formatting adapted. Not clinical review."
+}

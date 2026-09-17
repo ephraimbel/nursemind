@@ -1,0 +1,44 @@
+{
+  "title": "Prenatal Cell-Free DNA Screening",
+  "sourceUpdated": "Last updated March 19, 2024",
+  "sections": [
+    {
+      "title": "What is a prenatal cell-free DNA (cfDNA) screening?",
+      "text": "Prenatal cell-free DNA (cfDNA) screening is a blood test given during pregnancy. During pregnancy, some of the fetus's DNA circulates in the mother's bloodstream. A cfDNA screening checks this DNA to find out if the baby is more likely to have certain conditions caused by an abnormal number of chromosomes, such as Down syndrome.\n\nChromosomes are tiny \"packages\" in your cells that contain your genes. Genes carry information, called DNA, that controls what you look like and how your body works.\n\n• Normally, you're born with a set of 46 chromosomes in each cell. The chromosomes are grouped into 23 pairs. Each pair has two chromosomes, one coming from each parent.\n• If one of these pairs has an extra copy of a chromosome, it's called a trisomy. A trisomy causes changes in the way the body and brain develop.\n• If there is an extra copy of chromosome 21, it's called Down syndrome. This is also known as trisomy 21. Down syndrome is the most common chromosome disorder in the United States.\n• Other trisomy disorders include Edwards syndrome (trisomy 18), where there is an extra copy of chromosome 18, and Patau syndrome (trisomy 13), where there is an extra copy of chromosome 13. These disorders are rare but more serious than Down syndrome. Most babies with trisomy 18 or trisomy 13 die within the first year of life.\n\nThere is very little risk to you and your baby with a cfDNA screening. But a cfDNA screening can't tell you for sure whether your baby has a chromosome disorder. Your health care provider will need to order other tests to confirm or rule out a diagnosis.\n\nOther names: cell-free fetal DNA, cffDNA, non-invasive prenatal tet, NIPT, non-invasive prenatal screening, NIPS"
+    },
+    {
+      "title": "What is used for?",
+      "text": "A cfDNA screening is most often used to show if your unborn baby has an increased risk for one of the following chromosome disorders:\n\n• Down syndrome (trisomy 21)\n• Edwards syndrome (trisomy 18)\n• Patau syndrome (trisomy 13)\n\nThe screening may also be used to:\n\n• Determine a baby's sex. This may be done if an ultrasound shows that a baby's genitals are not clearly male or female. This may be caused by a disorder of the sex chromosomes.\n• Check Rh blood type. Rh is a protein found in red blood cells. If you have the protein, you are considered Rh positive. If you don't, you are Rh negative. If you are Rh negative and your unborn baby is Rh positive, your body's immune system may attack your baby's blood cells. If you find out you are Rh negative early in pregnancy, you can take medicines to protect your baby from dangerous complications.\n\nA cfDNA screening can be done as early as the 10th week of pregnancy."
+    },
+    {
+      "title": "Why do I need a prenatal cfDNA screening?",
+      "text": "Many providers recommend this screening if you are pregnant and are at a higher risk of having a baby with a chromosome disorder. You may be at higher risk if:\n\n• You are age 35 or older. The mother's age is the main risk factor for having a baby with Down syndrome or other trisomy disorders. The risk increases as you get older.\n• You've had another baby with a chromosome disorder.\n• Your fetal ultrasound didn't look normal.\n• Other prenatal test results were not normal.\n\nMany providers recommend screening if you are pregnant even if you aren't at higher risk of having a baby with a chromosome disorder. This is because the screening has almost no risk and has a high rate of accuracy.\n\nYou and your provider should discuss if a cfDNA screening is right for you."
+    },
+    {
+      "title": "What happens during a prenatal cfDNA screening?",
+      "text": "A health care professional will take a blood sample from a vein in your arm, using a small needle. After the needle is inserted, a small amount of blood will be collected into a test tube or vial. You may feel a little sting when the needle goes in or out. This usually takes less than five minutes."
+    },
+    {
+      "title": "Will I need to do anything to prepare for this test?",
+      "text": "You may want to speak to a genetic counselor before you get tested. A genetic counselor is a specially trained professional in genetics and genetic testing. He or she can explain the possible results and what they might mean to you and your baby."
+    },
+    {
+      "title": "Are there any risks to the test?",
+      "text": "There is no risk to your unborn baby and very little risk to you. You may have slight pain or bruising at the spot where the needle was put in, but most symptoms go away quickly."
+    },
+    {
+      "title": "What do the results mean?",
+      "text": "If your results were negative, it's unlikely that your baby has Down syndrome or another trisomy disorder.\n\nIf your results were positive, it means there is an increased risk that your baby has one of these disorders. But it can't tell you for sure if your baby is affected. To confirm a diagnosis, you'll need other tests, such as amniocentesis and chorionic villus sampling (CVS):\n\n• Amniocentesis. This test takes a sample of the amniotic fluid that surrounds the unborn baby in the uterus. The fluid contains cells from the baby that can be tested. The test is usually done between the weeks 15 and 20 of pregnancy.\n• Chorionic villus sampling (CVS). A CVS collects tissue from parts of the placenta called the chorionic villi. The placenta is the organ that grows in the uterus to provide nutrients and oxygen to the baby. Cells from the chorionic villi usually have the same chromosomes as the unborn baby. A CVS may be done between weeks 10 and 13 of pregnancy.\n\nThese tests are usually very safe procedures, but they do have a slight risk of causing a miscarriage.\n\nIf you have questions about your results, talk to your provider and/or a genetic counselor."
+    },
+    {
+      "title": "Is there anything else I need to know about a prenatal cfDNA screening?",
+      "text": "cfDNA screenings are not as accurate if you are pregnant with more than one baby (twins, triplets, or more)."
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/lab-tests/prenatal-cell-free-dna-screening/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "d59ceb926300cc76d6b939f1cc5ab6afdee12147fe585f89a71eb2ce51d1b7dc",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace and list formatting only. Not clinical review."
+}

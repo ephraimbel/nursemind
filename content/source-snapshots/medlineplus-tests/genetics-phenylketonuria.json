@@ -1,0 +1,32 @@
+{
+  "title": "Phenylketonuria",
+  "sourceUpdated": "Last updated April 25, 2023",
+  "sections": [
+    {
+      "title": "Description",
+      "text": "Phenylketonuria (commonly known as PKU) is an inherited disorder that increases the levels of a substance called phenylalanine in the blood. Phenylalanine is a protein building block (an amino acid) that is obtained from eating certain foods (such as meat, eggs, nuts, and milk) and in some artificial sweeteners. If PKU is not treated, phenylalanine can build up to harmful levels in the body, causing intellectual disability and other serious health problems.\n\nThe signs and symptoms of PKU vary from mild to severe. The most severe form of this disorder is known as classic PKU. Infants with classic PKU appear normal until they are a few months old. Without treatment, these children develop permanent intellectual disability. Seizures, delayed development, behavioral problems, and psychiatric disorders are also common. Untreated individuals may have a musty or mouse-like odor as a side effect of excess phenylalanine in the body. Children with classic PKU tend to have lighter skin and hair than unaffected family members and are also likely to have skin disorders such as eczema.\n\nLess severe forms of this condition, sometimes called variant PKU and non-PKU hyperphenylalaninemia, have a smaller risk of brain damage. People with very mild cases may not require treatment.\n\nPKU can often be managed by following a diet that is low in phenylalanine. Since phenylalanine is found in all proteins, the PKU diet consists of avoiding meat, dairy, nuts, tofu, and other foods that are high in protein. Infants with PKU need to be fed with a low-protein formula. Affected individuals are often limited to certain fruits and vegetables and foods containing fats and sugars (such as butter, jelly, pasta, and potato chips). The artificial sweeter aspartame, which is found in diet soda and many other low-calorie items, should be avoided as it contains high amounts of phenylalanine. The amount of phenylalanine that is safe to consume is different for each person. Affected individuals should work with a health care professional to develop an individualized diet.\n\nBabies born to mothers who have PKU and are not following a low-phenylalanine diet have a significant risk of intellectual disability because they are exposed to very high levels of phenylalanine before birth. These infants may also have a low birth weight and grow more slowly than other children. They may also have heart defects or other heart problems, an abnormally small head size (microcephaly), and behavioral problems. Women with PKU who are not following a low-phenylalanine diet (and may have high levels of phenylalanine) also have higher risk of pregnancy loss."
+    },
+    {
+      "title": "Frequency",
+      "text": "The occurrence of PKU varies among ethnic groups and across geographic regions worldwide. In the United States, PKU occurs in 1 in 25,000 newborns. Most cases of PKU are detected shortly after birth by newborn screening, and treatment is started promptly. As a result, the severe signs and symptoms of classic PKU are rarely seen."
+    },
+    {
+      "title": "Causes",
+      "text": "Variants (also called mutations) in the PAH gene cause phenylketonuria. The PAH gene provides instructions for making an enzyme called phenylalanine hydroxylase. This enzyme converts the amino acid phenylalanine into other important compounds in the body. PAH gene variants result in the production of altered versions of phenylalanine hydroxylase that cannot process phenylalanine effectively. As a result, this amino acid can build up to toxic levels in the blood and other tissues. Because nerve cells in the brain are particularly sensitive to phenylalanine levels, excessive amounts of this substance can cause brain damage.\n\nClassic PKU, the most severe form of the disorder, occurs in people who have very low levels of phenylalanine hydroxylase activity or who have no phenylalanine hydroxylase activity at all. People with untreated classic PKU have levels of phenylalanine high enough to cause severe brain damage and other serious health problems. Variants in the PAH gene that allow the enzyme to retain some activity result in milder versions of this condition, such as variant PKU or non-PKU hyperphenylalaninemia.\n\nChanges in other genes may influence the severity of PKU, but little is known about these additional genetic factors."
+    },
+    {
+      "title": "Inheritance",
+      "text": "This condition is inherited in an autosomal recessive pattern, which means both copies of the gene in each cell must have a variant to cause the disorder. The parents of an individual with an autosomal recessive condition each carry one copy of the altered gene, but they typically do not show signs and symptoms of the condition."
+    },
+    {
+      "title": "Other Names for This Condition",
+      "text": "• Folling disease\n• Folling's disease\n• PAH deficiency\n• Phenylalanine hydroxylase deficiency\n• Phenylalanine hydroxylase deficiency disease\n• PKU"
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/genetics/condition/phenylketonuria/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "0dadc649202bcd7f4865fb6562d7b0c4f89c790acca1ccc80fb0b23cc3c3244f",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace, lists and labeled table formatting adapted. Not clinical review."
+}

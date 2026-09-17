@@ -19,6 +19,26 @@ private let specialtyPRR18 = CitationSource(
     lastRetrieved: "2026-05-04"
 )
 
+private let neutropeniaFoodNCI = CitationSource(
+    id: "neutropenia_food_nci",
+    shortName: "Infection and Neutropenia during Cancer Treatment",
+    detail: "Ways to prevent infection: well-cooked animal foods, produce washing and individualized advice. Original government text adapted by NurseMind; images excluded. Supports the food-safety bullets only.",
+    publisher: "National Cancer Institute",
+    license: .publicDomain,
+    url: "https://www.cancer.gov/about-cancer/treatment/side-effects/infection",
+    lastRetrieved: "2026-09-17"
+)
+
+private let neutropeniaFoodCDC = CitationSource(
+    id: "neutropenia_food_cdc",
+    shortName: "Safer Food Choices for People With Weakened Immune Systems",
+    detail: "Safer food choices, including pasteurized dairy and washed produce. Original government text adapted by NurseMind; images excluded. Supports the food-safety bullets only.",
+    publisher: "Centers for Disease Control and Prevention",
+    license: .publicDomain,
+    url: "https://www.cdc.gov/food-safety/foods/weakened-immune-systems.html",
+    lastRetrieved: "2026-09-17"
+)
+
 private let procTagsR18 = NCLEXTags(
     category: .physiologicalIntegrity,
     subcategory: .reductionOfRiskPotential,
@@ -223,7 +243,8 @@ public enum NeutropenicPrecautionsSample {
                 AttributedBullet("Private room; positive-pressure / HEPA filtration for HSCT.", citationIDs: ["specialty_pr_round18"]),
                 AttributedBullet("Strict hand hygiene by staff + visitors.", citationIDs: ["specialty_pr_round18"]),
                 AttributedBullet("Mask for visitors / staff with respiratory symptoms; restrict ill visitors.", citationIDs: ["specialty_pr_round18"]),
-                AttributedBullet("No fresh flowers, fruits, or vegetables (raw); cooked foods only.", citationIDs: ["specialty_pr_round18"]),
+                AttributedBullet("No fresh flowers in the protective environment.", citationIDs: ["specialty_pr_round18"]),
+                AttributedBullet("Food safety — wash raw fruits and vegetables thoroughly. The oncology team may advise produce that can be peeled; follow the individualized plan rather than a universal ban on all raw produce.", citationIDs: ["neutropenia_food_nci"]),
                 AttributedBullet("Daily skin care + oral hygiene (soft brush + alcohol-free rinses).", citationIDs: ["specialty_pr_round18"]),
                 AttributedBullet("Avoid invasive procedures unless necessary; minimize line / catheter days.", citationIDs: ["specialty_pr_round18"]),
                 AttributedBullet("AVOID rectal temperatures + suppositories + enemas (mucosal trauma).", citationIDs: ["specialty_pr_round18"])
@@ -248,11 +269,11 @@ public enum NeutropenicPrecautionsSample {
                 AttributedBullet("CALL FOR FEVER ≥38.0°C / 100.4°F (or symptoms — chills, sweats, malaise, sore throat, cough, urinary symptoms, diarrhea).", citationIDs: ["specialty_pr_round18"]),
                 AttributedBullet("Avoid crowds, sick contacts; mask in public.", citationIDs: ["specialty_pr_round18"]),
                 AttributedBullet("Hand hygiene; oral care; skin care; perineal care after BMs.", citationIDs: ["specialty_pr_round18"]),
-                AttributedBullet("No raw foods (sushi, undercooked meat / eggs, unpasteurized dairy).", citationIDs: ["specialty_pr_round18"]),
+                AttributedBullet("Avoid raw or undercooked meat, fish and eggs and unpasteurized dairy. Keep hot foods hot and cold foods cold, wash produce, and follow the care team’s food-safety instructions.", citationIDs: ["neutropenia_food_nci", "neutropenia_food_cdc"]),
                 AttributedBullet("Pet hygiene — wash hands after contact; avoid cleaning litter / bird cages.", citationIDs: ["specialty_pr_round18"])
             ])
         ],
-        citations: [openrnPRR18, specialtyPRR18],
+        citations: [openrnPRR18, specialtyPRR18, neutropeniaFoodNCI, neutropeniaFoodCDC],
         lastSourceFidelityReview: "2026-05-04"
     )
 }

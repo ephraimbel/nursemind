@@ -1,5 +1,15 @@
 import Foundation
 
+private let bedside_oral_cdc = CitationSource(
+    id: "bedside_oral_cdc",
+    shortName: "CDC — Oral health and pneumonia prevention toolkit",
+    detail: "March 27, 2024. Assessment and oral-care steps for nonventilated hospitalized patients; original CDC text condensed by NurseMind.",
+    publisher: "Centers for Disease Control and Prevention",
+    license: .publicDomain,
+    url: "https://www.cdc.gov/healthcare-associated-infections/hcp/prevention-healthcare/oral-health-pneumonia-toolkit.html",
+    lastRetrieved: "2026-09-17"
+)
+
 // Curator-model diagnosis entries (round 3 expansion — common ED/floor presentations).
 // Sources: Open RN Med-Surg / Health Alterations (CC BY 4.0), CDC (public domain),
 // IDSA / ACR / GOLD / GINA / KDIGO / AAN / NHLBI concept citations.
@@ -948,7 +958,7 @@ public enum AspirationPneumoniaSample {
             AttributedBullet("Steroids NOT routinely indicated (no benefit in chemical pneumonitis).", citationIDs: ["openrn_ms_round3"]),
             AttributedBullet("PREVENTION (key):", citationIDs: ["openrn_ms_round3"]),
             AttributedBullet("HOB elevation 30–45° in tube-fed and ventilated patients.", citationIDs: ["openrn_ms_round3"]),
-            AttributedBullet("Oral care (chlorhexidine in select; tooth-brushing) to reduce oropharyngeal bacterial load.", citationIDs: ["openrn_ms_round3"]),
+            AttributedBullet("Hospital oral care includes toothbrushing and assessment of the assistance needed to manage oral fluids safely; adapt care to swallowing and aspiration concerns.", citationIDs: ["bedside_oral_cdc"]),
             AttributedBullet("Swallow assessment before oral intake post-stroke, post-extubation.", citationIDs: ["openrn_ms_round3"]),
             AttributedBullet("Diet modifications (thickened liquids, pureed) per SLP.", citationIDs: ["openrn_ms_round3"]),
             AttributedBullet("Address underlying cause — GERD treatment, dental care, address sedation.", citationIDs: ["openrn_ms_round3"])
@@ -959,7 +969,7 @@ public enum AspirationPneumoniaSample {
             AttributedBullet("Recurrence — if underlying risk factor not addressed.", citationIDs: ["openrn_ms_round3"]),
             AttributedBullet("In demented patients with recurrent aspiration — goals-of-care discussion; PEG tube does NOT prevent aspiration in advanced dementia.", citationIDs: ["openrn_ms_round3"])
         ],
-        citations: [openrnMS3, openstaxMS3, idsaConcept],
+        citations: [openrnMS3, openstaxMS3, idsaConcept, bedside_oral_cdc],
         lastSourceFidelityReview: "2026-05-04"
     )
 }

@@ -1,0 +1,44 @@
+{
+  "title": "Red Blood Cell (RBC) Count",
+  "sourceUpdated": "Last updated October 7, 2024",
+  "sections": [
+    {
+      "title": "What is a red blood cell (RBC) count?",
+      "text": "A red blood cell (RBC) count measures the number of red blood cells, also known as erythrocytes, in your blood. Red blood cells are made in your bone marrow, the spongy tissue inside your large bones. They contain hemoglobin, an iron-rich protein that carries oxygen from your lungs to every cell in your body. Your cells need oxygen to grow, reproduce, and make energy for you to function. An RBC count that is higher or lower than normal is often the first sign of an illness. So, the test may allow you to get treatment even before you have symptoms.\n\nOther names: erythrocyte count, red count, RBC Count"
+    },
+    {
+      "title": "What is it used for?",
+      "text": "A red blood cell (RBC) count is almost always part of a complete blood count (CBC), a group of tests that measures the number and type of cells in your blood. The RBC measurement is used to help diagnose red blood cell disorders, such as anemia, a condition in which your body does not make enough healthy red blood cells."
+    },
+    {
+      "title": "Why do I need a red blood cell count?",
+      "text": "You may get this test as part of a CBC, which is often included in a routine checkup. You may also need this test if you are getting treatment that might affect your blood cell counts, such as chemotherapy, to monitor health conditions, such as chronic kidney disease, or if you have symptoms of a low or high red blood cell count.\n\nSymptoms of a low red blood cell count may include:\n\n• Shortness of breath\n• Weakness or fatigue\n• Headache\n• Dizziness\n• Arrhythmia (a problem with the rate or rhythm of your heartbeat)\n• Pale skin\n\nSymptoms of a high red blood cell count may include:\n\n• Headache\n• Dizziness\n• Vision problems"
+    },
+    {
+      "title": "What happens during a red blood cell count?",
+      "text": "A health care professional will take a blood sample from a vein in your arm, using a small needle. After the needle is inserted, a small amount of blood will be collected into a test tube or vial. You may feel a little sting when the needle goes in or out. This usually takes less than five minutes."
+    },
+    {
+      "title": "Will I need to do anything to prepare for this test?",
+      "text": "You don't need any special preparations for a red blood cell (RBC) count."
+    },
+    {
+      "title": "Are there any risks to this test?",
+      "text": "There is very little risk to having a blood test. There may be slight pain or bruising at the spot where the needle was put in, but most symptoms go away quickly."
+    },
+    {
+      "title": "What do the results mean?",
+      "text": "Your results will show whether you have a normal red blood cell count or a count that is too low or too high.\n\nConditions that may cause a low red blood cell count can include:\n\n• Anemia\n• Leukemia, a type of blood cancer\n• Malnutrition, a condition in which your body does not get the calories, vitamins, and/or minerals needed for good health\n• Multiple myeloma, a cancer of the bone marrow\n• Kidney failure\n• Blood loss from injury or other problems\n• Alcohol use disorder (AUD)\n• Pregnancy\n\nConditions that may cause a high red blood cell count can include:\n\n• Dehydration\n• Heart disease\n• Polycythemia vera, a disease which causes your bone marrow to make too many red blood cells\n• Scarring of the lungs, often due to cigarette smoking\n• Lung disease\n• Kidney cancer\n• Sleep apnea, a disorder that causes you to repeatedly stop breathing during sleep\n\nMisuse of certain drugs for athletic performance (such as anabolic steroids) and living at a high altitude can also cause a high red blood cell count.\n\nTalk to your health care provider if you have questions about your results. Your provider will consider your symptoms, medical history, and the results of other blood tests to understand your red blood cell count results.\n\nLearn more about laboratory tests, reference ranges, and understanding results."
+    },
+    {
+      "title": "Is there anything else I need to know about an RBC count?",
+      "text": "If results showed you had a low or a high red blood cell count, you may need more tests to help your provider make a diagnosis. These can include:\n\n• Reticulocyte count, which measures the number of reticulocytes in your blood. Reticulocytes are immature (still developing) red blood cells. This test helps check if your bone marrow is making the right amount of red blood cells.\n• Iron tests, which measure iron levels in your blood. Iron is essential for making red blood cells.\n• Vitamin B test, which measures the amount of one or more B vitamins in your blood. B vitamins are important for making red blood cells and keeping your body healthy."
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/lab-tests/red-blood-cell-rbc-count/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "ce8f79a26a6a743060f5f5ad73df99d763635544d7851d90356f1cba07bf59f8",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace and list formatting only. Not clinical review."
+}

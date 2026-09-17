@@ -352,7 +352,7 @@ public enum NPIAPStagingSample {
                 AttributedBullet("Reposition q1–2h in bed; q1h in chair; HOB <30° when possible (shear).", citationIDs: ["openrn_ha_round7_proc"]),
                 AttributedBullet("Heel elevation with pillow/floats; off-load bony prominences with foam, gel cushions, specialty surfaces.", citationIDs: ["openrn_ha_round7_proc"]),
                 AttributedBullet("Skin care — keep clean and dry; barrier creams for incontinence; minimize moisture.", citationIDs: ["openrn_ha_round7_proc"]),
-                AttributedBullet("Nutrition + hydration — high protein, adequate calories; albumin/prealbumin trend; RD consult for at-risk patients.", citationIDs: ["openrn_ha_round7_proc"]),
+                AttributedBullet("Nutrition + hydration — high protein, adequate calories; RD consult for at-risk patients.", citationIDs: ["openrn_ha_round7_proc"]),
                 AttributedBullet("Reassess medical devices q-shift (NG, oxygen tubing, BIPAP, ID bracelet, sequential compression); rotate sites.", citationIDs: ["openrn_ha_round7_proc"])
             ])
         ],

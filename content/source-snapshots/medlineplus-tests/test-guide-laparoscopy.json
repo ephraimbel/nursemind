@@ -1,0 +1,44 @@
+{
+  "title": "Laparoscopy",
+  "sourceUpdated": "Last updated August 3, 2026",
+  "sections": [
+    {
+      "title": "What is a laparoscopy?",
+      "text": "A laparoscopy is a type of surgery that lets a surgeon look inside your body without making a large incision (cut). It's used to help diagnose and sometimes treat conditions that develop in your abdomen (belly) or pelvis.\n\nTo do a laparoscopy, a surgeon makes a small cut near your belly button that's usually a half-inch long or less. The surgeon inserts a long, thin tube with a camera through the cut and into your body. This tube is called a laparoscope. The camera sends images from inside your body to a video monitor. This allows the surgeon to see inside your body.\n\nLaparoscopy is sometimes called \"minimally invasive surgery\" or \"keyhole surgery,\" because it requires smaller cuts than traditional, \"open\" surgery. The use of smaller cuts has several benefits, including:\n\n• Shorter hospital stays\n• Less pain\n• Faster recovery and smaller scars\n\nOther names: diagnostic laparoscopy, exploratory laparoscopy"
+    },
+    {
+      "title": "What is it used for?",
+      "text": "Laparoscopy is used to help diagnose the cause of symptoms in the belly or pelvis. It's usually done if imaging tests, such as x-rays, ultrasounds, and MRI scans, haven't provided enough information to confirm a diagnosis.\n\nThe test is often used to help diagnose:\n\n• Digestive diseases\n• Urinary disorders\n• Disorders in the female reproductive system, which includes the uterus, ovaries, and fallopian tubes\n\nA surgeon may also use a laparoscopy to:\n\n• Examine organs and glands. The surgeon may look for bleeding, scar tissue and adhesions, signs of infection, and abnormal growths such as cysts and tumors (cancerous and non-cancerous).\n• Remove samples of tissue to check for signs of disease. This is called a biopsy. To do this, your surgeon may make one or two other small cuts in your belly for inserting special surgical tools needed to do the biopsy.\n• Find out if a known cancer has spread in the body."
+    },
+    {
+      "title": "Why do I need a laparoscopy?",
+      "text": "There are many reasons why you may need a laparoscopy, including if:\n\n• You have pain or other symptoms in your belly or pelvis and imaging tests haven't been able to find the cause.\n• You've been in a serious accident or have been wounded and may have organ injuries.\n• You have cancer and your health care provider needs to know if it has spread to other parts of your body. This information helps choose your treatment.\n• You've had abnormal liver tests and your provider doesn't know why.\n\nIf you're female, you may need a laparoscopy to find out what's causing problems getting pregnant. You may also need this procedure to diagnose symptoms that may involve your reproductive organs, including:\n\n• Pelvic inflammatory disease (PID)\n• Endometriosis\n• Ectopic pregnancy\n• Uterine fibroids\n• Ovarian cysts"
+    },
+    {
+      "title": "What happens during a laparoscopy?",
+      "text": "Laparoscopy is usually done in a hospital or an outpatient clinic. In general, it includes these steps:\n\n• You'll wear a hospital gown and lay on an operating table.\n• Usually, you will have general anesthesia, which is medicine to make you sleep during the surgery. The medicine is injected into your bloodstream through an intravenous (IV) line that's inserted into a vein. You may also inhale a gas from a mask to make you sleep.\n• To do the laparoscopy, the surgeon will:\n  • Make a small cut near your belly button\n  • Put carbon dioxide gas into your belly to open up space between your organs so it's easier to see them\n  • Insert the laparoscope and small camera into your belly\n  • Move the laparoscope to look at your organs and glands on a computer screen\n• If you need to have a biopsy or another procedure, the surgeon may need to make more small cuts to insert surgical tools.\n• When the surgeon is done, the tools and most of the gas will be removed from your body, and the small incisions will be closed and bandaged.\n• After surgery, you will be moved to a recovery room. In most cases, you'll be able to go home after a few hours, but that depends on what procedures were done during the laparoscopy. Before you leave, you'll get information about what to expect over the next few days at home."
+    },
+    {
+      "title": "Will I need to do anything to prepare for the test?",
+      "text": "Your provider will let you know how to prepare. Be sure to follow all the instructions. You will need to fast (not eat or drink) for a period of time before a laparoscopy. Ask your provider whether you should take your usual medicines and/or supplements. But don't stop taking any medicine without talking with your provider first.\n\nPlan to wear loose-fitting clothes because after the surgery, your belly may be bloated from the gas and a little sore. You're also likely to feel groggy, so you'll need to plan to have someone take you home."
+    },
+    {
+      "title": "Are there any risks to the test?",
+      "text": "You may have mild abdominal pain or discomfort for a few days after a laparoscopy. You may also have neck or shoulder pain. That's because the gas used in the surgery may irritate nerves in your belly that run through your shoulder.\n\nAfter a laparoscopy, serious problems are very uncommon. But they can include bleeding, infection, blood clots, damage to an organ or blood vessel, and problems from the medicine that made you sleep during the procedure."
+    },
+    {
+      "title": "What do the results mean?",
+      "text": "The results of a laparoscopy depend on the reason for doing the procedure. Your provider can explain what was found and what that information means for your health. In general, your provider will be able to make a very accurate diagnosis of your condition based on the information from a laparoscopy.\n\nLearn more about laboratory tests, reference ranges, and understanding results"
+    },
+    {
+      "title": "Is there anything else I need to know about laparoscopy?",
+      "text": "Sometimes during a laparoscopy, the surgeon will use the tools needed for a biopsy to do procedures to treat certain problems. This is called laparoscopic surgery, and it differs from a laparoscopy.\n\nDuring a laparoscopy, the surgeon is usually only looking at certain organs so that they can make a diagnosis. During laparoscopic surgery, however, the surgeon will operate on your organs. For example, if a laparoscopy finds a tumor, the surgeon may remove it completely during the same surgery.\n\nMany common surgical treatments can be done with laparoscopic surgery. Along with biopsies and small tumor removals, these include:\n\n• Endometriosis surgery\n• Reconstruction/correction surgery on the urethra, vagina, and testicles\n• Hernia repair surgery\n• Gastric bypass\n• Appendectomy (appendix removal)"
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/lab-tests/laparoscopy/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "db63e41d137f776e4f8f2bc824c5f32b80037a525fafa80a309edb711783160f",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace and list formatting only. Not clinical review."
+}

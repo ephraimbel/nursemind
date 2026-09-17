@@ -1,5 +1,24 @@
 import Foundation
 
+private let reviewPrealbumin = CitationSource(
+    id: "review_prealbumin", shortName: "MedlinePlus — Prealbumin blood test",
+    detail: "NLM-authored medical-test information, paraphrased and condensed by NurseMind; third-party linked content excluded.",
+    publisher: "National Library of Medicine", license: .publicDomain,
+    url: "https://medlineplus.gov/lab-tests/prealbumin-blood-test/", lastRetrieved: "2026-09-17"
+)
+private let reviewPrealbuminASPEN = CitationSource(
+    id: "review_prealbumin_aspen", shortName: "ASPEN — Visceral proteins and nutrition assessment",
+    detail: "ASPEN (2021), Appropriate Use of Visceral Proteins in Nutrition Screening and Assessment. Factual citation only; no reproduction of tables, figures or screening instruments.",
+    publisher: "American Society for Parenteral and Enteral Nutrition", license: .factCitationOnly,
+    url: "https://nutritioncare.org/wp-content/uploads/2024/12/Appropriate-Use-Visceral-Proteins-Nutrition-Screening-Assessment.pdf", lastRetrieved: "2026-09-17"
+)
+private let reviewPrealbuminRanges = CitationSource(
+    id: "review_prealbumin_ranges", shortName: "MedlinePlus — Understanding lab results",
+    detail: "NLM-authored medical-test information, paraphrased and condensed by NurseMind.",
+    publisher: "National Library of Medicine", license: .publicDomain,
+    url: "https://medlineplus.gov/lab-tests/how-to-understand-your-lab-results/", lastRetrieved: "2026-09-17"
+)
+
 // Curator-model lab entries (round 24 — geriatric / wound diagnostics).
 
 private let openrnLabsR24 = CitationSource(
@@ -116,72 +135,35 @@ public enum PrealbuminSample {
     public static let entry: LabEntry = LabEntry(
         id: "prealbumin",
         title: "Prealbumin (transthyretin)",
-        subtitle: "Short half-life (2-3 days) nutritional marker · more responsive than albumin · ALSO acute phase reactant — drops in inflammation",
-        specimen: "Serum (no fasting required); preferred over albumin for tracking acute nutritional response",
-        nclexTags: labsTagsR24,
+        subtitle: "Blood · inflammation and interpretation limits",
+        specimen: "Blood; follow the collecting laboratory’s instructions",
+        nclexTags: NCLEXTags(category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential, priorityConcept: .nutrition),
         referenceRanges: [
-            ReferenceRangeRow(value: ">20 mg/dL", label: "Normal — adequate nutrition", citationIDs: ["specialty_labs_round24"]),
-            ReferenceRangeRow(value: "15-20 mg/dL", label: "Mild depletion / mild risk", citationIDs: ["specialty_labs_round24"]),
-            ReferenceRangeRow(value: "10-15 mg/dL", label: "Moderate depletion", citationIDs: ["specialty_labs_round24"]),
-            ReferenceRangeRow(value: "<10 mg/dL", label: "Severe depletion / high risk for malnutrition complications", citationIDs: ["specialty_labs_round24"])
+            ReferenceRangeRow(value: "Laboratory-specific", label: "Use the interval on the report", citationIDs: ["review_prealbumin_ranges"])
         ],
         interpretationTiers: [
             InterpretationTier(
-                severity: .normal,
-                label: "Normal prealbumin",
-                summary: "Adequate nutrition + protein synthesis. Continue routine assessment. Especially in geriatric + chronically ill, monitor as part of nutritional surveillance per primary source.",
-                nursingActions: [
-                    "Continue routine nutrition + monitoring.",
-                    "Recheck if clinical signs of malnutrition or chronic disease."
-                ],
-                citationIDs: ["specialty_labs_round24"]
-            ),
-            InterpretationTier(
-                severity: .low,
-                label: "Low prealbumin — malnutrition vs inflammation",
-                summary: "Indicates protein-calorie malnutrition OR acute inflammation OR liver disease (decreased synthesis) OR proteinuria (loss). MUST DISTINGUISH from acute phase reactant (CRP elevated suggests inflammation, not pure malnutrition) per primary source.",
-                nursingActions: [
-                    "Check CRP simultaneously — high CRP + low prealbumin suggests inflammation / acute illness, not pure malnutrition.",
-                    "Comprehensive nutritional assessment — weight, BMI, intake, food preferences, dental status, swallowing.",
-                    "Calorie + protein needs calculation — typically 25-35 kcal/kg/day, 1.2-1.5 g protein/kg/day in elderly.",
-                    "Nutritional support — oral supplements (Ensure / Boost), enteral feeding for severe / NPO, parenteral as last resort.",
-                    "Address contributing factors — depression (mirtazapine), dental issues, dysphagia (SLP), polypharmacy.",
-                    "Recheck prealbumin in 7-10 days to assess response — short half-life makes it useful for tracking.",
-                    "Wound healing concerns — protein-calorie malnutrition impairs healing significantly."
-                ],
-                citationIDs: ["specialty_labs_round24"]
+                severity: .low, label: "Low prealbumin",
+                summary: "Prealbumin is made in the liver and transports thyroid hormone and vitamin A. Inflammation, illness and injury can lower the result, making its cause difficult to identify from the concentration alone.",
+                nursingActions: ["Review the clinical reason for testing and the patient’s illness or recovery stage.", "Additional assessment may be needed to understand an abnormal result."],
+                citationIDs: ["review_prealbumin"]
             )
         ],
         commonCauses: [
-            CauseGroup(
-                title: "Reduced prealbumin",
-                causes: ["Protein-calorie malnutrition", "Acute inflammation / sepsis (acute phase reactant)", "Liver disease (decreased synthesis)", "Chronic disease", "Proteinuria / nephrotic syndrome (loss)", "Hyperthyroidism (increased catabolism)", "Zinc deficiency"],
-                citationIDs: ["specialty_labs_round24"]
-            ),
-            CauseGroup(
-                title: "Elevated prealbumin",
-                causes: ["Chronic kidney disease (rare)", "Adrenal cortical hyperfunction", "Hodgkin disease", "Pregnancy"],
-                citationIDs: ["specialty_labs_round24"]
-            )
+            CauseGroup(title: "Lower results may accompany", causes: ["Inflammation, infection or burns", "Liver or digestive disease", "Hyperthyroidism", "Malnutrition may coexist"], citationIDs: ["review_prealbumin"]),
+            CauseGroup(title: "Higher results may accompany", causes: ["Kidney failure", "Hodgkin disease", "Alcohol use disorder or corticosteroid therapy"], citationIDs: ["review_prealbumin"])
         ],
         nursingActions: [
-            AttributedBullet("HALF-LIFE 2-3 days — much more responsive than albumin (half-life 21 days) for tracking acute nutritional changes per primary source.", citationIDs: ["specialty_labs_round24"]),
-            AttributedBullet("PAIR with CRP — CRP elevated + prealbumin low = inflammation; CRP normal + prealbumin low = pure malnutrition (more concerning for nutritional intervention focus).", citationIDs: ["specialty_labs_round24"]),
-            AttributedBullet("USE for monitoring nutritional intervention response — recheck in 7-10 days; rising = improving.", citationIDs: ["specialty_labs_round24"]),
-            AttributedBullet("Comprehensive nutritional assessment — MNA-SF (Mini Nutritional Assessment Short Form) for elderly; weight loss, food intake, mobility, BMI, neuropsychological status.", citationIDs: ["specialty_labs_round24"]),
-            AttributedBullet("Pair with body weight + intake monitoring + clinical assessment.", citationIDs: ["specialty_labs_round24"]),
-            AttributedBullet("Geriatric / wound healing patients — monitor periodically.", citationIDs: ["specialty_labs_round24"])
+            AttributedBullet("Testing generally needs no special preparation. Review medicines and supplements; patients should not stop medicines without instructions from their clinician.", citationIDs: ["review_prealbumin"]),
+            AttributedBullet("Neither prealbumin nor albumin is a reliable nutrition marker. Assess intake, weight changes, physical findings and function instead of using either concentration to judge nutritional adequacy.", citationIDs: ["review_prealbumin_aspen"]),
+            AttributedBullet("Ask about weight loss, weakness and other nutrition concerns. Illness, injury or postoperative recovery may complicate interpretation; communicate the findings for a broader assessment.", citationIDs: ["review_prealbumin"])
         ],
         watchFor: [
-            AttributedBullet("WOUND HEALING + PRESSURE INJURY — protein-calorie malnutrition impairs significantly; prealbumin <15 mg/dL strongly associated with delayed healing.", citationIDs: ["specialty_labs_round24"]),
-            AttributedBullet("REFEEDING SYNDROME — when initiating nutrition in severely malnourished; phosphate, magnesium, potassium drop; replete BEFORE + during initiation; thiamine prevention; start low + advance slowly.", citationIDs: ["specialty_labs_round24"]),
-            AttributedBullet("PEG / FEEDING TUBE decisions — limited benefit in advanced dementia; family education + advance care planning.", citationIDs: ["specialty_labs_round24"]),
-            AttributedBullet("CHRONIC DISEASE — frequently low prealbumin; not all causes are reversible; align with goals of care.", citationIDs: ["specialty_labs_round24"]),
-            AttributedBullet("HYPOPROTEINEMIA — also affects drug binding (warfarin, phenytoin, valproic acid) — monitor levels + adjust.", citationIDs: ["specialty_labs_round24"]),
-            AttributedBullet("ALBUMIN limitations — too long half-life (21 days) for acute monitoring; affected by hydration status; prealbumin better for serial monitoring.", citationIDs: ["specialty_labs_round24"])
+            AttributedBullet("A normal CRP does not make prealbumin a validated nutrition marker. A rising concentration alone does not prove successful nutrition support.", citationIDs: ["review_prealbumin_aspen"]),
+            AttributedBullet("An elevated result is not a diagnostic test for kidney failure or the other associated conditions. Other testing may be needed.", citationIDs: ["review_prealbumin"])
         ],
-        citations: [openrnLabsR24, specialtyLabsR24],
-        lastSourceFidelityReview: "2026-05-12"
+        citations: [reviewPrealbumin, reviewPrealbuminASPEN, reviewPrealbuminRanges],
+        lastSourceFidelityReview: "2026-09-17"
     )
 }
 

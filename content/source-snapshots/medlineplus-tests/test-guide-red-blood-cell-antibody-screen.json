@@ -1,0 +1,44 @@
+{
+  "title": "Red Blood Cell Antibody Screen",
+  "sourceUpdated": "Last updated January 21, 2025",
+  "sections": [
+    {
+      "title": "What is an RBC antibody screen?",
+      "text": "An RBC (red blood cell) antibody screen is a blood test that looks for RBC antibodies in your blood. These antibodies destroy red blood cells that are foreign (different from your own).\n\nAntibodies are proteins that your immune system makes to attack germs and other foreign substances in your body, including red blood cells that aren't like yours. Your immune system recognizes foreign red blood cells by chemical markers on the cells, called antigens.\n\nAll red blood cells have antigens. Your blood type is based on the kind of antigens you have on your cells. The main antigens found on red blood cells are A, B, and Rh Factor (also called D antigen). If you're exposed to red blood cells with antigens that aren't like yours, the foreign antigens will trigger your immune system to make RBC antibodies to destroy the foreign red blood cells.\n\nYou may have RBC antibodies in your blood if you have been exposed to foreign red blood cells in a blood transfusion, or if you have been pregnant with a fetus whose blood type was different from your own. RBC antibodies that attack foreign blood cells won't harm your health, but these antibodies could cause problems if you are exposed to foreign red blood cells again, for example:\n\n• If you have a blood transfusion, RBC antibodies could cause serious illness.\n• If you are pregnant with a fetus who has a blood type that's different from yours, certain RBC antibodies could harm your fetus.\n\nOnce your body makes RBC antibodies, you will always have them.\n\nOther names: antibody screen, indirect antiglobulin test, indirect anti-human globulin test, IAT, indirect coombs test, erythrocyte Ab, RBC antibody identification"
+    },
+    {
+      "title": "What is it used for?",
+      "text": "An RBC antibody screen is used to check your blood for RBC antibodies before you have a blood transfusion or when you're pregnant:\n\n• Before a blood transfusion, the test can help your health care provider select donor blood (the blood you will get) that's well matched with your blood. This prevents you from getting blood that triggers an immune reaction that could make you very sick.\n• During pregnancy, the test can show whether you have RBC antibodies that could attack the red blood cells of your fetus, causing a very serious type of fetal anemia. RBC antibodies that may cause problems in pregnancy include Rh antibodies and Kell antibodies. Rh antibodies attack an antigen on red blood cells called Rh factor. You inherit the Rh factor from your father or your mother. Most people have this antigen, but some don't. Early in your pregnancy, or even before you're pregnant, you'll have a prenatal blood test to find out whether you have the Rh antigen:\n  • If you have the Rh antigen, you're Rh positive. That means your immune system won't make antibodies to attack blood cells with Rh antigens because they aren't foreign. But you may still have an RBC antibody screen to look for other less common red blood cell antibodies that could affect your fetus.\n  • If you don't have the Rh antigen, you're Rh negative. If your fetus could be Rh positive, you have Rh incompatibility, which may harm them. If blood from your fetus gets into your bloodstream, the Rh antigens may trigger your immune system to make Rh antibodies. These antibodies could enter the fetal bloodstream and attack their red blood cells. If you have Rh incompatibility, you may have several RBC antibody screens during your pregnancy to find out whether you've made Rh antibodies.\nRh incompatibility isn't common, but it causes most cases of anemia in babies. It's unlikely to harm your baby the first time it happens. That's because exposure to your baby's blood mostly happens during childbirth. They will likely be born before your body has had time to make antibodies. But once you have Rh antibodies, they could cause problems in future pregnancies, or if you need a blood transfusion. Kell antigens are a group of red blood cell antigens that can trigger a strong immune response if you don't have Kell antigens in your own blood. During pregnancy, if your fetus has Kell antigens and you don't, you may make Kell RBC antibodies. They can cause a very severe anemia that may be life-threatening for the fetus. Most people with Kell RBC antibodies develop them over time after having many transfusions with blood that has Kell antigens."
+    },
+    {
+      "title": "Why do I need an RBC antibody screen?",
+      "text": "Your provider may order an RBC antibody screen if:\n\n• You need a blood transfusion. The test helps make sure you get donor blood that's safe for you.\n• You're pregnant. The test is usually done in early pregnancy, as part of routine prenatal testing. The test helps your provider know what care you will need during your pregnancy."
+    },
+    {
+      "title": "What happens during an RBC antibody screen?",
+      "text": "A health care professional will take a blood sample from a vein in your arm, using a small needle. After the needle is inserted, a small amount of blood will be collected into a test tube or vial. You may feel a little sting when the needle goes in or out. This usually takes less than five minutes."
+    },
+    {
+      "title": "Will I need to do anything to prepare for the test?",
+      "text": "You don't need any special preparations for an RBC screen."
+    },
+    {
+      "title": "Are there any risks to the test?",
+      "text": "There is very little risk to having a blood test. You may have slight pain or bruising at the spot where the needle was put in, but most symptoms go away quickly."
+    },
+    {
+      "title": "What do the results mean?",
+      "text": "If you are getting a blood transfusion:\n\n• A positive result means you have one or more RBC antibodies in your blood that could destroy red blood cells in certain types of donor blood. You will likely need more tests to find out exactly what type of RBC antibodies you have so your provider can select donor blood that's a good match for you.\n• A negative result means no RBC antibodies were found.\n\nIf you are pregnant:\n\n• A positive test result means that you have RBC antibodies in your blood that could harm your fetus. You will likely need more tests to find out what type of RBC antibodies you have.\n  • If you have Rh antibodies, you may have more frequent tests during your pregnancy. There is no treatment to stop your body from making more Rh antibodies.\n  • If you have other RBC antibodies, but no Rh antibodies, your pregnancy will be closely watched. If you are Rh-negative, your provider may give you an injection (shot) to prevent your body from making Rh antibodies.\n• A negative result means that no RBC antibodies were found. If you are Rh-negative, your provider may give you an injection to prevent your body from making Rh antibodies.\n\nIf you have questions about your results, talk with your provider.\n\nLearn more about laboratory tests, reference ranges, and understanding results."
+    },
+    {
+      "title": "Is there anything else I need to know about an RBC antibody screen?",
+      "text": "Once you have RBC antibodies, they never go away. But you may have too few to show up on a test. If you have had an RBC antibody screen that showed you have RBC antibodies, make sure to tell your provider, especially if you need a blood transfusion or are pregnant."
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/lab-tests/red-blood-cell-antibody-screen/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "a14cb5f41c5925f1ab1190f9833fe8a21a38e15f9735c91e5297caed8aee9715",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace and list formatting only. Not clinical review."
+}

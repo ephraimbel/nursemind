@@ -1,0 +1,32 @@
+{
+  "title": "Von Hippel-Lindau syndrome",
+  "sourceUpdated": "Last updated October 1, 2018",
+  "sections": [
+    {
+      "title": "Description",
+      "text": "Von Hippel-Lindau syndrome is an inherited disorder characterized by the formation of tumors and fluid-filled sacs (cysts) in many different parts of the body. Tumors may be either noncancerous or cancerous and most frequently appear during young adulthood; however, the signs and symptoms of von Hippel-Lindau syndrome can occur throughout life.\n\nTumors called hemangioblastomas are characteristic of von Hippel-Lindau syndrome. These growths are made of newly formed blood vessels. Although they are typically noncancerous, they can cause serious or life-threatening complications. Hemangioblastomas that develop in the brain and spinal cord can cause headaches, vomiting, weakness, and a loss of muscle coordination (ataxia). Hemangioblastomas can also occur in the light-sensitive tissue that lines the back of the eye (the retina). These tumors, which are also called retinal angiomas, may cause vision loss.\n\nPeople with von Hippel-Lindau syndrome commonly develop cysts in the kidneys, pancreas, and genital tract. They are also at an increased risk of developing a type of kidney cancer called clear cell renal cell carcinoma and a type of pancreatic cancer called a pancreatic neuroendocrine tumor.\n\nVon Hippel-Lindau syndrome is associated with a type of tumor called a pheochromocytoma, which most commonly occurs in the adrenal glands (small hormone-producing glands located on top of each kidney). Pheochromocytomas are usually noncancerous. They may cause no symptoms, but in some cases they are associated with headaches, panic attacks, excess sweating, or dangerously high blood pressure that may not respond to medication. Pheochromocytomas are particularly dangerous in times of stress or trauma, such as when undergoing surgery or in an accident, or during pregnancy.\n\nAbout 10 percent of people with von Hippel-Lindau syndrome develop endolymphatic sac tumors, which are noncancerous tumors in the inner ear. These growths can cause hearing loss in one or both ears, as well as ringing in the ears (tinnitus) and problems with balance. Without treatment, these tumors can cause sudden profound deafness.\n\nNoncancerous tumors may also develop in the liver and lungs in people with von Hippel-Lindau syndrome. These tumors do not appear to cause any signs or symptoms."
+    },
+    {
+      "title": "Frequency",
+      "text": "The incidence of von Hippel-Lindau syndrome is estimated to be 1 in 36,000 individuals."
+    },
+    {
+      "title": "Causes",
+      "text": "Mutations in the VHL gene cause von Hippel-Lindau syndrome. The VHL gene is a tumor suppressor gene, which means it keeps cells from growing and dividing too rapidly or in an uncontrolled way. Mutations in this gene prevent production of the VHL protein or lead to the production of an abnormal version of the protein. An altered or missing VHL protein cannot effectively regulate cell survival and division. As a result, cells grow and divide uncontrollably to form the tumors and cysts that are characteristic of von Hippel-Lindau syndrome."
+    },
+    {
+      "title": "Inheritance",
+      "text": "Mutations in the VHL gene are inherited in an autosomal dominant pattern, which means that one copy of the altered gene in each cell is sufficient to increase the risk of developing tumors and cysts. Most people with von Hippel-Lindau syndrome inherit an altered copy of the gene from an affected parent. In about 20 percent of cases, however, the altered gene is the result of a new mutation that occurred during the formation of reproductive cells (eggs or sperm) or very early in development.\n\nUnlike most autosomal dominant conditions, in which one altered copy of a gene in each cell is sufficient to cause the disorder, two copies of the VHL gene must be altered to trigger tumor and cyst formation in von Hippel-Lindau syndrome. A mutation in the second copy of the VHL gene occurs during a person's lifetime in certain cells within organs such as the brain, retina, and kidneys. Cells with two altered copies of this gene do not make functional VHL protein, which allows tumors and cysts to develop. Almost everyone who inherits one VHL mutation will eventually acquire a mutation in the second copy of the gene in some cells, leading to the features of von Hippel-Lindau syndrome."
+    },
+    {
+      "title": "Other Names for This Condition",
+      "text": "• Angiomatosis retinae\n• Cerebelloretinal angiomatosis, familial\n• Hippel-Lindau disease\n• VHL syndrome\n• Von Hippel-Lindau disease"
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/genetics/condition/von-hippel-lindau-syndrome/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "03654d4f894fabdfe78cc17f06f7843b7a5c5af2a4e7387e9bb0d876ffc379eb",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace, lists and labeled table formatting adapted. Not clinical review."
+}

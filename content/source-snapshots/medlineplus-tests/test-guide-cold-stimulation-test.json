@@ -1,0 +1,44 @@
+{
+  "title": "Cold Stimulation Test",
+  "sourceUpdated": "Last updated September 10, 2024",
+  "sections": [
+    {
+      "title": "What is a cold stimulation test?",
+      "text": "A cold stimulation test involves placing your fingers in ice water and checking to see how long it takes your skin to return to a normal temperature. This test is used to find out if you have Raynaud phenomenon. Raynaud phenomenon, also known as Raynaud disease or Raynaud syndrome, is a condition that causes brief episodes or \"attacks\" where your blood vessels (the tubes that your blood flows through) narrow. This decreases the blood flow to certain parts of your body. The attacks usually happen after exposure to cold or stress. They mostly affect your fingers and toes. But in rare cases, the attacks can affect other areas of your body, such as your ears, nose, lips, or nipples.\n\nWhen you are exposed to cold, your body tries to slow the loss of heat and maintain its temperature. To do this, the blood vessels in the top layer of your skin constrict (narrow). This moves blood from those vessels near the surface to vessels deeper in the body. But when you have Raynaud phenomenon, the blood vessels in your hands and feet react to cold and stress by narrowing quickly. They also stay narrowed for a long period of time.\n\nA Raynaud attack can be triggered by very mild and limited exposure to cold, such as taking food out of the freezer or holding a cold drink. When an attack happens, your skin may feel cold and numb. Your skin may also turn white or blue due to a lack of oxygen. As blood flow returns, your skin may tingle, throb, or turn red. An attack may last a few minutes or a few hours.\n\nThere are two types of Raynaud phenomenon:\n\nPrimary Raynaud phenomenon:\n\n• Is the more common type and is often milder.\n• Has no known cause.\n• A family history of the disease and being a woman may increase your risk for this type.\n• Symptoms usually start before age 30, often during the teenage years.\n• Most people can manage their mild symptoms with lifestyle changes.\n\nSecondary Raynaud phenomenon:\n\n• Is usually caused by another health condition, such as a rheumatic disease like lupus or scleroderma, carpal tunnel syndrome, or disorders of the immune system, connective tissue, or arteries.\n• Other causes may include repeated use of vibrating machinery (such as a jackhammer), or exposure to cold or certain chemicals.\n• Medicines to treat high blood pressure, migraines, or attention deficit hyperactivity disorder (ADHD) may cause similar symptoms or make your symptoms worse.\n• Is less common than primary Raynaud but is more serious because it can damage your blood vessels.\n• Symptoms may include skin ulcers (open sores caused by poor blood flow) or skin infections.\n• Symptoms usually start between the ages of 35 and 40.\n\nOther names: cold challenge test"
+    },
+    {
+      "title": "What is it used for?",
+      "text": "Your provider will usually diagnose Raynaud phenomenon by doing a physical exam and reviewing your symptoms and medical history. Some providers also use a cold stimulation test to help confirm your diagnosis of Raynaud phenomenon."
+    },
+    {
+      "title": "Why do I need a cold stimulation test?",
+      "text": "You may need this test if you have symptoms of Raynaud phenomenon. Its symptoms usually show up after exposure to cold or emotional stress. You may also have them after smoking cigarettes or vaping. These symptoms mostly affect fingers and toes and can include:\n\n• Skin that turns white or blue (although this can be harder to see if you have darker skin)\n• Skin that is numb, painful, or stinging once it starts to warm up\n• Skin that takes a long time to warm up after exposure"
+    },
+    {
+      "title": "What happens during a cold stimulation test?",
+      "text": "• A small device that measures temperature will be taped to your fingers.\n• Your provider will record the temperature.\n• You will then place your hands into an ice water bath for 20 seconds.\n• You will remove your hands from the ice water.\n• Your provider will record your finger temperature every five minutes for up to 20 minutes, or until your temperature returns to the same as it was before the ice water bath."
+    },
+    {
+      "title": "Will I need to do anything to prepare for the test?",
+      "text": "You don't need any special preparations for a cold stimulation test."
+    },
+    {
+      "title": "Are there any risks to the test?",
+      "text": "You may feel some discomfort while your hands are in the ice water."
+    },
+    {
+      "title": "What do the results mean?",
+      "text": "If it takes 20 minutes or more for your finger temperature to return to normal after the ice water bath, it probably means you have Raynaud phenomenon. If your symptoms are severe and/or you are age 35 or older, you may have secondary Raynaud phenomenon.\n\nIf your health care provider thinks you have secondary Raynaud phenomenon, they may order more tests to help diagnose the disorder that is causing it. These tests can include:\n\n• Nailfold capillaroscopy. For this test, your provider will place a drop of oil on the base of one of your fingernails. The nail area is then examined under a microscope. If abnormal arteries are seen, it can be a sign of scleroderma or other connective tissue disease.\n• Blood tests to check for immune system disorders. These include an antinuclear antibody (ANA) test, erythrocyte sedimentation rate (ESR), and C-reactive protein.\n\nIf you have questions about your results, talk to your provider."
+    },
+    {
+      "title": "Is there anything else I need to know about a cold stimulation test?",
+      "text": "There are steps you can take that may help you avoid or reduce the symptoms of Raynaud phenomenon, including:\n\n• Dressing extra warmly for cold weather. This includes wearing a hat, mittens, scarf, and heavy socks.\n• Wearing gloves when you are holding cold items.\n• Using battery- or chemical-operated hand and/or foot warmers.\n• Turning down air conditioning and wearing a sweater or jacket when in an air-conditioned space.\n• Getting regular exercise, which increases blood flow.\n• Limiting caffeine and alcohol.\n• Avoiding stress.\n• Quitting smoking (if you smoke). Nicotine in cigarettes can cause your blood vessels to narrow, increasing the chance of an episode.\n• Talking to your provider about the medicines you take, since some medicines can bring on episodes.\n\nThese changes should be enough to manage the symptoms of primary Raynaud phenomenon. If your symptoms are causing too much discomfort, or if you have secondary Raynaud phenomenon, your provider may also prescribe medicines that can help open your blood vessels. For severe cases, your provider may recommend a procedure to destroy the nerves that trigger blood vessel narrowing in the affected areas of your body."
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/lab-tests/cold-stimulation-test/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "2707b6a59c24549d784a4b47a26fb08e6f2b8ea4f242a09f2bdf8c802b335c08",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace and list formatting only. Not clinical review."
+}

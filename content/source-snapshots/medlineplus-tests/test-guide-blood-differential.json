@@ -1,0 +1,40 @@
+{
+  "title": "Blood Differential",
+  "sourceUpdated": "Last updated October 9, 2024",
+  "sections": [
+    {
+      "title": "What is a blood differential test?",
+      "text": "A blood differential test measures the amount of each type of white blood cell (WBC) that you have in your blood. This test can help diagnose or monitor an infection or condition that affects your immune system.\n\nWhite blood cells are also called leukocytes and WBCs. They are a type of blood cell that is made in your bone marrow and found in your blood and lymph tissue (which is part of your lymphatic system). White blood cells are an important part of your immune system. When you are injured or sick, your white blood cells will travel through your bloodstream and tissues to where they are needed. There, they will help your body fight off the infection or disease.\n\nThere are five different types of white blood cells:\n\n• Neutrophils are the most common type of white blood cell. They are your body's main defense against infection when bacteria, viruses, or other germs enter your body.\n• Lymphocytes include two main types of white blood cells: B cells and T cells. B cells fight off invading viruses, bacteria, or toxins. Certain T cells can target and destroy your body's own cells, such as cancer cells and cells that have been infected by viruses.\n• Monocytes kill bacteria, viruses, and other germs that may make you sick. They also boost your body's immune response and clear away dead cells.\n• Eosinophils defend against parasites and infections. They are also involved in allergies and help control inflammation (swelling and redness).\n• Basophils release enzymes during allergic reactions and asthma attacks.\n\nA blood differential test measures the amount and/or percentage of each type of white blood cell. Another test called a white blood count (WBC) measures the total number of these cells in your blood.\n\nOther names for a blood differential test: Complete blood count (CBC) with differential, Differential, White blood cell differential count, Leukocyte differential count, Peripheral Differential"
+    },
+    {
+      "title": "What is it used for?",
+      "text": "A blood differential test is often part of a routine checkup. Because the five types of white blood cell do different jobs, measuring them separately can give your health care provider important information about your health.\n\nThe test can also help diagnose a variety of medical conditions, such as:\n\n• Infections\n• Autoimmune diseases such as rheumatoid arthritis\n• Leukemia and other types of cancer"
+    },
+    {
+      "title": "Why do I need a blood differential test?",
+      "text": "A blood differential test is used for many reasons. Your provider may order the test to:\n\n• Monitor your overall health or as part of a routine checkup.\n• Diagnose the cause of your symptoms or your abnormal WBC count from another blood test. For example, if you have symptoms such as feeling unusually tired or weak, or have unexplained bruising or other symptoms, this test may help uncover the cause.\n• Monitor an existing blood disorder or related condition."
+    },
+    {
+      "title": "What happens during a blood differential test?",
+      "text": "A health care professional will take a blood sample from a vein in your arm, using a small needle. After the needle is inserted, a small amount of blood will be collected into a test tube or vial. You may feel a little sting when the needle goes in or out. This usually takes less than five minutes."
+    },
+    {
+      "title": "Will I need to do anything to prepare for the test?",
+      "text": "No special preparation is necessary."
+    },
+    {
+      "title": "Are there any risks to the test?",
+      "text": "There is very little risk to having a blood test. After the test, some people experience mild pain, dizziness, or bruising. These symptoms usually go away quickly."
+    },
+    {
+      "title": "What do the results mean?",
+      "text": "Your blood differential test results may be higher or lower than normal for many reasons.\n\nConditions that may cause a high white blood cell count, also called leukocytosis, can include:\n\n• Infections\n• Autoimmune or inflammatory disorders\n• Leukemia or Hodgkin disease\n• Allergic reactions\n• Certain steroids\n\nConditions that may cause a low white blood cell count, also called leukopenia, can include:\n\n• Bone marrow diseases\n• Chemotherapy\n• Certain medicines, such as antibiotics\n• Cancer\n• HIV\n\nBut abnormal results don't always mean you have a condition that needs medical treatment. Some other factors that may affect your results can include:\n\n• Physical injury or extreme stress\n• Smoking\n• Alcohol use\n\nIf your results seem abnormal, your provider may order other tests to help figure out the cause. If you have questions about your results, talk with your provider. To understand your results, your provider will also consider your symptoms, medical history, and the results of other blood tests.\n\nLearn more about laboratory tests, reference ranges, and understanding results."
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/lab-tests/blood-differential/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "1bb0dac058fcfb271940ad1dfb7bbe6b9b3c7b5d8493724631409aeb96497e68",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace and list formatting only. Not clinical review."
+}

@@ -1,0 +1,44 @@
+{
+  "title": "White Blood Cell (WBC) in Stool",
+  "sourceUpdated": "Last updated August 5, 2026",
+  "sections": [
+    {
+      "title": "What is a white blood cell (WBC) in stool test?",
+      "text": "This test looks for white blood cells in a sample of your stool (poop). White blood cells are also called leukocytes, so this test is sometimes called a leukocytes in stool test.\n\nYour immune system makes white blood cells to help your body fight off infections and other diseases. Usually, there are very few if any white blood cells in your stool. So, if your stool does have white blood cells in it, it could be a sign that you have an infection or other condition in your digestive system that's causing inflammation.\n\nThe most common sign of an infection or condition in your digestive system is diarrhea. A white blood cell in stool test can't diagnose the exact condition that's causing diarrhea. But it can help narrow down the possible causes to conditions that either do or don't involve inflammation.\n\nOther names: leukocytes in stool, stool WBC, fecal WBC, fecal leukocyte test, FLT, FGST, fecal leukocyte gram stain screen"
+    },
+    {
+      "title": "What is it used for?",
+      "text": "A health care provider may use a white blood cell in stool test to find out whether diarrhea is caused by conditions that involve inflammation in the digestive system. Some of the most common causes include:\n\n• Certain bacterial infections.\n• Inflammatory bowel disease (IBD), which includes ulcerative colitis and Crohn's disease.\n• A parasite (Entamoeba histolytica) which causes a disease called “amebiasis.” Amebiasis is most common in tropical places with poor sanitary conditions.\n\nMany bacterial infections can cause inflammation in the digestive system. These include:\n\n• Clostridium difficile (C. diff). This bacterial infection mostly happens after taking antibiotics that kill the “good bacteria” that keep C. diff from growing in your body. C. diff releases harmful substances (toxins) that can cause your lower digestive tract to become inflamed. Your provider may order a separate test to see if these bacteria are present in your stool.\n• Salmonella. Most salmonella infections come from contaminated food, but you can also get it from infected animals, especially reptiles and birds.\n• Shigella. Infection with these bacteria is called shigellosis. You can get it from food and touching contaminated surfaces and then touching your mouth.\n• Campylobacter. Infection from these bacteria can happen from contact with contaminated food or dog and cat feces (poop)."
+    },
+    {
+      "title": "Why do I need a white blood cell in stool test?",
+      "text": "Most diarrhea goes away on its own after a day or two. In these cases, your provider doesn't need to find the cause. But if you have symptoms of diarrhea from inflammation that don't improve after a few days, you may need a white blood cell in stool test.\n\nThat's because ongoing diarrhea can lead to serious health problems, including dehydration and electrolyte imbalances. A WBC in stool test can help your provider choose the right treatment.\n\nSee your provider right away if you have:\n\n• Signs of dehydration, including dry mouth, dark urine (pee), fatigue, or dizziness\n• A fever of 102 degrees or higher\n• Unintentional weight loss\n• Severe pain in the abdomen (belly) or rectum\n• Stool that is black and tarry or contains blood or pus\n• In adults: frequent vomiting, diarrhea 6 or more times in 24 hours, or diarrhea for more than 2 days\n• In young children and infants: diarrhea for more than 24 hours"
+    },
+    {
+      "title": "What happens during a white blood cell in stool test?",
+      "text": "You will need to provide a stool sample for your test. Your provider will probably give you a container or kit with instructions on how to collect the sample. There are different ways to collect stool samples, so follow the instructions carefully. In general, you'll need to:\n\n• Label the container with your name, the collection date, and time.\n• Collect a stool sample as instructed. This usually involves using a clean, dry container, or special paper or plastic wrap placed over the toilet to catch the stool.\n• Make sure the stool doesn't mix with any urine, toilet paper, or water from the toilet.\n• Close the container tightly.\n• Wash your hands well with soap and water.\n• Return the container according to the instructions. This is important to get an accurate test result. If you are unable to return the container right away, you should refrigerate your sample until you're ready to deliver it.\n\nIf you're collecting a sample from diapers, you'll get special instructions for using plastic wrap inside of a clean diaper. In certain cases, a provider may use a swab to take a stool sample from the rectum."
+    },
+    {
+      "title": "Will I need to do anything to prepare for the test?",
+      "text": "Certain medicines and foods may affect the test results. Ask your provider if there are any specific things you need to avoid before the test."
+    },
+    {
+      "title": "Are there any risks to the test?",
+      "text": "There is no known risk to having a white blood cell in stool test."
+    },
+    {
+      "title": "What do the results mean?",
+      "text": "A positive or abnormal test result means that white blood cells were found in your stool sample. That means you have inflammation in your digestive tract. This information helps rule out conditions that don't cause inflammation, including viral infections, certain bacteria, and most parasites. But to determine which condition or bacterial infection is causing your inflammation, your provider will order additional tests.\n\nA negative or normal test result means that no white blood cells were found in your stool sample. That may mean that inflammation isn't causing your illness. But a normal test result can't rule out conditions that cause inflammation. That's because white blood cells don't last long in a stool sample. So, if your stool sample contained a small number of white blood cells that broke apart during testing, they may not show up. As a result, you could have inflammation in your digestive system even though your test didn't find any white blood cells in your stool.\n\nLearn more about laboratory tests, reference ranges, and understanding results."
+    },
+    {
+      "title": "Is there anything else I need to know about a white blood cell in stool test?",
+      "text": "Your provider may use a calprotectin stool test if a WBC in stool test doesn't give them a clear understanding of what's causing your diarrhea. Calprotectin is a protein that certain white blood cells release in the intestine when there is inflammation. It's also associated with inflammatory bowel disease and some bacterial infections."
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/lab-tests/white-blood-cell-wbc-in-stool/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "eccaf95aab41d667599b2f764a40e794e7c25465af9f8c68f962ed9551373b62",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace and list formatting only. Not clinical review."
+}

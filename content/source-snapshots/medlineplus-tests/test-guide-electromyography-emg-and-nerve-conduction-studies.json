@@ -1,0 +1,40 @@
+{
+  "title": "Electromyography (EMG) and Nerve Conduction Studies",
+  "sourceUpdated": "Last updated April 10, 2024",
+  "sections": [
+    {
+      "title": "What are electromyography (EMG) and nerve conduction studies?",
+      "text": "Electromyography (EMG) and nerve conduction studies are tests that check how well your muscles and the nerves that control them are working. These nerves control your muscles by sending out electrical signals to make your muscles move. As your muscles react by tightening (contracting), they give off electrical activity, which can then be measured.\n\n• An EMG test looks at the electrical signals your muscles make when they are at rest and when used. A healthy muscle should not give off any electrical signals when you aren't moving it. If your muscle is damaged, it may show electrical activity while at rest or activity that is not normal while using it.\n• A nerve conduction study measures how fast and how well your body's electrical signals move along your nerves. A damaged nerve has a slower and weaker signal. This test can help check for nerve damage.\n\nEMG tests and nerve conduction studies can help find out if you have a health condition that has damaged your muscles or nerves or how they work together. These tests can be done separately, but they are usually done at the same time.\n\nOther names: electrodiagnostic study, EMG test, electromyogram, NCS, nerve conduction velocity, NCV"
+    },
+    {
+      "title": "What are they used for?",
+      "text": "EMG and nerve conduction studies are used to help check for many kinds of muscle and nerve disorders. An EMG test helps find out if muscles are responding the right way to nerve signals. Nerve conduction studies help to check for nerve damage or disease. When EMG tests and nerve conduction studies are done together, it helps providers tell if your symptoms are caused by a muscle or a nerve disorder."
+    },
+    {
+      "title": "Why do I need an EMG test and a nerve conduction study?",
+      "text": "You may need these tests if you have symptoms of a muscle or nerve disorder. These symptoms include:\n\n• Muscle weakness\n• Tingling or numbness in arms, legs, hands, feet, and/or face\n• Muscle cramps, spasms, and/or twitching\n• Paralysis of any muscles"
+    },
+    {
+      "title": "What happens during an EMG test and nerve conduction study?",
+      "text": "For an EMG test:\n\n• You will sit or lie on a table or bed.\n• Your provider will clean the skin over the muscle being tested.\n• Your provider will place a small needle with an electrode into the muscle. This is connected to a machine used to record your muscle's electrical activity when you move and relax it. You may have slight pain or discomfort when the electrode is inserted.\n• You will stay still while the machine records your muscle activity at rest.\n• You will tighten (contract) the muscle slowly while the machine records this muscle activity.\n• The electrode may be moved to record activity in different muscles.\n• The electrical activity is recorded and shown on a video screen. It looks like wavy and spiky lines. The activity may also be recorded and sent to an audio speaker. The audio may make popping sounds when you're contracting your muscles.\n• An EMG test may take from 30 to 60 minutes.\n\nFor a nerve conduction study:\n\n• You will sit or lie on a table or bed.\n• Your provider will stick electrodes to your skin above a nerve they're checking. The electrodes, called stimulating electrodes, deliver a mild electrical pulse.\n• Your provider will attach recording electrodes to the muscles controlled by those nerves. These electrodes will record the muscles' response to the electrical stimulation from the nerve.\n• Your provider will send a small pulse of electricity through the stimulating electrodes. This stimulates the nerve to send a signal to the muscle.\n• This may cause a mild tingling feeling.\n• Your provider will write down how long it takes for your muscle to respond to the nerve signal.\n• The speed of the muscle response is called the conduction velocity.\n• A nerve conduction test may take from 15 minutes to over an hour. The length of time depends on how many nerves and muscles are tested.\n\nIf you are having both tests, the nerve conduction study will be done first."
+    },
+    {
+      "title": "Will I need to do anything to prepare for these tests?",
+      "text": "Tell your provider if you have a pacemaker or cardiac defibrillator. Special steps will need to be taken before the test if you have one of these devices.\n\nTell your provider if you take blood thinner medicines. If you're taking blood thinners, you may need to watch for more bleeding from the needle.\n\nWear loose, comfortable clothing for easy access to the test area. It can be easily removed if you need to change into a hospital gown.\n\nMake sure your skin is clean. Don't use lotions, creams, or perfumes for a day or two before the test. They can change the results of the test."
+    },
+    {
+      "title": "Are there any risks to the tests?",
+      "text": "You may feel mild pain during an EMG test. Let your provider know if your pain becomes very uncomfortable because this may change your test results. You may have a tingly feeling, like mild static electricity, during a nerve conduction study.\n\nThe muscles that were tested may be sore for a few days after the test. You may also have some bruises on your skin where the needles were placed."
+    },
+    {
+      "title": "What do the results mean?",
+      "text": "If your results are not normal, it can be a sign of many different conditions. Depending on which muscles or nerves are affected, it could mean one of the following:\n\n• Carpal tunnel syndrome, a common condition that affects nerves in the hand and arm. It causes numbness, tingling, weakness, or pain in your wrist or hand.\n• Herniated disk, a condition that happens when a part of your spine, called a disk, is damaged. Part of the disk bulges or pushes out, putting pressure on the spine which causes pain and numbness.\n• Guillain-Barré syndrome, a rare disorder that causes your immune system to attack your nerves. It can lead to numbness, tingling, and paralysis.\n• Myasthenia gravis, a rare disease that causes weakness in the muscles you can control. They may include your muscles for eye movement, facial expressions, or other muscles.\n• Muscular dystrophy (MD), a group of genetic diseases that cause muscle weakness. This weakness can lead to trouble walking and the ability to care for yourself.\n• Charcot-Marie-Tooth disease (CMT), a group of nerve disorders that are inherited (passed down through families). CMT causes nerve damage and muscle weakness, mostly in the arms and legs.\n• Amyotrophic lateral sclerosis (ALS), also known as Lou Gehrig's disease. It is a disorder that attacks nerve cells in your brain and spinal cord. It affects all the muscles you use to move, speak, eat, and breathe. There is no cure for ALS, and it gets worse over time.\n\nTo understand the results of an EMG test or nerve conduction study, your provider will consider your symptoms, medical history, and the results of other tests.\n\nIf you have questions about your results, talk to your provider.\n\nLearn more about laboratory tests, reference ranges, and understanding results."
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/lab-tests/electromyography-emg-and-nerve-conduction-studies/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "0bfcc11d73065878105821f6abec5829311a06950f0d9cb1abb9d1a3dd7f1721",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace and list formatting only. Not clinical review."
+}

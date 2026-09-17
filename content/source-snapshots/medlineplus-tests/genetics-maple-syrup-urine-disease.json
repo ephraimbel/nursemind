@@ -1,0 +1,32 @@
+{
+  "title": "Maple syrup urine disease",
+  "sourceUpdated": "Last updated July 1, 2017",
+  "sections": [
+    {
+      "title": "Description",
+      "text": "Maple syrup urine disease is an inherited disorder in which the body is unable to process certain protein building blocks (amino acids) properly. The condition gets its name from the distinctive sweet odor of affected infants' urine. It is also characterized by poor feeding, vomiting, lack of energy (lethargy), abnormal movements, and delayed development. If untreated, maple syrup urine disease can lead to seizures, coma, and death.\n\nMaple syrup urine disease is often classified by its pattern of signs and symptoms. The most common and severe form of the disease is the classic type, which becomes apparent soon after birth. Variant forms of the disorder become apparent later in infancy or childhood and are typically milder, but they still lead to delayed development and other health problems if not treated."
+    },
+    {
+      "title": "Frequency",
+      "text": "Maple syrup urine disease affects an estimated 1 in 185,000 infants worldwide. The disorder occurs much more frequently in the Old Order Mennonite population, with an estimated incidence of about 1 in 380 newborns."
+    },
+    {
+      "title": "Causes",
+      "text": "Mutations in the BCKDHA, BCKDHB, and DBT genes can cause maple syrup urine disease. These three genes provide instructions for making proteins that work together as part of a complex. The protein complex is essential for breaking down the amino acids leucine, isoleucine, and valine, which are present in many kinds of food, particularly protein-rich foods such as milk, meat, and eggs.\n\nMutations in any of these three genes reduce or eliminate the function of the protein complex, preventing the normal breakdown of leucine, isoleucine, and valine. As a result, these amino acids and their byproducts build up in the body. Because high levels of these substances are toxic to the brain and other organs, their accumulation leads to the serious health problems associated with maple syrup urine disease.\n\nResearchers are studying other genes related to the same protein complex that may also be associated with maple syrup urine disease."
+    },
+    {
+      "title": "Inheritance",
+      "text": "This condition is inherited in an autosomal recessive pattern, which means both copies of the gene in each cell have mutations. The parents of an individual with an autosomal recessive condition each carry one copy of the mutated gene, but they typically do not show signs and symptoms of the condition."
+    },
+    {
+      "title": "Other Names for This Condition",
+      "text": "• BCKD deficiency\n• Branched-chain alpha-keto acid dehydrogenase deficiency\n• Branched-chain ketoaciduria\n• Ketoacidemia\n• MSUD"
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/genetics/condition/maple-syrup-urine-disease/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "0fb4d2c348cbcaa2041c7e81e24e7a41e40b5138f90e2bbcfddbbaee07693ca3",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace, lists and labeled table formatting adapted. Not clinical review."
+}

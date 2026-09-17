@@ -1,0 +1,40 @@
+{
+  "title": "Chymotrypsin in Stool",
+  "sourceUpdated": "Last updated October 20, 2024",
+  "sections": [
+    {
+      "title": "What is a chymotrypsin in stool test?",
+      "text": "This test measures the amount of chymotrypsin in a stool (poop) sample. Chymotrypsin is an enzyme, a protein that speeds up certain chemical reactions in your body. It is released by your pancreas (an organ behind your stomach) to help break down the protein in your food during digestion. If your pancreas is working as it should, there will be some chymotrypsin in your stool sample.\n\nHowever, if your pancreas is releasing lower-than-normal amounts of chymotrypsin, you may not have enough enzymes to digest your food properly. This is a condition known as exocrine pancreatic insufficiency. It's often called pancreatic insufficiency or EPI for short.\n\nPancreatic insufficiency is most often caused by chronic pancreatitis, inflammation of the pancreas. It may also be caused by cystic fibrosis (CF), a genetic disorder that causes mucus to build up in your lungs and other organs, including the pancreas. People with CF often have trouble absorbing nutrients from food.\n\nYour stool sample may also be tested for trypsin. This is another enzyme that is released by the pancreas and helps with digestion.\n\nOther names: fecal chymotrypsin, trypsin and chymotrypsin stool test"
+    },
+    {
+      "title": "What is it used for?",
+      "text": "A chymotrypsin in stool test is used to check for pancreatic insufficiency.\n\nKnowing whether or not you have pancreatic insufficiency can help your health care provider diagnose certain conditions that can cause it, such as pancreatitis and cystic fibrosis. It can also help in diagnosing the cause of malnutrition, a condition in which your body does not get the calories, vitamins, and/or minerals needed for good health."
+    },
+    {
+      "title": "Why do I need a chymotrypsin in stool test?",
+      "text": "You may need this test if you have symptoms of a pancreatic insufficiency. These include:\n\n• Chronic diarrhea\n• Abdominal (belly) pain\n• Bloating and gas\n• Loose, foul-smelling, greasy stools\n• Weight loss"
+    },
+    {
+      "title": "What happens during a chymotrypsin in stool test?",
+      "text": "You will need to provide a fresh sample of loose or liquid stool for your test. Your provider will probably give you a container or kit with instructions on how to collect the sample. There are different ways to collect the stool samples so follow the instructions carefully. In general, you'll need to:\n\n• Label the container with your name, the collection date, and time.\n• Collect a stool sample as instructed. This usually involves using a clean, dry container, or special paper or plastic wrap placed over the toilet to catch the stool.\n• Make sure the stool doesn't mix with any urine, toilet paper or water from the toilet.\n• Close the container tightly.\n• Wash your hands well with soap and water.\n• Return the container according to the instructions. This is important to get an accurate test result. If you are unable to return the container right away, you should refrigerate your sample until you're ready to deliver it.\n\nIf you're collecting a sample from diapers, you'll get special instructions for using plastic wrap inside of a clean diaper. In certain cases, a provider may use a swab to take a stool sample from the rectum"
+    },
+    {
+      "title": "Will I need to do anything to prepare for this test?",
+      "text": "You may need to stop taking certain medicines before this test, such as if you are taking pancreatic enzymes, so tell your provider about everything you take. But don't stop taking any medicines unless your provider tells you to."
+    },
+    {
+      "title": "Are there any risks to this test?",
+      "text": "There is no known risk to having a stool test."
+    },
+    {
+      "title": "What do the results mean?",
+      "text": "Your results will show the amount of chymotrypsin in your stool. Your results may also include the amount of trypsin found.\n\n• A positive result means that your stool sample shows a normal amount of chymotrypsin and, if it was tested for, trypsin.\n• A negative result means that the amount of chymotrypsin and/or trypsin in your stool sample is below normal. It may mean that you have pancreatic insufficiency.\n\nIf you have a negative result, this doesn’t diagnose any specific disorders by itself. Your provider will need to order more tests. These may include the following, which measure different pancreatic enzymes:\n\n• Stool elastase\n• Lipase blood test\n• Amylase blood test\n\nIf you have questions about your results, talk to your provider.\n\nLearn more about laboratory tests, references ranges, and understanding results."
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/lab-tests/chymotrypsin-in-stool/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "96cb47721ba25e4278b672ea6396edd307640fb2d812463e8316067ca5968640",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace and list formatting only. Not clinical review."
+}

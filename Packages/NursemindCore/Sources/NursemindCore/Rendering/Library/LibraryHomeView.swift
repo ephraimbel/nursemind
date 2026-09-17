@@ -6,6 +6,7 @@ public struct LibraryHomeView: View {
     private let registry: ContentRegistry
     @State private var router = AppRouter.shared
     @State private var prefs = UserPreferences.shared
+    @State private var browseByTopic = true
 
     @Query(sort: \SavedAnswer.savedAt, order: .reverse)
     private var savedAnswers: [SavedAnswer]
@@ -57,6 +58,14 @@ public struct LibraryHomeView: View {
             .background(GrainBackground())
             .navigationDestination(for: LibraryDestination.self) { dest in
                 switch dest {
+                case .topicGroup(let group):
+                    LibraryTopicGroupView(group: group, registry: registry)
+                case .topic(let id):
+                    if let topic = LibraryTopic.topic(id: id) {
+                        LibraryTopicView(topic: topic, registry: registry)
+                    } else {
+                        Text("Topic not found").captionText()
+                    }
                 case .category(let category):
                     CategoryListView(category: category, registry: registry)
                 case .entry(let id):
@@ -109,22 +118,20 @@ public struct LibraryHomeView: View {
 
     @ViewBuilder
     private func referenceContent(pinned: [LibraryEntry], recents: [LibraryEntry]) -> some View {
-        // Frequency-of-use order: the rows a returning user is most likely to
-        // tap (pinned, recently viewed) come before the full browse directory.
         VStack(alignment: .leading, spacing: 0) {
             if !pinned.isEmpty {
                 pinnedSection(entries: pinned)
                 Hairline().padding(.vertical, NMSpace.xl)
             }
+            browseSection
             if !recents.isEmpty {
-                recentlyViewedSection(entries: recents)
                 Hairline().padding(.vertical, NMSpace.xl)
+                recentlyViewedSection(entries: recents)
             }
             if !savedAnswers.isEmpty {
-                savedSection
                 Hairline().padding(.vertical, NMSpace.xl)
+                savedSection
             }
-            browseSection
         }
     }
 
@@ -220,35 +227,78 @@ public struct LibraryHomeView: View {
 
     // MARK: - Browse by category
 
-    /// 8 functional categories (Drugs, Drips, Labs, etc.) plus the NCLEX
-    /// Test Plan as a peer browse target. Folding NCLEX in here keeps a
-    /// single mental model — every way to browse the library lives in BROWSE.
     private var browseSection: some View {
         VStack(alignment: .leading, spacing: NMSpace.lg) {
-            EyebrowLabel("BROWSE", sparkle: false)
-            VStack(spacing: 0) {
-                ForEach(registry.allCategories, id: \.self) { category in
-                    NavigationLink(value: LibraryDestination.category(category)) {
-                        CategoryRow(
-                            name: category.displayName,
-                            count: registry.count(in: category),
-                            subtitle: Self.categoryDescriptor(for: category),
-                            glyph: category.glyph,
-                            glyphTint: category.glyphTint
-                        )
-                    }
-                    .buttonStyle(.plain)
-                    Hairline(color: NMColor.borderSubtle)
+            HStack(spacing: NMSpace.xl) {
+                browseButton("By topic", byTopic: true)
+                browseButton("A–Z reference", byTopic: false)
+                Spacer(minLength: 0)
+            }
+            if browseByTopic {
+                topicDirectory
+            } else {
+                categoryDirectory
+            }
+            NavigationLink(value: LibraryDestination.nclexBrowse) {
+                CategoryRow(
+                    name: "NCLEX-RN Test Plan",
+                    count: TestPlanSubcategory.inCanonicalOrder.count,
+                    subtitle: "Aligned to 2026 Test Plan",
+                    glyph: "graduationcap"
+                )
+            }
+            .buttonStyle(.plain)
+        }
+    }
+
+    private func browseButton(_ title: String, byTopic: Bool) -> some View {
+        let selected = browseByTopic == byTopic
+        return Button {
+            browseByTopic = byTopic
+        } label: {
+            VStack(alignment: .leading, spacing: NMSpace.sm) {
+                Text(title)
+                    .font(NMFont.title)
+                    .foregroundStyle(selected ? NMColor.textPrimary : NMColor.textTertiary)
+                Rectangle()
+                    .fill(selected ? NMColor.textPrimary : .clear)
+                    .frame(height: 1)
+            }
+            .fixedSize(horizontal: true, vertical: false)
+            .frame(minHeight: 44)
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .accessibilityAddTraits(selected ? .isSelected : [])
+    }
+
+    private var topicDirectory: some View {
+        VStack(spacing: 0) {
+            ForEach(LibraryTopicGroup.allCases) { group in
+                NavigationLink(value: LibraryDestination.topicGroup(group)) {
+                    LibraryBrowseRow(glyph: group.glyph, title: group.title, subtitle: group.subtitle,
+                                     detail: "\(group.topics.count) topics")
                 }
-                NavigationLink(value: LibraryDestination.nclexBrowse) {
+                .buttonStyle(.plain)
+                Hairline(color: NMColor.borderSubtle)
+            }
+        }
+    }
+
+    private var categoryDirectory: some View {
+        VStack(spacing: 0) {
+            ForEach(registry.allCategories, id: \.self) { category in
+                NavigationLink(value: LibraryDestination.category(category)) {
                     CategoryRow(
-                        name: "NCLEX-RN Test Plan",
-                        count: TestPlanSubcategory.inCanonicalOrder.count,
-                        subtitle: "Aligned to 2026 Test Plan",
-                        glyph: "graduationcap"
+                        name: category.displayName,
+                        count: registry.count(in: category),
+                        subtitle: Self.categoryDescriptor(for: category),
+                        glyph: category.glyph,
+                        glyphTint: category.glyphTint
                     )
                 }
                 .buttonStyle(.plain)
+                Hairline(color: NMColor.borderSubtle)
             }
         }
     }
@@ -420,6 +470,7 @@ struct EntryRow: View {
     /// to the category name as a subtitle is pure noise — pass `true` there.
     /// Mixed-context lists (search, pinned, recents) keep the fallback.
     var hidesCategoryFallback: Bool = false
+    var showsCategory: Bool = false
     @State private var prefs = UserPreferences.shared
 
     private var locked: Bool {
@@ -427,6 +478,7 @@ struct EntryRow: View {
     }
 
     private var rowSubtitle: String? {
+        if showsCategory { return entry.category.singularName }
         if let subtitle = entry.subtitle, !subtitle.isEmpty {
             return subtitle
         }
@@ -649,6 +701,8 @@ private struct LibrarySectionSwitcher: View {
 // MARK: - Navigation destinations
 
 public enum LibraryDestination: Hashable {
+    case topicGroup(LibraryTopicGroup)
+    case topic(String)
     case category(EntryCategory)
     case entry(String)   // resolved by ContentRegistry.entry(byID:)
     case savedList                    // user's saved AI answers

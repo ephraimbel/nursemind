@@ -1,0 +1,44 @@
+{
+  "title": "Tricyclic Antidepressant (TCA) Screen",
+  "sourceUpdated": "Last updated August 28, 2024",
+  "sections": [
+    {
+      "title": "What is a tricyclic antidepressant (TCA) screen?",
+      "text": "This test checks whether tricyclic antidepressants (TCA) can be found in your blood or urine. It can also measure how much TCA is in your blood or urine. TCAs are a type of antidepressant. Antidepressants are prescription medicines that treat depression, a serious mood disorder. Depression can affect how you think, feel, and behave.\n\nThere are several types of antidepressants. They each work in slightly different ways. TCAs were one of the first types of antidepressants developed. They can be effective, but they tend to cause more side effects than newer types of antidepressants. Most of the newer antidepressants belong to one of these three groups:\n\n• Selective serotonin reuptake inhibitors (SSRIs)\n• Serotonin and norepinephrine reuptake inhibitors (SNRIs)\n• Atypical antidepressants, which are newer antidepressants that don't fit into the other groups.\n\nHealth care providers often use newer antidepressants rather than TCAs since they are safer and have fewer side effects. But TCAs can be a good option to treat depression when other antidepressants are not working.\n\nHealth care providers sometimes use TCAs to treat other health conditions, such as anxiety, chronic pain, migraines, and insomnia.\n\nSome commonly prescribed TCAs include:\n\n• Doxepin\n• Nortriptyline\n• Amitriptyline\n• Imipramine\n• Desipramine\n\nTCAs have to be carefully dosed. It can be hard to find a dose that is effective without being dangerous. In fact, TCAs are the cause of many prescription drug overdose deaths in the United States.\n\nOther names: TCA test, TCA screen, Tricyclic Screen"
+    },
+    {
+      "title": "What is it used for?",
+      "text": "A TCA screen is used to:\n\n• Help your provider prescribe the right dose of a TCA.\n• Find out if you are misusing TCA (taking it without a prescription or taking more than the prescribed dose). The test may be included as part of a drug (toxicology) screen, which checks for the presence of several different prescription and illegal drugs.\n• Diagnose a TCA overdose. Prompt treatment of an overdose can be lifesaving."
+    },
+    {
+      "title": "Why do I need a TCA screen?",
+      "text": "You may need this test if you have been prescribed a TCA to make sure you are getting a dose that is safe and effective. You may also need this test if you have symptoms of a TCA overdose. These include:\n\n• Dry mouth\n• Blurred vision\n• Constipation\n• Trouble urinating\n• Drowsiness\n• Lightheadedness\n• Seizures\n• Confusion\n• Tremors\n\nIf you think you have taken too much of a TCA, or you have symptoms of a TCA overdose, call 911 or go to the nearest emergency center."
+    },
+    {
+      "title": "What happens during a TCA screen?",
+      "text": "A TCA screen can be done as a blood test or a urine test.\n\nDuring a TCA blood test, a health care professional will take a blood sample from a vein in your arm, using a small needle. After the needle is inserted, a small amount of blood will be collected into a test tube or vial. You may feel a little sting when the needle goes in or out. This usually takes less than five minutes.\n\nFor a TCA urine test, you will need to provide a sample of urine into a sterile cup. Your provider will give more information on how to collect your sample."
+    },
+    {
+      "title": "Will I need to do anything to prepare for the test?",
+      "text": "You don't need any special preparations for a TCA screen."
+    },
+    {
+      "title": "Are there any risks to the test?",
+      "text": "There is very little risk to having a blood test. You may have slight pain or bruising at the spot where the needle was put in, but most symptoms go away quickly.\n\nThere is no risk to having a urine test."
+    },
+    {
+      "title": "What do the results mean?",
+      "text": "Your blood test results will show the levels of TCA in your bloodstream. Depending on which TCA you are taking and what the levels are, your provider may adjust your dosage.\n\nThere are two types of urine test results. One type will show whether TCA was found but not how much. The other type shows the levels of TCA.\n\nIf blood or urine test results show you have dangerously high levels of TCA, you will be treated immediately.\n\nIf you have questions about your results, talk to your provider.\n\nLearn more about laboratory tests, reference ranges, and understanding results."
+    },
+    {
+      "title": "Is there anything else I need to know about a TCA screen?",
+      "text": "TCAs are most often prescribed by a mental health professional, a specialist in diagnosing and treating mental health problems, such as depression. There are many types of mental health professionals. Some types, usually medical doctors, are allowed to prescribe medicines, including TCAs. Other mental health professionals work with providers who can write prescriptions. The most common types of mental health professionals include:\n\n• Psychiatrists are medical doctors who specialize in mental health disorders. Psychiatrists can prescribe medicine.\n• Psychologists are professionals trained in psychology. Psychologists may use one-on-one counseling and/or group therapy sessions. They often have doctoral degrees, but they do not have medical degrees. They can't prescribe medicine unless they have a special license. Some psychologists work with providers who can prescribe medicine.\n• Psychiatric or mental health nurses are nurses with special training in mental health disorders. Nurses who may have a master's or doctoral degree in psychiatric-mental health nursing include advanced practice registered nurses (APRNs), certified nurse practitioners (CNPs), and clinical nurse specialists (CNSs). In some states, certain nurses can prescribe medicines.\n• Licensed clinical social workers have at least a master's degree in social work with special training in mental health. They can't prescribe medicine, but they may work with providers who can prescribe medicine. Providers who are licensed clinical social workers usually have LCSW or LICSW after their names.\n• Licensed professional counselors (LPC) may also be called clinicians or therapists. States have different names for these licenses, such as LMFT (licensed marriage and family therapist). These professionals usually have a master's degree in a field related to mental health. They can't prescribe medicine but may work with providers who can prescribe it.\n\nIf you have depression, it's important to get treatment. Talk to your primary care provider if you need help finding a mental health provider who can treat your depression."
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/lab-tests/tricyclic-antidepressant-tca-screen/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "a9b296d60c6dee98571985ca990c1bc1dd8771bcc5a596d49f1f90ab4be656e5",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace, lists and labeled table formatting adapted. Not clinical review."
+}

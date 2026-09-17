@@ -1,0 +1,32 @@
+{
+  "title": "Fabry disease",
+  "sourceUpdated": "Last updated July 29, 2022",
+  "sections": [
+    {
+      "title": "Description",
+      "text": "Fabry disease is an inherited disorder that results from the buildup of a type of fat, called globotriaosylceramide, in the body's cells. Beginning in childhood, this buildup causes signs and symptoms that affect many parts of the body. Characteristic features of Fabry disease include episodes of pain, particularly in the hands and feet (acroparesthesias); clusters of small, dark red spots on the skin called angiokeratomas; a decreased ability to sweat (hypohidrosis); cloudiness or streaks in the front part of the eye (corneal opacity or corneal verticillata); problems with the gastrointestinal system; ringing in the ears (tinnitus); and hearing loss. Additional signs and symptoms are possible, which can vary among affected individuals.\n\nFabry disease also involves potentially life-threatening complications such as progressive kidney failure, heart failure, and stroke. Some affected individuals have milder forms of the disorder that appear later in life and typically involve only the heart, kidneys, or blood vessels in the brain."
+    },
+    {
+      "title": "Frequency",
+      "text": "Fabry disease affects an estimated 1 in 1,000 to 9,000 people. Milder, late-onset forms of the disorder are probably more common than the classic, severe form."
+    },
+    {
+      "title": "Causes",
+      "text": "Fabry disease is caused by variants (also known as mutations) in the GLA gene. This gene provides instructions for making an enzyme called alpha-galactosidase A. This enzyme is active in lysosomes, which are structures that serve as recycling centers within cells. Alpha-galactosidase A normally breaks down a fatty substance called globotriaosylceramide. Variants in the GLA gene alter the structure and function of the enzyme, preventing it from breaking down this substance effectively. As a result, globotriaosylceramide builds up in cells throughout the body, particularly cells lining blood vessels in the skin and cells in the kidneys, heart, and nervous system. The progressive accumulation of this substance damages cells, leading to the varied signs and symptoms of Fabry disease.\n\nGLA gene variants that result in an absence of alpha-galactosidase A activity lead to the classic, severe form of Fabry disease. Variants that decrease but do not eliminate the enzyme's activity usually cause the milder, late-onset forms of Fabry disease that typically affect only the heart, kidneys, or blood vessels in the brain."
+    },
+    {
+      "title": "Inheritance",
+      "text": "This condition is inherited in an X-linked pattern. A condition is considered X-linked if the altered gene that causes the disorder is located on the X chromosome, one of the two sex chromosomes in each cell. In males (who have only one X chromosome), one altered copy of the GLA gene in each cell is sufficient to cause the condition. Because females have two copies of the X chromosome, one altered copy of the gene in each cell usually leads to less severe symptoms in females than in males, or rarely may cause no symptoms at all.\n\nUnlike other X-linked disorders, Fabry disease causes significant medical problems in many females who have one altered copy of the GLA gene. These women may experience many of the classic features of the disorder, including nervous system abnormalities, kidney problems, chronic pain, and fatigue. They also have an increased risk of developing high blood pressure, heart disease, stroke, and kidney failure. The signs and symptoms of Fabry disease usually begin later in life and are milder in females than in their affected male relatives.\n\nA small percentage of females who carry a variant in one copy of the GLA gene never develop signs and symptoms of Fabry disease."
+    },
+    {
+      "title": "Other Names for This Condition",
+      "text": "• Alpha-galactosidase A deficiency\n• Anderson-Fabry disease\n• Angiokeratoma corporis diffusum\n• Angiokeratoma diffuse\n• Ceramide trihexosidase deficiency\n• Fabry's disease\n• GLA deficiency\n• Hereditary dystopic lipidosis"
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/genetics/condition/fabry-disease/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "8fb8444c1c53454fc851a46527bf7892a3a3e76ccf59c60b8b11f026dadac96d",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace, lists and labeled table formatting adapted. Not clinical review."
+}

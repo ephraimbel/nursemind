@@ -1,5 +1,40 @@
 import Foundation
 
+private let lab_review_ranges_2026 = CitationSource(
+    id: "lab_review_ranges_2026", shortName: "Open RN — Health Alterations: Normal Reference Ranges",
+    detail: "Ernstmeyer K, Christman E, editors. Health Alterations (2024), Appendix A. Selected adult values; use the reporting laboratory interval. CC BY 4.0; presentation condensed and albumin units converted from g/L to g/dL.",
+    publisher: "Open Resources for Nursing", license: .ccBy4,
+    url: "https://www.ncbi.nlm.nih.gov/books/NBK613071/", lastRetrieved: "2026-09-17"
+)
+
+private let lab_platelets = CitationSource(
+    id: "lab_platelets", shortName: "MedlinePlus — Platelet tests",
+    detail: "NLM-authored MedlinePlus medical-test information, paraphrased and condensed by NurseMind. External linked articles and third-party drug/encyclopedia content excluded.",
+    publisher: "National Library of Medicine", license: .publicDomain,
+    url: "https://medlineplus.gov/lab-tests/platelet-tests/", lastRetrieved: "2026-09-17"
+)
+
+private let lab_ash_hit = CitationSource(
+    id: "lab_ash_hit", shortName: "ASH — Heparin-induced thrombocytopenia",
+    detail: "ASH (2018), Diagnosis and Management of Heparin-Induced Thrombocytopenia, pp. 2 and 4. Factual citation only; no reproduction of the 4Ts instrument, treatment algorithm or dosing tables.",
+    publisher: "American Society of Hematology", license: .factCitationOnly,
+    url: "https://www.hematology.org/-/media/hematology/files/education/clinicians/guidelines-quality/documents/ash_vte_hit_pocketguide.pdf", lastRetrieved: "2026-09-17"
+)
+
+private let lab_anticoagulant_safety = CitationSource(
+    id: "lab_anticoagulant_safety", shortName: "MedlinePlus — Blood thinners",
+    detail: "NLM-authored health-topic summary only, paraphrased by NurseMind. External linked articles and third-party drug monographs excluded.",
+    publisher: "National Library of Medicine", license: .publicDomain,
+    url: "https://medlineplus.gov/bloodthinners.html", lastRetrieved: "2026-09-17"
+)
+
+private let lab_pt_inr = CitationSource(
+    id: "lab_pt_inr", shortName: "MedlinePlus — PT and INR",
+    detail: "NLM-authored MedlinePlus medical-test information, paraphrased and condensed by NurseMind. External linked articles and third-party drug/encyclopedia content excluded.",
+    publisher: "National Library of Medicine", license: .publicDomain,
+    url: "https://medlineplus.gov/lab-tests/prothrombin-time-test-and-inr-ptinr/", lastRetrieved: "2026-09-17"
+)
+
 // Shared sources for the additional labs
 private let openrnLabRanges = CitationSource(
     id: "openrn_lab_ranges",
@@ -297,40 +332,30 @@ public enum PlateletsSample {
     public static let entry: LabEntry = LabEntry(
         id: "platelets",
         title: "Platelets",
-        subtitle: "Whole blood · primary hemostasis",
-        specimen: "Whole blood (EDTA)",
-        nclexTags: NCLEXTags(category: .physiologicalIntegrity, subcategory: .physiologicalAdaptation, priorityConcept: .clottingHemostasis),
+        subtitle: "Whole blood · platelet count and bleeding assessment",
+        specimen: "Blood; use the collecting laboratory’s specimen instructions",
+        nclexTags: NCLEXTags(category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential, priorityConcept: .clottingHemostasis),
         referenceRanges: [
-            ReferenceRangeRow(value: "150,000–450,000/μL", label: "Normal",                      citationIDs: ["openrn_lab_ranges"]),
-            ReferenceRangeRow(value: "<150,000",            label: "Thrombocytopenia",            citationIDs: ["openrn_lab_ranges"]),
-            ReferenceRangeRow(value: "<50,000",             label: "Bleeding risk with surgery",  citationIDs: ["openrn_lab_ranges"]),
-            ReferenceRangeRow(value: "<20,000",             label: "Spontaneous bleeding risk",   citationIDs: ["openrn_lab_ranges"]),
-            ReferenceRangeRow(value: "<10,000",             label: "Critical — transfuse",        citationIDs: ["openrn_lab_ranges"])
+            ReferenceRangeRow(value: "150,000–400,000/μL", label: "Example adult interval", citationIDs: ["lab_review_ranges_2026"])
         ],
         interpretationTiers: [
-            InterpretationTier(
-                severity: .low,
-                label: "Thrombocytopenia",
-                summary: "Bleeding risk increases as platelets drop. Spontaneous bleeding typically occurs <20,000.",
-                nursingActions: [
-                    "Bleeding precautions: soft toothbrush, electric razor, no IM injections, no rectal temps/suppositories",
-                    "Hold antiplatelets and anticoagulants per provider",
-                    "Monitor for petechiae, ecchymoses, gingival/nasal bleeding, hematuria, melena",
-                    "Anticipate platelet transfusion at facility threshold (commonly <10,000 prophylactic)",
-                    "If on heparin and platelets drop ≥50% from baseline → suspect HIT, send 4T score, switch to non-heparin anticoagulant"
-                ],
-                citationIDs: ["openrn_lab_ranges"]
-            )
+            InterpretationTier(severity: .low, label: "Low platelet count", summary: "Platelet count describes how many platelets are present. Platelet function is a separate question; a count alone cannot explain every bleeding problem.",
+                nursingActions: ["Assess unexplained bruising, petechiae, prolonged bleeding and blood in urine or stool.", "Review the count with the rest of the CBC and the clinical history."], citationIDs: ["lab_platelets"])
         ],
         commonCauses: [
-            CauseGroup(title: "Thrombocytopenia causes", causes: ["HIT (heparin-induced)", "ITP (autoimmune)", "Sepsis with DIC", "Cirrhosis (sequestration in spleen)", "Marrow suppression (chemo, sepsis)", "Drug-induced (vancomycin, linezolid, sulfa)"], citationIDs: ["openrn_lab_ranges"])
+            CauseGroup(title: "Low counts may accompany", causes: ["Reduced production, increased destruction or increased use of platelets"], citationIDs: ["lab_platelets"])
         ],
-        nursingActions: nil,
+        nursingActions: [
+            AttributedBullet("Review medicines that can affect platelet function, including aspirin and ibuprofen. Follow the clinician’s instructions for testing; patients should not stop prescribed medicines independently.", citationIDs: ["lab_platelets"]),
+            AttributedBullet("A platelet count is commonly included in a CBC. Function studies answer a different question and may have different preparation instructions.", citationIDs: ["lab_platelets"]),
+            AttributedBullet("For possible HIT, the clinical assessment includes the size and timing of the platelet fall, thrombosis and alternative explanations. A low count alone does not establish HIT.", citationIDs: ["lab_ash_hit"])
+        ],
         watchFor: [
-            AttributedBullet("HIT — paradoxical thrombosis despite low platelets; do NOT give platelet transfusion in HIT (worsens thrombosis).", citationIDs: ["openrn_lab_ranges"])
+            AttributedBullet("HIT is associated with thrombosis. ASH discourages routine platelet transfusion in patients at average bleeding risk, but active bleeding or high bleeding risk may justify it. The decision requires the treating team’s assessment; it is not an absolute prohibition.", citationIDs: ["lab_ash_hit"]),
+            AttributedBullet("Normal platelet numbers do not exclude a platelet-function problem when abnormal bleeding is present.", citationIDs: ["lab_platelets"])
         ],
-        citations: [openrnLabRanges, openstaxLabValues],
-        lastSourceFidelityReview: "2026-05-03"
+        citations: [lab_review_ranges_2026, lab_platelets, lab_ash_hit],
+        lastSourceFidelityReview: "2026-09-17"
     )
 }
 
@@ -340,40 +365,30 @@ public enum INRSample {
     public static let entry: LabEntry = LabEntry(
         id: "inr",
         title: "INR / PT",
-        subtitle: "Plasma · extrinsic pathway / warfarin monitoring",
-        specimen: "Plasma (light blue-top, citrate)",
-        nclexTags: NCLEXTags(category: .physiologicalIntegrity, subcategory: .physiologicalAdaptation, priorityConcept: .clottingHemostasis),
+        subtitle: "Blood · warfarin monitoring and bleeding assessment",
+        specimen: "Blood; use the collecting laboratory’s specimen instructions",
+        nclexTags: NCLEXTags(category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential, priorityConcept: .clottingHemostasis),
         referenceRanges: [
-            ReferenceRangeRow(value: "0.9–1.1 (no anticoagulation)", label: "Normal INR",                          citationIDs: ["openrn_lab_ranges"]),
-            ReferenceRangeRow(value: "2.0–3.0",                       label: "Therapeutic — most warfarin uses",   citationIDs: ["openrn_lab_ranges"]),
-            ReferenceRangeRow(value: "2.5–3.5",                       label: "Therapeutic — mechanical mitral valve", citationIDs: ["openrn_lab_ranges"]),
-            ReferenceRangeRow(value: ">5.0",                          label: "Bleeding risk — hold warfarin",      citationIDs: ["openrn_lab_ranges"])
+            ReferenceRangeRow(value: "INR 0.9–1.2", label: "Example interval without anticoagulation", citationIDs: ["lab_review_ranges_2026"]),
+            ReferenceRangeRow(value: "Therapeutic target", label: "Use the patient’s prescribed monitoring plan", citationIDs: ["lab_anticoagulant_safety"])
         ],
         interpretationTiers: [
-            InterpretationTier(
-                severity: .high,
-                label: "Supratherapeutic INR (>therapeutic range)",
-                summary: "Risk of major bleeding. Action depends on absolute INR and bleeding presence.",
-                nursingActions: [
-                    "Hold warfarin",
-                    "INR 4.5–10 (no bleeding) — hold warfarin, no vitamin K",
-                    "INR >10 (no bleeding) — vitamin K 2.5–5 mg PO",
-                    "Any INR with major bleeding — vitamin K 5–10 mg IV + 4-factor PCC (e.g., Kcentra)",
-                    "Reassess INR daily until therapeutic"
-                ],
-                citationIDs: ["openrn_lab_ranges"]
-            )
+            InterpretationTier(severity: .high, label: "Above the intended INR target", summary: "INR standardizes PT across test methods. Higher results can indicate greater bleeding risk; a low result during warfarin treatment may indicate inadequate anticoagulation.",
+                nursingActions: ["Review the prescribed target and notify the responsible clinician of an unexpected result."], citationIDs: ["lab_pt_inr"])
         ],
         commonCauses: [
-            CauseGroup(title: "Causes of elevated INR", causes: ["Warfarin (intentional or supratherapeutic)", "Antibiotics (potentiate warfarin via vitamin K)", "Hepatic dysfunction", "Vitamin K deficiency", "DIC"], citationIDs: ["openrn_lab_ranges"])
+            CauseGroup(title: "Contributors to an altered result", causes: ["Warfarin or other medicines", "Vitamin K intake or deficiency", "Liver disease"], citationIDs: ["lab_pt_inr"])
         ],
         nursingActions: [
-            AttributedBullet("Bleeding precautions for any INR >therapeutic.", citationIDs: ["openrn_lab_ranges"]),
-            AttributedBullet("Do not draw INR from a heparinized line — falsely elevated.", citationIDs: ["openrn_lab_ranges"])
+            AttributedBullet("Review medicines, supplements, alcohol and dietary changes. Testing frequency and any dose change belong to the prescribing team’s monitoring plan.", citationIDs: ["lab_pt_inr"]),
+            AttributedBullet("Explain the balance between preventing clots and avoiding bleeding. Reinforce the prescribed schedule and the need to tell the team about new medicines or supplements.", citationIDs: ["lab_anticoagulant_safety"]),
+            AttributedBullet("Ask about abnormal bruising and bleeding rather than assuming that a scheduled laboratory check captures every adverse effect.", citationIDs: ["lab_anticoagulant_safety"])
         ],
-        watchFor: nil,
-        citations: [openrnLabRanges, openstaxLabValues],
-        lastSourceFidelityReview: "2026-05-03"
+        watchFor: [
+            AttributedBullet("Red or brown urine, black or bloody stool, persistent nose or gum bleeding, bloody vomit, or a severe new headache need prompt clinical attention. Report symptoms even before a repeat result is available.", citationIDs: ["lab_anticoagulant_safety"])
+        ],
+        citations: [lab_review_ranges_2026, lab_anticoagulant_safety, lab_pt_inr],
+        lastSourceFidelityReview: "2026-09-17"
     )
 }
 

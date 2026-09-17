@@ -1,0 +1,44 @@
+{
+  "title": "Xylose Testing",
+  "sourceUpdated": "Last updated August 21, 2024",
+  "sections": [
+    {
+      "title": "What is a xylose test?",
+      "text": "Xylose, also known as D-xylose, is a type of sugar (carbohydrate) that is normally easily absorbed by your intestines. A xylose test checks the level of xylose in both your blood and urine to see how well you absorb carbohydrates.\n\nUsually, your body digests in stages. The proteins, fats, and carbohydrates in the food you eat are:\n\n• Broken down in the stomach by acid and enzymes (proteins that speed up certain chemical reactions in your body)\n• Broken down further in your small intestines by pancreatic enzymes and bile (liquid made in your liver to help digest fats)\n• Absorbed into your intestines to be used or stored\n\nIf you don't have enough bile or pancreatic enzymes, the carbohydrates and other foods you eat can't be digested well. Lower-than-normal xylose levels can mean there is a problem with your body's ability to absorb nutrients.\n\nXylose testing is no longer routinely ordered to check for malabsorption, and it may not be available everywhere. This test may be ordered as a follow-up test to other tests, such as a fecal fat test.\n\nOther names: xylose tolerance test, xylose absorption test, D-xylose tolerance test, D-xylose absorption test"
+    },
+    {
+      "title": "What is it used for?",
+      "text": "A xylose test is most often used to:\n\n• Help diagnose malabsorption disorders, conditions that affect your ability to digest and absorb nutrients from food\n• Find out why a child is not gaining weight, especially if the child seems to be eating enough food"
+    },
+    {
+      "title": "Why do I need a xylose test?",
+      "text": "You may need this test if you have symptoms of a malabsorption disorder, which include:\n\n• Chronic (long-lasting) diarrhea\n• Abdominal (belly) pain\n• Bloating (a feeling of fullness or swelling in your belly)\n• Gas\n• Weight loss for no known reason, or in children, not being able to gain weight"
+    },
+    {
+      "title": "What happens during a xylose test?",
+      "text": "A xylose test involves taking timed samples of your blood and urine. You will be tested before and after drinking a solution containing eight ounces of water mixed with a small amount of xylose.\n\nFor the blood tests:\n\n• A health care professional will take a blood sample from a vein in your arm, using a small needle. After the needle is inserted, a small amount of blood will be collected into a test tube or vial. You may feel a little sting when the needle goes in or out. This usually takes less than five minutes.\n• Next, you will drink the xylose solution.\n• You will be asked to rest quietly.\n• Your provider will take another blood sample two hours later. For children, it may be one hour later.\n\nFor the urine tests, you will need to:\n\n• Go to the bathroom to empty your bladder before starting the urine (pee) test or drinking the xylose solution. You won't save that urine.\n• After you drink the xylose solution, you will collect all your urine for the next five hours.\n• Your provider will give you instructions on how to collect your urine during the five-hour period.\n\nEach of your samples will be tested for xylose. This includes the first fasting blood sample, the blood sample taken two hours later, and the five-hour urine sample."
+    },
+    {
+      "title": "Will I need to do anything to prepare for the test?",
+      "text": "You will need to fast (not eat or drink) for eight hours before the test. Children younger than nine years old should fast for four hours before the test.\n\nFor 24 hours before the test, you must avoid foods high in a type of sugar known as pentose, which is similar to xylose. These foods include jams, pastries, and fruits.\n\nSome medicines may affect your test results. You may need to stop taking certain medicines before this test, so tell your provider about everything you take. But don't stop taking any medicines unless your provider tells you to.\n\nYour provider will let you know if you need to do any other preparations."
+    },
+    {
+      "title": "Are there any risks to the test?",
+      "text": "There is very little risk to having a blood test. You may have slight pain or bruising at the spot where the needle was put in, but most symptoms go away quickly.\n\nThe xylose solution may make you feel nauseous.\n\nThere is no risk to having a urine test."
+    },
+    {
+      "title": "What do the results mean?",
+      "text": "High levels of xylose are normal. It means that your intestines are absorbing the xylose. If your results are high, that may mean that your symptoms are not caused by malabsorption.\n\nIf your results showed lower-than-normal levels of xylose in the blood or urine, it may mean you have a malabsorption disorder, such as:\n\n• Celiac disease, a chronic (long-lasting) digestive and immune disorder that damages your small intestine. It is triggered by foods that contain gluten. Gluten is a protein found in wheat, barley, rye, and other grains.\n• Crohn's disease, a chronic condition that causes inflammation in your digestive tract.\n• Whipple disease, a rare condition that prevents the small intestine from allowing nutrients to pass into the rest of the body.\n\nLower-than-normal levels may also be caused by an infection from a parasite, such as:\n\n• Hookworm\n• Giardiasis\n\nIf your xylose blood levels were normal but urine levels were low, it may be a sign of kidney disease and/or malabsorption.\n\nYou may need more tests before your provider can make a diagnosis. To understand the results of your xylose testing, your provider may consider your symptoms, medical history, and the results of other tests.\n\nTalk to your provider if you have questions about your or your child's results."
+    },
+    {
+      "title": "Is there anything else I need to know about xylose testing?",
+      "text": "A xylose test takes a long time. You may want to bring a book, game, or other activity to keep yourself or your child busy while you wait.\n\nLearn more about laboratory tests, reference ranges, and understanding results."
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/lab-tests/xylose-testing/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "f43b56b209ee3a4e2a97e0c4a183dc4d70d7e4425e29ea104a9c9bcc59218da5",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace and list formatting only. Not clinical review."
+}

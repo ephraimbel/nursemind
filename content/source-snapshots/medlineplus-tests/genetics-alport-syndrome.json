@@ -1,0 +1,32 @@
+{
+  "title": "Alport syndrome",
+  "sourceUpdated": "Last updated September 5, 2023",
+  "sections": [
+    {
+      "title": "Description",
+      "text": "Alport syndrome is a genetic condition characterized by kidney disease, hearing loss, and eye abnormalities.\n\nPeople with Alport syndrome experience progressive loss of kidney function. Almost all affected individuals have blood in their urine (hematuria), which indicates abnormal functioning of the kidneys. Many people with Alport syndrome also develop high levels of protein in their urine (proteinuria). The kidneys gradually lose their ability to efficiently remove waste products from the body, resulting in end-stage kidney disease (ESKD).\n\nIn late childhood or early adolescence, many people with Alport syndrome develop sensorineural hearing loss, which is caused by abnormalities of the inner ear. Affected individuals may also have misshapen lenses in their eyes (anterior lenticonus) and abnormal coloration of the retina, which is the light-sensitive tissue at the back of the eye. These eye abnormalities seldom lead to vision loss."
+    },
+    {
+      "title": "Frequency",
+      "text": "Alport syndrome occurs in approximately 1 in 50,000 newborns."
+    },
+    {
+      "title": "Causes",
+      "text": "Variants (also called mutations) in the COL4A3, COL4A4, and COL4A5 genes cause Alport syndrome. These genes each provide instructions for making one component of a protein called collagen IV. Collagen IV plays an important role in the kidneys, specifically in structures called glomeruli. Glomeruli are clusters of specialized blood vessels that remove water and waste products from blood and create urine.\n\nVariants in these genes result in the production of abnormal versions of collagen IV in glomeruli. Kidneys with abnormal collagen IV cannot properly filter the blood, which allows blood and protein to pass into the urine, causing hematuria and proteinuria. Gradual scarring of the kidneys occurs, eventually leading to kidney failure in many people with Alport syndrome.\n\nCollagen IV is also an important component of inner ear structures, particularly the organ of Corti, that transform sound waves into nerve impulses for the brain. Altered versions of collagen IV in the inner ear impair its function, which can lead to hearing loss.\n\nIn the eye, collagen IV is important for maintaining the shape of the lens and the normal color of the retina. Abnormal versions of collagen IV in the eye can result in misshapen lenses and an abnormally colored retina."
+    },
+    {
+      "title": "Inheritance",
+      "text": "Alport syndrome can have different inheritance patterns. About two out of three cases are caused by variants in the COL4A5 gene and are inherited in an X-linked pattern. The COL4A5 gene is located on the X chromosome, which is one of the two sex chromosomes. In males (who have only one X chromosome), a variant in the only copy of the COL4A5 gene in each cell is sufficient to cause kidney failure and other severe symptoms of the disorder. In females (who have two copies of the X chromosome), a variant in one copy of the COL4A5 gene usually only results in hematuria, but some people experience more severe symptoms. Significant hearing loss, eye abnormalities, and progressive kidney disease are more common in males with the X-linked form of Alport syndrome than in affected females. A characteristic of X-linked inheritance is that fathers cannot pass X-linked traits to their sons.\n\nIn approximately 15 percent of cases, Alport syndrome is caused by variants in both copies of the COL4A3 or COL4A4 gene and is inherited in an autosomal recessive pattern. The parents of an individual with the autosomal recessive form of this condition each have one copy of the altered gene and are called carriers. Some carriers are unaffected, while others develop a less severe condition called thin basement membrane nephropathy, which is characterized by hematuria.\n\nAlport syndrome is inherited in an autosomal dominant pattern in about 20 to 30 percent of cases. People with this form of Alport syndrome have one variant in either the COL4A3 or COL4A4 gene in each cell. It remains unclear why some individuals with one variant in the COL4A3 or COL4A4 gene have progressive kidney disease (autosomal dominant Alport syndrome) and others have only hematuria (thin basement membrane nephropathy)."
+    },
+    {
+      "title": "Other Names for This Condition",
+      "text": "• Congenital hereditary hematuria\n• Hematuria-nephropathy-deafness syndrome\n• Hematuric hereditary nephritis\n• Hemorrhagic familial nephritis\n• Hemorrhagic hereditary nephritis\n• Hereditary familial congenital hemorrhagic nephritis\n• Hereditary hematuria syndrome\n• Hereditary interstitial pyelonephritis\n• Hereditary nephritis"
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/genetics/condition/alport-syndrome/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "72f46ebbe1cd6469d3af8a9ec0a0aecfb4b0695e28c8eeee0497443c44357f7d",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace, lists and labeled table formatting adapted. Not clinical review."
+}

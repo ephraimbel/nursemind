@@ -1,0 +1,50 @@
+import Foundation
+
+extension EntryLinkRegistry {
+    static func communityOncologyLinks() -> [EntryLink] {
+        [
+            EntryLink(from: "reference:cancer-related-fatigue", to: "reference:bedside-nutrition-assessment", relation: .seeAlso),
+            EntryLink(from: "reference:cancer-related-fatigue", to: "reference:hospital-sleep-support", relation: .seeAlso),
+            EntryLink(from: "reference:cancer-treatment-neuropathy", to: "reference:bedside-mobility-assessment", relation: .seeAlso),
+            EntryLink(from: "reference:cancer-treatment-neuropathy", to: "reference:fall-fracture-prevention", relation: .seeAlso),
+            EntryLink(from: "reference:cancer-treatment-cognitive-changes", to: "reference:cancer-related-fatigue", relation: .seeAlso),
+            EntryLink(from: "reference:cancer-treatment-cognitive-changes", to: "reference:cancer-survivorship-care-plan", relation: .seeAlso),
+            EntryLink(from: "reference:cancer-mouth-throat-care", to: "reference:hospital-oral-care", relation: .seeAlso),
+            EntryLink(from: "reference:cancer-mouth-throat-care", to: "reference:bedside-nutrition-assessment", relation: .seeAlso),
+            EntryLink(from: "reference:cancer-treatment-diarrhea-support", to: "reference:fluid-balance-monitoring", relation: .seeAlso),
+            EntryLink(from: "reference:cancer-treatment-diarrhea-support", to: "reference:diarrhea-acute-evaluation", relation: .seeAlso),
+            EntryLink(from: "reference:cancer-treatment-constipation-support", to: "diagnosis:opioid-induced-constipation", relation: .seeAlso),
+            EntryLink(from: "reference:cancer-treatment-constipation-support", to: "reference:focused-abdominal-assessment", relation: .seeAlso),
+            EntryLink(from: "reference:cancer-related-lymphedema", to: "reference:skin-assessment-beyond-wounds", relation: .seeAlso),
+            EntryLink(from: "reference:cancer-related-lymphedema", to: "procedure:radiation-therapy-nursing-care", relation: .seeAlso),
+            EntryLink(from: "reference:cancer-fertility-counseling", to: "reference:cancer-sexual-health-support", relation: .seeAlso),
+            EntryLink(from: "reference:cancer-sexual-health-support", to: "reference:cancer-body-image-support", relation: .seeAlso),
+            EntryLink(from: "reference:cancer-body-image-support", to: "communication:therapeutic-communication", relation: .seeAlso),
+            EntryLink(from: "reference:cancer-survivorship-care-plan", to: "reference:health-literacy-teach-back", relation: .seeAlso),
+            EntryLink(from: "reference:cancer-survivorship-care-plan", to: "reference:discharge-teaching-framework", relation: .seeAlso),
+            EntryLink(from: "reference:cancer-financial-barriers", to: "reference:cancer-survivorship-care-plan", relation: .seeAlso),
+            EntryLink(from: "reference:food-safety-weakened-immunity", to: "reference:neutropenic-precautions", relation: .seeAlso),
+            EntryLink(from: "reference:food-safety-weakened-immunity", to: "reference:home-cleaning-and-disinfection", relation: .seeAlso),
+            EntryLink(from: "reference:tick-removal-and-follow-up", to: "diagnosis:lyme-disease", relation: .seeAlso),
+            EntryLink(from: "reference:tick-removal-and-follow-up", to: "reference:mosquito-bite-prevention", relation: .seeAlso),
+            EntryLink(from: "reference:heat-health-planning", to: "reference:home-safety-fall-prevention-bundle", relation: .seeAlso),
+            EntryLink(from: "reference:heat-health-planning", to: "reference:home-medical-device-preparedness", relation: .seeAlso),
+            EntryLink(from: "reference:wildfire-smoke-protection", to: "reference:home-medical-device-preparedness", relation: .seeAlso),
+            EntryLink(from: "reference:wildfire-smoke-protection", to: "reference:focused-respiratory-assessment", relation: .seeAlso),
+            EntryLink(from: "reference:home-carbon-monoxide-prevention", to: "diagnosis:carbon-monoxide-poisoning", relation: .seeAlso),
+            EntryLink(from: "reference:home-carbon-monoxide-prevention", to: "reference:home-medical-device-preparedness", relation: .seeAlso),
+            EntryLink(from: "reference:drinking-water-advisories", to: "reference:home-cleaning-and-disinfection", relation: .seeAlso),
+            EntryLink(from: "reference:drinking-water-advisories", to: "reference:food-safety-weakened-immunity", relation: .seeAlso),
+            EntryLink(from: "reference:home-cleaning-and-disinfection", to: "reference:standard-precautions", relation: .seeAlso),
+            EntryLink(from: "reference:home-medical-device-preparedness", to: "reference:discharge-teaching-framework", relation: .seeAlso),
+            EntryLink(from: "reference:nursing-shift-work-fatigue", to: "reference:nursing-mental-health-support", relation: .seeAlso),
+            EntryLink(from: "reference:nursing-shift-work-fatigue", to: "reference:alarm-fatigue-and-safety", relation: .seeAlso),
+            EntryLink(from: "reference:respirator-fit-and-seal-check", to: "procedure:ppe-don-doff", relation: .seeAlso),
+            EntryLink(from: "reference:respirator-fit-and-seal-check", to: "reference:standard-precautions", relation: .seeAlso),
+            EntryLink(from: "reference:nursing-workplace-violence", to: "communication:verbal-deescalation", relation: .seeAlso),
+            EntryLink(from: "reference:nursing-workplace-violence", to: "reference:nursing-mental-health-support", relation: .seeAlso),
+            EntryLink(from: "reference:workplace-cleaning-chemical-safety", to: "reference:home-cleaning-and-disinfection", relation: .seeAlso),
+            EntryLink(from: "reference:workplace-cleaning-chemical-safety", to: "reference:respirator-fit-and-seal-check", relation: .seeAlso)
+        ]
+    }
+}

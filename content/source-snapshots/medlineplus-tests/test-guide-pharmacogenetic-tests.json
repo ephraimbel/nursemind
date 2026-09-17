@@ -1,0 +1,44 @@
+{
+  "title": "Pharmacogenetic Tests",
+  "sourceUpdated": "Last updated August 7, 2025",
+  "sections": [
+    {
+      "title": "What is pharmacogenetic testing?",
+      "text": "Pharmacogenetics (also called pharmacogenomics) is the study of how your genes affect the way your body responds to certain medicines. Genes are parts of DNA in your cells that you inherit from your parents. You inherit two copies of each gene, one from each parent. Genes carry information that controls what you look like and how your body works.\n\nSome genes also affect how your body uses and breaks down medicines. For example, certain changes (or variants) in these genes may make it harder for your body to absorb a certain medicine or dosage. Because your body can't absorb it, the medicine won't work as expected.\n\nThese genetic differences can be the reason why some people may benefit from a certain medicine while others may not benefit at all. They may also be the reason why only some people have serious side effects.\n\nTherefore, before treating you, your health care provider may want to see if you have any gene variants that may affect your response to certain medicines. To do this, they will use pharmacogenetic testing, which looks for these gene changes in a sample of your blood, saliva (spit), or cells swabbed from your cheek.\n\nOther names: pharmacogenomics, pharmacogenomic testing"
+    },
+    {
+      "title": "What is it used for?",
+      "text": "Because not everyone responds to medicine the same way, providers consider a variety of factors before deciding which medicine to prescribe. These factors include:\n\n• Your personal medical history.\n• Your family medical history.\n• Your lifestyle and environment.\n• What other medicines and supplements you're taking.\n\nThis approach is called precision medicine, and it also includes pharmacogenetic testing. Providers use pharmacogenetic testing to look for genes related to specific health conditions and medicines. So, if you are being treated for high cholesterol, your provider may test for a specific gene variant that can affect your response to some cholesterol-lowering medicines.\n\nOnce your provider is aware of these various factors, they can:\n\n• Find out whether a certain medicine could be effective for you.\n• Find out how much of the medicine you need.\n• Predict whether you will have a serious side effect from a medicine."
+    },
+    {
+      "title": "Why do I need pharmacogenetic testing?",
+      "text": "Pharmacogenetic tests are not available for all medicines or used for all health conditions. Providers most often rely on pharmacogenetic testing when considering the following health conditions:\n\n• High cholesterol. If you have certain variants of the SLCO1B1 gene, you're more likely to have muscle pain and weakness when taking some statins such as atorvastatin and fluvastatin.\n• Depression. If you have certain variants of the CYP2D6 or CYP2C19 gene, you're more likely to have trouble breaking down some antidepressants such as sertraline and venlafaxine.\n• Blood clot prevention. If you have certain genetic variants, you're more likely to need lower doses of the anticoagulant medicine warfarin.\n• HIV. If you have a certain variation of the HLA-B gene, you're more likely to have a severe skin reaction to Abacavir. A certain variant of the CYP2B6 gene can affect your nervous system if you take efavirenz.\n• Multiple sclerosis. If you have certain variants of the TPMT or NUDT15 gene, you're more likely to have suppressed immune system responses if you take azathioprine.\n\nWhen treating breast cancer, colon cancer, or acute lymphoblastic leukemia (ALL), your provider may use pharmacogenetic testing to make specific treatment decisions. For example:\n\n• Trastuzumab only works for people with a kind of breast cancer that makes too much of the HER2 protein.\n• Typical doses of mercaptopurine used to treat ALL can cause severe side effects if you have a certain variant of the TPMT gene.\n• Irinotecan treatment for colon cancer can cause severe diarrhea and increased infection risk if you have a certain variant of the UGT1A1 gene.\n\nYou may also need a pharmacogenetic test if you are recovering from an organ transplant or taking a medicine that's not working and/or causing serious side effects.\n\nPharmacogenetics is a growing field of medicine. This means that, in the future, genetic testing may be used more frequently to make treatment decisions."
+    },
+    {
+      "title": "What happens during a pharmacogenetic test?",
+      "text": "Testing is usually done on blood, saliva (spit), or a sample of cells swabbed from the inside of your cheek.\n\nFor a blood test, a health care professional will take a blood sample from a vein in your arm, using a small needle. After the needle is inserted, a small amount of blood will be collected into a test tube or vial. You may feel a little sting when the needle goes in or out. This usually takes less than five minutes.\n\nFor a saliva test, you will be instructed how to provide your sample. Usually, you will either spit into a small tube, or your saliva will be collected with a special swab or pad.\n\nFor a cheek swab, a health care professional will gently rub the inside of your cheek with a special swab.\n\nAt-home test kits are available for certain pharmacogenetic tests. With a home test, you collect a saliva sample to send to a lab for testing. In general, these tests should not be used for making treatment decisions because they may not be accurate. Talk with your provider if you're considering an at-home test."
+    },
+    {
+      "title": "Will I need to do anything to prepare for the test?",
+      "text": "You usually don't need any special preparations for a blood test. If you are getting a saliva test, you should not eat, drink, smoke, or chew gum for 30 minutes before the test. If you have a cheek swab, you may be asked to rinse your mouth first."
+    },
+    {
+      "title": "Are there any risks to the test?",
+      "text": "There is very little risk to having a blood test. You may have slight pain or bruising at the spot where the needle was put in, but most symptoms go away quickly.\n\nThere is no risk to having a saliva test or a cheek swab."
+    },
+    {
+      "title": "What do the results mean?",
+      "text": "Your test results will describe any changes in the gene that was tested. Changes in these genes can show how certain medicines are likely to affect you. But they cannot tell you anything about your health condition.\n\nYour provider will use the results of your pharmacogenetic test along with other information about your condition to recommend treatment or to make changes in your treatment. If your test results show that a certain medicine isn't right for you, your provider will consider other treatments that may help you. Talk with your provider to find out how your test results may change your treatment options.\n\nLearn more about laboratory tests, reference ranges, and understanding results."
+    },
+    {
+      "title": "Is there anything else I need to know about pharmacogenetic testing?",
+      "text": "Pharmacogenetic testing is not the same thing as genetic testing. Genetic tests that are done for health reasons can help diagnose diseases. They may also provide information about your risk for certain diseases. Pharmacogenetic testing cannot diagnose any conditions or tell you about your risk for developing them."
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/lab-tests/pharmacogenetic-tests/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "13ac8dbd84e5a564db7ae6d427d7153cb97b140aa0a87d2ae4e4494480731c83",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace and list formatting only. Not clinical review."
+}

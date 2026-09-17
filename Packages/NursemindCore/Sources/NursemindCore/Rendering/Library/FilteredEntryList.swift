@@ -8,6 +8,7 @@ import SwiftUI
 struct FilteredEntryList: View {
     let entries: [LibraryEntry]
     @Binding var filter: String
+    var showsEntryCategory = false
     @State private var highAlertOnly = false
 
     /// Below this size a list is scannable without letter grouping.
@@ -106,7 +107,7 @@ struct FilteredEntryList: View {
     private func rows(_ entries: [LibraryEntry]) -> some View {
         ForEach(Array(entries.enumerated()), id: \.element.id) { idx, entry in
             NavigationLink(value: LibraryDestination.entry(entry.id)) {
-                EntryRow(entry: entry, hidesCategoryFallback: true)
+                EntryRow(entry: entry, hidesCategoryFallback: true, showsCategory: showsEntryCategory)
             }
             .buttonStyle(.plain)
             if idx < entries.count - 1 {

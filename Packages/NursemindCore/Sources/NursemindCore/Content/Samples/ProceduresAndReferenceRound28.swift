@@ -1,5 +1,15 @@
 import Foundation
 
+private let depth6_esc_ph = CitationSource(
+    id: "depth6_esc_ph",
+    shortName: "ESC: PH due to heart or lung disease",
+    detail: "Pulmonary hypertension definition and therapeutic management of Group 3 PH; August 4, 2026. Clinical facts paraphrased; no tables, figures, algorithms or source prose reproduced.",
+    publisher: "European Society of Cardiology",
+    license: .factCitationOnly,
+    url: "https://www.escardio.org/communities/councils/cardiology-practice/education/cardiopractice/diagnosis-and-management-of-pulmonary-hypertension-due-to-left-heart-disease-or-pulmonary-disease/",
+    lastRetrieved: "2026-09-17"
+)
+
 // Curator-model procedures + reference (round 28 — pulmonary depth: bronch + PFTs + airway clearance + classifications).
 
 private let openrnPRR28 = CitationSource(
@@ -243,11 +253,11 @@ public enum PHClassificationSample {
         nclexTags: refTagsR28,
         sections: [
             .prose(title: "Overview", AttributedProse(
-                "Pulmonary hypertension (PH) is defined hemodynamically as mean pulmonary artery pressure ≥20 mm Hg (updated 2018 definition; previously 25). WHO classifies into 5 groups based on etiology + treatment approach — pivotal as therapies vary dramatically + inappropriate use can worsen outcomes per primary source.",
-                citationIDs: ["specialty_pr_round28"]
+                "PH requires resting mPAP >20 mmHg on right-heart catheterization. Cause-specific classification guides treatment; pulmonary arterial hypertension is only one category.",
+                citationIDs: ["depth6_esc_ph"]
             )),
+            .prose(title: "Pre-capillary hemodynamics", AttributedProse("Pre-capillary hemodynamics require mPAP >20 mmHg, PAWP ≤15 mmHg and PVR >2 Wood units. Further clinical assessment determines the cause.", citationIDs: ["depth6_esc_ph"])),
             .keyValueTable(title: "Group 1 — Pulmonary arterial hypertension (PAH)", [
-                KeyValueRow(key: "Definition", value: "Pre-capillary PH (mPAP ≥20 + PVR ≥2 Wood units + PCWP ≤15) without left heart, lung disease, or chronic thromboembolic cause"),
                 KeyValueRow(key: "Subtypes", value: "Idiopathic (IPAH), heritable (BMPR2, ALK1), drug/toxin-induced (fenfluramine, amphetamines, methamphetamine, dasatinib), connective tissue disease (scleroderma — most common), congenital heart disease, portal hypertension (POPH), HIV-associated, schistosomiasis"),
                 KeyValueRow(key: "PVOD/PCH", value: "Pulmonary veno-occlusive disease + pulmonary capillary hemangiomatosis — Group 1' (1 prime); contraindicates many PAH therapies (pulmonary edema)"),
                 KeyValueRow(key: "Treatment", value: "PAH-specific therapy — ERAs (bosentan, ambrisentan, macitentan), PDE5 inhibitors (sildenafil, tadalafil), sGC stimulator (riociguat), prostacyclin pathway (treprostinil, epoprostenol, selexipag); combination therapy common; lung transplant for advanced")
@@ -261,9 +271,9 @@ public enum PHClassificationSample {
             .keyValueTable(title: "Group 3 — PH due to lung disease + hypoxia", [
                 KeyValueRow(key: "Mechanism", value: "Pre-capillary PH from chronic hypoxemia + vascular remodeling"),
                 KeyValueRow(key: "Causes", value: "COPD (most common in this group), interstitial lung disease (IPF, NSIP, sarcoidosis, etc.), combined pulmonary fibrosis + emphysema, sleep apnea, high-altitude, chest wall disease, neuromuscular disease"),
-                KeyValueRow(key: "Treatment", value: "OPTIMIZE UNDERLYING LUNG DISEASE — bronchodilators, oxygen (LTOT), antifibrotics, CPAP for OSA; DO NOT use PAH therapies routinely (no benefit + may worsen V/Q matching)"),
-                KeyValueRow(key: "Trial", value: "AMBITION + others — sildenafil + tadalafil failed in COPD-PH; some research ongoing for severe Group 3 with PAH features")
+                KeyValueRow(key: "Treatment", value: "OPTIMIZE UNDERLYING LUNG DISEASE — bronchodilators, oxygen (LTOT), antifibrotics, CPAP for OSA; DO NOT use PAH therapies routinely (no benefit + may worsen V/Q matching)")
             ]),
+            .prose(title: "Group 3 treatment context", AttributedProse("Treatment evidence in PH with interstitial lung disease differs from COPD-associated PH. Specialist selection is necessary.", citationIDs: ["depth6_esc_ph"])),
             .keyValueTable(title: "Group 4 — Chronic thromboembolic PH (CTEPH)", [
                 KeyValueRow(key: "Mechanism", value: "Persistent thromboembolic obstruction of pulmonary arteries after acute PE; ~2-4% of PE patients develop CTEPH"),
                 KeyValueRow(key: "Diagnosis", value: "V/Q SCAN (mismatched perfusion defects) — gold standard screen; CTPA / pulmonary angiography for confirmation + operability"),
@@ -276,7 +286,7 @@ public enum PHClassificationSample {
             ]),
             .bullets(title: "Diagnostic approach", [
                 AttributedBullet("ECHOCARDIOGRAM — screen with estimated PASP + RV function; not diagnostic but suggests PH.", citationIDs: ["specialty_pr_round28"]),
-                AttributedBullet("RIGHT HEART CATHETERIZATION — DEFINITIVE diagnosis + classifies pre vs post capillary PH; mPAP ≥20 + PCWP + PVR + vasoreactivity.", citationIDs: ["specialty_pr_round28"]),
+                AttributedBullet("Right-heart catheterization measures pulmonary pressures, wedge pressure and vascular resistance to characterize PH when clinically indicated.", citationIDs: ["depth6_esc_ph"]),
                 AttributedBullet("V/Q SCAN — screen for CTEPH (Group 4) in any patient with unexplained PH; critical not to miss.", citationIDs: ["specialty_pr_round28"]),
                 AttributedBullet("WORKUP for Group 1 — autoimmune (ANA, anti-centromere, Scl-70), HIV, hepatitis (portal HTN), congenital heart disease imaging, family history.", citationIDs: ["specialty_pr_round28"]),
                 AttributedBullet("LUNG DISEASE workup — PFTs + HRCT + sleep study if Group 3 suspected.", citationIDs: ["specialty_pr_round28"]),
@@ -293,7 +303,7 @@ public enum PHClassificationSample {
                 AttributedBullet("Multidisciplinary care — pulmonary, cardiology, rheumatology, ID, transplant.", citationIDs: ["specialty_pr_round28"])
             ])
         ],
-        citations: [openrnPRR28, cdcPRR28, specialtyPRR28],
+        citations: [openrnPRR28, cdcPRR28, specialtyPRR28, depth6_esc_ph],
         lastSourceFidelityReview: "2026-05-13"
     )
 }

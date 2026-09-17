@@ -1,0 +1,32 @@
+{
+  "title": "Neurofibromatosis type 2",
+  "sourceUpdated": "Last updated July 27, 2022",
+  "sections": [
+    {
+      "title": "Description",
+      "text": "Neurofibromatosis type 2 is a disorder characterized by the growth of noncancerous tumors in the nervous system. The most common tumors associated with neurofibromatosis type 2 are called vestibular schwannomas. These growths develop along the nerve that carries information from the inner ear to the brain (the auditory nerve). Tumors that form on the membrane that covers the brain and spinal cord (meninges) are also common in neurofibromatosis type 2. These tumors are called meningiomas. Tumors can also occur on other nerves or tissues in the brain or spinal cord in people with this condition.\n\nThe signs and symptoms of neurofibromatosis type 2 usually appear during adolescence or in a person's early twenties, although they can begin at any age. The most frequent early symptoms of vestibular schwannomas are hearing loss, ringing in the ears (tinnitus), and problems with balance. Less commonly, vestibular schwannomas cause facial weakness or paralysis. In most cases, these tumors occur in both ears (bilaterally) by age 30. If tumors develop elsewhere in the nervous system, signs and symptoms vary according to their location. Complications of tumor growth can include changes in vision, numbness or weakness in the arms or legs, and fluid buildup in the brain. Some people with neurofibromatosis type 2 also develop clouding of the lens (cataracts) in one or both eyes, often beginning in childhood."
+    },
+    {
+      "title": "Frequency",
+      "text": "Neurofibromatosis type 2 has an estimated incidence of 1 in 33,000 people worldwide."
+    },
+    {
+      "title": "Causes",
+      "text": "Variants (also known as mutations) in the NF2 gene cause neurofibromatosis type 2. The NF2 gene provides instructions for making a protein called merlin (also known as schwannomin). This protein is produced in the nervous system, particularly in Schwann cells, which surround and insulate nerve cells (neurons) in the brain and spinal cord. Merlin acts as a tumor suppressor, which means that it keeps cells from growing and dividing too rapidly or in an uncontrolled way. Although its exact function is unknown, this protein is likely also involved in controlling cell movement, cell shape, and communication between cells. Variants in the NF2 gene lead to the production of a nonfunctional version of the merlin protein that cannot regulate the growth and division of cells. Research suggests that the loss of merlin allows cells, especially Schwann cells, to multiply too frequently and form the tumors characteristic of neurofibromatosis type 2."
+    },
+    {
+      "title": "Inheritance",
+      "text": "Neurofibromatosis type 2 is considered to have an autosomal dominant pattern of inheritance. People with this condition are born with one altered copy of the NF2 gene in each cell. In about half of cases, the altered gene is inherited from an affected parent. The remaining cases result from new variants in the NF2 gene and occur in people with no history of the disorder in their family.\n\nUnlike most other autosomal dominant conditions, in which one altered copy of a gene in each cell is sufficient to cause the disorder, two copies of the NF2 gene must be altered to trigger tumor formation in neurofibromatosis type 2. A variant in the second copy of the NF2 gene occurs in Schwann cells or other cells in the nervous system during a person's lifetime. Almost everyone who is born with one NF2 variant acquires a second variant (known as a somatic variant) in these cells and develops the tumors characteristic of neurofibromatosis type 2."
+    },
+    {
+      "title": "Other Names for This Condition",
+      "text": "• BANF\n• Bilateral acoustic neurofibromatosis\n• Central neurofibromatosis\n• Familial acoustic neuromas\n• Neurofibromatosis 2\n• Neurofibromatosis type 2 merlin\n• Neurofibromatosis type II\n• NF2\n• Schwannoma, acoustic, bilateral"
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/genetics/condition/neurofibromatosis-type-2/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "7dde7e026d1a0e028f1a265f48d3c0fcb6d8e357c3e70ae957e9bb49d9887d4a",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace, lists and labeled table formatting adapted. Not clinical review."
+}

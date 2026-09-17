@@ -1,0 +1,1755 @@
+{
+  "retrieved": "2026-09-17",
+  "reusePolicy": "https://medlineplus.gov/about/using/usingcontent/",
+  "entries": [
+    {
+      "slug": "bcr-abl1-genetic-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/bcr-abl1-genetic-test/",
+      "collection": "OncologyGenetics",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "beta-2-microglobulin-b2m-tumor-marker-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/beta-2-microglobulin-b2m-tumor-marker-test/",
+      "collection": "OncologyGenetics",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "diagnosis:multiple-myeloma"
+      ]
+    },
+    {
+      "slug": "braf-genetic-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/braf-genetic-test/",
+      "collection": "OncologyGenetics",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "brca-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/brca-test/",
+      "collection": "OncologyGenetics",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "reference:breast-cancer-screening"
+      ]
+    },
+    {
+      "slug": "breast-biopsy",
+      "sourceURL": "https://medlineplus.gov/lab-tests/breast-biopsy/",
+      "collection": "OncologyGenetics",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "diagnosis:breast-cancer"
+      ]
+    },
+    {
+      "slug": "estrogen-receptor-progesterone-receptor-tests",
+      "sourceURL": "https://medlineplus.gov/lab-tests/estrogen-receptor-progesterone-receptor-tests/",
+      "collection": "OncologyGenetics",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "diagnosis:hr-positive-her2-negative-breast-cancer"
+      ]
+    },
+    {
+      "slug": "free-light-chains",
+      "sourceURL": "https://medlineplus.gov/lab-tests/free-light-chains/",
+      "collection": "OncologyGenetics",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "diagnosis:multiple-myeloma",
+        "lab:spep-upep"
+      ]
+    },
+    {
+      "slug": "her2-tumor-marker-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/her2-tumor-marker-test/",
+      "collection": "OncologyGenetics",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "diagnosis:her2-positive-breast-cancer"
+      ]
+    },
+    {
+      "slug": "lung-cancer-genetic-tests",
+      "sourceURL": "https://medlineplus.gov/lab-tests/lung-cancer-genetic-tests/",
+      "collection": "OncologyGenetics",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "diagnosis:nsclc"
+      ]
+    },
+    {
+      "slug": "pdl1-immunotherapy-tests",
+      "sourceURL": "https://medlineplus.gov/lab-tests/pdl1-immunotherapy-tests/",
+      "collection": "OncologyGenetics",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "procedure:ici-monitoring"
+      ]
+    },
+    {
+      "slug": "pten-genetic-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/pten-genetic-test/",
+      "collection": "OncologyGenetics",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "sentinel-lymph-node-biopsy",
+      "sourceURL": "https://medlineplus.gov/lab-tests/sentinel-lymph-node-biopsy/",
+      "collection": "OncologyGenetics",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "thyroglobulin",
+      "sourceURL": "https://medlineplus.gov/lab-tests/thyroglobulin/",
+      "collection": "OncologyGenetics",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "tp53-genetic-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/tp53-genetic-test/",
+      "collection": "OncologyGenetics",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "pharmacogenetic-tests",
+      "sourceURL": "https://medlineplus.gov/lab-tests/pharmacogenetic-tests/",
+      "collection": "OncologyGenetics",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "procedure:medication-reconciliation"
+      ]
+    },
+    {
+      "slug": "autonomic-testing",
+      "sourceURL": "https://medlineplus.gov/lab-tests/autonomic-testing/",
+      "collection": "NeurologySensory",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "balance-tests",
+      "sourceURL": "https://medlineplus.gov/lab-tests/balance-tests/",
+      "collection": "NeurologySensory",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "reference:dizziness-vertigo-evaluation",
+        "reference:test-guide-videonystagmography-vng"
+      ]
+    },
+    {
+      "slug": "cognitive-testing",
+      "sourceURL": "https://medlineplus.gov/lab-tests/cognitive-testing/",
+      "collection": "NeurologySensory",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "procedure:comprehensive-geriatric-assessment"
+      ]
+    },
+    {
+      "slug": "concussion-tests",
+      "sourceURL": "https://medlineplus.gov/lab-tests/concussion-tests/",
+      "collection": "NeurologySensory",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "diagnosis:concussion"
+      ]
+    },
+    {
+      "slug": "electromyography-emg-and-nerve-conduction-studies",
+      "sourceURL": "https://medlineplus.gov/lab-tests/electromyography-emg-and-nerve-conduction-studies/",
+      "collection": "NeurologySensory",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "hearing-tests-for-adults",
+      "sourceURL": "https://medlineplus.gov/lab-tests/hearing-tests-for-adults/",
+      "collection": "NeurologySensory",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "myasthenia-gravis-tests",
+      "sourceURL": "https://medlineplus.gov/lab-tests/myasthenia-gravis-tests/",
+      "collection": "NeurologySensory",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "diagnosis:myasthenia-gravis"
+      ]
+    },
+    {
+      "slug": "myelography",
+      "sourceURL": "https://medlineplus.gov/lab-tests/myelography/",
+      "collection": "NeurologySensory",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "videonystagmography-vng",
+      "sourceURL": "https://medlineplus.gov/lab-tests/videonystagmography-vng/",
+      "collection": "NeurologySensory",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "sleep-study",
+      "sourceURL": "https://medlineplus.gov/lab-tests/sleep-study/",
+      "collection": "NeurologySensory",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "diagnosis:osa",
+        "reference:cpap-daily-support"
+      ]
+    },
+    {
+      "slug": "glaucoma-tests",
+      "sourceURL": "https://medlineplus.gov/lab-tests/glaucoma-tests/",
+      "collection": "NeurologySensory",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "csf-immunoglobulin-g-igg-index",
+      "sourceURL": "https://medlineplus.gov/lab-tests/csf-immunoglobulin-g-igg-index/",
+      "collection": "NeurologySensory",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "adhd-screening",
+      "sourceURL": "https://medlineplus.gov/lab-tests/adhd-screening/",
+      "collection": "MentalBehavioral",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "alcohol-use-screening-tests",
+      "sourceURL": "https://medlineplus.gov/lab-tests/alcohol-use-screening-tests/",
+      "collection": "MentalBehavioral",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "diagnosis:alcohol-use-disorder"
+      ]
+    },
+    {
+      "slug": "depression-screening",
+      "sourceURL": "https://medlineplus.gov/lab-tests/depression-screening/",
+      "collection": "MentalBehavioral",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "mental-health-screening",
+      "sourceURL": "https://medlineplus.gov/lab-tests/mental-health-screening/",
+      "collection": "MentalBehavioral",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "obsessive-compulsive-disorder-ocd-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/obsessive-compulsive-disorder-ocd-test/",
+      "collection": "MentalBehavioral",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "diagnosis:ocd"
+      ]
+    },
+    {
+      "slug": "panic-disorder-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/panic-disorder-test/",
+      "collection": "MentalBehavioral",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "diagnosis:panic-disorder"
+      ]
+    },
+    {
+      "slug": "suicide-risk-screening",
+      "sourceURL": "https://medlineplus.gov/lab-tests/suicide-risk-screening/",
+      "collection": "MentalBehavioral",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A",
+      "relatedEntryIDs": [
+        "procedure:suicide-precautions"
+      ]
+    },
+    {
+      "slug": "how-to-cope-with-medical-test-anxiety",
+      "sourceURL": "https://medlineplus.gov/lab-tests/how-to-cope-with-medical-test-anxiety/",
+      "collection": "MentalBehavioral",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "editorialEdits": [
+        {
+          "sectionTitle": "What is medical test anxiety?",
+          "original": "Medical text anxiety can be serious.",
+          "replacement": "Medical test anxiety can be serious."
+        },
+        {
+          "sectionTitle": "What are the types of medical test anxiety?",
+          "original": "The most common types of medical anxieties (phobias) are:\n\nThe most common types of medical anxieties (phobias) are:",
+          "replacement": "The most common types of medical anxieties (phobias) are:"
+        }
+      ]
+    },
+    {
+      "slug": "anoscopy",
+      "sourceURL": "https://medlineplus.gov/lab-tests/anoscopy/",
+      "collection": "Gastrointestinal",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "appendicitis-tests",
+      "sourceURL": "https://medlineplus.gov/lab-tests/appendicitis-tests/",
+      "collection": "Gastrointestinal",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "diagnosis:appendicitis"
+      ]
+    },
+    {
+      "slug": "barium-swallow",
+      "sourceURL": "https://medlineplus.gov/lab-tests/barium-swallow/",
+      "collection": "Gastrointestinal",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "calprotectin-stool-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/calprotectin-stool-test/",
+      "collection": "Gastrointestinal",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "chymotrypsin-in-stool",
+      "sourceURL": "https://medlineplus.gov/lab-tests/chymotrypsin-in-stool/",
+      "collection": "Gastrointestinal",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "colorectal-cancer-screening-tests",
+      "sourceURL": "https://medlineplus.gov/lab-tests/colorectal-cancer-screening-tests/",
+      "collection": "Gastrointestinal",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "diagnosis:colorectal-cancer",
+        "reference:test-guide-fecal-occult-blood-test-fobt"
+      ]
+    },
+    {
+      "slug": "elastography",
+      "sourceURL": "https://medlineplus.gov/lab-tests/elastography/",
+      "collection": "Gastrointestinal",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "esophageal-ph-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/esophageal-ph-test/",
+      "collection": "Gastrointestinal",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "diagnosis:gerd"
+      ]
+    },
+    {
+      "slug": "fecal-occult-blood-test-fobt",
+      "sourceURL": "https://medlineplus.gov/lab-tests/fecal-occult-blood-test-fobt/",
+      "collection": "Gastrointestinal",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "gastric-emptying-tests",
+      "sourceURL": "https://medlineplus.gov/lab-tests/gastric-emptying-tests/",
+      "collection": "Gastrointestinal",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "lactose-tolerance-tests",
+      "sourceURL": "https://medlineplus.gov/lab-tests/lactose-tolerance-tests/",
+      "collection": "Gastrointestinal",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "diagnosis:lactose-intolerance"
+      ]
+    },
+    {
+      "slug": "ova-and-parasite-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/ova-and-parasite-test/",
+      "collection": "Gastrointestinal",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "stool-elastase",
+      "sourceURL": "https://medlineplus.gov/lab-tests/stool-elastase/",
+      "collection": "Gastrointestinal",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "white-blood-cell-wbc-in-stool",
+      "sourceURL": "https://medlineplus.gov/lab-tests/white-blood-cell-wbc-in-stool/",
+      "collection": "Gastrointestinal",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "xylose-testing",
+      "sourceURL": "https://medlineplus.gov/lab-tests/xylose-testing/",
+      "collection": "Gastrointestinal",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "amniocentesis-amniotic-fluid-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/amniocentesis-amniotic-fluid-test/",
+      "collection": "Reproductive",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "bacterial-vaginosis-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/bacterial-vaginosis-test/",
+      "collection": "Reproductive",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A",
+      "relatedEntryIDs": [
+        "diagnosis:bacterial-vaginosis"
+      ]
+    },
+    {
+      "slug": "chlamydia-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/chlamydia-test/",
+      "collection": "Reproductive",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A",
+      "relatedEntryIDs": [
+        "diagnosis:chlamydia"
+      ]
+    },
+    {
+      "slug": "chorionic-villus-sampling-cvs",
+      "sourceURL": "https://medlineplus.gov/lab-tests/chorionic-villus-sampling-cvs/",
+      "collection": "Reproductive",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "colposcopy",
+      "sourceURL": "https://medlineplus.gov/lab-tests/colposcopy/",
+      "collection": "Reproductive",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A",
+      "relatedEntryIDs": [
+        "reference:cervical-cancer-screening",
+        "reference:test-guide-pap-smear"
+      ]
+    },
+    {
+      "slug": "estrogen-levels-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/estrogen-levels-test/",
+      "collection": "Reproductive",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "follicle-stimulating-hormone-fsh-levels-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/follicle-stimulating-hormone-fsh-levels-test/",
+      "collection": "Reproductive",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "gonorrhea-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/gonorrhea-test/",
+      "collection": "Reproductive",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A",
+      "relatedEntryIDs": [
+        "diagnosis:gonorrhea"
+      ]
+    },
+    {
+      "slug": "human-papillomavirus-hpv-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/human-papillomavirus-hpv-test/",
+      "collection": "Reproductive",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A",
+      "relatedEntryIDs": [
+        "reference:cervical-cancer-screening"
+      ]
+    },
+    {
+      "slug": "hysteroscopy",
+      "sourceURL": "https://medlineplus.gov/lab-tests/hysteroscopy/",
+      "collection": "Reproductive",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "luteinizing-hormone-lh-levels-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/luteinizing-hormone-lh-levels-test/",
+      "collection": "Reproductive",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "pap-smear",
+      "sourceURL": "https://medlineplus.gov/lab-tests/pap-smear/",
+      "collection": "Reproductive",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "prenatal-cell-free-dna-screening",
+      "sourceURL": "https://medlineplus.gov/lab-tests/prenatal-cell-free-dna-screening/",
+      "collection": "Reproductive",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "prenatal-panel",
+      "sourceURL": "https://medlineplus.gov/lab-tests/prenatal-panel/",
+      "collection": "Reproductive",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "progesterone-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/progesterone-test/",
+      "collection": "Reproductive",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "semen-analysis",
+      "sourceURL": "https://medlineplus.gov/lab-tests/semen-analysis/",
+      "collection": "Reproductive",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "sexually-transmitted-infection-sti-tests",
+      "sourceURL": "https://medlineplus.gov/lab-tests/sexually-transmitted-infection-sti-tests/",
+      "collection": "Reproductive",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "shbg-blood-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/shbg-blood-test/",
+      "collection": "Reproductive",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "trichomoniasis-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/trichomoniasis-test/",
+      "collection": "Reproductive",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A",
+      "relatedEntryIDs": [
+        "diagnosis:trichomoniasis"
+      ]
+    },
+    {
+      "slug": "antibiotic-sensitivity-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/antibiotic-sensitivity-test/",
+      "collection": "InfectiousDisease",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "antibody-serology-tests",
+      "sourceURL": "https://medlineplus.gov/lab-tests/antibody-serology-tests/",
+      "collection": "InfectiousDisease",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "bacteria-culture-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/bacteria-culture-test/",
+      "collection": "InfectiousDisease",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "chickenpox-and-shingles-tests",
+      "sourceURL": "https://medlineplus.gov/lab-tests/chickenpox-and-shingles-tests/",
+      "collection": "InfectiousDisease",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "dengue-fever-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/dengue-fever-test/",
+      "collection": "InfectiousDisease",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "flu-influenza-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/flu-influenza-test/",
+      "collection": "InfectiousDisease",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "diagnosis:influenza"
+      ]
+    },
+    {
+      "slug": "fungal-culture-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/fungal-culture-test/",
+      "collection": "InfectiousDisease",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "gram-stain",
+      "sourceURL": "https://medlineplus.gov/lab-tests/gram-stain/",
+      "collection": "InfectiousDisease",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "hepatitis-testing",
+      "sourceURL": "https://medlineplus.gov/lab-tests/hepatitis-testing/",
+      "collection": "InfectiousDisease",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "lab:hepatitis-b-panel"
+      ]
+    },
+    {
+      "slug": "herpes-hsv-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/herpes-hsv-test/",
+      "collection": "InfectiousDisease",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "legionella-tests",
+      "sourceURL": "https://medlineplus.gov/lab-tests/legionella-tests/",
+      "collection": "InfectiousDisease",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "lyme-disease-tests",
+      "sourceURL": "https://medlineplus.gov/lab-tests/lyme-disease-tests/",
+      "collection": "InfectiousDisease",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "diagnosis:lyme-disease"
+      ]
+    },
+    {
+      "slug": "measles-and-mumps-tests",
+      "sourceURL": "https://medlineplus.gov/lab-tests/measles-and-mumps-tests/",
+      "collection": "InfectiousDisease",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "meningococcal-disease-tests",
+      "sourceURL": "https://medlineplus.gov/lab-tests/meningococcal-disease-tests/",
+      "collection": "InfectiousDisease",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "mononucleosis-mono-tests",
+      "sourceURL": "https://medlineplus.gov/lab-tests/mononucleosis-mono-tests/",
+      "collection": "InfectiousDisease",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "diagnosis:mononucleosis"
+      ]
+    },
+    {
+      "slug": "mrsa-tests",
+      "sourceURL": "https://medlineplus.gov/lab-tests/mrsa-tests/",
+      "collection": "InfectiousDisease",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "nasal-swab",
+      "sourceURL": "https://medlineplus.gov/lab-tests/nasal-swab/",
+      "collection": "InfectiousDisease",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "reference:test-guide-respiratory-pathogens-panel"
+      ]
+    },
+    {
+      "slug": "parainfluenza-tests",
+      "sourceURL": "https://medlineplus.gov/lab-tests/parainfluenza-tests/",
+      "collection": "InfectiousDisease",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "pcr-tests",
+      "sourceURL": "https://medlineplus.gov/lab-tests/pcr-tests/",
+      "collection": "InfectiousDisease",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "pneumococcal-disease-tests",
+      "sourceURL": "https://medlineplus.gov/lab-tests/pneumococcal-disease-tests/",
+      "collection": "InfectiousDisease",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "rapid-tests",
+      "sourceURL": "https://medlineplus.gov/lab-tests/rapid-tests/",
+      "collection": "InfectiousDisease",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "respiratory-pathogens-panel",
+      "sourceURL": "https://medlineplus.gov/lab-tests/respiratory-pathogens-panel/",
+      "collection": "InfectiousDisease",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "respiratory-syncytial-virus-rsv-tests",
+      "sourceURL": "https://medlineplus.gov/lab-tests/respiratory-syncytial-virus-rsv-tests/",
+      "collection": "InfectiousDisease",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "whooping-cough-diagnosis",
+      "sourceURL": "https://medlineplus.gov/lab-tests/whooping-cough-diagnosis/",
+      "collection": "InfectiousDisease",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "diagnosis:pertussis"
+      ]
+    },
+    {
+      "slug": "yeast-infection-tests",
+      "sourceURL": "https://medlineplus.gov/lab-tests/yeast-infection-tests/",
+      "collection": "InfectiousDisease",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "zika-virus-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/zika-virus-test/",
+      "collection": "InfectiousDisease",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "adrenocorticotropic-hormone-acth",
+      "sourceURL": "https://medlineplus.gov/lab-tests/adrenocorticotropic-hormone-acth/",
+      "collection": "EndocrineMetabolic",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "lab:acth-stimulation-test",
+        "lab:cortisol"
+      ]
+    },
+    {
+      "slug": "alkaline-phosphatase",
+      "sourceURL": "https://medlineplus.gov/lab-tests/alkaline-phosphatase/",
+      "collection": "EndocrineMetabolic",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "amylase-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/amylase-test/",
+      "collection": "EndocrineMetabolic",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "lab:lipase"
+      ]
+    },
+    {
+      "slug": "calcitonin-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/calcitonin-test/",
+      "collection": "EndocrineMetabolic",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "cold-stimulation-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/cold-stimulation-test/",
+      "collection": "EndocrineMetabolic",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "dhea-sulfate-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/dhea-sulfate-test/",
+      "collection": "EndocrineMetabolic",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "diabetes-tests",
+      "sourceURL": "https://medlineplus.gov/lab-tests/diabetes-tests/",
+      "collection": "EndocrineMetabolic",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "lab:hemoglobin-a1c",
+        "lab:glucose"
+      ]
+    },
+    {
+      "slug": "diabetic-foot-exam",
+      "sourceURL": "https://medlineplus.gov/lab-tests/diabetic-foot-exam/",
+      "collection": "EndocrineMetabolic",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "diagnosis:diabetic-foot-infection"
+      ]
+    },
+    {
+      "slug": "gamma-glutamyl-transferase-ggt-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/gamma-glutamyl-transferase-ggt-test/",
+      "collection": "EndocrineMetabolic",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "globulin-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/globulin-test/",
+      "collection": "EndocrineMetabolic",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "glucagon-blood-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/glucagon-blood-test/",
+      "collection": "EndocrineMetabolic",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "growth-hormone-tests",
+      "sourceURL": "https://medlineplus.gov/lab-tests/growth-hormone-tests/",
+      "collection": "EndocrineMetabolic",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "immunoglobulins-blood-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/immunoglobulins-blood-test/",
+      "collection": "EndocrineMetabolic",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "insulin-in-blood",
+      "sourceURL": "https://medlineplus.gov/lab-tests/insulin-in-blood/",
+      "collection": "EndocrineMetabolic",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "prolactin-levels",
+      "sourceURL": "https://medlineplus.gov/lab-tests/prolactin-levels/",
+      "collection": "EndocrineMetabolic",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "17-hydroxyprogesterone",
+      "sourceURL": "https://medlineplus.gov/lab-tests/17-hydroxyprogesterone/",
+      "collection": "EndocrineMetabolic",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "bilirubin-in-urine",
+      "sourceURL": "https://medlineplus.gov/lab-tests/bilirubin-in-urine/",
+      "collection": "RenalUrinary",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "blood-in-urine",
+      "sourceURL": "https://medlineplus.gov/lab-tests/blood-in-urine/",
+      "collection": "RenalUrinary",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "calcium-in-urine-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/calcium-in-urine-test/",
+      "collection": "RenalUrinary",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "crystals-in-urine",
+      "sourceURL": "https://medlineplus.gov/lab-tests/crystals-in-urine/",
+      "collection": "RenalUrinary",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "epithelial-cells-in-urine",
+      "sourceURL": "https://medlineplus.gov/lab-tests/epithelial-cells-in-urine/",
+      "collection": "RenalUrinary",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "glucose-in-urine-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/glucose-in-urine-test/",
+      "collection": "RenalUrinary",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "intravenous-pyelogram-ivp",
+      "sourceURL": "https://medlineplus.gov/lab-tests/intravenous-pyelogram-ivp/",
+      "collection": "RenalUrinary",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "ketones-in-urine",
+      "sourceURL": "https://medlineplus.gov/lab-tests/ketones-in-urine/",
+      "collection": "RenalUrinary",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "kidney-stone-analysis",
+      "sourceURL": "https://medlineplus.gov/lab-tests/kidney-stone-analysis/",
+      "collection": "RenalUrinary",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "diagnosis:kidney-stones"
+      ]
+    },
+    {
+      "slug": "mucus-in-urine",
+      "sourceURL": "https://medlineplus.gov/lab-tests/mucus-in-urine/",
+      "collection": "RenalUrinary",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "nitrites-in-urine",
+      "sourceURL": "https://medlineplus.gov/lab-tests/nitrites-in-urine/",
+      "collection": "RenalUrinary",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "phosphate-in-urine",
+      "sourceURL": "https://medlineplus.gov/lab-tests/phosphate-in-urine/",
+      "collection": "RenalUrinary",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "urobilinogen-in-urine",
+      "sourceURL": "https://medlineplus.gov/lab-tests/urobilinogen-in-urine/",
+      "collection": "RenalUrinary",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "blood-differential",
+      "sourceURL": "https://medlineplus.gov/lab-tests/blood-differential/",
+      "collection": "Hematology",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "coagulation-factor-tests",
+      "sourceURL": "https://medlineplus.gov/lab-tests/coagulation-factor-tests/",
+      "collection": "Hematology",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "g6pd-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/g6pd-test/",
+      "collection": "Hematology",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "diagnosis:g6pd-deficiency"
+      ]
+    },
+    {
+      "slug": "hemoglobin-electrophoresis",
+      "sourceURL": "https://medlineplus.gov/lab-tests/hemoglobin-electrophoresis/",
+      "collection": "Hematology",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "diagnosis:sickle-cell-crisis"
+      ]
+    },
+    {
+      "slug": "lactate-dehydrogenase-ldh-isoenzymes-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/lactate-dehydrogenase-ldh-isoenzymes-test/",
+      "collection": "Hematology",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "mcv-mean-corpuscular-volume",
+      "sourceURL": "https://medlineplus.gov/lab-tests/mcv-mean-corpuscular-volume/",
+      "collection": "Hematology",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "lab:hemoglobin",
+        "reference:test-guide-red-blood-cell-rbc-indices"
+      ]
+    },
+    {
+      "slug": "mpv-blood-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/mpv-blood-test/",
+      "collection": "Hematology",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "porphyrin-tests",
+      "sourceURL": "https://medlineplus.gov/lab-tests/porphyrin-tests/",
+      "collection": "Hematology",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "protein-c-and-protein-s-tests",
+      "sourceURL": "https://medlineplus.gov/lab-tests/protein-c-and-protein-s-tests/",
+      "collection": "Hematology",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "rdw-red-cell-distribution-width",
+      "sourceURL": "https://medlineplus.gov/lab-tests/rdw-red-cell-distribution-width/",
+      "collection": "Hematology",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "reference:test-guide-red-blood-cell-rbc-indices"
+      ]
+    },
+    {
+      "slug": "red-blood-cell-rbc-count",
+      "sourceURL": "https://medlineplus.gov/lab-tests/red-blood-cell-rbc-count/",
+      "collection": "Hematology",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "red-blood-cell-rbc-indices",
+      "sourceURL": "https://medlineplus.gov/lab-tests/red-blood-cell-rbc-indices/",
+      "collection": "Hematology",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "red-blood-cell-antibody-screen",
+      "sourceURL": "https://medlineplus.gov/lab-tests/red-blood-cell-antibody-screen/",
+      "collection": "Hematology",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "procedure:blood-transfusion"
+      ]
+    },
+    {
+      "slug": "doppler-ultrasound",
+      "sourceURL": "https://medlineplus.gov/lab-tests/doppler-ultrasound/",
+      "collection": "CardiopulmonaryImaging",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "echocardiography",
+      "sourceURL": "https://medlineplus.gov/lab-tests/echocardiography/",
+      "collection": "CardiopulmonaryImaging",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "fluoroscopy",
+      "sourceURL": "https://medlineplus.gov/lab-tests/fluoroscopy/",
+      "collection": "CardiopulmonaryImaging",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "heart-disease-risk-assessment",
+      "sourceURL": "https://medlineplus.gov/lab-tests/heart-disease-risk-assessment/",
+      "collection": "CardiopulmonaryImaging",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "lipoprotein-a-blood-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/lipoprotein-a-blood-test/",
+      "collection": "CardiopulmonaryImaging",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "pet-scan",
+      "sourceURL": "https://medlineplus.gov/lab-tests/pet-scan/",
+      "collection": "CardiopulmonaryImaging",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "pleural-fluid-analysis",
+      "sourceURL": "https://medlineplus.gov/lab-tests/pleural-fluid-analysis/",
+      "collection": "CardiopulmonaryImaging",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "procedure:thoracentesis"
+      ]
+    },
+    {
+      "slug": "stress-tests",
+      "sourceURL": "https://medlineplus.gov/lab-tests/stress-tests/",
+      "collection": "CardiopulmonaryImaging",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "sonogram",
+      "sourceURL": "https://medlineplus.gov/lab-tests/sonogram/",
+      "collection": "CardiopulmonaryImaging",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "vq-scan",
+      "sourceURL": "https://medlineplus.gov/lab-tests/vq-scan/",
+      "collection": "CardiopulmonaryImaging",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "laparoscopy",
+      "sourceURL": "https://medlineplus.gov/lab-tests/laparoscopy/",
+      "collection": "CardiopulmonaryImaging",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "allergy-skin-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/allergy-skin-test/",
+      "collection": "AllergyRheumatology",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "autoantibody-testing",
+      "sourceURL": "https://medlineplus.gov/lab-tests/autoantibody-testing/",
+      "collection": "AllergyRheumatology",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "food-allergy-testing",
+      "sourceURL": "https://medlineplus.gov/lab-tests/food-allergy-testing/",
+      "collection": "AllergyRheumatology",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "reference:test-guide-allergy-skin-test"
+      ]
+    },
+    {
+      "slug": "smooth-muscle-antibody-sma-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/smooth-muscle-antibody-sma-test/",
+      "collection": "AllergyRheumatology",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "synovial-fluid-analysis",
+      "sourceURL": "https://medlineplus.gov/lab-tests/synovial-fluid-analysis/",
+      "collection": "AllergyRheumatology",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "procedure:joint-injection-aspiration"
+      ]
+    },
+    {
+      "slug": "at-home-medical-tests",
+      "sourceURL": "https://medlineplus.gov/lab-tests/at-home-medical-tests/",
+      "collection": "DiagnosticPreparation",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "basic-metabolic-panel-bmp",
+      "sourceURL": "https://medlineplus.gov/lab-tests/basic-metabolic-panel-bmp/",
+      "collection": "DiagnosticPreparation",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "complete-blood-count-cbc",
+      "sourceURL": "https://medlineplus.gov/lab-tests/complete-blood-count-cbc/",
+      "collection": "DiagnosticPreparation",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "comprehensive-metabolic-panel-cmp",
+      "sourceURL": "https://medlineplus.gov/lab-tests/comprehensive-metabolic-panel-cmp/",
+      "collection": "DiagnosticPreparation",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "dental-exam",
+      "sourceURL": "https://medlineplus.gov/lab-tests/dental-exam/",
+      "collection": "DiagnosticPreparation",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "differential-diagnosis",
+      "sourceURL": "https://medlineplus.gov/lab-tests/differential-diagnosis/",
+      "collection": "DiagnosticPreparation",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "electrolyte-panel",
+      "sourceURL": "https://medlineplus.gov/lab-tests/electrolyte-panel/",
+      "collection": "DiagnosticPreparation",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "heavy-metal-testing",
+      "sourceURL": "https://medlineplus.gov/lab-tests/heavy-metal-testing/",
+      "collection": "DiagnosticPreparation",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "skin-cancer-screening",
+      "sourceURL": "https://medlineplus.gov/lab-tests/skin-cancer-screening/",
+      "collection": "DiagnosticPreparation",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "vitamin-e-tocopherol-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/vitamin-e-tocopherol-test/",
+      "collection": "DiagnosticPreparation",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B"
+    },
+    {
+      "slug": "autism-spectrum-disorder-asd-screening",
+      "sourceURL": "https://medlineplus.gov/lab-tests/autism-spectrum-disorder-asd-screening/",
+      "collection": "PediatricFamilyScreening",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A",
+      "relatedEntryIDs": [
+        "diagnosis:autism"
+      ]
+    },
+    {
+      "slug": "developmental-and-behavioral-screening-tests",
+      "sourceURL": "https://medlineplus.gov/lab-tests/developmental-and-behavioral-screening-tests/",
+      "collection": "PediatricFamilyScreening",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "down-syndrome-tests",
+      "sourceURL": "https://medlineplus.gov/lab-tests/down-syndrome-tests/",
+      "collection": "PediatricFamilyScreening",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A",
+      "relatedEntryIDs": [
+        "diagnosis:down-syndrome"
+      ]
+    },
+    {
+      "slug": "fetal-alcohol-spectrum-disorders-fasd-screening",
+      "sourceURL": "https://medlineplus.gov/lab-tests/fetal-alcohol-spectrum-disorders-fasd-screening/",
+      "collection": "PediatricFamilyScreening",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "hearing-tests-for-children",
+      "sourceURL": "https://medlineplus.gov/lab-tests/hearing-tests-for-children/",
+      "collection": "PediatricFamilyScreening",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "how-to-prepare-your-child-for-a-lab-test",
+      "sourceURL": "https://medlineplus.gov/lab-tests/how-to-prepare-your-child-for-a-lab-test/",
+      "collection": "PediatricFamilyScreening",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A",
+      "relatedEntryIDs": [
+        "reference:test-guide-how-to-cope-with-medical-test-anxiety"
+      ]
+    },
+    {
+      "slug": "galactosemia-tests",
+      "sourceURL": "https://medlineplus.gov/lab-tests/galactosemia-tests/",
+      "collection": "PediatricFamilyScreening",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A",
+      "relatedEntryIDs": [
+        "reference:genetics-galactosemia"
+      ]
+    },
+    {
+      "slug": "phenylketonuria-pku-screening",
+      "sourceURL": "https://medlineplus.gov/lab-tests/phenylketonuria-pku-screening/",
+      "collection": "PediatricFamilyScreening",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A",
+      "relatedEntryIDs": [
+        "reference:genetics-phenylketonuria"
+      ]
+    },
+    {
+      "slug": "cord-blood-testing-and-banking",
+      "sourceURL": "https://medlineplus.gov/lab-tests/cord-blood-testing-and-banking/",
+      "collection": "PediatricFamilyScreening",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "postpartum-depression-screening",
+      "sourceURL": "https://medlineplus.gov/lab-tests/postpartum-depression-screening/",
+      "collection": "PediatricFamilyScreening",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A",
+      "relatedEntryIDs": [
+        "diagnosis:postpartum-depression"
+      ]
+    },
+    {
+      "slug": "alport-syndrome",
+      "sourceURL": "https://medlineplus.gov/genetics/condition/alport-syndrome/",
+      "collection": "GeneticConditions",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A",
+      "relatedEntryIDs": [
+        "reference:kidney-medication-safety"
+      ]
+    },
+    {
+      "slug": "fabry-disease",
+      "sourceURL": "https://medlineplus.gov/genetics/condition/fabry-disease/",
+      "collection": "GeneticConditions",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A",
+      "relatedEntryIDs": [
+        "reference:conservative-kidney-care"
+      ]
+    },
+    {
+      "slug": "gaucher-disease",
+      "sourceURL": "https://medlineplus.gov/genetics/condition/gaucher-disease/",
+      "collection": "GeneticConditions",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "pompe-disease",
+      "sourceURL": "https://medlineplus.gov/genetics/condition/pompe-disease/",
+      "collection": "GeneticConditions",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "spinal-muscular-atrophy",
+      "sourceURL": "https://medlineplus.gov/genetics/condition/spinal-muscular-atrophy/",
+      "collection": "GeneticConditions",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "myotonic-dystrophy",
+      "sourceURL": "https://medlineplus.gov/genetics/condition/myotonic-dystrophy/",
+      "collection": "GeneticConditions",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "charcot-marie-tooth-disease",
+      "sourceURL": "https://medlineplus.gov/genetics/condition/charcot-marie-tooth-disease/",
+      "collection": "GeneticConditions",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "friedreich-ataxia",
+      "sourceURL": "https://medlineplus.gov/genetics/condition/friedreich-ataxia/",
+      "collection": "GeneticConditions",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "tuberous-sclerosis-complex",
+      "sourceURL": "https://medlineplus.gov/genetics/condition/tuberous-sclerosis-complex/",
+      "collection": "GeneticConditions",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "neurofibromatosis-type-1",
+      "sourceURL": "https://medlineplus.gov/genetics/condition/neurofibromatosis-type-1/",
+      "collection": "GeneticConditions",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "osteogenesis-imperfecta",
+      "sourceURL": "https://medlineplus.gov/genetics/condition/osteogenesis-imperfecta/",
+      "collection": "GeneticConditions",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "ehlers-danlos-syndrome",
+      "sourceURL": "https://medlineplus.gov/genetics/condition/ehlers-danlos-syndrome/",
+      "collection": "GeneticConditions",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "noonan-syndrome",
+      "sourceURL": "https://medlineplus.gov/genetics/condition/noonan-syndrome/",
+      "collection": "GeneticConditions",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "williams-syndrome",
+      "sourceURL": "https://medlineplus.gov/genetics/condition/williams-syndrome/",
+      "collection": "GeneticConditions",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "prader-willi-syndrome",
+      "sourceURL": "https://medlineplus.gov/genetics/condition/prader-willi-syndrome/",
+      "collection": "GeneticConditions",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "angelman-syndrome",
+      "sourceURL": "https://medlineplus.gov/genetics/condition/angelman-syndrome/",
+      "collection": "GeneticConditions",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "fragile-x-syndrome",
+      "sourceURL": "https://medlineplus.gov/genetics/condition/fragile-x-syndrome/",
+      "collection": "GeneticConditions",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "rett-syndrome",
+      "sourceURL": "https://medlineplus.gov/genetics/condition/rett-syndrome/",
+      "collection": "GeneticConditions",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "22q112-deletion-syndrome",
+      "sourceURL": "https://medlineplus.gov/genetics/condition/22q112-deletion-syndrome/",
+      "collection": "GeneticConditions",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "achondroplasia",
+      "sourceURL": "https://medlineplus.gov/genetics/condition/achondroplasia/",
+      "collection": "GeneticConditions",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "klinefelter-syndrome",
+      "sourceURL": "https://medlineplus.gov/genetics/condition/klinefelter-syndrome/",
+      "collection": "GeneticConditions",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "phenylketonuria",
+      "sourceURL": "https://medlineplus.gov/genetics/condition/phenylketonuria/",
+      "collection": "GeneticConditions",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "galactosemia",
+      "sourceURL": "https://medlineplus.gov/genetics/condition/galactosemia/",
+      "collection": "GeneticConditions",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "medium-chain-acyl-coa-dehydrogenase-deficiency",
+      "sourceURL": "https://medlineplus.gov/genetics/condition/medium-chain-acyl-coa-dehydrogenase-deficiency/",
+      "collection": "GeneticConditions",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "maple-syrup-urine-disease",
+      "sourceURL": "https://medlineplus.gov/genetics/condition/maple-syrup-urine-disease/",
+      "collection": "GeneticConditions",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "ornithine-transcarbamylase-deficiency",
+      "sourceURL": "https://medlineplus.gov/genetics/condition/ornithine-transcarbamylase-deficiency/",
+      "collection": "GeneticConditions",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "hereditary-hemorrhagic-telangiectasia",
+      "sourceURL": "https://medlineplus.gov/genetics/condition/hereditary-hemorrhagic-telangiectasia/",
+      "collection": "GeneticConditions",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "von-hippel-lindau-syndrome",
+      "sourceURL": "https://medlineplus.gov/genetics/condition/von-hippel-lindau-syndrome/",
+      "collection": "GeneticConditions",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "lynch-syndrome",
+      "sourceURL": "https://medlineplus.gov/genetics/condition/lynch-syndrome/",
+      "collection": "GeneticConditions",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "familial-adenomatous-polyposis",
+      "sourceURL": "https://medlineplus.gov/genetics/condition/familial-adenomatous-polyposis/",
+      "collection": "GeneticConditions",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "li-fraumeni-syndrome",
+      "sourceURL": "https://medlineplus.gov/genetics/condition/li-fraumeni-syndrome/",
+      "collection": "GeneticConditions",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A",
+      "relatedEntryIDs": [
+        "reference:test-guide-tp53-genetic-test"
+      ]
+    },
+    {
+      "slug": "primary-ciliary-dyskinesia",
+      "sourceURL": "https://medlineplus.gov/genetics/condition/primary-ciliary-dyskinesia/",
+      "collection": "GeneticConditions",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A",
+      "relatedEntryIDs": [
+        "procedure:airway-clearance-therapy"
+      ]
+    },
+    {
+      "slug": "neurofibromatosis-type-2",
+      "sourceURL": "https://medlineplus.gov/genetics/condition/neurofibromatosis-type-2/",
+      "collection": "GeneticConditions",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A"
+    },
+    {
+      "slug": "usher-syndrome",
+      "sourceURL": "https://medlineplus.gov/genetics/condition/usher-syndrome/",
+      "collection": "GeneticConditions",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A",
+      "relatedEntryIDs": [
+        "reference:test-guide-hearing-tests-for-adults"
+      ]
+    },
+    {
+      "slug": "fall-risk-assessment",
+      "sourceURL": "https://medlineplus.gov/lab-tests/fall-risk-assessment/",
+      "collection": "NeurologySensory",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "reference:morse-falls",
+        "reference:fall-fracture-prevention"
+      ],
+      "batch": "2026-09-17-topic-icons"
+    },
+    {
+      "slug": "helicobacter-pylori-h-pylori-tests",
+      "sourceURL": "https://medlineplus.gov/lab-tests/helicobacter-pylori-h-pylori-tests/",
+      "collection": "Gastrointestinal",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "lab:h-pylori-stool-antigen"
+      ],
+      "batch": "2026-09-17-topic-icons"
+    },
+    {
+      "slug": "cytomegalovirus-cmv-tests",
+      "sourceURL": "https://medlineplus.gov/lab-tests/cytomegalovirus-cmv-tests/",
+      "collection": "InfectiousDisease",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A",
+      "relatedEntryIDs": [
+        "lab:cmv-viral-load",
+        "reference:kidney-transplant-follow-up"
+      ],
+      "batch": "2026-09-17-topic-icons"
+    },
+    {
+      "slug": "bone-marrow-tests",
+      "sourceURL": "https://medlineplus.gov/lab-tests/bone-marrow-tests/",
+      "collection": "Hematology",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "procedure:bone-marrow-biopsy",
+        "reference:test-guide-complete-blood-count-cbc"
+      ],
+      "batch": "2026-09-17-topic-icons"
+    },
+    {
+      "slug": "obesity-screening",
+      "sourceURL": "https://medlineplus.gov/lab-tests/obesity-screening/",
+      "collection": "DiagnosticPreparation",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A",
+      "relatedEntryIDs": [
+        "reference:bedside-nutrition-assessment"
+      ],
+      "batch": "2026-09-17-topic-icons"
+    },
+    {
+      "slug": "vision-screening",
+      "sourceURL": "https://medlineplus.gov/lab-tests/vision-screening/",
+      "collection": "NeurologySensory",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A",
+      "relatedEntryIDs": [
+        "reference:visual-acuity-testing",
+        "reference:test-guide-glaucoma-tests"
+      ],
+      "batch": "2026-09-17-topic-icons"
+    },
+    {
+      "slug": "opioid-testing",
+      "sourceURL": "https://medlineplus.gov/lab-tests/opioid-testing/",
+      "collection": "DiagnosticPreparation",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "B",
+      "relatedEntryIDs": [
+        "lab:urine-drug-screen"
+      ],
+      "batch": "2026-09-17-topic-icons"
+    },
+    {
+      "slug": "tricyclic-antidepressant-tca-screen",
+      "sourceURL": "https://medlineplus.gov/lab-tests/tricyclic-antidepressant-tca-screen/",
+      "collection": "DiagnosticPreparation",
+      "clinicalReviewStatus": "pending",
+      "reviewTier": "A",
+      "relatedEntryIDs": [
+        "diagnosis:tca-toxicity"
+      ],
+      "batch": "2026-09-17-topic-icons"
+    }
+  ],
+  "excludedDuringCuration": [
+    {
+      "slug": "tumor-marker-tests",
+      "reason": "General marker overlap with existing monographs; source table also labels beta-2 microglobulin as macroglobulin. Dedicated NLM beta-2 microglobulin guide retained."
+    },
+    {
+      "slug": "multiple-endocrine-neoplasia-type-1",
+      "reason": "Existing diagnosis:men-1."
+    },
+    {
+      "slug": "multiple-endocrine-neoplasia-type-2",
+      "reason": "Existing diagnosis:men-2."
+    }
+  ]
+}

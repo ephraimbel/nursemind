@@ -1,0 +1,24 @@
+{
+  "title": "Rapid Tests",
+  "sourceUpdated": "Last updated September 4, 2024",
+  "sections": [
+    {
+      "title": "What are rapid tests?",
+      "text": "Rapid tests, also known as rapid diagnostic tests or RDTs, are easy-to-use tests that provide quick results, usually in 20 minutes or less. Most standard tests have to be sent to a lab, and you have to wait for the results. With a rapid test, you can have the test done and get the results at your provider's office or a clinic. For some of these tests, you can also do them and get the results at home.\n\nRapids tests usually include the following steps:\n\n• You provide a sample of your body fluid, such as blood, urine, saliva, or nasal secretions.\n• The sample is mixed with a special substance that will cause a chemical reaction if a disease or other condition is present.\n• The results show on a dipstick or rapid test cassette:\n  • A dipstick is a thin, plastic strip coated with chemicals. If the test is positive, the dipstick will change color when placed in the sample.\n  • A rapid test cassette is a small plastic case with a well that holds the sample. The well shows a letter or a symbol to indicate the result.\n\nMost rapid tests can provide quick, reliable results, but the results are not always as accurate as standard lab tests. The accuracy of your test results may be affected by:\n\n• The type of test used\n• How the test is stored and transported\n• The type of specimen taken\n• Your symptoms\n• When your symptoms started\n• What you are testing for\n• Using a test that is past its expiration date\n\nOther names: rapid diagnostic tests, RDT's point-of-care tests"
+    },
+    {
+      "title": "How are they used?",
+      "text": "Rapid tests are most often used to diagnose infectious diseases, including:\n\n• Flu.\n• Strep throat.\n• Malaria.\n• HIV.\n• COVID 19. Rapid tests for COVID-19 usually provide results in about 30 minutes.\n\nRapid tests are also used in certain home-based tests, such as pregnancy tests."
+    },
+    {
+      "title": "What are the advantages and disadvantages of rapid tests?",
+      "text": "The advantages of rapid tests include:\n\n• Fast results. This may allow you to get treatment faster. Faster treatment can reduce the severity of your symptoms and may help prevent the spread of disease.\n• Easy to use. They can be done by non-medical workers and volunteers who have been trained to do the test. You may even be able to perform a rapid test on yourself.\n• Little or no special equipment is required. This is especially useful in areas with limited resources or access to specialized labs.\n\nThe disadvantages of rapid tests include:\n\n• Lower sensitivity than lab tests. Sensitivity means how well a test can identify a disease or condition. Rapid tests are not as good as lab tests at finding diseases in the earliest stages of infection.\n• False negatives are more common. A false negative result means your test shows you don't have a disease or condition, but you actually do have it.\n\nBecause of these possible disadvantages, the instructions for some tests (such as over-the-counter COVID-19 tests) recommend doing the test again after a certain period of time if you got a negative result. A negative result means that the test showed that you don't have the disease.\n\nYour health care provider may take a second sample and send it to a lab for testing to confirm or rule out the results of a rapid test. But you may still be able to get treatment and help prevent the spread of disease while you wait for lab results."
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/lab-tests/rapid-tests/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "74d4c7af465538ea721ff44a428be65c83f88df47c6c987daac5e397ad713bc5",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace and list formatting only. Not clinical review."
+}

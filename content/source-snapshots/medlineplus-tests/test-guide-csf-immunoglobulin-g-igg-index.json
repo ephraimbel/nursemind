@@ -1,0 +1,44 @@
+{
+  "title": "CSF Immunoglobulin G (IgG) Index",
+  "sourceUpdated": "Last updated May 21, 2025",
+  "sections": [
+    {
+      "title": "What is a CSF IgG index?",
+      "text": "CSF stands for cerebrospinal fluid. IgG stands for immunoglobulin G. It is a type of antibody. Antibodies are proteins that your immune system makes to fight germs. A CSF IgG index measures the levels of IgG in your cerebrospinal fluid.\n\nCSF is a clear, colorless fluid that flows in and around your brain and spinal cord. Your brain and spinal cord make up your central nervous system. Cerebrospinal fluid cushions your central nervous system from impact or injury. It also removes waste products from the brain and helps your central nervous system work right.\n\nNormally you have a tiny amount of IgG in your cerebrospinal fluid. High levels of IgG may mean you have an infection or an inflammatory or autoimmune disease that involves your central nervous system. An autoimmune disorder causes your immune system to attack your own healthy cells by mistake, which can lead to serious health problems.\n\nOther names: cerebrospinal fluid IgG level, cerebrospinal fluid IgG measurement, CSF IgG level, IgG (Immunoglobulin G) spinal fluid, IgG synthesis rate"
+    },
+    {
+      "title": "What is it used for?",
+      "text": "A CSF IgG index is used to check for diseases of the central nervous system. It is often used to help diagnose multiple sclerosis (MS). MS is a chronic (long-lasting) autoimmune disorder that attacks the outside covering of your nerves.\n\nMost people with MS have higher than normal levels of IgG. But a CSF IgG test alone can't diagnose MS."
+    },
+    {
+      "title": "Why do I need a CSF IgG index?",
+      "text": "You may need a CSF IgG index if you have symptoms of a central nervous system disorder, especially multiple sclerosis (MS). The symptoms of MS often vary. They may come and go or steadily get worse. They include:\n\n• Blurred or double vision\n• Tingling, numbness, or pain in the arms, legs, body, or face\n• Painful muscle spasms\n• Weak muscles, often in the hands and legs\n• Dizziness\n• Problems with balance and walking\n• Bladder control problems\n• Fatigue\n• Problems with thinking or memory"
+    },
+    {
+      "title": "What happens during a CSF IgG index?",
+      "text": "To get a sample of cerebrospinal fluid, a provider will do a procedure called a spinal tap, also known as a lumbar puncture. A spinal tap is usually done in a hospital. During the procedure:\n\n• You will lie on your side or sit on an exam table.\n• A provider will clean your back and inject an anesthetic into your skin, so you won't feel pain during the procedure. Your provider may put a numbing cream on your back before this injection.\n• When the area on your back is completely numb, your provider will insert a thin, hollow needle between two vertebrae in your lower spine. Vertebrae are the small backbones that make up your spine.\n• Your provider will withdraw a small amount of cerebrospinal fluid for testing. This will take about five minutes.\n• You'll need to stay very still while the fluid is being withdrawn.\n• Your provider may ask you to lie on your back for an hour or two after the procedure. This may prevent you from getting a headache afterward."
+    },
+    {
+      "title": "Will I need to do anything to prepare for the test?",
+      "text": "You don't need any special preparations for a CSF IgG index, but you may be asked to empty your bladder (pee) and bowels (poop) before the test."
+    },
+    {
+      "title": "Are there any risks to the test?",
+      "text": "There is very little risk to having a spinal tap. You may feel a little pinch or pressure when the needle is inserted. After the test, you may feel some pain or tenderness in your back at the site where the needle was inserted.\n\nYou may also have some bleeding at the site or get a headache. The headache may last for several hours or up to a week or more. Your provider may suggest treatment to help relieve the pain."
+    },
+    {
+      "title": "What do the results mean?",
+      "text": "A CSF IgG index that's higher than normal may be a sign of an infection or an inflammatory or autoimmune condition that affects your central nervous system, such as:\n\n• Multiple sclerosis\n• Transverse myelitis (TM)\n• Syphilis that infects your nervous system (neurosyphilis)\n• Connective tissue disorders\n• Guillain-Barre syndrome\n• Encephalitis caused by herpes simplex\n\nYou may need more tests before your provider can diagnose your condition.\n\nA CSF IgG index that's lower than normal may be a sign that your body is unable to make enough IgG antibodies, and you are likely to get sick with infections. Experts don't know what causes this problem. Normally, a test of IgG levels in blood is used to check whether you may lack IgG antibodies.\n\nIf you have questions about your results, talk with your provider.\n\nLearn more about laboratory tests, reference ranges, and understanding results."
+    },
+    {
+      "title": "Is there anything else I need to know about a CSF IgG index?",
+      "text": "The CSF IgG index is often used to help diagnose multiple sclerosis (MS), but there is no specific test for MS. If your provider thinks you have MS, you will probably have other tests to help diagnose or rule out the disease.\n\nWhile there is no cure for MS, there are many treatments available that can relieve symptoms and help keep it from getting worse."
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/lab-tests/csf-immunoglobulin-g-igg-index/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "e798fd08fc823f542a5abe296a5e642decadffffb96034a07cf6ac8ea0a73a57",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace and list formatting only. Not clinical review."
+}

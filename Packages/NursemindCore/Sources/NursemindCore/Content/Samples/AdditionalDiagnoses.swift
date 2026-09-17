@@ -1,5 +1,15 @@
 import Foundation
 
+private let bedside_shea_2022 = CitationSource(
+    id: "bedside_shea_2022",
+    shortName: "SHEA/IDSA/APIC — Pneumonia prevention, 2022 update",
+    detail: "Klompas M et al. Infect Control Hosp Epidemiol. 2022;43:687–713. doi:10.1017/ice.2022.88. Adult oral-care recommendations, manuscript pp. 11 and 14–15. CC BY 4.0; condensed by NurseMind.",
+    publisher: "Cambridge University Press / SHEA",
+    license: .ccBy4,
+    url: "https://stacks.cdc.gov/view/cdc/150381/cdc_150381_DS1.pdf",
+    lastRetrieved: "2026-09-17"
+)
+
 private let openrnMedSurg = CitationSource(
     id: "openrn_medsurg",
     shortName: "Open RN Health Alterations — relevant chapter",
@@ -171,7 +181,7 @@ public enum PneumoniaSample {
             AttributedBullet("Oxygen therapy to maintain SpO2 ≥92% (88–92% in COPD).", citationIDs: ["openrn_medsurg"]),
             AttributedBullet("Pulmonary hygiene: cough/deep breathe, incentive spirometry, ambulation, head of bed elevated.", citationIDs: ["openrn_medsurg"]),
             AttributedBullet("Fluids and antipyretics; hold if fluid-overloaded.", citationIDs: ["openrn_medsurg"]),
-            AttributedBullet("VAP prevention bundle: HOB 30–45°, oral chlorhexidine, daily SAT/SBT, peptic ulcer + DVT prophylaxis.", citationIDs: ["cdc_clinical"])
+            AttributedBullet("For mechanically ventilated adults, pneumonia-prevention guidance includes daily toothbrushing without routine oral chlorhexidine and strategies to minimize ventilation duration.", citationIDs: ["bedside_shea_2022"])
         ],
         watchFor: [
             AttributedBullet("Sepsis and septic shock — pneumonia is a common source.", citationIDs: ["openrn_medsurg"]),
@@ -179,7 +189,7 @@ public enum PneumoniaSample {
             AttributedBullet("Empyema or parapneumonic effusion — needs drainage.", citationIDs: ["openrn_medsurg"]),
             AttributedBullet("Older adults with pneumonia: confusion, falls, dehydration as primary presentation; high mortality.", citationIDs: ["openrn_medsurg"])
         ],
-        citations: [openrnMedSurg, cdc],
+        citations: [openrnMedSurg, cdc, bedside_shea_2022],
         lastSourceFidelityReview: "2026-05-03"
     )
 }

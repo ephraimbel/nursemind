@@ -1,0 +1,728 @@
+{
+  "created": "2026-09-17",
+  "status": "pending_independent_clinical_review",
+  "publication": "local_development_only",
+  "scope": "Specialty support depth; source comparison is not clinical approval.",
+  "sources": {
+    "bronch_daily": {
+      "id": "depth6_bronch_daily",
+      "title": "Bronchiectasis: Living With",
+      "url": "https://www.nhlbi.nih.gov/health/bronchiectasis/living-with",
+      "detail": "Ongoing care, infection prevention, activity and emotional health; updated October 29, 2023. Original federal health-education prose adapted and condensed by NurseMind. Images, logos, videos, formatted handouts and linked third-party material excluded.",
+      "publisher": "National Heart, Lung, and Blood Institute; National Institutes of Health; U.S. Department of Health and Human Services"
+    },
+    "bronch_clearance": {
+      "id": "depth6_bronch_clearance",
+      "title": "Bronchiectasis: Treatment",
+      "url": "https://www.nhlbi.nih.gov/health/bronchiectasis/treatment",
+      "detail": "Chest physical therapy and airway-clearance techniques; updated October 29, 2023. Drug regimens, antibiotic durations and head-down positioning instructions excluded. Original federal health-education prose adapted and condensed by NurseMind. Images, logos, videos, formatted handouts and linked third-party material excluded.",
+      "publisher": "National Heart, Lung, and Blood Institute; National Institutes of Health; U.S. Department of Health and Human Services"
+    },
+    "bronch_symptoms": {
+      "id": "depth6_bronch_symptoms",
+      "title": "Bronchiectasis: Symptoms",
+      "url": "https://www.nhlbi.nih.gov/health/bronchiectasis/symptoms",
+      "detail": "Daily symptoms and changes with exacerbations; updated October 27, 2023. Diagnostic time thresholds excluded. Original federal health-education prose adapted and condensed by NurseMind. Images, logos, videos, formatted handouts and linked third-party material excluded.",
+      "publisher": "National Heart, Lung, and Blood Institute; National Institutes of Health; U.S. Department of Health and Human Services"
+    },
+    "ipf_daily": {
+      "id": "depth6_ipf_daily",
+      "title": "Pulmonary Fibrosis: Living With",
+      "url": "https://www.nhlbi.nih.gov/health/idiopathic-pulmonary-fibrosis/living-with",
+      "detail": "Individual progression, follow-up, monitoring, daily activity and emotional support; updated March 24, 2022. No acute-treatment or oxygen-titration protocol. Original federal health-education prose adapted and condensed by NurseMind. Images, logos, videos, formatted handouts and linked third-party material excluded.",
+      "publisher": "National Heart, Lung, and Blood Institute; National Institutes of Health; U.S. Department of Health and Human Services"
+    },
+    "ph_daily": {
+      "id": "depth6_ph_daily",
+      "title": "Pulmonary Hypertension: Living With",
+      "url": "https://www.nhlbi.nih.gov/health/pulmonary-hypertension/living-with",
+      "detail": "Follow-up, monitoring, activity, travel and pregnancy discussions; updated March 24, 2022. No treatment-selection or pregnancy-management algorithm. Original federal health-education prose adapted and condensed by NurseMind. Images, logos, videos, formatted handouts and linked third-party material excluded.",
+      "publisher": "National Heart, Lung, and Blood Institute; National Institutes of Health; U.S. Department of Health and Human Services"
+    },
+    "ph_symptoms": {
+      "id": "depth6_ph_symptoms",
+      "title": "Pulmonary Hypertension: Symptoms",
+      "url": "https://www.nhlbi.nih.gov/health/pulmonary-hypertension/symptoms",
+      "detail": "Symptom changes and emergency assessment for chest pain with shortness of breath; updated March 24, 2022. Original federal health-education prose adapted and condensed by NurseMind. Images, logos, videos, formatted handouts and linked third-party material excluded.",
+      "publisher": "National Heart, Lung, and Blood Institute; National Institutes of Health; U.S. Department of Health and Human Services"
+    },
+    "sickle_daily": {
+      "id": "depth6_sickle_daily",
+      "title": "Living With Sickle Cell Disease",
+      "url": "https://www.nhlbi.nih.gov/health/sickle-cell-disease/living-with",
+      "detail": "Individual pain plans, access barriers, triggers and routine follow-up; updated August 22, 2024. Drug selection, pregnancy medication advice and pediatric spleen-examination instructions excluded. Original federal health-education prose adapted and condensed by NurseMind. Images, logos, videos, formatted handouts and linked third-party material excluded.",
+      "publisher": "National Heart, Lung, and Blood Institute; National Institutes of Health; U.S. Department of Health and Human Services"
+    },
+    "sickle_urgent": {
+      "id": "depth6_sickle_urgent",
+      "title": "Sickle Cell Disease: Symptoms",
+      "url": "https://www.nhlbi.nih.gov/health/sickle-cell-disease/symptoms",
+      "detail": "When to seek emergency medical care; updated August 20, 2024. Recognition and escalation only, without treatment orders. Original federal health-education prose adapted and condensed by NurseMind. Images, logos, videos, formatted handouts and linked third-party material excluded.",
+      "publisher": "National Heart, Lung, and Blood Institute; National Institutes of Health; U.S. Department of Health and Human Services"
+    },
+    "bleeding_daily": {
+      "id": "depth6_bleeding_daily",
+      "title": "Bleeding Disorders: Living With",
+      "url": "https://www.nhlbi.nih.gov/health/bleeding-disorders/living-with",
+      "detail": "Routine care, treatment-response monitoring, activity, procedure preparation, medicine review and reproductive care; updated August 7, 2023. Factor-replacement dosing and pediatric protocols excluded. Original federal health-education prose adapted and condensed by NurseMind. Images, logos, videos, formatted handouts and linked third-party material excluded.",
+      "publisher": "National Heart, Lung, and Blood Institute; National Institutes of Health; U.S. Department of Health and Human Services"
+    },
+    "thal_daily": {
+      "id": "depth6_thal_daily",
+      "title": "Thalassemia: Living With",
+      "url": "https://www.nhlbi.nih.gov/health/thalassemia/living-with",
+      "detail": "Iron overload, follow-up testing, splenectomy-related infection risk and care transitions; updated June 1, 2022. Fixed monitoring intervals excluded. Original federal health-education prose adapted and condensed by NurseMind. Images, logos, videos, formatted handouts and linked third-party material excluded.",
+      "publisher": "National Heart, Lung, and Blood Institute; National Institutes of Health; U.S. Department of Health and Human Services"
+    },
+    "thal_treatment": {
+      "id": "depth6_thal_treatment",
+      "title": "Thalassemia: Treatment",
+      "url": "https://www.nhlbi.nih.gov/health/thalassemia/treatment",
+      "detail": "Variation in transfusion needs, iron-chelation purpose and medicine-specific adverse effects; updated June 1, 2022. Doses, transfusion intervals, treatment selection and cure claims excluded. Original federal health-education prose adapted and condensed by NurseMind. Images, logos, videos, formatted handouts and linked third-party material excluded.",
+      "publisher": "National Heart, Lung, and Blood Institute; National Institutes of Health; U.S. Department of Health and Human Services"
+    },
+    "tinnitus": {
+      "id": "depth6_tinnitus",
+      "title": "Tinnitus",
+      "url": "https://www.nidcd.nih.gov/health/tinnitus",
+      "detail": "Symptoms, diagnosis, sound therapy, counseling and limits of supplements; updated May 1, 2023. Original federal health-education prose adapted and condensed by NurseMind. Images, logos, videos, formatted handouts and linked third-party material excluded.",
+      "publisher": "National Institute on Deafness and Other Communication Disorders; National Institutes of Health"
+    },
+    "balance": {
+      "id": "depth6_balance",
+      "title": "Balance Disorders",
+      "url": "https://www.nidcd.nih.gov/health/balance-disorders",
+      "detail": "Symptom history, medicine contributors, vestibular rehabilitation and daily fall prevention; updated March 6, 2018. Diagnostic maneuvers and medicine selection excluded. Original federal health-education prose adapted and condensed by NurseMind. Images, logos, videos, formatted handouts and linked third-party material excluded.",
+      "publisher": "National Institute on Deafness and Other Communication Disorders; National Institutes of Health"
+    },
+    "stroke_warning": {
+      "id": "depth6_stroke_warning",
+      "title": "Signs and Symptoms of Stroke",
+      "url": "https://www.cdc.gov/stroke/signs-symptoms/index.html",
+      "detail": "Sudden symptoms and immediate emergency response; May 19, 2026. Treatment windows, mnemonic graphics and treatment eligibility excluded. Original federal health-education prose adapted and condensed by NurseMind. Images, logos, videos, formatted handouts and linked third-party material excluded.",
+      "publisher": "Centers for Disease Control and Prevention"
+    },
+    "smell": {
+      "id": "depth6_smell",
+      "title": "Smell Disorders",
+      "url": "https://www.nidcd.nih.gov/health/smell-disorders",
+      "detail": "Evaluation, reduced hazard detection, eating changes and emotional effects; updated July 31, 2023. Original federal health-education prose adapted and condensed by NurseMind. Images, logos, videos, formatted handouts and linked third-party material excluded.",
+      "publisher": "National Institute on Deafness and Other Communication Disorders; National Institutes of Health"
+    },
+    "taste": {
+      "id": "depth6_taste",
+      "title": "Taste Disorders",
+      "url": "https://www.nidcd.nih.gov/health/taste-disorders",
+      "detail": "Assessment, oral health, medicine review and food adaptations; updated July 31, 2023. Home diagnostic tests and supplement regimens excluded. Original federal health-education prose adapted and condensed by NurseMind. Images, logos, videos, formatted handouts and linked third-party material excluded.",
+      "publisher": "National Institute on Deafness and Other Communication Disorders; National Institutes of Health"
+    },
+    "hs_overview": {
+      "id": "depth6_hs_overview",
+      "title": "Hidradenitis Suppurativa: Overview, Symptoms and Causes",
+      "url": "https://www.niams.nih.gov/health-topics/hidradenitis-suppurativa-hs",
+      "detail": "Noncontagious inflammation, hygiene misconceptions, drainage and scarring; reviewed June 2022. Original federal health-education prose adapted and condensed by NurseMind. Images, logos, videos, formatted handouts and linked third-party material excluded.",
+      "publisher": "National Institute of Arthritis and Musculoskeletal and Skin Diseases; National Institutes of Health"
+    },
+    "hs_daily": {
+      "id": "depth6_hs_daily",
+      "title": "Hidradenitis Suppurativa: Diagnosis, Treatment and Steps to Take",
+      "url": "https://www.niams.nih.gov/health-topics/hidradenitis-suppurativa-hs/diagnosis-treatment-and-steps-to-take",
+      "detail": "Individualized follow-up, comfort and emotional support; reviewed June 2022. Counts of approved biologics, medicine selection and bleach-bath recipes excluded. Original federal health-education prose adapted and condensed by NurseMind. Images, logos, videos, formatted handouts and linked third-party material excluded.",
+      "publisher": "National Institute of Arthritis and Musculoskeletal and Skin Diseases; National Institutes of Health"
+    },
+    "sudden_hearing": {
+      "id": "depth6_sudden_hearing",
+      "title": "Sudden Deafness",
+      "url": "https://www.nidcd.nih.gov/health/sudden-deafness",
+      "detail": "Recognition of sudden hearing loss as a medical emergency; updated September 14, 2018. Drug treatment and audiometric diagnostic thresholds excluded. Original federal health-education prose adapted and condensed by NurseMind. Images, logos, videos, formatted handouts and linked third-party material excluded.",
+      "publisher": "National Institute on Deafness and Other Communication Disorders; National Institutes of Health"
+    }
+  },
+  "entries": [
+    {
+      "id": "reference:bronchiectasis-daily-airway-care",
+      "title": "Bronchiectasis: daily airway care",
+      "file": "ChronicLungContinuityReferences.swift",
+      "proposedReviewTier": "B",
+      "clinicalReviewStatus": "pending",
+      "reviewer": null,
+      "clinicalReviewDate": null,
+      "sourceFidelityChecked": "2026-09-17",
+      "claims": [
+        {
+          "section": "Understand the clearance plan",
+          "text": "Airway clearance helps move retained mucus so it can be coughed out. Options include breathing and coughing techniques, handheld devices, therapy vests and chest physical therapy.",
+          "citationID": "depth6_bronch_clearance"
+        },
+        {
+          "section": "Understand the clearance plan",
+          "text": "A respiratory therapist can teach the prescribed technique. Chest percussion may also be performed by a trained family member; device choice and technique should fit the person.",
+          "citationID": "depth6_bronch_clearance"
+        },
+        {
+          "section": "Notice changes from usual symptoms",
+          "text": "Establish the usual cough, sputum and activity tolerance. Increased breathlessness or wheeze can accompany a flare-up.",
+          "citationID": "depth6_bronch_symptoms"
+        },
+        {
+          "section": "Notice changes from usual symptoms",
+          "text": "Include fever, chills, chest discomfort, fatigue and blood in sputum in the symptom history; these can occur with bronchiectasis and its complications.",
+          "citationID": "depth6_bronch_symptoms"
+        },
+        {
+          "section": "Support ongoing care",
+          "text": "Keep contact with the lung-care team and respiratory therapist. Discuss recommended vaccines and hand hygiene to reduce infection risk.",
+          "citationID": "depth6_bronch_daily"
+        },
+        {
+          "section": "Support ongoing care",
+          "text": "Discuss safe activity with the clinician. Avoid smoking, secondhand smoke and irritating fumes; physical activity can also help loosen mucus.",
+          "citationID": "depth6_bronch_daily"
+        },
+        {
+          "section": "Include emotional health",
+          "text": "Ask how chronic cough and breathlessness affect mood and daily life. Anxiety or depression deserves discussion with the healthcare team.",
+          "citationID": "depth6_bronch_daily"
+        },
+        {
+          "section": "Include emotional health",
+          "text": "Counseling, patient groups and support from family or friends may help. Invite the person to identify the help they would find useful.",
+          "citationID": "depth6_bronch_daily"
+        }
+      ]
+    },
+    {
+      "id": "reference:ipf-daily-care-follow-up",
+      "title": "Idiopathic pulmonary fibrosis: daily support",
+      "file": "ChronicLungContinuityReferences.swift",
+      "proposedReviewTier": "A",
+      "clinicalReviewStatus": "pending",
+      "reviewer": null,
+      "clinicalReviewDate": null,
+      "sourceFidelityChecked": "2026-09-17",
+      "claims": [
+        {
+          "section": "Plan individualized follow-up",
+          "text": "IPF progression differs between people and cannot be predicted precisely. Agree on follow-up and a plan for recognizing changes with the lung-care team.",
+          "citationID": "depth6_ipf_daily"
+        },
+        {
+          "section": "Plan individualized follow-up",
+          "text": "Monitoring may include lung-function tests, liver tests for medicine effects and selected imaging. The treating team determines which tests are needed and when.",
+          "citationID": "depth6_ipf_daily"
+        },
+        {
+          "section": "Recognize worsening",
+          "text": "A sudden worsening of symptoms over days or weeks needs prompt contact with the clinician. An IPF exacerbation can be life-threatening even without an obvious trigger.",
+          "citationID": "depth6_ipf_daily"
+        },
+        {
+          "section": "Recognize worsening",
+          "text": "Oxygen needs may change as disease progresses. Discuss activity and oxygen requirements with the team rather than assuming the earlier plan still fits.",
+          "citationID": "depth6_ipf_daily"
+        },
+        {
+          "section": "Make daily tasks manageable",
+          "text": "Pulmonary rehabilitation and appropriate physical activity can support strength and function. Ask about oxygen needs during activity.",
+          "citationID": "depth6_ipf_daily"
+        },
+        {
+          "section": "Make daily tasks manageable",
+          "text": "Smaller, more frequent meals may relieve stomach fullness that makes breathing harder. Avoid smoke, dust, chemicals and poor air quality.",
+          "citationID": "depth6_ipf_daily"
+        },
+        {
+          "section": "Support quality of life",
+          "text": "Fear, low mood, anxiety and sleep problems deserve attention. Counseling, support groups and help from family or friends can be part of care.",
+          "citationID": "depth6_ipf_daily"
+        },
+        {
+          "section": "Support quality of life",
+          "text": "Palliative care can help relieve serious symptoms and improve quality of life. Discuss this support with the treating team.",
+          "citationID": "depth6_ipf_daily"
+        }
+      ]
+    },
+    {
+      "id": "reference:pulmonary-hypertension-follow-up-support",
+      "title": "Pulmonary hypertension: follow-up planning",
+      "file": "ChronicLungContinuityReferences.swift",
+      "proposedReviewTier": "A",
+      "clinicalReviewStatus": "pending",
+      "reviewer": null,
+      "clinicalReviewDate": null,
+      "sourceFidelityChecked": "2026-09-17",
+      "claims": [
+        {
+          "section": "Follow the cause-specific plan",
+          "text": "Pulmonary-hypertension care depends on the cause and severity. Continue follow-up for associated heart disease, lung disease or sleep apnea.",
+          "citationID": "depth6_ph_daily"
+        },
+        {
+          "section": "Follow the cause-specific plan",
+          "text": "The team may monitor walking capacity, heart function, lung function and selected blood tests. Clarify the purpose of each planned assessment.",
+          "citationID": "depth6_ph_daily"
+        },
+        {
+          "section": "Report symptom changes",
+          "text": "Review changes in breathlessness, dizziness, fainting, fatigue or swelling of the abdomen, legs or feet with the treating team.",
+          "citationID": "depth6_ph_symptoms"
+        },
+        {
+          "section": "Report symptom changes",
+          "text": "Chest pain with shortness of breath needs emergency medical assessment. NHLBI advises seeking emergency care because these symptoms may reflect a heart attack or pulmonary embolism.",
+          "citationID": "depth6_ph_symptoms"
+        },
+        {
+          "section": "Prepare for activity and travel",
+          "text": "Ask the clinician which level of activity is appropriate before starting an exercise program. The plan should reflect the person’s condition.",
+          "citationID": "depth6_ph_daily"
+        },
+        {
+          "section": "Prepare for activity and travel",
+          "text": "Discuss flights and high-altitude travel with the clinician in advance. The team can advise about avoiding high-altitude exposure.",
+          "citationID": "depth6_ph_daily"
+        },
+        {
+          "section": "Coordinate longer-term needs",
+          "text": "Pregnancy can carry serious risks. Discuss pregnancy plans with the treating team in advance so counseling and care can be individualized.",
+          "citationID": "depth6_ph_daily"
+        },
+        {
+          "section": "Coordinate longer-term needs",
+          "text": "Review recommended vaccines and opportunities for education, counseling or patient support groups. Include how symptoms affect everyday activities.",
+          "citationID": "depth6_ph_daily"
+        }
+      ]
+    },
+    {
+      "id": "reference:sickle-cell-everyday-care-planning",
+      "title": "Sickle cell disease: everyday care and pain planning",
+      "file": "HematologyDailySupportReferences.swift",
+      "proposedReviewTier": "A",
+      "clinicalReviewStatus": "pending",
+      "reviewer": null,
+      "clinicalReviewDate": null,
+      "sourceFidelityChecked": "2026-09-17",
+      "claims": [
+        {
+          "section": "Build the plan before pain increases",
+          "text": "Develop an individual pain action plan with the treating team before a crisis. Clarify how to access the sickle-cell clinic or emergency department when home measures are insufficient.",
+          "citationID": "depth6_sickle_daily"
+        },
+        {
+          "section": "Build the plan before pain increases",
+          "text": "Ask about barriers to obtaining medicines and care. Stigma, bias and poor access can delay treatment and contribute to more severe pain and hospitalization.",
+          "citationID": "depth6_sickle_daily"
+        },
+        {
+          "section": "Support everyday routines",
+          "text": "Review the prescribed medicine plan, routine visits and recommended vaccines. These remain important between pain episodes.",
+          "citationID": "depth6_sickle_daily"
+        },
+        {
+          "section": "Support everyday routines",
+          "text": "Avoid dehydration and extreme or abrupt temperature changes. Discuss suitable activity, sleep and stress management with the healthcare team.",
+          "citationID": "depth6_sickle_daily"
+        },
+        {
+          "section": "Identify symptoms needing urgent care",
+          "text": "Severe pain, chest pain, breathing difficulty or marked fatigue with dizziness or an irregular heartbeat need immediate medical assessment. New one-sided weakness or trouble speaking, seeing or walking requires emergency response.",
+          "citationID": "depth6_sickle_urgent"
+        },
+        {
+          "section": "Identify symptoms needing urgent care",
+          "text": "NHLBI identifies fever above 101.3°F (38.5°C) as requiring immediate medical attention. An erection lasting 4 hours or longer is also an emergency; do not wait for a routine appointment.",
+          "citationID": "depth6_sickle_urgent"
+        },
+        {
+          "section": "Include emotional support",
+          "text": "Discuss depression, anxiety and stress with the healthcare team. Counseling and support from family or friends may help.",
+          "citationID": "depth6_sickle_daily"
+        },
+        {
+          "section": "Include emotional support",
+          "text": "Use follow-up visits to review how the plan works in everyday life. Continued difficulty reaching care or obtaining medicines needs attention.",
+          "citationID": "depth6_sickle_daily"
+        }
+      ]
+    },
+    {
+      "id": "reference:bleeding-disorder-procedure-planning",
+      "title": "Bleeding disorders: procedure and daily-care planning",
+      "file": "HematologyDailySupportReferences.swift",
+      "proposedReviewTier": "A",
+      "clinicalReviewStatus": "pending",
+      "reviewer": null,
+      "clinicalReviewDate": null,
+      "sourceFidelityChecked": "2026-09-17",
+      "claims": [
+        {
+          "section": "Coordinate before a procedure",
+          "text": "Tell healthcare professionals and dentists about the bleeding disorder. Discuss the emergency plan with the people who may need to help.",
+          "citationID": "depth6_bleeding_daily"
+        },
+        {
+          "section": "Coordinate before a procedure",
+          "text": "Before surgery, coordinate with the treating team about bleeding risks and any planned preventive treatment. The approach depends on the specific disorder and procedure.",
+          "citationID": "depth6_bleeding_daily"
+        },
+        {
+          "section": "Review medicines and treatment response",
+          "text": "Check prescription and over-the-counter medicines with the clinician or pharmacist. Aspirin and some other pain medicines can increase bleeding risk.",
+          "citationID": "depth6_bleeding_daily"
+        },
+        {
+          "section": "Review medicines and treatment response",
+          "text": "Report changes in symptoms or a treatment that seems less effective. With factor replacement, antibodies may reduce treatment response and require specialist testing.",
+          "citationID": "depth6_bleeding_daily"
+        },
+        {
+          "section": "Support activity and joint health",
+          "text": "Discuss ways to remain active while reducing bleeding risk. The safest activities depend on the person’s condition.",
+          "citationID": "depth6_bleeding_daily"
+        },
+        {
+          "section": "Support activity and joint health",
+          "text": "Repeated joint bleeding can cause lasting pain and damage. The treating team may coordinate physical therapy and an individualized pain plan.",
+          "citationID": "depth6_bleeding_daily"
+        },
+        {
+          "section": "Keep care coordinated",
+          "text": "Ongoing follow-up matters even without current symptoms. Hemophilia treatment centers also support people with other bleeding disorders.",
+          "citationID": "depth6_bleeding_daily"
+        },
+        {
+          "section": "Keep care coordinated",
+          "text": "Heavy menstrual bleeding and pregnancy or postpartum bleeding need specific planning. Hemophilia carriers may have bleeding complications even when other symptoms are limited.",
+          "citationID": "depth6_bleeding_daily"
+        }
+      ]
+    },
+    {
+      "id": "reference:thalassemia-treatment-monitoring-support",
+      "title": "Thalassemia: treatment and monitoring support",
+      "file": "HematologyDailySupportReferences.swift",
+      "proposedReviewTier": "B",
+      "clinicalReviewStatus": "pending",
+      "reviewer": null,
+      "clinicalReviewDate": null,
+      "sourceFidelityChecked": "2026-09-17",
+      "claims": [
+        {
+          "section": "Clarify the individual treatment plan",
+          "text": "Treatment needs vary by thalassemia type and severity. Some carriers need no treatment; others need occasional or regular transfusions.",
+          "citationID": "depth6_thal_treatment"
+        },
+        {
+          "section": "Clarify the individual treatment plan",
+          "text": "Regular transfusions can lead to iron overload. Iron chelation removes excess iron; transfusion and chelation have different purposes.",
+          "citationID": "depth6_thal_treatment"
+        },
+        {
+          "section": "Support medicine monitoring",
+          "text": "Chelation medicines have different adverse effects and monitoring needs. Review concerns about the prescribed product with the treating team.",
+          "citationID": "depth6_thal_treatment"
+        },
+        {
+          "section": "Support medicine monitoring",
+          "text": "Deferiprone can reduce white-cell counts; deferoxamine can affect vision and hearing. These risks require medicine-specific follow-up rather than one generic monitoring plan.",
+          "citationID": "depth6_thal_treatment"
+        },
+        {
+          "section": "Follow the organ-monitoring plan",
+          "text": "The team may check iron burden, liver and endocrine function, bone health and the heart. Keep the prescribed schedule for blood tests and imaging.",
+          "citationID": "depth6_thal_daily"
+        },
+        {
+          "section": "Follow the organ-monitoring plan",
+          "text": "People using deferoxamine need vision and hearing assessments. Iron overload can affect the heart, liver and endocrine system, making continued follow-up important.",
+          "citationID": "depth6_thal_daily"
+        },
+        {
+          "section": "Plan continuing care",
+          "text": "Review recommended vaccinations, especially after splenectomy, when infection risk is greater. Discuss nutrition needs and supplements with the clinician.",
+          "citationID": "depth6_thal_daily"
+        },
+        {
+          "section": "Plan continuing care",
+          "text": "Begin planning the transition from pediatric to adult services before the transfer. Continued access to the treatment and monitoring team is important.",
+          "citationID": "depth6_thal_daily"
+        }
+      ]
+    },
+    {
+      "id": "reference:tinnitus-assessment-coping-support",
+      "title": "Tinnitus: assessment and coping support",
+      "file": "SensorySymptomSupportReferences.swift",
+      "proposedReviewTier": "A",
+      "clinicalReviewStatus": "pending",
+      "reviewer": null,
+      "clinicalReviewDate": null,
+      "sourceFidelityChecked": "2026-09-17",
+      "claims": [
+        {
+          "section": "Recognize sudden hearing loss",
+          "text": "Sudden hearing loss, with or without tinnitus, needs immediate medical assessment. NIDCD describes sudden deafness as a medical emergency; do not assume the cause is earwax or allergies.",
+          "citationID": "depth6_sudden_hearing"
+        },
+        {
+          "section": "Describe the sound and its impact",
+          "text": "Record when the sound began, whether it affects one or both ears and whether it pulses with the heartbeat. Include effects on sleep, concentration and mood.",
+          "citationID": "depth6_tinnitus"
+        },
+        {
+          "section": "Describe the sound and its impact",
+          "text": "Review noise exposure, hearing changes, ear symptoms and medicines. Earwax, infection, hearing loss and medication effects are among possible contributors.",
+          "citationID": "depth6_tinnitus"
+        },
+        {
+          "section": "Support appropriate assessment",
+          "text": "Primary care can assess potential contributors and arrange ENT or audiology review. A hearing assessment may be part of the evaluation.",
+          "citationID": "depth6_tinnitus"
+        },
+        {
+          "section": "Support appropriate assessment",
+          "text": "Pulsating tinnitus may need imaging to investigate a structural or vascular cause. Report this pattern rather than assuming all tinnitus has the same explanation.",
+          "citationID": "depth6_tinnitus"
+        },
+        {
+          "section": "Discuss symptom-support options",
+          "text": "Sound from a bedside generator, fan or similar device may help relaxation and sleep. Hearing aids may help when hearing loss accompanies tinnitus.",
+          "citationID": "depth6_tinnitus"
+        },
+        {
+          "section": "Discuss symptom-support options",
+          "text": "Counseling and cognitive behavioral therapy can reduce distress and improve coping. The goal is to reduce the impact on daily life.",
+          "citationID": "depth6_tinnitus"
+        },
+        {
+          "section": "Set realistic expectations",
+          "text": "No medicine specifically treats tinnitus itself. Clinicians may treat associated anxiety, depression or sleep problems when appropriate.",
+          "citationID": "depth6_tinnitus"
+        },
+        {
+          "section": "Set realistic expectations",
+          "text": "Vitamins, herbs and supplements advertised as tinnitus cures have not been proven effective. Discuss persistent symptoms and their impact with the healthcare team.",
+          "citationID": "depth6_tinnitus"
+        }
+      ]
+    },
+    {
+      "id": "reference:balance-symptom-history-safety",
+      "title": "Balance problems: symptom history and safety",
+      "file": "SensorySymptomSupportReferences.swift",
+      "proposedReviewTier": "A",
+      "clinicalReviewStatus": "pending",
+      "reviewer": null,
+      "clinicalReviewDate": null,
+      "sourceFidelityChecked": "2026-09-17",
+      "claims": [
+        {
+          "section": "Separate sudden warning symptoms",
+          "text": "Sudden trouble walking, dizziness or loss of balance can be a stroke warning sign. Other signs include new vision changes, one-sided weakness, speech difficulty or a severe unexplained headache.",
+          "citationID": "depth6_stroke_warning"
+        },
+        {
+          "section": "Separate sudden warning symptoms",
+          "text": "CDC advises calling 911 immediately for stroke signs and noting when symptoms began. Symptoms that resolve still need immediate medical attention.",
+          "citationID": "depth6_stroke_warning"
+        },
+        {
+          "section": "Build a useful symptom history",
+          "text": "Describe spinning, faintness or unsteadiness; when it occurs; episode duration; and associated hearing changes, tinnitus or headache. Include falls and their circumstances.",
+          "citationID": "depth6_balance"
+        },
+        {
+          "section": "Build a useful symptom history",
+          "text": "Review prescription medicines, over-the-counter products and supplements. Medicines, blood-pressure changes, inner-ear problems and other conditions can contribute.",
+          "citationID": "depth6_balance"
+        },
+        {
+          "section": "Adapt everyday activity",
+          "text": "Discuss whether driving is safe and how to manage stairs, bathing and exercise. Avoid walking in darkness when dizzy.",
+          "citationID": "depth6_balance"
+        },
+        {
+          "section": "Adapt everyday activity",
+          "text": "Appropriate footwear, needed walking aids and environmental changes such as handrails can reduce injury risk.",
+          "citationID": "depth6_balance"
+        },
+        {
+          "section": "Follow the identified cause",
+          "text": "An ENT clinician, audiologist or other specialist may help determine the cause. Treatment for one balance disorder is not interchangeable with treatment for another.",
+          "citationID": "depth6_balance"
+        },
+        {
+          "section": "Follow the identified cause",
+          "text": "Vestibular rehabilitation can provide an individualized plan when symptoms persist. Some medicines used for dizziness or nausea cause drowsiness.",
+          "citationID": "depth6_balance"
+        }
+      ]
+    },
+    {
+      "id": "reference:smell-taste-safety-nutrition",
+      "title": "Smell and taste changes: safety and nutrition",
+      "file": "SensorySymptomSupportReferences.swift",
+      "proposedReviewTier": "B",
+      "clinicalReviewStatus": "pending",
+      "reviewer": null,
+      "clinicalReviewDate": null,
+      "sourceFidelityChecked": "2026-09-17",
+      "claims": [
+        {
+          "section": "Clarify what changed",
+          "text": "Describe reduced, absent or distorted smells and odors sensed without an external source. Include recent illness, head injury, chemical exposure and medicine changes.",
+          "citationID": "depth6_smell"
+        },
+        {
+          "section": "Clarify what changed",
+          "text": "Loss of smell can make familiar foods seem flavorless. Assessment may include an ENT examination, history and supervised smell testing.",
+          "citationID": "depth6_smell"
+        },
+        {
+          "section": "Recognize safety and nutrition effects",
+          "text": "Reduced smell can interfere with detecting smoke, gas leaks and spoiled food. Include this loss of warning information in home-safety discussions.",
+          "citationID": "depth6_smell"
+        },
+        {
+          "section": "Recognize safety and nutrition effects",
+          "text": "Changes in appetite and food enjoyment may lead to weight loss or gain. Excess salt added for flavor can complicate conditions such as hypertension or kidney disease.",
+          "citationID": "depth6_smell"
+        },
+        {
+          "section": "Support food enjoyment",
+          "text": "Try varied food colors and textures and permitted herbs or spices. Avoid compensating by adding extra sugar or salt.",
+          "citationID": "depth6_taste"
+        },
+        {
+          "section": "Support food enjoyment",
+          "text": "Oral hygiene and dental assessment matter. Dental problems and some medicines may contribute to altered taste.",
+          "citationID": "depth6_taste"
+        },
+        {
+          "section": "Coordinate evaluation and support",
+          "text": "Medication changes belong with the prescriber; do not stop a medicine independently because taste has changed. Treating an underlying condition may help.",
+          "citationID": "depth6_taste"
+        },
+        {
+          "section": "Coordinate evaluation and support",
+          "text": "Some changes improve, while persistent symptoms may need counseling and practical adaptation. Discuss loss of intake, weight changes or emotional distress with the clinician.",
+          "citationID": "depth6_taste"
+        }
+      ]
+    },
+    {
+      "id": "reference:hidradenitis-daily-skin-support",
+      "title": "Hidradenitis suppurativa: daily skin support",
+      "file": "InflammatorySkinSupportReferences.swift",
+      "proposedReviewTier": "B",
+      "clinicalReviewStatus": "pending",
+      "reviewer": null,
+      "clinicalReviewDate": null,
+      "sourceFidelityChecked": "2026-09-17",
+      "claims": [
+        {
+          "section": "Explain the condition without blame",
+          "text": "Hidradenitis suppurativa is a chronic inflammatory condition involving painful skin bumps and tunnels. It is not contagious and is not caused by poor hygiene.",
+          "citationID": "depth6_hs_overview"
+        },
+        {
+          "section": "Explain the condition without blame",
+          "text": "Lesions may drain, scar or form persistent open areas. Common sites include the axillae, groin, buttocks and areas beneath the breasts.",
+          "citationID": "depth6_hs_overview"
+        },
+        {
+          "section": "Support comfort",
+          "text": "Keep affected areas clean and choose comfortable clothing. Warm compresses may help comfort.",
+          "citationID": "depth6_hs_daily"
+        },
+        {
+          "section": "Support comfort",
+          "text": "Special measures such as bleach baths should be discussed with the clinician. This guide does not supply a dilution recipe or substitute for individual instructions.",
+          "citationID": "depth6_hs_daily"
+        },
+        {
+          "section": "Maintain follow-up",
+          "text": "Early treatment can help manage symptoms and reduce new lesions. More extensive or difficult disease may need dermatology care.",
+          "citationID": "depth6_hs_daily"
+        },
+        {
+          "section": "Maintain follow-up",
+          "text": "Treatment depends on lesion severity, extent and complications. Discuss persistent pain and daily limitations with the treating clinician.",
+          "citationID": "depth6_hs_daily"
+        },
+        {
+          "section": "Include broader support",
+          "text": "Offer support for smoking cessation and healthy weight when relevant. These are parts of care, without assigning blame for the condition.",
+          "citationID": "depth6_hs_daily"
+        },
+        {
+          "section": "Include broader support",
+          "text": "Counseling and patient support groups may help with the emotional burden. Invite discussion of how symptoms affect quality of life.",
+          "citationID": "depth6_hs_daily"
+        }
+      ]
+    }
+  ],
+  "legacyCorrections": {
+    "sources": [
+      {
+        "id": "depth6_esc_ph",
+        "shortName": "ESC: PH due to heart or lung disease",
+        "detail": "Pulmonary hypertension definition and therapeutic management of Group 3 PH; August 4, 2026. Clinical facts paraphrased; no tables, figures, algorithms or source prose reproduced.",
+        "publisher": "European Society of Cardiology",
+        "license": "factCitationOnly",
+        "url": "https://www.escardio.org/communities/councils/cardiology-practice/education/cardiopractice/diagnosis-and-management-of-pulmonary-hypertension-due-to-left-heart-disease-or-pulmonary-disease/"
+      },
+      {
+        "id": "depth6_ats_ipf",
+        "shortName": "ATS/ERS/JRS/ALAT: IPF guideline update",
+        "detail": "Evidence-based recommendations for treatment of IPF: antacid medication and GERD; May 1, 2022. Conditional recommendation with very low-quality evidence. Facts paraphrased from this society guideline; no PMC article text, tables or algorithms reproduced.",
+        "publisher": "American Thoracic Society; European Respiratory Society; Japanese Respiratory Society; ALAT",
+        "license": "factCitationOnly",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9851481/"
+      },
+      {
+        "id": "depth6_cdc_adult_vaccines",
+        "shortName": "CDC adult immunization schedule by indication",
+        "detail": "How to use the schedule: age, medical conditions, intervals, precautions and updated guidance. Page dated July 2, 2025, retrieved September 17, 2026. Attribution is to the planning principles; no schedule table or patient-specific vaccine schedule reproduced.",
+        "publisher": "Centers for Disease Control and Prevention",
+        "license": "publicDomain",
+        "url": "https://www.cdc.gov/vaccines/hcp/imz-schedules/adult-medical-condition.html"
+      }
+    ],
+    "entries": [
+      {
+        "id": "diagnosis:ipf",
+        "clinicalReviewStatus": "pending",
+        "proposedReviewTier": "A",
+        "scope": "Specific corrected statements only; older whole-entry review date retained."
+      },
+      {
+        "id": "diagnosis:pulmonary-hypertension",
+        "clinicalReviewStatus": "pending",
+        "proposedReviewTier": "A",
+        "scope": "Specific corrected statements only; older whole-entry review date retained."
+      },
+      {
+        "id": "diagnosis:bronchiectasis",
+        "clinicalReviewStatus": "pending",
+        "proposedReviewTier": "A",
+        "scope": "Specific corrected statements only; older whole-entry review date retained."
+      },
+      {
+        "id": "diagnosis:cor-pulmonale",
+        "clinicalReviewStatus": "pending",
+        "proposedReviewTier": "A",
+        "scope": "Specific corrected statements only; older whole-entry review date retained."
+      },
+      {
+        "id": "reference:pulmonary-hypertension-classification",
+        "clinicalReviewStatus": "pending",
+        "proposedReviewTier": "A",
+        "scope": "Specific corrected statements only; older whole-entry review date retained."
+      }
+    ]
+  }
+}

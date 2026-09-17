@@ -1,0 +1,40 @@
+{
+  "title": "Coagulation Factor Tests",
+  "sourceUpdated": "Last updated March 18, 2025",
+  "sections": [
+    {
+      "title": "What are coagulation factor tests?",
+      "text": "Coagulation factors are proteins in your blood. They help form blood clots to stop bleeding when you have an injury. These proteins are also called clotting factors. You have several different types of clotting factors that are all important for making blood clots.\n\nCoagulation factor tests are blood tests that check one or more of your clotting factors to see if you:\n\n• Have too much or too little of a clotting factor\n• Are missing a clotting factor\n• Have a clotting factor that isn't working right\n\nYour liver makes most of your clotting factors. But normally, clotting factors are turned off, so you don't form abnormal blood clots. When you have an injury that causes bleeding, blood cells called platelets become stickier, so they can stick to each other to make a clot and stop the bleeding.\n\nThe platelets release molecules into your blood that begin to turn on the clotting factors. The clotting factors work together in a chain reaction to form a blood clot that will stay firmly in place.\n\nProblems with any one of your clotting factors may mean that:\n\n• Your blood clots too easily, even without an injury. This condition may lead to clots that block your blood flow and cause serious conditions, such as heart attack, stroke, or clots in the lungs.\n• Your blood doesn't clot enough after an injury or surgery. If this happens, you are likely to have a bleeding disorder. Bleeding disorders can lead to serious blood loss after an injury.\n\nClotting factors have names, such as fibrinogen and prothrombin. Each clotting factor also has a Roman numeral name, such as \"clotting factor II.\"\n\nOther names: blood clotting factors, factor assays, factor assay by number (Factor I, Factor II, Factor VIII, etc.) or by name (fibrinogen, prothrombin, hemophilia A, hemophilia B, etc.), coagulation panel"
+    },
+    {
+      "title": "What is it used for?",
+      "text": "A coagulation factor test is used to find out if you have a problem with any of your clotting factors that may cause too little or too much blood clotting.\n\nCoagulation factor tests are also used to check on people who have a known problem with clotting factors or who take medicine called blood thinners to lower the risk of blood clots.\n\nYou may have tests for one or more factors at a time."
+    },
+    {
+      "title": "Why do I need a coagulation factor test?",
+      "text": "You may need this test if you have:\n\n• An abnormal result on a blood test that checks how long it takes your blood to clot. These tests include a prothrombin time test and INR (PT/INR) and/or a partial thromboplastin time (PTT) test.\n• A family health history of problems with clotting factors. Some conditions that affect clotting factors, such as hemophilia (a rare bleeding disorder where the blood doesn't clot properly), are inherited. That means that your parents passed the gene for the disease to you. These conditions are not common.\n• A health condition that may affect clotting factors in your blood: Conditions that may cause a bleeding disorder include:\n  • Severe liver disease\n  • A lack of vitamin K, a vitamin that makes proteins for healthy bones and tissues\n  • Blood transfusions, a procedure where blood is transferred from a donor to you\n  • Cancer\n  • Immune disorders\nConditions that may cause a problem with blood clots include:\n  • Autoimmune diseases, such as lupus, where your immune system attacks healthy cells and tissues\n  • Cancer\n  • Obesity\n  • Certain infections, such as sepsis and COVID-19\n  • Not moving for long periods of time, such as after surgery\n  • Lack of vitamins B6, B12, and folate, vitamins that help the process your body uses to get or make energy from the food you eat\n• Symptoms that may be from a problem with clotting factors: Symptoms of bleeding disorders may include:\n  • Heavy bleeding that doesn't stop with pressure after an injury, dental procedure, or surgery\n  • Frequent nosebleeds that start on their own\n  • Blood in urine (pee) or stool (poop)\n  • Frequent, large bruises or tiny red or brown spots under the skin\n  • Redness, swelling, pain, or stiffness from bleeding into muscles or joints\n  • Heavy menstrual periods\nSymptoms of too much blood clotting may include:\n  • Swelling, redness, warmth, and pain in your arms or legs which may be from a clot\n  • Trouble breathing from a clot that's traveled to your lung\n  • Nausea"
+    },
+    {
+      "title": "What happens during a coagulation factor test?",
+      "text": "A health care professional will take a blood sample from a vein in your arm, using a small needle. After the needle is inserted, a small amount of blood will be collected into a test tube or vial. You may feel a little sting when the needle goes in or out. This usually takes less than five minutes."
+    },
+    {
+      "title": "Will I need to do anything to prepare for the test?",
+      "text": "You don't need any special preparations for a coagulation factor test."
+    },
+    {
+      "title": "Are there any risks to the test?",
+      "text": "There is very little risk to having a blood test. You may have slight pain or bruising at the spot where the needle was put in, but most symptoms go away quickly."
+    },
+    {
+      "title": "What do the results mean?",
+      "text": "Your provider may need to order other tests to find the cause of a problem with your clotting factors.\n\nLower than normal levels of one or more clotting factors or a missing clotting factor may mean you have a bleeding disorder. Depending on which clotting factors were tested, your results may show the type of bleeding disorder you have and how serious it is.\n\n• Bleeding disorders that you inherit usually involve only one clotting factor. There is no cure for inherited bleeding disorders, but treatment can help manage your condition.\n• Bleeding disorders caused by other conditions usually involve low levels of two or more clotting factors. Treatment depends on the cause of your bleeding disorder.\n\nHigher than normal levels of one or more clotting factors may mean you have a disorder that makes your blood clot more than it should. Your provider may recommend medicine and heart-healthy lifestyle changes to help prevent clots. You may also need to avoid hormone therapy for menopause and birth control pills with estrogen, because they may increase the risk of blood clots.\n\nTalk with your provider to find out what your tests results mean and what treatment is best for you.\n\nLearn more about laboratory tests, reference ranges, and understanding results."
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/lab-tests/coagulation-factor-tests/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "c4eca93ae2a5665385b89d4e7d8fc63ff364bf45c3bf7165ddbee6282b028e05",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace and list formatting only. Not clinical review."
+}

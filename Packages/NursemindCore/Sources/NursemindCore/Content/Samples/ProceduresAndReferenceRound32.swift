@@ -98,7 +98,7 @@ public enum CentralLineInsertionSample {
             AttributedBullet("CARDIAC ARRHYTHMIA — wire/catheter in atrium triggers ectopy; pull back 1-2 cm; usually resolves.", citationIDs: ["specialty_pr_round32"]),
             AttributedBullet("CLABSI (central line-associated bloodstream infection) — fever, chills, hypotension; blood cultures (peripheral + central); empiric antibiotics + line removal if catheter-related.", citationIDs: ["cdc_pr_round32"]),
             AttributedBullet("CATHETER-RELATED THROMBOSIS — upper extremity / IJ / subclavian DVT; chronic if line in place long-term.", citationIDs: ["specialty_pr_round32"]),
-            AttributedBullet("CDC CLABSI PREVENTION BUNDLE — hand hygiene, maximum sterile barrier, chlorhexidine antisepsis, optimal site (avoid femoral when possible), daily review of line necessity, daily oral chlorhexidine, biopatch use.", citationIDs: ["cdc_pr_round32"]),
+            AttributedBullet("CDC CLABSI PREVENTION BUNDLE — hand hygiene, maximum sterile barrier, chlorhexidine antisepsis, optimal site (avoid femoral when possible), daily review of line necessity, biopatch use.", citationIDs: ["cdc_pr_round32"]),
             AttributedBullet("Femoral — higher CLABSI + DVT + infection risk; avoid when possible; choose IJ or subclavian first.", citationIDs: ["specialty_pr_round32"])
         ],
         citations: [openrnPRR32, cdcPRR32, specialtyPRR32],

@@ -1,0 +1,44 @@
+{
+  "title": "MPV Blood Test",
+  "sourceUpdated": "Last updated October 30, 2024",
+  "sections": [
+    {
+      "title": "What is an MPV Blood Test?",
+      "text": "MPV stands for mean platelet volume. Platelets (also called thrombocytes) are small blood cells that stick together to make blood clots that stop or slow bleeding when you have a cut or injury. Platelets are made in your bone marrow.\n\nAn MPV blood test measures the mean (average) size of your platelets. Looking at the size of platelets provides information about how well they're working. This test can help diagnose bleeding disorders and diseases of the bone marrow.\n\nOther names: Mean Platelet Volume"
+    },
+    {
+      "title": "What is it used for?",
+      "text": "An MPV blood test is used to help diagnose or monitor many blood-related conditions. It may also help diagnose other health conditions or find out how serious they may be. A test called a platelet count, which measures the total number of platelets in your blood, is often done with an MVP test."
+    },
+    {
+      "title": "Why do I need an MPV blood test?",
+      "text": "Your health care provider may order an MPV blood test as part of a complete blood count (CBC).This is a test that measures many different parts of your blood, including platelets. It is often part of a routine checkup.\n\nYou may also need an MPV test if you have symptoms of a blood disorder that may involve having too many or too few platelets. These symptoms can include:\n\n• Bleeding that takes a long time to stop, even from minor cuts\n• Nosebleeds\n• Bleeding from brushing your teeth\n• Small red or purplish spots on the skin\n• Bruising easily\n• Abnormal vaginal bleeding (especially heavy menstrual periods)\n• Feeling weak or dizzy\n• Lasting headache and dizziness\n• Pain and burning in the feet and hands"
+    },
+    {
+      "title": "What happens during an MPV blood test?",
+      "text": "During the test, a health care professional will take a blood sample from a vein in your arm, using a small needle. After the needle is inserted, a small amount of blood will be collected into a test tube or vial. You may feel a little sting when the needle goes in or out. This usually takes less than five minutes."
+    },
+    {
+      "title": "Will I need to do anything to prepare for the test?",
+      "text": "You don't need any special preparations for an MPV blood test. If your provider has ordered more tests on your blood sample, you may need to fast (not eat or drink) for several hours before the test. Your provider will let you know if there are any special instructions."
+    },
+    {
+      "title": "Are there any risks to the test?",
+      "text": "There is very little risk to having a blood test. You may have slight pain or bruising at the spot where the needle was put in, but most symptoms go away quickly."
+    },
+    {
+      "title": "What do the results mean?",
+      "text": "An MPV test alone can't diagnose a health condition. Your provider will use your MPV results, platelet counts, and other test results to get a more complete picture of your health.\n\nNewly made platelets are larger than older platelets. So looking at the average size of your platelets can provide information about whether your bone marrow is making a lot of new platelets.\n\nWith a high MPV test result, your platelets are larger than usual. This may mean that your older (smaller) platelets are being destroyed at an increased rate and your bone marrow is making many new platelets. That can be a sign of:\n\n• Thrombocytopenia, not having enough platelets\n• Myeloproliferative diseases, blood cancers in which the bone marrow makes too many platelets or other blood cells\n• Preeclampsia, a complication that usually starts after the 20th week of pregnancy and causes high blood pressure\n• Heart disease\n• Diabetes\n• Hemolytic anemia\n\nWith a low MPV test result, your platelets are smaller than usual. This may mean your bone marrow isn’t making enough new platelets. That can be a sign of:\n\n• Certain cancers\n• Side effects from certain medicines\n• Aplastic anemia\n• Autoimmune diseases\n• Bacterial or viral infections\n• Genetic conditions\n• Alcohol use disorder (AUD)\n\nTo learn what your results mean, talk with your provider.\n\nLearn more about laboratory tests, reference ranges, and understanding results."
+    },
+    {
+      "title": "Is there anything else I need to know about an MPV blood test?",
+      "text": "Many things can affect the results of your MPV blood test. Your age, sex, race and ethnicity, lifestyle (diet, smoking, drinking alcohol, physical activity), and genes can affect both your MPV and platelet counts."
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/lab-tests/mpv-blood-test/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "43f66d98f4a1ec93f9f722883b2f5fa615d392fe0fa4ab4f42efe96df909b33c",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace and list formatting only. Not clinical review."
+}

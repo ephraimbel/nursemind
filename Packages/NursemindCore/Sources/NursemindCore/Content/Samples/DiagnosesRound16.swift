@@ -1,5 +1,15 @@
 import Foundation
 
+private let niamsEczemaBathSafetyR16 = CitationSource(
+    id: "niams_eczema_bath_safety_r16",
+    shortName: "Atopic Dermatitis: Diagnosis, Treatment, and Steps to Take",
+    detail: "Living with atopic dermatitis: clinician-specific bleach-bath instructions; reviewed November 2022. Original NIAMS text adapted and condensed by NurseMind. This source supports the revised bathing bullet only.",
+    publisher: "National Institute of Arthritis and Musculoskeletal and Skin Diseases, National Institutes of Health",
+    license: .publicDomain,
+    url: "https://www.niams.nih.gov/health-topics/atopic-dermatitis/diagnosis-treatment-and-steps-to-take",
+    lastRetrieved: "2026-09-17"
+)
+
 // Curator-model diagnosis entries (round 16 — toxicology + dermatology + ID).
 
 private let openrnDxR16 = CitationSource(
@@ -591,7 +601,7 @@ public enum AtopicDermatitisSample {
             AttributedBullet("DUPILUMAB (anti-IL-4Rα) — moderate-severe refractory; SQ injection; FDA-approved adults + pediatrics ≥6 months per primary source.", citationIDs: ["specialty_dx_round16"]),
             AttributedBullet("Oral JAK inhibitors (upadacitinib, abrocitinib) — moderate-severe; black box warnings shared with other JAKi.", citationIDs: ["specialty_dx_round16"]),
             AttributedBullet("Phototherapy (NB-UVB) for moderate-severe.", citationIDs: ["specialty_dx_round16"]),
-            AttributedBullet("Bleach baths 0.005% × 2/week — reduces Staph load + flare severity; counsel safe technique.", citationIDs: ["specialty_dx_round16"]),
+            AttributedBullet("Bleach baths should be considered only after discussing them with the treating clinician and receiving specific preparation and use instructions.", citationIDs: ["niams_eczema_bath_safety_r16"]),
             AttributedBullet("Trigger avoidance — fragrance-free products, soft fabrics, cool environment; stress management.", citationIDs: ["openrn_dx_round16"])
         ],
         watchFor: [
@@ -600,7 +610,7 @@ public enum AtopicDermatitisSample {
             AttributedBullet("Steroid atrophy — face, folds, prolonged use; rotate to non-steroidal alternatives.", citationIDs: ["openrn_dx_round16"]),
             AttributedBullet("Mental health impact — sleep disruption, anxiety, depression; treat holistically.", citationIDs: ["openrn_dx_round16"])
         ],
-        citations: [openrnDxR16, specialtyDxR16],
+        citations: [openrnDxR16, specialtyDxR16, niamsEczemaBathSafetyR16],
         lastSourceFidelityReview: "2026-05-04"
     )
 }

@@ -1,0 +1,79 @@
+Window: "iPhone 17 Pro", App: Simulator.
+0 standard window iPhone 17 Pro – iOS 26.3, Secondary Actions: Raise
+	1 button Action
+	2 button Volume Up
+	3 button Volume Down
+	4 button Sleep/Wake
+	5 container
+		6 text Description: ✦, Secondary Actions: Cancel
+		7 text Description: LAB · NUTRITION, Secondary Actions: Cancel
+		8 text Description: Prealbumin (transthyretin), Secondary Actions: Cancel
+		9 text Description: Blood · inflammation and interpretation limits, Secondary Actions: Cancel
+		10 text Description: Reference range, Secondary Actions: Cancel
+		11 text Description: Laboratory-specific, Secondary Actions: Cancel
+		12 text Description: Use the interval on the report³, Secondary Actions: Cancel
+		13 text Secondary Actions: Cancel, Description: Reference intervals vary by laboratory, assay, and population. Always verify against your facility's reported reference range. Not for diagnostic decision-making.
+		14 text Description: Interpretation, Secondary Actions: Cancel
+		15 text Description: Low prealbumin, Secondary Actions: Cancel
+		16 text Secondary Actions: Cancel, Description: Prealbumin is made in the liver and transports thyroid hormone and vitamin A. Inflammation, illness and injury can lower the result, making its cause difficult to identify from the concentration alone.¹
+		17 text Description: NURSING ACTIONS, Secondary Actions: Cancel
+		18 text Description: •, Secondary Actions: Cancel
+		19 text Description: Review the clinical reason for testing and the patient’s illness or recovery stage.¹, Secondary Actions: Cancel
+		20 text Description: •, Secondary Actions: Cancel
+		21 text Description: Additional assessment may be needed to understand an abnormal result.¹, Secondary Actions: Cancel
+		22 text Description: Common causes, Secondary Actions: Cancel
+		23 text Description: Lower results may accompany, Secondary Actions: Cancel
+		24 text Description: •, Secondary Actions: Cancel
+		25 text Description: Inflammation, infection or burns¹, Secondary Actions: Cancel
+		26 text Description: •, Secondary Actions: Cancel
+		27 text Description: Liver or digestive disease¹, Secondary Actions: Cancel
+		28 text Description: •, Secondary Actions: Cancel
+		29 text Description: Hyperthyroidism¹, Secondary Actions: Cancel
+		30 text Description: •, Secondary Actions: Cancel
+		31 text Description: Malnutrition may coexist¹, Secondary Actions: Cancel
+		32 text Description: Higher results may accompany, Secondary Actions: Cancel
+		33 text Description: •, Secondary Actions: Cancel
+		34 text Description: Kidney failure¹, Secondary Actions: Cancel
+		35 text Description: •, Secondary Actions: Cancel
+		36 text Description: Hodgkin disease¹, Secondary Actions: Cancel
+		37 text Description: •, Secondary Actions: Cancel
+		38 text Description: Alcohol use disorder or corticosteroid therapy¹, Secondary Actions: Cancel
+		39 text Description: Nursing actions, Secondary Actions: Cancel
+		40 text Description: •, Secondary Actions: Cancel
+		41 text Secondary Actions: Cancel, Description: Testing generally needs no special preparation. Review medicines and supplements; patients should not stop medicines without instructions from their clinician.¹
+		42 text Description: •, Secondary Actions: Cancel
+		43 text Secondary Actions: Cancel, Description: Neither prealbumin nor albumin is a reliable nutrition marker. Assess intake, weight changes, physical findings and function instead of using either concentration to judge nutritional adequacy.²
+		44 text Description: •, Secondary Actions: Cancel
+		45 text Secondary Actions: Cancel, Description: Ask about weight loss, weakness and other nutrition concerns. Illness, injury or postoperative recovery may complicate interpretation; communicate the findings for a broader assessment.¹
+		46 text Description: Watch for, Secondary Actions: Cancel
+		47 text Description: •, Secondary Actions: Cancel
+		48 text Secondary Actions: Cancel, Description: A normal CRP does not make prealbumin a validated nutrition marker. A rising concentration alone does not prove successful nutrition support.²
+		49 text Description: •, Secondary Actions: Cancel
+		50 text Secondary Actions: Cancel, Description: An elevated result is not a diagnostic test for kidney failure or the other associated conditions. Other testing may be needed.¹
+		51 text Description: CITATIONS, Secondary Actions: Cancel
+		52 button Description: Citation 1: MedlinePlus — Prealbumin blood test, Help: Opens source in browser, Secondary Actions: Cancel
+		53 button Description: Citation 2: ASPEN — Visceral proteins and nutrition assessment, Help: Opens source in browser, Secondary Actions: Cancel
+		54 button Description: Citation 3: MedlinePlus — Understanding lab results, Help: Opens source in browser, Secondary Actions: Cancel
+		55 text Secondary Actions: Cancel, Description: This entry is a curated assembly of content from the sources above. No clinical claim has been originated by NurseMind.
+		56 text Description: Last source-fidelity review: 2026-09-17, Secondary Actions: Cancel
+		57 text Description: Reference only · Always follow your facility's policies and verify with your provider., Secondary Actions: Cancel
+		58 container Description: Tab Bar, Secondary Actions: Cancel
+	59 toolbar
+		60 button Description: Home, Secondary Actions: Move previous, Move next, Remove from toolbar
+		61 button Description: Save Screen, Secondary Actions: Move previous, Move next, Remove from toolbar
+		62 button Description: Rotate, Secondary Actions: Move previous, Move next, Remove from toolbar
+	63 close button
+	64 full screen button Help: this button also has an action to zoom the window, Secondary Actions: zoom the window
+	65 minimize button
+	66 text iPhone 17 Pro iOS 26.3
+67 menu bar
+	68 Simulator
+	69 File
+	70 Edit
+	71 Device
+	72 I/O
+	73 Features
+	74 Window
+	75 Help
+
+The focused UI element is 0 standard window iPhone 17 Pro – iOS 26.3, Secondary Actions: Raise

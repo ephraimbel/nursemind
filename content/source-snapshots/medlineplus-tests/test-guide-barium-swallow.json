@@ -1,0 +1,44 @@
+{
+  "title": "Barium Swallow",
+  "sourceUpdated": "Last updated August 27, 2024",
+  "sections": [
+    {
+      "title": "What is a barium swallow?",
+      "text": "A barium swallow, also called an esophagogram, is an imaging test that checks for problems in your upper gastrointestinal (GI) tract. Your upper GI tract includes your:\n\n• Mouth\n• Back of the throat\n• Esophagus (the tube that carries food and liquids from your mouth to the stomach)\n• Stomach\n• Duodenum (first part of your small intestine)\n\nA barium swallow test involves drinking a chalky-tasting liquid that contains barium. Barium is a substance that coats your internal organs and tissues, so they can be seen more clearly on an x-ray. This can allow your health care provider to find problems and abnormal areas in your GI tract.\n\nThe test uses a special type of x-ray called fluoroscopy. Fluoroscopy shows internal organs moving in real time as a live video. It allows your provider to see how you swallow and how some of your other internal organs look. Fluoroscopy may be used to diagnose certain health conditions or to guide treatment procedures such as surgeries.\n\nOther names: esophagogram, esophagram, upper GI series, swallowing study, esophagography, modified barium swallow study, video fluoroscopy swallow study."
+    },
+    {
+      "title": "What is it used for?",
+      "text": "A barium swallow is used to see what happens when you swallow and to help diagnose conditions that affect the throat, esophagus, stomach, and first part the small intestine. These conditions can include:\n\n• Ulcers\n• GERD (gastroesophageal reflux disease), a condition in which contents of the stomach leak backward into the esophagus\n• Hiatal hernia, a condition in which part of your stomach pushes into the diaphragm (the muscle between your stomach and chest). A hiatal hernia can cause GERD.\n• Structural problems in the GI tract, such as polyps (abnormal growths) and diverticula (pouches in the intestinal wall)\n• Tumors"
+    },
+    {
+      "title": "Why do I need a barium swallow?",
+      "text": "Your provider may order this test to check how well an upper GI organ works. You may need this test if you have symptoms of an upper GI disorder, such as:\n\n• Trouble swallowing\n• Abdominal (belly) pain\n• Vomiting\n• Bloating"
+    },
+    {
+      "title": "What happens during a barium swallow?",
+      "text": "A barium swallow is most often done by a radiologist or radiology technician. A radiologist is a doctor who specializes in using imaging tests to diagnose and treat diseases and injuries.\n\nA barium swallow usually includes the following steps:\n\n• You may need to remove your clothing. If so, you will be given a hospital gown.\n• You may be given a lead shield or apron to wear over your pelvic area. This protects the area from unnecessary radiation.\n• You will stand, sit, or lie down on an x-ray table. You may be asked to change positions during the test.\n• The radiologist may take x-rays of your chest and belly first.\n• You will swallow a drink that contains barium. The drink is thick and chalky. It's usually flavored with chocolate or strawberry to make it easier to swallow.\n• While you swallow, the radiologist will watch images of the barium traveling down your throat to your upper GI tract.\n• You may be asked to hold your breath at certain times.\n• The images will be recorded so they can be reviewed later.\n\nThe procedure may take from 30 to 60 minutes."
+    },
+    {
+      "title": "Will I need to do anything to prepare for the test?",
+      "text": "Your provider will let you know if there are any special instructions to follow. You will probably be asked to fast (not eat or drink) after midnight on the night before the test. You may be asked to avoid anything that might coat your throat, such as smoking, chewing gum, or sucking on hard candy.\n\nYou may need to stop taking certain medicines before this test, so tell your provider about everything you take. But don't stop taking any medicines unless your provider tells you to."
+    },
+    {
+      "title": "Are there any risks to the test?",
+      "text": "You should not have this test if you are pregnant or think you may be pregnant. Radiation can be harmful to a developing baby.\n\nFor others, there is little risk to having this test. The radiation dose is very low and not considered harmful for most people. But talk to your provider about all the x-rays you've had recently. The risks from radiation exposure may be linked to the number of x-ray treatments you've had over time.\n\nTell your provider if you have any known allergies to the barium used in the test.\n\nYour poop may look white for several days after the test as you pass the barium. You may have constipation if all of the barium doesn't pass out of your body after the procedure. Drinking lots of fluids and eating high-fiber foods may help. But if you continue to have constipation, contact your provider."
+    },
+    {
+      "title": "What do the results mean?",
+      "text": "A normal result means that no abnormalities in size, shape, and movement were found in your upper GI tract.\n\nIf your results were not normal, it may mean you have one of the following conditions:\n\n• Hiatal hernia\n• Ulcers\n• Tumors\n• Polyps\n• Diverticula, a condition in which small sacs form in the inner wall of the intestine\n• Esophageal stricture, a narrowing of the esophagus that can make it hard to swallow\n\nIf you have questions about your results, talk to your provider. Your provider may consider your symptoms, medical history, and the results of other tests to understand the results of your barium swallow.\n\nLearn more about laboratory tests, reference ranges, and understanding results."
+    },
+    {
+      "title": "Is there anything else I need to know about a barium swallow?",
+      "text": "Your results may also show signs of esophageal cancer. If your provider thinks you may have it, they may do a procedure called an esophagoscopy. During an esophagoscopy, a thin, flexible tube is inserted through your mouth or nose and down into your esophagus. The tube has a video camera so a provider can view the area. The tube may also have a tool attached that can be used to remove tissue samples for testing (biopsy)."
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/lab-tests/barium-swallow/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "856a653b7f397a5af2c0c5c32cfad417007c8cb1f6b04e75512a193698cf196e",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace and list formatting only. Not clinical review."
+}

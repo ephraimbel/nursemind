@@ -1,0 +1,44 @@
+{
+  "title": "G6PD Test",
+  "sourceUpdated": "Last updated September 24, 2024",
+  "sections": [
+    {
+      "title": "What is a G6PD test?",
+      "text": "This test measures the amount of G6PD in your blood. G6PD stands for glucose-6-phosphate dehydrogenase. It's an enzyme, a protein that speeds up certain chemical reactions in your body. It helps your red blood cells work properly. Red blood cells move oxygen from your lungs to every cell in your body. Your cells need oxygen to grow, reproduce, and stay healthy.\n\nIf you don't have enough G6PD, it's known as G6PD deficiency. This deficiency:\n\n• It is a genetic disorder that is inherited (passed down from parent to child).\n• It mainly affects men. Women can be affected, but they are more likely to be carriers of the defective gene. This means that they may not have symptoms, but they can still pass the gene on to their children.\n• It is more common in people of African, Mediterranean, or Asian descent.\n\nG6PD deficiency can cause the destruction of your red blood cells. When red blood cells are destroyed faster than your body can replace them, it's called hemolytic anemia. If you have hemolytic anemia, your cells don't get all the oxygen they need.\n\nMost people with G6PD deficiency don't have symptoms until they are exposed to certain \"triggers\" which set off the destruction of red blood cells. Triggers can include:\n\n• Fava beans, also called broad beans. Hemolytic anemia which happens after eating fava beans or inhaling pollen from fava plants is called favism.\n• Viral infections.\n• Bacterial infections.\n• Certain antibiotics.\n• Anti-malaria medicines.\n• Other medicines, including nonsteroidal, anti-inflammatory drugs (NSAIDs) such as ibuprofen and aspirin.\n\nOther names: G6PD deficiency test, glucose-6-phosphate dehydrogenase test, G-6-PD, RBC G6PD test"
+    },
+    {
+      "title": "What is it used for?",
+      "text": "A G6PD test is used to check if you have an inherited G6PD deficiency."
+    },
+    {
+      "title": "Why do I need a G6PD test?",
+      "text": "You may need a G6PD test if you have symptoms of hemolytic anemia. These include:\n\n• Fatigue\n• Pale skin or jaundice, a condition that causes your skin and eyes to turn yellow\n• Rapid heart rate\n• Shortness of breath\n• Dark or yellow-orange colored urine (pee)\n\nYour newborn baby might need a G6PD test if they have jaundice that doesn't go away in two weeks and/or is not caused by another condition. Your baby may also be tested if you have a family history of G6PD deficiency."
+    },
+    {
+      "title": "What happens during a G6PD test?",
+      "text": "A health care professional will take a blood sample from a vein in your arm, using a small needle. After the needle is inserted, a small amount of blood will be collected into a test tube or vial. You may feel a little sting when the needle goes in or out. This usually takes less than five minutes.\n\nIf your baby is being tested, a health care provider will clean your baby's heel with alcohol and poke the heel with a small needle. The provider will collect a few drops of blood and put a bandage on the site."
+    },
+    {
+      "title": "Will I need to do anything to prepare for this test?",
+      "text": "There are no special preparations needed for a G6PD test."
+    },
+    {
+      "title": "Are there any risks to this test?",
+      "text": "There is very little risk to having a blood test. You may have slight pain or bruising at the spot where the needle was put in, but most symptoms go away quickly.\n\nYour baby may feel a little pinch when the heel is poked, and a small bruise may form at the site. This should go away quickly."
+    },
+    {
+      "title": "What do the results mean?",
+      "text": "If your results show you have lower than normal amounts of G6PD, it means you have a G6PD deficiency. But your symptoms and risk of getting hemolytic anemia can vary, depending on your personal health history and exposure to triggers.\n\nIf you are a woman with slightly lower than normal amounts of G6PD, you may be a carrier of a G6PD deficiency. That means you have one defective G6PD gene and one normal G6PD gene. You might not have symptoms, since your normal G6PD genes usually make enough healthy red blood cells. But you have a risk of passing on the defective gene to your children. Male children are more likely to develop G6PD symptoms than female children.\n\nIf you are a man with a normal amount of G6PD, you are unlikely to have a deficiency. If you have anemia, it may be due to another cause. Your provider may want to repeat the G6PD test in a few weeks if you had the test during an episode of hemolytic anemia.\n\nLearn more about laboratory tests, references ranges, and understanding results."
+    },
+    {
+      "title": "Is there anything else I need to know about a G6PD test?",
+      "text": "Most people with G6PD deficiency can manage their condition and prevent symptoms by avoiding triggering substances. Your provider can help you figure out which substances to avoid."
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/lab-tests/g6pd-test/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "2891b358fbb01f034d97826de68509556a82c4522408ef7f9969cac918251536",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace and list formatting only. Not clinical review."
+}

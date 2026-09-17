@@ -51,7 +51,7 @@ SUGGESTED_RELATION = {
 
 def parse_symbol_categories() -> dict[str, str]:
     """SampleSymbol -> wrapper category, from BundledEntries.swift appends."""
-    text = (SAMPLES / "BundledEntries.swift").read_text()
+    text = "\n".join(path.read_text() for path in sorted(SAMPLES.glob("*BundledEntries.swift")))
     out = {}
     for cat, symbol in re.findall(r"entries\.append\(\.([a-z]+)\((\w+)\.entry\)\)", text):
         out[symbol] = cat

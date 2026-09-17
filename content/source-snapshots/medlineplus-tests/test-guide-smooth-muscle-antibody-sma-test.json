@@ -1,0 +1,44 @@
+{
+  "title": "Smooth Muscle Antibody (SMA) Test",
+  "sourceUpdated": "Last updated January 4, 2024",
+  "sections": [
+    {
+      "title": "What is a smooth muscle antibody (SMA) test?",
+      "text": "This test looks for smooth muscle antibodies (SMAs) in a sample of your blood. High levels of SMAs are usually a sign of a chronic (long-lasting) liver condition called autoimmune hepatitis.\n\nAutoimmune hepatitis is a type of autoimmune disease. Normally, your immune system makes antibodies to attack foreign substances that could make you sick, such as viruses and bacteria. But in autoimmune diseases, your immune system makes certain types of antibodies - called autoantibodies - that attack your body's own healthy cells and organs by mistake.\n\nSMAs are autoantibodies that mainly attack the liver. They are sometimes called anti-smooth muscle antibodies (ASMAs). They get their name because they attack certain proteins that are found in smooth muscle (the muscle that lines the inside of hollow organs, such as your intestines, stomach, and blood vessels). But these proteins are also found in large amounts in liver cells.\n\nWhen SMAs attack your liver, they cause liver swelling and damage. Without treatment, autoimmune hepatitis can lead to serious liver problems, including cirrhosis and liver failure.\n\nTreatment often includes medicines that decrease the activity of your immune system. Early diagnosis and treatment can lower the chances of developing cirrhosis and other liver conditions linked to autoimmune hepatitis.\n\nOther names: anti-smooth muscle antibody, ASMA, actin antibody, ACTA, F-actin antibody"
+    },
+    {
+      "title": "What is it used for?",
+      "text": "An SMA test is mainly used with other tests to help find out if autoimmune hepatitis could be the cause of liver damage.\n\nThere are two types of autoimmune hepatitis. Each type involves different autoantibodies, So, an SMA can also help find out which type of autoimmune hepatitis a person may have:\n\n• Type 1 involves SMAs. It's the most common type of autoimmune hepatitis in both adults and children. Like most autoimmune diseases, it's more common in women.\n• Type 2 involves anti-liver kidney microsomal type 1 antibodies (anti-LKM-1) and/or anti-liver cytosol type 1 antibodies (anti-LC1). Type 2 autoimmune hepatitis isn't common. It mostly develops during childhood and mainly affects girls.\n\nSMA tests may be done with tests that check for other autoantibodies, including:\n\n• ANAs (antinuclear antibodies). ANAs attack the nucleus (center) of healthy cells. A high level of ANAs in your blood means you're more likely to have an autoimmune disease. But the test can't diagnose any specific type of autoimmune diseases.\n• LKM-1 antibodies. These are autoantibodies that attack a protein that's mainly found in liver cells. LKM-1 antibodies are a sign of Type 2 autoimmune hepatitis."
+    },
+    {
+      "title": "Why do I need an SMA test?",
+      "text": "You may need an SMA test if you have symptoms of autoimmune hepatitis. The test is usually ordered after the results of liver function tests show that your liver may be damaged.\n\nSymptoms of autoimmune hepatitis may include:\n\n• Fatigue\n• Jaundice (a condition that causes your skin and eyes to turn yellow)\n• Abdominal pain in the upper part of your belly\n• Joint pain\n• Nausea\n• Skin conditions, including rashes, psoriasis, acne, or vitiligo (white patches on your skin)\n• Loss of appetite\n• Dark-colored urine (pee)\n• Light colored stool (poop)\n\nIn the early stages, autoimmune hepatitis may not cause symptoms. But you may need an SMA test if you had abnormal results on a routine blood test, such as a comprehensive metabolic panel (CMP). A CMP measures several substances made by your liver. Abnormal amounts of these substances are usually a sign of liver inflammation and/or damage."
+    },
+    {
+      "title": "What happens during an SMA test?",
+      "text": "A health care professional will take a blood sample from a vein in your arm, using a small needle. After the needle is inserted, a small amount of blood will be collected into a test tube or vial. You may feel a little sting when the needle goes in or out. This usually takes less than five minutes."
+    },
+    {
+      "title": "Will I need to do anything to prepare for the test?",
+      "text": "You don't need any special preparations for an SMA test."
+    },
+    {
+      "title": "Are there any risks to the test?",
+      "text": "There is very little risk to having a blood test. You may have slight pain or bruising at the spot where the needle was put in, but most symptoms go away quickly."
+    },
+    {
+      "title": "What do the results mean?",
+      "text": "Diagnosing autoimmune hepatitis can be difficult. The process may involve tests to rule out other diseases that can affect your liver. To understand what your SMA test results mean, your provider will consider the results of other tests you've had. Your provider can explain what these results say about your health.\n\nIn general:\n\nA positive SMA test result means SMAs were found in your blood sample:\n\n• High levels of SMAs often mean you have type 1 autoimmune hepatitis. But this test can't diagnose the disease. If you have high levels of both SMAs and ANAs, your provider may suggest a biopsy to remove a small sample of liver tissue for testing. The results of a biopsy can confirm whether you have autoimmune hepatitis.\n• SMAs that are somewhat high may be a sign of other conditions, including:\n  • Primary biliary cholangitis, an autoimmune disease that damages the bile ducts (tubes) in your liver\n  • Infectious mononucleosis\n  • Hepatitis C\n  • Certain types of cancer\n\nA negative SMA test result means SMAs were not found in your blood sample. You're unlikely to have type 1 autoimmune hepatitis. But if you had a test that showed you have anti-LKM-1 antibodies, you may have type 2 autoimmune hepatitis. You may need a biopsy to confirm the diagnosis.\n\nIn general, if SMA, ANA, and anti-LKM-1 testing doesn't find any autoantibodies in your blood, it usually means you don't have autoimmune hepatitis. But it doesn't rule it out completely. It's possible for autoimmune hepatitis to be caused by other autoantibodies that are not commonly tested.\n\nIf you have questions about your results, talk with your provider.\n\nLearn more about laboratory tests, reference ranges, and understanding results."
+    },
+    {
+      "title": "Is there anything else I need to know about an SMA test?",
+      "text": "In certain cases, a provider may order a test that checks for a specific type of SMA. This type of SMA attacks F-actin. F-actin is a protein found in the liver and other body tissues. Tests that check for F-actin antibodies may help find more cases of autoimmune hepatitis than general SMA tests, but F-actin antibody tests are not available in all labs."
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/lab-tests/smooth-muscle-antibody-sma-test/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "e6fa48386fc2cad6b6173db4244447c4a6d95de0e5b484ff1f2057c78caf913a",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace and list formatting only. Not clinical review."
+}

@@ -1,5 +1,25 @@
 import Foundation
 
+private let depth6_esc_ph = CitationSource(
+    id: "depth6_esc_ph",
+    shortName: "ESC: PH due to heart or lung disease",
+    detail: "Pulmonary hypertension definition and therapeutic management of Group 3 PH; August 4, 2026. Clinical facts paraphrased; no tables, figures, algorithms or source prose reproduced.",
+    publisher: "European Society of Cardiology",
+    license: .factCitationOnly,
+    url: "https://www.escardio.org/communities/councils/cardiology-practice/education/cardiopractice/diagnosis-and-management-of-pulmonary-hypertension-due-to-left-heart-disease-or-pulmonary-disease/",
+    lastRetrieved: "2026-09-17"
+)
+
+private let depth6_ats_ipf = CitationSource(
+    id: "depth6_ats_ipf",
+    shortName: "ATS/ERS/JRS/ALAT: IPF guideline update",
+    detail: "Evidence-based recommendations for treatment of IPF: antacid medication and GERD; May 1, 2022. Conditional recommendation with very low-quality evidence. Facts paraphrased from this society guideline; no PMC article text, tables or algorithms reproduced.",
+    publisher: "American Thoracic Society; European Respiratory Society; Japanese Respiratory Society; ALAT",
+    license: .factCitationOnly,
+    url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9851481/",
+    lastRetrieved: "2026-09-17"
+)
+
 // Curator-model diagnosis entries (round 13 expansion — stroke + neuro + peds ID + endocrine + pulm/vasc).
 // Sources: Open RN Health Alterations (CC BY 4.0), OpenStax (CC BY 4.0 with AI restriction),
 // CDC + AHA / AAN / AAP / ATA / ATS / SVS concept citations.
@@ -579,7 +599,7 @@ public enum IPFSample {
             AttributedBullet("PULMONARY REHABILITATION — improves quality of life, exercise tolerance per primary source.", citationIDs: ["specialty_dx_round13"]),
             AttributedBullet("Vaccinations — pneumococcal, influenza, COVID, RSV per primary source.", citationIDs: ["openrn_dx_round13"]),
             AttributedBullet("LUNG TRANSPLANTATION — definitive option for younger / fitter patients; refer early per primary source.", citationIDs: ["specialty_dx_round13"]),
-            AttributedBullet("Treat GERD — may slow progression.", citationIDs: ["openrn_dx_round13"]),
+            AttributedBullet("The 2022 IPF guideline conditionally recommends against antacid medication solely to improve respiratory outcomes; evidence quality is very low. Symptomatic GERD may still warrant treatment for reflux-related outcomes under GERD guidance.", citationIDs: ["depth6_ats_ipf"]),
             AttributedBullet("Smoking cessation; air-quality counseling.", citationIDs: ["openrn_dx_round13"]),
             AttributedBullet("Acute exacerbation — corticosteroids debated; supportive ICU care; high mortality per primary source.", citationIDs: ["openrn_dx_round13"]),
             AttributedBullet("Palliative care + advance directives — EARLY integration improves QoL per primary source.", citationIDs: ["openrn_dx_round13"])
@@ -590,7 +610,7 @@ public enum IPFSample {
             AttributedBullet("Lung cancer — increased risk in IPF; surveillance imaging.", citationIDs: ["openrn_dx_round13"]),
             AttributedBullet("Depression / anxiety — high prevalence; integrate mental health.", citationIDs: ["openrn_dx_round13"])
         ],
-        citations: [openrnDxR13, specialtyDxR13],
+        citations: [openrnDxR13, specialtyDxR13, depth6_ats_ipf],
         lastSourceFidelityReview: "2026-05-04"
     )
 }
@@ -719,11 +739,11 @@ public enum PulmHTNSample {
     public static let entry: DiagnosisEntry = DiagnosisEntry(
         id: "pulmonary-hypertension",
         title: "Pulmonary hypertension (PH)",
-        subtitle: "mPAP ≥20 · WHO Group 1–5 · group-specific therapy · right HF",
+        subtitle: "Resting hemodynamics · cause-specific classification and care",
         nclexTags: pulmR13,
         definition: AttributedProse(
-            "Elevated mean pulmonary arterial pressure (mPAP ≥20 mmHg per WHO 2018, formerly ≥25). 5 WHO groups by etiology — Group 1 PAH (idiopathic, drug-induced, CT disease), Group 2 (left-heart disease), Group 3 (lung disease / hypoxia), Group 4 (CTEPH — chronic thromboembolic), Group 5 (multifactorial). Group-specific therapy critical per primary source.",
-            citationIDs: ["openrn_dx_round13", "specialty_dx_round13"]
+            "Pulmonary hypertension is defined by resting mean pulmonary arterial pressure above 20 mmHg on right-heart catheterization. Classification distinguishes pulmonary arterial, left-heart, lung/hypoxia-related, pulmonary-artery obstruction and multifactorial causes.",
+            citationIDs: ["depth6_esc_ph"]
         ),
         pathophysiology: AttributedProse(
             "Endothelial dysfunction + smooth-muscle proliferation + thrombosis in pulmonary vasculature → increased PVR → RV pressure overload → RV hypertrophy → RV failure → death.",
@@ -737,7 +757,7 @@ public enum PulmHTNSample {
         ],
         diagnosticCriteria: [
             AttributedBullet("ECHO — estimates pulmonary artery systolic pressure (TR jet velocity); RV size + function.", citationIDs: ["openrn_dx_round13"]),
-            AttributedBullet("RIGHT-HEART CATHETERIZATION — DEFINITIVE; mPAP ≥20 mmHg + PCWP ≤15 + PVR ≥3 = pre-capillary PH (PAH suspected) per primary source.", citationIDs: ["openrn_dx_round13"]),
+            AttributedBullet("Pre-capillary PH: mPAP >20 mmHg, PAWP ≤15 mmHg and PVR >2 Wood units on right-heart catheterization. These measurements alone do not establish Group 1 PAH.", citationIDs: ["depth6_esc_ph"]),
             AttributedBullet("Etiology workup — V/Q scan (CTEPH), PFTs (lung disease), echo (left HF), HIV, autoimmune, sleep study.", citationIDs: ["openrn_dx_round13"]),
             AttributedBullet("BNP / NT-proBNP for severity + monitoring.", citationIDs: ["openrn_dx_round13"])
         ],
@@ -763,7 +783,7 @@ public enum PulmHTNSample {
             AttributedBullet("Pulmonary infection / arrhythmia decompensation — emergent.", citationIDs: ["openrn_dx_round13"]),
             AttributedBullet("DRUG INTERACTIONS — many PAH drugs interact with CYP3A4 inducers / inhibitors and with HIV antiretrovirals; coordinate with PH center.", citationIDs: ["openrn_dx_round13"])
         ],
-        citations: [openrnDxR13, specialtyDxR13],
+        citations: [openrnDxR13, specialtyDxR13, depth6_esc_ph],
         lastSourceFidelityReview: "2026-05-04"
     )
 }

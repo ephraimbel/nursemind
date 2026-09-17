@@ -1,0 +1,44 @@
+{
+  "title": "Gamma-glutamyl Transferase (GGT) Test",
+  "sourceUpdated": "Last updated July 29, 2024",
+  "sections": [
+    {
+      "title": "What is a gamma-glutamyl transferase (GGT) test?",
+      "text": "A gamma-glutamyl transferase (GGT) test measures the amount of GGT in your blood GGT is an enzyme. Enzymes are proteins that speed up certain chemical reactions in your body. Thousands of enzymes play an important role in all of your body functions. The GGT enzyme is found throughout your body, but it is mainly found in your liver.\n\nIf your liver or bile duct is damaged, GGT may leak into your bloodstream. So high levels of GGT in your blood may be a sign of liver disease or damage to the bile ducts. Bile ducts are tubes that carry bile in and out of the liver. Bile is a fluid made by the liver that is important for digestion.\n\nA GGT test can't diagnose the specific cause of liver disease. The test can only indicate that your liver is being damaged. This test is usually done with or after other liver function tests, most often an alkaline phosphatase (ALP) test. ALP is another type of liver enzyme. While both your GGT and ALP may be elevated in diseases that affect your bile ducts and liver, only ALP will be elevated in bone disease. This helps your health care provider to understand if your issue may be due to a bone disorder instead of your liver.\n\nOther names: gamma-glutamyl transpeptidase, GGTP, Gamma-GT, GTP"
+    },
+    {
+      "title": "What is it used for?",
+      "text": "A GGT test is most often used to:\n\n• Help diagnose liver disease\n• Figure out if liver damage is due to liver disease or a bone disorder\n• Check for blockages in the bile ducts\n• Screen for or monitor alcohol use disorder (AUD). Drinking alcohol increases GGT levels. Most people with AUD have high GGT levels."
+    },
+    {
+      "title": "Why do I need a GGT test?",
+      "text": "You may need a GGT test if you have symptoms of liver disease. They may include:\n\n• Fatigue\n• Weakness\n• Jaundice, a condition that causes your skin and eyes to turn yellow\n• Loss of appetite\n• Abdominal (belly) pain or swelling\n• Nausea and vomiting\n• Severe itching\n\nYour provider may use this test to monitor your alcohol use if you're being treated for AUD. You may also need this test if you have abnormal results on an ALP test and/or other liver function tests."
+    },
+    {
+      "title": "What happens during a GGT test?",
+      "text": "A health care professional will take a blood sample from a vein in your arm, using a small needle. After the needle is inserted, a small amount of blood will be collected into a test tube or vial. You may feel a little sting when the needle goes in or out. This usually takes less than five minutes."
+    },
+    {
+      "title": "Will I need to do anything to prepare for the test?",
+      "text": "Talk to your provider to see if there are any specific instructions, since. the results of your GGT test may be affected by:\n\n• Certain medicines or supplements\n• Drinking alcohol\n• Smoking cigarettes\n\nGGT levels go down after meals. Your provider may also ask you to fast for a certain amount of time before testing."
+    },
+    {
+      "title": "Are there any risks to a GGT test?",
+      "text": "There is very little risk to having a blood test. You may have slight pain or bruising at the spot where the needle was put in, but most symptoms go away quickly."
+    },
+    {
+      "title": "What do the results mean?",
+      "text": "If your results show higher-than-normal levels of GGT, it may be a sign of liver damage. The damage may be due to one of the following conditions:\n\n• Hepatitis.\n• Cirrhosis.\n• Alcohol use disorder (AUD).\n• Pancreatitis.\n• Diabetes.\n• Heart failure.\n• Side effects of a medicine. Certain medicines can cause liver damage in some people.\n\nThe results can't tell you which condition is causing your liver damage, but they can help show how much damage there is. Usually, the higher the level of GGT, the more liver damage you have.\n\nIf your results show low or normal levels of GGT, you probably don't have liver disease.\n\nYour results may also be compared with the results of an ALP test. ALP tests help diagnose bone disorders. Together, your results may show one of the following:\n\n• High levels of ALP and high levels of GGT mean your symptoms are likely due to a liver disorder and not a bone disorder.\n• High levels of ALP and low or normal GGT levels mean it's more likely you have a bone disorder.\n\nIf you have questions about your results, talk to your provider. Your provider will consider your symptoms, medical history, and the results of other blood tests to understand the results of your GGT test.\n\nLearn more about laboratory tests, reference ranges, and understanding results."
+    },
+    {
+      "title": "Is there anything else I need to know about a GGT test?",
+      "text": "In addition to an ALP test, your provider may order liver function tests with or after the GGT test. These may include:\n\n• Alanine aminotransferase, or ALT\n• Aspartate aminotransferase, or AST\n• Lactic dehydrogenase, or LDH"
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/lab-tests/gamma-glutamyl-transferase-ggt-test/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "245bc6f9200701b91bd0155b17a7606ef14b37d09edc3218284d63867db0b401",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace and list formatting only. Not clinical review."
+}

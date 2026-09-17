@@ -1,0 +1,40 @@
+{
+  "title": "PCR Tests",
+  "sourceUpdated": "Last updated September 19, 2024",
+  "sections": [
+    {
+      "title": "What are PCR tests?",
+      "text": "PCR (polymerase chain reaction) tests are a reliable and accurate way to diagnose certain infectious diseases, some types of cancer, and certain genetic changes. The tests check for small amounts of genetic material of a pathogen (disease-causing organism) or abnormal cells in a sample of your blood, saliva, mucus, or tissue. The genetic material could be:\n\n• DNA, which contains the genetic information needed for a person and most other living things to develop and grow. DNA is copied from one generation to the next.\n• RNA, which contains information copied from DNA. Many types of RNA help your cells make proteins. Some viruses use RNA instead of DNA to carry their genetic information.\n\nMost viruses and other pathogens contain DNA or RNA.\n\nUnlike many other tests, PCR tests can find signs of disease in the earliest stages of infection. They can also find pieces of a virus you had, after you are no longer infected. Other tests may miss early signs of disease because there aren't enough viruses, bacteria, or other pathogens in your sample, or your body hasn't had enough time to develop an antibody response. Antibodies are proteins your immune system makes to attack foreign substances, such as viruses and bacteria. PCR tests can detect disease when there is only a very small amount of pathogens in your body.\n\nAs part of a PCR test, a small amount of genetic material in your sample is copied multiple times. The copying process is known as amplification. If your sample contains pathogens, amplification can make them much easier to detect.\n\nOther names: polymerase chain reaction, rtPCR, reverse transcription PCR, qPCR, quantitative PCR, real-time PCR"
+    },
+    {
+      "title": "How are they used?",
+      "text": "PCR tests are used to:\n\n• Diagnose certain infectious diseases\n• Identify certain genetic changes that can cause disease\n• Find small amounts of certain cancer cells that might be missed in other types of tests"
+    },
+    {
+      "title": "How do they work?",
+      "text": "To do a PCR test:\n\n• A health care professional will take a sample of blood, saliva, mucus, or tissue.\n• The sample will contain your own DNA and possibly the DNA of a pathogen or cancer cell.\n• The sample, an enzyme called polymerase, and certain chemicals are put in a thermal cycler. This machine makes copies of a special segment of DNA through heating and cooling cycles.\n• The copying process is repeated multiple times. After about an hour, billions of copies are made. If a virus or other pathogen is present, it will be shown on the machine.\n\nCertain viruses, including COVID-19, are made up of RNA rather than DNA. For these viruses, the RNA must be changed into DNA before copying. This process is called reverse transcription PCR (rtPCR)."
+    },
+    {
+      "title": "What happens during a PCR test?",
+      "text": "There are different ways to get a sample for a PCR test. Common methods include blood tests and nasal swabs.\n\nDuring a blood test, a health care professional will take a blood sample from a vein in your arm, using a small needle. After the needle is inserted, a small amount of blood will be collected into a test tube or vial. You may feel a little sting when the needle goes in or out. This usually takes less than five minutes.\n\nA nasal swab may be taken from the front part of your nostrils (anterior nares). It also may be taken from the back of your nostrils, in a procedure known as a nasal mid-turbinate (NMT) swab, or from the nasopharynx, the uppermost part of your nose and throat. In some cases, your provider will ask you to do an anterior nares test or an NMT swab yourself.\n\nDuring an anterior nares test, you will start by tilting your head back. Then you or your provider will:\n\n• Gently insert a swab inside your nostril.\n• Rotate the swab in four or five sweeping circles for 10 to 15 seconds.\n• Remove the swab and insert it into your second nostril.\n• Swab the second nostril using the same technique.\n• Remove the swab.\n\nIf you only swab one nostril, don't rotate the swab in your nostril, or keep the swab in one area, you may not get a good sample.\n\nIf you are doing the test yourself, your provider will let you know how to prepare and package your sample. This often involves placing your swab in a sterile tube, closing it, and sealing it in a special bag. You would then give the specimen bag to your provider or follow the instructions on how to return your specimen for testing.\n\nDuring an NMT swab, you will start by tilting your head back. Then you or your provider will:\n\n• Gently insert a swab onto the bottom of your nostril, pushing it until you feel it stopping.\n• Rotate the swab for 10 to 15 seconds.\n• Remove the swab and insert it into your second nostril.\n• Swab the second nostril using the same technique.\n• Remove the swab.\n\nIf you only swab one nostril, don't rotate the swab in your nostril, or only keep the swab in one area, you may not get a good sample.\n\nIf you are doing the test yourself, your provider will let you know how to prepare and package your sample. This often involves placing your swab in a sterile tube, closing it, and sealing it in a special bag. You would then give the specimen bag to your provider or follow the instructions on how to return your specimen for testing.\n\nDuring a nasopharyngeal (NP) swab:\n\n• You will tilt your head back.\n• Your provider will insert a long swab into your nostril until it reaches your nasopharynx (the upper part of your throat).\n• Your provider will rotate the swab for 10 to 15 seconds and remove it.\n\nIf your provider gets enough of a sample from one of your nostrils, they may only need to do one. But they may need to get a sample from your other nostril as well if they had trouble getting the sample from the first side."
+    },
+    {
+      "title": "Do I need to do anything to prepare for this test?",
+      "text": "You don't need any special preparations for a PCR test."
+    },
+    {
+      "title": "Are there are any risks to a PCR test?",
+      "text": "There is very little risk to having a blood test. You may have slight pain or bruising at the spot where the needle was put in, but most symptoms go away quickly.\n\nA nasal swab may tickle your throat or cause you to cough. A nasopharyngeal swab may be uncomfortable and cause coughing or gagging. All these effects are temporary."
+    },
+    {
+      "title": "Is there anything else I need to know about PCR tests?",
+      "text": "PCR tests are considered the best and most effective method for identifying many infectious diseases, including COVID-19 and HPV. Because they often diagnose infections before symptoms start, PCR tests play a very important role in preventing the spread of diseases.\n\nLearn more about laboratory tests, reference ranges, and understanding results."
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/lab-tests/pcr-tests/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "00ce5caaf087ac5a52ba9dcf3b71b91ad079cef30ae31e70a10f1f68023f4825",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace and list formatting only. Not clinical review."
+}

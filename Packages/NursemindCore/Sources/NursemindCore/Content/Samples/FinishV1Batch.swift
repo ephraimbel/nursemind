@@ -564,7 +564,7 @@ public enum PressureInjurySample {
             AttributedBullet("Braden score subscales — sensory perception, moisture, activity, mobility, nutrition, friction/shear; targeted intervention per low-scoring subscale.", citationIDs: ["openrn_medsurg_finish"]),
             AttributedBullet("Bony prominences — sacrum, heels, ischium, trochanters, occiput, elbows, scapulae.", citationIDs: ["openrn_medsurg_finish"]),
             AttributedBullet("Medical devices — endotracheal tubes, NGT, oxygen tubing, BiPAP mask, Foley securement, restraints, splints.", citationIDs: ["openrn_medsurg_finish"]),
-            AttributedBullet("Nutritional status — albumin, prealbumin, dietary intake.", citationIDs: ["openrn_medsurg_finish"])
+            AttributedBullet("Nutritional assessment — dietary intake.", citationIDs: ["openrn_medsurg_finish"])
         ],
         commonInterventions: [
             AttributedBullet("Reposition every 2 hours when in bed; every 1 hour when in chair (or per individualized schedule).", citationIDs: ["openrn_medsurg_finish"]),

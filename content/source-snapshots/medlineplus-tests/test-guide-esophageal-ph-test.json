@@ -1,0 +1,44 @@
+{
+  "title": "Esophageal pH Test",
+  "sourceUpdated": "Last updated September 10, 2024",
+  "sections": [
+    {
+      "title": "What is an esophageal pH test?",
+      "text": "An esophageal pH test measures how often stomach acid enters your esophagus (the muscular tube that carries food and liquids from your mouth to your stomach). It also measures how long the acid stays there. The test involves placing a catheter (a thin tube) or a special device called a pH probe into your esophagus. The catheter or device will measure your acid level (known as pH level) for 24 to 96 hours.\n\nThe test can show if you have acid reflux or GERD (gastroesophageal reflux disease):\n\n• Acid reflux, also called gastroesophageal reflux (GER), happens when stomach acid flows back into the esophagus. You might notice acid reflux after eating a big meal or if you lie down after dinner. When the acid touches the esophagus, it can cause a burning feeling in your chest or neck. This is known as heartburn.\n• GERD is a more serious and long-lasting form of reflux. It causes repeated symptoms and can lead to complications over time.\n\nWhile acid reflux and GERD are not life-threatening, the symptoms can be very uncomfortable and affect your quality of life. Also, if not treated, GERD can damage the esophagus and lead to more serious health problems.\n\nOther names: esophageal pH monitoring 24-hour esophageal pH test, esophageal reflux monitoring, esophageal acidity test, pH monitoring, pH probe study, 48-hour Bravo esophageal pH test"
+    },
+    {
+      "title": "What is it used for?",
+      "text": "An esophageal pH test is most often used to diagnose acid reflux or GERD. It may also be used to see if treatment for GERD is effective."
+    },
+    {
+      "title": "Why do I need an esophageal pH test?",
+      "text": "You may need this test if you have symptoms of acid reflux. These include:\n\n• Heartburn\n• Swallowed food coming back into your mouth (regurgitation)\n• Trouble swallowing\n• Feeling like there’s a lump in your throat\n• Sore throat\n• Cough\n• Frequent burping"
+    },
+    {
+      "title": "What happens during an esophageal pH test?",
+      "text": "An esophageal pH test may be done using a thin tube called a catheter or with a wireless pH probe (a small, capsule-like device).\n\nDuring a catheter test:\n\n• Your health care provider will insert a small, thin tube through your mouth or nose. You may be asked to take drinks of water to swallow the tube down to your esophagus. The tube has a sensor that measures your acid level.\n• The other end of the tube will be connected to a small monitor that you wear around your waist or over your shoulder.\n• The monitor will measure your acid levels for 24 hours.\n• You will keep a diary of your symptoms and the food you eat during these 24 hours.\n• The next day, you will see your provider, who will remove the tube and monitor. You'll also give your provider the diary of your symptoms and food eaten.\n\nDuring a wireless test, also known as a pH probe study:\n\n• Your provider will attach a pH probe to the lining of your esophagus during an upper endoscopy, a procedure that is done using an endoscope. An endoscope is a thin, tube-like instrument with a light and camera.\n• You will get a medicine to block the pain and make you feel relaxed and sleepy during the procedure.\n• The probe will measure acid levels for 48 to 96 hours.\n• The probe will send the information to a device you wear on your wrist or belt.\n• You will need to keep a diary of your symptoms and the food you eat for 48 to 96 hours.\n• In 4 to 10 days, the probe will leave your body through a bowel movement.\n• After the probe stops transmitting (after 48-96 hours), you will give the diary to your provider."
+    },
+    {
+      "title": "Will I need to do anything to prepare for the test?",
+      "text": "• You should not eat or drink (fast) for four to six hours before the procedure.\n• You may be asked to stop taking certain medicines, such as antacids, for 24 hours or for as long as two weeks before your test. Your provider will let you know which medicines to avoid and for how long.\n• Tell your provider if you have a pacemaker or an implantable heart defibrillator.\n• Tell your provider if you have had problems with your esophagus before or if you have a history of bleeding problems."
+    },
+    {
+      "title": "Are there any risks to the test?",
+      "text": "During a catheter test, you may feel some mild discomfort in your nose and throat, but it usually doesn't last long. You may also feel like gagging when the tube is inserted. Rarely, the test can cause a nosebleed.\n\nDuring a wireless test, you may have a sore throat from the endoscope. In very rare cases, the test may cause a tear in the lining of the esophagus."
+    },
+    {
+      "title": "What do the results mean?",
+      "text": "If your results show high acid levels, it may be a sign of one of the following conditions:\n\n• Acid reflux\n• GERD\n• Esophagitis, a condition that cause swelling and/or inflammation of the esophagus. It can cause difficulty swallowing.\n• Stricture, a narrowing of the esophagus that can make it hard to swallow and cause breathing problems\n• Barrett's esophagus, a condition in which the lining of the esophagus is damaged by stomach acid. It can raise the risk of developing cancer of the esophagus.\n\nEsophagitis, strictures, and Barrett's esophagus can happen if GERD is left untreated or if treatment is not effective.\n\nIf you have questions about your results, talk to your provider."
+    },
+    {
+      "title": "Is there anything else I need to know about an esophageal pH test?",
+      "text": "If you've been diagnosed with acid reflux or GERD, you may be able to reduce or eliminate your symptoms with diet and lifestyle changes. Diet changes include limiting:\n\n• Fatty foods\n• Spicy foods\n• Citrus fruits and juices\n• Tomatoes and tomato products\n• Alcohol\n\nLifestyle changes include:\n\n• Eating smaller amounts\n• Quitting smoking\n• Waiting a few hours after eating before you lie down\n• Losing weight if needed\n\nOver-the-counter medicines, such as antacids, may also be helpful.\n\nIf your symptoms don't improve or are more serious, your provider may recommend treatments to reduce or block acid production. These may include over-the-counter and/or prescription medicines. Sometimes surgery is recommended for people with more severe and/or long-lasting symptoms."
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/lab-tests/esophageal-ph-test/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "72e62bde958164662f603ac8e43cb663cd60f26d53513c936653bbf0631da48b",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace and list formatting only. Not clinical review."
+}

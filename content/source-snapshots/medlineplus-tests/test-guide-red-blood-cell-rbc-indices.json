@@ -1,0 +1,40 @@
+{
+  "title": "Red Blood Cell (RBC) Indices",
+  "sourceUpdated": "Last updated October 7, 2024",
+  "sections": [
+    {
+      "title": "What are red blood cell (RBC) indices?",
+      "text": "Red blood cell (RBC) indices measure your red blood cells' size, shape, and quality. Red blood cells are also known as erythrocytes. They are made in your bone marrow (the spongy tissue inside your large bones). They contain hemoglobin, an iron-rich protein in your red blood cells that carries oxygen from your lungs to every cell in your body. Your cells need oxygen to grow, reproduce, and make energy.\n\nKnowing the size and shape of your red blood cells can help your provider determine if you have a certain type of anemia, a condition in which your body does not make enough healthy red blood cells. There are four types of red blood cell indices:\n\n• Mean corpuscular volume (MCV), which measures the average size of your red blood cells.\n• Mean corpuscular hemoglobin (MCH), which measures the average amount of hemoglobin in a single red blood cell.\n• Mean corpuscular hemoglobin concentration (MCHC), which measures how concentrated (close together) the hemoglobin is in your red blood cells. It also includes a calculation of the size and volume of your red blood cells.\n• Red cell distribution width (RDW), which measures differences in the volume and size of your red blood cells. Healthy red blood cells are usually about the same size.\n\nIf one or more of these indices are not normal, it may mean you have some type of anemia.\n\nOther names: erythrocyte indices"
+    },
+    {
+      "title": "What are they used for?",
+      "text": "Red blood cell (RBC) indices are part of a complete blood count, a group of tests that measures the number and type of cells in your blood. The results of RBC indices are used to diagnose different types of anemia. There are several types of anemia, and each type has a different effect on the size, shape, and/or quality of red blood cells."
+    },
+    {
+      "title": "Why do I need red blood cell indices testing?",
+      "text": "You may get this test as part of a complete blood count, which is often included in a routine checkup. You may also need this test if you have symptoms of anemia, which may include:\n\n• Shortness of breath\n• Weakness or fatigue\n• Headache\n• Dizziness\n• Arrhythmia (a problem with the rate or rhythm of your heartbeat)\n• Pale skin\n• Cold hands and feet"
+    },
+    {
+      "title": "What happens during a red blood cell indices test?",
+      "text": "A health care professional will take a blood sample from a vein in your arm, using a small needle. After the needle is inserted, a small amount of blood will be collected into a test tube or vial. You may feel a little sting when the needle goes in or out. This test usually takes less than five minutes."
+    },
+    {
+      "title": "Will I need to do anything to prepare for these tests?",
+      "text": "You don't need any special preparations for a red blood cell (RBC) indices test."
+    },
+    {
+      "title": "Are there any risks to these tests?",
+      "text": "There is very little risk to having a blood test. There may be slight pain or bruising at the spot where the needle was put in, but most symptoms go away quickly."
+    },
+    {
+      "title": "What do the results mean?",
+      "text": "You will get results for each of the indices. Abnormal results may include one or more of the following:\n\nMean corpuscular volume (MCV)\n\nIf your red blood cells are smaller than normal, it may mean you have:\n\n• Iron deficiency anemia, the most common form of anemia. It happens when you don't have enough iron in your body.\n• Thalassemia, which is a group of blood disorders that are inherited (passed down through families). These disorders cause your body to make fewer healthy red blood cells and less hemoglobin. This can cause severe anemia.\n\nIf your red blood cells are larger than normal, it may mean you have:\n\n• Anemia caused by a vitamin B deficiency\n• Liver disease\n\nMean corpuscular hemoglobin (MCH)\n\nIf the amount of hemoglobin is lower than normal, it may mean you have:\n\n• Iron deficiency anemia\n\nIf the amount of hemoglobin is higher than normal, it may mean you have:\n\n• Anemia caused by a vitamin B deficiency\n\nMean corpuscular hemoglobin concentration (MCHC)\n\nIf the average amount of hemoglobin is lower than normal, it may mean you have:\n\n• Iron deficiency anemia\n• Thalassemia\n\nIf the average amount of hemoglobin is higher than normal, it may mean you have:\n\n• Hemolytic anemia, a type of anemia that happens when red blood cells are destroyed faster than they can be replaced.\n• Hereditary spherocytosis, a rare genetic disorder that causes anemia and gallstones\n\nRed cell distribution width (RDW)\n\n• If your results were normal, it means your red blood cells are normal in size and are all about the same size.\n• If your results were not normal, it means there are differences in the size of your red blood cells.\n\nThis measurement is not enough for your provider to make a diagnosis, so RDW results are usually combined with the results of other indices and other blood tests. This combination of results can help confirm a diagnosis.\n\nTalk to your health care provider if you have questions about your results. Your provider will consider your symptoms, medical history, and the results of other blood tests to understand your results.\n\nLearn more about laboratory tests, reference ranges, and understanding results."
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/lab-tests/red-blood-cell-rbc-indices/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "1ee9ce50d8fbf658ed0b370282787119635ed87081b07a33841bc1ffbaa37b16",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace and list formatting only. Not clinical review."
+}

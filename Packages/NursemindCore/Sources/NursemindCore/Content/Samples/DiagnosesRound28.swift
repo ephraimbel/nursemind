@@ -1,5 +1,25 @@
 import Foundation
 
+private let depth6_cdc_adult_vaccines = CitationSource(
+    id: "depth6_cdc_adult_vaccines",
+    shortName: "CDC adult immunization schedule by indication",
+    detail: "How to use the schedule: age, medical conditions, intervals, precautions and updated guidance. Page dated July 2, 2025, retrieved September 17, 2026. Attribution is to the planning principles; no schedule table or patient-specific vaccine schedule reproduced.",
+    publisher: "Centers for Disease Control and Prevention",
+    license: .publicDomain,
+    url: "https://www.cdc.gov/vaccines/hcp/imz-schedules/adult-medical-condition.html",
+    lastRetrieved: "2026-09-17"
+)
+
+private let depth6_esc_ph = CitationSource(
+    id: "depth6_esc_ph",
+    shortName: "ESC: PH due to heart or lung disease",
+    detail: "Pulmonary hypertension definition and therapeutic management of Group 3 PH; August 4, 2026. Clinical facts paraphrased; no tables, figures, algorithms or source prose reproduced.",
+    publisher: "European Society of Cardiology",
+    license: .factCitationOnly,
+    url: "https://www.escardio.org/communities/councils/cardiology-practice/education/cardiopractice/diagnosis-and-management-of-pulmonary-hypertension-due-to-left-heart-disease-or-pulmonary-disease/",
+    lastRetrieved: "2026-09-17"
+)
+
 // Curator-model diagnosis entries (round 28 — pulmonary depth: ILDs + PH + occupational + pleural).
 
 private let openrnDxR28 = CitationSource(
@@ -443,9 +463,9 @@ public enum CorPulmonaleSample {
             AttributedBullet("LONG-TERM OXYGEN therapy (LTOT) — ≥15 hours/day improves survival in chronic hypoxemic COPD (NOTT + MRC trials) per primary source.", citationIDs: ["specialty_dx_round28"]),
             AttributedBullet("DIURETICS — for edema + hepatic congestion + ascites; loop diuretic + spironolactone; cautious diuresis to avoid hypovolemia (RV preload-dependent).", citationIDs: ["specialty_dx_round28"]),
             AttributedBullet("TREATMENT of underlying lung disease — inhalers for COPD, antifibrotics for IPF, immunosuppression for sarcoid, anticoagulation for CTEPH, CPAP for OSA.", citationIDs: ["specialty_dx_round28"]),
-            AttributedBullet("PAH THERAPIES — ONLY if Group 1 PH (PAH) confirmed by RHC; not for COPD-related Group 3 PH (no benefit + may worsen V/Q matching).", citationIDs: ["specialty_dx_round28"]),
+            AttributedBullet("PH from lung disease requires specialist treatment selection; management centers on the underlying condition, with selected exceptions to routine avoidance of PAH therapies.", citationIDs: ["depth6_esc_ph"]),
             AttributedBullet("PHLEBOTOMY — for symptomatic erythrocytosis (Hct >55-60); cautious.", citationIDs: ["specialty_dx_round28"]),
-            AttributedBullet("Vaccinations — flu, pneumococcal, COVID, pertussis annual.", citationIDs: ["specialty_dx_round28"]),
+            AttributedBullet("Review immunizations using current age- and risk-based guidance, prior doses, vaccine-specific intervals and precautions; these vaccines do not share one annual schedule.", citationIDs: ["depth6_cdc_adult_vaccines"]),
             AttributedBullet("Pulmonary rehabilitation + exercise training.", citationIDs: ["specialty_dx_round28"]),
             AttributedBullet("Heart-lung or lung transplant — selected end-stage younger patients.", citationIDs: ["specialty_dx_round28"]),
             AttributedBullet("Palliative care + advance care planning.", citationIDs: ["specialty_dx_round28"])
@@ -458,7 +478,7 @@ public enum CorPulmonaleSample {
             AttributedBullet("POLYCYTHEMIA — viscosity-related stroke + DVT; monitor + treat.", citationIDs: ["specialty_dx_round28"]),
             AttributedBullet("END-STAGE — palliative care; opioids for dyspnea + anxiety; hospice.", citationIDs: ["specialty_dx_round28"])
         ],
-        citations: [openrnDxR28, cdcDxR28, specialtyDxR28],
+        citations: [openrnDxR28, cdcDxR28, specialtyDxR28, depth6_cdc_adult_vaccines, depth6_esc_ph],
         lastSourceFidelityReview: "2026-05-13"
     )
 }
@@ -495,7 +515,7 @@ public enum BronchiectasisSample {
             AttributedBullet("ETIOLOGY WORKUP — identify underlying cause guides treatment.", citationIDs: ["specialty_dx_round28"]),
             AttributedBullet("SPUTUM CULTURE — bacterial + AFB + fungal; Pseudomonas eradication if first isolated.", citationIDs: ["specialty_dx_round28"]),
             AttributedBullet("Multidisciplinary care — pulmonologist + infectious disease + respiratory therapist.", citationIDs: ["specialty_dx_round28"]),
-            AttributedBullet("Vaccinations — flu, pneumococcal, COVID, pertussis annual.", citationIDs: ["specialty_dx_round28"]),
+            AttributedBullet("Review immunizations using current age- and risk-based guidance, prior doses, vaccine-specific intervals and precautions; these vaccines do not share one annual schedule.", citationIDs: ["depth6_cdc_adult_vaccines"]),
             AttributedBullet("Smoking cessation + nutrition.", citationIDs: ["specialty_dx_round28"])
         ],
         commonInterventions: [
@@ -521,7 +541,7 @@ public enum BronchiectasisSample {
             AttributedBullet("QUALITY OF LIFE — chronic productive cough impact; psychosocial support.", citationIDs: ["specialty_dx_round28"]),
             AttributedBullet("Vaccinations + infection prevention paramount.", citationIDs: ["specialty_dx_round28"])
         ],
-        citations: [openrnDxR28, cdcDxR28, specialtyDxR28],
+        citations: [openrnDxR28, cdcDxR28, specialtyDxR28, depth6_cdc_adult_vaccines],
         lastSourceFidelityReview: "2026-05-13"
     )
 }

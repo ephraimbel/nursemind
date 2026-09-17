@@ -1,5 +1,61 @@
 import Foundation
 
+private let lab_review_ranges_2026 = CitationSource(
+    id: "lab_review_ranges_2026", shortName: "Open RN — Health Alterations: Normal Reference Ranges",
+    detail: "Ernstmeyer K, Christman E, editors. Health Alterations (2024), Appendix A. Selected adult values; use the reporting laboratory interval. CC BY 4.0; presentation condensed and albumin units converted from g/L to g/dL.",
+    publisher: "Open Resources for Nursing", license: .ccBy4,
+    url: "https://www.ncbi.nlm.nih.gov/books/NBK613071/", lastRetrieved: "2026-09-17"
+)
+
+private let lab_bun = CitationSource(
+    id: "lab_bun", shortName: "MedlinePlus — BUN",
+    detail: "NLM-authored MedlinePlus medical-test information, paraphrased and condensed by NurseMind. External linked articles and third-party drug/encyclopedia content excluded.",
+    publisher: "National Library of Medicine", license: .publicDomain,
+    url: "https://medlineplus.gov/lab-tests/bun-blood-urea-nitrogen/", lastRetrieved: "2026-09-17"
+)
+
+private let lab_result_context = CitationSource(
+    id: "lab_result_context", shortName: "MedlinePlus — Understanding lab results",
+    detail: "NLM-authored MedlinePlus medical-test information, paraphrased and condensed by NurseMind. External linked articles and third-party drug/encyclopedia content excluded.",
+    publisher: "National Library of Medicine", license: .publicDomain,
+    url: "https://medlineplus.gov/lab-tests/how-to-understand-your-lab-results/", lastRetrieved: "2026-09-17"
+)
+
+private let lab_albumin = CitationSource(
+    id: "lab_albumin", shortName: "MedlinePlus — Albumin",
+    detail: "NLM-authored MedlinePlus medical-test information, paraphrased and condensed by NurseMind. External linked articles and third-party drug/encyclopedia content excluded.",
+    publisher: "National Library of Medicine", license: .publicDomain,
+    url: "https://medlineplus.gov/lab-tests/albumin-blood-test/", lastRetrieved: "2026-09-17"
+)
+
+private let lab_aspen_proteins = CitationSource(
+    id: "lab_aspen_proteins", shortName: "ASPEN — Visceral proteins and nutrition assessment",
+    detail: "ASPEN (2021), Appropriate Use of Visceral Proteins in Nutrition Screening and Assessment. Factual citation and link; original wording, tables, figures and scoring tools are not reproduced.",
+    publisher: "American Society for Parenteral and Enteral Nutrition", license: .factCitationOnly,
+    url: "https://nutritioncare.org/wp-content/uploads/2024/12/Appropriate-Use-Visceral-Proteins-Nutrition-Screening-Assessment.pdf", lastRetrieved: "2026-09-17"
+)
+
+private let lab_bnp = CitationSource(
+    id: "lab_bnp", shortName: "MedlinePlus — Natriuretic peptides",
+    detail: "NLM-authored MedlinePlus medical-test information, paraphrased and condensed by NurseMind. External linked articles and third-party drug/encyclopedia content excluded.",
+    publisher: "National Library of Medicine", license: .publicDomain,
+    url: "https://medlineplus.gov/lab-tests/natriuretic-peptide-tests-bnp-nt-probnp/", lastRetrieved: "2026-09-17"
+)
+
+private let lab_lipase = CitationSource(
+    id: "lab_lipase", shortName: "MedlinePlus — Lipase",
+    detail: "NLM-authored MedlinePlus medical-test information, paraphrased and condensed by NurseMind. External linked articles and third-party drug/encyclopedia content excluded.",
+    publisher: "National Library of Medicine", license: .publicDomain,
+    url: "https://medlineplus.gov/lab-tests/lipase-tests/", lastRetrieved: "2026-09-17"
+)
+
+private let lab_pct = CitationSource(
+    id: "lab_pct", shortName: "MedlinePlus — Procalcitonin",
+    detail: "NLM-authored MedlinePlus medical-test information, paraphrased and condensed by NurseMind. External linked articles and third-party drug/encyclopedia content excluded.",
+    publisher: "National Library of Medicine", license: .publicDomain,
+    url: "https://medlineplus.gov/lab-tests/procalcitonin-test/", lastRetrieved: "2026-09-17"
+)
+
 private let openrnLabRanges = CitationSource(
     id: "openrn_lab_ranges",
     shortName: "Open RN Nursing Fundamentals — Reference Ranges Appendix",
@@ -24,40 +80,30 @@ public enum BUNSample {
     public static let entry: LabEntry = LabEntry(
         id: "bun",
         title: "BUN (blood urea nitrogen)",
-        subtitle: "Serum · renal + hydration marker",
-        specimen: "Serum",
+        subtitle: "Serum · kidney function and interpretation limits",
+        specimen: "Blood; use the collecting laboratory’s specimen instructions",
         nclexTags: NCLEXTags(category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential, priorityConcept: .fluidElectrolytes),
         referenceRanges: [
-            ReferenceRangeRow(value: "7–20 mg/dL",  label: "Normal adult", citationIDs: ["openrn_lab_ranges"]),
-            ReferenceRangeRow(value: ">20 mg/dL",   label: "Elevated",     citationIDs: ["openrn_lab_ranges"]),
-            ReferenceRangeRow(value: ">100 mg/dL",  label: "Severe — likely uremic symptoms", citationIDs: ["openrn_lab_ranges"])
+            ReferenceRangeRow(value: "8–21 mg/dL", label: "Example adult interval", citationIDs: ["lab_review_ranges_2026"])
         ],
         interpretationTiers: [
-            InterpretationTier(
-                severity: .high,
-                label: "Elevated BUN",
-                summary: "BUN reflects both renal function AND hydration/protein turnover. Always interpret with creatinine.",
-                nursingActions: [
-                    "Check BUN:Cr ratio: >20:1 suggests pre-renal (volume depletion, GI bleed, high-protein diet, steroids); 10–15:1 suggests intrinsic renal",
-                    "Assess hydration: skin turgor, mucous membranes, orthostatics, urine output",
-                    "Identify cause: dehydration, GI bleed, high-protein TPN, catabolic state, AKI",
-                    "Trend with creatinine and clinical context"
-                ],
-                citationIDs: ["openrn_lab_ranges"]
-            )
+            InterpretationTier(severity: .high, label: "Above the laboratory interval", summary: "Urea nitrogen is produced during protein breakdown and cleared through the kidneys. Elevation can accompany reduced kidney function, but does not establish a cause by itself.",
+                nursingActions: ["Review creatinine and estimated GFR alongside BUN.", "Review recent intake, medicines and the clinical reason for testing."], citationIDs: ["lab_bun"])
         ],
         commonCauses: [
-            CauseGroup(title: "Pre-renal (high BUN:Cr ratio)", causes: ["Dehydration", "GI bleed (protein load)", "Catabolic state", "Steroid therapy"], citationIDs: ["openrn_lab_ranges"]),
-            CauseGroup(title: "Intrinsic renal (proportional BUN/Cr rise)", causes: ["AKI", "CKD", "ATN", "Glomerulonephritis"], citationIDs: ["openrn_lab_ranges"])
+            CauseGroup(title: "Higher results may accompany", causes: ["Kidney dysfunction", "Dehydration", "High protein intake", "Burns or certain medicines"], citationIDs: ["lab_bun"]),
+            CauseGroup(title: "Lower results may accompany", causes: ["Low protein intake or malnutrition", "Liver disease"], citationIDs: ["lab_bun"])
         ],
         nursingActions: [
-            AttributedBullet("Always pair BUN with creatinine; the ratio is more useful than either alone.", citationIDs: ["openrn_lab_ranges"])
+            AttributedBullet("Bedside context includes changes in urination, swelling, fatigue, itching and muscle cramps; early kidney disease may have no symptoms. Record the observed findings rather than labeling an isolated value as kidney failure.", citationIDs: ["lab_bun"]),
+            AttributedBullet("BUN alone usually needs no special preparation. When collected with other tests, confirm whether the combined order includes fasting instructions.", citationIDs: ["lab_bun"]),
+            AttributedBullet("Compare trends using the same laboratory method where possible; check the units and interval on the report.", citationIDs: ["lab_result_context"])
         ],
         watchFor: [
-            AttributedBullet("In GI bleeders, BUN can rise quickly from absorbed protein — disproportionate BUN rise with normal Cr suggests GI bleeding source.", citationIDs: ["openrn_lab_ranges"])
+            AttributedBullet("An abnormal result may need additional kidney testing. A normal result does not replace assessment when symptoms persist.", citationIDs: ["lab_bun"])
         ],
-        citations: [openrnLabRanges, openstaxLabValues],
-        lastSourceFidelityReview: "2026-05-03"
+        citations: [lab_review_ranges_2026, lab_bun, lab_result_context],
+        lastSourceFidelityReview: "2026-09-17"
     )
 }
 
@@ -111,39 +157,31 @@ public enum AlbuminSample {
     public static let entry: LabEntry = LabEntry(
         id: "albumin",
         title: "Albumin",
-        subtitle: "Serum · synthetic liver function / nutrition",
-        specimen: "Serum",
+        subtitle: "Serum · liver, protein loss and inflammation",
+        specimen: "Blood; use the collecting laboratory’s specimen instructions",
         nclexTags: NCLEXTags(category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential, priorityConcept: .nutrition),
         referenceRanges: [
-            ReferenceRangeRow(value: "3.5–5.0 g/dL", label: "Normal adult",     citationIDs: ["openrn_lab_ranges"]),
-            ReferenceRangeRow(value: "<3.5 g/dL",   label: "Hypoalbuminemia",  citationIDs: ["openrn_lab_ranges"]),
-            ReferenceRangeRow(value: "<2.5 g/dL",   label: "Severe — edema, drug-binding shifts, poor wound healing", citationIDs: ["openrn_lab_ranges"])
+            ReferenceRangeRow(value: "3.5–5.0 g/dL", label: "Example adult interval", citationIDs: ["lab_review_ranges_2026"])
         ],
         interpretationTiers: [
-            InterpretationTier(
-                severity: .low,
-                label: "Hypoalbuminemia",
-                summary: "Reflects either decreased synthesis (liver disease, malnutrition), increased loss (nephrotic syndrome, burns, GI loss), or dilutional/inflammatory state (sepsis, CHF).",
-                nursingActions: [
-                    "Identify cause: nutritional, hepatic, renal (proteinuria), GI (PLE), inflammatory",
-                    "Correct calcium for albumin: corrected Ca = measured + 0.8 × (4 − albumin)",
-                    "Drug binding shifts — highly protein-bound drugs (warfarin, phenytoin, calcium) may have higher free fraction",
-                    "Monitor for edema; nutritional support per dietitian"
-                ],
-                citationIDs: ["openrn_lab_ranges"]
-            )
+            InterpretationTier(severity: .low, label: "Low albumin", summary: "Albumin is produced by the liver. A low result can accompany liver disease, kidney protein loss, inflammation or other illness; albumin alone cannot diagnose the cause.",
+                nursingActions: ["Review accompanying liver and kidney findings.", "Record edema, appetite changes, weight changes and relevant symptoms."], citationIDs: ["lab_albumin"])
         ],
         commonCauses: [
-            CauseGroup(title: "Decreased synthesis", causes: ["Cirrhosis", "Severe malnutrition", "Critical illness (acute phase response)"], citationIDs: ["openrn_lab_ranges"]),
-            CauseGroup(title: "Increased loss", causes: ["Nephrotic syndrome (proteinuria)", "Burns", "Protein-losing enteropathy", "Open abdomens / surgical drains"], citationIDs: ["openrn_lab_ranges"])
+            CauseGroup(title: "Possible contributors to low results", causes: ["Liver or kidney disease", "Infection, burns or malabsorption", "Poor nutritional intake may coexist"], citationIDs: ["lab_albumin"]),
+            CauseGroup(title: "Higher results", causes: ["Dehydration can concentrate albumin."], citationIDs: ["lab_albumin"])
         ],
         nursingActions: [
-            AttributedBullet("Always correct serum calcium for albumin in hypoalbuminemia.", citationIDs: ["openrn_lab_ranges"]),
-            AttributedBullet("Albumin is a poor acute nutrition marker (long half-life ~21 days) — use prealbumin (~2 days) for short-term tracking.", citationIDs: ["openrn_lab_ranges"])
+            AttributedBullet("Review medicines, supplements and pregnancy status when interpreting the result. Albumin alone generally requires no preparation, but other tests in the same collection may require fasting.", citationIDs: ["lab_albumin"]),
+            AttributedBullet("Neither albumin nor prealbumin measures nutritional adequacy reliably. Inflammation can lower both independently of nutritional status; replacing albumin with prealbumin does not solve this problem.", citationIDs: ["lab_aspen_proteins"]),
+            AttributedBullet("Nutrition screening should include intake and unintentional weight change. A comprehensive assessment also considers physical findings, functional status and the medical history; involve the dietitian through the care pathway.", citationIDs: ["lab_aspen_proteins"])
         ],
-        watchFor: nil,
-        citations: [openrnLabRanges, openstaxLabValues],
-        lastSourceFidelityReview: "2026-05-03"
+        watchFor: [
+            AttributedBullet("Normal albumin does not exclude malnutrition, and an increase alone does not prove that nutrition support is adequate. Assess nutrition risk directly rather than treating a protein concentration as the goal.", citationIDs: ["lab_aspen_proteins"]),
+            AttributedBullet("The result must be interpreted with symptoms and other tests; a low value alone does not identify a single diagnosis.", citationIDs: ["lab_albumin"])
+        ],
+        citations: [lab_review_ranges_2026, lab_albumin, lab_aspen_proteins],
+        lastSourceFidelityReview: "2026-09-17"
     )
 }
 
@@ -153,41 +191,31 @@ public enum BNPSample {
     public static let entry: LabEntry = LabEntry(
         id: "bnp",
         title: "BNP / NT-proBNP",
-        subtitle: "Plasma · heart failure marker",
-        specimen: "Plasma (EDTA)",
-        nclexTags: NCLEXTags(category: .physiologicalIntegrity, subcategory: .physiologicalAdaptation, priorityConcept: .perfusion),
+        subtitle: "Plasma · heart failure assessment in context",
+        specimen: "Blood; use the collecting laboratory’s specimen instructions",
+        nclexTags: NCLEXTags(category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential, priorityConcept: .perfusion),
         referenceRanges: [
-            ReferenceRangeRow(value: "BNP <100 pg/mL",         label: "HF unlikely",      citationIDs: ["openrn_lab_ranges"]),
-            ReferenceRangeRow(value: "BNP 100–400 pg/mL",      label: "Indeterminate",    citationIDs: ["openrn_lab_ranges"]),
-            ReferenceRangeRow(value: "BNP >400 pg/mL",         label: "HF likely",        citationIDs: ["openrn_lab_ranges"]),
-            ReferenceRangeRow(value: "NT-proBNP <300 pg/mL",   label: "HF unlikely",      citationIDs: ["openrn_lab_ranges"]),
-            ReferenceRangeRow(value: "NT-proBNP age-adjusted", label: ">450 (<50y), >900 (50–75y), >1800 (>75y) suggests HF", citationIDs: ["openrn_lab_ranges"])
+            ReferenceRangeRow(value: "BNP <100 pg/mL", label: "Example adult interval", citationIDs: ["lab_review_ranges_2026"]),
+            ReferenceRangeRow(value: "NT-proBNP", label: "Use the laboratory’s assay-specific interval", citationIDs: ["lab_result_context"])
         ],
         interpretationTiers: [
-            InterpretationTier(
-                severity: .high,
-                label: "Elevated BNP",
-                summary: "Released from stretched ventricles; supports diagnosis of acute heart failure when accompanied by signs/symptoms.",
-                nursingActions: [
-                    "Pair with clinical exam (JVD, rales, S3, edema), CXR, echo",
-                    "Trend during diuresis — falling BNP suggests improvement",
-                    "Consider AKI: renal clearance of BNP is reduced → falsely elevated in CKD",
-                    "Higher in older adults; lower in obese patients (false negatives)"
-                ],
-                citationIDs: ["openrn_lab_ranges"]
-            )
+            InterpretationTier(severity: .high, label: "Elevated natriuretic peptide", summary: "BNP and NT-proBNP testing can support heart failure assessment and monitoring. An elevated result is not a diagnosis by itself.",
+                nursingActions: ["Review breathlessness, fatigue and swelling with the clinical team.", "Interpret with examination and other cardiac testing."], citationIDs: ["lab_bnp"])
         ],
         commonCauses: [
-            CauseGroup(title: "Cardiac causes of elevation", causes: ["Acute decompensated HF", "Right heart failure (PE, COR pulmonale)", "Ventricular hypertrophy", "Atrial fibrillation"], citationIDs: ["openrn_lab_ranges"]),
-            CauseGroup(title: "Non-cardiac causes", causes: ["CKD (decreased clearance)", "Sepsis with myocardial strain", "Critical illness"], citationIDs: ["openrn_lab_ranges"])
+            CauseGroup(title: "Other contributors to elevation", causes: ["Kidney failure", "Valve or other heart disease", "Pulmonary embolism or pulmonary hypertension"], citationIDs: ["lab_bnp"])
         ],
         nursingActions: [
-            AttributedBullet("BNP is sensitive but not specific — use as part of HF assessment, not in isolation.", citationIDs: ["openrn_lab_ranges"]),
-            AttributedBullet("Sacubitril/valsartan (Entresto) artificially elevates BNP — use NT-proBNP instead in those patients.", citationIDs: ["openrn_lab_ranges"])
+            AttributedBullet("Document changes in breathing, activity tolerance and edema alongside the result so that the laboratory trend has bedside context.", citationIDs: ["lab_bnp"]),
+            AttributedBullet("Age, sex and the medical history influence interpretation. Verify which peptide was measured before comparing reports.", citationIDs: ["lab_bnp"]),
+            AttributedBullet("Testing generally requires no special preparation. Explain that this is one part of the assessment and that additional testing may be needed to establish the cause of symptoms.", citationIDs: ["lab_bnp"])
         ],
-        watchFor: nil,
-        citations: [openrnLabRanges, openstaxLabValues],
-        lastSourceFidelityReview: "2026-05-03"
+        watchFor: [
+            AttributedBullet("Obesity can lower natriuretic peptide concentrations. A lower result does not, by itself, exclude heart failure in a symptomatic person.", citationIDs: ["lab_bnp"]),
+            AttributedBullet("An elevated result may reflect more than one condition; avoid attributing all breathlessness or swelling to heart failure from the number alone.", citationIDs: ["lab_bnp"])
+        ],
+        citations: [lab_review_ranges_2026, lab_result_context, lab_bnp],
+        lastSourceFidelityReview: "2026-09-17"
     )
 }
 
@@ -197,39 +225,30 @@ public enum LipaseSample {
     public static let entry: LabEntry = LabEntry(
         id: "lipase",
         title: "Lipase",
-        subtitle: "Serum · pancreatic injury marker",
-        specimen: "Serum",
+        subtitle: "Serum · pancreatic enzyme and abdominal assessment",
+        specimen: "Blood; use the collecting laboratory’s specimen instructions",
         nclexTags: NCLEXTags(category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential, priorityConcept: .nutrition),
         referenceRanges: [
-            ReferenceRangeRow(value: "0–160 U/L (varies)", label: "Normal adult",                                citationIDs: ["openrn_lab_ranges"]),
-            ReferenceRangeRow(value: ">3× upper limit",     label: "Suggestive of acute pancreatitis (with signs)", citationIDs: ["openrn_lab_ranges"])
+            ReferenceRangeRow(value: "Laboratory-specific", label: "Use the reported interval and units", citationIDs: ["lab_result_context"])
         ],
         interpretationTiers: [
-            InterpretationTier(
-                severity: .high,
-                label: "Elevated lipase",
-                summary: "Elevation >3× upper limit, with appropriate clinical signs (epigastric pain radiating to back, nausea, vomiting), supports diagnosis of acute pancreatitis.",
-                nursingActions: [
-                    "Assess pain, nausea/vomiting, abdominal exam (epigastric tenderness)",
-                    "NPO for bowel rest until provider clears",
-                    "IV fluids (often aggressive); pain control; antiemetics",
-                    "Trend lipase with clinical course — but note absolute value doesn't correlate with severity",
-                    "Identify trigger: gallstones, alcohol, hypertriglyceridemia, drugs (azathioprine, valproate, certain HIV meds)"
-                ],
-                citationIDs: ["openrn_lab_ranges"]
-            )
+            InterpretationTier(severity: .high, label: "Elevated lipase", summary: "Lipase helps digest fats. Elevation may accompany pancreatic injury, but other conditions can also increase it; interpret it with the clinical presentation.",
+                nursingActions: ["Review abdominal pain, radiation toward the back, nausea and vomiting.", "Include fever, jaundice and the medical history in the assessment."], citationIDs: ["lab_lipase"])
         ],
         commonCauses: [
-            CauseGroup(title: "Acute pancreatitis triggers", causes: ["Gallstones", "Alcohol", "Hypertriglyceridemia (TG >1000)", "Drugs (azathioprine, valproate, GLP-1 agonists, didanosine)", "Hypercalcemia", "ERCP", "Trauma"], citationIDs: ["openrn_lab_ranges"]),
-            CauseGroup(title: "Other causes of elevation", causes: ["AKI/CKD (decreased clearance)", "Bowel obstruction", "Cholecystitis"], citationIDs: ["openrn_lab_ranges"])
+            CauseGroup(title: "Possible contributors", causes: ["Acute pancreatitis", "Kidney disease", "Gallbladder or intestinal disease", "Certain medicines"], citationIDs: ["lab_lipase"]),
+            CauseGroup(title: "Low results", causes: ["Chronic pancreatic damage can reduce enzyme production."], citationIDs: ["lab_lipase"])
         ],
         nursingActions: [
-            AttributedBullet("Lipase is more specific than amylase for pancreatitis.", citationIDs: ["openrn_lab_ranges"]),
-            AttributedBullet("Lipase magnitude doesn't predict severity — use scoring (Ranson, BISAP) instead.", citationIDs: ["openrn_lab_ranges"])
+            AttributedBullet("Review medicines and supplements with the ordering clinician. Do not advise patients to stop a medicine simply to prepare for this test.", citationIDs: ["lab_lipase"]),
+            AttributedBullet("Preparation depends on the order; fasting may be requested. Verify the actual collection instructions rather than assuming every lipase order requires fasting.", citationIDs: ["lab_lipase"]),
+            AttributedBullet("Explain that the result helps investigate symptoms and is interpreted with history and other findings, rather than identifying the cause of pain on its own.", citationIDs: ["lab_lipase"])
         ],
-        watchFor: nil,
-        citations: [openrnLabRanges, openstaxLabValues],
-        lastSourceFidelityReview: "2026-05-03"
+        watchFor: [
+            AttributedBullet("An abnormal lipase value does not distinguish every pancreatic condition from nonpancreatic causes. Persistent symptoms still need clinical assessment and any further testing the team considers appropriate.", citationIDs: ["lab_lipase"])
+        ],
+        citations: [lab_result_context, lab_lipase],
+        lastSourceFidelityReview: "2026-09-17"
     )
 }
 
@@ -283,38 +302,29 @@ public enum ProcalcitoninSample {
     public static let entry: LabEntry = LabEntry(
         id: "procalcitonin",
         title: "Procalcitonin",
-        subtitle: "Plasma · bacterial infection / antibiotic guidance",
-        specimen: "Plasma",
+        subtitle: "Blood · infection assessment and test limitations",
+        specimen: "Blood; use the collecting laboratory’s specimen instructions",
         nclexTags: NCLEXTags(category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential, priorityConcept: .infection),
         referenceRanges: [
-            ReferenceRangeRow(value: "<0.10 ng/mL",   label: "Bacterial infection unlikely",    citationIDs: ["openrn_lab_ranges"]),
-            ReferenceRangeRow(value: "0.10–0.25",     label: "Local bacterial infection possible", citationIDs: ["openrn_lab_ranges"]),
-            ReferenceRangeRow(value: "0.25–0.50",     label: "Bacterial infection likely",      citationIDs: ["openrn_lab_ranges"]),
-            ReferenceRangeRow(value: ">0.50 ng/mL",   label: "Severe bacterial infection / sepsis likely", citationIDs: ["openrn_lab_ranges"])
+            ReferenceRangeRow(value: "Laboratory-specific", label: "Use the reported interval and clinical context", citationIDs: ["lab_result_context"])
         ],
         interpretationTiers: [
-            InterpretationTier(
-                severity: .high,
-                label: "Elevated procalcitonin",
-                summary: "Suggests bacterial (vs. viral) infection. Used to support sepsis diagnosis, guide antibiotic decisions, and de-escalate therapy.",
-                nursingActions: [
-                    "Pair with clinical signs of sepsis, lactate, WBC",
-                    "Trending procalcitonin guides antibiotic duration — provider may de-escalate when level falls",
-                    "Not specific — also elevated in major surgery, trauma, burns, malignancy, fungal sepsis",
-                    "Useful for differentiating bacterial pneumonia vs. viral / COPD exacerbation"
-                ],
-                citationIDs: ["openrn_lab_ranges"]
-            )
+            InterpretationTier(severity: .high, label: "Elevated procalcitonin", summary: "Procalcitonin may rise with a serious bacterial infection. It can assist the team’s infection assessment and monitoring, but it does not identify the organism.",
+                nursingActions: ["Review the result with symptoms, examination and other ordered tests.", "Additional testing is needed to identify the infection and its cause."], citationIDs: ["lab_pct"])
         ],
         commonCauses: [
-            CauseGroup(title: "Causes of elevation", causes: ["Bacterial sepsis", "Bacterial pneumonia", "Bacterial meningitis", "Major surgery / trauma (transient)", "Severe burns", "Cardiogenic shock with hepatic congestion"], citationIDs: ["openrn_lab_ranges"]),
-            CauseGroup(title: "False low (don't over-rely)", causes: ["Localized infection (abscess, cellulitis without bacteremia)", "Early infection (within hours of onset)"], citationIDs: ["openrn_lab_ranges"])
+            CauseGroup(title: "Noninfectious contributors", causes: ["Major surgery or trauma", "Severe burns", "Severe heart injury"], citationIDs: ["lab_pct"]),
+            CauseGroup(title: "A low result can occur", causes: ["Early in an infection, before the concentration has increased."], citationIDs: ["lab_pct"])
         ],
-        nursingActions: nil,
+        nursingActions: [
+            AttributedBullet("Record recent surgery, injury or burns when communicating the result; these can change its meaning. Testing itself usually requires no special preparation.", citationIDs: ["lab_pct"]),
+            AttributedBullet("The trend may help the clinician assess response to treatment. The value is one part of that decision, alongside the patient’s condition and other findings.", citationIDs: ["lab_pct"])
+        ],
         watchFor: [
-            AttributedBullet("Don't withhold antibiotics in suspected sepsis based on a single procalcitonin — clinical picture leads.", citationIDs: ["openrn_lab_ranges"])
+            AttributedBullet("A low initial result cannot exclude an early infection. New confusion, breathing difficulty, rapid heartbeat or severe illness require prompt clinical attention rather than reassurance from the laboratory number.", citationIDs: ["lab_pct"]),
+            AttributedBullet("An elevated result does not identify a particular bacterium or replace the additional investigations used to establish the cause.", citationIDs: ["lab_pct"])
         ],
-        citations: [openrnLabRanges, openstaxLabValues],
-        lastSourceFidelityReview: "2026-05-03"
+        citations: [lab_result_context, lab_pct],
+        lastSourceFidelityReview: "2026-09-17"
     )
 }

@@ -1,0 +1,44 @@
+{
+  "title": "Prenatal Panel",
+  "sourceUpdated": "Last updated September 23, 2024",
+  "sections": [
+    {
+      "title": "What is a prenatal panel?",
+      "text": "A prenatal panel is a group of blood tests done in early pregnancy. The tests check for diseases and infections that can affect the health of you and your developing baby. The results of the tests can guide treatments, which may help prevent serious complications. A prenatal panel usually includes the following tests:\n\n• Complete blood count (CBC). This test measures many different parts of your blood, including red blood cells, white blood cells, and platelets. It also measures the physical features pf some of the cells. A CBC can help diagnose various health conditions, such as anemia, clotting disorders, and infections.\n• Blood type and Rh factor. This test finds out your blood type (A, B, AB, or O) and checks your Rh factor. Rh factor is a type of protein found on the surface of red blood cells. If your blood cells have this protein, you are Rh-positive. If they don't, you are Rh- negative. If you are Rh-negative and your developing baby is Rh-positive, it's called Rh incompatibility. It may cause your body to make antibodies against your baby's blood, which can damage your baby's red blood cells.\n• Rubella, also known as German measles, is a viral infection. This test shows if you are immune to (protected against) rubella. You would be immune if you have been vaccinated against rubella or infected with it in the past. If you are not immune and you get the infection during pregnancy, it could put your baby at risk for congenital anomalies (health conditions that can develop before birth).\n• Hepatitis B and C are viruses that infect your liver. If you're pregnant, the hepatitis virus can be passed to your baby. Hepatitis B is a test usually given during pregnancy. Hepatitis C is not routinely tested because it is not common. But you may be tested if you have certain risk factors.\n• Sexually transmitted infections (STIs). Usually, you will be tested for chlamydia and syphilis early in your pregnancy. You may also be tested for gonorrhea if you have certain risk factors. An STI can lead to miscarriage or infect your baby during delivery. An STI can be dangerous to a newborn. It may cause blindness, breathing problems, or other health issues.\n• HIV is a virus that attacks your immune system. If you have HIV, you may pass along the virus to your baby. If you are pregnant, you may be tested for HIV, and some states require testing.\n\nOther names: obstetric panel, OB panel"
+    },
+    {
+      "title": "What is it used for?",
+      "text": "A prenatal panel is used to find health problems early in your pregnancy. Many conditions can be treated during pregnancy to avoid complications. The test may also guide treatments for your baby immediately after birth."
+    },
+    {
+      "title": "Why do I need a prenatal panel?",
+      "text": "Your health care provider will probably order these tests as part of a routine prenatal visit. The tests are done in the first trimester of pregnancy, often at your first prenatal visit."
+    },
+    {
+      "title": "What happens during a prenatal panel?",
+      "text": "A health care professional will take a blood sample from a vein in your arm, using a small needle. After the needle is inserted, a small amount of blood will be collected into a test tube or vial. You may feel a little sting when the needle goes in or out. This usually takes less than five minutes."
+    },
+    {
+      "title": "Will I need to do anything to prepare for these tests?",
+      "text": "You don't need any special preparations for a prenatal panel."
+    },
+    {
+      "title": "Are there any risks to the tests?",
+      "text": "There is no risk to your developing baby and very little risk to you. You may have slight pain or bruising at the spot where the needle was put in, but most symptoms go away quickly."
+    },
+    {
+      "title": "What do the results mean?",
+      "text": "If your results were not normal, you and/or your baby might get treatment to prevent serious health conditions. Examples of some abnormal results and treatments can include:\n\n• Rh incompatibility. You will receive medicine that prevents your body from making the antibodies that may damage your baby's red blood cells.\n• Infections (hepatitis, STIs, HIV). You will receive medicine to treat the infection. If you have a hepatitis B infection, your baby will get a vaccine within a few hours of birth.\n• No immunity to rubella. You'll need to avoid anyone who has rubella while you are pregnant. After your baby is born, you should get vaccinated.\n\nIf you have questions about your results, talk to your provider.\n\nLearn more about laboratory tests, references ranges, understanding results."
+    },
+    {
+      "title": "Is there anything else I need to know about a prenatal panel?",
+      "text": "In addition to a prenatal panel, you may also get a urine test during your first trimester. Pregnancy urine tests are used to:\n\n• Diagnose a urinary tract infection.\n• Check glucose levels. High levels of glucose in your urine may be a sign of gestational diabetes, a type of diabetes that can develop during pregnancy. If your urine glucose was high, your provider may order a blood glucose test to confirm the diagnosis.\n• Check protein levels. High levels of protein in your urine can be a sign of several health conditions, including kidney disease, infection, or stress. If your urine protein level was high, your provider will probably order more tests."
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/lab-tests/prenatal-panel/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "45bf8958f7d43806b3f6034214f727509ed7c0183a958d22d05f076ca009388b",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace and list formatting only. Not clinical review."
+}

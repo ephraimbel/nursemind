@@ -1,0 +1,32 @@
+{
+  "title": "Li-Fraumeni syndrome",
+  "sourceUpdated": "Last updated June 1, 2020",
+  "sections": [
+    {
+      "title": "Description",
+      "text": "Li-Fraumeni syndrome is a rare disorder that greatly increases the risk of developing several types of cancer, particularly in children and young adults.\n\nThe cancers most often associated with Li-Fraumeni syndrome include breast cancer, a form of bone cancer called osteosarcoma, and cancers of soft tissues (such as muscle) called soft tissue sarcomas. Other cancers commonly seen in this syndrome include brain tumors, cancers of blood-forming tissues (leukemias), and a cancer called adrenocortical carcinoma that affects the outer layer of the adrenal glands (small hormone-producing glands on top of each kidney). Several other types of cancer also occur more frequently in people with Li-Fraumeni syndrome.\n\nA very similar condition called Li-Fraumeni-like syndrome shares many of the features of classic Li-Fraumeni syndrome. Both conditions significantly increase the chances of developing multiple cancers beginning in childhood; however, the pattern of specific cancers seen in affected family members is different."
+    },
+    {
+      "title": "Frequency",
+      "text": "Li-Fraumeni syndrome is thought to occur in 1 in 5,000 to 1 in 20,000 people worldwide."
+    },
+    {
+      "title": "Causes",
+      "text": "Li-Fraumeni syndrome is associated with mutations in the TP53 gene. Nearly three-quarters of families with Li-Fraumeni syndrome and about one-quarter with Li-Fraumeni-like syndrome have germline mutations in the TP53 gene. Germline mutations are typically inherited and are present in essentially every cell in the body. TP53 is a tumor suppressor gene, which means that it normally helps control the growth and division of cells. Mutations in this gene can allow cells to divide in an uncontrolled way and form tumors. Other genetic and environmental factors are also likely to affect the risk of cancer in people with TP53 mutations.\n\nA few families with cancers characteristic of Li-Fraumeni syndrome and Li-Fraumeni-like syndrome do not have TP53 mutations. The genetic factors involved in these cases are unclear."
+    },
+    {
+      "title": "Inheritance",
+      "text": "Li-Fraumeni syndrome is inherited in an autosomal dominant pattern, which means one copy of the altered gene in each cell is sufficient to increase the risk of developing cancer. Most people with Li-Fraumeni syndrome inherit an altered copy of the gene from an affected parent. In 7 to 20 percent of cases, however, the altered gene is the result of a new (de novo) mutation in the gene that occurred during the formation of reproductive cells (eggs or sperm) or very early in development.\n\nFor a cancer to develop in Li-Fraumeni syndrome, a mutation involving the other copy of the TP53 gene must occur in the body's cells during a person's lifetime. Cells with two altered copies of this gene do not make functional TP53 protein, which allows tumors to develop. Almost everyone who inherits one TP53 gene mutation will eventually acquire a mutation in the second copy of the gene in some cells. The second mutation often occurs in cells within the breast, bone, or muscle tissue, typically leading to the tumors common in Li-Fraumeni syndrome."
+    },
+    {
+      "title": "Other Names for This Condition",
+      "text": "• LFS\n• Sarcoma family syndrome of Li and Fraumeni\n• Sarcoma, breast, leukemia, and adrenal gland (SBLA) syndrome\n• SBLA syndrome"
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/genetics/condition/li-fraumeni-syndrome/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "b7e15e3e63dbb2a27cab1d304fd8d51b491d90db082eff957869f97ead32d549",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace, lists and labeled table formatting adapted. Not clinical review."
+}

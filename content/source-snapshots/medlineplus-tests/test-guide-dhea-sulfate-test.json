@@ -1,0 +1,44 @@
+{
+  "title": "DHEA Sulfate Test",
+  "sourceUpdated": "Last updated June 5, 2024",
+  "sections": [
+    {
+      "title": "What is a DHEA sulfate test?",
+      "text": "This test measures the levels of DHEA sulfate (DHEAS) in your blood. DHEAS stands for dehydroepiandrosterone sulfate. DHEAS is mostly made in the adrenal glands, two small glands located above your kidneys. Your adrenal glands help control your heart rate, blood pressure, and other body functions. They make different types of hormones you need to stay healthy. This includes cortisol, a hormone that helps with your immune system, and DHEAS, a steroid hormone.\n\nDHEAS is a type of androgen (male sex hormone), but it's found in both men and women. Smaller amounts of DHEAS are made in the testicles and ovaries.\n\nDHEAS plays an important role in making the male sex hormone testosterone and the female sex hormone estrogen. DHEAS helps with the development of male sexual characteristics at puberty and reproduction for both sexes. Your DHEAS levels peak around puberty and then get lower as you age.\n\nIf your DHEAS levels are not normal, it may mean there is a problem with your adrenal glands or sex hormones (estrogen or testosterone).\n\nOther names: DHEAS, DHEA-S, DHEA, DHEA-SO4, dehydroepiandrosterone sulfate"
+    },
+    {
+      "title": "What is it used for?",
+      "text": "A DHEA sulfate (DHEAS) test is most often used to:\n\n• Find out if your adrenal glands are working well\n• Diagnose tumors of the adrenal glands\n• Diagnose disorders of the testicles or ovaries\n• Find out the cause of early or late puberty in boys\n• Look for the cause of the development of masculine features in women and girls, including excess body and facial hair growth and deepening of voice\n\nA DHEAS test is often done along with other sex hormone tests. These include testosterone tests for men and estrogen tests for women."
+    },
+    {
+      "title": "Why do I need a DHEA sulfate test?",
+      "text": "You may need this test if you have symptoms of high or low levels of DHEA sulfate (DHEAS). Men may not have any symptoms of high levels of DHEAS.\n\nSymptoms of high levels of DHEAS in women and girls may include:\n\n• Excess body and facial hair growth\n• Deepening of voice\n• Menstrual irregularities\n• Acne\n• Becoming very muscular\n• Hair loss at the top of the head\n\nBaby girls may also need testing if they have external (outer) genitals that do not look clearly male or female (ambiguous genitalia). Boys may need this test if they have signs of early puberty.\n\nLow levels of DHEAS may have different causes. If the cause of low levels of DHEAS is an adrenal gland disorder, the symptoms can include:\n\n• Unexplained weight loss\n• Nausea and vomiting\n• Dizziness\n• Dehydration\n• Craving for salt\n\nIf the cause of low levels of DHEAS is related to aging, the symptoms can include:\n\n• Decreased sex drive\n• Erectile dysfunction in men\n• Thinning of vaginal tissues in women"
+    },
+    {
+      "title": "What happens during a DHEA sulfate test?",
+      "text": "A health care professional will take a blood sample from a vein in your arm, using a small needle. After the needle is inserted, a small amount of blood will be collected into a test tube or vial. You may feel a little sting when the needle goes in or out. This usually takes less than five minutes."
+    },
+    {
+      "title": "Will I need to do anything to prepare for the test?",
+      "text": "You don't need any special preparations for a DHEA sulfate test."
+    },
+    {
+      "title": "Are there any risks to the test?",
+      "text": "There is very little risk to having a blood test. You may have slight pain or bruising at the spot where the needle was put in, but most symptoms go away quickly."
+    },
+    {
+      "title": "What do the results mean?",
+      "text": "If your results show high levels of DHEAS, it may be a sign of the following conditions:\n\n• Congenital adrenal hyperplasia, an inherited disorder of the adrenal glands in which the adrenal glands produce too many male sex hormones.\n• A tumor of the adrenal gland. It may be benign (noncancerous) or cancerous.\n• Polycystic ovary syndrome (PCOS). PCOS is a common hormone disorder affecting childbearing women. It is one of the leading causes of female infertility.\n• In rare cases, a high level of DHEAS could be a sign of an ovarian tumor.\n\nIf your results show low levels of DHEAS, it may be a sign of the following conditions:\n\n• Addison disease. Addison disease is a disorder in which the adrenal glands are not able to make enough of certain hormones.\n• Hypopituitarism, a condition in which the pituitary gland does not make enough of one or more of the pituitary hormones. The possible symptoms will vary, depending on which hormones are lacking.\n\nIf you have questions about your results, talk to your provider. To understand the results of a DHEA sulfate test, your provider will consider your symptoms, age, sex, medical history, and the results of other blood tests.\n\nLearn more about laboratory tests, reference ranges, and understanding results."
+    },
+    {
+      "title": "Is there anything else I need to know about a DHEA sulfate test?",
+      "text": "Over-the-counter DHEA sulfate supplements are available and are sometimes promoted as an anti-aging therapy. However, there is no reliable evidence to support these anti-aging claims. In fact, these supplements may cause serious side effects. If you have questions about DHEA supplements, talk to your provider."
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/lab-tests/dhea-sulfate-test/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "2d8523dd37d089507b1837e4b18710681d46cd20d27b0777337516f055c615a5",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace and list formatting only. Not clinical review."
+}

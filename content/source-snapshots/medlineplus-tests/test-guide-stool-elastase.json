@@ -1,0 +1,44 @@
+{
+  "title": "Stool Elastase",
+  "sourceUpdated": "Last updated August 7, 2023",
+  "sections": [
+    {
+      "title": "What is a stool elastase test?",
+      "text": "A stool elastase test measures the amount of elastase in your stool (poop). Elastase is one of a few digestive enzymes (\"digestive juices\") that your pancreas makes to help digest food. Your pancreas is a gland that sits behind your stomach.\n\nElastase helps break down fats, carbohydrates, and proteins so your body can use them for energy, growth, and repairing cells. Your pancreas releases elastase into your small intestine through a duct (a small tube). If your pancreas is working well, you'll have elastase in your stool.\n\nIf little or no elastase is found in your stool, it can mean that your pancreas can't make and/or release enough elastase and other digestive juices. This is called exocrine pancreatic insufficiency. It's often called pancreatic insufficiency or EPI for short.\n\nIf you have EPI, your body can't digest fats very well. This can cause symptoms, such as abdominal (belly) pain, and diarrhea. EPI also makes it hard for your body to absorb vitamins, minerals, and calories from food. This is called malabsorption and it can lead to serious health problems from malnutrition.\n\nEPI is caused by conditions that damage the pancreas or block the ducts that let elastase flow into the intestine. The two main causes of EPI are:\n\n• Chronic (long-lasting) pancreatitis in adults. Pancreatitis is inflammation of the pancreas.\n• Cystic fibrosis in children. This inherited disease causes mucus to build up in pancreas, lungs, and other organs.\n\nOther causes of EPI include:\n\n• Acute (short-term) pancreatitis\n• Pancreatic cancer\n• Crohn's disease\n• Ulcerative colitis\n• Diabetes\n• Weight-loss surgery and other surgery on the digestive system\n• Certain genetic disorders, such as Shwachman-Diamond syndrome in children\n\nOther names: pancreatic elastase, fecal pancreatic elastase, fecal elastase, FE-1, EL-1, PE-1, PE stool"
+    },
+    {
+      "title": "What is it used for?",
+      "text": "A stool elastase test is used check for exocrine pancreatic insufficiency (EPI) when a person has belly pain and other digestive symptoms that don't have a known cause. This test is better at finding severe EPI than mild or moderate cases.\n\nA stool elastase test is also used to monitor how well the pancreas is working in people who have cystic fibrosis, diabetes, or chronic pancreatitis."
+    },
+    {
+      "title": "Why do I need a stool elastase test?",
+      "text": "You or your child may need a stool elastase test if you have certain digestive problems and a health care provider thinks exocrine pancreatic insufficiency (EPI) could be the cause. Signs and symptoms of EPI include:\n\n• Greasy, unusually foul-smelling stools (poops)\n• Abdominal (belly) pain\n• Bloating and gas\n• Weight loss without trying\n• Malabsorption\n• Malnutrition\n• Delayed growth and trouble gaining weight in children\n\nIf you or your child have a condition that can cause EPI, such as chronic pancreatitis or cystic fibrosis, you may need to have stool elastase testing from time to time. The tests are done to check whether your pancreas is making enough digestive juices."
+    },
+    {
+      "title": "What happens during a stool elastase test?",
+      "text": "You will need to provide a stool sample for your test. Your provider will probably give you a container or kit with instructions on how to collect the sample. The stool must be formed, not watery.\n\nThere are different ways to collect stool samples, so follow the instructions carefully. In general, you'll need to:\n\n• Label the container with your name, the collection date, and time.\n• Make sure the stool doesn't mix with any urine, toilet paper, or water from the toilet.\n• Close the container tightly.\n• Wash your hands well with soap and water.\n• Return the container promptly according to the instructions. You may be told to refrigerate or freeze the sample first.\n\nIf you're collecting a sample from diapers, you'll get special instructions for using plastic wrap inside of a clean diaper."
+    },
+    {
+      "title": "Will I need to do anything to prepare for the test?",
+      "text": "If you are taking pancreatic enzyme supplements, you may need to stop taking them for five days before the test. Don't stop taking any medicines unless your provider tells you to."
+    },
+    {
+      "title": "Are there any risks to the test?",
+      "text": "There is no known risk to having a stool elastase test."
+    },
+    {
+      "title": "What do the results mean?",
+      "text": "Your stool elastase test results will tell you how much elastase was in your stool sample:\n\n• A normal amount of elastase means that you may not have exocrine pancreatic insufficiency (EPI). But a normal test result doesn't rule out EPI. If you were tested because you have symptoms, you may need other tests to find out what's causing them.\n• A less than normal amount of elastase may mean that you have EPI. Test results that aren't normal may be described as either \"moderate\" or \"severe pancreatic insufficiency.\" Your provider will probably order other tests to confirm EPI and the cause.\n\nIf you have questions about your results, talk with your provider.\n\nLearn more about laboratory tests, reference ranges, and understanding results."
+    },
+    {
+      "title": "Is there anything else I need to know about a stool elastase test?",
+      "text": "If you are diagnosed with exocrine pancreatic insufficiency (EPI), treatment may include:\n\n• Replacing the pancreatic enzymes that you're missing. This is called pancreatic enzyme replacement therapy (PERT). Your provider will usually prescribe enzymes to take with meals.\n• Taking vitamins that your provider prescribes.\n• Eating frequent small meals with plenty of healthy fats. Your provider may refer you to a dietician for support. A dietician is a professional who has special training to help you learn the best way to eat for your condition.\n• Not drinking alcohol or smoking."
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/lab-tests/stool-elastase/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "52fdc7494cf9cbf1871465440a4ee53268ba5e1bd00f92e3aec360676cc75974",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace and list formatting only. Not clinical review."
+}

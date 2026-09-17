@@ -1,0 +1,44 @@
+{
+  "title": "V/Q Scan",
+  "sourceUpdated": "Last updated September 4, 2024",
+  "sections": [
+    {
+      "title": "What is a V/Q scan?",
+      "text": "A V/Q scan consists of two imaging tests that look for certain lung problems.\n\nThe tests are:\n\n• A ventilation scan measures how air moves in and out of your lungs\n• A perfusion scan measures circulation (how blood flows in the lungs)\n\nThe two scans may be done separately or together.\n\nA V/Q scan uses a small amount of a radioactive substance called a tracer. The tracer can help your health care provider see how well air and blood flow through your lungs. The scans help diagnose different lung conditions, but they are most often used to check for a pulmonary embolism (PE). A PE is a blood clot in your lungs.\n\nA PE causes a sudden blockage in a lung artery (a blood vessel that carries oxygen-rich blood from your heart and lungs to your body). This results in your lungs not getting enough air or blood flow.\n\nA PE usually happens due to deep vein thrombosis (DVT). DVT is a blood clot that forms in a vein deep in your body. Most DVT clots occur in your lower leg or thigh. When a DVT blood clot breaks loose and travels through the bloodstream to the lungs it can cause a PE. This is a serious condition and can be life-threatening.\n\nOther names: ventilation/perfusion scan, pulmonary ventilation/perfusion scan, lung scan, lung V/Q scan, lung scintigraphy"
+    },
+    {
+      "title": "What is it used for?",
+      "text": "A V/Q scan is most often used to check for a pulmonary embolism (PE). It may also be used to:\n\n• Find problems with blood flow in the lungs.\n• Check your lung function before lung surgery.\n• Test lung function in people with certain lung diseases, such as COPD (chronic obstructive pulmonary disease), a disease that causes coughing, wheezing, and shortness of breath (feeling like you can't get enough air)."
+    },
+    {
+      "title": "Why do I need a V/Q scan?",
+      "text": "You may need a V/Q scan if you have symptoms of a pulmonary embolism (PE). These include:\n\n• Shortness of breath\n• Rapid breathing\n• Chest pain or discomfort, which usually gets worse when you cough or take a deep breath\n• Increased heart rate\n• Coughing up blood\n• Very low blood pressure, lightheadedness, or fainting\n\nMany people with a PE don't have symptoms. But your provider may order a V/Q scan based on your physical exam and/or if you have certain risk factors. These could include:\n\n• Family history of blood clots or PE\n• Long periods of inactivity, for example sitting for too long on long car trips or flights or bed rest\n• Recent surgery\n• Having obesity\n• Older age\n• Smoking\n\nYou may also be at higher risk if you have:\n\n• A clotting disorder\n• Cancer\n• Heart disease\n• Other lung disease, such as COPD"
+    },
+    {
+      "title": "What happens during a V/Q scan?",
+      "text": "V/Q scans are usually performed in a radiology clinic or a hospital. You may have a ventilation scan or a perfusion scan, or you may get both scans. If you get both, one scan will be done right after the other.\n\nFor both types of scans:\n\n• You will lie very still on a special table while the scanner takes pictures of your lungs or sit in a chair in front of a special camera.\n• Before the scan, you will be given a substance called a radioactive tracer. The tracer sends out a form of energy called gamma rays. The rays are picked up by the scanner to create images of your lungs.\n\nDuring a ventilation scan:\n\n• You will wear a face mask and breathe in a harmless gas that contains the radioactive tracer.\n• The tracer will attach to the air in your lungs.\n• Your provider will use the scanner to take pictures of your lungs while you hold your breath.\n• The tracer will show up on the pictures so your provider can check the airflow in your lungs.\n• Your provider may reposition your body as they continue to take pictures while you breathe in the tracer gas for a few more minutes.\n• After the tracer gas has collected in your lungs, your provider will remove your face mask. As you breathe normally, the tracer will leave your lungs.\n\nDuring a perfusion scan:\n\n• Your provider will inject the radioactive tracer into your vein through an intravenous (IV) line.\n• The tracer will collect in the blood vessels of your lungs to show how the blood flows in your lungs.\n• Your provider will use the scanner to take pictures of your lungs.\n• You will be moved into several positions during the test so the scanner can capture images of your lungs from different angles.\n\nEach test takes about 15 minutes, so if you have both tests, it will take about 30 to 60 minutes."
+    },
+    {
+      "title": "Will I need to do anything to prepare for the test?",
+      "text": "A chest x-ray is usually done before a V/Q scan. This can help your provider rule out other lung issues while giving them more information about your lungs so they can better understand your V/Q results."
+    },
+    {
+      "title": "Are there any risks to the test?",
+      "text": "There is very little exposure to radiation in a V/Q scan. Only a small amount of radioactive substance is used, and all the radiation leaves your body within a few days.\n\nWhile radiation exposure in a V/Q scan is safe for most adults, it can be harmful to a developing baby. So be sure to tell your provider if you are pregnant or think you may be pregnant. They may recommend a CT scan or a different test to check for lung issues. Also, tell your provider if you are breastfeeding, since the tracer may contaminate your breast milk.\n\nYou may have a little discomfort when the tracer is injected during a perfusion scan.\n\nAllergic reactions to the tracer are rare and usually mild."
+    },
+    {
+      "title": "What do the results mean?",
+      "text": "If your ventilation and/or perfusion scan results were not normal, it may mean something is keeping your lungs from working properly. If the pictures from the ventilation and perfusion scan don't match, it could mean you have a pulmonary embolism (PE) and will need medical treatment right away.\n\nThe scans may also show that you have a different condition affecting your lungs. These include:\n\n• COPD\n• Pneumonia\n• Heart failure\n\nIf you have questions about your results, talk to your provider."
+    },
+    {
+      "title": "Is there anything else I need to know about a V/Q scan?",
+      "text": "If you are diagnosed with a pulmonary embolism (PE), your treatment may include medicines such as blood thinners, which help prevent clots from forming, or clot busters, which help dissolve clots quickly.\n\nIf the medicines don't work or you have a very large clot, you may need a surgical procedure to remove the clot. A procedure may also be done to prevent more clots from getting into your lungs."
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/lab-tests/vq-scan/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "d337b1056686d6cf4d61122876b93b2061bfa472fd9983d65543b2e1ad8ff97b",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace and list formatting only. Not clinical review."
+}

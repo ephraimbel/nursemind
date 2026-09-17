@@ -434,7 +434,7 @@ public enum PressureInjuryR24Sample {
             AttributedBullet("Risk identification (Braden) on admission + daily.", citationIDs: ["specialty_dx_round24"]),
             AttributedBullet("Skin assessment from head to toe daily; under devices.", citationIDs: ["specialty_dx_round24"]),
             AttributedBullet("Existing wounds — assessment + measurement + photography.", citationIDs: ["specialty_dx_round24"]),
-            AttributedBullet("Nutrition — albumin, prealbumin, weight loss, intake; NUTR consultation.", citationIDs: ["specialty_dx_round24"])
+            AttributedBullet("Nutrition — weight loss and intake; nutrition consultation.", citationIDs: ["specialty_dx_round24"])
         ],
         commonInterventions: [
             AttributedBullet("PREVENTION BUNDLE — Braden screening, q2h repositioning + 30° lateral tilt (NOT 90°), pressure-redistribution mattress / cushion, heel offloading (boots), skin care + barrier creams, moisture management, nutritional support per primary source.", citationIDs: ["specialty_dx_round24"]),

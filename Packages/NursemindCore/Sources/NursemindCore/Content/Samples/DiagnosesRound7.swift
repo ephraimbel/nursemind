@@ -563,7 +563,7 @@ public enum FrailtySample {
         priorityAssessments: [
             AttributedBullet("Functional assessment — ADLs, IADLs, gait speed, grip strength, falls history.", citationIDs: ["openrn_ms_round7"]),
             AttributedBullet("Cognition — Mini-Cog, MoCA; depression — PHQ-2/9.", citationIDs: ["openrn_ms_round7"]),
-            AttributedBullet("Nutritional status — weight loss, dentition, intake, albumin / prealbumin.", citationIDs: ["openrn_ms_round7"]),
+            AttributedBullet("Nutritional assessment — weight loss, dentition and intake.", citationIDs: ["openrn_ms_round7"]),
             AttributedBullet("Polypharmacy review (Beers criteria).", citationIDs: ["openrn_ms_round7"]),
             AttributedBullet("Social — isolation, caregiver, home safety.", citationIDs: ["openrn_ms_round7"])
         ],

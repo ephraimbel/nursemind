@@ -101,6 +101,15 @@ public final class EntryLinkRegistry: @unchecked Sendable {
         links.append(contentsOf: procedureScenarioLinks())
         links.append(contentsOf: familyLinks())
         links.append(contentsOf: curatedLinks01())
+        links.append(contentsOf: bedsideReferenceLinks())
+        links.append(contentsOf: communityOncologyLinks())
+        links.append(contentsOf: dementiaKidneyDepthLinks())
+        links.append(contentsOf: crossSpecialtyDepthLinks())
+        links.append(contentsOf: clinicalContinuityLinks())
+        links.append(contentsOf: specialtySupportDepthLinks())
+        links.append(contentsOf: bedsideWorkflowLinks())
+        links.append(contentsOf: specialtyDailySupportLinks())
+        links.append(contentsOf: medlinePlusReferenceLinks())
         return links
     }
 }

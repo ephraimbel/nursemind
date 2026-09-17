@@ -1,0 +1,44 @@
+{
+  "title": "Galactosemia Tests",
+  "sourceUpdated": "Last updated September 27, 2024",
+  "sections": [
+    {
+      "title": "What is a galactosemia test?",
+      "text": "A galactosemia test is a blood test given to newborns to check for a rare genetic metabolic disorder called galactosemia. Metabolic disorders affect metabolism, the process your body uses to make energy from the food you eat. Galactosemia can be inherited (passed down through families), but to have the condition, your baby has to receive the gene from both parents. Genes are parts of DNA in your cells that you inherit from your parents. You inherit two copies of each gene, one from each parent.\n\nGalactosemia prevents a baby's body from breaking down a simple sugar called galactose. Galactose is in many foods, including:\n\n• Milk, milk-based baby formulas, and dairy products. These foods contain lactose, which is made up of galactose and glucose, another type of sugar.\n• Some fruits and vegetables.\n• Breast milk.\n\nNormally, certain enzymes (proteins that speed up certain chemical reactions in your body) break down galactose. Galactosemia happens when a genetic change affects the function of these enzymes. There are three types of galactosemia. The types are based on which enzyme is affected:\n\n• GALT (galactose-1 phosphate uridyl transferase) deficiency, also known as classic galactosemia. It is the most common and severe form of the disorder.\n• GALK (galactose kinase) deficiency.\n• GALE (galactose epimerase) deficiency.\n\nIf a baby with a GALT, GALK, or GALE deficiency eats food with galactose, high levels of galactose and its byproducts build up in their blood. This can lead to serious health problems. These include liver disease, kidney failure, brain damage, and even death. But with early diagnosis and treatment, children with galactosemia can live healthy lives.\n\nOther names: galactosemia newborn screening test, GALT test"
+    },
+    {
+      "title": "What is it used for?",
+      "text": "A galactosemia test is used to help diagnose galactosemia in a baby. It may also help identify whether it is a GALT, GALK, or GALE deficiency."
+    },
+    {
+      "title": "Why does my baby need a galactosemia test?",
+      "text": "Newborns in the United States are required to get this test as part of a newborn screening. A newborn screening is a simple blood test that checks for various serious diseases.\n\nSome older infants may need testing if they were adopted from another country and have symptoms of galactosemia. These symptoms can include:\n\n• Vomiting\n• Poor weight gain\n• Refusal to eat\n• Irritability\n• Jaundice, a condition that causes your skin and eyes to turn yellow\n\nThe symptoms often go away once your child begins avoiding galactose in their diet."
+    },
+    {
+      "title": "What happens during a galactosemia test?",
+      "text": "A health care provider will clean your baby's heel with alcohol and poke their heel with a small needle. The provider will collect a few drops of blood and put a bandage on the site."
+    },
+    {
+      "title": "Will I need to do anything to prepare for this test?",
+      "text": "There are no special preparations needed for a galactosemia test."
+    },
+    {
+      "title": "Are there any risks to this test?",
+      "text": "Your baby may feel a little pinch when the heel is poked, and a small bruise may form at the site. This should go away quickly."
+    },
+    {
+      "title": "What do the results mean?",
+      "text": "Your baby's results will be either positive or negative for galactosemia.\n\nIf the results are negative, your child doesn't have the disorder.\n\nIf the results are positive, your baby will probably need more testing to confirm the diagnosis. These may include other blood tests, urine tests, and genetic tests.\n\nLearn more about laboratory tests, references ranges, understanding results."
+    },
+    {
+      "title": "Is there anything else I need to know about a galactosemia test?",
+      "text": "There is no cure for galactosemia. Infants diagnosed with the disorder can be fed soy formula or certain other lactose-free formulas. Children with classic galactosemia (GALT) must keep a special diet that avoids all milk and products that contain milk. They may need to take a calcium supplement to get enough calcium. Children with GALK and GALE deficiencies may be able to include a limited amount of dairy in their diets.\n\nIf your child has one of these deficiencies, talk to your child's provider about planning a safe and healthy diet in infancy and as your child grows up. Children with these deficiencies will probably need to stay on special diets for the rest of their lives."
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/lab-tests/galactosemia-tests/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "54cb0d941950a7c18212d71e47f60d54ece09d105a3ddaab65e90945a4712225",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace, lists and labeled table formatting adapted. Not clinical review."
+}

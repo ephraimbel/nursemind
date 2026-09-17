@@ -1,5 +1,15 @@
 import Foundation
 
+private let bedside_shea_2022 = CitationSource(
+    id: "bedside_shea_2022",
+    shortName: "SHEA/IDSA/APIC — Pneumonia prevention, 2022 update",
+    detail: "Klompas M et al. Infect Control Hosp Epidemiol. 2022;43:687–713. doi:10.1017/ice.2022.88. Adult oral-care recommendations, manuscript pp. 11 and 14–15. CC BY 4.0; condensed by NurseMind.",
+    publisher: "Cambridge University Press / SHEA",
+    license: .ccBy4,
+    url: "https://stacks.cdc.gov/view/cdc/150381/cdc_150381_DS1.pdf",
+    lastRetrieved: "2026-09-17"
+)
+
 // Curator-model diagnosis entries (round 32 — critical care depth: vent complications + shock + HAE + CIPNM + takotsubo + CRS + fulminant myocarditis).
 
 private let openrnDxR32 = CitationSource(
@@ -36,10 +46,10 @@ public enum VAPSample {
     public static let entry: DiagnosisEntry = DiagnosisEntry(
         id: "ventilator-associated-pneumonia",
         title: "Ventilator-associated pneumonia (VAP)",
-        subtitle: "HAP in intubated >48h · prevention bundle (HOB elevation + oral chlorhexidine + sedation interruption + DVT/PUD prophylaxis) · empiric anti-MDR · CDC reportable",
+        subtitle: "Recognition, prevention and microbiology in mechanically ventilated patients",
         nclexTags: respCriticalTagR32,
         definition: AttributedProse(
-            "Hospital-acquired pneumonia developing in patients intubated + mechanically ventilated for ≥48 hours — defined by new/progressive radiographic infiltrate + ≥2 clinical features (fever, leukocytosis/penia, purulent secretions, hypoxemia). Significant morbidity + mortality in ICU. PREVENTION BUNDLE — HOB 30-45°, oral chlorhexidine, daily sedation interruption + SBT, DVT + PUD prophylaxis, subglottic suctioning, cuff pressure 20-30 cm H2O. Empiric antibiotics covering MDR pathogens; de-escalate based on cultures per primary source.",
+            "Hospital-acquired pneumonia developing in patients intubated + mechanically ventilated for ≥48 hours — defined by new/progressive radiographic infiltrate + ≥2 clinical features (fever, leukocytosis/penia, purulent secretions, hypoxemia). Significant morbidity + mortality in ICU. Empiric antibiotics covering MDR pathogens; de-escalate based on cultures per primary source.",
             citationIDs: ["specialty_dx_round32", "openrn_dx_round32"]
         ),
         pathophysiology: AttributedProse(
@@ -63,14 +73,14 @@ public enum VAPSample {
             AttributedBullet("Differential — atelectasis, pulmonary edema, ARDS, pulmonary embolism, drug reaction, alveolar hemorrhage.", citationIDs: ["specialty_dx_round32"])
         ],
         priorityAssessments: [
-            AttributedBullet("Daily VAP bundle compliance — HOB elevation, oral care, sedation interruption, SBT, DVT/PUD prophylaxis, subglottic suctioning, cuff pressure.", citationIDs: ["specialty_dx_round32"]),
+            AttributedBullet("Prevention review includes oral-care delivery and efforts to minimize ventilation duration through the unit’s multidisciplinary protocol.", citationIDs: ["bedside_shea_2022"]),
             AttributedBullet("VAP diagnosis vs alternative cause — comprehensive workup before antibiotics if stable.", citationIDs: ["specialty_dx_round32"]),
             AttributedBullet("Pathogen identification — respiratory cultures, blood cultures, biomarker trends.", citationIDs: ["specialty_dx_round32"]),
             AttributedBullet("Risk stratification — MDR risk (recent antibiotics, prolonged hospitalization, immunosuppression, MDR colonization).", citationIDs: ["specialty_dx_round32"]),
             AttributedBullet("Multidisciplinary — critical care + ID + pharmacy + respiratory therapy + nursing leadership for bundle compliance.", citationIDs: ["specialty_dx_round32"])
         ],
         commonInterventions: [
-            AttributedBullet("PREVENTION BUNDLE — HOB ELEVATION 30-45° (reduces aspiration); ORAL CARE chlorhexidine 0.12% q6-8 hours; DAILY SEDATION INTERRUPTION + spontaneous breathing trials (early extubation); DVT prophylaxis; peptic ulcer disease (PUD) prophylaxis (PPI or H2-blocker); subglottic suctioning ETT (continuous or intermittent); cuff pressure 20-30 cm H2O; closed-circuit suctioning; minimize circuit changes per primary source.", citationIDs: ["specialty_dx_round32"]),
+            AttributedBullet("Adult prevention guidance includes daily toothbrushing without routine oral chlorhexidine and strategies to minimize ventilation duration. Stress-ulcer prophylaxis may have a separate indication but is not a VAP-prevention measure.", citationIDs: ["bedside_shea_2022"]),
             AttributedBullet("EMPIRIC ANTIBIOTICS — IDSA 2016 guidelines based on MDR risk + severity: low-risk monotherapy with anti-pseudomonal beta-lactam (cefepime, piperacillin-tazobactam) OR carbapenem (meropenem); high-risk + MDR concerns — double anti-pseudomonal coverage + anti-MRSA (vancomycin or linezolid).", citationIDs: ["specialty_dx_round32"]),
             AttributedBullet("DE-ESCALATE based on cultures + susceptibility; 7 days typical duration (shorter than older 14-21 day standard) per IDSA.", citationIDs: ["specialty_dx_round32"]),
             AttributedBullet("COMMON MDR pathogens — Pseudomonas aeruginosa, MRSA, Acinetobacter, ESBL Enterobacterales, carbapenem-resistant; institution antibiogram guides empiric.", citationIDs: ["specialty_dx_round32"]),
@@ -88,7 +98,7 @@ public enum VAPSample {
             AttributedBullet("CDC NHSN REPORTING — VAE surveillance + reporting requirements + quality measure.", citationIDs: ["specialty_dx_round32"]),
             AttributedBullet("ICU-ACQUIRED complications — VAP + CLABSI + CAUTI + C. diff + pressure injuries + delirium; integrated prevention bundles.", citationIDs: ["specialty_dx_round32"])
         ],
-        citations: [openrnDxR32, cdcDxR32, specialtyDxR32],
+        citations: [openrnDxR32, cdcDxR32, specialtyDxR32, bedside_shea_2022],
         lastSourceFidelityReview: "2026-05-13"
     )
 }

@@ -1,0 +1,32 @@
+{
+  "title": "Rett syndrome",
+  "sourceUpdated": "Last updated October 1, 2018",
+  "sections": [
+    {
+      "title": "Description",
+      "text": "Rett syndrome is a brain disorder that occurs almost exclusively in girls. The most common form of the condition is known as classic Rett syndrome. After birth, girls with classic Rett syndrome have 6 to 18 months of apparently normal development before developing severe problems with language and communication, learning, coordination, and other brain functions. Early in childhood, affected girls lose purposeful use of their hands and begin making repeated hand wringing, washing, or clapping motions. They tend to grow more slowly than other children and about three-quarters have a small head size (microcephaly). Other signs and symptoms that can develop include breathing abnormalities, spitting or drooling, unusual eye movements such as intense staring or excessive blinking, cold hands and feet, irritability, sleep disturbances, seizures, and an abnormal side-to-side curvature of the spine (scoliosis).\n\nResearchers have described several variant or atypical forms of Rett syndrome, which can be milder or more severe than the classic form.\n\nRett syndrome is part of a spectrum of disorders with the same genetic cause. Other disorders on the spectrum include PPM-X syndrome, MECP2 duplication syndrome, and MECP2-related severe neonatal encephalopathy. These other conditions can affect males."
+    },
+    {
+      "title": "Frequency",
+      "text": "This condition affects an estimated 1 in 9,000 to 10,000 females."
+    },
+    {
+      "title": "Causes",
+      "text": "Mutations in a gene called MECP2 underlie almost all cases of classic Rett syndrome and some variant forms of the condition. This gene provides instructions for making a protein (MeCP2) that is critical for normal brain function. Although the exact function of the MeCP2 protein is unclear, it is likely involved in maintaining connections (synapses) between nerve cells (neurons). It may also be necessary for the normal function of other types of brain cells.\n\nThe MeCP2 protein is thought to help regulate the activity of genes in the brain. This protein may also control the production of different versions of certain proteins in brain cells. Mutations in the MECP2 gene alter the MeCP2 protein or result in the production of less protein, which appears to disrupt the normal function of neurons and other cells in the brain. Specifically, studies suggest that changes in the MeCP2 protein may reduce the activity of certain neurons and impair their ability to communicate with one another. It is unclear how these changes lead to the specific features of Rett syndrome.\n\nSeveral conditions with signs and symptoms overlapping those of Rett syndrome have been found to result from mutations in other genes. These conditions, including FOXG1 syndrome and CDKL5 deficiency disorder, were previously thought to be variant forms of Rett syndrome. However, doctors and researchers have identified some important differences between the conditions, so they are now usually considered to be separate disorders."
+    },
+    {
+      "title": "Inheritance",
+      "text": "In more than 99 percent of people with Rett syndrome, there is no history of the disorder in their family. Many of these cases result from new mutations in the MECP2 gene.\n\nA few families with more than one affected family member have been described. These cases helped researchers determine that classic Rett syndrome and variants caused by MECP2 gene mutations have an X-linked dominant pattern of inheritance. A condition is considered X-linked if the mutated gene that causes the disorder is located on the X chromosome, one of the two sex chromosomes. The inheritance is dominant if one copy of the altered gene in each cell is sufficient to cause the condition.\n\nMales with mutations in the MECP2 gene often die in infancy. However, a small number of males with a genetic change involving MECP2 have developed signs and symptoms similar to those of Rett syndrome, including intellectual disability, seizures, and movement problems. In males, this condition is described as MECP2-related severe neonatal encephalopathy. The signs and symptoms in some males with an MECP2 gene mutation are on the milder end of the spectrum."
+    },
+    {
+      "title": "Other Names for This Condition",
+      "text": "• Autism-dementia-ataxia-loss of purposeful hand use syndrome\n• Rett disorder\n• Rett's disorder\n• Rett's syndrome\n• RTT"
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/genetics/condition/rett-syndrome/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "20a08d56d0910f11245b17e3778308fec4a3730c681555f1643def1dfde8bd48",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace, lists and labeled table formatting adapted. Not clinical review."
+}

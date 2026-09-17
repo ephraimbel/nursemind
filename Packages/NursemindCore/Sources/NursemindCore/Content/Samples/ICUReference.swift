@@ -1,5 +1,15 @@
 import Foundation
 
+private let bedside_shea_2022 = CitationSource(
+    id: "bedside_shea_2022",
+    shortName: "SHEA/IDSA/APIC — Pneumonia prevention, 2022 update",
+    detail: "Klompas M et al. Infect Control Hosp Epidemiol. 2022;43:687–713. doi:10.1017/ice.2022.88. Adult oral-care recommendations, manuscript pp. 11 and 14–15. CC BY 4.0; condensed by NurseMind.",
+    publisher: "Cambridge University Press / SHEA",
+    license: .ccBy4,
+    url: "https://stacks.cdc.gov/view/cdc/150381/cdc_150381_DS1.pdf",
+    lastRetrieved: "2026-09-17"
+)
+
 // Curated ICU reference entries — Open RN (CC BY 4.0), with original-concept
 // citations for legacy critical-care scoring tools (RASS, CAM-ICU). Tier-A RN
 // review pending pre-launch for vent settings, prone protocol, and CAM-ICU.
@@ -76,7 +86,7 @@ public enum MechanicalVentilationSample {
                 AttributedBullet("Bilateral chest rise + breath sounds at every assessment — unilateral = mainstem migration or pneumothorax.", citationIDs: ["openrn_icu"]),
                 AttributedBullet("ETCO₂ continuous monitoring (gold standard for confirming ventilation).", citationIDs: ["openrn_icu"]),
                 AttributedBullet("Suction PRN — not on a schedule. Indications: visible secretions, increased peak pressure, decreased SpO₂, audible coarse rhonchi, patient cough/distress.", citationIDs: ["openrn_icu"]),
-                AttributedBullet("Oral care every 2 hr with chlorhexidine + subglottic suction (VAP prevention bundle).", citationIDs: ["openrn_icu"]),
+                AttributedBullet("Adult VAP prevention guidance supports daily toothbrushing without routine oral chlorhexidine; oral care follows the unit’s ventilated-patient protocol.", citationIDs: ["bedside_shea_2022"]),
                 AttributedBullet("Head of bed 30–45° unless contraindicated (VAP prevention).", citationIDs: ["openrn_icu"]),
                 AttributedBullet("Daily SAT (sedation awakening trial) and SBT (spontaneous breathing trial) — \"ABCDEF bundle\".", citationIDs: ["openrn_icu"]),
                 AttributedBullet("DVT and stress-ulcer prophylaxis ordered.", citationIDs: ["openrn_icu"])
@@ -96,7 +106,7 @@ public enum MechanicalVentilationSample {
                 AttributedBullet("Awake, follows commands, able to manage secretions.", citationIDs: ["openrn_icu"])
             ])
         ],
-        citations: [openrnICU],
+        citations: [openrnICU, bedside_shea_2022],
         lastSourceFidelityReview: "2026-05-04"
     )
 }

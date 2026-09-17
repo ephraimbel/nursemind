@@ -1,0 +1,32 @@
+{
+  "title": "Gaucher disease",
+  "sourceUpdated": "Last updated November 1, 2022",
+  "sections": [
+    {
+      "title": "Description",
+      "text": "Gaucher disease is an inherited disorder that affects many of the body's organs and tissues. The signs and symptoms of this condition vary widely among affected individuals. Researchers have described several types of Gaucher disease based on their characteristic features.\n\nType 1 Gaucher disease is the most common form of this condition. Type 1 is also called non-neuronopathic Gaucher disease because the brain and spinal cord (the central nervous system) are usually not affected. The features of this condition range from mild to severe and may appear anytime from childhood to adulthood. Major signs and symptoms include enlargement of the liver and spleen (hepatosplenomegaly), a low number of red blood cells (anemia), easy bruising caused by a decrease in blood platelets (thrombocytopenia), bone abnormalities such as bone pain and fractures, and joint conditions such as arthritis.\n\nTypes 2 and 3 Gaucher disease are known as neuronopathic forms of the disorder because they are characterized by problems that affect the central nervous system. In addition to the signs and symptoms described above, these conditions can cause abnormal eye movements, seizures, and brain damage. Type 2 Gaucher disease usually causes life-threatening medical problems beginning in infancy. Type 3 Gaucher disease also affects the nervous system, but it tends to worsen more slowly than type 2.\n\nThe most severe type of Gaucher disease is a very rare form of type 2 called the perinatal lethal form. This condition causes severe or life-threatening complications starting before birth or in infancy. Features of the perinatal lethal form can include extensive swelling caused by fluid accumulation before birth (hydrops fetalis); dry, scaly skin (ichthyosis) or other skin abnormalities; hepatosplenomegaly; distinctive facial features; and serious neurological problems. As its name indicates, most infants with the perinatal lethal form of Gaucher disease survive for only a few days after birth.\n\nAnother form of Gaucher disease is known as the cardiovascular type (or type 3c) because it primarily affects the heart, causing the heart valves to harden (calcify). People with the cardiovascular form of Gaucher disease may also have eye abnormalities, bone disease, and mild enlargement of the spleen (splenomegaly)."
+    },
+    {
+      "title": "Frequency",
+      "text": "Gaucher disease occurs in 1 in 50,000 to 100,000 people in the general population. Type 1 is the most common form of the disorder in Europe, Israel, Canada, and the United States. This form occurs more frequently in people of Ashkenazi (eastern and central European) Jewish heritage than in those with other backgrounds; it affects 1 in 500 to 1,000 people of Ashkenazi Jewish heritage. Types 2 and 3 are uncommon and do not occur more frequently in people of Ashkenazi Jewish descent. These types can be more prevalent than type 1 in certain regions, such as Egypt, India, Japan, Poland, and Sweden."
+    },
+    {
+      "title": "Causes",
+      "text": "Variants (also known as mutations) in the GBA1 gene cause Gaucher disease. The GBA1 gene provides instructions for making an enzyme called lysosomal acid glucosylceramidase. This enzyme breaks down a fatty substance called glucocerebroside into a sugar (glucose) and a simpler fat molecule (ceramide). Variants in the GBA1 gene greatly reduce or eliminate the activity of lysosomal acid glucosylceramidase. Without enough of this enzyme, glucocerebroside and related substances can build up to toxic levels within cells. Tissues and organs are damaged by the abnormal accumulation and storage of these substances, causing the characteristic features of Gaucher disease."
+    },
+    {
+      "title": "Inheritance",
+      "text": "This condition is inherited in an autosomal recessive pattern, which means both copies of the gene in each cell have variants. The parents of an individual with an autosomal recessive condition each carry one copy of the altered gene, but they typically do not show signs and symptoms of the condition."
+    },
+    {
+      "title": "Other Names for This Condition",
+      "text": "• Cerebroside lipidosis syndrome\n• Gaucher splenomegaly\n• Gaucher syndrome\n• Gaucher's disease\n• Gauchers disease\n• GD\n• Glucocerebrosidase deficiency\n• Glucocerebrosidosis\n• Glucosyl cerebroside lipidosis\n• Glucosylceramidase deficiency\n• Glucosylceramide beta-glucosidase deficiency\n• Glucosylceramide lipidosis\n• Kerasin histiocytosis\n• Kerasin lipoidosis\n• Kerasin thesaurismosis\n• Lipoid histiocytosis (kerasin type)"
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/genetics/condition/gaucher-disease/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "758f7781a388c94f2a4d142e149872128ac9c857089bc79264c7c40e2ded0b26",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace, lists and labeled table formatting adapted. Not clinical review."
+}

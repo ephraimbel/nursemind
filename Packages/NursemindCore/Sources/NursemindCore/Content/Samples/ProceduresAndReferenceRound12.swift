@@ -196,7 +196,7 @@ public enum TPNSample {
         preProcedure: [
             AttributedBullet("Verify TPN order against pharmacy label — patient identifiers, components, concentration, rate, additives.", citationIDs: ["openrn_skills_round12"]),
             AttributedBullet("Verify central-line placement (CXR confirmation); patency of dedicated line / lumen for TPN.", citationIDs: ["openrn_skills_round12"]),
-            AttributedBullet("Baseline labs — BMP, magnesium, phosphorus, ionized calcium, glucose, triglycerides, LFTs, prealbumin per primary source.", citationIDs: ["openrn_skills_round12"]),
+            AttributedBullet("Baseline labs — BMP, magnesium, phosphorus, ionized calcium, glucose, triglycerides and LFTs per primary source.", citationIDs: ["openrn_skills_round12"]),
             AttributedBullet("Identify refeeding-syndrome risk — chronic alcoholism, anorexia, prolonged starvation (>7 days), severely malnourished cancer patient per primary source.", citationIDs: ["openrn_skills_round12"])
         ],
         steps: [
@@ -208,7 +208,7 @@ public enum TPNSample {
         ],
         postProcedure: [
             AttributedBullet("Monitor glucose every 4–6 hours initially; every 6 hours stable; sliding scale insulin or insulin in TPN per primary source.", citationIDs: ["openrn_skills_round12"]),
-            AttributedBullet("Daily BMP, Mg, phos, ionized Ca first week; weekly trace elements, prealbumin, LFTs, triglycerides.", citationIDs: ["openrn_skills_round12"]),
+            AttributedBullet("Daily BMP, Mg, phos, ionized Ca first week; weekly trace elements, LFTs, triglycerides.", citationIDs: ["openrn_skills_round12"]),
             AttributedBullet("Daily weights, strict I&O.", citationIDs: ["openrn_skills_round12"]),
             AttributedBullet("Mouth care — TPN patients miss oral stimulation; dental hygiene; risk of parotitis.", citationIDs: ["openrn_skills_round12"])
         ],

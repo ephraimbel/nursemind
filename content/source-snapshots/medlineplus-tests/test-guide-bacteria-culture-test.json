@@ -1,0 +1,44 @@
+{
+  "title": "Bacteria Culture Test",
+  "sourceUpdated": "Last updated November 19, 2024",
+  "sections": [
+    {
+      "title": "What is a bacteria culture test?",
+      "text": "A bacteria culture test can determine if you have a bacterial infection and, if so, which type of bacteria is causing it. To do a bacterial culture test, you will need to give a sample of your blood, urine, skin, or other tissue. The type of sample depends on where the infection is located.\n\nBacteria are one-celled organisms. There are many different kinds of bacteria. They live just about everywhere in your body and on your skin. Some types of bacteria are harmless or even helpful, while other bacteria can cause infections and disease.\n\nKnowing what type of bacteria is causing your infection helps determine the best treatment. Your health care provider will need to examine many bacteria cells to find out the type of bacteria. Your sample will be sent to a lab where the bacteria cells will be put in a dish with a special substance that allows bacteria to grow. It normally takes one to two days to grow enough bacteria for the test. So your test results are often ready within a few days. But some types of bacteria grow slowly, so sometimes your results may take several days or longer."
+    },
+    {
+      "title": "What is it used for?",
+      "text": "Bacteria culture tests are used to help diagnose certain types of infections. The most common types of bacteria tests and their uses are:\n\nThroat Culture\n\n• Used to diagnose or rule out strep throat.\n• Test procedure:\n  • Your provider uses a special swab to take a sample from the back of your throat and tonsils.\n\nUrine Culture\n\n• Used to diagnose a urinary tract infection and identify the bacteria causing the infection.\n• Test procedure:\n  • You provide a sterile urine sample in a container, following special instructions.\n\nSputum Culture\n\nSputum, also known as phlegm, is a thick type of mucus that is made in your lungs and can be coughed up. It is different from spit or saliva.\n\n• Used to help diagnose bacterial or fungal infections in your respiratory tract, such as bacterial pneumonia, tuberculosis, bronchiectasis, and histoplasmosis.\n• Test procedure:\n  • You provide a sputum sample, usually by coughing it up into a special cup. In certain cases, you may need to have a bronchoscopy to get a sample. A bronchoscopy involves inserting a flexible tube through your nose or mouth and into your lungs.\n\nBlood Culture\n\n• Used to look for bacterial or fungal infections in your blood.\n• Test procedure:\n  • A health care professional takes a blood sample, usually from a vein in your arm.\n\nStool Culture\n\nAnother name for stool (poop) is feces.\n\n• Used to detect bacterial infections in your digestive system, including food poisoning. Because many things can cause digestive illness, this test is often done with other tests to look for viruses and parasites that may be causing symptoms.\n• Test procedure:\n  • You provide a sample of your feces in a clean container.\n\nWound Culture\n\n• Used to find infections in open wounds or on burn injuries.\n• Test procedure:\n  • A health care professional uses a special swab to collect a sample of cells or pus from your wound. For deeper wounds, a syringe may be used to draw out fluid, or you may have a biopsy to remove a piece of tissue from the wound."
+    },
+    {
+      "title": "Why do I need a bacteria culture test?",
+      "text": "Your provider may order a bacteria culture test if you have symptoms of a bacterial infection. The symptoms vary depending on the type of infection."
+    },
+    {
+      "title": "Why do I have to wait so long for my results?",
+      "text": "Bacteria culture tests require a large number of cells to accurately identify what type of bacteria may be causing an infection. Most test samples don't include enough cells for that. So, your sample is sent to a lab and put in a dish with a special substance that allows bacteria cells to grow until there are enough to test. Most disease-causing bacteria will be ready for testing within one to two days, but some types of bacteria take five days or longer to grow enough cells."
+    },
+    {
+      "title": "Will I need to do anything to prepare for the test?",
+      "text": "There are many different types of bacteria culture tests. Ask your provider if you need to do anything to prepare for your test."
+    },
+    {
+      "title": "Are there any risks to the test?",
+      "text": "There are no known risks to having a swab or blood test or to providing a urine, sputum, wound, or stool sample."
+    },
+    {
+      "title": "What do the results mean?",
+      "text": "If harmful bacteria are found in your sample, it usually means you have a bacterial infection. The test should also identify what type of bacteria is causing the infection. Your provider may order more tests to confirm the diagnosis or to see how serious the infection is.\n\nYour provider may also order a test to determine which medicine will best treat the type of bacteria causing your infection. This test is called an antibiotic sensitivity test or a susceptibility test. It checks to see how sensitive the bacteria are to different antibiotic medicines. If you have questions about your results, talk with your provider.\n\nLearn more about laboratory tests, reference ranges, and understanding results."
+    },
+    {
+      "title": "Is there anything else I should know about a bacteria culture test?",
+      "text": "If your results show you don't have a bacterial infection, you should not take antibiotic medicines. Antibiotics only treat bacterial infections. Taking antibiotics when you don't need them won't help you feel better and may lead to a serious problem known as antibiotic resistance.\n\nAntibiotic resistance allows harmful bacteria to change in a way that makes antibiotics less effective or not effective at all. Resistant bacteria may continue to grow and multiply, making infections difficult and sometimes impossible to treat. These infections can spread to other people."
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/lab-tests/bacteria-culture-test/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "d8b86b709a0e195cc02fdea789db47a753305ecb31e59c8b6354a91a045b5f5a",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace and list formatting only. Not clinical review."
+}

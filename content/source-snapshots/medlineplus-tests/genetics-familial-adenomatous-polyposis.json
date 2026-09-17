@@ -1,0 +1,32 @@
+{
+  "title": "Familial adenomatous polyposis",
+  "sourceUpdated": "Last updated August 26, 2025",
+  "sections": [
+    {
+      "title": "Description",
+      "text": "Familial adenomatous polyposis (FAP) is an inherited disorder that is characterized by a greatly increased risk of cancer of the large intestine (colon) and rectum (collectively known as colorectal cancer). People with FAP have multiple precancerous (benign) growths (polyps) in the colon, and one or more of these polyps will likely develop into colorectal cancer. There are two forms of FAP: the classic type and the attenuated type.\n\nThe classic type of FAP is the more severe type. People with classic FAP develop colon polyps as early as childhood. By age 35 years, 95 percent of people with classic FAP will have colon polyps. Once polyps appear in people with classic FAP, the number of polyps increases quickly. People with classic FAP may have hundreds to thousands of colon polyps. Unless the colon is removed, one or more of these polyps will become cancerous (malignant). Individuals with classic FAP typically develop colorectal cancer around 40 years old, and at least 90 percent of affected individuals will develop colorectal cancer by age 50 years if they do not have a procedure that removes their colon beforehand (preventative colectomy).\n\nThe attenuated type of FAP is the less severe form. People with attenuated FAP tend to have fewer polyps (an average of 30) that develop later in life (early to mid-adulthood) than those with classic FAP. People with attenuated FAP have a 70 percent lifetime risk of colorectal cancer, with cancer typically developing around 55 years old. People with attenuated FAP may or may not be advised to have a preventative colectomy.\n\nLess commonly, people with FAP may develop other types of cancer. Affected individuals are at increased risk of developing cancer of the stomach, pancreas, a gland in the lower neck (thyroid gland), liver (specifically, a form known as hepatoblastoma), brain (specifically, a form known as medulloblastoma), or a section of the small intestine (duodenum).\n\nPeople with FAP can also have benign growths in their bones (osteomas), in their skin (cysts), or in the small glands located on top of the kidneys called adrenal glands (adrenal masses). Other benign growths called desmoid tumors develop in 10 to 30 percent of people with FAP. These fibrous tumors usually occur in the abdomen or abdominal wall. Desmoid tumors tend to recur after they are surgically removed.\n\nPeople with FAP may also have dental abnormalities, which can include teeth that do not break through the gums, one or more missing teeth, extra (supernumerary) teeth, and dental cysts.\n\nIndividuals with FAP often have an eye problem called congenital hypertrophy of the retinal pigment epithelium (CHRPE). CHRPE is characterized by flat lesions on the light-sensitive tissue that lines the back of the eye (retina) that can be seen during an eye exam. CHRPE does not cause any vision problems and occurs in up to 80 percent of people with FAP."
+    },
+    {
+      "title": "Frequency",
+      "text": "FAP has an incidence of 1 in 8,500 individuals. FAP accounts for about 0.5 percent of all cases of colorectal cancer."
+    },
+    {
+      "title": "Causes",
+      "text": "Variants (also called mutations) in the APC gene cause FAP. The APC gene provides instructions for making a protein that acts as a tumor suppressor, which means that it keeps cells from growing and dividing too fast or in an uncontrolled way. In particular, the APC protein helps block a signaling pathway that promotes cell growth and division. The APC protein also interacts with parts of the cell to help ensure that the number of chromosomes in a cell is correct after the cell divides.\n\nMost of the APC gene variants that cause FAP lead to the production of an abnormally short, nonfunctional version of the APC protein. This shortened protein cannot block the signaling pathway, so cell growth is not controlled. This cell overgrowth leads to the colon polyps, tumors, and colorectal cancer seen in people with FAP. Additionally, the nonfunctional APC protein can impair normal cell division, which may result in an abnormal number of chromosomes in cells and contribute to cancer development in people with FAP."
+    },
+    {
+      "title": "Inheritance",
+      "text": "FAP is inherited in an autosomal dominant pattern, which means one copy of the altered APC gene in each cell is sufficient to cause the disorder. Affected individuals have a 50 percent chance of passing on the APC gene variant to each child. In 75 to 80 percent of cases, an affected person has one parent with FAP."
+    },
+    {
+      "title": "Other Names for This Condition",
+      "text": "• Adenomatous familial polyposis\n• Adenomatous familial polyposis syndrome\n• Adenomatous polyposis coli\n• Familial multiple polyposis syndrome\n• FAP"
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/genetics/condition/familial-adenomatous-polyposis/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "0b72bd23665ac8ade609f0acdf1c063eeaaf1b5791f4d3f2697c8b8795234fe0",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace, lists and labeled table formatting adapted. Not clinical review."
+}

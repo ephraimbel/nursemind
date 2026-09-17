@@ -1,0 +1,44 @@
+{
+  "title": "PDL1 (Immunotherapy) Tests",
+  "sourceUpdated": "Last updated January 27, 2026",
+  "sections": [
+    {
+      "title": "What is a PD-L1 Test?",
+      "text": "A PD-L1 test uses a sample of cancerous tumor tissue to measure how much of a protein called programmed-death ligand 1 (PD-L1) is found on the cancer cells. Normally, PD-L1 is found on certain healthy cells. It helps keep your immune system from attacking healthy tissue by acting as a kind of \"brake\" on your immune system cells (called T-cells). However, in some cancers, PD-L1 keeps your immune system from attacking cancerous cells.\n\nIf you have one of these kinds of cancers and high levels of PD-L1, your provider can treat your cancer with immunotherapy (a treatment option that helps your immune system fight cancer). In cancers with high PD-L1 levels, health care providers use a type of immunotherapy called \"immune checkpoint inhibitors.\" These medicines stop PD-L1 from binding to your T-cells. In other words, they \"release the brakes,\" allowing your immune system to target and kill cancer cells.\n\nOther names: programmed death-ligand 1, PDLI, PDL-1 by immunohistochemistry (IHC)"
+    },
+    {
+      "title": "What is it used for?",
+      "text": "PD-L1 testing is mainly used to help your provider decide on treatment options for certain cancers. However, there are different types of PD-L1 tests. The test your provider orders will depend on:\n\n• The type of cancer you have.\n• The specific immunotherapy medicine that your provider is considering for you.\n• The testing method used by your laboratory.\n\nWith the results from these tests, your provider can then not only decide whether immunotherapy will work, but how best to use immunotherapy. They may, for example, decide between:\n\n• Monotherapy. This means using only immunotherapy to treat your cancer.\n• Combination therapy. This means using both immunotherapy and chemotherapy. Combination therapy is most often used for advanced cancer.\n\nThough immunotherapy can help stop or slow the growth of many types of cancer that have PD-L1, it isn't always the best option. This is because it can cause serious side effects in some people, and not everyone benefits from it."
+    },
+    {
+      "title": "Why do I need a PD-L1 test?",
+      "text": "You may need a PD-L1 test if you've been diagnosed with certain types of cancer that commonly cause high PD-L1 levels. These cancers include:\n\n• Non-small cell lung cancer\n• Melanoma\n• Hodgkin lymphoma\n• Bladder cancer\n• Kidney cancer\n• Breast cancer\n• Head and neck cancer (squamous cell carcinoma)\n• Cancer of the esophagus (squamous cell carcinoma)\n• Stomach cancer (adenocarcinoma)\n• Cervical cancer\n\nYour provider may also order a PD-L1 test to monitor your treatment progress."
+    },
+    {
+      "title": "What happens during a PD-L1 test?",
+      "text": "PD-L1 tests are done on a tissue sample from a tumor. If you're having surgery to remove a tumor, a sample will be taken for testing.\n\nIf you aren't having the tumor removed, you may have a biopsy, which is a procedure to remove a small amount of tissue for testing. If you already had a biopsy to diagnose your cancer, the same tissue sample may be used to test for PD-L1.\n\nThere are many ways to do a biopsy. The type of biopsy you have depends on the type of cancer you have and where the tumor is located. In general, a biopsy may be done using:\n\n• A hollow needle inserted through your skin. Imaging tests, such as an ultrasound, may be used to guide the needle:\n  • A fine needle aspiration biopsy uses a very thin needle to remove a sample of cells and/or fluid.\n  • A core needle biopsy uses a larger needle to remove a sample.\n• Surgery. Surgery may be done to remove a sample of tissue (an incisional biopsy). In certain cases, the entire tumor will be removed (an excisional biopsy).\n• Endoscopic biopsy. A flexible tube with a camera (scope) is inserted through an opening in your body or through a small cut to view and collect tissue samples. Examples of scope procedures include bronchoscopy, laparoscopy, colposcopy, and cystoscopy (to examine the inside of the bladder)."
+    },
+    {
+      "title": "Will I need to do anything to prepare for the test?",
+      "text": "Preparations for your test depend on how your tissue sample will be taken. You may need to stop taking certain medicines, such as blood thinners like aspirin, before this test. So, tell your provider about all the medicines and supplements you take. Don't stop or start taking anything unless your provider tells you to.\n\nBefore you get any procedure, you should tell your provider about any recent surgeries or known allergies. You should also tell them if you're pregnant.\n\nIf you're having general anesthesia, you will probably need to fast (not eat or drink) for several hours before surgery. If you have general anesthesia or medicine to relax, you may be groggy after the procedure, so plan to have someone take you home.\n\nAsk your provider how to prepare for your test."
+    },
+    {
+      "title": "Are there any risks to the test?",
+      "text": "The risks depend on how your tissue sample is collected.\n\n• With a needle biopsy, you may have slight bruising, soreness, or bleeding at the site.\n• With a surgical biopsy, you may have mild pain, a small scar, or a risk of infection at the incision site.\n\nThese side effects are usually mild and temporary. Your health care team will explain any risks and how to care for the biopsy area."
+    },
+    {
+      "title": "What do the results mean?",
+      "text": "Your test results will show whether you have enough PD-L1 protein in your tumor for you to benefit from a specific immunotherapy medicine. Some immunotherapy medicines will not be helpful if a small percentage of your cancer cells have PD-L1.\n\nIf your test results show that:\n\n• Your tumor cells have enough PD-L1 for you to use immunotherapy medicine, you may be able to start that medicine. Common examples include pembrolizumab, nivolumab, and atezolizumab. This may be called a \"positive\" test result.\n• Your tumor cells don't have enough PD-L1, then immunotherapy likely won't help you. This may be called a \"negative\" test result. Your provider will consider other types of cancer treatment that will be more effective.\n\nYour test results may also have different scoring systems and values. For example, you may see:\n\n• Combined Positive Score (CPS), which measures PD-L1 on both tumor cells and T-cells.\n• Tumor Propositional Score (TPS), which measures the percentage of tumor cells that have high amounts of PD-L1.\n\nThese scoring systems and values can vary depending on what type of PD-L1 test your provider used. Because of these differences, you should talk to your provider about what your results mean. Your provider may also use other tests to help decide on the best treatment for you.\n\nLearn more about laboratory tests, reference ranges, and understanding results."
+    },
+    {
+      "title": "Is there anything else I need to know about a PD-L1 test?",
+      "text": "Immunotherapy is a quickly changing area of medicine. For some immunotherapy medicines, PD-L1 testing is required to see if you are a good match for that treatment. For other medicines, however, testing is recommended but not required before treatment.\n\nNew research may change how tests are used to choose treatments. So, check with your provider to find out how PD-L1 testing may affect your treatment plan."
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/lab-tests/pdl1-immunotherapy-tests/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "54f91e16fa1a03305409dd64d898b33c20f6e6556ba07d094ecaec606340a6e0",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace and list formatting only. Not clinical review."
+}

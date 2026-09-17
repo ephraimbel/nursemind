@@ -1,0 +1,40 @@
+{
+  "title": "Lung Cancer Genetic Tests",
+  "sourceUpdated": "Last updated September 11, 2023",
+  "sections": [
+    {
+      "title": "What are lung cancer genetic tests?",
+      "text": "If you have lung cancer, your health care provider may order genetic tests. These tests look for changes in the genes of the cancer cells in your body. Gene changes are also called gene variants or mutations. There are many types of gene changes that are found in lung cancer. Knowing what type of gene change you have may help your provider to:\n\n• Predict how your lung cancer will develop over time\n• Match your cancer to a targeted therapy that's most likely to help you\n\nTargeted therapy uses drugs or other substances that mainly attack specific cancer cells and cause less harm to normal cells. It usually has fewer side effects than chemotherapy or radiation therapy.\n\nThere are different types of targeted therapies. Each type is designed to work for cancers with specific gene changes. So, lung cancer genetic tests are important to check if your cancer has a gene change that can be treated with targeted therapy.\n\nThere are two main types of lung cancer, small cell lung cancer (SCLC) and non-small cell lung cancer (NSCLC). Most people with lung cancer have NSCLC. The most common lung cancer genetic tests are done for NSCLC. That's because this type of lung cancer is more likely to have gene changes that respond to targeted therapies.\n\nGenes are parts of DNA in your cells that you inherit from your parents. Genes carry information that controls what you look like and how your body works. The gene changes found in lung cancer affect genes that control how fast your cells grow and divide to make new cells. Cells with these changes grow out of control and form cancerous tumors that can spread through your body.\n\nThe gene changes in lung cancer usually aren't inherited. That means you can't pass them down to your children. You develop gene changes in certain cells in your lungs after you're born. These changes can happen if you're exposed to substances that cause cancer, such as tobacco smoke, radon gas, or air pollution. Gene changes can also happen if your cells make a mistake when they divide to make new cells.\n\nOther names: Lung cancer targeted gene panel"
+    },
+    {
+      "title": "What are they used for?",
+      "text": "Lung cancer genetic testing is most often used to look for gene changes that are often involved in non-small cell lung cancer. The results may help guide treatment choices for targeted therapies.\n\nThere are many types of gene changes that can be involved in NSCLC. And researchers are still learning about more.\n\nLung cancer genetic tests may check a single gene or several genes may be checked in one test."
+    },
+    {
+      "title": "Why do I need a lung cancer genetic test?",
+      "text": "You may need a lung cancer genetic testing if you have been diagnosed with lung cancer. The test results may help your provider know which treatments are likely to help you the most and which ones may not help at all."
+    },
+    {
+      "title": "What happens during a lung cancer genetic test?",
+      "text": "The best sample for lung cancer genetic tests is tissue from a tumor in your lung. The procedure to collect a tissue sample is called a biopsy. If you had a biopsy to diagnose your cancer, the same tissue may be used to test for gene changes.\n\nThere are several ways to do a lung biopsy. The type of biopsy you have depends on many things, including where the cancer is growing in your lungs. In certain cases, tissue may be removed with a special hollow needle inserted through your skin and into your lung.\n\nA tissue sample may also be removed during a bronchoscopy or with a procedure that involves making an incision (cut) in your chest area to insert special tube-like instruments into your lung. Talk with your provider to find out which biopsy method will work for you.\n\nIf tumor tissue can't be collected, a blood test may be used for genetic testing in certain cases. Tumor cells shed DNA into your bloodstream. Testing the tumor DNA in your blood is called a \"liquid biopsy.\" This test is not as accurate as tests that use tumor tissue. Researchers are still studying the use of liquid biopsies to test for certain gene changes."
+    },
+    {
+      "title": "Will I need to do anything to prepare for the test?",
+      "text": "Ask your provider if you need to do anything to prepare for your test."
+    },
+    {
+      "title": "Are there any risks to the test?",
+      "text": "If you have a biopsy, the risks depend on the type of procedure you have. In general, you may have a little bruising or bleeding at the biopsy site. You may also have some discomfort. Ask your provider about any risks involved with the test you're having."
+    },
+    {
+      "title": "What do the results mean?",
+      "text": "If your lung cancer cells have a gene change that may respond well to a targeted therapy, your provider may start you on that treatment.\n\nIf your results show you don't have a gene change that matches a targeted therapy, your provider may discuss other treatment options. If you were tested for one gene change, other tests may be done to look for other gene changes that have targeted therapies.\n\nYour test results may also show that your lung cancer has a gene change that:\n\n• May prevent a certain therapy from working. This information could spare you from getting treatment that won't help.\n• Doesn't help make treatment decisions. Researchers don't understand the importance of all the gene changes that are found in cancer.\n\nGenetic testing may take longer than many other types of lab tests. So, you may not get your results for a few days to a week or more. If you have questions about your results, talk with your provider.\n\nLearn more about laboratory tests, reference ranges, and understanding results."
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/lab-tests/lung-cancer-genetic-tests/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "47e868e6faa23211d57fdb3e1206c2c058ea28b1f8c67f019a69bac07ec768a4",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace and list formatting only. Not clinical review."
+}

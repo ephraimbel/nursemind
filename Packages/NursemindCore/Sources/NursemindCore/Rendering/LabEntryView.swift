@@ -98,6 +98,7 @@ public struct LabEntryView: View {
             case .clottingHemostasis:      return "LAB · COAGULATION"
             case .infection:               return "LAB · INFECTION"
             case .cellularRegulation:      return "LAB · HEMATOLOGY"
+            case .nutrition:              return "LAB · NUTRITION"
             default:                       return "LAB"
             }
         }
@@ -222,10 +223,10 @@ private struct InterpretationTierCard: View {
                     .font(NMFont.title)
                     .foregroundStyle(severityColor)
             }
-            Text(tier.summary)
-                .font(NMFont.bodyLG)
-                .foregroundStyle(NMColor.textPrimary)
-                .lineSpacing(4)
+            AttributedProseView(
+                prose: AttributedProse(tier.summary, citationIDs: tier.citationIDs),
+                citationIndex: citationIndex
+            )
             if !tier.nursingActions.isEmpty {
                 VStack(alignment: .leading, spacing: NMSpace.xs + 2) {
                     Text("Nursing actions")
@@ -239,10 +240,10 @@ private struct InterpretationTierCard: View {
                             Text("•")
                                 .font(NMFont.bodyLG)
                                 .foregroundStyle(NMColor.textTertiary)
-                            Text(action)
-                                .font(NMFont.bodyLG)
-                                .foregroundStyle(NMColor.textPrimary)
-                                .lineSpacing(4)
+                            AttributedProseView(
+                                prose: AttributedProse(action, citationIDs: tier.citationIDs),
+                                citationIndex: citationIndex
+                            )
                                 .frame(maxWidth: .infinity, alignment: .leading)
                         }
                     }

@@ -1,0 +1,44 @@
+{
+  "title": "Lactose Tolerance Tests",
+  "sourceUpdated": "Last updated September 30, 2024",
+  "sections": [
+    {
+      "title": "What are lactose tolerance tests?",
+      "text": "Lactose tolerance tests measure your body's ability to break down lactose. Lactose is a type of sugar found in milk, cheese, ice cream, and other dairy products. Normally, an enzyme (a protein that speeds up certain chemical reactions in your body) called lactase breaks down lactose into simpler sugars. These sugars are absorbed by your body and turned into energy. If your body doesn't make enough lactase, you won't be able to properly digest foods that contain lactose.\n\n• When you can't digest all of the lactose you eat or drink and it passes into your colon, it's called lactose malabsorption.\n• Lactose malabsorption can cause uncomfortable symptoms such as gas, bloating, and diarrhea within 30 minutes to 2 hours after drinking milk or eating other dairy products.\n• Getting the symptoms of lactose malabsorption after you eat or drink products with lactose is called lactose intolerance.\n\nThere are two types of lactose tolerance tests:\n\n• Hydrogen breath test. This test measures the amount of hydrogen gas in your breath before and after you drink a liquid containing lactose. If you can't digest all the lactose, it gets broken down by bacteria in your large intestine. This creates extra hydrogen gas, which you breathe out. This is the most common way to test for lactose intolerance.\n• Glucose blood test. This test involves a series of blood tests that measure the level of glucose (a type of sugar) in your blood before and after you drink a liquid containing lactose. If you are lactose intolerant, you usually won't have an increase in blood glucose.\n\nOther names: hydrogen breath test, oral lactose tolerance, lactose tolerance serum test, lactose intolerance test, lactose breath test, disaccharide absorption test"
+    },
+    {
+      "title": "What are they used for?",
+      "text": "Lactose tolerance tests are used to:\n\n• Diagnose lactose intolerance\n• Check for other health conditions that may cause similar symptoms, such as:\n  • Irritable bowel syndrome\n  • Celiac disease\n  • Small intestinal bacterial overgrowth (SIBO)\n  • Crohn's disease\n  • Ulcerative colitis"
+    },
+    {
+      "title": "Why do I need a lactose tolerance test?",
+      "text": "You may need this test if you have symptoms of lactose intolerance. Symptoms usually happen within 30 minutes to 2 hours of eating or drinking dairy products. They can include:\n\n• Diarrhea\n• Abdominal (belly) pain\n• Bloating\n• Gas\n• Nausea"
+    },
+    {
+      "title": "What happens during a lactose tolerance test?",
+      "text": "Your health care provider may order a hydrogen breath test or a glucose blood test.\n\nDuring a hydrogen breath test:\n\n• You will breathe into a balloon-type container that measures the amount of hydrogen in your breath.\n• You will drink a flavored liquid that contains lactose.\n• You will breathe into the container again 30 minutes later and every 30 minutes for a few hours. Your hydrogen levels will be measured each time, and your provider will ask you about your symptoms.\n\nDuring a glucose blood test:\n\n• A health care professional will take a blood sample from a vein in your arm, using a small needle. After the needle is inserted, a small amount of blood will be collected into a test tube or vial.\n• You will drink a liquid that contains lactose.\n• More blood samples will be taken at specific intervals, usually at 30 minutes, one hour, and two hours."
+    },
+    {
+      "title": "Will I need to do anything to prepare for this test?",
+      "text": "To prepare for either type of test, you will need to:\n\n• Fast (not eat or drink) for eight to 12 hours before the test\n• Stop taking antibiotics for two to four weeks before the test\n• Not smoke or exercise strenuously the day before the test\n\nYou may also need to stop taking certain medicines before this test, such as laxatives, antacids, and stool softeners, so tell your provider about everything you take. But don't stop taking any medicines unless your provider tells you to.\n\nIf you are having a breath test, you may need to brush your teeth or rinse your mouth shortly before the test."
+    },
+    {
+      "title": "Are there any risks to this test?",
+      "text": "If you are lactose intolerant, you may feel cramps or bloating after drinking the lactose beverage.\n\nThere are no other risks to having a hydrogen breath test.\n\nThere is very little risk to having a blood test. There may be slight pain or bruising at the spot where the needle was put in, but most symptoms go away quickly."
+    },
+    {
+      "title": "What do the results mean?",
+      "text": "If you had a hydrogen breath test, your results may show:\n\n• An increased level of hydrogen and worsening symptoms after drinking lactose. This probably means you have lactose intolerance.\n• Little or no increase in hydrogen after drinking lactose. This means your symptoms are probably not caused by lactose intolerance. But sometimes you can have a negative result and still have lactose intolerance. You may need more tests to figure out the cause of your symptoms.\n\nIf you had a glucose blood test, your results may show:\n\n• Your glucose levels did not increase after drinking lactose. This probably means you have lactose intolerance.\n• Your glucose levels increased. This means your symptoms are probably not caused by lactose intolerance. But if you have diabetes, your blood glucose may increase even if you have lactose intolerance. You may need more tests to figure out the cause of your symptoms.\n\nIf you are diagnosed with lactose intolerance, you should be able to manage your condition by limiting or avoiding foods with lactose, such as milk and cheese. Some people with lactose intolerance can have a limited amount of dairy without symptoms. Other people may need to avoid lactose altogether. Taking a supplement that contains lactase may also help manage your condition.\n\nBe sure to talk to your provider about planning your diet and/or taking lactase supplements.\n\nLearn more about laboratory tests, reference ranges, and understanding results."
+    },
+    {
+      "title": "Is there anything else I need to know about lactose tolerance tests?",
+      "text": "Lactose intolerance is not the same as an allergy to milk or dairy. An allergy is an immune system response and can cause severe symptoms. While lactose intolerance does not cause serious complications, it can lead to uncomfortable and unpleasant symptoms. Adjusting your diet may help you avoid this discomfort."
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/lab-tests/lactose-tolerance-tests/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "ea6823bb4295bb3ec71e90a264167cea020581878a143d7b3f2f3dc1bcb38c64",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace and list formatting only. Not clinical review."
+}

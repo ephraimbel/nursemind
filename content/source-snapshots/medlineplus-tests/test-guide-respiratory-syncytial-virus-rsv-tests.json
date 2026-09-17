@@ -1,0 +1,44 @@
+{
+  "title": "Respiratory Syncytial Virus (RSV) Tests",
+  "sourceUpdated": "Last updated March 19, 2025",
+  "sections": [
+    {
+      "title": "What is an RSV test?",
+      "text": "RSV stands for respiratory syncytial virus. It is a viral infection that affects the respiratory tract. Your respiratory tract includes your lungs, nose, and throat. RSV testing checks a fluid sample from your nose to see if the virus is in your body and causing symptoms of a respiratory infection.\n\nRSV is very contagious, which means it spreads easily from person to person. It's also very common and goes away after 1-2 weeks without the need for testing or specific treatment. Most children get RSV by the age of two.\n\nRSV usually causes mild symptoms that are like a cold (such as a cough, runny nose, and congestion). But the virus may lead to serious breathing problems, especially in certain groups of people, including:\n\n• Infants, especially those 6 months and younger\n• Older adults, especially those 65 years and older\n• People with heart or lung diseases\n• People with weakened immune systems\n\nTwo types of tests are commonly used to diagnose RSV infections:\n\n• Rapid RSV antigen tests are the most common test for RSV. They check a fluid sample from your nose for certain proteins from the virus called antigens. RSV antigens trigger your immune system to attack the virus. Rapid antigen tests can provide results in an hour or less.\n• Molecular tests called RT-PCR (polymerase chain reaction) tests look for genetic material from the virus in your sample. These tests can find smaller amounts of the virus than antigen tests (which means that they are more sensitive and are better at being able to tell if the virus is in your body). So, RT-PCR tests may be used for older children and adults who tend to have less of the virus in their noses than infants and younger children. Samples are usually sent to a lab for testing. In certain cases, your health care provider may order a molecular test called a respiratory pathogens panel. This test checks for RSV and other respiratory viruses like those that cause the flu and COVID-19.\n\nOther names: respiratory syncytial antibody test, RSV rapid detection"
+    },
+    {
+      "title": "What is it used for?",
+      "text": "An RSV test is used to see if RSV is the cause of moderate to severe cold symptoms in infants, older adults, and people with weakened immune systems. People with mild symptoms may be tested as part of public health efforts to track the spread of the virus.\n\nThe test is usually done during the \"RSV season,\" the time of year when RSV outbreaks are more common. In the United States, RSV season usually starts in mid-fall and ends in early spring, but the season may vary in different parts of the country."
+    },
+    {
+      "title": "Why do I need an RSV test?",
+      "text": "Healthy adults and older children usually don't need RSV testing. Most RSV infections only cause mild symptoms such as a runny nose, sneezing, and headaches. But an infant, younger child, or an adult over age 65 may need an RSV test if they have symptoms of moderate or serious infection. These include:\n\n• Fever\n• Wheezing\n• Serious cough\n• Breathing faster than normal or trouble breathing\n• Blue skin color\n\nIn infants less than six months old, the only symptoms of RSV may be:\n\n• Acting irritable\n• Moving less than usual\n• Lacking appetite\n• Pausing while breathing"
+    },
+    {
+      "title": "What happens during an RSV test?",
+      "text": "Tests to diagnose RSV are done on a sample of fluid from your nose. There are different ways to collect the sample:\n\n• Nasal aspirate or wash. This is the most common way to collect a sample for RSV testing. To do a nasal aspirate, a health care professional will insert a saline solution (salt water) into your nose and remove it with gentle suction.\n• Nasal swab test. This method is not preferred because it's not good at collecting enough of the virus to be able to test for it. A health care professional will use a special swab to take a sample from your nose.\n\nRSV test samples should be taken during the first few days after symptoms begin. That's because the amount of the virus in your nose decreases over time, which may make test results less accurate.\n\nAt-home test kits are available to buy without a prescription. The test checks for RSV, flu, and COVID-19 using one sample. The kit includes a nasal swab to collect the sample to send to a lab for testing. Talk with your provider about using an at-home test.\n\nBlood tests aren't usually used to diagnose RSV, but they can show if a recent illness was an RSV infection. So public health officials may use blood tests to measure the size of an RSV outbreak in the community."
+    },
+    {
+      "title": "Will I need to do anything to prepare for the test?",
+      "text": "You don't need any special preparations for an RSV test."
+    },
+    {
+      "title": "Are there any risks to the test?",
+      "text": "There is very little risk to RSV testing.\n\n• A nasal aspirate or wash may feel uncomfortable. These effects are temporary.\n• A swab test may cause a gagging feeling or brief discomfort when your nose is swabbed."
+    },
+    {
+      "title": "What do the results mean?",
+      "text": "A negative result means that no signs of the virus were found in your sample. This may mean that another illness is causing your symptoms.\n\nBut a negative test result does not rule out RSV. It's possible that there was not enough of the virus in the sample for the test to find it.\n\nA positive result means that you likely have an RSV infection.\n\nInfants, young children and older adults may need treatment in the hospital if they are having trouble breathing or have lost too much fluid and become dehydrated. Treatment may include oxygen and intravenous (IV) fluids. In the most serious cases, a breathing machine called a ventilator may be needed, but this is uncommon.\n\nLearn more about laboratory tests, reference ranges, and understanding results."
+    },
+    {
+      "title": "Is there anything else I need to know about an RSV test?",
+      "text": "If you have RSV symptoms, but are otherwise in good health, your provider probably won't order RSV testing. Most healthy adults and children with RSV will get better in 1-2 weeks. Your provider may recommend over-the-counter medicines and drinking plenty of fluids to relieve your symptoms. Talk with your child's provider before giving your child any medicines.\n\nRSV can infect anyone, but a few ways to prevent getting or spreading the infection include to:\n\n• Practice good hygiene by washing your hands thoroughly and often, keeping kitchen and bathroom countertops clean, and washing toys regularly.\n• Cover your mouth and nose when you sneeze and don't share drinking glasses.\n• Talk to your provider about whether your infant or young child should take medicine to protect against RSV. Nirsevimab and palivizumab are two medicines that have antibodies (proteins specifically made to attack bacteria or a virus) against RSV.\n• Consider an RSV vaccination (as recommended by your provider) if you are pregnant, an older adult (age 75 years and older), or age 60-74 with a weaker immune system."
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/lab-tests/respiratory-syncytial-virus-rsv-tests/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "f950d601cd371f329fc1fc8d7432108b27513a9bcd060455d4cc440e82e1ea41",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace and list formatting only. Not clinical review."
+}

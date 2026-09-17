@@ -1,0 +1,44 @@
+{
+  "title": "Fetal Alcohol Spectrum Disorders (FASD) Screening",
+  "sourceUpdated": "Last updated September 30, 2024",
+  "sections": [
+    {
+      "title": "What is a fetal alcohol spectrum disorders (FASDs) screening?",
+      "text": "Fetal alcohol spectrum disorders (FASDs) are a group of conditions that can happen in a child who was exposed to alcohol before birth (called prenatal alcohol exposure). These conditions can affect each person in different ways and can range from mild to severe. People with FASDs can have lifelong effects, including physical, emotional, and behavioral problems.\n\nWhen you drink alcohol during pregnancy, the alcohol passes to your developing baby through your placenta, the organ that nourishes your baby in your uterus. The alcohol can harm your baby’s development, damage their organs, or cause other health problems.\n\nNo amount of alcohol is safe to drink during pregnancy. If you are pregnant or think you could be pregnant, you should not drink alcohol. This includes hard liquor, beer, and wine. Exposing your developing baby to alcohol could cause them to have an FASD or other serious health problems.\n\nThe term FASDs includes all of the following conditions:\n\n• Alcohol-Related Birth Defects (ARBD). This condition can affect organ development. People with ARBD may have problems with the function of their heart, kidneys, hearing, vision, and/or bones. They may also have other types of FASDs.\n• Neurobehavioral Disorder Associated with Prenatal Alcohol Exposure (ND-PAE). People with this condition can have problems with mental health, memory, communication, impulse control, and skills of daily living.\n• Alcohol-Related Neurodevelopment Disorder (ARND). People with ARND have problems with the brain and nervous system. It can cause intellectual disabilities, and/or behavioral and learning problems.\n• Fetal Alcohol Syndrome (FAS). This is the most severe type of FASD. It causes both birth defects and neurodevelopmental disorders.\n• Partial Fetal Alcohol Syndrome (pFAS). People with pFAS have some of the symptoms of an FASD, such as changes to their facial features. But the condition is not as severe as the other disorders.\n\nOther names: fetal alcohol syndrome screening, fetal alcohol 4-digit diagnostic code"
+    },
+    {
+      "title": "What is it used for?",
+      "text": "The screening is used to find out if your child has an FASD. There is no cure for FASDs, but early diagnosis and treatment may help reduce some of the symptoms and help your child reach their full potential."
+    },
+    {
+      "title": "Why does my child need an FASDs screening?",
+      "text": "A screening may be needed if you drank alcohol during your pregnancy and/or your child has symptoms of an FASD. Symptoms may include a mix of physical problems, intellectual disabilities, and problems coping with daily living. They can range from mild to severe and will vary depending on your child's age. Symptoms of FASDs may include a combination of the following:\n\nPhysical issues, such as:\n\n• Abnormal facial features. These include small eyes, a thin upper lip, and a smooth skin surface between the nose and upper lip.\n• Small head size.\n• Lower than average height and weight.\n• Poor coordination.\n• Vision and hearing problems.\n• Problems with their heart, kidneys, or bones.\n\nLearning challenges, such as:\n\n• Intellectual disability.\n• Delayed development.\n• Difficulty concentrating.\n• Poor memory.\n• Speech and language delays.\n\nBehavioral issues, such as:\n\n• Hyperactivity\n• Poor social skills.\n• Poor reasoning and judgment"
+    },
+    {
+      "title": "What happens during an FASDs screening?",
+      "text": "There is no single test for FASDs. But your provider may:\n\n• Check for intellectual disabilities and developmental delays\n• Look for certain physical features such as a small head, small eyes, and thin upper lip\n• See if your child's weight and height are below normal\n• Look for behavioral symptoms such as short attention span and problems with impulse control\n• Check your child's coordination, vision, and hearing\n\nSome providers may also use a method called the 4-digit code when they do a physical exam on your child to check for FASDs. Your provider will rate each category on a scale of one to four, and then add the numbers. The total number will help them in making a diagnosis based on the following categories:\n\n1. Lower height and weight than other children of the same age and sex\n2. FAS facial features\n3. Behavior and learning difficulties\n4. Exposure to alcohol during pregnancy"
+    },
+    {
+      "title": "Will my child need to do anything to prepare for this test?",
+      "text": "There are no special preparations needed for an FASD screening."
+    },
+    {
+      "title": "Are there any risks to this test?",
+      "text": "There are no risks to having an FASDs screening."
+    },
+    {
+      "title": "What do the results mean?",
+      "text": "If your child is diagnosed with an FASD, your provider may recommend several treatment options. There is no cure for these disorders, but the following may greatly improve a child's development and quality of life:\n\n• Working with a team of providers that can include a special education teacher, speech therapist, physical and occupational therapists, and mental health professionals\n• Special services in school to help with learning and behavior difficulties\n• Behavior modification therapy\n• Mental health therapy\n• Social skill training\n• Vocational and life skill therapy\n• Medicines to help with some symptoms"
+    },
+    {
+      "title": "Is there anything else I need to know about an FASDs screening?",
+      "text": "If you are pregnant or trying to get pregnant and cannot stop drinking, it’s important to get help. Even if you are pregnant, it is never too late to stop drinking. Because brain growth takes place throughout pregnancy, stopping alcohol use will improve the baby's health and well-being. Your provider can recommend counseling and treatment programs."
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/lab-tests/fetal-alcohol-spectrum-disorders-fasd-screening/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "72c7b16225a850c74c64dea3a34a4a597b66d2b6b7a4e744824ebf367a20db9e",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace, lists and labeled table formatting adapted. Not clinical review."
+}

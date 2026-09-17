@@ -52,6 +52,34 @@ extension ContentRegistry {
         entries.append(contentsOf: bundledChunk45())
         entries.append(contentsOf: bundledChunk46())
         entries.append(contentsOf: bundledChunk47())
+        entries.append(contentsOf: bundledBedsideExpansion())
+        entries.append(contentsOf: bundledCommunityOncologyExpansion())
+        entries.append(contentsOf: bundledDementiaKidneyDepth())
+        entries.append(contentsOf: bundledCrossSpecialtyDepth())
+        entries.append(contentsOf: bundledClinicalContinuity())
+        entries.append(contentsOf: bundledSpecialtySupportDepth())
+        entries.append(.reference(LabResultInterpretationSample.entry))
+        entries.append(.reference(LaboratoryTestPreparationSample.entry))
+        entries.append(.reference(NursingCarePlanEvaluationSample.entry))
+        entries.append(contentsOf: bundledSpecialtyDailySupport())
+        entries.append(contentsOf: bundledMedlinePlusReferences())
+        return entries
+    }
+
+    private static func bundledSpecialtyDailySupport() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
+        entries.append(.reference(HemodialysisNursingSupportSample.entry))
+        entries.append(.reference(PeritonealDialysisDailyCareSample.entry))
+        entries.append(.reference(DialysisNutritionFluidsSample.entry))
+        entries.append(.reference(ConservativeKidneyCareSample.entry))
+        entries.append(.reference(CPAPDailySupportSample.entry))
+        entries.append(.reference(HomeOxygenSafetySample.entry))
+        entries.append(.reference(PulmonaryRehabilitationSupportSample.entry))
+        entries.append(.reference(UrinaryContinenceSupportSample.entry))
+        entries.append(.reference(UrostomyDailyCareSample.entry))
+        entries.append(.reference(BowelOstomyDailySupportSample.entry))
+        entries.append(.reference(DysphagiaMealtimeSupportSample.entry))
+        entries.append(.reference(StrokeRecoveryDailySupportSample.entry))
         return entries
     }
 
@@ -2211,6 +2239,141 @@ extension ContentRegistry {
         // Medication-safety entries (HighAlert/ConfusedNames/DoNotCrush/
         // ErrorProneAbbreviations) are registered once above in the chunk that
         // holds the other reference-evaluation entries — not duplicated here.
+        return entries
+    }
+
+    private static func bundledBedsideExpansion() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
+        entries.append(.reference(AdultHeadToToeAssessmentSample.entry))
+        entries.append(.reference(AdultHealthHistorySample.entry))
+        entries.append(.reference(FocusedRespiratoryAssessmentSample.entry))
+        entries.append(.reference(FocusedCardiovascularAssessmentSample.entry))
+        entries.append(.reference(FocusedAbdominalAssessmentSample.entry))
+        entries.append(.reference(MusculoskeletalAssessmentSample.entry))
+        entries.append(.reference(SkinAssessmentBeyondWoundsSample.entry))
+        entries.append(.reference(FluidBalanceMonitoringSample.entry))
+        entries.append(.reference(BedsideNutritionAssessmentSample.entry))
+        entries.append(.reference(HospitalSleepSupportSample.entry))
+        entries.append(.reference(BedsideMobilityAssessmentSample.entry))
+        entries.append(.reference(HospitalOralCareSample.entry))
+        entries.append(.reference(NursingDocumentationSample.entry))
+        entries.append(.reference(HearingLossCommunicationSample.entry))
+        entries.append(.reference(LowVisionBedsideSupportSample.entry))
+        entries.append(.reference(AphasiaCommunicationSupportSample.entry))
+        entries.append(.reference(CulturalPreferencesAssessmentSample.entry))
+        entries.append(.reference(SpiritualSupportSample.entry))
+        entries.append(.reference(StoolSampleCollectionSample.entry))
+        entries.append(.reference(SterileFieldPrinciplesSample.entry))
+        entries.append(.reference(PostICURecoverySample.entry))
+        entries.append(.reference(AlarmFatigueReferenceSample.entry))
+        entries.append(.reference(LimitedSpeechCommunicationSample.entry))
+        return entries
+    }
+
+    private static func bundledCommunityOncologyExpansion() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
+        entries.append(.reference(CancerRelatedFatigueReferenceSample.entry))
+        entries.append(.reference(CancerPeripheralNeuropathyReferenceSample.entry))
+        entries.append(.reference(CancerCognitiveChangesReferenceSample.entry))
+        entries.append(.reference(CancerMouthThroatReferenceSample.entry))
+        entries.append(.reference(CancerDiarrheaSupportReferenceSample.entry))
+        entries.append(.reference(CancerConstipationSupportReferenceSample.entry))
+        entries.append(.reference(CancerLymphedemaReferenceSample.entry))
+        entries.append(.reference(CancerFertilityCounselingReferenceSample.entry))
+        entries.append(.reference(CancerSexualHealthReferenceSample.entry))
+        entries.append(.reference(CancerBodyImageReferenceSample.entry))
+        entries.append(.reference(CancerSurvivorshipReferenceSample.entry))
+        entries.append(.reference(CancerFinancialBarriersReferenceSample.entry))
+        entries.append(.reference(FoodSafetyImmuneReferenceSample.entry))
+        entries.append(.reference(TickBiteCareReferenceSample.entry))
+        entries.append(.reference(MosquitoPreventionReferenceSample.entry))
+        entries.append(.reference(HeatHealthPlanningReferenceSample.entry))
+        entries.append(.reference(WildfireSmokeReferenceSample.entry))
+        entries.append(.reference(HomeCarbonMonoxideReferenceSample.entry))
+        entries.append(.reference(DrinkingWaterAdvisoryReferenceSample.entry))
+        entries.append(.reference(HomeCleaningReferenceSample.entry))
+        entries.append(.reference(HomeMedicalDevicePreparednessReferenceSample.entry))
+        entries.append(.reference(NursingShiftFatigueReferenceSample.entry))
+        entries.append(.reference(RespiratorFitSealReferenceSample.entry))
+        entries.append(.reference(WorkplaceViolenceReferenceSample.entry))
+        entries.append(.reference(CleaningChemicalExposureReferenceSample.entry))
+        entries.append(.reference(NursingMentalHealthSupportReferenceSample.entry))
+        return entries
+    }
+}
+
+extension ContentRegistry {
+    private static func bundledDementiaKidneyDepth() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
+        entries.append(.reference(DementiaPersonalCareDepthSample.entry))
+        entries.append(.reference(DementiaMealtimeDepthSample.entry))
+        entries.append(.reference(DementiaCommunicationDepthSample.entry))
+        entries.append(.reference(DementiaWanderingDepthSample.entry))
+        entries.append(.reference(DementiaSleepDepthSample.entry))
+        entries.append(.reference(DementiaHospitalDepthSample.entry))
+        entries.append(.reference(DementiaActivitiesDepthSample.entry))
+        entries.append(.reference(DementiaSupportServicesDepthSample.entry))
+        entries.append(.reference(KidneyMedicationContinuitySample.entry))
+        entries.append(.reference(KidneyTransplantContinuitySample.entry))
+        entries.append(.reference(FecalContinenceDepthSample.entry))
+        entries.append(.reference(UrinaryRetentionDepthSample.entry))
+        return entries
+    }
+}
+
+extension ContentRegistry {
+    private static func bundledCrossSpecialtyDepth() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
+        entries.append(.reference(CardiacRehabilitationDepthSample.entry))
+        entries.append(.reference(HomeBloodPressureDepthSample.entry))
+        entries.append(.reference(CGMEducationDepthSample.entry))
+        entries.append(.reference(CeliacNutritionDepthSample.entry))
+        entries.append(.reference(GastroparesisNutritionDepthSample.entry))
+        entries.append(.reference(CataractRecoveryDepthSample.entry))
+        entries.append(.reference(HearingAidCareDepthSample.entry))
+        entries.append(.reference(RheumatoidFunctionDepthSample.entry))
+        entries.append(.reference(HipReplacementHomeDepthSample.entry))
+        entries.append(.reference(EczemaDailySupportDepthSample.entry))
+        entries.append(.reference(PsoriasisDailySupportDepthSample.entry))
+        entries.append(.reference(EpilepsyDailySupportDepthSample.entry))
+        entries.append(.reference(PsychotherapyPlanningDepthSample.entry))
+        entries.append(.reference(AsthmaDailyPlanDepthSample.entry))
+        return entries
+    }
+}
+
+extension ContentRegistry {
+    private static func bundledClinicalContinuity() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
+        entries.append(.reference(SepsisRecoveryContinuitySample.entry))
+        entries.append(.reference(MSFatigueDailySupportSample.entry))
+        entries.append(.reference(LupusDailySupportSample.entry))
+        entries.append(.reference(SjogrenDailySupportSample.entry))
+        entries.append(.reference(FibromyalgiaDailySupportSample.entry))
+        entries.append(.reference(GERDDailySupportSample.entry))
+        entries.append(.reference(IBDNutritionSupportSample.entry))
+        entries.append(.reference(HepatitisBContinuitySample.entry))
+        entries.append(.reference(HepatitisCContinuitySample.entry))
+        entries.append(.reference(LatentTBContinuitySample.entry))
+        entries.append(.reference(HIVAdherenceContinuitySample.entry))
+        entries.append(.reference(BladderPainDailySupportSample.entry))
+        return entries
+    }
+}
+
+extension ContentRegistry {
+    private static func bundledSpecialtySupportDepth() -> [LibraryEntry] {
+        var entries: [LibraryEntry] = []
+        entries.append(.reference(BronchiectasisDailySupportSample.entry))
+        entries.append(.reference(IPFDailySupportSample.entry))
+        entries.append(.reference(PHFollowUpSupportSample.entry))
+        entries.append(.reference(SickleCellDailyPlanningSample.entry))
+        entries.append(.reference(BleedingDisorderPlanningSample.entry))
+        entries.append(.reference(ThalassemiaMonitoringSupportSample.entry))
+        entries.append(.reference(TinnitusCopingSupportSample.entry))
+        entries.append(.reference(BalanceSymptomSafetySample.entry))
+        entries.append(.reference(SmellTasteDailySupportSample.entry))
+        entries.append(.reference(HidradenitisDailySupportSample.entry))
         return entries
     }
 }

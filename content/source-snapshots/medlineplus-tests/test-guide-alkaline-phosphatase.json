@@ -1,0 +1,44 @@
+{
+  "title": "Alkaline Phosphatase",
+  "sourceUpdated": "Last updated November 5, 2024",
+  "sections": [
+    {
+      "title": "What is an alkaline phosphatase test?",
+      "text": "An alkaline phosphatase (ALP) test measures the amount of ALP in your blood. ALP is an enzyme, a protein that speeds up certain chemical reactions in your body. ALP is found in all your body tissues, but higher amounts can be found in your liver, bile ducts, and bones. Each part of your body makes a different type of ALP.\n\nAbnormal levels of ALP in your blood may be a sign of a wide range of health conditions, including liver disease, bone disorders, and chronic kidney disease. The amount of ALP released into your blood can be affected by liver damage, conditions that affect bone growth, and certain gastrointestinal diseases. But an alkaline phosphatase test alone can't identify the source of ALP in your blood, so other tests are usually needed to make a diagnosis.\n\nOther names: ALP, ALK, PHOS, Alkp, ALK PHOS"
+    },
+    {
+      "title": "What is it used for?",
+      "text": "An alkaline phosphatase test is often used to screen for or help diagnose diseases of the liver or bones. The test may also help diagnose or monitor other health conditions."
+    },
+    {
+      "title": "Why do I need an alkaline phosphatase test?",
+      "text": "Your health care provider may order an alkaline phosphatase test as part of a routine checkup. Many conditions may affect ALP levels, so the test is often done with other blood tests. These other tests can include a comprehensive metabolic panel (CMP) or liver function tests, which check how well your liver is working.\n\nAn alkaline phosphatase test may also be ordered if you have symptoms of liver damage or a bone disorder.\n\nSymptoms of liver disease can include:\n\n• Nausea and vomiting\n• Lack of appetite\n• Fatigue\n• Weakness\n• Jaundice, a condition that causes your skin and eyes to turn yellow\n• Swelling and/or pain in your abdomen (belly)\n• Swelling in your ankles and legs\n• Dark-colored urine (pee) and/or light-colored stool (poop)\n• Frequent itching\n\nSymptoms of bone disorders can include:\n\n• Bone pain\n• Inflammation and arthritis in your joints\n• Bones that are unusually shaped and/or too large\n• Broken bones"
+    },
+    {
+      "title": "What happens during an alkaline phosphatase test?",
+      "text": "An alkaline phosphatase test is a type of blood test. During the test, a health care professional will take a blood sample from a vein in your arm, using a small needle. After the needle is inserted, a small amount of blood will be collected into a test tube or vial. You may feel a little sting when the needle goes in or out. This usually takes less than five minutes."
+    },
+    {
+      "title": "Will I need to do anything to prepare for the test?",
+      "text": "Your provider will let you know if there are any special instructions. An ALP test is usually ordered with other blood tests. You usually need to fast (not eat or drink) for several hours before these tests.\n\nYou may need to stop taking certain medicines before the test, so tell your provider about everything you take. But don't stop taking any medicines unless your provider tells you to."
+    },
+    {
+      "title": "Are there any risks to the test?",
+      "text": "There is very little risk to having a blood test. You may have slight pain or bruising at the spot where the needle was put in, but most symptoms go away quickly."
+    },
+    {
+      "title": "What do the results mean?",
+      "text": "High alkaline phosphatase (ALP) levels may be a sign of a liver problem or a bone disorder. Liver problems and bone disorders create different types of ALP. But your ALP test results can't tell which type of ALP is high.\n\nIf your test results show high ALP levels, your provider may order other tests to help figure out what's causing the problem. These tests may include:\n\n• An ALP isoenzyme test. This test can tell which part of your body is making the ALP. But this test may not be available everywhere.\n• Liver function tests. If the results of these tests are also high, then your high ALP level is likely from a problem in your liver.\n\nHigh alkaline phosphatase levels from your liver may be a sign of:\n\n• Blockages in your bile ducts\n• Cirrhosis\n• Hepatitis\n• Mononucleosis, which can sometimes cause swelling in the liver\n\nIf alkaline phosphatase levels are high and the results of liver tests are normal, the problem may be a bone disorder, such as Paget's disease of bone. This disease makes your bones unusually large and weak, causing them to break more easily.\n\nModerately high levels of ALP may be a sign of many different types of conditions, including:\n\n• Hodgkin lymphoma\n• Heart failure\n• Certain infections\n\nIt's possible to have higher than normal levels of ALP and not have a medical condition that needs treatment. Your provider will consider your symptoms, medical history, and other test results to make a diagnosis.\n\nLow levels of ALP are less common. They may be a sign of:\n\n• Zinc deficiency\n• Protein deficiency\n• Malnutrition\n• Pernicious anemia\n• Thyroid disease\n• Wilson disease\n• Hypophosphatasia, a rare genetic disease that affects bones and teeth\n\nLearn more about laboratory tests, reference ranges, and understanding results."
+    },
+    {
+      "title": "Is there anything else I need to know about the alkaline phosphatase test?",
+      "text": "Many things can affect ALP levels. For example:\n\n• Pregnancy can cause higher than normal ALP levels.\n• Children and teens may have high levels of ALP because their bones are growing.\n• Birth control pills and certain medicines may lower ALP levels, while other medicines can cause the levels to increase.\n• Eating a fatty meal before an alkaline phosphatase test may also cause a small increase in ALP.\n\nTo learn what your results mean, talk with your provider."
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/lab-tests/alkaline-phosphatase/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "3d0ba6c4c6676425ba47b0e9d2e085d4a2b246700a6fdbe2a1e8891e02225311",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace and list formatting only. Not clinical review."
+}

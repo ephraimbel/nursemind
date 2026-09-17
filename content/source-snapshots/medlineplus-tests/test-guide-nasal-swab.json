@@ -1,0 +1,40 @@
+{
+  "title": "Nasal Swab",
+  "sourceUpdated": "Last updated August 5, 2024",
+  "sections": [
+    {
+      "title": "What is a nasal swab?",
+      "text": "A nasal swab is a test that checks for viruses and bacteria that cause respiratory infections.\n\nThere are many types of respiratory infections. A nasal swab test can help your health care provider diagnose the type of infection you have and determine which treatment would be best for you. The test may be done by taking a sample of cells from inside your nostrils or from the nasopharynx, the uppermost part of your nose and throat.\n\nOther names: anterior nares test, nasal mid-turbinate swab, NMT swab nasopharyngeal culture, nasopharyngeal (NP) swab"
+    },
+    {
+      "title": "What is it used for?",
+      "text": "A nasal swab is used to diagnose certain infections of the respiratory system. These can include:\n\n• The flu.\n• COVID-19.\n• Respiratory syncytial virus (RSV), a common and usually mild respiratory infection. But it can cause serious lung infections in infants and older adults.\n• Whooping cough, a respiratory infection that can cause coughing fits. Coughing can become violent and rapid.\n• Meningitis, a disease caused by inflammation of the membranes that surround the brain and spinal cord.\n• MRSA (methicillin-resistant Staphylococcus aureus), a serious type of bacterial infection that can be very difficult to treat."
+    },
+    {
+      "title": "Why do I need a nasal swab?",
+      "text": "You may need this test if you have symptoms of a respiratory infection. They can include:\n\n• Cough\n• Fever\n• Stuffy or runny nose\n• Sore throat\n• Headache\n• Fatigue\n• Muscle aches"
+    },
+    {
+      "title": "What happens during a nasal swab?",
+      "text": "A nasal swab may be taken from:\n\n• The front part of your nostrils (anterior nares).\n  • You or your provider might collect the sample.\n  • It's less uncomfortable than other types of swab tests.\n• The back of your nostrils, in a procedure known as nasal mid-turbinate (NMT) swab.\n  • You or your provider might collect the sample.\n• Your nasopharynx (the uppermost part of your nose and throat), which is deeper into your respiratory system.\n  • Your provider must collect the sample.\n  • It's less comfortable than other types of nasal swab tests.\n  • It's more effective for detecting viruses or bacteria in the upper respiratory tract.\n\nDuring an anterior nares test, you will start by tilting your head back. Then you or your provider will:\n\n• Gently insert a swab inside your nostril.\n• Rotate the swab in four or five sweeping circles for 10-15 seconds.\n• Remove the swab and insert it into your second nostril.\n• Swab the second nostril using the same technique.\n• Remove the swab.\n\nIf you only swab one nostril, don't rotate the swab in your nostril, or only keep the swab in one area, you may not get a good sample.\n\nIf you are doing the test yourself, your provider will let you know how to prepare and package your sample. This often involves placing your swab in a sterile tube, closing it, and sealing it in a special bag. You would then give that bag to your provider or follow the instructions on how to return your sample for testing.\n\nDuring an NMT swab, you will start by tilting your head back. Then you or your provider will:\n\n• Gently insert a swab onto the bottom of your nostril, pushing it until you feel it stopping.\n• Rotate the swab for 10 to 15 seconds.\n• Remove the swab and insert it into your second nostril.\n• Swab the second nostril using the same technique.\n• Remove the swab.\n\nIf you only swab one nostril, don't rotate the swab in your nostril, or only keep the swab in one area, you may not get a good sample.\n\nIf you are doing the test yourself, the provider will let you know how to prepare and package your sample. This often involves placing your swab in a sterile tube, closing it, and sealing it in a special bag. You would then give that bag to your provider or follow the instructions on how to return your samplefor testing.\n\nDuring a nasopharyngeal (NP) swab:\n\n• You will tilt your head back.\n• Your provider will insert a long swab into your nostril until it reaches your nasopharynx (the upper part of your throat).\n• Your provider will rotate the swab for 10 to 15 seconds and remove it.\n\nIf your provider gets enough of a sample from one of your nostrils, they may only need to do one. But they may need to get a sample from your other nostril as well if they had trouble getting the sample from the first side."
+    },
+    {
+      "title": "Will I need to do anything to prepare for the test?",
+      "text": "You don't need any special preparations for a nasal swab."
+    },
+    {
+      "title": "Are there any risks to the test?",
+      "text": "The test may tickle your throat or cause you to cough. A nasopharyngeal swab may be uncomfortable and cause coughing or gagging. All these effects are temporary."
+    },
+    {
+      "title": "What do the results mean?",
+      "text": "A negative result means no harmful viruses or bacteria were found in your sample.\n\nA positive result means a specific type of harmful virus or bacteria was found in your sample. If you are diagnosed with an infection, follow your provider's recommendations for treating your illness. This may include medicines and steps to prevent spreading the infection.\n\nTo understand the results of a nasal swab test, your provider may consider your symptoms, medical history, and the results of other tests.\n\nLearn more about laboratory tests, reference ranges, and understanding results."
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/lab-tests/nasal-swab/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "62d43a601f2c74e27dddc2013a21c23b7cf0bd3a715a2884d6ead3a223004ec7",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace and list formatting only. Not clinical review."
+}

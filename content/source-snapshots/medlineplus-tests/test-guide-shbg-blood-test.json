@@ -1,0 +1,40 @@
+{
+  "title": "SHBG Blood Test",
+  "sourceUpdated": "Last updated January 12, 2026",
+  "sections": [
+    {
+      "title": "What is an SHBG blood test?",
+      "text": "An SHBG blood test measures the level of a protein called sex hormone binding globulin (SHBG) in a sample of your blood. SHBG is made mostly in your liver. It binds (attaches) to sex hormones such as testosterone and estrogen and helps control how much of these hormones are active in your body.\n\nAll of the sex hormones in your blood are either bound to proteins or unbound (free). Free sex hormones work with your tissues, helping with a variety of bodily functions including bone and muscle growth and reproductive health. Sex hormones that are bound to proteins, such as SHBG, however, cannot work with your tissues.\n\nAn SHBG test is most often done if you have signs and/or symptoms of having too much or too little testosterone. Though often considered a male sex hormone, testosterone is present in females in smaller amounts. In both sexes, it helps control your sex drive and contributes to muscle and bone growth. In males, it is also involved in:\n\n• Body hair growth\n• A deepening voice during puberty\n• The production of sperm\n• The creation of new red blood cells\n• An increase in height\n\nOther names: testosterone-estrogen binding globulin, TeBG"
+    },
+    {
+      "title": "What is it used for?",
+      "text": "Measuring SHBG levels can provide information about how much of your testosterone is active in the tissues of your body. The results of this test can help your provider understand how testosterone is working in the body for:\n\n• Adult males who have symptoms that may be caused by too little testosterone\n• Adult females who have symptoms that may be caused by too much testosterone\n\nUsually, your provider will order a total testosterone blood test first. This test measures both free testosterone and testosterone attached to proteins such as SHBG. However, this test can't tell the difference between the two types. It can't tell your provider how much of your testosterone is free for your body to use. This means that you could have symptoms from too little or too much free testosterone even when your total testosterone level is normal.\n\nBy measuring the amount of free testosterone you have, an SHBG test can help your provider better understand if abnormal testosterone levels are causing your symptoms. SHBG and total testosterone tests may be done at the same time.\n\nYour provider may also order an SHBG test to:\n\n• Help diagnose some hormonal disorders such as polycystic ovary syndrome (PCOS), a condition that affects the female reproductive system. An SHBG test alone cannot diagnose this condition, but it can help providers make a diagnosis when paired with other test results.\n• Monitor treatments for hormonal disorders such as PCOS.\n• Help diagnose early puberty in children. Normally, SHBG levels are high in all children. The high levels prevent sex hormones from affecting body tissues. If SHBG levels are low, children may start puberty too early."
+    },
+    {
+      "title": "Why do I need an SHBG blood test?",
+      "text": "You may need this test if you have signs and/or symptoms of abnormal testosterone levels, especially if results from a total testosterone test didn't explain your symptoms.\n\nIf you're male, you may need this test if you have symptoms of low testosterone levels, including:\n\n• Low sex drive\n• Difficulty getting an erection\n• Fatigue or loss of muscle mass\n• Fertility problems\n\nIf you're female, you may need this test if you have symptoms of high testosterone, including:\n\n• Too much hair growth on the face and body\n• Deepening of voice\n• Having menstrual periods that aren't regular or no periods at all\n• Acne\n• Weight gain\n• Fertility problems\n\nYour provider may also order an SHBG test if:\n\n• You are undergoing hormone therapy for menopause or treatment for hormone disorders\n• You have signs and/or symptoms of PCOS, such as irregular menstrual periods\n• A child shows signs of early puberty"
+    },
+    {
+      "title": "What happens during an SHBG blood test?",
+      "text": "A health care professional will take a blood sample from a vein in your arm, using a small needle. After the needle is inserted, a small amount of blood will be collected into a test tube or vial. You may feel a little sting when the needle goes in or out. This usually takes less than five minutes."
+    },
+    {
+      "title": "Will I need to do anything to prepare for the test?",
+      "text": "You don't need any special preparations for an SHBG test. Tell your provider about all medicines, vitamins, and supplements you take. Certain medicines that contain hormones - such as birth control pills, estrogen therapy, or anabolic steroids - can affect SHBG levels. But don't stop taking any medicines unless your provider tells you to."
+    },
+    {
+      "title": "Are there any risks to the test?",
+      "text": "There is very little risk to having a blood test. You may have slight pain or bruising at the spot where the needle was put in, but most symptoms go away quickly."
+    },
+    {
+      "title": "What do the results mean?",
+      "text": "Your provider will usually look at your SHBG blood test results along with the results of a total testosterone test. This helps your provider estimate how much free testosterone is in your blood.\n\nIf your SHBG levels are too low, it means that more of your total testosterone is likely free and available for your body to use.\n\nLow levels of SHBG may be related to:\n\n• Hypothyroidism (underactive thyroid)\n• Type 2 diabetes or insulin resistance\n• Obesity or being very overweight\n• Overuse of steroid medicines and/or anabolic steroids\n• Cushing's syndrome\n• In females, polycystic ovary syndrome (PCOS)\n\nIt's also normal for SHBG levels to decrease with older age as the production of sex hormones also decreases.\n\nIf your SHBG levels are too high, it likely means that less of your total testosterone is available for your tissues to use. So, your tissues may not be getting enough testosterone.\n\nHigh levels of SHBG may be related to:\n\n• Liver disease\n• Hyperthyroidism (overactive thyroid)\n• Certain eating disorders\n• Use of estrogen-containing medicines, such as hormone therapy for menopause or birth control pills, in females\n• Decreased production of sex hormones in males\n\nYour provider may order other tests to check if your hormones are in balance with each other. If you have questions about your results, talk with your provider.\n\nLearn more about laboratory tests, reference ranges, and understanding results."
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/lab-tests/shbg-blood-test/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "ba68204bbc78f859b30175e09e84c9a4cf29b149f643c64f809436f259b435cf",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace and list formatting only. Not clinical review."
+}

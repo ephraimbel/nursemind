@@ -1,5 +1,47 @@
 import Foundation
 
+private let lab_review_ranges_2026 = CitationSource(
+    id: "lab_review_ranges_2026", shortName: "Open RN — Health Alterations: Normal Reference Ranges",
+    detail: "Ernstmeyer K, Christman E, editors. Health Alterations (2024), Appendix A. Selected adult values; use the reporting laboratory interval. CC BY 4.0; presentation condensed and albumin units converted from g/L to g/dL.",
+    publisher: "Open Resources for Nursing", license: .ccBy4,
+    url: "https://www.ncbi.nlm.nih.gov/books/NBK613071/", lastRetrieved: "2026-09-17"
+)
+
+private let lab_pt_inr = CitationSource(
+    id: "lab_pt_inr", shortName: "MedlinePlus — PT and INR",
+    detail: "NLM-authored MedlinePlus medical-test information, paraphrased and condensed by NurseMind. External linked articles and third-party drug/encyclopedia content excluded.",
+    publisher: "National Library of Medicine", license: .publicDomain,
+    url: "https://medlineplus.gov/lab-tests/prothrombin-time-test-and-inr-ptinr/", lastRetrieved: "2026-09-17"
+)
+
+private let lab_anticoagulant_safety = CitationSource(
+    id: "lab_anticoagulant_safety", shortName: "MedlinePlus — Blood thinners",
+    detail: "NLM-authored health-topic summary only, paraphrased by NurseMind. External linked articles and third-party drug monographs excluded.",
+    publisher: "National Library of Medicine", license: .publicDomain,
+    url: "https://medlineplus.gov/bloodthinners.html", lastRetrieved: "2026-09-17"
+)
+
+private let lab_result_context = CitationSource(
+    id: "lab_result_context", shortName: "MedlinePlus — Understanding lab results",
+    detail: "NLM-authored MedlinePlus medical-test information, paraphrased and condensed by NurseMind. External linked articles and third-party drug/encyclopedia content excluded.",
+    publisher: "National Library of Medicine", license: .publicDomain,
+    url: "https://medlineplus.gov/lab-tests/how-to-understand-your-lab-results/", lastRetrieved: "2026-09-17"
+)
+
+private let lab_ck = CitationSource(
+    id: "lab_ck", shortName: "MedlinePlus — Creatine kinase",
+    detail: "NLM-authored MedlinePlus medical-test information, paraphrased and condensed by NurseMind. External linked articles and third-party drug/encyclopedia content excluded.",
+    publisher: "National Library of Medicine", license: .publicDomain,
+    url: "https://medlineplus.gov/lab-tests/creatine-kinase/", lastRetrieved: "2026-09-17"
+)
+
+private let lab_troponin = CitationSource(
+    id: "lab_troponin", shortName: "MedlinePlus — Troponin",
+    detail: "NLM-authored MedlinePlus medical-test information, paraphrased and condensed by NurseMind. External linked articles and third-party drug/encyclopedia content excluded.",
+    publisher: "National Library of Medicine", license: .publicDomain,
+    url: "https://medlineplus.gov/lab-tests/troponin-test/", lastRetrieved: "2026-09-17"
+)
+
 // Curator-model lab entries (v1.5 expansion).
 // Sources: Open RN (CC BY 4.0), OpenStax (CC BY 4.0 display), CDC (public domain),
 // IDSA / ATS / ATA / CAP concept citations.
@@ -126,53 +168,30 @@ public enum PTSample {
     public static let entry: LabEntry = LabEntry(
         id: "pt",
         title: "PT (Prothrombin Time)",
-        subtitle: "Extrinsic pathway · paired with INR",
-        specimen: "Citrated plasma (blue-top tube; fill to line)",
+        subtitle: "Blood · clotting time and standardized INR",
+        specimen: "Blood; use the collecting laboratory’s specimen instructions",
         nclexTags: NCLEXTags(category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential, priorityConcept: .clottingHemostasis),
         referenceRanges: [
-            ReferenceRangeRow(value: "11–13 seconds (typical)", label: "Normal", citationIDs: ["openrn_labs2"]),
-            ReferenceRangeRow(value: "INR 0.8–1.2", label: "Normal (standardized as INR)", citationIDs: ["openrn_labs2"]),
-            ReferenceRangeRow(value: "INR 2.0–3.0", label: "Therapeutic on warfarin (most uses)", citationIDs: ["openrn_medsurg2"]),
-            ReferenceRangeRow(value: "INR 2.5–3.5", label: "Therapeutic on warfarin (mech mitral valve)", citationIDs: ["openrn_medsurg2"])
+            ReferenceRangeRow(value: "11–14 seconds", label: "Example adult interval; methods vary", citationIDs: ["lab_review_ranges_2026"])
         ],
         interpretationTiers: [
-            InterpretationTier(
-                severity: .high,
-                label: "Prolonged PT/INR",
-                summary: "Reduced extrinsic pathway clotting factor activity (factor VII most sensitive). Causes include warfarin therapy, vitamin K deficiency, hepatic dysfunction, DIC.",
-                nursingActions: [
-                    "Verify warfarin dose against INR target",
-                    "Bleeding precautions; assess for active bleeding",
-                    "If supratherapeutic on warfarin, consult dose-adjustment protocol or provider",
-                    "Vitamin K reversal if indicated; PCC for major bleeding"
-                ],
-                citationIDs: ["openrn_medsurg2"]
-            )
+            InterpretationTier(severity: .high, label: "Prolonged clotting time", summary: "PT measures clot formation in seconds; INR improves comparison between testing methods. PT can help investigate bleeding, liver disease or vitamin K deficiency.",
+                nursingActions: ["Interpret with symptoms, history and other ordered coagulation tests."], citationIDs: ["lab_pt_inr"])
         ],
         commonCauses: [
-            CauseGroup(
-                title: "Causes of prolonged PT",
-                causes: [
-                    "Warfarin therapy (intended)",
-                    "Vitamin K deficiency",
-                    "Liver disease (decreased synthesis)",
-                    "DIC",
-                    "Massive transfusion (dilutional)",
-                    "Factor VII deficiency (rare)"
-                ],
-                citationIDs: ["openrn_medsurg2"]
-            )
+            CauseGroup(title: "Possible contributors", causes: ["Warfarin therapy", "Liver disease", "Vitamin K deficiency"], citationIDs: ["lab_pt_inr"])
         ],
         nursingActions: [
-            AttributedBullet("INR is the standardized version of PT — use INR for warfarin monitoring across labs.", citationIDs: ["openrn_labs2"]),
-            AttributedBullet("Trend with aPTT — DIC and severe liver disease prolong both.", citationIDs: ["openrn_medsurg2"])
+            AttributedBullet("PT and PTT assess different parts of coagulation and may be ordered together. An abnormal PT requires clinical interpretation rather than an automatic treatment response.", citationIDs: ["lab_pt_inr"]),
+            AttributedBullet("Anticoagulants slow clot formation; antiplatelet medicines affect platelet aggregation. The medicine list matters because these act differently and bleeding risk is not summarized by one test.", citationIDs: ["lab_anticoagulant_safety"]),
+            AttributedBullet("Before testing, confirm any specific instructions with the ordering team; patients should follow the prescribed medication plan.", citationIDs: ["lab_pt_inr"])
         ],
         watchFor: [
-            AttributedBullet("Major bleeding with INR >5 — vitamin K reversal; PCC if life-threatening.", citationIDs: ["openrn_medsurg2"]),
-            AttributedBullet("Acute liver failure — INR >1.5 plus encephalopathy is a transplant emergency.", citationIDs: ["openrn_medsurg2"])
+            AttributedBullet("Bleeding is a common adverse effect of blood thinners. Ask about persistent bleeding, abnormal bruising, discolored urine or stool and severe pain; communicate these findings promptly.", citationIDs: ["lab_anticoagulant_safety"]),
+            AttributedBullet("An isolated test result does not specify which medicine change is appropriate. Monitoring and treatment decisions belong to the clinician’s plan.", citationIDs: ["lab_anticoagulant_safety"])
         ],
-        citations: [openrnLabs2, openrnMedSurg2, openstaxLabs2],
-        lastSourceFidelityReview: "2026-05-04"
+        citations: [lab_review_ranges_2026, lab_pt_inr, lab_anticoagulant_safety],
+        lastSourceFidelityReview: "2026-09-17"
     )
 }
 
@@ -387,49 +406,30 @@ public enum CKMBSample {
     public static let entry: LabEntry = LabEntry(
         id: "ck-mb",
         title: "CK-MB",
-        subtitle: "Creatine kinase MB isoenzyme · cardiac marker (largely replaced by troponin)",
-        specimen: "Serum",
-        nclexTags: cardiacTags,
+        subtitle: "Blood · CK isoenzyme; troponin is preferred for cardiac injury",
+        specimen: "Blood; use the collecting laboratory’s specimen instructions",
+        nclexTags: NCLEXTags(category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential, priorityConcept: .perfusion),
         referenceRanges: [
-            ReferenceRangeRow(value: "0–6.3 ng/mL (varies by lab)", label: "Normal", citationIDs: ["openrn_labs2"]),
-            ReferenceRangeRow(value: "CK-MB > 5% of total CK with elevation", label: "Suggests myocardial source", citationIDs: ["openrn_medsurg2"])
+            ReferenceRangeRow(value: "Laboratory-specific", label: "Confirm the assay and reporting units", citationIDs: ["lab_result_context"])
         ],
         interpretationTiers: [
-            InterpretationTier(
-                severity: .high,
-                label: "Elevated CK-MB",
-                summary: "Specific to cardiac muscle damage. Rises 4–6 hr after MI, peaks 18–24 hr, normalizes 48–72 hr — useful for detecting RE-INFARCTION because troponin stays elevated for days.",
-                nursingActions: [
-                    "Trend serial — initial may be negative if drawn too early",
-                    "Pair with troponin (more sensitive/specific) and ECG",
-                    "If reinfarction suspected (post-PCI/CABG), CK-MB rise is the marker"
-                ],
-                citationIDs: ["openrn_medsurg2"]
-            )
+            InterpretationTier(severity: .high, label: "Elevated CK-MB", summary: "CK isoenzymes help investigate the source of muscle injury. CK-MB is associated with cardiac muscle, but an elevation is not specific to myocardial infarction.",
+                nursingActions: ["Review the clinical history and other ordered cardiac investigations.", "Troponin is more useful than CK testing for identifying heart muscle damage."], citationIDs: ["lab_ck"])
         ],
         commonCauses: [
-            CauseGroup(
-                title: "Causes of elevated CK-MB",
-                causes: [
-                    "Acute MI",
-                    "Myocarditis",
-                    "Cardiac contusion (trauma)",
-                    "Post-cardiac surgery (CABG)",
-                    "Defibrillation",
-                    "Severe rhabdomyolysis (some MB fraction from skeletal muscle)"
-                ],
-                citationIDs: ["openrn_medsurg2"]
-            )
+            CauseGroup(title: "Other contributors", causes: ["Heart surgery or heart failure", "Pulmonary embolism", "Kidney failure or hypothyroidism"], citationIDs: ["lab_ck"])
         ],
         nursingActions: [
-            AttributedBullet("Troponin is the preferred biomarker for MI — CK-MB largely supplanted but useful for reinfarction detection.", citationIDs: ["openrn_medsurg2"]),
-            AttributedBullet("Trend serial markers q3–6 hr if MI suspected and initial negative.", citationIDs: ["openrn_medsurg2"])
+            AttributedBullet("Ask about exercise, injury and medicines that may affect CK. The result needs interpretation with the patient’s symptoms, medical history and other findings.", citationIDs: ["lab_ck"]),
+            AttributedBullet("For suspected acute cardiac injury, document the onset and course of chest discomfort, breathlessness, sweating, nausea and light-headedness. Troponin is commonly evaluated with an ECG.", citationIDs: ["lab_troponin"]),
+            AttributedBullet("An early troponin result may be normal; further testing may be ordered because biomarker changes take time. Follow the local diagnostic pathway rather than applying a universal repeat interval.", citationIDs: ["lab_troponin"])
         ],
         watchFor: [
-            AttributedBullet("ECG ischemia + chest pain with negative early markers — repeat troponin (and CK-MB if reinfarction concern) per protocol.", citationIDs: ["openrn_medsurg2"])
+            AttributedBullet("Symptoms concerning for a heart attack need immediate clinical attention; an early negative marker should not delay assessment.", citationIDs: ["lab_troponin"]),
+            AttributedBullet("Troponin elevation also has causes other than infarction. Neither CK-MB nor troponin establishes the diagnosis without the rest of the assessment.", citationIDs: ["lab_troponin"])
         ],
-        citations: [openrnLabs2, openrnMedSurg2, openstaxLabs2],
-        lastSourceFidelityReview: "2026-05-04"
+        citations: [lab_result_context, lab_ck, lab_troponin],
+        lastSourceFidelityReview: "2026-09-17"
     )
 }
 

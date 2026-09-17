@@ -1,0 +1,44 @@
+{
+  "title": "Thyroglobulin",
+  "sourceUpdated": "Last updated January 15, 2026",
+  "sections": [
+    {
+      "title": "What is a thyroglobulin test?",
+      "text": "A thyroglobulin test measures the amount of a protein called thyroglobulin (Tg) in a sample of your blood. Your thyroid (a small, butterfly-shaped gland in your neck) makes thyroglobulin along with many other important hormones. Together, these hormones control bodily activities such as your heart rate and how fast you burn calories from food.\n\nNormally, your thyroid releases small amounts of thyroglobulin into your bloodstream. However, various conditions that affect the thyroid can lead to higher levels of this protein. The most common causes of high thyroglobulin levels are two types of thyroid cancer called papillary carcinoma and follicular thyroid cancer. In both conditions, cancerous cells produce thyroglobulin. Because of this, thyroglobulin is usually measured as a tumor marker. Tumor markers are substances made by cancer cells and/or by normal cells in response to cancer in your body.\n\nOther conditions can, however, affect your thyroglobulin levels. These include various thyroid diseases such as:\n\n• Hyperthyroidism, a condition where your thyroid becomes overactive and makes too much thyroglobulin.\n• Hypothyroidism, a condition where your thyroid becomes underactive and makes too little thyroglobulin.\n• Thyroiditis, a condition caused by inflammation of the thyroid, which can lead to a temporary rise in thyroglobulin levels.\n\nBecause such a wide range of conditions can affect thyroglobulin levels, health care providers don’t use the results from a thyroglobulin test to diagnose cancer.\n\nOther names: Tg, TGB, thyroglobulin tumor marker"
+    },
+    {
+      "title": "What is it used for?",
+      "text": "Though a thyroglobulin test alone cannot be used to diagnose cancer, it can give you and your provider valuable information about any thyroid cancer you already have. For example, a thyroglobulin test can help your provider:\n\n• See if thyroid cancer treatment was successful. Usually, the goal of treatment for thyroid cancer is to get rid of all thyroid tissue. This means both healthy cells and cancer cells. So, if treatment is successful, there should be little or no thyroglobulin in your blood. If you still have thyroglobulin in your blood after treatment, you may need to go through treatment again.\n• Predict how your cancer will behave over time. This prediction is called a prognosis, and it can tell you how likely it is that your cancer will return and respond to treatment.\n• See if cancer has returned after successful treatment. Because successful treatment involves the removal of all thyroid tissue, if you have any thyroglobulin in your blood after treatment, it may mean your cancer has returned.\n\nYour provider may also order a thyroglobulin test to diagnose and monitor other, noncancerous conditions such as hyperthyroidism and hypothyroidism. In rarer cases, a thyroglobulin test can see if there is any inflammation in your thyroid that’s been caused by a viral infection, such as COVID-19."
+    },
+    {
+      "title": "Why do I need a thyroglobulin test?",
+      "text": "You may need a thyroglobulin test before starting treatment for thyroid cancer. Your provider will compare these test results to your test results after treatment.\n\nYou may also need this test:\n\n• Four to six weeks after treatment for thyroid cancer to check whether all thyroid tissue has been removed.\n• Regularly after successful treatment to make sure cancer hasn’t come back.\n\nIf your provider is monitoring a thyroid condition that isn’t cancer, a thyroglobulin test can help evaluate how active your thyroid cells are and how your treatment is working."
+    },
+    {
+      "title": "What happens during a thyroglobulin test?",
+      "text": "A health care professional will take a blood sample from a vein in your arm, using a small needle. After the needle is inserted, a small amount of blood will be collected into a test tube or vial. You may feel a little sting when the needle goes in or out. This usually takes less than five minutes."
+    },
+    {
+      "title": "Will I need to do anything to prepare for the test?",
+      "text": "You usually don’t need any special preparations for a thyroglobulin test. But you need to avoid taking certain vitamins or supplements so tell your provider about everything you take."
+    },
+    {
+      "title": "Are there any risks to the test?",
+      "text": "There is very little risk to having a blood test. You may have slight pain or bruising at the spot where the needle was put in, but most symptoms go away quickly."
+    },
+    {
+      "title": "What do the results mean?",
+      "text": "Understanding the results of a thyroglobulin test after treatment can be complicated. The meaning of your results depends on your health history, the type of treatment you had, and the results of other tests. So, it’s best to ask your provider to explain what your test results say about your health.\n\nIn general, if you were tested after treatment for thyroid cancer:\n\n• Very low levels or no thyroglobulin may mean that your cancer treatment successfully removed all thyroid tissue, including cancerous tissue. However, you will still need more testing over time to make sure.\n• Thyroglobulin levels that stay high or increase may mean that your treatment did not successfully remove all thyroid tissue or that you still have thyroid cancer. It may also mean that your cancer has grown and/or spread.\n• Thyroglobulin levels that were low after treatment but later increased may mean that your thyroid cancer has come back after treatment.\n\nBecause other thyroid conditions and certain illnesses can also affect thyroglobulin, your provider will likely check your levels over time instead of relying on a single test result.\n\nLearn more about laboratory tests, reference ranges, and understanding results."
+    },
+    {
+      "title": "Is there anything else I need to know about a thyroglobulin test?",
+      "text": "Labs use different methods to measure the amount of thyroglobulin in your blood sample. The test method can affect your results. So, it’s important to have your tests done the same way, and usually in the same lab. This allows your provider to compare your results over time. If you have questions about this, talk with your provider.\n\nA thyroglobulin test may not be useful for monitoring your thyroid cancer treatment if you have thyroglobulin antibodies in your blood. These antibodies are proteins that your immune system may make. They attach to thyroglobulin and can make your thyroglobulin levels appear lower than they really are.\n\nYour provider will usually order a thyroid antibody test to find out whether thyroglobulin testing will be useful. If you have thyroglobulin antibodies, other tests will be used to see if your cancer treatment was successful."
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/lab-tests/thyroglobulin/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "cb37c213fc974a366cae58d68eeb99d34a9d3f368b2e478c651d47ad669125b1",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace and list formatting only. Not clinical review."
+}

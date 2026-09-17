@@ -1,0 +1,32 @@
+{
+  "title": "Angelman syndrome",
+  "sourceUpdated": "Last updated May 17, 2022",
+  "sections": [
+    {
+      "title": "Description",
+      "text": "Angelman syndrome is a complex genetic disorder that primarily affects the nervous system. Characteristic features of this condition include delayed development, intellectual disability, severe speech impairment, and problems with movement and balance (ataxia). Most affected children also have recurrent seizures (epilepsy) and a small head size (microcephaly). Delayed development becomes noticeable by the age of 6 to 12 months, and other common signs and symptoms usually appear in early childhood.\n\nChildren with Angelman syndrome typically have a happy, excitable demeanor with frequent smiling, laughter, and hand-flapping movements. Hyperactivity and a short attention span are common. Most affected children also have difficulty sleeping and need less sleep than usual.\n\nWith age, people with Angelman syndrome become less excitable, and the sleeping problems tend to improve. However, affected individuals continue to have intellectual disability, severe speech impairment, and seizures throughout their lives. Adults with Angelman syndrome have distinctive facial features that may be described as \"coarse.\" Other common features include unusually fair skin with light-colored hair and an abnormal side-to-side curvature of the spine (scoliosis). The life expectancy of people with this condition appears to be nearly normal."
+    },
+    {
+      "title": "Frequency",
+      "text": "Angelman syndrome affects an estimated 1 in 12,000 to 20,000 people."
+    },
+    {
+      "title": "Causes",
+      "text": "Many of the characteristic features of Angelman syndrome result from the loss of function of a gene called UBE3A. People normally inherit one copy of the UBE3A gene from each parent. Both copies of this gene are turned on (active) in most of the body's tissues. However, in nerve cells (neurons) in the brain and spinal cord (central nervous system), only the copy inherited from a person's mother (the maternal copy) is active. This parent-specific gene activation is caused by a phenomenon called genomic imprinting. If the maternal copy of the UBE3A gene is lost because of a chromosomal change or a gene variant (also known as a mutation), a person will have no active copies of the gene in most parts of the brain.\n\nSeveral different genetic mechanisms can inactivate or delete the maternal copy of the UBE3A gene. Most cases of Angelman syndrome (about 70 percent) occur when a segment of the maternal chromosome 15 containing this gene is deleted. In other cases (about 10 to 20 percent), Angelman syndrome is caused by a variant in the maternal copy of the UBE3A gene.\n\nIn a small percentage of cases, Angelman syndrome results when a person inherits two copies of chromosome 15 from his or her father (paternal copies) instead of one copy from each parent. This phenomenon is called paternal uniparental disomy. Rarely, Angelman syndrome can also be caused by a chromosomal rearrangement called a translocation, or by a variant or other defect in the region of DNA that controls activation of the UBE3A gene. These genetic changes can abnormally turn off (inactivate) UBE3A or other genes on the maternal copy of chromosome 15.\n\nThe causes of Angelman syndrome are unknown in 10 to 15 percent of affected individuals. Changes involving other genes or chromosomes may be responsible for the disorder in these cases.\n\nIn some people who have Angelman syndrome, the loss of a gene called OCA2 is associated with light-colored hair and fair skin. The OCA2 gene is located on the segment of chromosome 15 that is often deleted in people with this disorder. However, loss of the OCA2 gene does not cause the other signs and symptoms of Angelman syndrome. The protein produced from this gene helps determine the coloring (pigmentation) of the skin, hair, and eyes."
+    },
+    {
+      "title": "Inheritance",
+      "text": "Most cases of Angelman syndrome are not inherited, particularly those caused by a deletion in the maternal chromosome 15 or by paternal uniparental disomy. These genetic changes occur as random events during the formation of reproductive cells (eggs and sperm) or in early embryonic development. Affected people typically have no history of the disorder in their family.\n\nRarely, a genetic change responsible for Angelman syndrome can be inherited. For example, it is possible for a variant in the UBE3A gene or in the nearby region of DNA that controls gene activation to be passed from one generation to the next."
+    },
+    {
+      "title": "Other Names for This Condition",
+      "text": "• AS"
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/genetics/condition/angelman-syndrome/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "53f6804e5fe23f0abccd760ccd5d6c5219ecd4ec2c450616bdee4ecee85556ca",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace, lists and labeled table formatting adapted. Not clinical review."
+}

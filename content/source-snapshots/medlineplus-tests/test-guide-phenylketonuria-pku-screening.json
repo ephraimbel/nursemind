@@ -1,0 +1,44 @@
+{
+  "title": "Phenylketonuria (PKU) Screening",
+  "sourceUpdated": "Last updated December 30, 2025",
+  "sections": [
+    {
+      "title": "What is a PKU screening test?",
+      "text": "A PKU screening test measures the amount of a protein called phenylalanine (Phe) in a sample of a newborn's blood. Phe is in all foods that contain protein such as milk, meats, and nuts. It's also in an artificial sweetener called aspartame. If a newborn has high levels of Phe in their blood, it could mean that they have phenylketonuria (PKU).\n\nPKU is a rare genetic disorder, meaning it's caused by changes (also called variants or mutations) in a gene. Genes are parts of DNA in your cells that you inherit from your parents. You inherit two copies of each gene, one from each parent. Genes carry information that controls what you look like and how your body works.\n\nThe gene involved in PKU helps make a substance that breaks down part of Phe in food. So, a change in that gene can make it harder for your body to break Phe down. This means that if you have PKU and eat foods with Phe, the Phe will build up in your blood. High levels of Phe can permanently damage your nervous system and brain, leading to various health problems such as seizures and possibly learning disabilities.\n\nPKU can vary from mild to severe, depending on whether the changed gene still works somewhat or has stopped working completely.\n\nOther names: PKU newborn screening, PKU test"
+    },
+    {
+      "title": "What is it used for?",
+      "text": "A PKU test is used to see if a newborn has high blood levels of Phe in their blood. Though PKU is rare, all newborns in the United States are tested for it. That's because:\n\n• The test is easy and has almost no health risks. And doing the test may save a baby from lifelong brain damage and/or other serious health problems.\n• If PKU is found early, a special diet that's low in protein and Phe may help prevent health problems.\n\nIf a newborn does have high Phe levels, that may mean that they have PKU. However, more tests may be needed to confirm or rule out a diagnosis."
+    },
+    {
+      "title": "Why does my baby need a PKU screening test?",
+      "text": "Newborns in the United States are required to get a PKU test. A PKU test is usually part of a series of tests called a newborn screening that is performed between 24 and 72 hours after birth. Some older infants and children may need testing if they were born in another country or if the results of their newborn screening were negative for PKU, especially if they have any symptoms of PKU. Symptoms include:\n\n• Seizures.\n• Skin Rashes, such as eczema.\n• Delayed development.\n• Intellectual and/or learning difficulties.\n• A musty odor in the breath, skin, and/or urine (pee).\n• Unusually small head (microcephaly).\n• Psychiatric problems such as mental health disorders.\n• Nausea and vomiting."
+    },
+    {
+      "title": "What happens during a PKU screening test?",
+      "text": "A health care provider will clean your baby's heel with alcohol. Then the provider will stick the baby's heel with a small needle to collect a few drops of blood. The heel will then be bandaged.\n\nTo get accurate test results, the baby needs to have some protein from breast milk or formula before the blood sample is taken. That's why the test is usually done a day or two after birth. If your baby wasn't born in the hospital or if you left the hospital early, be sure to talk with your child's provider to schedule a PKU test as soon as possible."
+    },
+    {
+      "title": "Will I need to do anything to prepare my baby for the test?",
+      "text": "There are no special preparations needed for a PKU test."
+    },
+    {
+      "title": "Are there any risks to the test?",
+      "text": "There is very little risk to your baby from a needle stick blood test. Your baby may feel a little pinch when the heel is poked. A small bruise may form on the heel, but it should go away quickly."
+    },
+    {
+      "title": "What do the results mean?",
+      "text": "If the results are normal, it means that the amount of Phe in your baby's blood was normal. So, your baby is unlikely to have PKU. But if the test was done sooner than 24 hours after birth, your baby may need to be tested again at 1 to 2 weeks of age.\n\nIf both parents know they carry a gene for PKU and your baby's test is normal, the baby should have genetic testing. This blood test will check the baby's genes for changes. The results will diagnose PKU or rule it out for certain. If your baby does have PKU, genetic testing can also help your provider understand how serious the condition is and how best to treat it.\n\nIf your baby's results are not normal, it means high levels of Phe were found in your baby's blood. Your baby most likely has PKU. Your provider may order more tests to confirm or rule out PKU. These tests may include more blood tests and/or urine tests.\n\nIf your baby is diagnosed with PKU, you can safely give your baby formula that doesn't contain Phe. Breastmilk does contain Phe, so if you would like to breastfeed, talk with your baby's provider to find out if your baby can safely have any amount of breastmilk.\n\nAfter infancy, people with PKU are generally treated with a special-low protein diet, including some food supplements, to make sure they have proper nutrition.\n\nLearn more about laboratory tests, reference ranges, and understanding results."
+    },
+    {
+      "title": "Is there anything else I need to know about a PKU screening test?",
+      "text": "If you're pregnant, your baby could have PKU even if you and the baby's other parent don't have it. That's because you have two copies of all your genes, one from each parent. To have PKU, you must have changes in both copies of the gene that causes PKU.\n\nIf each parent has one changed gene for PKU, a fetus could inherit two changed genes and be born with the disease.\n\nA prenatal screening test can show whether your baby may have PKU. The test uses either a sample of:\n\n• Amniotic fluid that surrounds the fetus in the uterus. Your provider will remove a small amount of fluid by inserting a needle into your belly during a procedure called amniocentesis.\n• Tissue from part of the placenta, the organ that grows in the uterus to provide nutrients and oxygen to the fetus. This sample is taken using a needle inserted into your abdomen (belly) or a tube inserted through your vagina in a procedure called chorionic villus sampling.\n\nYour provider or a genetic counselor can help you decide if prenatal testing for PKU is right for you."
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/lab-tests/phenylketonuria-pku-screening/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "ed49d52ae8028d6d66828313ebcf7f700200be12aa194bc88c68a54e5e8acaad",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace, lists and labeled table formatting adapted. Not clinical review."
+}

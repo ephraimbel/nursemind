@@ -1,0 +1,44 @@
+{
+  "title": "Videonystagmography (VNG)",
+  "sourceUpdated": "Last updated September 11, 2026",
+  "sections": [
+    {
+      "title": "What is videonystagmography (VNG)?",
+      "text": "Videonystagmography (VNG) is a test that measures a type of eye movement that you can't control. These eye movements are called nystagmus. With nystagmus, your eyes move from side to side, up and down, or in a circle. The movements can be slow or fast, steady or jerky.\n\nNormally, nystagmus happens briefly as your eyes adjust when you move your head into certain positions. This is a sign that your vestibular system is working correctly. Your vestibular system is made up of your inner ears and nerves. It helps you keep your balance, especially while moving. It also works with your vision and the muscles in your neck and eyes to make sure your brain gets the information it needs to keep your eyes focused when your body changes position.\n\nIf nystagmus happens at other times or doesn't happen when it should, your vestibular system may not be working properly.\n\nOther names: VNG"
+    },
+    {
+      "title": "What is it used for?",
+      "text": "VNG is used to find out if there are any problems with your vestibular system. These problems can cause you to struggle with your balance. They can also cause nystagmus, which may make you feel dizzy or unsteady. If you're having symptoms of a balance problem, VNG can help find out if these problems are being caused by a vestibular disorder. These disorders include:\n\n• Benign paroxysmal positional vertigo (BPPV). This is the most common cause of vertigo in adults. It happens when grains of calcium in your inner ear slip out of place and get into areas where they don't belong. Normally, these grains help tell your brain about your head's position and movement. When the grains move, they trigger confusing signals that can make you feel a spinning sensation when you move your head.\n• Meniere's disease. This disorder causes hearing and balance problems when too much fluid builds up in the vestibular system. The cause is unknown.\n• Labyrinthitis. This balance disorder can cause dizziness and temporary hearing loss. It happens if parts of your inner ear become irritated and inflamed (swollen), usually from a cold or flu. It sometimes goes away on its own.\n• Vestibular neuritis. This is irritation and inflammation (swelling) of the vestibular nerve, which carries signals from the vestibular system to your brain. It's usually caused by a viral infection.\n• Acoustic neuroma. This is a tumor which develops on the nerves involved with hearing and balance. It's usually benign (not cancer), but it can cause issues with hearing and balance.\n\nA VNG test alone cannot diagnose a vestibular disorder. To do this, your provider will also need to consider your symptoms and medical history.\n\nIt can also help find problems with the nerves or parts of your brain that are part of your sense of balance."
+    },
+    {
+      "title": "Why do I need a VNG?",
+      "text": "You may need a VNG if you have symptoms of a vestibular disorder. The main symptom is dizziness, which can feel like:\n\n• You or everything around you is spinning (known as vertigo)\n• You're going to fall\n• Being lightheaded or as if you are going to faint\n\nOther symptoms of a vestibular disorder may include:\n\n• Ringing in your ears (tinnitus)\n• Feeling of fullness or pressure in your ear\n• Nausea\n• Hearing loss\n• Headache\n• Fatigue\n• Confusion\n• New sensitivity to loud sounds"
+    },
+    {
+      "title": "What happens during a VNG?",
+      "text": "A VNG is usually done by a specialist, such as:\n\n• An audiologist, a provider who is trained to diagnose and treat hearing loss and balance disorders\n• An otolaryngologist (ENT), a doctor who specializes in treating diseases of the ears, nose, throat, and head and neck\n• A neurologist, a doctor who specializes in diagnosing and treating disorders of the brain and nervous system\n\nDuring a VNG test, you'll sit in a dark room wearing special goggles. A camera in the goggles will record your eye movements during these three main parts of the test:\n\n• Ocular testing. Without moving your head, you will follow moving lights or patterns on a TV with your eyes.\n• Positional testing. You'll move your head and body into different positions so that your provider can see if those movements cause nystagmus.\n• Caloric testing. For this portion:\n• Your ears will be tested one at a time. This can show if the vestibular system in one ear is working better than the other.\n• A provider will then put cool water or air in your ear. The cool temperature should make your eyes move in specific ways.\n• You'll then be tested again with warm water or air in the same ear. If your eyes don't move as expected, it may mean you have damage in your inner ear or the part of your brain that controls balance."
+    },
+    {
+      "title": "Will I need to do anything to prepare for a VNG?",
+      "text": "Your provider will let you know how to prepare for your test. You may need to avoid certain foods or medicines before your test. But don't stop taking any medicine without talking with your provider first."
+    },
+    {
+      "title": "Are there any risks to a VNG?",
+      "text": "The test may make you feel dizzy for a few minutes. You may want to plan to have someone bring you home in case the dizziness lasts longer. Some people have nausea for a short time during caloric testing, but vomiting is uncommon."
+    },
+    {
+      "title": "What do the results mean?",
+      "text": "If your VNG results were not normal, it may mean you have a disorder of the vestibular system in your inner ear. The disorder may be in one or both ears. Your provider can explain what type of disorder you may have. You may need more tests, including other balance tests, to confirm your diagnosis.\n\nAn abnormal VNG result may also mean you have a condition that affects the parts of your brain that help control your balance. Treatment options depend on the type of balance disorder you have.\n\nIf you have questions about your results or treatment, talk with your provider.\n\nLearn more about laboratory tests, reference ranges, and understanding results."
+    },
+    {
+      "title": "Is there anything else I need to know about a VNG?",
+      "text": "Another test, called electronystagmography (ENG), looks for nystagmus by checking the strength of your eye muscle and the health of the nerves connected to your eyes. Instead of using a camera to record eye movements, an ENG measures eye movements with electrodes placed near your eyes. The electrodes are small sensors that either stick to your skin or are put in a headband that you wear.\n\nENG testing can also help your provider diagnose balance disorders, but it is usually only useful in certain cases. For example, it may be a good test for people with eyelids that partly cover their pupils or for people who feel anxious about wearing goggles. But VNG testing is more common and more accurate."
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/lab-tests/videonystagmography-vng/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "19f83a7ed9cb4a9d6e14f2443f712d05df345c81b8cc2afbccb4c7f329f3f640",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; source-text preservation checked. Whitespace and list formatting adapted. Not clinical review."
+}

@@ -1,0 +1,44 @@
+{
+  "title": "Glucagon Blood Test",
+  "sourceUpdated": "Last updated September 26, 2024",
+  "sections": [
+    {
+      "title": "What is a glucagon blood test?",
+      "text": "This test measures the amount of glucagon in your blood. Glucagon is a hormone made by your pancreas. Hormones are chemical messengers in your bloodstream that control the actions of certain cells or organs. Glucagon works with other hormones, like insulin, to help maintain your body's level of blood glucose, also called blood sugar. Glucagon increases your blood glucose levels, while insulin decreases your blood glucose levels.\n\nGlucose is your body's main source of energy. It comes from the food you eat. Your body breaks down most of that food into glucose and releases it into your bloodstream. This causes your blood glucose levels to go up, and less glucagon is released.\n\nAnd when your blood glucose levels drop, your pancreas releases glucagon into the bloodstream. But if your pancreas doesn't release the right amount of glucagon, it can lead to serious health problems.\n\nOther names: glucagon blood test, hypoglycemia-glucagon test, glucagon-plasma"
+    },
+    {
+      "title": "What is it used for?",
+      "text": "A glucagon test is most often used to help diagnose the following conditions:\n\n• Hypoglycemia, also called low blood glucose, occurs when the level of glucose in your blood drops below what is healthy for you. Severe hypoglycemia can be deadly if it's not treated. The condition often affects people with diabetes. It can happen when your diabetes medicines and/or food intake are not at the proper levels.\n• Pancreatitis, an inflammation of the pancreas. It can be acute (sudden and short term) or chronic (long term). The systoms of acute pancreatitis are severe and may require immediate medical attention. Chronic pancreatitis gets worse over time and can lead to permanent damage. It symptoms may not appear until there are complications.\n• Glucagonoma, a rare tumor of the pancreas. It is usually cancerous.\n\nThe test is also sometimes used to monitor people with diabetes."
+    },
+    {
+      "title": "Why do I need a glucagon blood test?",
+      "text": "You may need this test if you have symptoms of hypoglycemia or a pancreatic tumor.\n\nSymptoms of hypoglycemia can include:\n\n• Fast or irregular heartbeat (arrhythmia)\n• Tingling in the lips, tongue, or cheeks\n• Anxiety\n• Irritability\n• Sweating\n• Blurred vision\n• Fatigue\n• Pale skin\n• Hunger\n\nSymptoms of a pancreatic tumor can include:\n\n• A rash on the face, stomach, or legs\n• Diarrhea\n• Weight loss\n• Sores in the mouth or tongue"
+    },
+    {
+      "title": "What happens during a glucagon blood test?",
+      "text": "A health care professional will take a blood sample from a vein in your arm, using a small needle. After the needle is inserted, a small amount of blood will be collected into a test tube or vial. You may feel a little sting when the needle goes in or out. This usually takes less than five minutes."
+    },
+    {
+      "title": "Will I need to do anything to prepare for the test?",
+      "text": "You may need to fast (not eat or drink) for several hours before the test."
+    },
+    {
+      "title": "Are there any risks to the test?",
+      "text": "There is very little risk to having a blood test. You may have slight pain or bruising at the spot where the needle was put in, but most symptoms go away quickly."
+    },
+    {
+      "title": "What do the results mean?",
+      "text": "If your glucagon levels were not in the normal range, it may be a sign of one of the following conditions:\n\n• Hypoglycemia\n• Diabetes\n• Acute or chronic pancreatitis\n• Glucagonoma (pancreatic tumor)\n\nIf you have questions about your results, talk to your health care provider.\n\nLearn more about laboratory tests, reference ranges, and understanding results."
+    },
+    {
+      "title": "Is there anything else I need to know about a glucagon blood test?",
+      "text": "A glucagon blood test and a glucagon stimulation test are often called glucagon tests, but they are not the same thing. A glucagon blood test is used to check conditions related to glucose levels, while a glucagon stimulation test checks for problems with growth hormones. It is most often used for infants and children."
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/lab-tests/glucagon-blood-test/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "63c0c437238eb1837e05a23e85bdee657246def88b2e229bbc1d53b1895ccc3d",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace and list formatting only. Not clinical review."
+}

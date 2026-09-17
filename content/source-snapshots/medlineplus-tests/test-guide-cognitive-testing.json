@@ -1,0 +1,44 @@
+{
+  "title": "Cognitive Testing",
+  "sourceUpdated": "Last updated August 27, 2026",
+  "sections": [
+    {
+      "title": "What is cognitive testing?",
+      "text": "Cognitive testing checks for problems with certain brain functions called “cognition.” These include:\n\n• Thinking\n• Learning\n• Remembering\n• Using judgment\n• Using language\n\nHaving problems with cognition are called “cognitive impairment.” It is more common among older people, but it's not a normal part of aging. It can be caused by many medical and mental health conditions. Some of these conditions may be treatable, such as urinary tract infections (UTIs) and depression. If these conditions are treated, cognitive impairment may improve.\n\nHowever, other conditions have no cure and get worse over time. These include dementia and Alzheimer's disease.\n\nThere are many different tests that check for cognitive impairment. The most common of these are the:\n\n• Montreal Cognitive Assessment (MoCA) test, which takes about 15 minutes to complete with a health care professional\n• Mini-Mental State Exam (MMSE), which is especially useful in detecting signs of dementia and Alzheimer's disease\n• Mini-Cog, which takes about 3 minutes to complete and is especially useful in detecting early signs of cognitive impairment\n\nOther names: cognitive assessment, cognitive screening, Montreal Cognitive Assessment, MoCA test, Mini-Mental State Exam (MMSE), and Mini-Cog"
+    },
+    {
+      "title": "What is it used for?",
+      "text": "Cognitive testing is most commonly used to screen older adults for a condition called mild cognitive impairment (MCI). People with MCI may notice that they have more trouble with memory than other people their age. They may lose things more often or have more trouble coming up with words for what they want to say. However, they can usually still perform their typical daily activities.\n\nThere's no cure for MCI. If you have the condition, your provider may give you cognitive tests as part of your routine checkup to see if your brain function has changed. That's because researchers have found that people with MCI have a higher risk of developing dementia than those without MCI. In many cases, however, the symptoms of MCI stay the same or even improve over time.\n\nYour provider may also use cognitive testing to help check for dementia or Alzheimer's disease. These tests alone can't diagnose dementia or any other cause of cognitive impairment. But the test results can show whether you have a problem with how your brain is functioning. The results can also help your provider order the right test to:\n\n• Learn more about your cognitive impairment\n• Determine whether the cause of your cognitive impairment is treatable\n\nIf the cause of cognitive impairment can't be treated, the information you gain from cognitive testing can help you and your family plan for your future care."
+    },
+    {
+      "title": "Why do I need cognitive testing?",
+      "text": "You may need cognitive testing if you show signs of cognitive impairment. You may notice these changes yourself or your family or friends may notice them. Signs of cognitive impairment include:\n\n• Forgetting appointments and important events\n• Losing things often\n• Having trouble coming up with words that you usually know\n• Losing your train of thought in conversations\n• Having more difficulty than usual following movies or books\n• Feeling increased irritability and/or anxiety"
+    },
+    {
+      "title": "What happens during a cognitive test?",
+      "text": "There are different types of cognitive tests. They all involve answering questions and usually doing some simple tasks.\n\nFor the Montreal Cognitive Assessment (MoCA) test, you may be asked to:\n\n• Memorize a short list of words and then repeat it back to your provider\n• Identify animals in a picture\n• Connect a sequence of numbered dots\n• Copy a drawing of a 3-dimensional object\n• Write a complete sentence on a piece of paper\n• Draw a clock with hands that show a specific time (such as 10:25)\n\nFor the Mini-Mental State Exam (MMSE), you may be asked to:\n\n• Identify the year, season, month, or day\n• Identify what country or city you're in\n• Repeat a list of words back to your provider\n• Spell a word that your provider says aloud\n• Spell a word backwards\n• Identify an object such as a watch or pencil\n• Repeat a phrase your provider says\n• Follow written instructions\n• Write a complete sentence on a piece of paper\n\nFor the Mini-Cog, you will be asked to complete the following:\n\n• Listen to your provider say aloud three unrelated words (such as “apple,” “couch,” and “cliff”). You will be asked to repeat back these words at the end of the test.\n• Draw a clock with hands that show a specific time."
+    },
+    {
+      "title": "Will I need to do anything to prepare for cognitive testing?",
+      "text": "You don't need any special preparations for a cognitive test."
+    },
+    {
+      "title": "Are there any risks to testing?",
+      "text": "There is no risk to having cognitive testing."
+    },
+    {
+      "title": "What do the results mean?",
+      "text": "Your cognitive test result will be a score.\n\nIf your test score is normal, you could still have some cognitive impairment that the test may not show. If you or your family are concerned about your brain function, but your test results were normal, talk with your provider about having another type of cognitive test.\n\nIf your score is lower than normal, it usually means you have some level of cognitive impairment. But your provider can't make a diagnosis on these test results alone.\n\nDepending on your score, your provider may have you see a neurologist (a doctor who specializes in problems with the brain and nervous system). The neurologist may do longer tests called “neuropsychological testing” to learn more about how your brain is working. These detailed tests check your ability to plan, solve problems, and make decisions.\n\nYour provider may also order tests to confirm or rule out treatable conditions that could be causing cognitive impairment. Which tests you have will depend on your medical history, a physical exam, and the results of cognitive testing. You may be tested for treatable conditions such as:\n\n• Blood vessel disorders\n• Sleep disorders\n• Hypothyroidism\n• Lack of certain vitamins, such as vitamin B12, or minerals\n• Mental health conditions, such as depression, anxiety, or stress\n• Concussion or other head injury from an accident or fall\n• Stroke\n• Urinary tract infection (UTI)\n• COVID-19\n\nYour provider may also check to see if your cognitive impairment is being caused by side effects from certain medicines.\n\nIf you have cognitive impairment that can't be cured, medicines and healthy lifestyle changes may help slow the loss of brain function over time.\n\nIf you have questions or are concerned about your results, talk with your provider.\n\nLearn more about laboratory tests, reference ranges, and understanding results."
+    },
+    {
+      "title": "Is there anything else I need to know about cognitive testing?",
+      "text": "You may have heard about cognitive tests that you can take yourself online. If you or someone you know is concerned about cognitive impairment, doing one of these tests may be helpful. But it's important to follow up with your provider to discuss the test results and any other tests you may need to properly diagnose your condition."
+    }
+  ],
+  "sourceURL": "https://medlineplus.gov/lab-tests/cognitive-testing/",
+  "retrieved": "2026-09-17",
+  "sourceHTMLSHA256": "4f449480ef3aa62165ce221f8ac85132585ce92242140f06dd6a6221bcd100a4",
+  "attribution": "Source: MedlinePlus, National Library of Medicine.",
+  "license": "publicDomain",
+  "fidelityMethod": "NLM body extraction; whitespace and list formatting only. Not clinical review."
+}
