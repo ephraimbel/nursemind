@@ -33,3 +33,9 @@ Export: `build/export-1.5.0-24/Nursemind.ipa` (31.5 MiB).
 IPA SHA-256: `939e9eadf2c293b5ce2c12491a8f98c416c417cd32b3ae56f3b53aa727ae6bd6`.
 
 Build artifacts and local credentials are not committed. This checkpoint does not itself submit an App Store release, deploy backend changes, or establish clinical review approval. The existing content review queues, AI evaluation limitations, attribution delivery checks and onboarding-review App Review history remain documented in their respective records. The local evidence catalog is verified against this exact app corpus; this task does not claim that the deployed backend catalog has been updated.
+
+## App Store Connect follow-up
+
+Promotional Text and What's New were saved for English (U.S.) on version 1.5.0 and verified after refreshing the page.
+
+The existing signed archive was uploaded through Xcode's authenticated App Store Connect session on September 17, 2026 at 08:05 CDT. Xcode reported `Upload succeeded` and `EXPORT SUCCEEDED`; TestFlight processing subsequently completed. Selected build 24 on the version 1.5.0 distribution page and saved; the Build table confirms 24 / 1.5.0. App Store Connect build ID: `f53f791b-4ff8-4779-b2b4-0476df19db6b`. Upload preserved the version and build number. No App Review submission was made.
