@@ -86,23 +86,14 @@ struct ShowcaseFlow: View {
             }
             .padding(.horizontal, NMSpace.lg)
             .padding(.top, NMSpace.md)
-            // PhoneFrame is a hard 260x540, and the page had roughly 710pt of
-            // content for ~717pt of room. A few points short, SwiftUI took them
-            // out of the only compressible thing here — the headline — which
-            // rendered "Cited answers,…" and silently dropped "in seconds."
-            // The titles carry the pitch; the demo frame is illustrative and
-            // already clips its own last line, so it yields instead.
             .layoutPriority(1)
 
             Spacer(minLength: NMSpace.lg)
 
-            HStack {
-                Spacer()
-                PhoneFrame {
-                    demo(for: page.id)
-                }
-                Spacer()
+            PhoneFrame {
+                demo(for: page.id)
             }
+            .padding(.horizontal, NMSpace.lg)
         }
     }
 
