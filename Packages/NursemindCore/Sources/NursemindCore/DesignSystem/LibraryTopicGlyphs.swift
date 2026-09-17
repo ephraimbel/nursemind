@@ -15,8 +15,11 @@ extension LibraryTopic {
     var glyph: String {
         switch id {
         case "shock-perfusion", "cardiovascular": "heart"
-        case "airway-ventilation", "respiratory": "lungs"
-        case "rhythms-resuscitation": "waveform.path.ecg"
+        case "airway-ventilation", "respiratory", "oxygen-noninvasive-support": "lungs"
+        case "rhythms-resuscitation", "rhythm-monitoring": "waveform.path.ecg"
+        case "invasive-ventilation-liberation": "waveform.path"
+        case "artificial-airway-care": "stethoscope"
+        case "resuscitation-post-arrest": "cross.case"
         case "sedation-delirium": "moon.zzz"
         case "neurocritical-care", "neurological", "nlm-neurology-sensory": "brain.head.profile"
         case "renal-metabolic-critical-care", "renal-urinary", "nlm-renal-urinary": "drop.halffull"

@@ -107,6 +107,7 @@ public final class EntryLinkRegistry: @unchecked Sendable {
         links.append(contentsOf: crossSpecialtyDepthLinks())
         links.append(contentsOf: clinicalContinuityLinks())
         links.append(contentsOf: specialtySupportDepthLinks())
+        links.append(contentsOf: criticalCareDepthLinks())
         links.append(contentsOf: bedsideWorkflowLinks())
         links.append(contentsOf: specialtyDailySupportLinks())
         links.append(contentsOf: medlinePlusReferenceLinks())

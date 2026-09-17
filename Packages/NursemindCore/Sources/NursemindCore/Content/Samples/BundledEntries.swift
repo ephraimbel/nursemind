@@ -58,6 +58,7 @@ extension ContentRegistry {
         entries.append(contentsOf: bundledCrossSpecialtyDepth())
         entries.append(contentsOf: bundledClinicalContinuity())
         entries.append(contentsOf: bundledSpecialtySupportDepth())
+        entries.append(contentsOf: bundledCriticalCareDepth())
         entries.append(.reference(LabResultInterpretationSample.entry))
         entries.append(.reference(LaboratoryTestPreparationSample.entry))
         entries.append(.reference(NursingCarePlanEvaluationSample.entry))

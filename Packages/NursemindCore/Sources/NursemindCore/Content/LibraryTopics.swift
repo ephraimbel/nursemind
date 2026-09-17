@@ -60,7 +60,7 @@ struct LibraryTopic: Identifiable, Sendable {
                          "procedure:tracheostomy-care", "procedure:oxygen-administration",
                          "scenario:trach-emergency-scenario",
                          "reference:focused-respiratory-assessment", "reference:hospital-oral-care",
-                         "reference:bronchiectasis-daily-airway-care"]),
+                         "reference:bronchiectasis-daily-airway-care"] + criticalCareAirwayAdditions),
         .init(id: "rhythms-resuscitation", group: .criticalCare, title: "Rhythms & resuscitation",
               subtitle: "ECGs, pacing & code-team reference",
               entryIDs: ["reference:ecg-12-lead-basics", "reference:dysrhythmia-identification",
@@ -68,7 +68,7 @@ struct LibraryTopic: Identifiable, Sendable {
                          "diagnosis:ventricular-tachycardia", "diagnosis:ventricular-fibrillation",
                          "reference:code-blue-roles", "reference:crash-cart-contents",
                          "procedure:adult-bls", "procedure:transcutaneous-pacing",
-                         "drip:amiodarone-drip", "scenario:code-blue-team-scenario"]),
+                         "drip:amiodarone-drip", "scenario:code-blue-team-scenario"] + criticalCareRhythmAdditions),
         .init(id: "sedation-delirium", group: .criticalCare, title: "Sedation, pain & delirium",
               subtitle: "Assessment scales & ICU liberation",
               entryIDs: ["reference:rass-scale", "reference:cam-icu-delirium", "reference:abcdef-bundle",
@@ -392,5 +392,5 @@ struct LibraryTopic: Identifiable, Sendable {
                          "procedure:ppe-don-doff",
                          "procedure:mechanical-lift",
                          "communication:verbal-deescalation"])
-    ] + medlinePlusCollections
+    ] + criticalCareDepthCollections + medlinePlusCollections
 }

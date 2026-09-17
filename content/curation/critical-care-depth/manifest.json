@@ -1,0 +1,1500 @@
+{
+  "date": "2026-09-17",
+  "scope": "Adult bedside and critical-care education; no pediatric protocol or patient-specific prescribing",
+  "clinicalReview": {
+    "tier": "A",
+    "status": "pending",
+    "reviewer": null,
+    "publicationApproved": false,
+    "note": "Conservative review queue for all 20 critical-care drafts. Source-fidelity checks and automated tests are not RN sign-off."
+  },
+  "sources": [
+    {
+      "id": "icu_depth_oxygen",
+      "shortName": "Open RN — Oxygen Therapy, chapter 11",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK596733/",
+      "license": "ccBy4",
+      "detail": "Nursing Skills, 2nd edition (2023), sections 11.2–11.6. Original nursing prose adapted and condensed by NurseMind under CC BY 4.0: https://creativecommons.org/licenses/by/4.0/. Images, videos and linked third-party material excluded. Source-fidelity check is not independent clinical review.",
+      "publisher": "Open Resources for Nursing (Open RN); Ernstmeyer K, Christman E, editors; Chippewa Valley Technical College",
+      "lastRetrieved": "2026-09-17"
+    },
+    {
+      "id": "icu_depth_trach",
+      "shortName": "Open RN — Tracheostomy Care & Suctioning, chapter 22",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK596713/",
+      "license": "ccBy4",
+      "detail": "Nursing Skills, 2nd edition (2023), assessment and routine care sections 22.2–22.6. Original nursing prose adapted and condensed by NurseMind under CC BY 4.0: https://creativecommons.org/licenses/by/4.0/. Images and linked third-party material excluded; not a tube-replacement protocol. Source-fidelity check is not independent clinical review.",
+      "publisher": "Open Resources for Nursing (Open RN); Ernstmeyer K, Christman E, editors; Chippewa Valley Technical College",
+      "lastRetrieved": "2026-09-17"
+    },
+    {
+      "id": "icu_depth_ecg",
+      "shortName": "Open RN — Interpret Basic ECG, chapter 7",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK594493/",
+      "license": "ccBy4",
+      "detail": "Nursing Advanced Skills (2023), foundational ECG measurement and telemetry prose in sections 7.2–7.3 and 7.8. Adapted and condensed by NurseMind under CC BY 4.0: https://creativecommons.org/licenses/by/4.0/. Section 7.4 tables attributed as StatPearls derivatives, images, videos and treatment algorithms excluded. Source-fidelity check is not independent clinical review.",
+      "publisher": "Open Resources for Nursing (Open RN); Ernstmeyer K, Christman E, editors; Chippewa Valley Technical College",
+      "lastRetrieved": "2026-09-17"
+    },
+    {
+      "id": "icu_depth_pva",
+      "shortName": "Costa et al. — Patient–ventilator asynchronies",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11721790/",
+      "license": "ccBy4",
+      "detail": "Costa V, Cidade JP, Medeiros I, Póvoa P. J Clin Med. 2025;14(1):214. doi:10.3390/jcm14010214. Sections 4–5; adult invasive ventilation narrative review, not a treatment guideline. Adapted and condensed by NurseMind under CC BY 4.0: https://creativecommons.org/licenses/by/4.0/. Figures and proposed treatment algorithm excluded. Source-fidelity check is not independent clinical review.",
+      "publisher": "The authors; Journal of Clinical Medicine / MDPI",
+      "lastRetrieved": "2026-09-17"
+    },
+    {
+      "id": "icu_depth_vent",
+      "shortName": "NHLBI — Ventilator support: what to expect",
+      "url": "https://www.nhlbi.nih.gov/health/ventilator/what-to-expect",
+      "license": "publicDomain",
+      "detail": "Federal patient-education prose adapted and condensed by NurseMind; updated March 24, 2022. Sections on monitoring, ongoing care and ventilator removal. Images and third-party animations excluded. Source-fidelity check is not independent clinical review.",
+      "publisher": "National Heart, Lung, and Blood Institute; National Institutes of Health",
+      "lastRetrieved": "2026-09-17"
+    },
+    {
+      "id": "icu_depth_risks",
+      "shortName": "NHLBI — Risks of ventilator support",
+      "url": "https://www.nhlbi.nih.gov/health/ventilator/risks",
+      "license": "publicDomain",
+      "detail": "Federal patient-education prose adapted and condensed by NurseMind; updated March 24, 2022. Infection, pressure injury, respiratory muscle weakness and airway complications; no images or linked third-party material. Source-fidelity check is not independent clinical review.",
+      "publisher": "National Heart, Lung, and Blood Institute; National Institutes of Health",
+      "lastRetrieved": "2026-09-17"
+    },
+    {
+      "id": "icu_depth_fda",
+      "shortName": "FDA — Pulse oximeters",
+      "url": "https://www.fda.gov/medical-devices/products-and-medical-procedures/pulse-oximeters",
+      "license": "publicDomain",
+      "detail": "Federal device information, use limitations and skin-pigmentation concerns. Adapted and condensed by NurseMind. Regulatory draft guidance is not represented as a finalized clinical standard. Source-fidelity check is not independent clinical review.",
+      "publisher": "U.S. Food and Drug Administration",
+      "lastRetrieved": "2026-09-17"
+    },
+    {
+      "id": "icu_depth_pva_cpg",
+      "shortName": "AARC — Patient–ventilator assessment (2024)",
+      "url": "https://www.aarc.org/wp-content/uploads/2024/10/patient-ventilator-assessment-aarc-cpg.pdf",
+      "license": "factCitationOnly",
+      "detail": "Goodfellow et al. Respir Care. 2024;69:1042–1054. doi:10.4187/respcare.12007. Brief original paraphrase of assessment recommendations; no copied table, figure or algorithm. Source-fidelity check is not independent clinical review.",
+      "publisher": "American Association for Respiratory Care / Daedalus Enterprises",
+      "lastRetrieved": "2026-09-17"
+    },
+    {
+      "id": "icu_depth_suction",
+      "shortName": "AARC — Artificial airway suctioning (2022)",
+      "url": "https://www.aarc.org/wp-content/uploads/2022/10/cpg-artificial-airway-suctioning.pdf",
+      "license": "factCitationOnly",
+      "detail": "Blakeman et al. Respir Care. 2022;67:258–271. doi:10.4187/respcare.09548. Brief original paraphrase of adult assessment, preoxygenation, saline and depth recommendations; no copied protocol. Source-fidelity check is not independent clinical review.",
+      "publisher": "American Association for Respiratory Care / Daedalus Enterprises",
+      "lastRetrieved": "2026-09-17"
+    },
+    {
+      "id": "icu_depth_sbt",
+      "shortName": "AARC — Spontaneous breathing trials (2024)",
+      "url": "https://www.aarc.org/wp-content/uploads/2023/11/CPG2024SpontaneousBreathingTrial.pdf",
+      "license": "factCitationOnly",
+      "detail": "Roberts et al. doi:10.4187/respcare.11735. AARC-hosted 2024 accepted guideline; recommendations and distinction between a successful SBT and extubation. Brief original paraphrase; no reproduced table or algorithm. Source-fidelity check is not independent clinical review.",
+      "publisher": "American Association for Respiratory Care / Daedalus Enterprises",
+      "lastRetrieved": "2026-09-17"
+    },
+    {
+      "id": "icu_depth_arr_symptoms",
+      "shortName": "NHLBI — Arrhythmia symptoms",
+      "url": "https://www.nhlbi.nih.gov/health/arrhythmias/symptoms",
+      "license": "publicDomain",
+      "detail": "Federal health-education prose adapted and condensed by NurseMind; updated March 24, 2022. Symptoms, time course and emergency evaluation. Source-fidelity check is not independent clinical review.",
+      "publisher": "National Heart, Lung, and Blood Institute; National Institutes of Health",
+      "lastRetrieved": "2026-09-17"
+    },
+    {
+      "id": "icu_depth_arr_tests",
+      "shortName": "NHLBI — Arrhythmia diagnosis",
+      "url": "https://www.nhlbi.nih.gov/health/arrhythmias/diagnosis",
+      "license": "publicDomain",
+      "detail": "Federal health-education prose adapted and condensed by NurseMind; physical examination, ECG, laboratory and ambulatory monitoring sections. Source-fidelity check is not independent clinical review.",
+      "publisher": "National Heart, Lung, and Blood Institute; National Institutes of Health",
+      "lastRetrieved": "2026-09-17"
+    },
+    {
+      "id": "icu_depth_bls",
+      "shortName": "AHA — Adult Basic Life Support (2025)",
+      "url": "https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-basic-life-support",
+      "license": "factCitationOnly",
+      "detail": "2025 CPR/ECC Guidelines, Part 7, recognition, compression quality and ventilation sections. Brief original factual paraphrase; no reproduced algorithm or figure. Adult educational reference; not certification or a patient-specific order. Source-fidelity check is not independent clinical review.",
+      "publisher": "American Heart Association",
+      "lastRetrieved": "2026-09-17"
+    },
+    {
+      "id": "icu_depth_als",
+      "shortName": "AHA — Adult Advanced Life Support (2025)",
+      "url": "https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/adult-advanced-life-support",
+      "license": "factCitationOnly",
+      "detail": "2025 CPR/ECC Guidelines, Part 9, advanced airway, physiologic monitoring and termination-of-resuscitation limitations. Brief original factual paraphrase; no copied algorithm, dosage table or image. Source-fidelity check is not independent clinical review.",
+      "publisher": "American Heart Association",
+      "lastRetrieved": "2026-09-17"
+    },
+    {
+      "id": "icu_depth_post",
+      "shortName": "AHA — Post–Cardiac Arrest Care (2025)",
+      "url": "https://cpr.heart.org/en/resuscitation-science/cpr-and-ecc-guidelines/post-cardiac-arrest-care",
+      "license": "factCitationOnly",
+      "detail": "2025 CPR/ECC Guidelines, Part 11, initial assessment, temperature control and neuroprognostication. Brief original factual paraphrase; no copied algorithm or figure. Source-fidelity check is not independent clinical review.",
+      "publisher": "American Heart Association",
+      "lastRetrieved": "2026-09-17"
+    },
+    {
+      "id": "icu_depth_recovery",
+      "shortName": "NHLBI — Life after cardiac arrest",
+      "url": "https://www.nhlbi.nih.gov/node/93988",
+      "license": "publicDomain",
+      "detail": "Federal patient-education prose adapted and condensed by NurseMind. Follow-up, treatment continuity and cardiac rehabilitation; extraneous sickle-cell sentence in stress section excluded. Source-fidelity check is not independent clinical review.",
+      "publisher": "National Heart, Lung, and Blood Institute; National Institutes of Health",
+      "lastRetrieved": "2026-09-17"
+    },
+    {
+      "id": "icu_depth_qt",
+      "shortName": "NHLBI — Long QT syndrome",
+      "url": "https://www.nhlbi.nih.gov/health/long-qt-syndrome",
+      "license": "publicDomain",
+      "detail": "Federal health-education prose adapted and condensed by NurseMind; updated March 24, 2022. Acquired and inherited causes, symptoms, medicines, electrolytes and diagnostic testing; no copied images. Source-fidelity check is not independent clinical review.",
+      "publisher": "National Heart, Lung, and Blood Institute; National Institutes of Health",
+      "lastRetrieved": "2026-09-17"
+    }
+  ],
+  "authoredWordsBySource": {
+    "oxygen": 872,
+    "fda": 84,
+    "pva_cpg": 118,
+    "vent": 251,
+    "pva": 681,
+    "risks": 97,
+    "trach": 355,
+    "suction": 62,
+    "sbt": 102,
+    "ecg": 495,
+    "arr_symptoms": 130,
+    "arr_tests": 73,
+    "qt": 188,
+    "bls": 126,
+    "als": 128,
+    "post": 129,
+    "recovery": 264
+  },
+  "entries": [
+    {
+      "id": "oxygen-device-bedside-checks",
+      "title": "Oxygen devices: bedside checks",
+      "subtitle": "Delivery system, fit, supply and reassessment",
+      "family": "OxygenSupport",
+      "sections": [
+        {
+          "title": "Confirm the delivery plan",
+          "bullets": [
+            {
+              "text": "Oxygen therapy includes a device, a prescribed flow or oxygen concentration, and an intended oxygenation response. Compare the equipment in use with the current order or emergency protocol; a device name alone does not describe the support being delivered.",
+              "source": "oxygen"
+            },
+            {
+              "text": "A low-flow nasal cannula and a heated high-flow system are different devices. Increasing the flow on a standard cannula does not turn it into a high-flow system.",
+              "source": "oxygen"
+            }
+          ]
+        },
+        {
+          "title": "Trace the oxygen supply",
+          "bullets": [
+            {
+              "text": "Check that the source is functioning and that tubing is connected, open and not kinked. With a portable cylinder, check the remaining supply; an attached cannula does not prove oxygen is flowing.",
+              "source": "oxygen"
+            },
+            {
+              "text": "Reassess the oxygen pathway after movement, personal care or a device change. Verify the source, connection and position of the interface as part of that reassessment.",
+              "source": "oxygen"
+            }
+          ]
+        },
+        {
+          "title": "Recognize mask-specific concerns",
+          "bullets": [
+            {
+              "text": "Simple masks have exhalation openings that must remain unobstructed. A nonrebreather relies on an inflated reservoir and functioning valves; reservoir collapse during inspiration warrants an immediate equipment and support assessment.",
+              "source": "oxygen"
+            },
+            {
+              "text": "A Venturi system uses a device-specific adapter and specified flow to deliver its intended oxygen concentration. Follow the adapter instructions and prescribed settings rather than assuming all masks deliver the same oxygen concentration.",
+              "source": "oxygen"
+            }
+          ]
+        },
+        {
+          "title": "Protect comfort and skin",
+          "bullets": [
+            {
+              "text": "Assess contact points at the ears, nose and cheeks for pressure or irritation. Check fit and tubing tension while maintaining delivery. Dryness and discomfort can reduce tolerance and should be addressed with the care team.",
+              "source": "oxygen"
+            }
+          ]
+        },
+        {
+          "title": "Reassess the person",
+          "bullets": [
+            {
+              "text": "Document the device and settings with respiratory rate, effort, breath sounds, mental status and oxygenation response. A worsening examination deserves prompt escalation even if the device appears correctly assembled.",
+              "source": "oxygen"
+            },
+            {
+              "text": "Pulse oximetry is an estimate. FDA advises interpreting readings with symptoms; concerns about performance across skin pigmentation reinforce the need for clinical assessment.",
+              "source": "fda"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "procedure:oxygen-administration",
+        "procedure:pulse-oximetry",
+        "reference:focused-respiratory-assessment"
+      ]
+    },
+    {
+      "id": "oxygenation-versus-ventilation",
+      "title": "Oxygenation versus ventilation",
+      "subtitle": "Why saturation, carbon dioxide and breathing effort differ",
+      "family": "OxygenSupport",
+      "sections": [
+        {
+          "title": "Separate the processes",
+          "bullets": [
+            {
+              "text": "Ventilation is movement of air into and out of the lungs. Oxygenation also depends on gas reaching the alveoli, transfer into blood, hemoglobin carrying oxygen and circulation delivering it to tissues. An abnormality in one part of this pathway cannot be understood from a single number.",
+              "source": "oxygen"
+            }
+          ]
+        },
+        {
+          "title": "Know what the measurements describe",
+          "bullets": [
+            {
+              "text": "SpO2 estimates hemoglobin oxygen saturation. PaO2 describes oxygen dissolved in arterial blood; PaCO2 reflects carbon dioxide in that blood. These measurements answer different questions.",
+              "source": "oxygen"
+            },
+            {
+              "text": "An arterial blood gas adds pH and bicarbonate context to oxygen and carbon dioxide results. Interpret them together with the respiratory examination and the support in use, using the facility’s reported ranges.",
+              "source": "oxygen"
+            }
+          ]
+        },
+        {
+          "title": "Recognize carbon dioxide retention",
+          "bullets": [
+            {
+              "text": "Hypercapnia can accompany inadequate ventilation. Headache, confusion, dyspnea and drowsiness may accompany respiratory deterioration; gradual carbon dioxide retention may produce less obvious symptoms.",
+              "source": "oxygen"
+            },
+            {
+              "text": "BiPAP or invasive ventilation may be required when a person cannot ventilate adequately. Support choice and settings require clinician and respiratory-therapy assessment; this reference does not set treatment targets.",
+              "source": "oxygen"
+            }
+          ]
+        },
+        {
+          "title": "Look beyond an oxygen reading",
+          "bullets": [
+            {
+              "text": "A pulse oximeter does not provide a blood carbon dioxide measurement. A reassuring displayed saturation cannot substitute for assessing breathing and alertness. Symptoms that are serious or worsening require clinical assessment.",
+              "source": "fda"
+            }
+          ]
+        },
+        {
+          "title": "Describe the trend clearly",
+          "bullets": [
+            {
+              "text": "A useful respiratory reassessment records the oxygen device, settings, respiratory rate and pattern, accessory muscle use, ability to speak, mental status and response to interventions. Changes over time help the team recognize deterioration and evaluate support.",
+              "source": "oxygen"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "lab:abg",
+        "lab:capnography-etco2",
+        "reference:abg-algorithm"
+      ]
+    },
+    {
+      "id": "high-flow-nasal-cannula-monitoring",
+      "title": "High-flow nasal cannula: monitoring",
+      "subtitle": "Heated humidification, support requirements and patient response",
+      "family": "OxygenSupport",
+      "sections": [
+        {
+          "title": "Understand the system",
+          "bullets": [
+            {
+              "text": "High-flow nasal cannula delivers heated, humidified oxygen through a dedicated system. It can provide higher flows and controlled oxygen concentrations than a conventional nasal cannula. It is used for patients needing close respiratory observation.",
+              "source": "oxygen"
+            },
+            {
+              "text": "Respiratory therapists establish the system and collaborate with nursing on ongoing care. Device assembly, prescribed flow and oxygen concentration belong to the care plan and manufacturer instructions.",
+              "source": "oxygen"
+            }
+          ]
+        },
+        {
+          "title": "Read both settings",
+          "bullets": [
+            {
+              "text": "Record flow and oxygen concentration separately. A flow value alone does not describe the oxygen concentration, and the concentration alone does not describe the flow delivered. Compare the current support with the prescribed plan.",
+              "source": "oxygen"
+            }
+          ]
+        },
+        {
+          "title": "Check delivery and tolerance",
+          "bullets": [
+            {
+              "text": "Inspect the cannula position and the supply tubing for disconnection, kinking or pressure on the skin. Assess nasal discomfort, dryness and tolerance; heated humidification is an integral part of this system.",
+              "source": "oxygen"
+            }
+          ]
+        },
+        {
+          "title": "Follow the work of breathing",
+          "bullets": [
+            {
+              "text": "Observe rate and depth, accessory muscle use, chest movement, ability to speak and mental status. Ask about breathlessness and compare with prior assessments. A rising oxygen requirement or worsening examination requires prompt review by the team.",
+              "source": "oxygen"
+            }
+          ]
+        },
+        {
+          "title": "Use oxygen saturation in context",
+          "bullets": [
+            {
+              "text": "Keep symptoms and examination findings alongside the displayed saturation. FDA warns against relying on an oximeter alone and recognizes concerns about accuracy across skin pigmentation. Escalate serious or worsening symptoms.",
+              "source": "fda"
+            }
+          ]
+        },
+        {
+          "title": "Close the reassessment loop",
+          "bullets": [
+            {
+              "text": "Document the interface, support settings, oxygenation and respiratory findings before and after changes. Include comfort, skin condition and the response communicated to the provider or respiratory therapist.",
+              "source": "oxygen"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "reference:oxygen-device-bedside-checks",
+        "diagnosis:ards",
+        "reference:oxygenation-versus-ventilation"
+      ]
+    },
+    {
+      "id": "noninvasive-ventilation-bedside-assessment",
+      "title": "Noninvasive ventilation: bedside assessment",
+      "subtitle": "CPAP, bilevel support, mask tolerance and reassessment",
+      "family": "OxygenSupport",
+      "sections": [
+        {
+          "title": "Distinguish the support",
+          "bullets": [
+            {
+              "text": "CPAP maintains continuous positive airway pressure. Bilevel support uses different inspiratory and expiratory pressure levels. Both use an interface rather than an endotracheal tube; their settings are prescribed and managed with the respiratory team.",
+              "source": "oxygen"
+            }
+          ]
+        },
+        {
+          "title": "Watch the person and interface",
+          "bullets": [
+            {
+              "text": "Observe alertness, respiratory effort and ability to tolerate the mask. Explain the purpose of support and seek a comfortable fit. Ongoing respiratory assessment is essential rather than assuming that placement of the mask has corrected the problem.",
+              "source": "oxygen"
+            }
+          ]
+        },
+        {
+          "title": "Check fit and skin",
+          "bullets": [
+            {
+              "text": "AARC recommends assessing skin around noninvasive interfaces and suggests reviewing the dressing and humidification. Report pressure injury, excessive leak and poor tolerance to the respiratory team.",
+              "source": "pva_cpg"
+            }
+          ]
+        },
+        {
+          "title": "Support communication and intake",
+          "bullets": [
+            {
+              "text": "A person using a face mask may be able to speak and swallow, but eating and drinking depend on the healthcare team’s plan. Mask breaks and nutrition need coordination with respiratory support; do not assume that mask ventilation makes oral intake safe.",
+              "source": "vent"
+            }
+          ]
+        },
+        {
+          "title": "Recognize insufficient support",
+          "bullets": [
+            {
+              "text": "Noninvasive support may be insufficient in more severe illness, requiring a breathing tube and invasive ventilation. Continued difficulty breathing warrants reassessment of the person and the treatment plan, not simply reassurance that a mask is in place.",
+              "source": "vent"
+            }
+          ]
+        },
+        {
+          "title": "Record response and concerns",
+          "bullets": [
+            {
+              "text": "Document the prescribed support, respiratory rate and effort, oxygenation response and tolerance. Include skin findings and communication with the team about deterioration or difficulty sustaining the interface.",
+              "source": "oxygen"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "reference:cpap-daily-support",
+        "reference:oxygenation-versus-ventilation",
+        "reference:high-flow-nasal-cannula-monitoring"
+      ]
+    },
+    {
+      "id": "ventilator-bedside-assessment",
+      "title": "Ventilator bedside assessment",
+      "subtitle": "Patient, airway, support settings and ongoing care",
+      "family": "VentilatorDepth",
+      "sections": [
+        {
+          "title": "Start with the patient",
+          "bullets": [
+            {
+              "text": "Nurses, respiratory therapists and clinicians assess the person receiving ventilation together. Respiratory examination, blood gases and imaging help evaluate how well support is working and whether the breathing tube remains appropriately positioned.",
+              "source": "vent"
+            }
+          ]
+        },
+        {
+          "title": "Review lung-protective support",
+          "bullets": [
+            {
+              "text": "AARC recommends assessment of tidal volume, plateau pressure, PEEP and auto-PEEP, with tidal volume documented relative to predicted body weight. Driving pressure and oxygen concentration also warrant review. These checks inform the respiratory team’s prescribed settings.",
+              "source": "pva_cpg"
+            }
+          ]
+        },
+        {
+          "title": "Check airway and interface",
+          "bullets": [
+            {
+              "text": "The assessment includes airway position and securement, skin condition, humidification and cuff pressure measured with a manometer. An inflated pilot balloon alone does not measure cuff pressure.",
+              "source": "pva_cpg"
+            }
+          ]
+        },
+        {
+          "title": "Observe synchrony",
+          "bullets": [
+            {
+              "text": "Look at the patient and the ventilator at the same time. Discomfort, coughing, visible respiratory effort and pressure or flow changes can suggest mismatch between patient effort and delivered breaths. The displayed respiratory rate may miss ineffective efforts.",
+              "source": "pva"
+            }
+          ]
+        },
+        {
+          "title": "Include daily care",
+          "bullets": [
+            {
+              "text": "An endotracheal tube limits speech and oral intake. Communication aids, pain and comfort assessment, nutrition support and secretion management remain part of care. Explain procedures even when the person cannot answer aloud.",
+              "source": "vent"
+            }
+          ]
+        },
+        {
+          "title": "Track complications",
+          "bullets": [
+            {
+              "text": "Ventilator support carries risks including pneumonia, lung injury, pneumothorax, immobility-related skin injury and respiratory muscle weakness. New distress, changing oxygen needs or signs of infection deserve timely team evaluation; a routine equipment check cannot exclude these problems.",
+              "source": "risks"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "reference:mechanical-ventilation-basics",
+        "reference:mechanical-ventilation-modes-selection",
+        "reference:patient-ventilator-asynchrony-recognition"
+      ]
+    },
+    {
+      "id": "ventilator-waveform-observation",
+      "title": "Ventilator waveforms: observation",
+      "subtitle": "Recognizing timing changes in pressure and flow",
+      "family": "VentilatorDepth",
+      "sections": [
+        {
+          "title": "Observe two things together",
+          "bullets": [
+            {
+              "text": "Pressure and flow curves are most useful when watched alongside the patient’s effort. Note which part of the breathing cycle contains a change: the start of inspiration, continued inspiratory flow, transition to expiration or the expiratory period.",
+              "source": "pva"
+            },
+            {
+              "text": "A pattern can have more than one explanation. Interpretation requires training, the ventilator mode and the clinical context; this guide describes observations to communicate rather than automated waveform diagnosis.",
+              "source": "pva"
+            }
+          ]
+        },
+        {
+          "title": "Look for a delayed or missed breath",
+          "bullets": [
+            {
+              "text": "A negative pressure deflection can reflect an inspiratory effort. A delay before delivered flow suggests trigger delay; an effort without a delivered breath can indicate ineffective triggering. Small expiratory-flow deflections may accompany these efforts.",
+              "source": "pva"
+            }
+          ]
+        },
+        {
+          "title": "Look for extra machine breaths",
+          "bullets": [
+            {
+              "text": "Autotriggering means a delivered breath is not initiated by the patient’s inspiratory effort. Leaks, circuit water or cardiac oscillations can contribute. Comparing chest or abdominal movement with the screen helps identify a possible mismatch.",
+              "source": "pva"
+            }
+          ]
+        },
+        {
+          "title": "Recognize breath stacking",
+          "bullets": [
+            {
+              "text": "Two consecutive machine breaths with little intervening expiration can represent double triggering. In some patients the first machine breath triggers a subsequent patient effort, termed reverse triggering. These mechanisms require expert differentiation because their management differs.",
+              "source": "pva"
+            }
+          ]
+        },
+        {
+          "title": "Notice the end of inspiration",
+          "bullets": [
+            {
+              "text": "Premature cycling ends machine inspiration while the patient is still trying to inhale. Delayed cycling continues machine inspiration after the patient wants to exhale. Both can produce discomfort and characteristic pressure or flow distortions.",
+              "source": "pva"
+            }
+          ]
+        },
+        {
+          "title": "Communicate without guessing settings",
+          "bullets": [
+            {
+              "text": "Describe the timing, recurrence, patient effort and ventilator mode to the respiratory therapist or clinician. Treatment depends on the cause; changing sedation or ventilator settings without identifying that cause can miss the actual mismatch.",
+              "source": "pva"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "reference:patient-ventilator-asynchrony-recognition",
+        "reference:auto-peep-and-ineffective-triggering",
+        "reference:mechanical-ventilation-modes-selection"
+      ]
+    },
+    {
+      "id": "patient-ventilator-asynchrony-recognition",
+      "title": "Patient–ventilator asynchrony",
+      "subtitle": "Trigger, cycling and flow mismatch at the bedside",
+      "family": "VentilatorDepth",
+      "sections": [
+        {
+          "title": "Define the mismatch",
+          "bullets": [
+            {
+              "text": "Asynchrony occurs when the timing or amount of ventilator assistance does not match the patient’s respiratory demand. It can increase discomfort and wasted breathing effort and is associated with prolonged ventilation. A narrative review describes mechanisms; it is not a stand-alone treatment protocol.",
+              "source": "pva"
+            }
+          ]
+        },
+        {
+          "title": "Assess comfort and effort",
+          "bullets": [
+            {
+              "text": "Ask an awake person whether breaths arrive when needed and whether a breath feels too short, too long or insufficient. Observe anxiety, pain, coughing, tachypnea and chest or abdominal movement while reviewing pressure and flow curves.",
+              "source": "pva"
+            }
+          ]
+        },
+        {
+          "title": "Consider trigger problems",
+          "bullets": [
+            {
+              "text": "A weak effort, an insensitive trigger or intrinsic PEEP can prevent an intended breath from triggering the ventilator. Conversely, a leak or circuit disturbance can generate a machine breath without a true patient effort. These are different problems despite an apparently abnormal respiratory rate.",
+              "source": "pva"
+            }
+          ]
+        },
+        {
+          "title": "Consider cycling and flow",
+          "bullets": [
+            {
+              "text": "Early or late cycling creates a mismatch at the transition from inspiration to expiration. Flow starvation means delivered inspiratory flow is below demand; flow overshoot provides flow too rapidly. Visible discomfort and waveform changes help direct expert assessment.",
+              "source": "pva"
+            }
+          ]
+        },
+        {
+          "title": "Recognize high-risk patterns",
+          "bullets": [
+            {
+              "text": "Double triggering and breath stacking can increase the delivered volume before adequate expiration. Reverse triggering may occur during deep sedation and controlled ventilation. Deeper sedation is not a universal answer to a mismatch.",
+              "source": "pva"
+            }
+          ]
+        },
+        {
+          "title": "Reassess after the team responds",
+          "bullets": [
+            {
+              "text": "The clinician and respiratory therapist address the identified mechanism, which may involve the patient’s condition, circuit or support settings. Reassess comfort, effort and waveform patterns afterward; report persisting or recurrent mismatch.",
+              "source": "pva"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "reference:ventilator-waveform-observation",
+        "reference:ventilator-bedside-assessment",
+        "reference:rass-scale"
+      ]
+    },
+    {
+      "id": "auto-peep-and-ineffective-triggering",
+      "title": "Auto-PEEP and ineffective triggering",
+      "subtitle": "Air trapping, missed efforts and assessment boundaries",
+      "family": "VentilatorDepth",
+      "sections": [
+        {
+          "title": "Understand intrinsic pressure",
+          "bullets": [
+            {
+              "text": "Dynamic hyperinflation can create intrinsic positive end-expiratory pressure, also called auto-PEEP. It can occur with obstructive disease such as COPD or asthma and when there is inadequate time for expiration. This pressure adds to the workload of initiating the next breath.",
+              "source": "pva"
+            }
+          ]
+        },
+        {
+          "title": "Connect pressure to a missed breath",
+          "bullets": [
+            {
+              "text": "The patient must overcome both intrinsic pressure and the ventilator’s trigger requirement. An inspiratory effort may therefore be delayed or fail to produce a delivered breath. A machine rate can underestimate the total number of patient efforts.",
+              "source": "pva"
+            }
+          ]
+        },
+        {
+          "title": "Look for relevant observations",
+          "bullets": [
+            {
+              "text": "Watch for patient effort without a matching machine breath, small negative pressure changes and deflections in expiratory flow. Compare the bedside examination with the ventilator screen. A single curve does not establish the cause of difficult triggering.",
+              "source": "pva"
+            }
+          ]
+        },
+        {
+          "title": "Know other explanations",
+          "bullets": [
+            {
+              "text": "Ineffective triggering can also reflect weak respiratory muscles, over-assistance or a trigger that requires excessive effort. Leaks may contribute to delayed triggering. These alternatives matter because the appropriate adjustment is mechanism dependent.",
+              "source": "pva"
+            }
+          ]
+        },
+        {
+          "title": "Bring findings to the respiratory team",
+          "bullets": [
+            {
+              "text": "AARC recommends assessing both set PEEP and auto-PEEP. Interpret these measurements with the respiratory therapist or clinician; observed difficulty triggering does not determine an appropriate PEEP adjustment by itself.",
+              "source": "pva_cpg"
+            }
+          ]
+        },
+        {
+          "title": "Avoid a single-setting solution",
+          "bullets": [
+            {
+              "text": "Management depends on obstruction, expiratory time, respiratory drive, assistance and muscle function. This reference does not prescribe changes to PEEP, respiratory rate, sedation or bronchodilator therapy; use the responsible team’s assessment and orders.",
+              "source": "pva"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "diagnosis:copd",
+        "reference:ventilator-waveform-observation",
+        "reference:patient-ventilator-asynchrony-recognition"
+      ]
+    },
+    {
+      "id": "artificial-airway-secretion-assessment",
+      "title": "Artificial airway: secretion assessment",
+      "subtitle": "Indications, tolerance and reassessment around suctioning",
+      "family": "AirwayCare",
+      "sections": [
+        {
+          "title": "Establish why suction is needed",
+          "bullets": [
+            {
+              "text": "Assess visible or audible secretions, cough effectiveness, respiratory effort, breath sounds and oxygenation. A baseline assessment makes it possible to judge whether secretion removal helps rather than documenting only that suction was performed.",
+              "source": "trach"
+            }
+          ]
+        },
+        {
+          "title": "Identify relevant airway findings",
+          "bullets": [
+            {
+              "text": "AARC identifies visible secretions, breath sounds and a sawtooth ventilator waveform as indicators for suctioning in adults with an artificial airway. Use clinical findings to guide assessment of need.",
+              "source": "suction"
+            }
+          ]
+        },
+        {
+          "title": "Plan for safe technique",
+          "bullets": [
+            {
+              "text": "Adult artificial-airway suctioning includes preoxygenation and attention to the prescribed technique. Routine saline instillation is generally avoided. Open suction requires sterile technique; deep suction is reserved for situations where shallow suction is ineffective.",
+              "source": "suction"
+            }
+          ]
+        },
+        {
+          "title": "Watch tolerance during the procedure",
+          "bullets": [
+            {
+              "text": "Monitor oxygenation, pulse, rhythm when available, breathing pattern, discomfort and bleeding. Worsening respiratory distress during suctioning requires stopping the procedure and obtaining emergency help according to the local response process.",
+              "source": "trach"
+            }
+          ]
+        },
+        {
+          "title": "Judge the outcome",
+          "bullets": [
+            {
+              "text": "Reassess air movement, breath sounds, work of breathing and secretion clearance. Lung sounds may not become completely clear; the clinically relevant question is whether airway patency and the patient’s response improved.",
+              "source": "trach"
+            }
+          ]
+        },
+        {
+          "title": "Document useful detail",
+          "bullets": [
+            {
+              "text": "Include the indication, secretion amount and character, pre- and post-procedure findings, tolerance and any adverse response. New bleeding, persistent distress or failure to clear secretions warrants communication with the responsible team.",
+              "source": "trach"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "procedure:tracheal-suctioning",
+        "procedure:oral-suctioning",
+        "reference:tracheostomy-bedside-safety-checks"
+      ]
+    },
+    {
+      "id": "tracheostomy-bedside-safety-checks",
+      "title": "Tracheostomy: bedside safety checks",
+      "subtitle": "Tube components, patency, skin and communication",
+      "family": "AirwayCare",
+      "sections": [
+        {
+          "title": "Identify the airway in use",
+          "bullets": [
+            {
+              "text": "Know whether the tube is cuffed or uncuffed and whether it has an inner cannula. The outer tube maintains the airway; an inner cannula may be disposable or reusable. The obturator guides insertion and is removed afterward so the tube is open.",
+              "source": "trach"
+            },
+            {
+              "text": "Tube design and the person’s airway plan matter. A general care guide cannot supply instructions for changing or replacing every tracheostomy tube.",
+              "source": "trach"
+            }
+          ]
+        },
+        {
+          "title": "Maintain a clear inner cannula",
+          "bullets": [
+            {
+              "text": "Secretions can obstruct an inner cannula. Follow the manufacturer and facility instructions for inspection, cleaning or replacement; disposable and reusable components are not managed interchangeably. Assess secretion amount, thickness and cough effectiveness.",
+              "source": "trach"
+            }
+          ]
+        },
+        {
+          "title": "Inspect the stoma and securement",
+          "bullets": [
+            {
+              "text": "Observe the surrounding skin for redness, tenderness, drainage and moisture. Keep the prescribed dressing clean and change wet or soiled dressings according to policy. Provide securement support during care to avoid unintended tube movement.",
+              "source": "trach"
+            }
+          ]
+        },
+        {
+          "title": "Assess respiratory status",
+          "bullets": [
+            {
+              "text": "Compare work of breathing, breath sounds, oxygenation and secretion clearance with baseline. Airway obstruction and respiratory distress require immediate clinical assessment and the facility’s emergency response, rather than continuing routine care.",
+              "source": "trach"
+            }
+          ]
+        },
+        {
+          "title": "Support a way to communicate",
+          "bullets": [
+            {
+              "text": "Speech may be limited by the tracheostomy. Offer writing or other communication aids and allow time for responses. Voice-restoration devices and cuff changes require the speech-language and respiratory team’s individualized assessment.",
+              "source": "trach"
+            }
+          ]
+        },
+        {
+          "title": "Document the care and response",
+          "bullets": [
+            {
+              "text": "Record the condition of the stoma, dressing and inner cannula, secretions, respiratory findings and tolerance. Report new skin inflammation, bleeding, worsening breathing or concern about tube position. This guide does not authorize blind reinsertion of a displaced tube.",
+              "source": "trach"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "procedure:tracheostomy-care",
+        "scenario:trach-emergency-scenario",
+        "reference:communication-when-speech-is-limited"
+      ]
+    },
+    {
+      "id": "ventilator-liberation-observation",
+      "title": "Ventilator liberation: nursing observations",
+      "subtitle": "Readiness, breathing-trial tolerance and extubation planning",
+      "family": "VentilatorDepth",
+      "sections": [
+        {
+          "title": "Understand a trial of less support",
+          "bullets": [
+            {
+              "text": "As the condition requiring ventilation improves, the team assesses whether the person can breathe with less assistance. A weaning trial may succeed or may need to be repeated later. Readiness changes with recovery; a prior unsuccessful trial is not a permanent outcome.",
+              "source": "vent"
+            }
+          ]
+        },
+        {
+          "title": "Know the readiness assessment",
+          "bullets": [
+            {
+              "text": "SBT readiness includes improvement in the cause of respiratory failure, adequate oxygenation, hemodynamic stability and ability to initiate an inspiratory effort. AARC suggests that an RSBI calculation is not required to determine readiness.",
+              "source": "sbt"
+            }
+          ]
+        },
+        {
+          "title": "Clarify the trial plan",
+          "bullets": [
+            {
+              "text": "AARC supports a standardized daily approach. Trials may use or omit pressure support; oxygen concentration should not be increased simply for the trial. Follow the prescribed trial and local stopping criteria, with the respiratory therapist and responsible clinician.",
+              "source": "sbt"
+            }
+          ]
+        },
+        {
+          "title": "Observe breathing and response",
+          "bullets": [
+            {
+              "text": "Track respiratory rate and effort, chest movement, accessory muscle use, alertness, discomfort and oxygenation. Record the support in use with those observations; a saturation value without device context gives an incomplete description of respiratory status.",
+              "source": "oxygen"
+            }
+          ]
+        },
+        {
+          "title": "Separate trial success from tube removal",
+          "bullets": [
+            {
+              "text": "Passing an SBT does not establish extubation readiness. Weak cough or substantial secretions can prevent safe tube removal despite adequate spontaneous breathing. The team separately evaluates airway protection and secretion management.",
+              "source": "sbt"
+            }
+          ]
+        },
+        {
+          "title": "Prepare ongoing observation",
+          "bullets": [
+            {
+              "text": "After the team removes the endotracheal tube, a sore throat or hoarse voice may occur. Continue reassessment and the prescribed recovery plan; tube removal does not end the need for respiratory observation.",
+              "source": "vent"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "procedure:spontaneous-breathing-trial",
+        "reference:artificial-airway-secretion-assessment",
+        "reference:post-extubation-observation"
+      ]
+    },
+    {
+      "id": "post-extubation-observation",
+      "title": "After extubation: bedside observation",
+      "subtitle": "Breathing, voice, comfort and ongoing recovery",
+      "family": "AirwayCare",
+      "sections": [
+        {
+          "title": "Keep respiratory assessment active",
+          "bullets": [
+            {
+              "text": "Observe breathing rate and depth, chest movement, effort, oxygenation and alertness. Compare findings with the prior assessment and record any oxygen device and settings. A change in mental status or increasing effort can be important even before a marked saturation change.",
+              "source": "oxygen"
+            }
+          ]
+        },
+        {
+          "title": "Distinguish discomfort from deterioration",
+          "bullets": [
+            {
+              "text": "Sore throat and hoarseness can occur after removal of an endotracheal tube. These symptoms should be assessed and communicated, rather than assuming that every change in voice or breathing is an expected recovery symptom.",
+              "source": "vent"
+            }
+          ]
+        },
+        {
+          "title": "Report concerning airway symptoms",
+          "bullets": [
+            {
+              "text": "Endotracheal tubes can injure the vocal cords. NHLBI advises reporting difficulty breathing or talking and a hoarse voice after tube removal. New or worsening respiratory difficulty requires prompt clinical assessment.",
+              "source": "risks"
+            }
+          ]
+        },
+        {
+          "title": "Reassess the oxygen pathway",
+          "bullets": [
+            {
+              "text": "If oxygen is prescribed, confirm the correct interface, flow or concentration and functioning supply. Check tubing and skin contact points. Document the person’s response alongside the settings; oxygen delivery is one part of the respiratory assessment.",
+              "source": "oxygen"
+            }
+          ]
+        },
+        {
+          "title": "Keep recovery needs visible",
+          "bullets": [
+            {
+              "text": "Ventilator-associated immobility can contribute to weakness and skin injury, and respiratory muscles can become weak during support. Include strength, mobility and skin concerns in ongoing care planning with the team.",
+              "source": "risks"
+            }
+          ]
+        },
+        {
+          "title": "Communicate the change in status",
+          "bullets": [
+            {
+              "text": "Report new breathlessness, increasing accessory muscle use, reduced ability to speak, agitation, confusion or worsening oxygenation. Document when the findings appeared, the support in use and the response to assessment or interventions.",
+              "source": "oxygen"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "reference:ventilator-liberation-observation",
+        "reference:oxygen-device-bedside-checks",
+        "reference:focused-respiratory-assessment"
+      ]
+    },
+    {
+      "id": "telemetry-signal-quality",
+      "title": "Telemetry: signal quality and artifact",
+      "subtitle": "Electrode contact, clinical correlation and readable recordings",
+      "family": "RhythmMonitoring",
+      "sections": [
+        {
+          "title": "Know what telemetry provides",
+          "bullets": [
+            {
+              "text": "Telemetry transmits a continuous electrical recording for remote monitoring. It can support recognition of rhythm changes, but the display must be interpreted by trained staff with the person’s clinical condition. An automated rhythm label is not a complete assessment.",
+              "source": "ecg"
+            }
+          ]
+        },
+        {
+          "title": "Recognize a possible artifact",
+          "bullets": [
+            {
+              "text": "Movement, muscle activity and poor electrode contact can introduce artifact that resembles abnormal electrical activity. Compare the tracing with the person and review whether activity or electrode disruption occurred when the pattern changed.",
+              "source": "ecg"
+            }
+          ]
+        },
+        {
+          "title": "Assess the person before explaining the screen",
+          "bullets": [
+            {
+              "text": "Assess the patient and pulse when an unexpected rhythm appears. Electrical activity on a monitor does not by itself demonstrate adequate perfusion. A person who is unresponsive or deteriorating needs immediate clinical response rather than prolonged troubleshooting of electrodes.",
+              "source": "ecg"
+            }
+          ]
+        },
+        {
+          "title": "Restore a readable signal",
+          "bullets": [
+            {
+              "text": "Inspect electrode contact and lead connections when the recording is unclear. Correct signal problems according to the monitoring system and facility procedure, then reassess the tracing. Do not dismiss a persistent abnormality solely because artifact was initially suspected.",
+              "source": "ecg"
+            }
+          ]
+        },
+        {
+          "title": "Use a systematic rhythm review",
+          "bullets": [
+            {
+              "text": "Once the tracing is readable, review rate, regularity, P waves, the relationship between P waves and QRS complexes, and measured intervals. Describe the observed features instead of relying only on the monitor’s diagnostic label.",
+              "source": "ecg"
+            }
+          ]
+        },
+        {
+          "title": "Preserve clinical context",
+          "bullets": [
+            {
+              "text": "Record whether a rhythm change coincided with palpitations, dyspnea, dizziness, fainting, chest discomfort or fatigue. Some arrhythmias cause no symptoms; absence of symptoms does not prove that the recording is normal.",
+              "source": "arr_symptoms"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "procedure:twelve-lead-ecg",
+        "reference:ecg-rate-and-interval-review",
+        "reference:rhythm-change-bedside-assessment"
+      ]
+    },
+    {
+      "id": "ecg-rate-and-interval-review",
+      "title": "ECG: rate, regularity and intervals",
+      "subtitle": "A consistent adult rhythm-review sequence",
+      "family": "RhythmMonitoring",
+      "sections": [
+        {
+          "title": "Establish rate and regularity",
+          "bullets": [
+            {
+              "text": "Review the spacing between successive R waves across the available tracing. A six-second strip can estimate ventricular rate by counting QRS complexes and multiplying by ten; a brief sample may not represent a highly variable rhythm. Atrial and ventricular rates may differ.",
+              "source": "ecg"
+            }
+          ]
+        },
+        {
+          "title": "Review atrial activity",
+          "bullets": [
+            {
+              "text": "Identify P waves when visible, compare their shape and spacing, and assess their relationship to QRS complexes. Look for P waves without a following QRS or QRS complexes without an identifiable preceding P wave. Record the observation before assigning a rhythm name.",
+              "source": "ecg"
+            }
+          ]
+        },
+        {
+          "title": "Measure conduction intervals",
+          "bullets": [
+            {
+              "text": "Measure the PR interval from the beginning of the P wave to the beginning of the QRS complex. Measure QRS duration across the ventricular complex. Comparing these measurements and their consistency helps characterize atrioventricular conduction and ventricular activation.",
+              "source": "ecg"
+            }
+          ]
+        },
+        {
+          "title": "Keep QRS width in context",
+          "bullets": [
+            {
+              "text": "A wide QRS can occur with ventricular rhythms or altered conduction such as bundle branch block. Electrolyte changes can also affect the tracing. Width alone does not identify the rhythm or determine its treatment.",
+              "source": "ecg"
+            }
+          ]
+        },
+        {
+          "title": "Review repolarization",
+          "bullets": [
+            {
+              "text": "The QT interval runs from the beginning of the QRS to the end of the T wave and varies with heart rate. A corrected QT accounts for rate; use a consistent measurement method and clinical interpretation rather than treating every displayed QT value as directly comparable.",
+              "source": "ecg"
+            }
+          ]
+        },
+        {
+          "title": "Connect the tracing to the patient",
+          "bullets": [
+            {
+              "text": "Interpret the rate, atrial activity, QRS and intervals together with symptoms and perfusion. A systematic rhythm review supports communication, but bedside instability requires immediate assessment regardless of whether a precise rhythm label has been established.",
+              "source": "ecg"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "reference:ecg-12-lead-basics",
+        "reference:av-blocks-reference",
+        "reference:qt-interval-monitoring-context"
+      ]
+    },
+    {
+      "id": "rhythm-change-bedside-assessment",
+      "title": "Rhythm change: bedside assessment",
+      "subtitle": "Symptoms, timing, pulse and diagnostic context",
+      "family": "RhythmMonitoring",
+      "sections": [
+        {
+          "title": "Ask about the experience",
+          "bullets": [
+            {
+              "text": "Arrhythmias may cause a racing, fluttering, pounding or skipped-beat sensation, but some cause no noticeable symptoms. Ask what the person felt, when it began and whether it is ongoing or intermittent.",
+              "source": "arr_symptoms"
+            }
+          ]
+        },
+        {
+          "title": "Look for accompanying symptoms",
+          "bullets": [
+            {
+              "text": "Chest discomfort, shortness of breath, dizziness, fainting, weakness, fatigue or confusion can accompany an arrhythmia. Serious symptoms require urgent clinical evaluation; symptom severity and change from baseline matter alongside the displayed rate.",
+              "source": "arr_symptoms"
+            }
+          ]
+        },
+        {
+          "title": "Assess pulse and cardiovascular findings",
+          "bullets": [
+            {
+              "text": "The clinical evaluation includes pulse, heart rate and rhythm, heart sounds and examination for other conditions that may contribute. Communicate the findings with the time of the tracing rather than sending a rhythm name without patient context.",
+              "source": "arr_tests"
+            }
+          ]
+        },
+        {
+          "title": "Confirm electrical information",
+          "bullets": [
+            {
+              "text": "Check that electrodes and leads provide a readable signal. Compare the monitor with bedside findings, then review rate, regularity, P waves and QRS relationships systematically. Artifact and a true rhythm disturbance can both require attention.",
+              "source": "ecg"
+            }
+          ]
+        },
+        {
+          "title": "Understand the ordered workup",
+          "bullets": [
+            {
+              "text": "An ECG is a common diagnostic test. Blood tests may assess electrolytes and thyroid function. When symptoms are intermittent, a Holter or other event monitor may help capture an episode that a brief resting ECG misses.",
+              "source": "arr_tests"
+            }
+          ]
+        },
+        {
+          "title": "Make the handoff useful",
+          "bullets": [
+            {
+              "text": "Describe onset, duration, recurring symptoms and whether episodes occur with activity or at rest. Include associated fainting, chest symptoms or breathlessness. A report that the patient feels well should accompany, rather than replace, the objective findings.",
+              "source": "arr_symptoms"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "reference:telemetry-signal-quality",
+        "reference:ecg-rate-and-interval-review",
+        "diagnosis:atrial-fibrillation"
+      ]
+    },
+    {
+      "id": "qt-interval-monitoring-context",
+      "title": "QT interval: monitoring context",
+      "subtitle": "Rate correction, medicines, electrolytes and symptom history",
+      "family": "RhythmMonitoring",
+      "sections": [
+        {
+          "title": "Understand the measurement",
+          "bullets": [
+            {
+              "text": "The QT interval includes ventricular depolarization and repolarization, measured from the start of the QRS to the end of the T wave. Its duration changes with heart rate; QTc is a rate-corrected value. Interpretation requires the tracing and clinical context.",
+              "source": "ecg"
+            }
+          ]
+        },
+        {
+          "title": "Distinguish a finding from a diagnosis",
+          "bullets": [
+            {
+              "text": "Long QT syndrome can be inherited or acquired. Diagnosis considers history, medicines, family history, symptoms and electrical testing. A single displayed number does not substitute for that evaluation, and QT measurements can vary over time.",
+              "source": "qt"
+            }
+          ]
+        },
+        {
+          "title": "Review relevant exposures and conditions",
+          "bullets": [
+            {
+              "text": "Some antibiotics, antidepressants and antihistamines can affect cardiac ion channels. Conditions associated with low potassium, magnesium or calcium, including substantial vomiting or diarrhea, can increase long-QT risk. Review the medication list and ordered laboratory results with the responsible team.",
+              "source": "qt"
+            }
+          ]
+        },
+        {
+          "title": "Ask about relevant history",
+          "bullets": [
+            {
+              "text": "Fainting, seizures, unexplained near drowning or a family history of sudden death can be clinically relevant. Events may occur with physical or emotional stress or during sleep. These details support evaluation even if the current person has no symptoms.",
+              "source": "qt"
+            }
+          ]
+        },
+        {
+          "title": "Understand follow-up testing",
+          "bullets": [
+            {
+              "text": "Evaluation may include repeated ECGs, ambulatory monitoring, electrolyte and thyroid testing, and genetic testing when indicated. The choice depends on the clinician’s assessment; this guide does not define a universal QT cutoff or a replacement schedule for electrolytes.",
+              "source": "qt"
+            }
+          ]
+        },
+        {
+          "title": "Keep treatment decisions individualized",
+          "bullets": [
+            {
+              "text": "Treatment may involve medicines, activity advice, a device or other interventions according to the underlying condition. Communicate potential medicine or electrolyte concerns promptly; do not independently stop prescribed therapy or infer a treatment from QT duration alone.",
+              "source": "qt"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "reference:ecg-rate-and-interval-review",
+        "lab:potassium",
+        "lab:magnesium"
+      ]
+    },
+    {
+      "id": "adult-cpr-quality-review",
+      "title": "Adult CPR: quality review",
+      "subtitle": "Recognition, compressions, ventilation and reassessment",
+      "family": "ResuscitationDepth",
+      "sections": [
+        {
+          "title": "Recognize and activate",
+          "bullets": [
+            {
+              "text": "For an unresponsive adult with absent or abnormal breathing, a healthcare professional checks for a definite pulse for no more than ten seconds. Suspected arrest requires activation of the emergency response and prompt CPR and defibrillator access.",
+              "source": "bls"
+            }
+          ]
+        },
+        {
+          "title": "Review compression quality",
+          "bullets": [
+            {
+              "text": "Adult compression quality includes a rate of 100–120/min, depth of at least 5 cm while avoiding more than 6 cm, full recoil and minimal interruptions. Feedback and coordinated team roles can help maintain quality.",
+              "source": "bls"
+            }
+          ]
+        },
+        {
+          "title": "Avoid excessive ventilation",
+          "bullets": [
+            {
+              "text": "Ventilation should produce visible chest rise. Both insufficient ventilation and excessive ventilation can be harmful. Use the trained team’s airway technique and resuscitation protocol.",
+              "source": "bls"
+            }
+          ]
+        },
+        {
+          "title": "Coordinate the response",
+          "bullets": [
+            {
+              "text": "Timely defibrillation, brief pauses and effective communication support resuscitation. This adult educational review complements current training and the local code process; it does not replace an algorithm or cover pediatric resuscitation.",
+              "source": "bls"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "procedure:adult-bls",
+        "reference:code-blue-roles",
+        "reference:resuscitation-airway-capnography"
+      ]
+    },
+    {
+      "id": "resuscitation-airway-capnography",
+      "title": "Resuscitation airway and capnography",
+      "subtitle": "Airway confirmation, ventilation and interpretation limits",
+      "family": "ResuscitationDepth",
+      "sections": [
+        {
+          "title": "Protect compression delivery",
+          "bullets": [
+            {
+              "text": "Advanced airway placement should not create avoidable interruptions in compressions. If placement would interrupt CPR, AHA advises deferring it until initial CPR and defibrillation attempts or return of spontaneous circulation.",
+              "source": "als"
+            }
+          ]
+        },
+        {
+          "title": "Confirm and monitor the tube",
+          "bullets": [
+            {
+              "text": "Continuous waveform capnography, together with clinical assessment, is recommended to confirm and monitor endotracheal tube placement. A single clinical sign is insufficient.",
+              "source": "als"
+            }
+          ]
+        },
+        {
+          "title": "Coordinate breaths with compressions",
+          "bullets": [
+            {
+              "text": "With an advanced airway during adult CPR, one breath every six seconds may be reasonable while compressions continue. Coordinate ventilation with the resuscitation team and avoid excessive ventilation.",
+              "source": "als"
+            }
+          ]
+        },
+        {
+          "title": "Interpret carbon dioxide carefully",
+          "bullets": [
+            {
+              "text": "End-tidal carbon dioxide can inform physiologic assessment, but values depend on multiple factors. A low reading alone must not determine termination of resuscitation. For an intubated adult, any use of an ETCO2 criterion belongs within a multimodal clinical decision; no threshold should guide termination in a nonintubated adult.",
+              "source": "als"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "lab:capnography-etco2",
+        "procedure:intubation-assist",
+        "reference:adult-cpr-quality-review"
+      ]
+    },
+    {
+      "id": "post-arrest-assessment-priorities",
+      "title": "After cardiac arrest: assessment priorities",
+      "subtitle": "Organ support, temperature, neurologic evaluation and continuity",
+      "family": "ResuscitationDepth",
+      "sections": [
+        {
+          "title": "Reassess after circulation returns",
+          "bullets": [
+            {
+              "text": "Post-arrest care evaluates the cause and ongoing cardiovascular, respiratory and neurologic needs. ECG, echocardiography or CT may contribute according to the clinical situation. Continue documenting rhythm, perfusion and response to support.",
+              "source": "post"
+            }
+          ]
+        },
+        {
+          "title": "Follow prescribed organ-support targets",
+          "bullets": [
+            {
+              "text": "Oxygenation, ventilation and blood pressure require active management after return of circulation. AHA recommends avoiding hypotension and maintaining a mean arterial pressure of at least 65 mm Hg; patient-specific management remains with the treating team.",
+              "source": "post"
+            }
+          ]
+        },
+        {
+          "title": "Clarify temperature management",
+          "bullets": [
+            {
+              "text": "For adults who remain unresponsive to verbal commands after return of circulation, AHA recommends deliberate temperature control and considers a duration of at least 36 hours reasonable. Verify the ordered target and monitoring plan.",
+              "source": "post"
+            }
+          ]
+        },
+        {
+          "title": "Avoid premature neurologic conclusions",
+          "bullets": [
+            {
+              "text": "Seizure evaluation and EEG may be needed. Neurologic prognosis requires multimodal assessment with attention to timing and confounding factors; an early examination or single test should not determine prognosis.",
+              "source": "post"
+            }
+          ]
+        },
+        {
+          "title": "Prepare continuity of care",
+          "bullets": [
+            {
+              "text": "Survivors and caregivers need a plan before discharge for follow-up, medicines, the condition that contributed to arrest and any cardioverter device. Cardiac rehabilitation and emotional support can be part of recovery. Identify questions and barriers to discuss with the responsible team.",
+              "source": "recovery"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "reference:resuscitation-airway-capnography",
+        "reference:cardiac-arrest-recovery-support",
+        "reference:post-icu-recovery"
+      ]
+    },
+    {
+      "id": "cardiac-arrest-recovery-support",
+      "title": "Cardiac arrest recovery: nursing support",
+      "subtitle": "Follow-up, devices, rehabilitation and caregiver preparation",
+      "family": "ResuscitationDepth",
+      "sections": [
+        {
+          "title": "Plan with the survivor and caregiver",
+          "bullets": [
+            {
+              "text": "Recovery planning begins before discharge. Survivors remain at risk of another event and need a treatment plan addressing the condition that contributed to the arrest. Include the caregiver in discussions about support at home when the person agrees.",
+              "source": "recovery"
+            }
+          ]
+        },
+        {
+          "title": "Review treatment continuity",
+          "bullets": [
+            {
+              "text": "Explain the prescribed medicines and follow-up visits or blood tests. Encourage discussion of medication concerns with the treating team rather than skipped doses or independent changes. New or worsening symptoms between visits should be reported.",
+              "source": "recovery"
+            }
+          ]
+        },
+        {
+          "title": "Make device follow-up explicit",
+          "bullets": [
+            {
+              "text": "An implanted or wearable cardioverter helps protect against dangerous rhythms but does not remove the underlying condition. Review the device team’s follow-up, activity instructions and response plan for shocks. Other healthcare providers need to know about the device before procedures.",
+              "source": "recovery"
+            }
+          ]
+        },
+        {
+          "title": "Support graded recovery",
+          "bullets": [
+            {
+              "text": "Ask about the prescribed level of physical activity before an exercise program begins. Cardiac rehabilitation provides supervised activity and support; refer questions about readiness, symptoms or progression to the rehabilitation and treating teams.",
+              "source": "recovery"
+            }
+          ]
+        },
+        {
+          "title": "Include emotional health",
+          "bullets": [
+            {
+              "text": "Anxiety, depression and fear of a sudden device shock can complicate recovery. Invite discussion of these concerns and connect the person with the clinical team, counseling, peer support or family support according to their preferences.",
+              "source": "recovery"
+            }
+          ]
+        },
+        {
+          "title": "Prepare for an emergency",
+          "bullets": [
+            {
+              "text": "NHLBI encourages medical identification and consideration of CPR training for family or other close contacts. Discuss the individual emergency plan and access to trained help. Discharge education should make clear whom to contact for new symptoms and when emergency assistance is needed.",
+              "source": "recovery"
+            }
+          ]
+        }
+      ],
+      "related": [
+        "reference:post-arrest-assessment-priorities",
+        "reference:post-icu-recovery",
+        "reference:code-blue-roles"
+      ]
+    }
+  ]
+}

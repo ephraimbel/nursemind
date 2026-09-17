@@ -71,6 +71,7 @@ public struct LibraryHomeView: View {
                 case .entry(let id):
                     if let entry = registry.entry(byID: id) {
                         LibraryEntryView(entry)
+                            .id(id)
                     } else {
                         Text("Entry not found").captionText()
                     }
