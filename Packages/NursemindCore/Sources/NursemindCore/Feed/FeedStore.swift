@@ -38,6 +38,7 @@ public final class FeedStore {
     public private(set) var savedIDs: Set<UUID> = []
     public private(set) var readIDs: Set<UUID> = []
     public private(set) var lastRefreshedAt: Date?
+    private var saveInFlight: Set<UUID> = []
 
     private let pageSize = 50
 
@@ -99,6 +100,11 @@ public final class FeedStore {
     public func toggleSave(_ itemID: UUID) async {
         guard let client = SupabaseService.shared.client,
               let userID = SupabaseService.shared.currentUserID else { return }
+        // A second tap while the first write is in flight would read the
+        // same pre-write state and repeat the same branch.
+        guard !saveInFlight.contains(itemID) else { return }
+        saveInFlight.insert(itemID)
+        defer { saveInFlight.remove(itemID) }
 
         let wasSaved = savedIDs.contains(itemID)
         do {
