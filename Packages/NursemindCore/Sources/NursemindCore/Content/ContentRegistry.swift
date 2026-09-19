@@ -174,6 +174,9 @@ public final class ContentRegistry: @unchecked Sendable {
 
         let queryBytes = Array(q.utf8)
         let tokenBytes = keywordTokens.map { Array($0.utf8) }
+        // A one-word query is already its own keyword; the whole-query
+        // fallback scan below would only repeat that byte-for-byte.
+        let wholeQueryFallback = keywordTokens != [q]
 
         for (position, indexed) in index.entries.enumerated() {
             var score: Double = 0
@@ -199,7 +202,7 @@ public final class ContentRegistry: @unchecked Sendable {
             }
 
             // Conservative whole-query contains (not enough on its own).
-            if score == 0, ByteMatch.contains(indexed.text, queryBytes) { score += 50 }
+            if score == 0, wholeQueryFallback, ByteMatch.contains(indexed.text, queryBytes) { score += 50 }
 
             scores[position] = score
         }

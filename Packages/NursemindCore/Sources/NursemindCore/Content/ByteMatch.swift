@@ -12,33 +12,17 @@ import Foundation
 enum ByteMatch {
 
     /// True when `needle` appears anywhere in `haystack`.
+    ///
+    /// `memmem` is the platform's vectorized substring search; the answer is
+    /// identical to a byte-by-byte scan, and it runs an order of magnitude
+    /// faster over the ~4 MB of corpus text a keystroke has to cover.
     static func contains(_ haystack: [UInt8], _ needle: [UInt8]) -> Bool {
         let needleCount = needle.count
         let haystackCount = haystack.count
         guard needleCount > 0, needleCount <= haystackCount else { return false }
-
         return haystack.withUnsafeBufferPointer { hay in
-            needle.withUnsafeBufferPointer { need -> Bool in
-                let first = need[0]
-                let last = needleCount - 1
-                var start = 0
-                let limit = haystackCount - needleCount
-
-                while start <= limit {
-                    // Skip to the next possible starting byte.
-                    while start <= limit, hay[start] != first { start += 1 }
-                    guard start <= limit else { return false }
-
-                    // Compare the final byte before the body — cheap rejection
-                    // for the common case of a shared first character.
-                    if hay[start + last] == need[last] {
-                        var offset = 1
-                        while offset < last, hay[start + offset] == need[offset] { offset += 1 }
-                        if offset >= last { return true }
-                    }
-                    start += 1
-                }
-                return false
+            needle.withUnsafeBufferPointer { need in
+                memmem(hay.baseAddress, haystackCount, need.baseAddress, needleCount) != nil
             }
         }
     }
@@ -46,9 +30,11 @@ enum ByteMatch {
     /// True when `haystack` begins with `prefix`.
     static func hasPrefix(_ haystack: [UInt8], _ prefix: [UInt8]) -> Bool {
         guard prefix.count <= haystack.count else { return false }
-        for index in 0..<prefix.count where haystack[index] != prefix[index] {
-            return false
+        guard !prefix.isEmpty else { return true }
+        return haystack.withUnsafeBufferPointer { hay in
+            prefix.withUnsafeBufferPointer { pre in
+                memcmp(hay.baseAddress, pre.baseAddress, prefix.count) == 0
+            }
         }
-        return true
     }
 }

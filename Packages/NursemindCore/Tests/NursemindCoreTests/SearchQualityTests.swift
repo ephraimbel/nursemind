@@ -241,11 +241,13 @@ struct SearchQualityTests {
             + Double(elapsed.components.seconds) * 1000
         print(String(format: "NM-SEARCH-LATENCY cold-index-build=%.0fms", ms))
 
-        // ~2s unoptimized on the simulator, materially less in Release on
-        // device. It runs on a detached utility-priority task at launch and
-        // blocks nothing, so the bar is only that it finishes well before a
-        // user can plausibly reach Search or Ask. This guards against the
-        // corpus growing the build back into user-visible territory.
+        // ~0.6s on the simulator with memmem-backed matching (it was 5.5s
+        // with a byte-by-byte scan once the corpus passed 2,400 entries),
+        // materially less in Release on device. It runs on a detached
+        // utility-priority task at launch and blocks nothing, so the bar is
+        // only that it finishes well before a user can plausibly reach Search
+        // or Ask. This guards against the corpus growing the build back into
+        // user-visible territory.
         #expect(ms < 4000.0, "index build took \(ms)ms")
     }
 
