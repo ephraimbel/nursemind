@@ -34,6 +34,13 @@ targets:
         UISupportedInterfaceOrientations:
           - UIInterfaceOrientationPortrait
         UIRequiresFullScreen: true
+        # nursemind://feed[?filter=watchlist|?item=<uuid>] — push deep links
+        # and a testable entry point (xcrun simctl openurl).
+        CFBundleURLTypes:
+          - CFBundleTypeRole: Editor
+            CFBundleURLName: app.nursemind.ios
+            CFBundleURLSchemes:
+              - nursemind
         # Skips the export-compliance question on every upload. NurseMind
         # uses only iOS's standard HTTPS / TLS — qualifies for the
         # standard encryption exemption per Apple's docs.
@@ -54,6 +61,8 @@ targets:
     entitlements:
       path: Nursemind/Nursemind.entitlements
       properties:
+        # Xcode rewrites this to production for App Store / TestFlight exports.
+        aps-environment: development
         com.apple.developer.applesignin:
           - Default
     settings:

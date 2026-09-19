@@ -3,7 +3,6 @@ import SwiftUI
 /// Root view for the Feed tab. Owns a NavigationStack rooted at FeedListView;
 /// pushes FeedReadingView per item.id when a card is tapped.
 public struct FeedTabView: View {
-    @State private var path = NavigationPath()
     @State private var store = FeedStore.shared
     @State private var router = AppRouter.shared
     @State private var reportedThisVisit = false
@@ -11,20 +10,13 @@ public struct FeedTabView: View {
     public init() {}
 
     public var body: some View {
-        NavigationStack(path: $path) {
-            FeedListView(path: $path)
+        NavigationStack(path: $router.feedPath) {
+            FeedListView(path: $router.feedPath)
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationDestination(for: FeedDestination.self) { dest in
                     switch dest {
                     case .item(let id):
-                        if let item = store.items.first(where: { $0.id == id }) {
-                            FeedReadingView(item: item)
-                        } else {
-                            // Item not in cache — shouldn't happen during a
-                            // single session, but render an empty state instead
-                            // of crashing on force-unwrap if it ever does.
-                            FeedEmptyState(kind: .error("Item not available."), onRetry: {})
-                        }
+                        FeedItemDestination(id: id)
                     }
                 }
         }
@@ -42,6 +34,34 @@ public struct FeedTabView: View {
                 unreadThisWeek: store.unreadThisWeek,
                 loadState: store.loadState.analyticsName
             )
+        }
+    }
+}
+
+/// Resolves a story id against the store, loading the feed first when a
+/// deep link arrives before the list has hydrated (a notification tap on a
+/// cold launch). Renders the reading view, a loading state, or an honest
+/// "not available" when the story has aged out or was retracted.
+private struct FeedItemDestination: View {
+    let id: UUID
+    @State private var store = FeedStore.shared
+
+    var body: some View {
+        if let item = store.items.first(where: { $0.id == id }) {
+            FeedReadingView(item: item)
+        } else {
+            Group {
+                switch store.loadState {
+                case .idle, .loading:
+                    FeedEmptyState(kind: .loading, onRetry: {})
+                case .loaded, .failed:
+                    FeedEmptyState(kind: .error("This story is no longer available."), onRetry: { Task { await store.refresh() } })
+                }
+            }
+            .background(GrainBackground())
+            .task {
+                if case .idle = store.loadState { await store.refresh() }
+            }
         }
     }
 }

@@ -36,6 +36,10 @@ public struct NotificationsSettingsView: View {
                                     await MainActor.run {
                                         if granted {
                                             prefs.notificationsEnabled = true
+                                            if !prefs.pushDigestEnabled && !prefs.pushUrgentEnabled && !prefs.weeklyTipEnabled {
+                                                prefs.pushDigestEnabled = true
+                                            }
+                                            PushRegistrationService.shared.registerIfOptedIn()
                                         } else {
                                             prefs.notificationsEnabled = false
                                             permissionDeniedAlertShown = true
@@ -44,10 +48,14 @@ public struct NotificationsSettingsView: View {
                                 }
                             } else {
                                 prefs.notificationsEnabled = false
-                                // Drive the child toggle to false too so we
-                                // don't have a stale "weekly tip on" with no
-                                // master delivery.
+                                // Drive the child toggles to false too so we
+                                // don't have a stale "on" with no master
+                                // delivery. The token row is removed by
+                                // PushRegistrationService on this change.
                                 prefs.weeklyTipEnabled = false
+                                prefs.pushDigestEnabled = false
+                                prefs.pushUrgentEnabled = false
+                                logSettingsChange()
                             }
                         }
                     )) {
@@ -63,6 +71,73 @@ public struct NotificationsSettingsView: View {
                     }
                     .toggleStyle(.switch)
                     .tint(NMColor.accent)
+                    .padding(.vertical, NMSpace.base)
+
+                    Hairline(color: NMColor.borderSubtle)
+
+                    Toggle(isOn: Binding(
+                        get: { prefs.pushDigestEnabled },
+                        set: { prefs.pushDigestEnabled = $0; logSettingsChange() }
+                    )) {
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text("Shift-start digest")
+                                .font(NMFont.bodyLG)
+                                .foregroundStyle(NMColor.textPrimary)
+                            Text("One note when your shift begins, only on days something affects your unit or is new this week. Counts only, never headlines.")
+                                .font(NMFont.bodySM)
+                                .foregroundStyle(NMColor.textTertiary)
+                                .lineSpacing(2)
+                        }
+                    }
+                    .toggleStyle(.switch)
+                    .tint(NMColor.accent)
+                    .disabled(!prefs.notificationsEnabled)
+                    .opacity(prefs.notificationsEnabled ? 1.0 : 0.4)
+                    .padding(.vertical, NMSpace.base)
+
+                    if prefs.notificationsEnabled && prefs.pushDigestEnabled {
+                        HStack {
+                            Text("Shift starts at")
+                                .font(NMFont.body)
+                                .foregroundStyle(NMColor.textSecondary)
+                            Spacer()
+                            DatePicker(
+                                "Shift starts at",
+                                selection: Binding(
+                                    get: { Self.date(fromMinutes: prefs.shiftStartMinutes) },
+                                    set: { prefs.shiftStartMinutes = Self.minutes(from: $0); logSettingsChange() }
+                                ),
+                                displayedComponents: .hourAndMinute
+                            )
+                            .labelsHidden()
+                            .datePickerStyle(.compact)
+                            .tint(NMColor.accent)
+                        }
+                        .padding(.bottom, NMSpace.base)
+                    }
+
+                    Hairline(color: NMColor.borderSubtle)
+
+                    Toggle(isOn: Binding(
+                        get: { prefs.pushUrgentEnabled },
+                        set: { prefs.pushUrgentEnabled = $0; logSettingsChange() }
+                    )) {
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text("Urgent alerts for my unit")
+                                .font(NMFont.bodyLG)
+                                .foregroundStyle(NMColor.textPrimary)
+                            Text(prefs.pinnedIDs.isEmpty
+                                 ? "Save the drugs and drips you give in the Library first. Urgent safety alerts reach you only when one touches a saved entry."
+                                 : "An urgent safety alert that touches one of your \(prefs.pinnedIDs.count) saved entries, the day it publishes. Never for anything else.")
+                                .font(NMFont.bodySM)
+                                .foregroundStyle(NMColor.textTertiary)
+                                .lineSpacing(2)
+                        }
+                    }
+                    .toggleStyle(.switch)
+                    .tint(NMColor.accent)
+                    .disabled(!prefs.notificationsEnabled || prefs.pinnedIDs.isEmpty)
+                    .opacity(prefs.notificationsEnabled && !prefs.pinnedIDs.isEmpty ? 1.0 : 0.4)
                     .padding(.vertical, NMSpace.base)
 
                     Hairline(color: NMColor.borderSubtle)
@@ -110,6 +185,24 @@ public struct NotificationsSettingsView: View {
         } message: {
             Text("To allow NurseMind to send notifications, enable them in iOS Settings → Notifications → NurseMind.")
         }
+    }
+
+    private static func date(fromMinutes minutes: Int) -> Date {
+        Calendar.current.date(bySettingHour: minutes / 60, minute: minutes % 60, second: 0, of: Date()) ?? Date()
+    }
+
+    private static func minutes(from date: Date) -> Int {
+        let parts = Calendar.current.dateComponents([.hour, .minute], from: date)
+        return (parts.hour ?? 6) * 60 + (parts.minute ?? 45)
+    }
+
+    private func logSettingsChange() {
+        AnalyticsSinks.postHog("push_settings_changed", [
+            "enabled": prefs.notificationsEnabled,
+            "digest": prefs.pushDigestEnabled,
+            "urgent": prefs.pushUrgentEnabled,
+            "shift_start": prefs.shiftStartLocal,
+        ])
     }
 
     /// Request OS-level notification authorization. Returns `true` only if

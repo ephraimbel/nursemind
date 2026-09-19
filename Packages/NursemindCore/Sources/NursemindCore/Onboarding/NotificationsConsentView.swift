@@ -46,7 +46,7 @@ struct NotificationsConsentView: View {
             EyebrowLabel("ONE LAST THING")
             Text("Notifications, on your terms.").displayXL()
                 .foregroundStyle(NMColor.textPrimary)
-            Text("We send one notification a week, max. No marketing, no nudges.")
+            Text("One quiet note at the start of your shift, only when something affects your unit. No marketing, no nudges.")
                 .font(NMFont.displayItalicMD)
                 .foregroundStyle(NMColor.textSecondary)
                 .lineSpacing(3)
@@ -62,15 +62,15 @@ struct NotificationsConsentView: View {
     private var bullets: some View {
         VStack(alignment: .leading, spacing: NMSpace.lg) {
             NotificationBullet(
-                title: "Weekly clinical tip",
-                detail: "One short, cited reminder. Sunday evenings, that's it."
+                title: "Shift-start digest",
+                detail: "One note when your shift begins: alerts for your unit and what's new this week. Counts, never headlines."
             )
             .opacity(visible[1] ? 1 : 0)
             .offset(y: visible[1] ? 0 : 8)
 
             NotificationBullet(
-                title: "New library content",
-                detail: "When new drugs, drips, labs, or procedures land."
+                title: "Urgent alerts for saved entries",
+                detail: "A safety alert that touches a drug or drip you saved, the day it publishes."
             )
             .opacity(visible[2] ? 1 : 0)
             .offset(y: visible[2] ? 0 : 8)
@@ -149,6 +149,9 @@ struct NotificationsConsentView: View {
                 if granted {
                     prefs.notificationsEnabled = true
                     prefs.weeklyTipEnabled = true
+                    prefs.pushDigestEnabled = true
+                    prefs.pushUrgentEnabled = true
+                    PushRegistrationService.shared.registerIfOptedIn()
                 }
                 AnalyticsService.shared.capture(
                     granted ? "notification_permission_granted" : "notification_permission_denied"

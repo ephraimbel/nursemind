@@ -32,6 +32,9 @@ public final class UserPreferences {
     private let yearsKey                 = "nm.profile.years"
     private let notificationsEnabledKey  = "nm.prefs.notificationsEnabled"
     private let weeklyTipEnabledKey      = "nm.prefs.weeklyTipEnabled"
+    private let pushDigestEnabledKey     = "nm.push.digestEnabled"
+    private let pushUrgentEnabledKey     = "nm.push.urgentEnabled"
+    private let shiftStartMinutesKey     = "nm.push.shiftStartMinutes"
     private let appearanceKey            = "nm.prefs.appearance"
     private let subscriptionKey          = "nm.subscription.tier"
     private let safetyContractDateKey    = "nm.safety.contractAgreedAt"
@@ -103,6 +106,42 @@ public final class UserPreferences {
             defaults.set(weeklyTipEnabled, forKey: weeklyTipEnabledKey)
             postChange()
         }
+    }
+
+    // MARK: Push (R3) — one digest at shift start, urgent alerts for saved entries
+
+    /// Minutes after local midnight for the daily digest. 06:45 by default.
+    public static let defaultShiftStartMinutes = 6 * 60 + 45
+
+    public var pushDigestEnabled: Bool {
+        didSet {
+            defaults.set(pushDigestEnabled, forKey: pushDigestEnabledKey)
+            postChange()
+        }
+    }
+    public var pushUrgentEnabled: Bool {
+        didSet {
+            defaults.set(pushUrgentEnabled, forKey: pushUrgentEnabledKey)
+            postChange()
+        }
+    }
+    public var shiftStartMinutes: Int {
+        didSet {
+            shiftStartMinutes = min(max(shiftStartMinutes, 0), 23 * 60 + 59)
+            defaults.set(shiftStartMinutes, forKey: shiftStartMinutesKey)
+            postChange()
+        }
+    }
+
+    /// "HH:MM" for the `profiles.shift_start_local` column.
+    public var shiftStartLocal: String {
+        String(format: "%02d:%02d", shiftStartMinutes / 60, shiftStartMinutes % 60)
+    }
+
+    public static func minutes(fromShiftStart text: String) -> Int? {
+        let parts = text.split(separator: ":").compactMap { Int($0) }
+        guard parts.count >= 2, (0...23).contains(parts[0]), (0...59).contains(parts[1]) else { return nil }
+        return parts[0] * 60 + parts[1]
     }
     public var preferredAppearance: AppearanceTheme {
         didSet {
@@ -305,6 +344,9 @@ public final class UserPreferences {
         // is the user's opt-in moment; we then request OS-level permission.
         self.notificationsEnabled = defaults.object(forKey: notificationsEnabledKey) as? Bool ?? false
         self.weeklyTipEnabled     = defaults.object(forKey: weeklyTipEnabledKey)     as? Bool ?? false
+        self.pushDigestEnabled    = defaults.object(forKey: pushDigestEnabledKey)    as? Bool ?? false
+        self.pushUrgentEnabled    = defaults.object(forKey: pushUrgentEnabledKey)    as? Bool ?? false
+        self.shiftStartMinutes    = defaults.object(forKey: shiftStartMinutesKey)    as? Int ?? Self.defaultShiftStartMinutes
 
         self.preferredAppearance = (defaults.string(forKey: appearanceKey)
             .flatMap { AppearanceTheme(rawValue: $0) }) ?? .system
@@ -441,6 +483,9 @@ public final class UserPreferences {
             self.preferredAppearance = .system
             self.notificationsEnabled = false
             self.weeklyTipEnabled = false
+            self.pushDigestEnabled = false
+            self.pushUrgentEnabled = false
+            self.shiftStartMinutes = Self.defaultShiftStartMinutes
             self.safetyContractAgreedAt = nil   // also flips hasCompletedOnboarding → false
             self.subscriptionTier = .free
             self.feedTabEnabled = false
@@ -451,6 +496,9 @@ public final class UserPreferences {
             defaults.removeObject(forKey: yearsKey)
             defaults.removeObject(forKey: notificationsEnabledKey)
             defaults.removeObject(forKey: weeklyTipEnabledKey)
+            defaults.removeObject(forKey: pushDigestEnabledKey)
+            defaults.removeObject(forKey: pushUrgentEnabledKey)
+            defaults.removeObject(forKey: shiftStartMinutesKey)
             defaults.removeObject(forKey: appearanceKey)
             defaults.removeObject(forKey: subscriptionKey)
             defaults.removeObject(forKey: safetyContractDateKey)

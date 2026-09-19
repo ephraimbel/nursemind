@@ -28,6 +28,17 @@ Retention denominator: a user is active on a day if they have ≥1 `session_star
 
 Item props on every feed item event: `item_id` (lowercase uuid), `category` (raw), `priority` (`urgent` / `standard`), `source` (publisher label), `age_days` (from `source_published_at`, else `published_at`, floored at 0).
 
+### Push (R3)
+
+| Event | Fires | Properties |
+|---|---|---|
+| `push_registered` | iOS issued a device token (once per token per launch). | `env` (`sandbox` / `production`), `rotated` bool |
+| `push_registration_failed` | iOS refused to issue a token. | none |
+| `push_settings_changed` | Any toggle or time change in Profile → Notifications. | `enabled`, `digest`, `urgent`, `shift_start` (`HH:MM`) |
+| `push_token_removed` | Notifications turned off; server row deleted. | none |
+
+Sends are counted server-side in `feed_notification_log`; open rate = rows with `opened_at` ÷ rows, and `session_started.from_notification` attributes the session.
+
 ### Already emitted elsewhere (used by the dashboard, unchanged)
 
 `tab_switched`, `library_entry_viewed`, `question_asked`, `question_completed`, `search_performed`, `paywall_viewed`, `purchase_*`, `onboarding_completed`.

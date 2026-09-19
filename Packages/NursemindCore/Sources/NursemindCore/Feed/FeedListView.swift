@@ -47,6 +47,12 @@ struct FeedListView: View {
                 reconcileFilterAfterRefresh()
             }
         }
+        .onChange(of: router.pendingFeedFilter, initial: true) { _, pending in
+            guard let pending else { return }
+            router.pendingFeedFilter = nil
+            select(pending)
+            reconcileFilterAfterRefresh()
+        }
     }
 
     /// Newspaper masthead: the real date as the eyebrow, a stable editorial

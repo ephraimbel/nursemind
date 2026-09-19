@@ -4,6 +4,7 @@ import NursemindCore
 
 @main
 struct NursemindApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate
     /// Single shared SwiftData container. Built explicitly here (instead of
     /// letting `.modelContainer(for:)` create one implicitly) so we can hand
     /// the same container to `SavedAnswerSyncService` — it needs its own

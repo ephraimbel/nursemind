@@ -51,6 +51,14 @@ public final class AppRouter {
 
     public var libraryPath: NavigationPath = NavigationPath()
 
+    /// Feed tab navigation stack, router-owned so a notification or URL can
+    /// push a story from anywhere (including a cold launch).
+    public var feedPath: NavigationPath = NavigationPath()
+
+    /// Filter the Feed list should adopt on its next appearance; consumed by
+    /// FeedListView. Set by `openFeedWatchlist()`.
+    var pendingFeedFilter: FeedFilter?
+
     /// Which section of the Library tab is showing — reference content or
     /// tools/calculators. Lives on the router (not local LibraryHomeView state)
     /// so cross-link entry points like `openCalculator()` can land the user on
@@ -162,6 +170,32 @@ public final class AppRouter {
         pendingAskQuery = query
         pendingAskAutoSend = autoSend
         selectedTab = AppRouter.askTab
+    }
+
+    // MARK: - Feed deep links (push + nursemind:// URLs)
+
+    /// Feed tab on the MY UNIT filter (THIS WEEK when it is unavailable;
+    /// FeedListView reconciles).
+    public func openFeedWatchlist() {
+        feedPath = NavigationPath()
+        pendingFeedFilter = .watchlist
+        selectedTab = AppRouter.feedTab
+    }
+
+    /// Feed tab with the story pushed. The destination view loads the feed
+    /// if it has not hydrated yet.
+    public func openFeedItem(_ id: UUID) {
+        var newPath = NavigationPath()
+        newPath.append(FeedDestination.item(id))
+        feedPath = newPath
+        selectedTab = AppRouter.feedTab
+    }
+
+    /// Feed tab, default filter.
+    public func openFeed() {
+        feedPath = NavigationPath()
+        pendingFeedFilter = .thisWeek
+        selectedTab = AppRouter.feedTab
     }
 
     // MARK: - Global search sheet

@@ -40,6 +40,9 @@ struct RootView: View {
         // duration only; never PHI. Offline queue flushes on first
         // .signedIn transition.
         LibraryViewLogger.shared.attach()
+        // Push: re-register on every launch once signed in so the token row's
+        // last_seen_at stays fresh; no-op unless the user opted in.
+        PushRegistrationService.shared.attach()
         // Pre-warm ContentRegistry on a background-priority Task so the lazy
         // dispatch_once init (which builds ~1,600 bundled library entries)
         // never runs from inside a SwiftUI body call. On iPad in compatibility
@@ -117,6 +120,9 @@ struct RootView: View {
         // onboarding: someone who searched for a drug wants the drug, not the
         // step they abandoned, and `hasCompletedOnboarding` still gates the
         // main view so they land back in the flow afterwards.
+        .onOpenURL { url in
+            PushRegistrationService.shared.handle(url: url)
+        }
         .onContinueUserActivity(CSSearchableItemActionType) { activity in
             SpotlightIndexer.handle(activity: activity, router: router)
         }

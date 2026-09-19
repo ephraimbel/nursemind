@@ -18,6 +18,10 @@ public struct ProfileRecord: Codable, Sendable, Equatable {
     public var preferredAppearance: String
     public var notificationsEnabled: Bool
     public var weeklyTipEnabled: Bool
+    public var shiftStartLocal: String
+    public var tz: String
+    public var pushDigestEnabled: Bool
+    public var pushUrgentEnabled: Bool
     public var safetyContractAgreedAt: Date?
 
     public var pinnedEntryIDs: [String]
@@ -44,6 +48,10 @@ public struct ProfileRecord: Codable, Sendable, Equatable {
         case preferredAppearance     = "preferred_appearance"
         case notificationsEnabled    = "notifications_enabled"
         case weeklyTipEnabled        = "weekly_tip_enabled"
+        case shiftStartLocal         = "shift_start_local"
+        case tz
+        case pushDigestEnabled       = "push_digest_enabled"
+        case pushUrgentEnabled       = "push_urgent_enabled"
         case safetyContractAgreedAt  = "safety_contract_agreed_at"
         case pinnedEntryIDs          = "pinned_entry_ids"
         case recentEntryIDs          = "recent_entry_ids"
@@ -64,6 +72,10 @@ public struct ProfileRecord: Codable, Sendable, Equatable {
         preferredAppearance: String = "system",
         notificationsEnabled: Bool = true,
         weeklyTipEnabled: Bool = true,
+        shiftStartLocal: String = "06:45",
+        tz: String = "America/Chicago",
+        pushDigestEnabled: Bool = false,
+        pushUrgentEnabled: Bool = false,
         safetyContractAgreedAt: Date? = nil,
         pinnedEntryIDs: [String] = [],
         recentEntryIDs: [String] = [],
@@ -82,6 +94,10 @@ public struct ProfileRecord: Codable, Sendable, Equatable {
         self.preferredAppearance = preferredAppearance
         self.notificationsEnabled = notificationsEnabled
         self.weeklyTipEnabled = weeklyTipEnabled
+        self.shiftStartLocal = shiftStartLocal
+        self.tz = tz
+        self.pushDigestEnabled = pushDigestEnabled
+        self.pushUrgentEnabled = pushUrgentEnabled
         self.safetyContractAgreedAt = safetyContractAgreedAt
         self.pinnedEntryIDs = pinnedEntryIDs
         self.recentEntryIDs = recentEntryIDs
@@ -106,6 +122,10 @@ public struct ProfileRecord: Codable, Sendable, Equatable {
         self.preferredAppearance    = try c.decodeIfPresent(String.self, forKey: .preferredAppearance) ?? "system"
         self.notificationsEnabled   = try c.decodeIfPresent(Bool.self,   forKey: .notificationsEnabled) ?? true
         self.weeklyTipEnabled       = try c.decodeIfPresent(Bool.self,   forKey: .weeklyTipEnabled) ?? true
+        self.shiftStartLocal        = try c.decodeIfPresent(String.self, forKey: .shiftStartLocal) ?? "06:45"
+        self.tz                     = try c.decodeIfPresent(String.self, forKey: .tz) ?? "America/Chicago"
+        self.pushDigestEnabled      = try c.decodeIfPresent(Bool.self,   forKey: .pushDigestEnabled) ?? false
+        self.pushUrgentEnabled      = try c.decodeIfPresent(Bool.self,   forKey: .pushUrgentEnabled) ?? false
         self.safetyContractAgreedAt = try c.decodeIfPresent(Date.self,   forKey: .safetyContractAgreedAt)
         self.pinnedEntryIDs         = try c.decodeIfPresent([String].self, forKey: .pinnedEntryIDs) ?? []
         self.recentEntryIDs         = try c.decodeIfPresent([String].self, forKey: .recentEntryIDs) ?? []
@@ -131,6 +151,12 @@ public struct ProfileUpsert: Codable, Sendable {
     public var preferredAppearance: String
     public var notificationsEnabled: Bool
     public var weeklyTipEnabled: Bool
+    /// Push columns (migration 0015). nil omits the key so an upsert still
+    /// succeeds against a server that has not applied the migration yet.
+    public var shiftStartLocal: String?
+    public var tz: String?
+    public var pushDigestEnabled: Bool?
+    public var pushUrgentEnabled: Bool?
     public var safetyContractAgreedAt: Date?
     public var pinnedEntryIDs: [String]
     public var recentEntryIDs: [String]
@@ -147,6 +173,10 @@ public struct ProfileUpsert: Codable, Sendable {
         case preferredAppearance     = "preferred_appearance"
         case notificationsEnabled    = "notifications_enabled"
         case weeklyTipEnabled        = "weekly_tip_enabled"
+        case shiftStartLocal         = "shift_start_local"
+        case tz
+        case pushDigestEnabled       = "push_digest_enabled"
+        case pushUrgentEnabled       = "push_urgent_enabled"
         case safetyContractAgreedAt  = "safety_contract_agreed_at"
         case pinnedEntryIDs          = "pinned_entry_ids"
         case recentEntryIDs          = "recent_entry_ids"

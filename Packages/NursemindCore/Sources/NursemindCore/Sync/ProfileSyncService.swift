@@ -219,6 +219,11 @@ public final class ProfileSyncService {
         return rows.first
     }
 
+    /// Set when PostgREST rejects the push columns (PGRST204, schema cache
+    /// predates migration 0015). The rest of the profile keeps syncing;
+    /// push preferences catch up on the next launch after the migration.
+    private var serverLacksPushColumns = false
+
     private func push(client: SupabaseClient, userID: UUID) async throws {
         // Bypass the Supabase Swift SDK 2.46.0 session-attach race: send the
         // upsert via URLSession with the user JWT explicitly in the
@@ -261,6 +266,12 @@ public final class ProfileSyncService {
         }
         guard (200...299).contains(http.statusCode) else {
             let body = String(data: data, encoding: .utf8) ?? "<binary>"
+            if !serverLacksPushColumns, Self.isMissingPushColumn(body) {
+                serverLacksPushColumns = true
+                syncLog.warning("profiles lacks push columns (migration 0015 not applied); retrying without them")
+                try await push(client: client, userID: userID)
+                return
+            }
             throw NSError(
                 domain: "ProfileSyncService.push",
                 code: http.statusCode,
@@ -273,6 +284,10 @@ public final class ProfileSyncService {
         let returned = try? decoder.decode([ProfileRecord].self, from: data)
         // Use the server's authoritative updated_at as our high-water mark.
         self.lastPushedAt = returned?.first?.updatedAt ?? Date()
+    }
+
+    static func isMissingPushColumn(_ body: String) -> Bool {
+        body.contains("PGRST204") && ["push_digest_enabled", "push_urgent_enabled", "shift_start_local", "'tz'"].contains { body.contains($0) }
     }
 
     // MARK: - Mapping
@@ -289,6 +304,10 @@ public final class ProfileSyncService {
             preferredAppearance: prefs.preferredAppearance.rawValue,
             notificationsEnabled: prefs.notificationsEnabled,
             weeklyTipEnabled: prefs.weeklyTipEnabled,
+            shiftStartLocal: serverLacksPushColumns ? nil : prefs.shiftStartLocal,
+            tz: serverLacksPushColumns ? nil : TimeZone.current.identifier,
+            pushDigestEnabled: serverLacksPushColumns ? nil : prefs.pushDigestEnabled,
+            pushUrgentEnabled: serverLacksPushColumns ? nil : prefs.pushUrgentEnabled,
             safetyContractAgreedAt: prefs.safetyContractAgreedAt,
             pinnedEntryIDs: prefs.pinnedIDs,
             recentEntryIDs: prefs.recentIDs,
@@ -331,6 +350,11 @@ public final class ProfileSyncService {
             }
             prefs.notificationsEnabled = record.notificationsEnabled
             prefs.weeklyTipEnabled = record.weeklyTipEnabled
+            prefs.pushDigestEnabled = record.pushDigestEnabled
+            prefs.pushUrgentEnabled = record.pushUrgentEnabled
+            if let minutes = UserPreferences.minutes(fromShiftStart: record.shiftStartLocal) {
+                prefs.shiftStartMinutes = minutes
+            }
             prefs.safetyContractAgreedAt = record.safetyContractAgreedAt
 
             // Subscription tier: server is the source of truth (written
