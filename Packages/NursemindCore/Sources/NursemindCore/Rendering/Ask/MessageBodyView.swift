@@ -68,19 +68,50 @@ public struct MessageBodyView: View {
                 .padding(.top, NMSpace.sm)
 
         case .paragraph(let spans):
-            // Lead paragraph gets `leadFont` (Inter 19pt), subsequent body
-            // paragraphs use `bodyFont` (Inter 17pt). 2pt is the smallest
-            // step that's perceptible without making the lead feel like a
-            // header — the type hierarchy stays "lead → body" rather than
-            // "header → body".
-            AttributedTextView(
-                attributed: buildAttributed(
-                    spans,
-                    font: emphasized ? leadFont : bodyFont,
-                    textColor: bodyColor
-                ),
-                onLinkTap: handleLinkTap
-            )
+            // The lede: the direct answer, set in Instrument Serif with a
+            // hairline under it, so a nurse can read one line and stop.
+            // Everything after it is body Inter.
+            if emphasized {
+                VStack(alignment: .leading, spacing: NMSpace.base) {
+                    AttributedTextView(
+                        attributed: buildAttributed(spans, font: leadFont, textColor: bodyColor, lineSpacing: 6),
+                        onLinkTap: handleLinkTap
+                    )
+                    Hairline()
+                }
+                .padding(.bottom, NMSpace.xs)
+            } else {
+                AttributedTextView(
+                    attributed: buildAttributed(spans, font: bodyFont, textColor: bodyColor),
+                    onLinkTap: handleLinkTap
+                )
+            }
+
+        case .table(let rows):
+            VStack(alignment: .leading, spacing: 0) {
+                Hairline()
+                ForEach(Array(rows.enumerated()), id: \.offset) { idx, row in
+                    HStack(alignment: .firstTextBaseline, spacing: NMSpace.base) {
+                        Text(row.key)
+                            .font(NMFont.body)
+                            .foregroundStyle(NMColor.textSecondary)
+                            .frame(width: 118, alignment: .leading)
+                            .fixedSize(horizontal: false, vertical: true)
+                        AttributedTextView(
+                            attributed: buildAttributed(row.value, font: monoFont, textColor: bodyColor, lineSpacing: 3, monoNumbers: false),
+                            onLinkTap: handleLinkTap
+                        )
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                    .padding(.vertical, NMSpace.md)
+                    .accessibilityElement(children: .combine)
+                    if idx < rows.count - 1 {
+                        Hairline(color: NMColor.borderSubtle)
+                    }
+                }
+                Hairline()
+            }
+            .padding(.vertical, NMSpace.xs)
 
         case .bulletList(let items):
             VStack(alignment: .leading, spacing: NMSpace.sm + 2) {
@@ -123,11 +154,16 @@ public struct MessageBodyView: View {
         UIFont(name: "Inter", size: 17) ?? UIFont.systemFont(ofSize: 17)
     }
 
-    /// Slightly larger Inter for the lead paragraph of an answer — gives
-    /// the opening sentence editorial gravity without dipping into header
-    /// territory (NMFont.title is the next step up at 20pt+).
+    /// The lede is display type: Instrument Serif at 24pt, the same voice
+    /// as the app's titles, so the answer reads like the first line of an
+    /// editorial rather than a chat bubble.
     private var leadFont: UIFont {
-        UIFont(name: "Inter", size: 19) ?? UIFont.systemFont(ofSize: 19)
+        UIFont(name: "InstrumentSerif-Regular", size: 24) ?? UIFont.systemFont(ofSize: 22, weight: .regular)
+    }
+
+    /// Table values and inline numbers: SF Mono, a point under the body.
+    private var monoFont: UIFont {
+        UIFont.monospacedSystemFont(ofSize: 15, weight: .regular)
     }
 
     private var bodyColor: UIColor {
@@ -146,15 +182,21 @@ public struct MessageBodyView: View {
     /// Build an NSAttributedString that interleaves markdown text segments with
     /// inline citation pill image attachments. The result is rendered by a
     /// UITextView wrapper so attachments display correctly (SwiftUI Text drops them).
-    private func buildAttributed(_ spans: [ContentSpan], font: UIFont, textColor: UIColor) -> NSAttributedString {
+    private func buildAttributed(_ spans: [ContentSpan], font: UIFont, textColor: UIColor, lineSpacing: CGFloat = 4, monoNumbers: Bool = true) -> NSAttributedString {
         let result = NSMutableAttributedString()
         let paragraph = NSMutableParagraphStyle()
-        paragraph.lineSpacing = 4
+        paragraph.lineSpacing = lineSpacing
 
         for span in spans {
             switch span {
             case .text(let s):
-                let parsed = parseMarkdownToNSAttributed(s, font: font, textColor: textColor)
+                // A pill is padded with spaces; when the sentence's period or
+                // comma follows the pill, drop the pad so it reads "…[1]." not "…[1] .".
+                if let first = s.first, ".,;:!?)".contains(first), result.string.hasSuffix(" ") {
+                    result.deleteCharacters(in: NSRange(location: result.length - 1, length: 1))
+                }
+                let parsed = NSMutableAttributedString(attributedString: parseMarkdownToNSAttributed(s, font: font, textColor: textColor))
+                if monoNumbers { NumericTokens.applyMono(to: parsed, bodyFont: font) }
                 result.append(parsed)
             case .citation(let source, let extras):
                 let citationIndex = (citations.firstIndex(where: { $0.id == source.id }) ?? 0) + 1
@@ -228,6 +270,13 @@ public enum ContentBlock {
     case paragraph([ContentSpan])
     case bulletList([[ContentSpan]])
     case numberedList([[ContentSpan]], start: Int)
+    /// Cited reference rows (`| key | value [cNNN] |`); values render in mono.
+    case table([TableRow])
+}
+
+public struct TableRow {
+    public let key: String
+    public let value: [ContentSpan]
 }
 
 public enum ContentSpan {
@@ -312,6 +361,7 @@ enum ContentBlockParser {
         var currentBullets: [String] = []
         var currentNumbered: [String] = []
         var numberedStart: Int = 1
+        var currentRows: [TableRow] = []
 
         func flushParagraph() {
             if !currentParagraph.isEmpty {
@@ -334,30 +384,63 @@ enum ContentBlockParser {
                 currentNumbered.removeAll()
             }
         }
+        func flushRows() {
+            if !currentRows.isEmpty {
+                blocks.append(.table(currentRows))
+                currentRows.removeAll()
+            }
+        }
+        func flushAll() { flushParagraph(); flushBullets(); flushNumbered(); flushRows() }
 
         for line in lines {
             let trimmed = line.trimmingCharacters(in: .whitespaces)
             if trimmed.isEmpty {
-                flushParagraph(); flushBullets(); flushNumbered()
+                flushAll()
                 continue
             }
-            if let numbered = parseNumberedLine(trimmed) {
-                flushParagraph(); flushBullets()
+            if isTableSeparator(trimmed) {
+                continue
+            }
+            if let row = parseTableRow(trimmed, citations: citations) {
+                flushParagraph(); flushBullets(); flushNumbered()
+                currentRows.append(row)
+            } else if let numbered = parseNumberedLine(trimmed) {
+                flushParagraph(); flushBullets(); flushRows()
                 if currentNumbered.isEmpty { numberedStart = numbered.number }
                 currentNumbered.append(numbered.text)
             } else if let bulletText = parseBulletLine(trimmed) {
-                flushParagraph(); flushNumbered()
+                flushParagraph(); flushNumbered(); flushRows()
                 currentBullets.append(bulletText)
             } else if let headerText = parseHeaderLine(trimmed) {
-                flushParagraph(); flushBullets(); flushNumbered()
+                flushAll()
                 blocks.append(.header(headerText))
             } else {
-                flushBullets(); flushNumbered()
+                flushBullets(); flushNumbered(); flushRows()
                 currentParagraph.append(trimmed)
             }
         }
-        flushParagraph(); flushBullets(); flushNumbered()
+        flushAll()
         return blocks
+    }
+
+    /// `|---|---|` and `|:--|--:|` — GFM's header underline, meaningless here.
+    static func isTableSeparator(_ line: String) -> Bool {
+        line.hasPrefix("|") && line.range(of: #"^\|(?:\s*:?-{2,}:?\s*\|)+\s*$"#, options: .regularExpression) != nil
+    }
+
+    /// `| key | value [c001] |` → a table row. GFM header/separator lines
+    /// (`| --- |`, `|:--|`) are dropped so a model that emits full markdown
+    /// tables still renders cleanly.
+    static func parseTableRow(_ line: String, citations: [CitationSource]) -> TableRow? {
+        guard line.hasPrefix("|") else { return nil }
+        var cells = line.split(separator: "|", omittingEmptySubsequences: false).map { $0.trimmingCharacters(in: .whitespaces) }
+        if cells.first?.isEmpty == true { cells.removeFirst() }
+        if cells.last?.isEmpty == true { cells.removeLast() }
+        guard cells.count >= 2 else { return nil }
+        let key = cells[0]
+        if key.isEmpty || key.range(of: #"^:?-{2,}:?$"#, options: .regularExpression) != nil { return nil }
+        let value = cells[1...].joined(separator: " · ")
+        return TableRow(key: key, value: parseSpans(in: value, citations: citations))
     }
 
     /// Matches "1. text", "12) text" — ordered-list items the model emits

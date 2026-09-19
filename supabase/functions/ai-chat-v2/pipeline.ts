@@ -137,6 +137,7 @@ export function makeCompletion(apiKey: string, signal: AbortSignal, recordUsage:
 const STRUCTURED_POLICY = `
 Submit your answer using submit_answer. This structured format replaces all markdown-output instructions above.
 Write 1–8 concise factual statements covering the direct answer and essential qualifications; a simple lookup may need only one. Each statement must be supported in full by its source_ids. Use plain prose, without citation markers, numbering, tables, headings, or a footer inside statement text; the app adds these. Copy measurements and units only when explicitly present in the cited evidence. The lead statement answers the question directly.
+When the answer compares two or more items or gives reference values (lab ranges and critical thresholds, drug-versus-drug differences, titration or monitoring steps, precautions by category, onset and duration figures), put those in the table field: 2–8 rows, key = the item or parameter as a short label, value = the figure or short phrase copied exactly from the cited evidence, each row with its own source_ids. Keep the statements for what the table cannot say. Never put a dose to give in a table; published reference values only.
 If evidence supports a useful part of a multi-part question, provide that supported part and put the unanswered topic names in missing_topics. Topic names must be short noun phrases, never medical claims, advice, numbers, or personal details. Do not imply a partial procedure is complete or omit an essential qualification to make it fit. Set insufficient_evidence true and statements empty only when a useful safe answer cannot be supported. Use missing_topics [] when there are no gaps.`
 
 const REVIEW_TOOL = {
@@ -156,13 +157,51 @@ const ANSWER_TOOL = {
         type: "object", additionalProperties: false, required: ["text", "source_ids"],
         properties: { text: { type: "string" }, source_ids: { type: "array", minItems: 1, maxItems: 8, items: { type: "string", pattern: "^c[0-9]{3}$" } } },
       } },
+      table: {
+        type: "object", additionalProperties: false, required: ["title", "rows"],
+        properties: {
+          title: { type: "string", minLength: 2, maxLength: 60, pattern: "^[A-Za-z][A-Za-z0-9 ,'/()&-]*$" },
+          rows: { type: "array", minItems: 2, maxItems: 8, items: {
+            type: "object", additionalProperties: false, required: ["key", "value", "source_ids"],
+            properties: {
+              key: { type: "string", minLength: 1, maxLength: 60 },
+              value: { type: "string", minLength: 1, maxLength: 160 },
+              source_ids: { type: "array", minItems: 1, maxItems: 4, items: { type: "string", pattern: "^c[0-9]{3}$" } },
+            },
+          } },
+        },
+      },
     },
   },
 }
 
+/// Renders the optional table as one `| key | value [cNNN] |` line per row
+/// under a `## title` heading. No GFM header or separator line: every line
+/// the validator sees must carry its own citation, and the iOS parser
+/// treats any `|`-prefixed line as a table row.
+function renderTable(value: unknown): string {
+  if (value === undefined || value === null) return ""
+  if (!value || typeof value !== "object") throw new Error("invalid_table")
+  const table = value as { title?: unknown; rows?: unknown }
+  if (typeof table.title !== "string" || !/^[A-Za-z][A-Za-z0-9 ,'/()&-]*$/.test(table.title.trim()) || table.title.length > 60) throw new Error("invalid_table_title")
+  if (!Array.isArray(table.rows) || table.rows.length < 2 || table.rows.length > 8) throw new Error("invalid_table_rows")
+  const lines = table.rows.map((row) => {
+    if (!row || typeof row !== "object") throw new Error("invalid_table_row")
+    const r = row as { key?: unknown; value?: unknown; source_ids?: unknown }
+    if (typeof r.key !== "string" || !r.key.trim() || r.key.length > 60) throw new Error("invalid_table_key")
+    if (typeof r.value !== "string" || !r.value.trim() || r.value.length > 160) throw new Error("invalid_table_value")
+    if (!Array.isArray(r.source_ids) || !r.source_ids.length || r.source_ids.length > 4 ||
+      !r.source_ids.every((id: unknown) => typeof id === "string" && /^c[0-9]{3}$/.test(id))) throw new Error("invalid_table_citations")
+    const clean = (text: string) => text.trim().replace(/\s+/g, " ").replace(/\|/g, "/")
+    const markers = [...new Set(r.source_ids)].map((id) => `[${id}]`).join(" ")
+    return `| ${clean(r.key)} | ${clean(r.value)} ${markers} |`
+  })
+  return `\n\n## ${table.title.trim()}\n${lines.join("\n")}`
+}
+
 export function renderSubmission(value: unknown): string {
   if (!value || typeof value !== "object") throw new Error("invalid_submission")
-  const input = value as { insufficient_evidence?: unknown; statements?: unknown; missing_topics?: unknown }
+  const input = value as { insufficient_evidence?: unknown; statements?: unknown; missing_topics?: unknown; table?: unknown }
   if (typeof input.insufficient_evidence !== "boolean" || !Array.isArray(input.statements)) throw new Error("invalid_submission")
   if (input.insufficient_evidence) return "I don't have a high-confidence source for this question."
   if (!input.statements.length || input.statements.length > 12) throw new Error("invalid_submission")
@@ -183,7 +222,7 @@ export function renderSubmission(value: unknown): string {
   const topics = gaps.every((topic) => /^[A-Za-z][A-Za-z '-]*$/.test(topic))
     ? gaps.map((topic) => topic.trim()).join("; ") : "the remaining parts of your question"
   const limitation = gaps.length ? `\n\nI don't have a high-confidence source for ${topics}.` : ""
-  return paragraphs.join("\n\n") + limitation + `\n\n${FOOTER}`
+  return paragraphs.join("\n\n") + renderTable(input.table) + limitation + `\n\n${FOOTER}`
 }
 
 export function validatedSSE(answer: string, evidence?: ExternalEvidence): string {

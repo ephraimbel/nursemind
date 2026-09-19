@@ -301,3 +301,28 @@ Deno.test("adult quick reference never overrides follow-up history or pediatric 
   assertEquals(calls, 1)
   assert("answer" in adult && adult.answer.includes("quick adult ABG review"))
 })
+
+Deno.test("renderSubmission emits a cited table under a heading and the validator accepts it", () => {
+  const rendered = renderSubmission({
+    insufficient_evidence: false,
+    statements: [{ text: "Potassium is monitored during correction.", source_ids: ["c001"] }],
+    table: { title: "Potassium reference values", rows: [
+      { key: "Normal range", value: "3.5-5.0 mEq/L", source_ids: ["c001"] },
+      { key: "Critical high", value: "above 6.0 mEq/L", source_ids: ["c001", "c002"] },
+    ] },
+    missing_topics: [],
+  })
+  assert(rendered.includes("## Potassium reference values"))
+  assert(rendered.includes("| Normal range | 3.5-5.0 mEq/L [c001] |"))
+  assert(rendered.includes("| Critical high | above 6.0 mEq/L [c001] [c002] |"))
+  const ctx = "[c001] Potassium normal range 3.5-5.0 mEq/L; critical above 6.0 mEq/L.\n[c002] Critical high above 6.0 mEq/L."
+  assertEquals(validateAnswer(rendered, new Set(["c001", "c002"]), ctx), [])
+})
+
+Deno.test("renderSubmission rejects malformed tables", () => {
+  const base = { insufficient_evidence: false, statements: [{ text: "Text.", source_ids: ["c001"] }] }
+  assertThrows(() => renderSubmission({ ...base, table: { title: "Only one", rows: [{ key: "a", value: "b", source_ids: ["c001"] }] } }))
+  assertThrows(() => renderSubmission({ ...base, table: { title: "No sources", rows: [{ key: "a", value: "b", source_ids: [] }, { key: "c", value: "d", source_ids: ["c001"] }] } }))
+  assertThrows(() => renderSubmission({ ...base, table: { title: "Bad [title]", rows: [{ key: "a", value: "b", source_ids: ["c001"] }, { key: "c", value: "d", source_ids: ["c001"] }] } }))
+  assert(!renderSubmission(base).includes("|"))
+})

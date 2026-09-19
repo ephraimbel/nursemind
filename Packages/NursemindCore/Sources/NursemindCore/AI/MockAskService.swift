@@ -264,11 +264,14 @@ public final class MockAskService: AskService, @unchecked Sendable {
 
     private static func composeForLab(_ lab: LabEntry, query: String) -> ComposedAnswer {
         var lines: [String] = []
-        lines.append("\(lab.title) — \(lab.specimen).")
+        // Mirrors the production shape: a cited lede, then a cited
+        // reference table (`| key | value [c001] |`) the renderer sets in mono.
+        let marker = lab.citations.isEmpty ? "" : " [c001]"
+        lines.append("\(lab.title) is measured in \(lab.specimen.lowercased()); the ranges below are the published reference intervals\(marker).")
         lines.append("")
-        lines.append("Reference range:")
-        for row in lab.referenceRanges.prefix(4) {
-            lines.append("• \(row.value) — \(row.label)")
+        lines.append("## \(lab.title) reference values")
+        for row in lab.referenceRanges.prefix(6) {
+            lines.append("| \(row.label) | \(row.value)\(marker) |")
         }
 
         // If query mentions a value, try to slot it into an interpretation tier
