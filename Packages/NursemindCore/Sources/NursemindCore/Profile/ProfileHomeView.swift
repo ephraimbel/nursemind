@@ -61,6 +61,15 @@ public struct ProfileHomeView: View {
                 .frame(maxWidth: .infinity, alignment: .center)
             }
             .background(GrainBackground())
+            .onAppear {
+                #if DEBUG
+                // `SIMCTL_CHILD_NM_OPEN_PROFILE_EDIT=1` lands on Edit profile
+                // so the photo picker can be exercised without navigation taps.
+                if ProcessInfo.processInfo.environment["NM_OPEN_PROFILE_EDIT"] == "1", path.isEmpty {
+                    path.append(ProfileDestination.editProfile)
+                }
+                #endif
+            }
             .navigationDestination(for: ProfileDestination.self) { dest in
                 switch dest {
                 case .editProfile:        EditProfileView()
@@ -94,7 +103,7 @@ public struct ProfileHomeView: View {
         VStack(alignment: .leading, spacing: NMSpace.base) {
             EyebrowLabel("YOUR PROFILE")
             HStack(alignment: .center, spacing: NMSpace.base) {
-                MonogramAvatar(initials: monogramInitials)
+                ProfileAvatarView(initials: ProfileAvatarView.initials(for: prefs.displayName))
                 VStack(alignment: .leading, spacing: 3) {
                     Text(prefs.displayName.isEmpty ? "Set your name" : prefs.displayName)
                         .displayLG()
@@ -130,15 +139,6 @@ public struct ProfileHomeView: View {
             }
             .buttonStyle(.plain)
         }
-    }
-
-    /// Up to two initials from the display name; empty when unset so the avatar
-    /// falls back to a neutral glyph.
-    private var monogramInitials: String {
-        let name = prefs.displayName.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !name.isEmpty else { return "" }
-        let letters = name.split(separator: " ").prefix(2).compactMap { $0.first }
-        return String(letters).uppercased()
     }
 
     private var profileSubtitle: String {
@@ -292,34 +292,6 @@ public struct ProfileHomeView: View {
         let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "0.0.0"
         let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? "0"
         return "\(version) (\(build))"
-    }
-}
-
-// MARK: - Monogram avatar
-
-/// Serif initials in a hairline-bordered circle — a calm, personal identity
-/// mark. No photo upload (no PHI surface, no storage cost); the monogram is
-/// the premium-but-safe stand-in. Falls back to a neutral person glyph before
-/// the user sets a name.
-private struct MonogramAvatar: View {
-    let initials: String
-
-    var body: some View {
-        ZStack {
-            Circle().fill(NMColor.bgElevated)
-            Circle().strokeBorder(NMColor.border, lineWidth: 1)
-            if initials.isEmpty {
-                Image(systemName: "person.fill")
-                    .font(.system(size: 20, weight: .regular))
-                    .foregroundStyle(NMColor.textTertiary)
-            } else {
-                Text(initials)
-                    .font(NMFont.displayMD)
-                    .foregroundStyle(NMColor.textPrimary)
-            }
-        }
-        .frame(width: 54, height: 54)
-        .accessibilityHidden(true)
     }
 }
 

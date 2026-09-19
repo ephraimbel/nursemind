@@ -72,6 +72,7 @@ struct RootView: View {
         forceOnboardingForDebug
             || ProcessInfo.processInfo.environment["NM_OPEN_PAYWALL"] == "1"
             || ProcessInfo.processInfo.environment["NM_OPEN_ENTRY"] != nil
+            || ProcessInfo.processInfo.environment["NM_OPEN_PROFILE_EDIT"] == "1"
         #else
         false
         #endif
@@ -113,6 +114,9 @@ struct RootView: View {
             // without simulator navigation.
             if let entryID = ProcessInfo.processInfo.environment["NM_OPEN_ENTRY"] {
                 router.openLibraryEntry(entryID)
+            }
+            if ProcessInfo.processInfo.environment["NM_OPEN_PROFILE_EDIT"] == "1" {
+                router.selectedTab = AppRouter.profileTab
             }
             #endif
         }

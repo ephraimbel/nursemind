@@ -1,9 +1,12 @@
 import SwiftUI
+import PhotosUI
 
 public struct EditProfileView: View {
     @State private var prefs = UserPreferences.shared
     @State private var nameDraft: String = ""
     @State private var yearsDraft: String = ""
+    @State private var photoSelection: PhotosPickerItem?
+    @State private var photoFailed = false
     @FocusState private var nameFocused: Bool
 
     public init() {}
@@ -16,7 +19,7 @@ public struct EditProfileView: View {
                 Text("Tell us who you are")
                     .displayXL()
                     .padding(.top, NMSpace.md)
-                Text("This personalizes content and is stored only on this device. We never collect your name or unit.")
+                Text("This personalizes content and is stored only on this device. We never collect your name, unit, or photo.")
                     .font(NMFont.body)
                     .foregroundStyle(NMColor.textSecondary)
                     .padding(.top, NMSpace.sm)
@@ -24,6 +27,8 @@ public struct EditProfileView: View {
 
                 Hairline().padding(.vertical, NMSpace.xxl)
 
+                photoSection
+                Hairline().padding(.vertical, NMSpace.xxl)
                 fieldSection
                 Hairline().padding(.vertical, NMSpace.xxl)
                 roleSection
@@ -42,6 +47,81 @@ public struct EditProfileView: View {
         .onAppear {
             nameDraft = prefs.displayName
             if let yrs = prefs.yearsOfExperience { yearsDraft = String(yrs) }
+        }
+        .onChange(of: photoSelection) { _, item in
+            guard let item else { return }
+            Task { await importPhoto(item) }
+        }
+        .alert("That photo couldn't be used", isPresented: $photoFailed) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            Text("Try a different photo from your library.")
+        }
+    }
+
+    // MARK: - Photo
+
+    /// The avatar with its two quiet actions. The picker is Apple's own
+    /// sheet, which runs outside the app, so no photo-library permission is
+    /// asked for and nothing but the chosen image ever reaches NurseMind.
+    private var photoSection: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            EyebrowLabel("PHOTO", sparkle: false)
+                .padding(.bottom, NMSpace.md)
+            HStack(alignment: .center, spacing: NMSpace.lg) {
+                ProfileAvatarView(initials: ProfileAvatarView.initials(for: nameDraft), size: 72)
+                VStack(alignment: .leading, spacing: NMSpace.sm) {
+                    PhotosPicker(selection: $photoSelection, matching: .images, photoLibrary: .shared()) {
+                        HStack(spacing: NMSpace.xs) {
+                            Text(prefs.profilePhotoVersion > 0 ? "Change photo" : "Choose photo")
+                                .font(NMFont.title)
+                                .foregroundStyle(NMColor.accent)
+                            Image(systemName: "arrow.right")
+                                .font(.system(size: 13, weight: .medium))
+                                .foregroundStyle(NMColor.accent)
+                        }
+                        .contentShape(Rectangle())
+                    }
+                    .buttonStyle(.plain)
+                    .accessibilityLabel(prefs.profilePhotoVersion > 0 ? "Change photo" : "Choose photo")
+                    if prefs.profilePhotoVersion > 0 {
+                        Button {
+                            Haptic.light()
+                            withAnimation(.easeOut(duration: 0.2)) { prefs.removeProfilePhoto() }
+                        } label: {
+                            Text("Remove photo")
+                                .font(NMFont.body)
+                                .foregroundStyle(NMColor.textSecondary)
+                                .contentShape(Rectangle())
+                        }
+                        .buttonStyle(.plain)
+                    } else {
+                        Text("Stays on this device.")
+                            .font(NMFont.displayItalicSM)
+                            .foregroundStyle(NMColor.textTertiary)
+                    }
+                }
+                Spacer(minLength: 0)
+            }
+            .padding(.vertical, NMSpace.xs)
+        }
+    }
+
+    private func importPhoto(_ item: PhotosPickerItem) async {
+        defer { photoSelection = nil }
+        guard let data = try? await item.loadTransferable(type: Data.self),
+              let image = UIImage(data: data) else {
+            photoFailed = true
+            return
+        }
+        // Crop and encode off the main actor; only the version bump happens on it.
+        let saved = await Task.detached(priority: .userInitiated) { ProfilePhotoStore.shared.save(image) }.value
+        if saved {
+            withAnimation(.easeOut(duration: 0.2)) { prefs.profilePhotoVersion += 1 }
+            Haptic.light()
+            AnalyticsService.shared.capture("profile_photo_set")
+        } else {
+            photoFailed = true
         }
     }
 

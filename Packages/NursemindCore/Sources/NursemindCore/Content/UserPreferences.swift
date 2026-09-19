@@ -1,5 +1,6 @@
 import Foundation
 import SwiftUI
+import UIKit
 
 public extension Notification.Name {
     /// Fires whenever the user mutates a profile or library-state field that
@@ -30,6 +31,7 @@ public final class UserPreferences {
     private let unitKey                  = "nm.profile.unit"
     private let icuSubspecialtyKey       = "nm.profile.icuSubspecialty"
     private let yearsKey                 = "nm.profile.years"
+    private let profilePhotoVersionKey   = "nm.profile.photoVersion"
     private let notificationsEnabledKey  = "nm.prefs.notificationsEnabled"
     private let weeklyTipEnabledKey      = "nm.prefs.weeklyTipEnabled"
     private let pushDigestEnabledKey     = "nm.push.digestEnabled"
@@ -94,6 +96,22 @@ public final class UserPreferences {
             else { defaults.removeObject(forKey: yearsKey) }
             postChange()
         }
+    }
+    /// Bumps each time the profile photo is saved or removed so avatars
+    /// re-read the file; zero means no photo. Device-only, never synced.
+    public var profilePhotoVersion: Int {
+        didSet { defaults.set(profilePhotoVersion, forKey: profilePhotoVersionKey) }
+    }
+
+    public func setProfilePhoto(_ image: UIImage) -> Bool {
+        guard ProfilePhotoStore.shared.save(image) else { return false }
+        profilePhotoVersion += 1
+        return true
+    }
+
+    public func removeProfilePhoto() {
+        ProfilePhotoStore.shared.remove()
+        profilePhotoVersion = 0
     }
     public var notificationsEnabled: Bool {
         didSet {
@@ -337,6 +355,7 @@ public final class UserPreferences {
         self.role = (defaults.string(forKey: roleKey).flatMap { UserRole(rawValue: $0) }) ?? .rn
         self.unit = (defaults.string(forKey: unitKey).flatMap { NursingUnit(rawValue: $0) }) ?? .medSurg
         self.icuSubspecialty = defaults.string(forKey: icuSubspecialtyKey).flatMap { ICUSubspecialty(rawValue: $0) }
+        self.profilePhotoVersion = defaults.integer(forKey: profilePhotoVersionKey)
         let storedYears = defaults.integer(forKey: yearsKey)
         self.yearsOfExperience = defaults.object(forKey: yearsKey) == nil ? nil : storedYears
 
@@ -483,6 +502,8 @@ public final class UserPreferences {
             self.unit = .medSurg
             self.icuSubspecialty = nil
             self.yearsOfExperience = nil
+            ProfilePhotoStore.shared.remove()
+            self.profilePhotoVersion = 0
             self.preferredAppearance = .system
             self.notificationsEnabled = false
             self.weeklyTipEnabled = false
