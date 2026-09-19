@@ -29,6 +29,16 @@ enum OnboardingMotion {
         )
     }
 
+    /// The photograph on Welcome does not lift; it loses its colour and
+    /// dissolves so the cream ground appears to rise through it.
+    static func photoExit(reduceMotion: Bool) -> AnyTransition {
+        guard !reduceMotion else { return .opacity }
+        return .asymmetric(
+            insertion: .opacity,
+            removal: .modifier(active: PhotoExitModifier(progress: 1), identity: PhotoExitModifier(progress: 0))
+        )
+    }
+
     /// The splash stays whole underneath while Welcome fades in over it,
     /// so two dark screens hand off without the cream ground flashing
     /// through the middle of the crossfade.
@@ -56,6 +66,22 @@ struct LiftModifier: ViewModifier, Animatable {
             .opacity(1 - progress)
             .offset(y: rise * progress)
             .blur(radius: blur * progress)
+    }
+}
+
+struct PhotoExitModifier: ViewModifier, Animatable {
+    var progress: Double
+
+    nonisolated var animatableData: Double {
+        get { progress }
+        set { progress = newValue }
+    }
+
+    func body(content: Content) -> some View {
+        content
+            .saturation(1 - progress)
+            .opacity(1 - progress)
+            .scaleEffect(1 + 0.03 * progress)
     }
 }
 

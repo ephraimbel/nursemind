@@ -99,11 +99,13 @@ public struct OnboardingFlow: View {
         return min(1, step.progress + max(0, min(1, subprogress)) / span)
     }
 
-    /// The splash holds whole beneath Welcome; every other step lifts in
-    /// over the ground and fades away.
+    /// The splash holds whole beneath Welcome, Welcome's photograph
+    /// dissolves and loses its colour on the way out, and every other step
+    /// lifts in over the ground and fades away.
     private func transition(for step: Step) -> AnyTransition {
         switch step {
         case .splash: return OnboardingMotion.hold()
+        case .welcome: return OnboardingMotion.photoExit(reduceMotion: reduceMotion)
         default: return OnboardingMotion.lift(reduceMotion: reduceMotion)
         }
     }

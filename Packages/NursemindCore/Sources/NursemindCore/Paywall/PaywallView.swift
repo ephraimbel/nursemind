@@ -170,8 +170,7 @@ public struct PaywallView: View {
     private func planSection(compact: Bool) -> some View {
         VStack(spacing: NMSpace.md) {
             EyebrowLabel("CHOOSE YOUR PLAN", sparkle: false)
-            VStack(spacing: 0) {
-                Hairline()
+            VStack(spacing: NMSpace.sm) {
                 ForEach(PaywallPlan.allCases, id: \.self) { plan in
                     PaywallPlanRow(
                         plan: plan,
@@ -189,7 +188,6 @@ public struct PaywallView: View {
                         }
                     }
                     .disabled(isWorking)
-                    Hairline(color: NMColor.borderSubtle)
                 }
             }
         }
@@ -509,9 +507,6 @@ private struct PaywallFeatureRow: View {
     }
 }
 
-/// One plan in a hairline list: an ink check when chosen, the name in the
-/// sans display face, the price in mono, and a line of ink that runs across
-/// the row as the choice lands. No card, no second accent.
 private struct PaywallPlanRow: View {
     let plan: PaywallPlan
     let priceText: String
@@ -521,18 +516,10 @@ private struct PaywallPlanRow: View {
     let selected: Bool
     let onTap: () -> Void
 
-    @Environment(\.accessibilityReduceMotion) private var reduceMotion
-
     var body: some View {
         Button(action: onTap) {
-            HStack(alignment: .top, spacing: NMSpace.md) {
-                Image(systemName: "checkmark")
-                    .font(.system(size: 15, weight: .semibold))
-                    .foregroundStyle(NMColor.textPrimary)
-                    .frame(width: 22, alignment: .center)
-                    .padding(.top, 3)
-                    .opacity(selected ? 1 : 0)
-                    .scaleEffect(selected ? 1 : 0.6)
+            HStack(spacing: NMSpace.md) {
+                radio
                 VStack(alignment: .leading, spacing: NMSpace.xs) {
                     ViewThatFits(in: .horizontal) {
                         HStack(alignment: .firstTextBaseline, spacing: NMSpace.sm) {
@@ -551,20 +538,20 @@ private struct PaywallPlanRow: View {
                         .fixedSize(horizontal: false, vertical: true)
                 }
             }
+            .padding(.horizontal, NMSpace.md)
             .padding(.vertical, compact ? NMSpace.md : NMSpace.base)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .contentShape(Rectangle())
-            .overlay(alignment: .bottom) {
-                Rectangle()
-                    .fill(NMColor.textPrimary)
-                    .frame(height: 1)
-                    .scaleEffect(x: selected ? 1 : 0, anchor: .leading)
-                    .offset(y: 1)
+            .background(
+                selected ? NMColor.accent.opacity(0.10) : NMColor.bgElevated,
+                in: RoundedRectangle(cornerRadius: 14)
+            )
+            .overlay {
+                RoundedRectangle(cornerRadius: 14)
+                    .strokeBorder(selected ? NMColor.accent : NMColor.border, lineWidth: selected ? 1.5 : 1)
             }
+            .contentShape(RoundedRectangle(cornerRadius: 14))
         }
         .buttonStyle(.plain)
-        .zIndex(selected ? 1 : 0)
-        .animation(reduceMotion ? nil : .easeOut(duration: 0.32), value: selected)
         .accessibilityElement(children: .ignore)
         .accessibilityLabel("\(plan.displayName), \(priceText)\(plan.period), \(secondaryLine)\(savings.map { ", \($0)" } ?? "")")
         .accessibilityAddTraits(.isButton)
@@ -574,19 +561,31 @@ private struct PaywallPlanRow: View {
     }
 
     private var planTitle: some View {
-        HStack(alignment: .firstTextBaseline, spacing: NMSpace.sm) {
+        HStack(spacing: NMSpace.sm) {
             Text(plan.displayName)
-                .font(NMFont.displaySM)
+                .font(NMFont.body.weight(.semibold))
                 .foregroundStyle(NMColor.textPrimary)
             if let savings {
                 Text(savings)
                     .font(NMFont.label)
-                    .tracking(1.2)
-                    .textCase(.uppercase)
-                    .foregroundStyle(NMColor.textTertiary)
+                    .foregroundStyle(NMColor.textSecondary)
             }
         }
         .fixedSize()
+    }
+
+    private var radio: some View {
+        ZStack {
+            Circle()
+                .strokeBorder(selected ? NMColor.accent : NMColor.textTertiary, lineWidth: 1.25)
+            if selected {
+                Circle().fill(NMColor.accent)
+                Image(systemName: "checkmark")
+                    .font(.system(size: 10, weight: .semibold))
+                    .foregroundStyle(NMColor.onAccent)
+            }
+        }
+        .frame(width: 20, height: 20)
     }
 
     private var priceBlock: some View {
