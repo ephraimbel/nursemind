@@ -42,6 +42,11 @@ public struct RAGRetriever: Sendable {
 
     private let cache = IndexCache()
     public static let contextCharacterLimit = 16_000
+    /// A passage must carry at least this share of its own entry's best
+    /// relevance; an entry must carry this share of the best entry's
+    /// relevance to take one of the context's slots.
+    static let passageCutoff = 0.6
+    static let entryCutoff = 0.6
 
     public func prewarm() {
         _ = indexedChunks()
@@ -84,22 +89,40 @@ public struct RAGRetriever: Sendable {
         }
         let seedEntries = registry.search(query, limit: 10, specialty: specialty)
         let seedScores = Dictionary(uniqueKeysWithValues: seedEntries.enumerated().map { ($0.element.id, 4.0 / Double($0.offset + 1)) })
-        var scores: [Int: Double] = [:]
+        // Relevance is term evidence alone; the seed boost only orders the
+        // assembly. An entry takes a slot when its best passage carries a
+        // fair share of the best entry's relevance, seed or not, so a title
+        // that merely shares a word ("diabetic foot ulcer" for DKA) stays
+        // out while an equally relevant third variant stays in. Within an
+        // entry, a passage is dropped only for saying less about the
+        // question than its neighbours, never for the entry's rank.
+        var relevance: [Int: Double] = [:]
         for term in terms {
             let matches = cache.postings[term, default: []]
             let weight = log(1 + Double(corpus.count) / Double(1 + matches.count))
             for index in matches {
                 let chunk = corpus[index]
-                scores[index, default: 0] += weight * (chunk.titleTerms.contains(term) ? 2 : 0)
-                if chunk.terms.contains(term) { scores[index, default: 0] += weight }
+                relevance[index, default: 0] += weight * (chunk.titleTerms.contains(term) ? 2 : 0)
+                if chunk.terms.contains(term) { relevance[index, default: 0] += weight }
             }
         }
-        for (index, chunk) in corpus.enumerated() {
-            if let boost = seedScores[chunk.entry.id] { scores[index, default: 0] += boost }
+        var entryBest: [String: Double] = [:]
+        for (index, value) in relevance {
+            let id = corpus[index].entry.id
+            entryBest[id] = max(entryBest[id] ?? 0, value)
         }
-        let bestScore = scores.values.max() ?? 0
-        var ranked = scores.filter { $0.value > 0 && $0.value >= bestScore * 0.6 }
-            .sorted { $0.value == $1.value ? $0.key < $1.key : $0.value > $1.value }
+        let bestRelevance = entryBest.values.max() ?? 0
+        var combined: [Int: Double] = [:]
+        for (index, chunk) in corpus.enumerated() {
+            let boost = seedScores[chunk.entry.id]
+            let value = relevance[index] ?? 0
+            guard value > 0 || boost != nil else { continue }
+            let best = entryBest[chunk.entry.id] ?? 0
+            if best < bestRelevance * Self.entryCutoff { continue }
+            if best > 0 && value < best * Self.passageCutoff { continue }
+            combined[index] = value + (boost ?? 0)
+        }
+        var ranked = combined.sorted { $0.value == $1.value ? $0.key < $1.key : $0.value > $1.value }
         // Entry scoping by population: a question that does not ask about
         // children never sees the pediatric variant of a topic next to the
         // adult one, and a pediatric question never sees the adult-only

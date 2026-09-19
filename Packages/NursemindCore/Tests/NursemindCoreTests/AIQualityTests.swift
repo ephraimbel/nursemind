@@ -56,16 +56,45 @@ struct AIPassageTests {
         }
         let retriever = RAGRetriever(registry: ContentRegistry(entries: [adult, general, pediatric]))
         let unspecified = retriever.retrieve(for: "What are the nursing priorities for DKA criteria?")
-        #expect(unspecified.entries.contains { $0.id == "reference:dka" })
+        #expect(unspecified.entries.map(\.id).sorted() == ["reference:adult-dka", "reference:dka"])
         #expect(!unspecified.formattedContext.contains("for children"))
         let child = retriever.retrieve(for: "What are the pediatric DKA criteria for a child?")
-        #expect(child.entries.contains { $0.id == "reference:pediatric-dka" })
+        #expect(child.entries.first?.id == "reference:pediatric-dka")
+        #expect(!child.entries.contains { $0.id == "reference:adult-dka" })
         #expect(!child.formattedContext.contains("for adults"))
         let byUnit = retriever.retrieve(for: "What are the nursing priorities for DKA criteria?", specialty: .peds)
-        #expect(!byUnit.formattedContext.contains("for adults"))
-        #expect(byUnit.entries.contains { $0.id == "reference:dka" })
+        #expect(byUnit.entries.map(\.id).sorted() == ["reference:dka", "reference:pediatric-dka"])
         let pedsOnly = RAGRetriever(registry: ContentRegistry(entries: [variant("pediatric-vitals", "Pediatric vital signs", "Vital sign criteria by age.")]))
         #expect(pedsOnly.retrieve(for: "What are the vital sign criteria?").entries.count == 1)
+    }
+
+    @Test func laterRankedEntriesKeepTheirEquallyRelevantPassages() {
+        func entry(_ id: String, _ title: String) -> LibraryEntry {
+            .reference(ReferenceEntry(id: id, title: title, eyebrow: "R",
+                                      sections: [.prose(title: "Care", .init("Monitoring criteria for pressure injury.", citationIDs: [evidence.id]))],
+                                      citations: [evidence], lastSourceFidelityReview: "2026-09-17"))
+        }
+        let registry = ContentRegistry(entries: [entry("alpha-care", "Alpha care"), entry("beta-care", "Beta care"), entry("gamma-care", "Gamma care")])
+        let result = RAGRetriever(registry: registry).retrieve(for: "pressure injury monitoring criteria")
+        // The third seed used to fall under a cutoff measured against the
+        // first seed's rank boost although its passage says exactly as much.
+        #expect(result.entries.map(\.id).sorted() == ["reference:alpha-care", "reference:beta-care", "reference:gamma-care"])
+        #expect(result.formattedContext.components(separatedBy: "\n").count == 3)
+    }
+
+    @Test func passagesThatSayNothingAboutTheQuestionStayHome() {
+        let sections: [ReferenceSection] = [
+            .prose(title: "Background", .init("General reference background.", citationIDs: [evidence.id])),
+            .prose(title: "Linens", .init("Change the bed linens each morning.", citationIDs: [evidence.id])),
+            .prose(title: "Extravasation", .init("Extravasation assessment is described here.", citationIDs: [evidenceB.id])),
+        ]
+        let result = RAGRetriever(registry: ContentRegistry(entries: [reference(sections)])).retrieve(for: "extravasation assessment")
+        #expect(result.formattedContext.contains("Extravasation assessment"))
+        #expect(!result.formattedContext.contains("bed linens"))
+        #expect(!result.formattedContext.contains("General reference background"))
+        // With no term evidence at all, a seed entry still speaks in full.
+        let silent = RAGRetriever(registry: ContentRegistry(entries: [reference(sections)])).retrieve(for: "Norepinephrine")
+        #expect(silent.formattedContext.components(separatedBy: "\n").count == 3)
     }
 
     @Test func populationIsReadFromSlugAndTitle() {
