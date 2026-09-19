@@ -5,6 +5,7 @@ import UIKit
 /// Pull-to-refresh re-fetches items + saved set. Filter chips below the header
 /// scope the visible items to a category or to the user's saved set.
 struct FeedListView: View {
+    @Binding var path: NavigationPath
     @State private var store = FeedStore.shared
     @State private var activeFilter: FeedFilter = .thisWeek
     @Namespace private var filterNS
@@ -105,6 +106,7 @@ struct FeedListView: View {
     private func select(_ filter: FeedFilter) {
         guard filter != activeFilter else { return }
         UISelectionFeedbackGenerator().selectionChanged()
+        FeedAnalytics.shared.filterChanged(from: activeFilter, to: filter)
         withAnimation(.spring(response: 0.35, dampingFraction: 0.85)) {
             activeFilter = filter
         }
@@ -197,8 +199,11 @@ struct FeedListView: View {
     private func itemsList(_ items: [FeedItem]) -> some View {
         if usesLeadLayout, let lead = leadFor(items) {
             let rest = items.filter { $0.id != lead.id }
+            let positions = displayPositions(lead: lead, rest: rest)
             LazyVStack(spacing: 0) {
-                NavigationLink(value: FeedDestination.item(lead.id)) {
+                Button {
+                    open(lead, position: 0, isLead: true)
+                } label: {
                     FeedCard(item: lead, isSaved: store.isSaved(lead.id), isRead: store.isRead(lead.id), isLead: true)
                 }
                 .buttonStyle(.plain)
@@ -211,7 +216,9 @@ struct FeedListView: View {
                     if !group.isEmpty {
                         sectionDivider(bucket.label)
                         ForEach(group) { item in
-                            NavigationLink(value: FeedDestination.item(item.id)) {
+                            Button {
+                                open(item, position: positions[item.id] ?? -1, isLead: false)
+                            } label: {
                                 FeedCard(item: item, isSaved: store.isSaved(item.id), isRead: store.isRead(item.id))
                             }
                             .buttonStyle(.plain)
@@ -224,8 +231,10 @@ struct FeedListView: View {
             }
         } else {
             LazyVStack(spacing: 0) {
-                ForEach(items) { item in
-                    NavigationLink(value: FeedDestination.item(item.id)) {
+                ForEach(Array(items.enumerated()), id: \.element.id) { idx, item in
+                    Button {
+                        open(item, position: idx, isLead: false)
+                    } label: {
                         FeedCard(item: item, isSaved: store.isSaved(item.id), isRead: store.isRead(item.id))
                     }
                     .buttonStyle(.plain)
@@ -235,6 +244,21 @@ struct FeedListView: View {
                 }
             }
         }
+    }
+
+    private func open(_ item: FeedItem, position: Int, isLead: Bool) {
+        FeedAnalytics.shared.itemOpened(item, filter: activeFilter, position: position, isLead: isLead)
+        path.append(FeedDestination.item(item.id))
+    }
+
+    /// Zero-based on-screen index of every card in the lead layout: the lead
+    /// is 0, then the age sections in display order.
+    private func displayPositions(lead: FeedItem, rest: [FeedItem]) -> [UUID: Int] {
+        var ordered = [lead]
+        for bucket in AgeBucket.allCases {
+            ordered += rest.filter { ageBucket(for: $0) == bucket }
+        }
+        return Dictionary(uniqueKeysWithValues: ordered.enumerated().map { ($1.id, $0) })
     }
 
     /// First urgent item if any exists in the visible set, otherwise the

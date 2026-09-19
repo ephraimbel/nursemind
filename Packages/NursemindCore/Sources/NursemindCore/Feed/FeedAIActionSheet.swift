@@ -50,6 +50,7 @@ struct FeedAIActionSheet: View {
                 title: "Quick summary",
                 subtitle: "3-bullet recap of this update"
             ) {
+                FeedAnalytics.shared.askHandoff(item, action: .quickSummary)
                 router.switchToAskAndPrefill(
                     "Give me a 3-bullet summary of this clinical update:\n\n\(item.headline)\n\n\(item.whyNursesCare)",
                     autoSend: true
@@ -62,6 +63,7 @@ struct FeedAIActionSheet: View {
                 title: "Nursing takeaways",
                 subtitle: "What this means for my practice"
             ) {
+                FeedAnalytics.shared.askHandoff(item, action: .nursingTakeaways)
                 router.switchToAskAndPrefill(
                     "What are the practical takeaways for a nurse from this update? Focus on assessment, monitoring, and red flags.\n\n\(item.headline) — \(item.whyNursesCare)",
                     autoSend: true
@@ -74,6 +76,7 @@ struct FeedAIActionSheet: View {
                 title: "Suggested question",
                 subtitle: item.askFollowupPrompt
             ) {
+                FeedAnalytics.shared.askHandoff(item, action: .suggestedQuestion)
                 router.switchToAskAndPrefill(item.askFollowupPrompt, autoSend: true)
                 dismiss()
             }
@@ -83,6 +86,7 @@ struct FeedAIActionSheet: View {
                 title: "Ask your own",
                 subtitle: "Open Ask with this update in context"
             ) {
+                FeedAnalytics.shared.askHandoff(item, action: .askYourOwn)
                 router.switchToAskAndPrefill(
                     "About \"\(item.headline)\": ",
                     autoSend: false

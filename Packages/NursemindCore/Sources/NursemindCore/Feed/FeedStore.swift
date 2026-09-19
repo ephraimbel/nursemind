@@ -110,6 +110,9 @@ public final class FeedStore {
                     .eq("item_id", value: itemID.uuidString)
                     .execute()
                 savedIDs.remove(itemID)
+                if let item = items.first(where: { $0.id == itemID }) {
+                    FeedAnalytics.shared.unsaved(item)
+                }
             } else {
                 let row = FeedUserStateUpsert(
                     userID: userID,
@@ -123,6 +126,9 @@ public final class FeedStore {
                     .execute()
                 savedIDs.insert(itemID)
                 bumpEngagement(itemID, .save)
+                if let item = items.first(where: { $0.id == itemID }) {
+                    FeedAnalytics.shared.saved(item)
+                }
             }
         } catch {
             feedLog.error("toggleSave failed: \(error.localizedDescription, privacy: .public)")

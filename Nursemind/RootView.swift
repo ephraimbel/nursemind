@@ -127,10 +127,12 @@ struct RootView: View {
         #endif
         .onChange(of: scenePhase, initial: true) { _, phase in
             if phase == .background {
+                SessionAnalytics.shared.applicationDidEnterBackground()
                 MetaAnalyticsService.shared.applicationDidEnterBackground()
                 TikTokAnalyticsService.shared.applicationDidEnterBackground()
             }
             guard phase == .active else { return }
+            SessionAnalytics.shared.applicationDidBecomeActive()
             // Debug screenshot runs skip the ATT sheet so it can't cover the
             // surface under inspection.
             guard !debugDeepLinkActive else { return }

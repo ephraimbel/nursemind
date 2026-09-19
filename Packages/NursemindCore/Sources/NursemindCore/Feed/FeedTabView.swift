@@ -5,12 +5,14 @@ import SwiftUI
 public struct FeedTabView: View {
     @State private var path = NavigationPath()
     @State private var store = FeedStore.shared
+    @State private var router = AppRouter.shared
+    @State private var reportedThisVisit = false
 
     public init() {}
 
     public var body: some View {
         NavigationStack(path: $path) {
-            FeedListView()
+            FeedListView(path: $path)
                 .navigationBarTitleDisplayMode(.inline)
                 .navigationDestination(for: FeedDestination.self) { dest in
                     switch dest {
@@ -25,6 +27,21 @@ public struct FeedTabView: View {
                         }
                     }
                 }
+        }
+        // Tab selection is the one signal that fires exactly once per visit.
+        // View lifecycle would also fire on pop back from a story and on
+        // NavigationStack re-appearances while the store hydrates.
+        .onChange(of: router.selectedTab, initial: true) { _, tab in
+            // TabView can re-create this view on a switch, so the initial
+            // pass and the change pass both fire; report one open per visit.
+            guard tab == AppRouter.feedTab else { reportedThisVisit = false; return }
+            guard !reportedThisVisit else { return }
+            reportedThisVisit = true
+            FeedAnalytics.shared.opened(
+                itemCount: store.items.count,
+                unreadThisWeek: store.unreadThisWeek,
+                loadState: store.loadState.analyticsName
+            )
         }
     }
 }

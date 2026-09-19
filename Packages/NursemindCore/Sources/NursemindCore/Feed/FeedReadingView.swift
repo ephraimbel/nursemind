@@ -15,6 +15,7 @@ struct FeedReadingView: View {
     @State private var hasMarkedRead = false
     @State private var askSheetPresented = false
     @State private var relatedEntries: [LibraryEntry] = []
+    @State private var appearedAt: Date?
 
     var body: some View {
         ScrollView {
@@ -79,6 +80,12 @@ struct FeedReadingView: View {
         .sheet(isPresented: $askSheetPresented) {
             FeedAIActionSheet(item: item)
         }
+        .onAppear { appearedAt = Date() }
+        .onDisappear {
+            guard let appearedAt else { return }
+            FeedAnalytics.shared.readEnded(item, appearedAt: appearedAt)
+            self.appearedAt = nil
+        }
         .task {
             // Library matching scans ~1,600 titles against the story text —
             // cheap, but not main-thread cheap. Same detached pattern as
@@ -106,6 +113,7 @@ struct FeedReadingView: View {
             VStack(spacing: 0) {
                 ForEach(Array(relatedEntries.enumerated()), id: \.element.id) { idx, entry in
                     Button {
+                        FeedAnalytics.shared.libraryLinkOpened(item, entryID: entry.id, position: idx)
                         router.openLibraryEntry(entry.id)
                     } label: {
                         ToolLinkRow(

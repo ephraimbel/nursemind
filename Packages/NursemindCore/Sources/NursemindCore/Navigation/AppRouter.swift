@@ -36,6 +36,9 @@ public final class AppRouter {
         }
     }
 
+    /// Analytics name of the selected tab (`ask`, `feed`, `library`, `profile`).
+    public var selectedTabName: String { Self.tabName(for: selectedTab) }
+
     private static func tabName(for index: Int) -> String {
         switch index {
         case askTab:     return "ask"
