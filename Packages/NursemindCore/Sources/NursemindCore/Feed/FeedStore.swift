@@ -40,6 +40,17 @@ public final class FeedStore {
     public private(set) var lastRefreshedAt: Date?
     private var saveInFlight: Set<UUID> = []
 
+    /// On-device related-entry ids for rows the server has not linked yet
+    /// (pre-migration-0014 rows, or rows awaiting classify/backfill).
+    /// Computed off the main thread after each refresh.
+    private var localRelatedIDs: [UUID: [String]] = [:]
+
+    /// Library entry ids the story touches: the server's list when present,
+    /// otherwise the on-device match. Empty until either exists.
+    public func relatedEntryIDs(for item: FeedItem) -> [String] {
+        item.relatedEntryIDs.isEmpty ? (localRelatedIDs[item.id] ?? []) : item.relatedEntryIDs
+    }
+
     private let pageSize = 50
 
     private init() {}
@@ -75,6 +86,7 @@ public final class FeedStore {
             self.readIDs = fetchedState.read
             self.lastRefreshedAt = Date()
             self.loadState = .loaded
+            await matchUnlinkedItemsLocally(fetchedItems)
         } catch {
             feedLog.error("refresh failed: \(error.localizedDescription, privacy: .public)")
             self.loadState = .failed(error.localizedDescription)
@@ -180,6 +192,23 @@ public final class FeedStore {
     public var unreadThisWeek: Int {
         let cutoff = Date().addingTimeInterval(-7 * 24 * 60 * 60)
         return items.filter { $0.displayDate >= cutoff && !readIDs.contains($0.id) }.count
+    }
+
+    /// Title-matches every unlinked story against the registry (~2,100
+    /// titles × up to 50 stories) on a background task and publishes the
+    /// result in one main-actor write.
+    private func matchUnlinkedItemsLocally(_ items: [FeedItem]) async {
+        let unlinked = items.filter { $0.relatedEntryIDs.isEmpty }
+        guard !unlinked.isEmpty else { localRelatedIDs = [:]; return }
+        let matched = await Task.detached(priority: .utility) {
+            var out: [UUID: [String]] = [:]
+            for item in unlinked {
+                let ids = FeedLibraryMatcher.relatedEntryIDs(for: item)
+                if !ids.isEmpty { out[item.id] = ids }
+            }
+            return out
+        }.value
+        localRelatedIDs = matched
     }
 
     // MARK: - Network primitives

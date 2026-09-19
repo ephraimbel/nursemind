@@ -14,10 +14,14 @@ struct FeedEmptyState: View {
         case noSaved
         /// A category filter is active and no items match it.
         case noInCategory(String)
+        /// MY UNIT is active and nothing touches the user's saved entries or unit.
+        case noWatchlist(hasSaved: Bool)
     }
 
     let kind: Kind
     let onRetry: () -> Void
+    var actionLabel: String? = nil
+    var onAction: (() -> Void)? = nil
 
     var body: some View {
         VStack(alignment: .leading, spacing: NMSpace.lg) {
@@ -34,7 +38,20 @@ struct FeedEmptyState: View {
                 .foregroundStyle(NMColor.textTertiary)
                 .lineSpacing(3)
 
-            if showRetry {
+            if let actionLabel, let onAction {
+                Button(action: onAction) {
+                    HStack(spacing: 4) {
+                        Text(actionLabel)
+                            .font(NMFont.title)
+                            .foregroundStyle(NMColor.accent)
+                        Image(systemName: "arrow.right")
+                            .font(.system(size: 13, weight: .medium))
+                            .foregroundStyle(NMColor.accent)
+                    }
+                    .padding(.top, NMSpace.sm)
+                }
+                .buttonStyle(.plain)
+            } else if showRetry {
                 Button(action: onRetry) {
                     HStack(spacing: 4) {
                         Text("Try again")
@@ -69,6 +86,7 @@ struct FeedEmptyState: View {
         case .error:          return "COULDN'T LOAD"
         case .noSaved:        return "SAVED"
         case .noInCategory:   return "EMPTY"
+        case .noWatchlist:    return "MY UNIT"
         }
     }
 
@@ -80,6 +98,8 @@ struct FeedEmptyState: View {
         case .error:                 return "Something went sideways."
         case .noSaved:               return "Nothing saved yet."
         case .noInCategory(let cat): return "No \(cat.lowercased()) items today."
+        case .noWatchlist(let hasSaved):
+            return hasSaved ? "Quiet on your unit." : "Nothing for your unit yet."
         }
     }
 
@@ -99,6 +119,10 @@ struct FeedEmptyState: View {
             return "Tap the bookmark on any item to save it for later. Saved items live here for easy revisits."
         case .noInCategory:
             return "Try another filter, or check back when new items arrive."
+        case .noWatchlist(let hasSaved):
+            return hasSaved
+                ? "None of the current stories touch your saved entries or your unit. Save more of the drugs and drips you give to widen the net."
+                : "Save the drugs and drips you give, and recalls, shortages and alerts about them will surface here."
         }
     }
 

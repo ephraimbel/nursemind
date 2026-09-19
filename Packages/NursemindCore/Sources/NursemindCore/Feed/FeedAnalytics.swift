@@ -42,12 +42,22 @@ struct FeedAnalytics {
 
     /// A card was tapped. `position` is the zero-based index within the
     /// visible list under `filter`; the lead card is position 0.
-    func itemOpened(_ item: FeedItem, filter: FeedFilter, position: Int, isLead: Bool) {
+    func itemOpened(_ item: FeedItem, filter: FeedFilter, position: Int, isLead: Bool, matchedPinned: Bool = false) {
         sink("feed_item_opened", Self.itemProperties(item, now: now()).merging([
             "filter": filter.analyticsName,
             "position": position,
             "is_lead": isLead,
+            "matched_pinned": matchedPinned,
         ]) { _, new in new })
+    }
+
+    /// The MY UNIT filter rendered. Counts only; never the entry ids.
+    func watchlistViewed(pinnedCount: Int, matchedCount: Int, unitCount: Int) {
+        sink("feed_watchlist_viewed", [
+            "pinned_count": pinnedCount,
+            "matched_count": matchedCount,
+            "unit_count": unitCount,
+        ])
     }
 
     /// Reading view dismissed. `dwell_s` is whole seconds since it appeared,
@@ -115,6 +125,7 @@ extension FeedFilter {
     /// category raw value so a new category needs no analytics change.
     var analyticsName: String {
         switch self {
+        case .watchlist:         return "watchlist"
         case .thisWeek:          return "this_week"
         case .all:               return "all"
         case .saved:             return "saved"

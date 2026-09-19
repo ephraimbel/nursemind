@@ -91,8 +91,10 @@ struct FeedReadingView: View {
             // cheap, but not main-thread cheap. Same detached pattern as
             // global search.
             let storyItem = item
+            let serverIDs = store.relatedEntryIDs(for: storyItem)
             relatedEntries = await Task.detached(priority: .userInitiated) {
-                FeedLibraryMatcher.relatedEntries(for: storyItem)
+                let linked = serverIDs.prefix(3).compactMap { ContentRegistry.shared.entry(byID: $0) }
+                return linked.isEmpty ? FeedLibraryMatcher.relatedEntries(for: storyItem) : Array(linked)
             }.value
 
             // Mark as read once per appearance so unread-count math stays clean.

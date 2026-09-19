@@ -14,6 +14,7 @@
 import { adminClient } from "../_shared/supabase.ts"
 import { callAnthropic, extractJson, MODEL_HAIKU } from "../_shared/anthropic.ts"
 import { CLASSIFY_SYSTEM, classifyUserPayload } from "../_shared/prompts.ts"
+import { relatedEntryIDs } from "../_shared/entry-links.ts"
 
 const MAX_ITEMS = Number(Deno.env.get("FEED_CLASSIFY_MAX_ITEMS") ?? "15")
 
@@ -61,6 +62,16 @@ Deno.serve(async (req: Request): Promise<Response> => {
     if (req.method !== "POST")    return jsonError(405, "Method Not Allowed")
     if (!isAuthorized(req))       return jsonError(401, "Unauthorized — service_role required")
 
+    // One-off / repair mode: recompute related_entry_ids for already-published
+    // rows (pre-migration-0014 backlog, or after the title manifest changes).
+    //   curl -X POST .../feed-classify -H "Authorization: Bearer <service_role>" \
+    //        -H "content-type: application/json" -d '{"mode":"backfill_links","limit":500,"only_empty":true}'
+    const options = await readOptions(req)
+    if (options.mode === "backfill_links") {
+        const summary = await backfillLinks(options)
+        return jsonResponse(200, { ok: true, ...summary, elapsedMs: Date.now() - startedAt })
+    }
+
     const items = await fetchUnclassified()
     let totalIn = 0
     let totalOut = 0
@@ -82,6 +93,59 @@ Deno.serve(async (req: Request): Promise<Response> => {
         elapsedMs: Date.now() - startedAt,
     })
 })
+
+type Options = { mode?: string; limit?: number; only_empty?: boolean }
+
+async function readOptions(req: Request): Promise<Options> {
+    try {
+        const body = await req.json()
+        return body && typeof body === "object" ? body as Options : {}
+    } catch {
+        return {}
+    }
+}
+
+/// Recomputes related_entry_ids for published rows. Pure title matching,
+/// no model calls, so it is safe to run repeatedly.
+async function backfillLinks(options: Options): Promise<{
+    mode: string
+    scanned: number
+    linked: number
+    updated: number
+    errors: string[]
+}> {
+    const admin = adminClient()
+    const limit = Math.min(Math.max(Number(options.limit ?? 200), 1), 2000)
+    let query = admin
+        .from("feed_items")
+        .select("id, headline, why_nurses_care, body, related_entry_ids")
+        .in("review_state", ["auto_published", "approved"])
+        .is("archived_at", null)
+        .order("published_at", { ascending: false })
+        .limit(limit)
+    if (options.only_empty !== false) query = query.eq("related_entry_ids", "{}")
+
+    const { data, error } = await query
+    if (error) throw new Error(`backfill fetch: ${error.message}`)
+
+    const rows = (data ?? []) as (FeedItemRow & { related_entry_ids: string[] })[]
+    let linked = 0
+    let updated = 0
+    const errors: string[] = []
+    for (const row of rows) {
+        const ids = relatedEntryIDs(row)
+        if (ids.length > 0) linked++
+        const same = ids.length === row.related_entry_ids.length && ids.every((id, i) => id === row.related_entry_ids[i])
+        if (same) continue
+        const { error: updateErr } = await admin
+            .from("feed_items")
+            .update({ related_entry_ids: ids })
+            .eq("id", row.id)
+        if (updateErr) errors.push(`${row.id}: ${updateErr.message}`)
+        else updated++
+    }
+    return { mode: "backfill_links", scanned: rows.length, linked, updated, errors }
+}
 
 async function fetchUnclassified(): Promise<FeedItemRow[]> {
     const admin = adminClient()
@@ -168,10 +232,12 @@ async function classifyItem(item: FeedItemRow): Promise<{
         }
     }
 
+    const related_entry_ids = relatedEntryIDs(item)
+
     const admin = adminClient()
     const { error: updateErr } = await admin
         .from("feed_items")
-        .update({ category, specialties, nclex_areas, priority })
+        .update({ category, specialties, nclex_areas, priority, related_entry_ids })
         .eq("id", item.id)
 
     if (updateErr) {

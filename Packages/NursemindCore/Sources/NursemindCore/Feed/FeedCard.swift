@@ -13,12 +13,15 @@ struct FeedCard: View {
     let isSaved: Bool
     let isRead: Bool
     let isLead: Bool
+    /// Title of the saved library entry this story touches, when any.
+    let matchedTitle: String?
 
-    init(item: FeedItem, isSaved: Bool, isRead: Bool = false, isLead: Bool = false) {
+    init(item: FeedItem, isSaved: Bool, isRead: Bool = false, isLead: Bool = false, matchedTitle: String? = nil) {
         self.item = item
         self.isSaved = isSaved
         self.isRead = isRead
         self.isLead = isLead
+        self.matchedTitle = matchedTitle
     }
 
     var body: some View {
@@ -36,6 +39,9 @@ struct FeedCard: View {
                 }
                 VStack(alignment: .leading, spacing: isLead ? NMSpace.lg : NMSpace.md) {
                     eyebrow
+                    if let matchedTitle {
+                        affects(matchedTitle)
+                    }
                     // Read stories recede like visited links in print archives:
                     // the headline drops to secondary, everything else stays.
                     // Unread items need no marker — full-ink IS the marker.
@@ -111,6 +117,23 @@ struct FeedCard: View {
                 .foregroundStyle(NMColor.textTertiary)
                 .lineLimit(1)
         }
+    }
+
+    /// The bundle speaking: a story about something the nurse saved says so
+    /// in the eyebrow vocabulary, title in the italic source style. No badge,
+    /// no color.
+    private func affects(_ title: String) -> some View {
+        HStack(alignment: .firstTextBaseline, spacing: NMSpace.xs) {
+            Text("AFFECTS")
+                .font(NMFont.label)
+                .tracking(1.6)
+                .foregroundStyle(NMColor.textTertiary)
+            Text(title)
+                .font(NMFont.displayItalicSM)
+                .foregroundStyle(NMColor.textSecondary)
+                .lineLimit(1)
+        }
+        .padding(.top, -NMSpace.xs)
     }
 
     private var dot: some View {

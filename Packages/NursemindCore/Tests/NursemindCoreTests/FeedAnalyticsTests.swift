@@ -38,7 +38,8 @@ struct FeedAnalyticsTests {
             nclexAreas: ["pharm"],
             priority: priority,
             citations: [],
-            publishedAt: publishedAt
+            publishedAt: publishedAt,
+            relatedEntryIDs: []
         )
     }
 
@@ -67,6 +68,7 @@ struct FeedAnalyticsTests {
         #expect(r.events[0].properties["from"] as? String == "this_week")
         #expect(r.events[0].properties["to"] as? String == "category:medication_safety")
         #expect(FeedFilter.saved.analyticsName == "saved")
+        #expect(FeedFilter.watchlist.analyticsName == "watchlist")
         #expect(FeedFilter.all.analyticsName == "all")
     }
 
@@ -76,7 +78,8 @@ struct FeedAnalyticsTests {
         Self.feed(r).itemOpened(Self.item(id: id), filter: .all, position: 3, isLead: false)
         let e = r.events[0]
         #expect(e.name == "feed_item_opened")
-        #expect(r.keys(0) == ["item_id", "category", "priority", "source", "age_days", "filter", "position", "is_lead"])
+        #expect(r.keys(0) == ["item_id", "category", "priority", "source", "age_days", "filter", "position", "is_lead", "matched_pinned"])
+        #expect(e.properties["matched_pinned"] as? Bool == false)
         #expect(e.properties["item_id"] as? String == id.uuidString.lowercased())
         #expect(e.properties["category"] as? String == "drug_safety")
         #expect(e.properties["priority"] as? String == "urgent")

@@ -9,6 +9,16 @@ import Foundation
 /// story's headline + dek + body. Longest titles win the ranking — a match
 /// on "semaglutide" outranks a match on "pain".
 enum FeedLibraryMatcher {
+    /// Same cap as the server matcher (`_shared/entry-links.ts`).
+    static let maxRelatedIDs = 12
+
+    /// On-device stand-in for `feed_items.related_entry_ids` while a row has
+    /// not been classified or backfilled server-side. Same algorithm and
+    /// cap as `_shared/entry-links.ts`, so the two agree.
+    static func relatedEntryIDs(for item: FeedItem, registry: ContentRegistry = .shared) -> [String] {
+        relatedEntries(for: item, registry: registry, limit: maxRelatedIDs).map(\.id)
+    }
+
     static func relatedEntries(
         for item: FeedItem,
         registry: ContentRegistry = .shared,

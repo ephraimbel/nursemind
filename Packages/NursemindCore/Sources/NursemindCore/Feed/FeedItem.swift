@@ -19,6 +19,10 @@ public struct FeedItem: Codable, Sendable, Identifiable, Equatable {
     public let priority: Priority
     public let citations: [FeedCitation]
     public let publishedAt: Date
+    /// Prefixed library entry ids matched server-side from the story text
+    /// (R2). Empty until the pipeline has classified or backfilled the row;
+    /// `FeedStore.relatedEntryIDs(for:)` falls back to on-device matching.
+    public let relatedEntryIDs: [String]
 
     public enum Category: String, Codable, Sendable, Equatable, CaseIterable, Identifiable {
         case drugSafety        = "drug_safety"
@@ -74,6 +78,30 @@ public struct FeedItem: Codable, Sendable, Identifiable, Equatable {
         case priority
         case citations
         case publishedAt        = "published_at"
+        case relatedEntryIDs    = "related_entry_ids"
+    }
+}
+
+extension FeedItem {
+    /// `related_entry_ids` is absent from rows served before migration 0014
+    /// and from cached payloads; treat it as empty rather than failing the row.
+    public init(from decoder: Decoder) throws {
+        let c = try decoder.container(keyedBy: CodingKeys.self)
+        self.id                = try c.decode(UUID.self, forKey: .id)
+        self.source            = try c.decode(String.self, forKey: .source)
+        self.sourceURL         = try c.decode(String.self, forKey: .sourceURL)
+        self.sourcePublishedAt = try c.decodeIfPresent(Date.self, forKey: .sourcePublishedAt)
+        self.headline          = try c.decode(String.self, forKey: .headline)
+        self.whyNursesCare     = try c.decode(String.self, forKey: .whyNursesCare)
+        self.body              = try c.decode(String.self, forKey: .body)
+        self.askFollowupPrompt = try c.decode(String.self, forKey: .askFollowupPrompt)
+        self.category          = try c.decode(Category.self, forKey: .category)
+        self.specialties       = try c.decode([String].self, forKey: .specialties)
+        self.nclexAreas        = try c.decode([String].self, forKey: .nclexAreas)
+        self.priority          = try c.decode(Priority.self, forKey: .priority)
+        self.citations         = try c.decode([FeedCitation].self, forKey: .citations)
+        self.publishedAt       = try c.decode(Date.self, forKey: .publishedAt)
+        self.relatedEntryIDs   = try c.decodeIfPresent([String].self, forKey: .relatedEntryIDs) ?? []
     }
 }
 

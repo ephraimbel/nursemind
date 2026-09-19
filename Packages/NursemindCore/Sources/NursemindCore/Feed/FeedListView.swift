@@ -7,6 +7,8 @@ import UIKit
 struct FeedListView: View {
     @Binding var path: NavigationPath
     @State private var store = FeedStore.shared
+    @State private var prefs = UserPreferences.shared
+    @State private var router = AppRouter.shared
     @State private var activeFilter: FeedFilter = .thisWeek
     @Namespace private var filterNS
 
@@ -73,6 +75,11 @@ struct FeedListView: View {
     private var filterRow: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: NMSpace.xl) {
+                if watchlistAvailable {
+                    FeedFilterTab(label: "MY UNIT", isActive: activeFilter == .watchlist, namespace: filterNS) {
+                        select(.watchlist)
+                    }
+                }
                 FeedFilterTab(label: thisWeekLabel, isActive: activeFilter == .thisWeek, namespace: filterNS) {
                     select(.thisWeek)
                 }
@@ -92,7 +99,39 @@ struct FeedListView: View {
             }
             .padding(.horizontal, NMSpace.lg)
             .animation(.easeInOut(duration: 0.2), value: availableCategories)
+            .animation(.easeInOut(duration: 0.2), value: watchlistAvailable)
         }
+    }
+
+    // MARK: - MY UNIT
+
+    private var unitSpecialties: Set<String> {
+        FeedWatchlist.specialties(for: prefs.unit)
+    }
+
+    /// The chip exists only when it could ever show something: a saved
+    /// entry, or a unit the classifier tags stories with.
+    private var watchlistAvailable: Bool {
+        FeedWatchlist.isAvailable(pinned: prefs.pinnedIDs, unitSpecialties: unitSpecialties)
+    }
+
+    private var watchlist: FeedWatchlist.Partition {
+        FeedWatchlist.partition(
+            items: store.items,
+            related: { store.relatedEntryIDs(for: $0) },
+            pinned: prefs.pinnedIDs,
+            unitSpecialties: unitSpecialties
+        )
+    }
+
+    /// Title of the most recently saved entry the story touches, for the
+    /// AFFECTS eyebrow. Shown under every filter, not just MY UNIT.
+    private func matchedTitle(for item: FeedItem) -> String? {
+        FeedWatchlist
+            .matchedPinnedIDs(related: store.relatedEntryIDs(for: item), pinned: prefs.pinnedIDs)
+            .lazy
+            .compactMap { ContentRegistry.shared.entry(byID: $0)?.title }
+            .first
     }
 
     /// The editorial version of a tab badge: unread count appended to the
@@ -107,6 +146,14 @@ struct FeedListView: View {
         guard filter != activeFilter else { return }
         UISelectionFeedbackGenerator().selectionChanged()
         FeedAnalytics.shared.filterChanged(from: activeFilter, to: filter)
+        if filter == .watchlist {
+            let partition = watchlist
+            FeedAnalytics.shared.watchlistViewed(
+                pinnedCount: prefs.pinnedIDs.count,
+                matchedCount: partition.matched.count,
+                unitCount: partition.unit.count
+            )
+        }
         withAnimation(.spring(response: 0.35, dampingFraction: 0.85)) {
             activeFilter = filter
         }
@@ -127,6 +174,9 @@ struct FeedListView: View {
         if case .category(let cat) = activeFilter,
            !availableCategories.contains(cat) {
             activeFilter = .all
+        }
+        if activeFilter == .watchlist, !watchlistAvailable {
+            activeFilter = .thisWeek
         }
     }
 
@@ -150,6 +200,13 @@ struct FeedListView: View {
                 // Items exist but the active filter matches none of them.
                 // Tailor the empty-state copy to the chip the user picked.
                 switch activeFilter {
+                case .watchlist:
+                    FeedEmptyState(
+                        kind: .noWatchlist(hasSaved: !prefs.pinnedIDs.isEmpty),
+                        onRetry: refreshNow,
+                        actionLabel: "Browse the Library",
+                        onAction: { router.selectedTab = AppRouter.libraryTab }
+                    )
                 case .saved:
                     FeedEmptyState(kind: .noSaved, onRetry: refreshNow)
                 case .category(let cat):
@@ -169,6 +226,9 @@ struct FeedListView: View {
     /// by rank_score desc, so filtering preserves the ranked order.
     private var filteredItems: [FeedItem] {
         switch activeFilter {
+        case .watchlist:
+            let partition = watchlist
+            return partition.matched + partition.unit
         case .thisWeek:
             // Rolling 7-day window. Graceful fallback: if nothing landed in the
             // last week (sparse-publishing day, or a cold backend), show the
@@ -190,21 +250,23 @@ struct FeedListView: View {
     /// pattern.
     private var usesLeadLayout: Bool {
         switch activeFilter {
-        case .saved: return false
+        case .saved, .watchlist: return false
         case .thisWeek, .all, .category: return true
         }
     }
 
     @ViewBuilder
     private func itemsList(_ items: [FeedItem]) -> some View {
-        if usesLeadLayout, let lead = leadFor(items) {
+        if activeFilter == .watchlist {
+            watchlistList(watchlist)
+        } else if usesLeadLayout, let lead = leadFor(items) {
             let rest = items.filter { $0.id != lead.id }
             let positions = displayPositions(lead: lead, rest: rest)
             LazyVStack(spacing: 0) {
                 Button {
                     open(lead, position: 0, isLead: true)
                 } label: {
-                    FeedCard(item: lead, isSaved: store.isSaved(lead.id), isRead: store.isRead(lead.id), isLead: true)
+                    FeedCard(item: lead, isSaved: store.isSaved(lead.id), isRead: store.isRead(lead.id), isLead: true, matchedTitle: matchedTitle(for: lead))
                 }
                 .buttonStyle(.plain)
 
@@ -219,7 +281,7 @@ struct FeedListView: View {
                             Button {
                                 open(item, position: positions[item.id] ?? -1, isLead: false)
                             } label: {
-                                FeedCard(item: item, isSaved: store.isSaved(item.id), isRead: store.isRead(item.id))
+                                FeedCard(item: item, isSaved: store.isSaved(item.id), isRead: store.isRead(item.id), matchedTitle: matchedTitle(for: item))
                             }
                             .buttonStyle(.plain)
                             if item.id != group.last?.id {
@@ -235,7 +297,7 @@ struct FeedListView: View {
                     Button {
                         open(item, position: idx, isLead: false)
                     } label: {
-                        FeedCard(item: item, isSaved: store.isSaved(item.id), isRead: store.isRead(item.id))
+                        FeedCard(item: item, isSaved: store.isSaved(item.id), isRead: store.isRead(item.id), matchedTitle: matchedTitle(for: item))
                     }
                     .buttonStyle(.plain)
                     if item.id != items.last?.id {
@@ -247,8 +309,52 @@ struct FeedListView: View {
     }
 
     private func open(_ item: FeedItem, position: Int, isLead: Bool) {
-        FeedAnalytics.shared.itemOpened(item, filter: activeFilter, position: position, isLead: isLead)
+        FeedAnalytics.shared.itemOpened(
+            item,
+            filter: activeFilter,
+            position: position,
+            isLead: isLead,
+            matchedPinned: matchedTitle(for: item) != nil
+        )
         path.append(FeedDestination.item(item.id))
+    }
+
+    /// MY UNIT: stories touching saved entries first (newest first), then the
+    /// unit's stories in ranked order. Flat cards, no lead treatment; the
+    /// AFFECTS eyebrow does the pointing.
+    @ViewBuilder
+    private func watchlistList(_ partition: FeedWatchlist.Partition) -> some View {
+        let unitLabel = "ALSO IN \(prefs.unit.displayName.uppercased())"
+        LazyVStack(spacing: 0) {
+            if !partition.matched.isEmpty {
+                sectionDivider("YOUR SAVED ENTRIES")
+                ForEach(Array(partition.matched.enumerated()), id: \.element.id) { idx, item in
+                    Button {
+                        open(item, position: idx, isLead: false)
+                    } label: {
+                        FeedCard(item: item, isSaved: store.isSaved(item.id), isRead: store.isRead(item.id), matchedTitle: matchedTitle(for: item))
+                    }
+                    .buttonStyle(.plain)
+                    if item.id != partition.matched.last?.id {
+                        Hairline(color: NMColor.borderSubtle)
+                    }
+                }
+            }
+            if !partition.unit.isEmpty {
+                sectionDivider(unitLabel)
+                ForEach(Array(partition.unit.enumerated()), id: \.element.id) { idx, item in
+                    Button {
+                        open(item, position: partition.matched.count + idx, isLead: false)
+                    } label: {
+                        FeedCard(item: item, isSaved: store.isSaved(item.id), isRead: store.isRead(item.id), matchedTitle: matchedTitle(for: item))
+                    }
+                    .buttonStyle(.plain)
+                    if item.id != partition.unit.last?.id {
+                        Hairline(color: NMColor.borderSubtle)
+                    }
+                }
+            }
+        }
     }
 
     /// Zero-based on-screen index of every card in the lead layout: the lead
@@ -319,6 +425,7 @@ struct FeedListView: View {
 /// Top-of-list filter scope. Persisted only in-memory for the session —
 /// every cold launch resets to .all so the user always sees the day's news.
 enum FeedFilter: Hashable {
+    case watchlist
     case thisWeek
     case all
     case saved
