@@ -13,6 +13,7 @@ public struct MessageBodyView: View {
     /// live-streaming messages; nil (previews, saved answers) parses fresh.
     let cacheKey: UUID?
     @State private var presentedCitationIndex: Int?
+    @Environment(\.colorScheme) private var colorScheme
 
     public init(content: String, citations: [CitationSource], cacheKey: UUID? = nil) {
         self.content = content
@@ -39,6 +40,9 @@ public struct MessageBodyView: View {
                 renderBlock(block, emphasized: idx == firstParagraphIdx)
             }
         }
+        // Inline pills are rasterized per appearance; a live switch rebuilds
+        // the text views so they pick up the other variant.
+        .id(colorScheme)
         .sheet(
             isPresented: Binding(
                 get: { presentedCitationIndex != nil },
@@ -74,7 +78,7 @@ public struct MessageBodyView: View {
             if emphasized {
                 VStack(alignment: .leading, spacing: NMSpace.base) {
                     AttributedTextView(
-                        attributed: buildAttributed(spans, font: leadFont, textColor: bodyColor, lineSpacing: 6, monoPointSize: 20),
+                        attributed: buildAttributed(spans, font: leadFont, textColor: bodyColor, lineSpacing: 6, monoPointSize: 19),
                         onLinkTap: handleLinkTap
                     )
                     Hairline()
@@ -88,25 +92,37 @@ public struct MessageBodyView: View {
             }
 
         case .table(let rows):
+            // Key, figure, source: three quiet columns. The pill sits in its
+            // own trailing column so every row lands on one baseline instead
+            // of wrapping wherever the figure and the pill run out of room.
             VStack(alignment: .leading, spacing: 0) {
                 Hairline()
                 ForEach(Array(rows.enumerated()), id: \.offset) { idx, row in
-                    HStack(alignment: .firstTextBaseline, spacing: NMSpace.base) {
+                    HStack(alignment: .firstTextBaseline, spacing: NMSpace.md) {
                         Text(row.key)
                             .font(NumericTokens.isNumericCell(row.key) ? NMFont.mono : NMFont.body)
                             .foregroundStyle(NMColor.textSecondary)
-                            .frame(width: 118, alignment: .leading)
+                            .frame(width: 104, alignment: .leading)
                             .fixedSize(horizontal: false, vertical: true)
                         AttributedTextView(
                             attributed: NumericTokens.isNumericCell(row.valueText)
-                                ? buildAttributed(row.value, font: monoFont, textColor: bodyColor, lineSpacing: 3, monoNumbers: false)
-                                : buildAttributed(row.value, font: bodyFont, textColor: bodyColor, lineSpacing: 3),
+                                ? buildAttributed(row.textSpans, font: monoFont, textColor: bodyColor, lineSpacing: 3, monoNumbers: false)
+                                : buildAttributed(row.textSpans, font: bodyFont, textColor: bodyColor, lineSpacing: 3),
                             onLinkTap: handleLinkTap
                         )
                         .frame(maxWidth: .infinity, alignment: .leading)
+                        if let (source, extras) = row.citation {
+                            CitationPill(source: source, extraCount: extras) {
+                                presentedCitationIndex = (citations.firstIndex(where: { $0.id == source.id }) ?? 0) + 1
+                            }
+                            .fixedSize()
+                            .alignmentGuide(.firstTextBaseline) { $0[VerticalAlignment.center] + 4 }
+                        }
                     }
                     .padding(.vertical, NMSpace.md)
                     .accessibilityElement(children: .combine)
+                    .accessibilityLabel(rowSpokenLabel(row))
+                    .accessibilityHint(row.citation == nil ? "" : "Shows the source")
                     if idx < rows.count - 1 {
                         Hairline(color: NMColor.borderSubtle)
                     }
@@ -150,6 +166,15 @@ public struct MessageBodyView: View {
                 }
             }
         }
+    }
+
+    /// "Normal, 3.5 to 5.0 milliequivalents per liter, source Open RN".
+    private func rowSpokenLabel(_ row: TableRow) -> String {
+        var parts = [row.key, row.valueText.trimmingCharacters(in: .whitespaces)]
+        if let (source, extras) = row.citation {
+            parts.append(extras > 0 ? "sources \(source.shortName) and \(extras) more" : "source \(source.shortName)")
+        }
+        return parts.joined(separator: ", ")
     }
 
     private var bodyFont: UIFont {
@@ -243,7 +268,7 @@ public struct MessageBodyView: View {
     /// linked via `nm-citation://<index>` so the AttributedTextView coordinator
     /// can intercept taps and present the in-app CitationCardView popover.
     private func citationChip(_ source: CitationSource, index: Int, extras: Int) -> NSAttributedString {
-        let image = CitationPillImage.render(for: source, extras: extras)
+        let image = CitationPillImage.render(for: source, extras: extras, dark: colorScheme == .dark)
 
         let attachment = NSTextAttachment()
         attachment.image = image
@@ -283,6 +308,28 @@ public struct TableRow {
     /// The value without citation pills, for choosing a cell face.
     public var valueText: String {
         value.compactMap { if case .text(let t) = $0 { return t } else { return nil } }.joined()
+    }
+
+    /// The value's text spans only, trailing space trimmed, for the figure column.
+    public var textSpans: [ContentSpan] {
+        var spans = value.compactMap { span -> ContentSpan? in if case .text = span { return span } else { return nil } }
+        if case .text(let last)? = spans.last {
+            let trimmed = last.replacingOccurrences(of: #"\s+$"#, with: "", options: .regularExpression)
+            spans[spans.count - 1] = .text(trimmed)
+        }
+        return spans
+    }
+
+    /// The row's sources folded into one pill: the first source plus how
+    /// many more stand behind it.
+    public var citation: (CitationSource, Int)? {
+        var primary: CitationSource?
+        var extras = 0
+        for span in value {
+            guard case .citation(let source, let more) = span else { continue }
+            if primary == nil { primary = source; extras += more } else { extras += 1 + more }
+        }
+        return primary.map { ($0, extras) }
     }
 }
 
@@ -523,7 +570,14 @@ enum ContentBlockParser {
             // Emit text before this marker
             if match.range.location > lastEnd {
                 let chunk = nsText.substring(with: NSRange(location: lastEnd, length: match.range.location - lastEnd))
-                if !chunk.isEmpty { spans.append(.text(chunk)) }
+                // Whitespace between two markers is not text: dropping it lets
+                // "[c001] [c002]" fold into one pill instead of two.
+                let betweenMarkers = chunk.allSatisfy(\.isWhitespace)
+                if case .citation = spans.last, betweenMarkers {
+                    // fold
+                } else if !chunk.isEmpty {
+                    spans.append(.text(chunk))
+                }
             }
             let raw = nsText.substring(with: match.range)
             let ids = extractIDs(from: raw)

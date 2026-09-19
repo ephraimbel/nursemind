@@ -64,6 +64,7 @@ public struct AskHomeView: View {
                     emptyState
                 } else {
                     ConversationView(viewModel: viewModel)
+                    topFade
                 }
             }
             .safeAreaInset(edge: .bottom, spacing: 0) { inputBar }
@@ -249,6 +250,24 @@ public struct AskHomeView: View {
             endRadius: 360
         )
         .ignoresSafeArea()
+        .allowsHitTesting(false)
+    }
+
+    /// A short fade from the page background at the top of a conversation,
+    /// so scrolled text settles under the clock and the floating buttons
+    /// instead of colliding with them.
+    private var topFade: some View {
+        LinearGradient(
+            stops: [
+                .init(color: NMColor.bgPrimary, location: 0),
+                .init(color: NMColor.bgPrimary.opacity(0.85), location: 0.55),
+                .init(color: NMColor.bgPrimary.opacity(0), location: 1),
+            ],
+            startPoint: .top, endPoint: .bottom
+        )
+        .frame(height: 112)
+        .frame(maxHeight: .infinity, alignment: .top)
+        .ignoresSafeArea(edges: .top)
         .allowsHitTesting(false)
     }
 

@@ -6,12 +6,16 @@ import SwiftUI
 public struct CitationPill: View {
     let source: CitationSource
     let extraCount: Int   // for "+ N" when multiple citations follow the same claim
+    /// When set, replaces opening the URL, so a pill can present the in-app
+    /// citation card the inline pills use.
+    let action: (() -> Void)?
 
     @Environment(\.openURL) private var openURL
 
-    public init(source: CitationSource, extraCount: Int = 0) {
+    public init(source: CitationSource, extraCount: Int = 0, action: (() -> Void)? = nil) {
         self.source = source
         self.extraCount = extraCount
+        self.action = action
     }
 
     public var body: some View {
@@ -20,7 +24,9 @@ public struct CitationPill: View {
             // Premium reference apps (Notion, Quill) put a haptic here so the
             // tiny pill feels like a real button, not a passive label.
             Haptic.light()
-            if let url = URL(string: source.url) {
+            if let action {
+                action()
+            } else if let url = URL(string: source.url) {
                 openURL(url)
             }
         } label: {

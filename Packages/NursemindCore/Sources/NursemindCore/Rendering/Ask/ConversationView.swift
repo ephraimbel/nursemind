@@ -95,7 +95,8 @@ struct ConversationView: View {
             }
         }
         .padding(.horizontal, NMSpace.lg)
-        .padding(.top, NMSpace.lg)
+        // Clears the floating history / new-conversation buttons.
+        .padding(.top, NMSpace.huge)
     }
 
     private func followStream(_ proxy: ScrollViewProxy) {
@@ -244,6 +245,7 @@ struct MessageRenderer: View {
                 bodyContent
                 if !message.isStreaming {
                     handoffSection
+                        .padding(.top, NMSpace.sm)
                 }
                 if !message.citations.isEmpty && !message.isStreaming {
                     Divider()

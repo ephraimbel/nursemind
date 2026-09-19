@@ -41,6 +41,18 @@ struct AIPassageTests {
         #expect(result.entries.isEmpty)
     }
 
+    @Test func keepsSharedPassagesAttributedToPermittedSourcesOnly() {
+        let restricted = CitationSource(id: "restricted", shortName: "Display only", license: .ccBy4WithAIRestriction,
+                                        url: "https://example.org", lastRetrieved: "2026-09-17")
+        let entry = reference([
+            .prose(title: "Monitoring", .init("Shared monitoring text.", citationIDs: [evidence.id, restricted.id])),
+        ], sources: [evidence, restricted])
+        let result = RAGRetriever(registry: ContentRegistry(entries: [entry])).retrieve(for: "monitoring")
+        #expect(result.formattedContext.contains("Shared monitoring text."))
+        #expect(result.citations.map(\.id) == [evidence.id])
+        #expect(!result.formattedContext.contains("Display only"))
+    }
+
     @Test func contextBudgetNeverCutsClaimsInHalf() {
         let sections = (0..<80).map { ReferenceSection.prose(title: "Monitoring \($0)", .init(String(repeating: "Monitoring reference details. ", count: 80) + "END", citationIDs: [evidence.id])) }
         let result = RAGRetriever(registry: ContentRegistry(entries: [reference(sections)])).retrieve(for: "monitoring")

@@ -1,3 +1,4 @@
+import UIKit
 import Foundation
 import Testing
 @testable import NursemindCore
@@ -36,6 +37,26 @@ struct AnswerRenderingTests {
         #expect(ContentBlockParser.parseTableRow("not a row", citations: sources) == nil)
     }
 
+    @Test func spaceSeparatedMarkersFoldIntoOnePill() {
+        let sources = (1...3).map { CitationSource(id: "s\($0)", shortName: "Open RN \($0)", license: .ccBy4, url: "https://example.org/\($0)", lastRetrieved: "2026-09-19") }
+        let blocks = ContentBlockParser.parse(content: "Normal is 3.5 [c001] [c002] [c003].", citations: sources)
+        guard case .paragraph(let spans)? = blocks.first else { Issue.record("expected a paragraph"); return }
+        let pills = spans.compactMap { span -> Int? in if case .citation(_, let extras) = span { return extras } else { return nil } }
+        #expect(pills == [2])
+        #expect(spans.count == 3)
+    }
+
+    @Test func numericTokensNeverBreakAcrossLines() {
+        #expect(NumericTokens.unbreakable("2.5 mEq/L") == "2.5\u{00A0}mEq/\u{2060}L")
+        #expect(NumericTokens.unbreakable("3.5–5.0") == "3.5\u{2060}–\u{2060}5.0")
+        let text = NSMutableAttributedString(string: "Critical low is less than 2.5 mEq/L today.", attributes: [.font: UIFont.systemFont(ofSize: 17)])
+        NumericTokens.applyMono(to: text, bodyFont: UIFont.systemFont(ofSize: 17))
+        #expect(text.string == "Critical low is less than 2.5\u{00A0}mEq/\u{2060}L today.")
+        let monoRange = (text.string as NSString).range(of: "2.5\u{00A0}mEq/\u{2060}L")
+        let font = text.attribute(.font, at: monoRange.location, effectiveRange: nil) as? UIFont
+        #expect(font?.fontDescriptor.symbolicTraits.contains(.traitMonoSpace) == true)
+    }
+
     @Test func numericCellsAreFiguresNotPhrases() {
         for cell in [">1.30", "3.5 – 5.0 mEq/L", "< 2.5 mEq/L", "0.91-1.30", "≥ 60 mL/min/1.73 m²"] {
             #expect(NumericTokens.isNumericCell(cell), Comment(rawValue: cell))
@@ -54,5 +75,20 @@ struct AnswerRenderingTests {
         #expect(found("Recheck in 15 minutes, then every 4 hrs for 3 days.") == ["15 minutes", "4 hrs", "3 days"])
         #expect(found("Vitamin B12 and CO2 are words, not values.").isEmpty)
         #expect(found("[c001] stays a marker").isEmpty)
+    }
+}
+
+@Suite("Table row columns")
+struct TableRowColumnTests {
+    @Test func rowSplitsFigureFromFoldedSources() {
+        let sources = (1...3).map { CitationSource(id: "s\($0)", shortName: "Open RN \($0)", license: .ccBy4, url: "https://example.org/\($0)", lastRetrieved: "2026-09-19") }
+        let blocks = ContentBlockParser.parse(content: "## Ranges\n| Normal | 3.5 – 5.0 mEq/L [c001] [c002] |\n| Low | < 3.5 mEq/L [c003] |", citations: sources)
+        guard case .table(let rows)? = blocks.last else { Issue.record("expected a table"); return }
+        #expect(rows.count == 2)
+        #expect(rows[0].valueText.trimmingCharacters(in: .whitespaces) == "3.5 – 5.0 mEq/L")
+        if case .text(let t)? = rows[0].textSpans.last { #expect(t == "3.5 – 5.0 mEq/L") } else { Issue.record("no text span") }
+        #expect(rows[0].citation?.0.id == "s1")
+        #expect(rows[0].citation?.1 == 1)
+        #expect(rows[1].citation?.1 == 0)
     }
 }

@@ -41,7 +41,7 @@ public struct CitationSource: Identifiable, Hashable, Codable, Sendable {
         case .publicDomain:               return "public domain"
         case .cc0:                        return "CC0 1.0"
         case .ccBy4:                      return "CC BY 4.0"
-        case .ccBy4WithAIRestriction:     return "CC BY 4.0 (display)"
+        case .ccBy4WithAIRestriction:     return "CC BY 4.0"
         case .factCitationOnly:           return "fact citation only"
         }
     }

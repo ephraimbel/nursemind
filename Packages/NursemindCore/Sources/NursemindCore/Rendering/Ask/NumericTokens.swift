@@ -21,9 +21,22 @@ enum NumericTokens {
     /// steady so a value inside a bold clause stays legible.
     static func applyMono(to attributed: NSMutableAttributedString, bodyFont: UIFont, pointSize: CGFloat? = nil) {
         let mono = UIFont.monospacedSystemFont(ofSize: pointSize ?? max(11, bodyFont.pointSize - 1.5), weight: .regular)
-        for range in ranges(in: attributed.string) {
+        // Last range first so earlier offsets survive the joiner insertions.
+        for range in ranges(in: attributed.string).reversed() {
             attributed.addAttribute(.font, value: mono, range: range)
+            let token = (attributed.string as NSString).substring(with: range)
+            attributed.replaceCharacters(in: range, with: NSAttributedString(string: unbreakable(token), attributes: attributed.attributes(at: range.location, effectiveRange: nil)))
         }
+    }
+
+    /// A figure and its unit are one word to the eye, so they never split
+    /// across lines: spaces become no-break spaces and a word joiner follows
+    /// each slash or dash ("2.5 mEq/L", "3.5–5.0", "1.73 m²").
+    static func unbreakable(_ token: String) -> String {
+        token.replacingOccurrences(of: " ", with: "\u{00A0}")
+            .replacingOccurrences(of: "/", with: "/\u{2060}")
+            .replacingOccurrences(of: "–", with: "\u{2060}–\u{2060}")
+            .replacingOccurrences(of: "-", with: "\u{2060}-\u{2060}")
     }
 
     /// A table cell that is a figure (">1.30", "3.5 – 5.0 mEq/L", "< 2.5 mEq/L")

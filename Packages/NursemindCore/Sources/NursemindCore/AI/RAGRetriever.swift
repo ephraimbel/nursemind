@@ -54,10 +54,14 @@ public struct RAGRetriever: Sendable {
         let chunks = registry.all.flatMap { entry in
             let titleTerms = Self.terms(entry.title)
             return formatEntry(entry).compactMap { text, sources -> Chunk? in
-                // Display permission does not imply permission to send text to an LLM.
-                guard !sources.isEmpty,
-                      !sources.contains(where: { $0.license == .ccBy4WithAIRestriction }) else { return nil }
-                return Chunk(entry: entry, text: text, sources: sources,
+                // Display permission does not imply permission to send text to
+                // an LLM, so a display-only source never reaches the model. A
+                // passage it shares with a permitted source is our own authored
+                // line that the permitted source supports on its own, so it
+                // stays, attributed to the permitted sources only.
+                let permitted = sources.filter { $0.license != .ccBy4WithAIRestriction }
+                guard !permitted.isEmpty else { return nil }
+                return Chunk(entry: entry, text: text, sources: permitted,
                              terms: Self.terms(text), titleTerms: titleTerms)
             }
         }

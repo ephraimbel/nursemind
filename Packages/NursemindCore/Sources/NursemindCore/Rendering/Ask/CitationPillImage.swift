@@ -14,17 +14,21 @@ enum CitationPillImage {
     // compiler's inability to see that.
     nonisolated(unsafe) private static let cache = NSCache<NSString, UIImage>()
 
-    static func render(for source: CitationSource, extras: Int = 0, scale: CGFloat = 3) -> UIImage {
-        let cacheKey = "\(source.pillTitle)|\(source.sourceType)|\(extras)|\(scale)" as NSString
+    static func render(for source: CitationSource, extras: Int = 0, scale: CGFloat = 3, dark: Bool = false) -> UIImage {
+        let cacheKey = "\(source.pillTitle)|\(source.sourceType)|\(extras)|\(scale)|\(dark)" as NSString
         if let cached = cache.object(forKey: cacheKey) {
             return cached
         }
-        let image = renderUncached(for: source, extras: extras, scale: scale)
+        let image = renderUncached(for: source, extras: extras, scale: scale, dark: dark)
         cache.setObject(image, forKey: cacheKey)
         return image
     }
 
-    private static func renderUncached(for source: CitationSource, extras: Int, scale: CGFloat) -> UIImage {
+    private static func renderUncached(for source: CitationSource, extras: Int, scale: CGFloat, dark: Bool) -> UIImage {
+        // NMColor.linkBg / NMColor.link, resolved by hand because the image is
+        // rasterized once and cached per appearance.
+        let fill = dark ? UIColor(red: 0.102, green: 0.169, blue: 0.125, alpha: 1) : UIColor(red: 0.910, green: 0.941, blue: 0.898, alpha: 1)
+        let ink = dark ? UIColor(red: 0.310, green: 0.667, blue: 0.439, alpha: 1) : UIColor(red: 0.122, green: 0.420, blue: 0.239, alpha: 1)
         let label = source.pillTitle
         let extrasLabel = extras > 0 ? " +\(extras)" : ""
 
@@ -50,12 +54,9 @@ enum CitationPillImage {
             let bgRect = CGRect(x: 0.5, y: 0.5, width: width - 1, height: height - 1)
             let bgPath = UIBezierPath(roundedRect: bgRect, cornerRadius: height / 2)
 
-            // Pale sage-green tint fill (matches NMColor.linkBg light value 0xE8F0E5).
-            UIColor(red: 0.910, green: 0.941, blue: 0.898, alpha: 1).setFill()
+            fill.setFill()
             bgPath.fill()
-
-            // Deep emerald stroke (matches NMColor.link light value 0x1F6B3D).
-            UIColor(red: 0.122, green: 0.420, blue: 0.239, alpha: 1).setStroke()
+            ink.setStroke()
             bgPath.lineWidth = 1.0
             bgPath.stroke()
 
@@ -84,10 +85,9 @@ enum CitationPillImage {
                 (glyph as NSString).draw(at: glyphPoint, withAttributes: glyphAttrs)
             }
 
-            // Pill label — link color (matches NMColor.link light value 0x1F6B3D).
             let textAttrs: [NSAttributedString.Key: Any] = [
                 .font: textFont,
-                .foregroundColor: UIColor(red: 0.122, green: 0.420, blue: 0.239, alpha: 1)
+                .foregroundColor: ink
             ]
             let textPoint = CGPoint(
                 x: leftPad + dotDiameter + dotToText,

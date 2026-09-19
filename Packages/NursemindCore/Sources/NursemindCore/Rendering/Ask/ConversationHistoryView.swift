@@ -3,9 +3,8 @@ import SwiftData
 
 /// Sheet-presented list of past Ask conversations. Newest first, search
 /// across the title (which is the user's first question, truncated).
-/// Tap a row to resume the conversation in AskHomeView. Long-press to
-/// delete (deferred — for v1, sliding deletion via `.swipeActions` is
-/// sufficient).
+/// Tap a row to resume the conversation in AskHomeView. Long-press a row
+/// to delete it.
 public struct ConversationHistoryView: View {
     let onResume: (AskConversation) -> Void
 
@@ -121,11 +120,13 @@ public struct ConversationHistoryView: View {
                     ConversationHistoryRow(stored: stored)
                 }
                 .buttonStyle(PressableButtonStyle())
-                .swipeActions(edge: .trailing, allowsFullSwipe: true) {
+                // Rows live in a ScrollView, where swipe actions never fire;
+                // a long-press menu is the working delete.
+                .contextMenu {
                     Button(role: .destructive) {
                         delete(stored)
                     } label: {
-                        Label("Delete", systemImage: "trash")
+                        Label("Delete conversation", systemImage: "trash")
                     }
                 }
                 if idx < filtered.count - 1 {
