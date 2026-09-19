@@ -7,6 +7,8 @@ public struct EditProfileView: View {
     @State private var yearsDraft: String = ""
     @State private var photoSelection: PhotosPickerItem?
     @State private var photoFailed = false
+    @State private var cameraPresented = false
+    @State private var cameraDenied = false
     @FocusState private var nameFocused: Bool
 
     public init() {}
@@ -57,13 +59,30 @@ public struct EditProfileView: View {
         } message: {
             Text("Try a different photo from your library.")
         }
+        .alert("Camera access is off", isPresented: $cameraDenied) {
+            Button("Open Settings") {
+                if let url = URL(string: UIApplication.openSettingsURLString) { UIApplication.shared.open(url) }
+            }
+            Button("Not now", role: .cancel) {}
+        } message: {
+            Text("Allow NurseMind to use the camera in Settings to take a profile photo. You can still choose one from your library.")
+        }
+        .fullScreenCover(isPresented: $cameraPresented) {
+            ProfilePhotoCamera { image in
+                cameraPresented = false
+                guard let image else { return }
+                Task { await store(image) }
+            }
+            .ignoresSafeArea()
+        }
     }
 
     // MARK: - Photo
 
-    /// The avatar with its two quiet actions. The picker is Apple's own
-    /// sheet, which runs outside the app, so no photo-library permission is
-    /// asked for and nothing but the chosen image ever reaches NurseMind.
+    /// The avatar with its quiet actions. The picker is Apple's own sheet,
+    /// which runs outside the app, so no photo-library permission is asked
+    /// for and nothing but the chosen image ever reaches NurseMind. The
+    /// camera appears only where one exists and asks for access first.
     private var photoSection: some View {
         VStack(alignment: .leading, spacing: 0) {
             EyebrowLabel("PHOTO", sparkle: false)
@@ -84,6 +103,22 @@ public struct EditProfileView: View {
                     }
                     .buttonStyle(.plain)
                     .accessibilityLabel(prefs.profilePhotoVersion > 0 ? "Change photo" : "Choose photo")
+                    if ProfilePhotoCamera.isAvailable {
+                        Button {
+                            Task { await openCamera() }
+                        } label: {
+                            HStack(spacing: NMSpace.xs) {
+                                Text("Take photo")
+                                    .font(NMFont.title)
+                                    .foregroundStyle(NMColor.accent)
+                                Image(systemName: "arrow.right")
+                                    .font(.system(size: 13, weight: .medium))
+                                    .foregroundStyle(NMColor.accent)
+                            }
+                            .contentShape(Rectangle())
+                        }
+                        .buttonStyle(.plain)
+                    }
                     if prefs.profilePhotoVersion > 0 {
                         Button {
                             Haptic.light()
@@ -114,12 +149,23 @@ public struct EditProfileView: View {
             photoFailed = true
             return
         }
-        // Crop and encode off the main actor; only the version bump happens on it.
+        await store(image, source: "library")
+    }
+
+    private func openCamera() async {
+        switch await ProfilePhotoCamera.requestAccess() {
+        case .granted: cameraPresented = true
+        case .denied: cameraDenied = true
+        }
+    }
+
+    /// Crop and encode off the main actor; only the version bump happens on it.
+    private func store(_ image: UIImage, source: String = "camera") async {
         let saved = await Task.detached(priority: .userInitiated) { ProfilePhotoStore.shared.save(image) }.value
         if saved {
             withAnimation(.easeOut(duration: 0.2)) { prefs.profilePhotoVersion += 1 }
             Haptic.light()
-            AnalyticsService.shared.capture("profile_photo_set")
+            AnalyticsService.shared.capture("profile_photo_set", properties: ["source": source])
         } else {
             photoFailed = true
         }

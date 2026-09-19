@@ -45,6 +45,7 @@ targets:
         # uses only iOS's standard HTTPS / TLS — qualifies for the
         # standard encryption exemption per Apple's docs.
         ITSAppUsesNonExemptEncryption: false
+        NSCameraUsageDescription: "NurseMind uses the camera only to take your profile photo. The photo stays on this device and is never uploaded."
         NSMicrophoneUsageDescription: "NurseMind uses the microphone so you can ask the AI questions by voice. Audio is transcribed entirely on your device and never sent to a server."
         NSSpeechRecognitionUsageDescription: "NurseMind transcribes your speech into text so the AI can answer your question. Recognition runs on your device — no audio leaves it."
         NSUserTrackingUsageDescription: "With your permission, device identifiers and app and subscription events help measure NurseMind ads. Your clinical questions and reference content are not shared with advertising partners."
