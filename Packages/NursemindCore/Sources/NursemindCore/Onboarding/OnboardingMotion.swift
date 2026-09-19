@@ -74,6 +74,22 @@ struct PhotoExitModifier: ViewModifier, Animatable {
     }
 }
 
+/// The hand-off the app target can see: the main app rises into place
+/// beneath the departing Success screen, so the product is already moving
+/// when the nurse arrives.
+public enum OnboardingArrival {
+    public static let duration: Double = OnboardingMotion.slow
+
+    public static func transition(reduceMotion: Bool) -> AnyTransition {
+        guard !reduceMotion else { return .opacity }
+        return .asymmetric(
+            insertion: .modifier(active: LiftModifier(progress: 1, rise: 28, blur: 0),
+                                 identity: LiftModifier(progress: 0, rise: 28, blur: 0)),
+            removal: .opacity
+        )
+    }
+}
+
 // MARK: - The living mark
 
 /// Where the sparkle should be on the current screen. Each step places one

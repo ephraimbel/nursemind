@@ -91,8 +91,8 @@ extension FeedItem {
         self.source            = try c.decode(String.self, forKey: .source)
         self.sourceURL         = try c.decode(String.self, forKey: .sourceURL)
         self.sourcePublishedAt = try c.decodeIfPresent(Date.self, forKey: .sourcePublishedAt)
-        self.headline          = try c.decode(String.self, forKey: .headline)
-        self.whyNursesCare     = try c.decode(String.self, forKey: .whyNursesCare)
+        self.headline          = Self.unemphasized(try c.decode(String.self, forKey: .headline))
+        self.whyNursesCare     = Self.unemphasized(try c.decode(String.self, forKey: .whyNursesCare))
         self.body              = try c.decode(String.self, forKey: .body)
         self.askFollowupPrompt = try c.decode(String.self, forKey: .askFollowupPrompt)
         self.category          = try c.decode(Category.self, forKey: .category)
@@ -102,6 +102,19 @@ extension FeedItem {
         self.citations         = try c.decode([FeedCitation].self, forKey: .citations)
         self.publishedAt       = try c.decode(Date.self, forKey: .publishedAt)
         self.relatedEntryIDs   = try c.decodeIfPresent([String].self, forKey: .relatedEntryIDs) ?? []
+    }
+}
+
+extension FeedItem {
+    /// A headline or dek the server wrapped in markdown emphasis (`*…*`,
+    /// `_…_`) is shown as words: the card sets its own italics.
+    nonisolated static func unemphasized(_ text: String) -> String {
+        var trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
+        while let first = trimmed.first, let last = trimmed.last,
+              first == last, "*_".contains(first), trimmed.count > 2 {
+            trimmed = String(trimmed.dropFirst().dropLast()).trimmingCharacters(in: .whitespacesAndNewlines)
+        }
+        return trimmed
     }
 }
 

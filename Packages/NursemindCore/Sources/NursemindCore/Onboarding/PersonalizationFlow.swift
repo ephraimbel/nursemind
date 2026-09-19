@@ -20,6 +20,19 @@ struct PersonalizationFlow: View {
         static let total = Self.allCases.count
     }
 
+    init(onComplete: @escaping () -> Void, onBack: @escaping () -> Void) {
+        self.onComplete = onComplete
+        self.onBack = onBack
+        #if DEBUG
+        // Dev-only: open on a given question for screenshots.
+        //   SIMCTL_CHILD_NM_PERSONALIZATION_STEP=unit simctl launch …
+        if let raw = ProcessInfo.processInfo.environment["NM_PERSONALIZATION_STEP"],
+           let forced = Step.allCases.first(where: { "\($0)" == raw }) {
+            _step = State(initialValue: forced)
+        }
+        #endif
+    }
+
     var body: some View {
         ZStack {
             NMColor.bgPrimary.ignoresSafeArea()
@@ -210,13 +223,34 @@ private struct NameStep: View {
                     }
                     .padding(.bottom, NMSpace.sm)
                 Hairline()
-                Text("This is how NurseMind will greet you.")
-                    .font(NMFont.bodySM)
-                    .foregroundStyle(NMColor.textTertiary)
-                    .padding(.top, NMSpace.xs)
+                greetingPreview
             }
         }
         .onAppear { focused = true }
+    }
+
+    /// Answers back as they type: the Success greeting, previewed live in
+    /// the same italic serif it will be set in.
+    @ViewBuilder
+    private var greetingPreview: some View {
+        let name = prefs.displayName.trimmingCharacters(in: .whitespaces)
+        ZStack(alignment: .leading) {
+            Text("This is how NurseMind will greet you.")
+                .font(NMFont.bodySM)
+                .foregroundStyle(NMColor.textTertiary)
+                .opacity(name.isEmpty ? 1 : 0)
+            (
+                Text("Welcome, ").foregroundStyle(NMColor.textSecondary)
+                + Text(name).foregroundStyle(NMColor.accent)
+                + Text(".").foregroundStyle(NMColor.textSecondary)
+            )
+            .font(NMFont.displayItalicMD)
+            .opacity(name.isEmpty ? 0 : 1)
+        }
+        .padding(.top, NMSpace.xs)
+        .animation(.easeOut(duration: OnboardingMotion.quick), value: name.isEmpty)
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(name.isEmpty ? "This is how NurseMind will greet you." : "Welcome, \(name).")
     }
 }
 
@@ -274,6 +308,8 @@ private struct UnitStep: View {
         .clinic, .school, .other
     ]
 
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+
     var body: some View {
         PersonalizationStepShell(
             stepNumber: stepNumber,
@@ -289,12 +325,38 @@ private struct UnitStep: View {
                         isSelected: prefs.unit == unit,
                         onTap: { prefs.unit = unit }
                     )
+                    if unit == .icu, prefs.unit == .icu {
+                        icuSubspecialties
+                    }
                     if idx < options.count - 1 {
                         Hairline(color: NMColor.borderSubtle)
                     }
                 }
             }
+            .animation(reduceMotion ? nil : .easeOut(duration: OnboardingMotion.base), value: prefs.unit)
         }
+    }
+
+    /// Choosing ICU folds its sub-specialties open beneath the row. The
+    /// choice tunes the AI's default context: Neuro ICU and CVICU have
+    /// different drips, targets and watch-fors.
+    private var icuSubspecialties: some View {
+        VStack(spacing: 0) {
+            Hairline(color: NMColor.borderSubtle)
+            ForEach(Array(ICUSubspecialty.allCases.enumerated()), id: \.element) { idx, sub in
+                OptionRow(
+                    title: sub.displayName,
+                    isSelected: prefs.icuSubspecialty == sub,
+                    compact: true,
+                    onTap: { prefs.icuSubspecialty = sub }
+                )
+                if idx < ICUSubspecialty.allCases.count - 1 {
+                    Hairline(color: NMColor.borderSubtle)
+                }
+            }
+        }
+        .padding(.leading, NMSpace.xl)
+        .transition(.asymmetric(insertion: .opacity.combined(with: .offset(y: -6)), removal: .opacity))
     }
 }
 
@@ -346,12 +408,16 @@ private struct ExperienceStep: View {
 // MARK: - Reusable option row
 
 /// Tappable row used across all multiple-choice personalization steps.
-/// Title on the left, accent-color check on the right when selected.
-/// Hairline-separated; consistent with the rest of the app's row patterns.
+/// Title on the left, an ink check on the right when selected, and a line
+/// of ink that runs across the row as the choice lands, over the subtle
+/// divider beneath it. Green stays with the Continue button.
 private struct OptionRow: View {
     let title: String
     let isSelected: Bool
+    var compact: Bool = false
     let onTap: () -> Void
+
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     var body: some View {
         Button {
@@ -360,20 +426,30 @@ private struct OptionRow: View {
         } label: {
             HStack(spacing: NMSpace.base) {
                 Text(title)
-                    .font(NMFont.bodyLG)
+                    .font(compact ? NMFont.body : NMFont.bodyLG)
                     .foregroundStyle(NMColor.textPrimary)
                 Spacer(minLength: 0)
                 if isSelected {
                     Image(systemName: "checkmark")
-                        .font(.system(size: 15, weight: .semibold))
-                        .foregroundStyle(NMColor.accent)
+                        .font(.system(size: compact ? 13 : 15, weight: .semibold))
+                        .foregroundStyle(NMColor.textPrimary)
                         .transition(.scale(scale: 0.5).combined(with: .opacity))
                 }
             }
-            .padding(.vertical, NMSpace.base)
+            .padding(.vertical, compact ? NMSpace.md : NMSpace.base)
             .contentShape(Rectangle())
+            .overlay(alignment: .bottom) {
+                Rectangle()
+                    .fill(NMColor.textPrimary)
+                    .frame(height: 1)
+                    .scaleEffect(x: isSelected ? 1 : 0, anchor: .leading)
+                    .offset(y: 1)
+            }
         }
         .buttonStyle(PressableButtonStyle())
-        .animation(.easeOut(duration: 0.18), value: isSelected)
+        // The line sits where the divider below would be, so the chosen row
+        // draws above its neighbours.
+        .zIndex(isSelected ? 1 : 0)
+        .animation(reduceMotion ? nil : .easeOut(duration: OnboardingMotion.base), value: isSelected)
     }
 }

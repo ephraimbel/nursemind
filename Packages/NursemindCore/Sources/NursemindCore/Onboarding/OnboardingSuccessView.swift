@@ -1,9 +1,9 @@
 import SwiftUI
 
-/// Final onboarding screen. Vertically-centered editorial composition:
-/// brand sparkle, declarative "You're all set." headline, and a
-/// two-line italic subtitle that personalizes by name (in accent green)
-/// and confirms the user's specialty library is ready.
+/// Final onboarding screen. The mark lands full size, the headline names
+/// the nurse, the library count rolls in, and after a short hold the flow
+/// commits on its own so the app is already moving when they arrive. The
+/// button is there for anyone who would rather not wait.
 ///
 /// No logo on this screen — the success moment is about the user, not
 /// brand reinforcement. They've seen the logo throughout onboarding.
@@ -12,6 +12,8 @@ struct OnboardingSuccessView: View {
 
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var prefs = UserPreferences.shared
+    @State private var counts: LibraryFacts.Counts = .none
+    @State private var committed = false
 
     var body: some View {
         ZStack {
@@ -26,14 +28,21 @@ struct OnboardingSuccessView: View {
                 .padding(.horizontal, NMSpace.lg)
             }
         }
-        .task { Haptic.success() }
+        .task {
+            Haptic.success()
+            counts = await LibraryFacts.shared.counts()
+            // The figures settle at about a second and a half; one more
+            // beat to read them, then the app rises in.
+            try? await Task.sleep(for: .seconds(reduceMotion ? 1.8 : 3.0))
+            guard !Task.isCancelled else { return }
+            commit()
+        }
     }
 
     // MARK: - Hero block
 
-    /// Sparkle + headline + 2-line italic subtitle. One cohesive editorial
-    /// composition that feels like a single statement, not three orphaned
-    /// elements.
+    /// Mark, headline, greeting, unit line and the counts: one editorial
+    /// statement that reads top to bottom as the pieces land.
     private var heroBlock: some View {
         VStack(alignment: .leading, spacing: NMSpace.lg) {
             // The mark that was born on the splash lands here, full size.
@@ -45,6 +54,8 @@ struct OnboardingSuccessView: View {
                 personalGreeting
                 unitConfirmation
             }
+
+            LibraryCountsLine(counts: counts, delay: 0.55)
         }
     }
 
@@ -85,10 +96,15 @@ struct OnboardingSuccessView: View {
     // MARK: - Action
 
     private var action: some View {
-        PrimaryCTAButton(title: "Open NurseMind", action: onComplete)
+        PrimaryCTAButton(title: "Open NurseMind", action: commit)
             .padding(.bottom, NMSpace.xl)
     }
 
+    private func commit() {
+        guard !committed else { return }
+        committed = true
+        onComplete()
+    }
 }
 
 #Preview {

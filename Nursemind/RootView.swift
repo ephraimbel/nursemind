@@ -7,6 +7,7 @@ struct RootView: View {
     @State private var router = AppRouter.shared
     @State private var prefs = UserPreferences.shared
     @Environment(\.scenePhase) private var scenePhase
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     /// One-shot guard so we attempt the ATT prompt only on the first
     /// `.active` transition. The system API is itself idempotent, but
     /// re-requesting on every foreground is noise.
@@ -73,6 +74,7 @@ struct RootView: View {
             || ProcessInfo.processInfo.environment["NM_OPEN_PAYWALL"] == "1"
             || ProcessInfo.processInfo.environment["NM_OPEN_ENTRY"] != nil
             || ProcessInfo.processInfo.environment["NM_OPEN_PROFILE_EDIT"] == "1"
+            || ProcessInfo.processInfo.environment["NM_ONBOARDING_AUTOPLAY"] != nil
         #else
         false
         #endif
@@ -82,8 +84,13 @@ struct RootView: View {
         Group {
             if forceOnboardingForDebug || !prefs.hasCompletedOnboarding {
                 OnboardingFlow()
+                    .transition(.opacity)
+                    .zIndex(1)
             } else {
+                // Success fades above while the whole app, tab bar included,
+                // rises into place beneath it.
                 mainAppView
+                    .transition(OnboardingArrival.transition(reduceMotion: reduceMotion))
             }
         }
         // OnboardingFlow honors `.adaptForIPadCompat()` at the Group level
@@ -97,7 +104,7 @@ struct RootView: View {
         // to unreadable sizes. Body text (Inter) still uses `relativeTo:`
         // so genuine accessibility needs are honored within reason.
         .dynamicTypeSize(...DynamicTypeSize.large)
-        .animation(.easeInOut(duration: 0.4), value: prefs.hasCompletedOnboarding)
+        .animation(.easeInOut(duration: reduceMotion ? 0.2 : OnboardingArrival.duration), value: prefs.hasCompletedOnboarding)
         // App Tracking Transparency. Fired on the first time the scene is
         // fully `.active` — the splash — so the system prompt appears before
         // the TikTok SDK reads the IDFA for ad attribution, and reliably

@@ -183,7 +183,7 @@ private struct NotificationBullet: View {
         HStack(alignment: .top, spacing: NMSpace.base) {
             Image(systemName: "bell")
                 .font(.system(size: 13, weight: .medium))
-                .foregroundStyle(NMColor.accent)
+                .foregroundStyle(NMColor.textSecondary)
                 .frame(width: 22, alignment: .center)
                 .padding(.top, 4)
             VStack(alignment: .leading, spacing: 2) {

@@ -308,7 +308,7 @@ public struct LibraryHomeView: View {
     /// textTertiary subtitle under the category title — gives each row real
     /// character so the BROWSE list reads like a curated table of contents
     /// rather than a generic directory.
-    private static func categoryDescriptor(for category: EntryCategory) -> String {
+    nonisolated static func categoryDescriptor(for category: EntryCategory) -> String {
         switch category {
         case .drug:          return "Interactions · monitoring · warnings"
         case .drip:          return "Titration · monitoring"
@@ -564,7 +564,7 @@ private struct SmallHighRiskChip: View {
 
 // MARK: - Category row (Browse list)
 
-private struct CategoryRow: View {
+struct CategoryRow: View {
     let name: String
     let count: Int
     let subtitle: String?

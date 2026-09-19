@@ -14,6 +14,7 @@ struct AuthView: View {
     let onComplete: () -> Void
 
     @State private var legalSheet: LegalSheet?
+    @State private var counts: LibraryFacts.Counts = .none
 
     var body: some View {
         ZStack {
@@ -37,6 +38,7 @@ struct AuthView: View {
                 .presentationDetents([.large])
                 .presentationDragIndicator(.visible)
         }
+        .task { counts = await LibraryFacts.shared.counts() }
     }
 
     // MARK: - Logo
@@ -47,17 +49,18 @@ struct AuthView: View {
 
     // MARK: - Hero
 
-    /// Smaller, modern hero. `displayLG` keeps visual weight on the benefit
-    /// list and CTA below — the page is about confirming what they're about
-    /// to use, not selling them on it (Welcome did that). Italic on the back
-    /// half of the subtitle is the deliberate editorial accent per CLAUDE.md.
+    /// A true fact instead of a greeting: the library is already on the
+    /// phone, and the counters roll up to the real entry and source totals
+    /// that `LibraryFacts` reads from the bundled registry.
     private var hero: some View {
-        VStack(alignment: .leading, spacing: NMSpace.sm) {
+        VStack(alignment: .leading, spacing: NMSpace.md) {
             OnboardingMarkSlot(home: "auth", size: 11)
                 .padding(.bottom, NMSpace.xs)
-            RevealHeadline(words: RevealHeadline.words("You're set.", font: NMFont.displayLG, color: NMColor.textPrimary), wordSpacing: 9)
+            RevealHeadline(words: RevealHeadline.words("Your library is\nalready on this phone.", font: NMFont.displayLG, color: NMColor.textPrimary), wordSpacing: 9, lineSpacing: 2)
+            LibraryCountsLine(counts: counts, delay: 0.35)
+                .padding(.top, NMSpace.xs)
             (
-                Text("A reference and study companion — ")
+                Text("Every entry cited, every answer grounded — ")
                 + Text("ready when you are.").italic()
             )
             .font(NMFont.bodyLG)
@@ -153,7 +156,7 @@ private struct BenefitRow: View {
         HStack(alignment: .top, spacing: NMSpace.base) {
             Text("✦")
                 .font(NMFont.body)
-                .foregroundStyle(NMColor.accent)
+                .foregroundStyle(NMColor.textTertiary)
                 .padding(.top, 3)
             VStack(alignment: .leading, spacing: 2) {
                 Text(title)

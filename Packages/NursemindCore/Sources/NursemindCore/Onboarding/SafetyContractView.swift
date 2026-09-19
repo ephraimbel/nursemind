@@ -96,20 +96,30 @@ struct SafetyContractView: View {
                     ZStack {
                         RoundedRectangle(cornerRadius: 4)
                             .stroke(
-                                acknowledged ? NMColor.accent : NMColor.border,
+                                acknowledged ? NMColor.textPrimary : NMColor.border,
                                 lineWidth: 1.5
                             )
                             .frame(width: 22, height: 22)
                         if acknowledged {
                             Image(systemName: "checkmark")
                                 .font(.system(size: 13, weight: .semibold))
-                                .foregroundStyle(NMColor.accent)
+                                .foregroundStyle(NMColor.textPrimary)
                                 .transition(.scale(scale: 0.5).combined(with: .opacity))
                         }
                     }
+                    // Acknowledging draws a line under the words, the way a
+                    // signature closes a form: ink, not accent.
                     Text("I understand")
                         .font(NMFont.bodyLG)
                         .foregroundStyle(NMColor.textPrimary)
+                        .padding(.bottom, 3)
+                        .overlay(alignment: .bottom) {
+                            Rectangle()
+                                .fill(NMColor.textPrimary)
+                                .frame(height: 1)
+                                .scaleEffect(x: acknowledged ? 1 : 0, anchor: .leading)
+                        }
+                        .animation(reduceMotion ? nil : .easeInOut(duration: OnboardingMotion.base), value: acknowledged)
                     Spacer()
                 }
                 .contentShape(Rectangle())
@@ -138,7 +148,7 @@ private struct ContractBullet: View {
         HStack(alignment: .top, spacing: NMSpace.base) {
             Image(systemName: "checkmark")
                 .font(.system(size: 13, weight: .semibold))
-                .foregroundStyle(NMColor.accent)
+                .foregroundStyle(NMColor.textSecondary)
                 .frame(width: 22, alignment: .center)
                 .padding(.top, 4)
             VStack(alignment: .leading, spacing: 2) {

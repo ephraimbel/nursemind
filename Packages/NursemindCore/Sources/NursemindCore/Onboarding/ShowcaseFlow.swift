@@ -1,14 +1,29 @@
 import SwiftUI
 
-/// Phase 2 onboarding showcase. Four swipeable demo pages — Ask, Library,
-/// Tools, NCLEX — each rendering a mini-demo of the real UI inside a clean
-/// iPhone frame. Demonstrates what NurseMind is before asking for any user
-/// info. Skip top-right at any time.
+/// Phase 2 onboarding showcase: swipeable pages, each a real screen of the
+/// product laid out at phone width and shrunk into a frame, so the preview
+/// is the product rather than a drawing of it. Ask runs the real answer
+/// renderer over an answer composed from a library entry with its own
+/// citations; Library draws the real category directory with live counts;
+/// Feed sets the brief with the latest published items when they are
+/// available. Skip top-right at any time.
 struct ShowcaseFlow: View {
     let onComplete: () -> Void
     let onSkip: () -> Void
 
     @State private var currentPage: Int = 0
+
+    init(onComplete: @escaping () -> Void, onSkip: @escaping () -> Void) {
+        self.onComplete = onComplete
+        self.onSkip = onSkip
+        #if DEBUG
+        // Dev-only: open on a given page for screenshots.
+        //   SIMCTL_CHILD_NM_SHOWCASE_PAGE=2 simctl launch …
+        if let raw = ProcessInfo.processInfo.environment["NM_SHOWCASE_PAGE"], let page = Int(raw) {
+            _currentPage = State(initialValue: page)
+        }
+        #endif
+    }
 
     private let pages: [DemoPage] = {
         var pages = [
@@ -35,9 +50,9 @@ struct ShowcaseFlow: View {
         }
         pages.append(DemoPage(
             id: 3,
-            eyebrow: "NCLEX",
-            title: "Aligned to\nthe test plan.",
-            description: "2026 NCLEX-RN, 8 client needs categories."
+            eyebrow: "FEED",
+            title: "What changed\nthis week.",
+            description: "FDA, CDC and the journals — cited, matched to your unit."
         ))
         return pages
     }()
@@ -61,7 +76,7 @@ struct ShowcaseFlow: View {
             // Tag by position, not page id — the TOOLS page is conditionally
             // absent, and the Continue button advances by +1.
             ForEach(Array(pages.enumerated()), id: \.element.id) { idx, page in
-                showcasePage(page)
+                showcasePage(page, isActive: idx == currentPage)
                     .tag(idx)
             }
         }
@@ -82,7 +97,7 @@ struct ShowcaseFlow: View {
     }
 
     @ViewBuilder
-    private func showcasePage(_ page: DemoPage) -> some View {
+    private func showcasePage(_ page: DemoPage, isActive: Bool) -> some View {
         VStack(alignment: .leading, spacing: 0) {
             VStack(alignment: .leading, spacing: NMSpace.sm) {
                 HStack(spacing: 6) {
@@ -106,19 +121,19 @@ struct ShowcaseFlow: View {
             Spacer(minLength: NMSpace.lg)
 
             PhoneFrame {
-                demo(for: page.id)
+                demo(for: page.id, isActive: isActive)
             }
             .padding(.horizontal, NMSpace.lg)
         }
     }
 
     @ViewBuilder
-    private func demo(for id: Int) -> some View {
+    private func demo(for id: Int, isActive: Bool) -> some View {
         switch id {
-        case 0: AskShowcaseDemo(isActive: currentPage == 0)
-        case 1: LibraryShowcaseDemo()
-        case 2: ToolsShowcaseDemo(isActive: currentPage == 2)
-        case 3: NCLEXShowcaseDemo()
+        case 0: AskShowcaseDemo(isActive: isActive)
+        case 1: LibraryShowcaseDemo(isActive: isActive)
+        case 2: ToolsShowcaseDemo(isActive: isActive)
+        case 3: FeedShowcaseDemo(isActive: isActive)
         default: EmptyView()
         }
     }
@@ -129,7 +144,7 @@ struct ShowcaseFlow: View {
         HStack(spacing: 8) {
             ForEach(0..<pages.count, id: \.self) { i in
                 Circle()
-                    .fill(i == currentPage ? NMColor.accent : NMColor.borderSubtle)
+                    .fill(i == currentPage ? NMColor.textPrimary : NMColor.borderSubtle)
                     .frame(width: 7, height: 7)
                     .animation(.easeOut(duration: 0.2), value: currentPage)
             }
@@ -185,359 +200,285 @@ private struct DemoPage {
     let description: String
 }
 
-// MARK: - Demo 1 · Ask streaming
+// MARK: - Screen miniature
 
-/// Animated Ask demo — matches the real Ask page aesthetic. Query, then
-/// `NURSEMIND ✦` eyebrow, then a multi-section response with **bold
-/// subheaders** (`Target`, `Monitoring`, `Adjustments`) and inline citation
-/// pills at the end of each section. References footer at the bottom.
-/// Fills the entire phone frame top-to-bottom, no input bar chrome.
-private struct AskShowcaseDemo: View {
-    let isActive: Bool
+/// A real screen, shrunk: the content is laid out at phone width with the
+/// product's own type sizes and paddings, then scaled to the frame. Nothing
+/// inside is interactive.
+struct ScreenMiniature<Content: View>: View {
+    static var canvasWidth: CGFloat { 393 }
+    static var frameWidth: CGFloat { 260 }
+    static var frameHeight: CGFloat { 540 }
 
-    @State private var queryVisible: Bool = false
-    @State private var eyebrowVisible: Bool = false
-    @State private var sectionStates: [SectionState] = SectionState.initial
-    @State private var referencesVisible: Bool = false
+    let content: Content
 
-    private struct SectionState {
-        var headerVisible: Bool = false
-        var body: String = ""
-        var pillVisible: Bool = false
-
-        static let initial: [SectionState] = Array(repeating: SectionState(), count: 3)
-    }
-
-    private let targetQuery = "MAP target in septic shock?"
-
-    private struct Section {
-        let header: String
-        let body: String
-        let citationLabel: String
-        let citationColor: Color
-    }
-
-    private var sections: [Section] {
-        [
-            Section(
-                header: "Target",
-                body: "Surviving Sepsis Campaign 2021 recommends an initial MAP target of ≥ 65 mmHg in septic shock. Norepinephrine is first-line, titrated to MAP per provider order; vasopressin may be added per protocol.",
-                citationLabel: "SCCM 2021",
-                citationColor: NMColor.sourceSociety
-            ),
-            Section(
-                header: "Monitoring",
-                body: "Track perfusion markers — lactate clearance, urine output ≥ 0.5 mL/kg/hr, mental status, and capillary refill. Reassess every 30–60 minutes during titration.",
-                citationLabel: "Open RN",
-                citationColor: NMColor.sourceTextbook
-            ),
-            Section(
-                header: "Adjustments",
-                body: "Hypertensive patients may benefit from a higher target (75–85 mmHg) to preserve organ perfusion. Trend MAP against baseline pressure when possible.",
-                citationLabel: "SCCM 2021",
-                citationColor: NMColor.sourceSociety
-            )
-        ]
+    init(@ViewBuilder content: () -> Content) {
+        self.content = content()
     }
 
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            VStack(alignment: .leading, spacing: 16) {
-                // User query
-                if queryVisible {
-                    Text(targetQuery)
-                        .font(.system(size: 14, weight: .regular, design: .serif))
-                        .foregroundStyle(NMColor.textPrimary)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .transition(.opacity)
-                }
+        let scale = Self.frameWidth / Self.canvasWidth
+        content
+            .frame(width: Self.canvasWidth, height: Self.frameHeight / scale, alignment: .top)
+            .scaleEffect(scale, anchor: .topLeading)
+            .frame(width: Self.frameWidth, height: Self.frameHeight, alignment: .topLeading)
+            .allowsHitTesting(false)
+            .accessibilityHidden(true)
+    }
+}
 
-                // Assistant response block
-                if eyebrowVisible {
-                    VStack(alignment: .leading, spacing: 18) {
-                        HStack(spacing: 4) {
-                            Image(systemName: "sparkle")
-                                .font(.system(size: 9, weight: .black))
-                                .foregroundStyle(NMColor.accent)
-                            Text("NURSEMIND")
-                                .font(.system(size: 9, weight: .semibold))
-                                .tracking(1.3)
-                                .foregroundStyle(NMColor.textTertiary)
-                        }
+/// A hairline that draws itself in from the left.
+private struct DrawnHairline: View {
+    let drawn: Bool
+    var color: Color = NMColor.borderSubtle
 
-                        ForEach(Array(sections.enumerated()), id: \.offset) { idx, section in
-                            sectionView(section: section, state: sectionStates[idx])
-                        }
+    var body: some View {
+        GeometryReader { geo in
+            Rectangle()
+                .fill(color)
+                .frame(width: drawn ? geo.size.width : 0, height: 1)
+        }
+        .frame(height: 1)
+    }
+}
 
-                        if referencesVisible {
-                            referencesSection
-                                .transition(.opacity)
+// MARK: - Demo 1 · Ask, on the real renderer
+
+/// The answer the Ask page shows. Composed from the library's own potassium
+/// entry with that entry's citations, the way the mock service grounds every
+/// answer, so the preview never states anything the product cannot cite. A
+/// reference question keeps the answer to a lede and a cited table, which
+/// fits the frame whole; the mock's bedside trio maps tier actions to rows
+/// mechanically, so it is left to the real server.
+struct AskShowcaseScript: Sendable {
+    static let query = "Potassium reference values?"
+    static let entryID = "lab:potassium"
+
+    let query: String
+    let content: String
+    let citations: [CitationSource]
+    let entryID: String
+
+    nonisolated static func load(registry: ContentRegistry = .shared) -> AskShowcaseScript? {
+        guard let entry = registry.entry(byID: entryID) else { return nil }
+        let answer = MockAskService.composeAnswer(for: entry, query: query)
+        return AskShowcaseScript(query: query, content: answer.text, citations: answer.citations, entryID: entry.id)
+    }
+
+    func message(content: String) -> AskMessage {
+        var message = AskMessage(role: .assistant, content: content, citations: citations)
+        message.libraryEntryIDs = [entryID]
+        return message
+    }
+}
+
+/// The Ask conversation, driven exactly as the product drives it: the
+/// question under its eyebrow, the thinking line with server stages, then
+/// the answer landing block by block through `MessageBodyView`, the
+/// streaming cursor, and the provenance strip once it is complete.
+private struct AskShowcaseDemo: View {
+    let isActive: Bool
+
+    @State private var script: AskShowcaseScript?
+    @State private var messageID = UUID()
+    @State private var queryVisible = false
+    @State private var answering = false
+    @State private var stage: String?
+    @State private var revealed = ""
+    @State private var streaming = true
+
+    var body: some View {
+        ScreenMiniature {
+            ScrollViewReader { proxy in
+                ScrollView(.vertical, showsIndicators: false) {
+                    VStack(alignment: .leading, spacing: NMSpace.xl) {
+                        if let script, queryVisible {
+                            userRow(script)
+                                .transition(.opacity.combined(with: .offset(y: OnboardingMotion.rise)))
                         }
+                        if let script, answering {
+                            assistantRow(script)
+                                .transition(.opacity.combined(with: .offset(y: OnboardingMotion.rise)))
+                        }
+                        Color.clear.frame(height: 1).id("end")
                     }
+                    .padding(.horizontal, NMSpace.lg)
+                    .padding(.top, NMSpace.xl)
+                    .padding(.bottom, NMSpace.xxl)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .animation(.easeOut(duration: OnboardingMotion.base), value: queryVisible)
+                    .animation(.easeOut(duration: OnboardingMotion.base), value: answering)
+                }
+                .scrollDisabled(true)
+                // The conversation follows the answer down as blocks land,
+                // as the real one does.
+                .onChange(of: revealed) { _, _ in
+                    withAnimation(.easeOut(duration: OnboardingMotion.base)) { proxy.scrollTo("end", anchor: .bottom) }
+                }
+                .onChange(of: streaming) { _, _ in
+                    withAnimation(.easeOut(duration: OnboardingMotion.base)) { proxy.scrollTo("end", anchor: .bottom) }
                 }
             }
-            .padding(.horizontal, 14)
-            .padding(.top, 22)
-            .padding(.bottom, 22)
         }
         .task(id: isActive) {
             guard isActive else { return }
-            await runStreamLoop()
+            if script == nil {
+                script = await Task.detached(priority: .userInitiated) { AskShowcaseScript.load() }.value
+            }
+            await run()
         }
     }
 
-    /// One response section: bold header → streaming body text → inline
-    /// citation pill at the end (visually appended, like a footnote chip).
-    @ViewBuilder
-    private func sectionView(section: Section, state: SectionState) -> some View {
-        VStack(alignment: .leading, spacing: 6) {
-            if state.headerVisible {
-                Text(section.header)
-                    .font(.system(size: 13, weight: .bold, design: .serif))
-                    .foregroundStyle(NMColor.textPrimary)
-                    .transition(.opacity)
+    private func userRow(_ script: AskShowcaseScript) -> some View {
+        VStack(alignment: .leading, spacing: NMSpace.sm) {
+            EyebrowLabel("YOU", sparkle: false)
+            Text(script.query)
+                .font(NMFont.displaySM)
+                .foregroundStyle(NMColor.textPrimary)
+                .lineSpacing(4)
+        }
+    }
+
+    private func assistantRow(_ script: AskShowcaseScript) -> some View {
+        VStack(alignment: .leading, spacing: NMSpace.base) {
+            VStack(alignment: .leading, spacing: NMSpace.sm) {
+                EyebrowLabel("NURSEMIND", animated: true)
+                if !streaming {
+                    ProvenanceStrip(message: script.message(content: revealed))
+                        .transition(.opacity)
+                }
             }
-            if !state.body.isEmpty {
-                if state.pillVisible {
-                    // Body + pill on the same flow once pill is visible.
-                    bodyWithPill(body: state.body, label: section.citationLabel, color: section.citationColor)
-                } else {
-                    Text(state.body)
-                        .font(.system(size: 12, weight: .regular, design: .serif))
-                        .foregroundStyle(NMColor.textPrimary)
-                        .lineSpacing(3)
-                        .frame(maxWidth: .infinity, alignment: .leading)
+            if revealed.isEmpty {
+                ThinkingIndicator(stage: stage)
+            } else {
+                VStack(alignment: .leading, spacing: NMSpace.base) {
+                    MessageBodyView(content: revealed, citations: script.citations, cacheKey: messageID, libraryEntryIDs: [script.entryID])
+                    if streaming {
+                        StreamingCursor()
+                            .padding(.top, 2)
+                    }
                 }
             }
         }
+        .animation(.easeOut(duration: OnboardingMotion.quick), value: streaming)
+        .animation(.easeOut(duration: OnboardingMotion.quick), value: revealed.isEmpty)
     }
 
-    /// Body text + an inline citation pill chip at the end. Renders the
-    /// chip on a new line with a small leading sparkle dot to evoke the
-    /// real Ask page's source-tone citation styling.
-    private func bodyWithPill(body: String, label: String, color: Color) -> some View {
-        VStack(alignment: .leading, spacing: 6) {
-            Text(body)
-                .font(.system(size: 12, weight: .regular, design: .serif))
-                .foregroundStyle(NMColor.textPrimary)
-                .lineSpacing(3)
-                .frame(maxWidth: .infinity, alignment: .leading)
-            HStack(spacing: 4) {
-                citationPill(label: label, color: color)
-                Spacer()
-            }
-        }
-    }
-
-    /// A small inline citation pill chip — colored dot + label, rounded
-    /// outline. Matches the visual language of the real CitationPill in
-    /// the Ask conversation rendering.
-    private func citationPill(label: String, color: Color) -> some View {
-        HStack(spacing: 4) {
-            Circle()
-                .fill(color)
-                .frame(width: 8, height: 8)
-            Text(label)
-                .font(.system(size: 10, weight: .semibold))
-                .foregroundStyle(NMColor.link)
-        }
-        .padding(.horizontal, 6)
-        .padding(.vertical, 3)
-        .background(
-            Capsule()
-                .fill(NMColor.linkBg)
-                .overlay(
-                    Capsule().stroke(NMColor.link, lineWidth: 0.75)
-                )
-        )
-    }
-
-    private var referencesSection: some View {
-        VStack(alignment: .leading, spacing: 5) {
-            HStack(spacing: 4) {
-                Image(systemName: "list.number")
-                    .font(.system(size: 9, weight: .medium))
-                    .foregroundStyle(NMColor.textSecondary)
-                Text("References")
-                    .font(.system(size: 10, weight: .semibold, design: .serif))
-                    .foregroundStyle(NMColor.textPrimary)
-            }
-            referenceRow(num: 1, label: "SCCM Surviving Sepsis 2021")
-            referenceRow(num: 2, label: "Open RN Critical Care")
-        }
-        .padding(.top, 4)
-    }
-
-    private func referenceRow(num: Int, label: String) -> some View {
-        HStack(alignment: .top, spacing: 5) {
-            Text("\(num).")
-                .font(.system(size: 10, weight: .regular))
-                .foregroundStyle(NMColor.textTertiary)
-            (
-                Text(label)
-                    .font(.system(size: 10, weight: .regular, design: .serif))
-                    .foregroundStyle(NMColor.link)
-                +
-                Text(" ↗")
-                    .font(.system(size: 8, weight: .medium))
-                    .foregroundStyle(NMColor.link)
-            )
-            Spacer()
-        }
-    }
-
-    /// Streaming choreography. Reset → query → eyebrow → for each section:
-    /// header fades in → body streams word-by-word → pill fades in. Then
-    /// references footer. Holds final state then loops.
-    private func runStreamLoop() async {
+    /// Question → thinking, with the stages the server reports → blocks
+    /// landing one at a time → complete. Holds, then plays again.
+    private func run() async {
+        guard let script else { return }
         while !Task.isCancelled && isActive {
-            // Reset
             queryVisible = false
-            eyebrowVisible = false
-            sectionStates = SectionState.initial
-            referencesVisible = false
-            try? await Task.sleep(for: .milliseconds(700))
-
-            // Query
-            withAnimation(.easeOut(duration: 0.25)) { queryVisible = true }
+            answering = false
+            revealed = ""
+            streaming = true
+            stage = nil
+            messageID = UUID()
             try? await Task.sleep(for: .milliseconds(600))
 
-            // Eyebrow
-            withAnimation(.easeOut(duration: 0.25)) { eyebrowVisible = true }
-            try? await Task.sleep(for: .milliseconds(350))
+            queryVisible = true
+            try? await Task.sleep(for: .milliseconds(750))
 
-            // Stream each section: header → body words → pill
-            for (idx, section) in sections.enumerated() {
-                guard !Task.isCancelled, isActive else { return }
+            answering = true
+            stage = AnthropicAskService.stageLabel("reading", sources: script.citations.count)
+            try? await Task.sleep(for: .milliseconds(950))
+            stage = AnthropicAskService.stageLabel("writing", sources: nil)
+            try? await Task.sleep(for: .milliseconds(550))
 
-                // Section header fade in
-                withAnimation(.easeOut(duration: 0.25)) {
-                    sectionStates[idx].headerVisible = true
-                }
-                try? await Task.sleep(for: .milliseconds(250))
-
-                // Stream body word by word
-                let words = section.body.split(separator: " ", omittingEmptySubsequences: false)
-                for (wIdx, word) in words.enumerated() {
-                    guard !Task.isCancelled, isActive else { return }
-                    if wIdx == 0 {
-                        sectionStates[idx].body = String(word)
-                    } else {
-                        sectionStates[idx].body += " \(word)"
-                    }
-                    try? await Task.sleep(for: .milliseconds(55))
-                }
-
-                // Pill fade in
-                try? await Task.sleep(for: .milliseconds(250))
-                withAnimation(.easeOut(duration: 0.3)) {
-                    sectionStates[idx].pillVisible = true
-                }
-                try? await Task.sleep(for: .milliseconds(400))
+            var buffer = script.content
+            while !Task.isCancelled, isActive,
+                  let (unit, rest) = AskViewModel.nextRevealUnit(in: buffer, streamEnded: true) {
+                buffer = rest
+                revealed += unit
+                try? await Task.sleep(for: .milliseconds(unit.count > 90 ? 560 : 340))
             }
+            guard !Task.isCancelled, isActive else { return }
+            streaming = false
 
-            // References footer
-            try? await Task.sleep(for: .milliseconds(300))
-            withAnimation(.easeOut(duration: 0.4)) {
-                referencesVisible = true
-            }
-
-            // Hold final state
-            try? await Task.sleep(for: .seconds(3.5))
+            try? await Task.sleep(for: .seconds(4.5))
         }
     }
 }
 
-// MARK: - Demo 2 · Library
+// MARK: - Demo 2 · Library, on the real directory
 
-/// Static Library home demo — eyebrow + title + 9 browse rows with italic
-/// descriptors matching the real Library design. Fills the full phone
-/// vertically — no dead space.
+/// The Library home as it is: eyebrow, serif title, italic count line, then
+/// the category directory with live counts from the registry. Rows land
+/// one after another and draw their hairlines in beneath them.
 private struct LibraryShowcaseDemo: View {
-    private let rows: [(name: String, descriptor: String, count: String)] = [
-        ("Drugs",          "Cited to FDA · Open RN",        "94"),
-        ("Drips",          "Concentration · monitoring",     "32"),
-        ("Labs",           "Ranges · critical thresholds",   "45"),
-        ("Procedures",     "Step-by-step from OpenStax",     "35"),
-        ("Diagnoses",      "Pathophysiology · presentation", "103"),
-        ("Scenarios",      "Clinical case-based learning",   "19"),
-        ("Communication",  "SBAR · TeamSTEPPS",              "21"),
-        ("Reference",      "Isolation · immunization",       "15"),
-        ("NCLEX-RN",       "2026 Test Plan · 8 categories",  "8"),
-    ]
+    let isActive: Bool
+
+    private struct Row: Identifiable, Sendable {
+        let category: EntryCategory
+        let count: Int
+        let descriptor: String
+        var id: EntryCategory { category }
+    }
+
+    @State private var rows: [Row] = []
+    @State private var total = 0
+    @State private var drawn = 0
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            VStack(alignment: .leading, spacing: 3) {
-                Text("✦ YOUR LIBRARY")
-                    .font(.system(size: 8, weight: .semibold))
-                    .tracking(1.2)
-                    .foregroundStyle(NMColor.textTertiary)
-                Text("Library")
-                    .font(.system(size: 28, weight: .regular, design: .serif))
-                    .foregroundStyle(NMColor.textPrimary)
-                Text("Med-Surg · 421 entries")
-                    .font(.system(size: 10, weight: .regular, design: .serif))
-                    .italic()
-                    .foregroundStyle(NMColor.textSecondary)
-            }
-            .padding(.horizontal, 14)
-            .padding(.top, 22)
-            .padding(.bottom, 10)
-
-            Rectangle().fill(NMColor.borderSubtle).frame(height: 0.5)
-
-            Text("BROWSE")
-                .font(.system(size: 8, weight: .semibold))
-                .tracking(1.2)
-                .foregroundStyle(NMColor.textTertiary)
-                .padding(.horizontal, 14)
-                .padding(.top, 10)
-                .padding(.bottom, 4)
-
-            VStack(spacing: 0) {
-                ForEach(Array(rows.enumerated()), id: \.offset) { idx, row in
-                    miniRow(row.name, descriptor: row.descriptor, count: row.count)
-                    if idx < rows.count - 1 {
-                        Rectangle().fill(NMColor.borderSubtle).frame(height: 0.5)
+        ScreenMiniature {
+            VStack(alignment: .leading, spacing: 0) {
+                VStack(alignment: .leading, spacing: NMSpace.md) {
+                    EyebrowLabel("YOUR LIBRARY")
+                    Text("Library").displayXL()
+                    Text("\(total) entries · every one cited")
+                        .font(NMFont.displayItalicMD)
+                        .foregroundStyle(NMColor.textSecondary)
+                        .opacity(total > 0 ? 1 : 0)
+                }
+                Hairline().padding(.vertical, NMSpace.xl)
+                VStack(spacing: 0) {
+                    ForEach(Array(rows.enumerated()), id: \.element.id) { idx, row in
+                        CategoryRow(
+                            name: row.category.displayName,
+                            count: row.count,
+                            subtitle: row.descriptor,
+                            glyph: row.category.glyph,
+                            glyphTint: row.category.glyphTint
+                        )
+                        .opacity(idx < drawn ? 1 : 0)
+                        .offset(y: idx < drawn ? 0 : OnboardingMotion.rise)
+                        DrawnHairline(drawn: idx < drawn)
                     }
                 }
             }
-            .padding(.horizontal, 14)
-
-            Spacer(minLength: 0)
+            .padding(.horizontal, NMSpace.lg)
+            .padding(.top, NMSpace.xl)
+        }
+        .task(id: isActive) {
+            guard isActive else { return }
+            if rows.isEmpty {
+                let loaded = await Task.detached(priority: .userInitiated) { Self.loadRows() }.value
+                rows = loaded.rows
+                total = loaded.total
+            }
+            drawn = 0
+            for index in rows.indices {
+                try? await Task.sleep(for: .milliseconds(index == 0 ? 400 : 90))
+                guard !Task.isCancelled else { return }
+                withAnimation(.easeOut(duration: OnboardingMotion.base)) { drawn = index + 1 }
+            }
         }
     }
 
-    private func miniRow(_ name: String, descriptor: String, count: String) -> some View {
-        HStack(alignment: .center) {
-            VStack(alignment: .leading, spacing: 1) {
-                Text(name)
-                    .font(.system(size: 12, weight: .regular, design: .serif))
-                    .foregroundStyle(NMColor.textPrimary)
-                Text(descriptor)
-                    .font(.system(size: 8, weight: .regular, design: .serif))
-                    .italic()
-                    .foregroundStyle(NMColor.textTertiary)
-            }
-            Spacer(minLength: 0)
-            Text(count)
-                .font(.system(size: 11, weight: .regular, design: .monospaced))
-                .foregroundStyle(NMColor.accent)
-            Image(systemName: "chevron.right")
-                .font(.system(size: 8, weight: .regular))
-                .foregroundStyle(NMColor.accent)
-                .padding(.leading, 3)
+    nonisolated private static func loadRows() -> (rows: [Row], total: Int) {
+        let registry = ContentRegistry.shared
+        let rows = registry.allCategories.map { category in
+            Row(category: category, count: registry.count(in: category), descriptor: LibraryHomeView.categoryDescriptor(for: category))
         }
-        .padding(.vertical, 5)
+        return (rows, registry.all.count)
     }
 }
 
 // MARK: - Demo 3 · Tools (calculator)
 
-/// Animated Anion Gap calculator demo. Three numeric inputs (Na, Cl, HCO3)
-/// fill in sequentially with a typewriter effect, then the result block
-/// pops in with the calculation + interpretation.
+/// Animated Anion Gap calculator demo in the product's own type: three
+/// inputs fill in with a typewriter effect, then the result lands.
 private struct ToolsShowcaseDemo: View {
     let isActive: Bool
 
@@ -548,68 +489,50 @@ private struct ToolsShowcaseDemo: View {
     @State private var focusIndex: Int = -1   // -1 = none, 0 = Na, 1 = Cl, 2 = HCO3
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            VStack(alignment: .leading, spacing: 4) {
-                Text("✦ RENAL · METABOLIC")
-                    .font(.system(size: 8, weight: .semibold))
-                    .tracking(1.2)
-                    .foregroundStyle(NMColor.textTertiary)
-                Text("Anion Gap")
-                    .font(.system(size: 28, weight: .regular, design: .serif))
-                    .foregroundStyle(NMColor.textPrimary)
-                Text("Acid-base assessment")
-                    .font(.system(size: 11, weight: .regular, design: .serif))
-                    .italic()
-                    .foregroundStyle(NMColor.textSecondary)
-            }
-            .padding(.horizontal, 16)
-            .padding(.top, 26)
-            .padding(.bottom, 14)
-
-            Rectangle().fill(NMColor.borderSubtle).frame(height: 0.5)
-
-            // Animated input rows
-            VStack(spacing: 0) {
-                inputRow("Sodium (Na⁺)", value: na, unit: "mEq/L", isFocused: focusIndex == 0)
-                Rectangle().fill(NMColor.borderSubtle).frame(height: 0.5)
-                inputRow("Chloride (Cl⁻)", value: cl, unit: "mEq/L", isFocused: focusIndex == 1)
-                Rectangle().fill(NMColor.borderSubtle).frame(height: 0.5)
-                inputRow("Bicarbonate (HCO₃⁻)", value: hco3, unit: "mEq/L", isFocused: focusIndex == 2)
-            }
-            .padding(.horizontal, 16)
-            .padding(.top, 8)
-
-            // Result block sits RIGHT BELOW inputs (not pushed to phone frame
-            // bottom where the rounded corner would clip it). Flex spacer
-            // below absorbs any remaining vertical space.
-            if resultVisible {
-                Rectangle().fill(NMColor.borderSubtle).frame(height: 0.5)
-                    .padding(.top, 16)
-                    .padding(.horizontal, 16)
-                VStack(alignment: .leading, spacing: 4) {
-                    Text("RESULT")
-                        .font(.system(size: 8, weight: .semibold))
-                        .tracking(1.2)
-                        .foregroundStyle(NMColor.textTertiary)
-                    HStack(alignment: .firstTextBaseline, spacing: 6) {
-                        Text("14")
-                            .font(.system(size: 44, weight: .regular, design: .serif))
-                            .foregroundStyle(NMColor.accent)
-                        Text("mEq/L")
-                            .font(.system(size: 12, weight: .regular))
-                            .foregroundStyle(NMColor.textSecondary)
-                    }
-                    Text("Within normal range (8–16).")
-                        .font(.system(size: 10, weight: .regular, design: .serif))
-                        .italic()
+        ScreenMiniature {
+            VStack(alignment: .leading, spacing: 0) {
+                VStack(alignment: .leading, spacing: NMSpace.md) {
+                    EyebrowLabel("RENAL · METABOLIC", sparkle: false)
+                    Text("Anion Gap")
+                        .font(NMFont.displayLG)
+                        .foregroundStyle(NMColor.textPrimary)
+                    Text("Acid–base assessment")
+                        .font(NMFont.displayItalicMD)
                         .foregroundStyle(NMColor.textSecondary)
                 }
-                .padding(.horizontal, 16)
-                .padding(.top, 14)
-                .transition(.opacity.combined(with: .scale(scale: 0.95)))
-            }
+                Hairline().padding(.vertical, NMSpace.xl)
 
-            Spacer(minLength: 0)
+                VStack(spacing: 0) {
+                    inputRow("Sodium (Na⁺)", value: na, unit: "mEq/L", isFocused: focusIndex == 0)
+                    Hairline(color: NMColor.borderSubtle)
+                    inputRow("Chloride (Cl⁻)", value: cl, unit: "mEq/L", isFocused: focusIndex == 1)
+                    Hairline(color: NMColor.borderSubtle)
+                    inputRow("Bicarbonate (HCO₃⁻)", value: hco3, unit: "mEq/L", isFocused: focusIndex == 2)
+                }
+
+                if resultVisible {
+                    Hairline().padding(.vertical, NMSpace.xl)
+                    VStack(alignment: .leading, spacing: NMSpace.sm) {
+                        EyebrowLabel("RESULT", sparkle: false)
+                        HStack(alignment: .firstTextBaseline, spacing: NMSpace.sm) {
+                            Text("14")
+                                .font(NMFont.heroNumber)
+                                .foregroundStyle(NMColor.textPrimary)
+                            Text("mEq/L")
+                                .font(NMFont.bodySM)
+                                .foregroundStyle(NMColor.textTertiary)
+                        }
+                        Text("Within normal range (8–16).")
+                            .font(NMFont.displayItalicMD)
+                            .foregroundStyle(NMColor.textTertiary)
+                    }
+                    .transition(.opacity.combined(with: .offset(y: OnboardingMotion.rise)))
+                }
+
+                Spacer(minLength: 0)
+            }
+            .padding(.horizontal, NMSpace.lg)
+            .padding(.top, NMSpace.xl)
         }
         .task(id: isActive) {
             guard isActive else { return }
@@ -618,32 +541,31 @@ private struct ToolsShowcaseDemo: View {
     }
 
     private func inputRow(_ label: String, value: String, unit: String, isFocused: Bool) -> some View {
-        HStack {
+        HStack(alignment: .firstTextBaseline, spacing: NMSpace.base) {
             Text(label)
-                .font(.system(size: 12, weight: .regular))
+                .font(NMFont.bodyLG)
                 .foregroundStyle(NMColor.textPrimary)
-            Spacer()
+            Spacer(minLength: NMSpace.base)
             HStack(spacing: 4) {
                 Text(value.isEmpty ? "—" : value)
-                    .font(.system(size: 14, weight: .semibold, design: .monospaced))
+                    .font(NMFont.monoXL)
                     .foregroundStyle(value.isEmpty ? NMColor.textTertiary : NMColor.textPrimary)
                 if isFocused && !value.isEmpty {
                     Rectangle()
                         .fill(NMColor.accent)
-                        .frame(width: 1.5, height: 14)
-                        .opacity(0.85)
+                        .frame(width: 1.5, height: 16)
                 }
-                Text(unit)
-                    .font(.system(size: 10, weight: .regular))
-                    .foregroundStyle(NMColor.textTertiary)
             }
+            Text(unit)
+                .font(NMFont.bodySM)
+                .foregroundStyle(NMColor.textTertiary)
+                .frame(minWidth: 36, alignment: .leading)
         }
-        .padding(.vertical, 10)
+        .padding(.vertical, NMSpace.base)
     }
 
     private func runFillLoop() async {
         while !Task.isCancelled && isActive {
-            // Reset
             na = ""
             cl = ""
             hco3 = ""
@@ -651,7 +573,6 @@ private struct ToolsShowcaseDemo: View {
             focusIndex = -1
             try? await Task.sleep(for: .milliseconds(700))
 
-            // Type Na = "138"
             focusIndex = 0
             for ch in "138" {
                 guard !Task.isCancelled else { return }
@@ -660,7 +581,6 @@ private struct ToolsShowcaseDemo: View {
             }
             try? await Task.sleep(for: .milliseconds(450))
 
-            // Type Cl = "102"
             focusIndex = 1
             for ch in "102" {
                 guard !Task.isCancelled else { return }
@@ -669,7 +589,6 @@ private struct ToolsShowcaseDemo: View {
             }
             try? await Task.sleep(for: .milliseconds(450))
 
-            // Type HCO3 = "22"
             focusIndex = 2
             for ch in "22" {
                 guard !Task.isCancelled else { return }
@@ -678,88 +597,173 @@ private struct ToolsShowcaseDemo: View {
             }
             try? await Task.sleep(for: .milliseconds(550))
 
-            // Result fade + scale in
             focusIndex = -1
-            withAnimation(.easeOut(duration: 0.4)) {
+            withAnimation(.easeOut(duration: OnboardingMotion.base)) {
                 resultVisible = true
             }
 
-            // Hold
             try? await Task.sleep(for: .seconds(2.8))
         }
     }
 }
 
-// MARK: - Demo 4 · NCLEX
+// MARK: - Demo 4 · Feed, the brief
 
-/// Static NCLEX Test Plan browse demo. All 8 subcategories with italic
-/// parent-category subtitles. Fills the phone vertically — no dead space.
-private struct NCLEXShowcaseDemo: View {
-    private let rows: [(name: String, parent: String, pct: String)] = [
-        ("Management of Care",      "Safe & Effective Care",     "18%"),
-        ("Safety & Infection",      "Safe & Effective Care",     "13%"),
-        ("Health Promotion",        "Health Promotion",           "9%"),
-        ("Psychosocial Integrity",  "Psychosocial Integrity",     "9%"),
-        ("Basic Care & Comfort",    "Physiological Integrity",    "9%"),
-        ("Pharmacological",         "Physiological Integrity",   "16%"),
-        ("Reduction of Risk",       "Physiological Integrity",   "12%"),
-        ("Physiological Adapt.",    "Physiological Integrity",   "14%"),
-    ]
+/// The Feed's brief as it is set in the app: the dated masthead, then the
+/// latest published items, the first as the lead. Live items are used the
+/// moment the store has them; until then, three real published items
+/// bundled with the app stand in. The refresh doubles as a prefetch, so
+/// the Feed tab is ready when the nurse gets there.
+private struct FeedShowcaseDemo: View {
+    let isActive: Bool
+
+    @State private var store = FeedStore.shared
+    @State private var visible = 0
+
+    private var items: [FeedItem] {
+        let live = Array(store.items.prefix(3))
+        return live.isEmpty ? FeedShowcaseFixture.items : live
+    }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            VStack(alignment: .leading, spacing: 3) {
-                Text("✦ STUDY BY NCLEX")
-                    .font(.system(size: 8, weight: .semibold))
-                    .tracking(1.2)
-                    .foregroundStyle(NMColor.textTertiary)
-                Text("Test Plan")
-                    .font(.system(size: 28, weight: .regular, design: .serif))
-                    .foregroundStyle(NMColor.textPrimary)
-                Text("2026 · 8 client needs categories")
-                    .font(.system(size: 10, weight: .regular, design: .serif))
-                    .italic()
-                    .foregroundStyle(NMColor.textSecondary)
-            }
-            .padding(.horizontal, 14)
-            .padding(.top, 22)
-            .padding(.bottom, 10)
-
-            Rectangle().fill(NMColor.borderSubtle).frame(height: 0.5)
-
-            VStack(spacing: 0) {
-                ForEach(Array(rows.enumerated()), id: \.offset) { idx, row in
-                    nclexRow(name: row.name, parent: row.parent, pct: row.pct)
-                    if idx < rows.count - 1 {
-                        Rectangle().fill(NMColor.borderSubtle).frame(height: 0.5)
+        ScreenMiniature {
+            VStack(alignment: .leading, spacing: 0) {
+                VStack(alignment: .leading, spacing: NMSpace.md) {
+                    EyebrowLabel(Self.masthead(for: Date()))
+                    Text("The Brief")
+                        .font(NMFont.displayXL)
+                        .tracking(-1.6)
+                        .foregroundStyle(NMColor.textPrimary)
+                    Text("Cited updates from the agencies and journals.")
+                        .font(NMFont.displayItalicMD)
+                        .foregroundStyle(NMColor.textSecondary)
+                }
+                Hairline().padding(.top, NMSpace.xl)
+                VStack(spacing: 0) {
+                    ForEach(Array(items.enumerated()), id: \.element.id) { idx, item in
+                        FeedShowcaseCard(item: item, isLead: idx == 0)
+                            .opacity(idx < visible ? 1 : 0)
+                            .offset(y: idx < visible ? 0 : OnboardingMotion.rise)
+                        DrawnHairline(drawn: idx < visible)
                     }
                 }
             }
-            .padding(.horizontal, 14)
-            .padding(.top, 4)
-
-            Spacer(minLength: 0)
+            .padding(.horizontal, NMSpace.lg)
+            .padding(.top, NMSpace.xl)
+        }
+        .task(id: isActive) {
+            guard isActive else { return }
+            if store.items.isEmpty, store.loadState == .idle {
+                Task { await store.refresh() }
+            }
+            visible = 0
+            for index in 0..<3 {
+                try? await Task.sleep(for: .milliseconds(index == 0 ? 400 : 160))
+                guard !Task.isCancelled else { return }
+                withAnimation(.easeOut(duration: OnboardingMotion.base)) { visible = index + 1 }
+            }
         }
     }
 
-    private func nclexRow(name: String, parent: String, pct: String) -> some View {
-        HStack(alignment: .center) {
-            VStack(alignment: .leading, spacing: 1) {
-                Text(name)
-                    .font(.system(size: 12, weight: .regular, design: .serif))
-                    .foregroundStyle(NMColor.textPrimary)
-                    .lineLimit(1)
-                Text(parent)
-                    .font(.system(size: 8, weight: .regular, design: .serif))
-                    .italic()
-                    .foregroundStyle(NMColor.textTertiary)
-                    .lineLimit(1)
+    nonisolated static func masthead(for date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "EEEE, MMMM d"
+        return formatter.string(from: date).uppercased()
+    }
+}
+
+/// `FeedCard`'s face without its engagement side effect: the same eyebrow,
+/// headline and dek, in lead and standard sizes.
+private struct FeedShowcaseCard: View {
+    let item: FeedItem
+    let isLead: Bool
+
+    var body: some View {
+        HStack(spacing: NMSpace.xs) {
+            if item.priority == .urgent {
+                Rectangle()
+                    .fill(NMColor.alertHigh)
+                    .frame(width: isLead ? 4 : 3)
+                    .frame(maxHeight: .infinity)
+                    .padding(.trailing, NMSpace.xs)
             }
-            Spacer(minLength: 0)
-            Text(pct)
-                .font(.system(size: 12, weight: .regular, design: .monospaced))
-                .foregroundStyle(NMColor.accent)
+            VStack(alignment: .leading, spacing: isLead ? NMSpace.lg : NMSpace.md) {
+                eyebrow
+                Text(item.headline)
+                    .font(isLead ? NMFont.displayLG : NMFont.displayMD)
+                    .tracking(isLead ? -1.2 : -0.6)
+                    .foregroundStyle(NMColor.textPrimary)
+                    .lineLimit(isLead ? 4 : 3)
+                    .multilineTextAlignment(.leading)
+                    .fixedSize(horizontal: false, vertical: true)
+                Text(item.whyNursesCare)
+                    .font(isLead ? NMFont.displayItalicLG : NMFont.displayItalicSM)
+                    .foregroundStyle(NMColor.textSecondary)
+                    .lineLimit(isLead ? 4 : 3)
+                    .multilineTextAlignment(.leading)
+                    .lineSpacing(isLead ? 4 : 2)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
         }
-        .padding(.vertical, 5)
+        .padding(.vertical, isLead ? NMSpace.xxl : NMSpace.lg)
+        .frame(maxWidth: .infinity, alignment: .leading)
+    }
+
+    private var eyebrow: some View {
+        HStack(spacing: NMSpace.xs) {
+            if isLead && item.priority == .urgent {
+                Text("URGENT")
+                    .font(NMFont.label)
+                    .tracking(1.6)
+                    .foregroundStyle(NMColor.alertHigh)
+                dot
+            }
+            Text(item.authorityLabel)
+                .font(NMFont.label)
+                .tracking(1.6)
+                .foregroundStyle(item.authorityColor)
+            dot
+            Text(item.category.label.uppercased())
+                .font(NMFont.label)
+                .tracking(1.6)
+                .foregroundStyle(NMColor.textTertiary)
+                .lineLimit(1)
+            dot
+            Text(Self.age(of: item.displayDate))
+                .font(NMFont.label)
+                .tracking(1.2)
+                .foregroundStyle(NMColor.textTertiary)
+                .lineLimit(1)
+            dot
+            Text("\(item.readMinutes) MIN")
+                .font(NMFont.label)
+                .tracking(1.2)
+                .foregroundStyle(NMColor.textTertiary)
+                .lineLimit(1)
+        }
+    }
+
+    private var dot: some View {
+        Text("·")
+            .font(NMFont.label)
+            .foregroundStyle(NMColor.textQuaternary)
+    }
+
+    nonisolated static func age(of date: Date) -> String {
+        let interval = Date().timeIntervalSince(date)
+        let minutes = Int(interval / 60)
+        let hours = minutes / 60
+        let days = hours / 24
+        switch (days, hours, minutes) {
+        case (0, 0, 0..<2):  return "NEW"
+        case (0, 0, let m):  return "\(m)M"
+        case (0, let h, _):  return "\(h)H"
+        case (1, _, _):      return "1D"
+        case (2...6, _, _):  return "\(days)D"
+        default:
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MMM d"
+            return formatter.string(from: date).uppercased()
+        }
     }
 }
