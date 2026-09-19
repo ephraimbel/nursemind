@@ -67,7 +67,10 @@
 	<key>NSUserTrackingUsageDescription</key>
 	<string>With your permission, device identifiers and app and subscription events help measure NurseMind ads. Your clinical questions and reference content are not shared with advertising partners.</string>
 	<key>UILaunchScreen</key>
-	<dict/>
+	<dict>
+		<key>UIColorName</key>
+		<string>LaunchBackground</string>
+	</dict>
 	<key>UIRequiresFullScreen</key>
 	<true/>
 	<key>UISupportedInterfaceOrientations</key>

@@ -24,3 +24,17 @@ struct OnboardingMotionTests {
         #expect(OnboardingFlow.Step.success.progress == 1)
     }
 }
+
+@Suite("One progress rule")
+struct OnboardingRuleTests {
+    @Test func ruleAdvancesInsideAStepAndHandsOffCleanly() {
+        typealias Step = OnboardingFlow.Step
+        let span = Double(Step.success.rawValue - Step.welcome.rawValue)
+        #expect(OnboardingFlow.ruleFraction(for: .showcase, subprogress: 0) == Step.showcase.progress)
+        #expect(OnboardingFlow.ruleFraction(for: .showcase, subprogress: 0.5) == Step.showcase.progress + 0.5 / span)
+        #expect(OnboardingFlow.ruleFraction(for: .showcase, subprogress: 2.0 / 3.0) < Step.personalization.progress)
+        #expect(OnboardingFlow.ruleFraction(for: .personalization, subprogress: 0.75) < Step.notificationsConsent.progress)
+        #expect(OnboardingFlow.ruleFraction(for: .success, subprogress: 0.9) == 1)
+        #expect(OnboardingFlow.ruleFraction(for: .auth, subprogress: -1) == Step.auth.progress)
+    }
+}

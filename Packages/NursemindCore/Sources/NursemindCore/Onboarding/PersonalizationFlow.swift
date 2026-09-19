@@ -41,6 +41,9 @@ struct PersonalizationFlow: View {
                 .zIndex(Double(step.rawValue))
         }
         .animation(.easeInOut(duration: reduceMotion ? 0.2 : OnboardingMotion.base), value: step)
+        // The flow's one rule advances question by question.
+        .preference(key: OnboardingSubprogressKey.self,
+                    value: [OnboardingSubprogress(step: "personalization", fraction: Double(step.rawValue) / Double(Step.total))])
         #if DEBUG
         .task { await autoplay() }
         #endif
@@ -195,14 +198,6 @@ private struct PersonalizationStepShell<Content: View>: View {
             .buttonStyle(PressableButtonStyle())
             .accessibilityLabel("Back")
             Spacer()
-            // Progress dots — minimal magazine-y signal of position.
-            HStack(spacing: 6) {
-                ForEach(1...PersonalizationFlow.Step.total, id: \.self) { i in
-                    Circle()
-                        .fill(i <= stepNumber ? NMColor.accent : NMColor.borderSubtle)
-                        .frame(width: 6, height: 6)
-                }
-            }
         }
         .padding(.top, NMSpace.md)
     }

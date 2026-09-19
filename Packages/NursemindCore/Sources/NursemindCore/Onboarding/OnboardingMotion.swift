@@ -247,6 +247,21 @@ struct MarkGlyphSize: ViewModifier, Animatable {
 
 // MARK: - Progress rule
 
+/// A step with pages or questions reports how far through them it is, so
+/// the one rule at the top advances inside the step too. Tagged with the
+/// step so a departing view's last value is ignored.
+struct OnboardingSubprogress: Equatable {
+    let step: String
+    let fraction: Double
+}
+
+struct OnboardingSubprogressKey: PreferenceKey {
+    static let defaultValue: [OnboardingSubprogress] = []
+    static func reduce(value: inout [OnboardingSubprogress], nextValue: () -> [OnboardingSubprogress]) {
+        value.append(contentsOf: nextValue())
+    }
+}
+
 /// A one-point rule at the top of the flow that fills with the accent as
 /// the nurse advances: structure, not chrome, and the only accent on the
 /// page apart from the primary button.

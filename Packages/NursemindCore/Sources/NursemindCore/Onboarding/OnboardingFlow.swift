@@ -12,6 +12,8 @@ public struct OnboardingFlow: View {
     @State private var isForward: Bool = true
     @State private var prefs = UserPreferences.shared
     @State private var markTarget: OnboardingMarkTarget?
+    /// How far through the current step's own pages or questions.
+    @State private var subprogress: Double = 0
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     public init() {
@@ -55,10 +57,14 @@ public struct OnboardingFlow: View {
                 OnboardingMark(target: markTarget, origin: geo.frame(in: .global).origin)
             }
         }
+        .onPreferenceChange(OnboardingSubprogressKey.self) { values in
+            subprogress = values.last(where: { $0.step == step.eventName })?.fraction ?? 0
+        }
+        .onChange(of: step) { _, _ in subprogress = 0 }
         .overlay(alignment: .top) {
             // The rule begins once the nurse has chosen to get started: it
             // is absent on the splash and the Welcome photograph.
-            OnboardingProgressRule(fraction: step.progress)
+            OnboardingProgressRule(fraction: Self.ruleFraction(for: step, subprogress: subprogress))
                 .opacity(step.progress > 0 ? 1 : 0)
                 .animation(.easeInOut(duration: OnboardingMotion.base), value: step.progress > 0)
         }
@@ -85,6 +91,13 @@ public struct OnboardingFlow: View {
         }
     }
     #endif
+
+    /// The rule's fill: the step's share of the flow plus the share of the
+    /// step its pages or questions have covered.
+    nonisolated static func ruleFraction(for step: Step, subprogress: Double) -> Double {
+        let span = Double(Step.success.rawValue - Step.welcome.rawValue)
+        return min(1, step.progress + max(0, min(1, subprogress)) / span)
+    }
 
     /// Welcome's photograph dissolves and loses its colour on the way out;
     /// every other step lifts in over the ground and fades away.

@@ -208,13 +208,21 @@ struct PrimaryCTAButton: View {
             Text(title)
                 .font(NMFont.bodyLG)
                 .fontWeight(.semibold)
-                .foregroundStyle(NMColor.onAccent)
+                .foregroundStyle(isEnabled ? NMColor.onAccent : NMColor.textTertiary)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, NMSpace.lg - 2)
                 .background(
                     RoundedRectangle(cornerRadius: 12)
-                        .fill(isEnabled ? NMColor.accent : NMColor.textQuaternary)
+                        .fill(isEnabled ? NMColor.accent : Color.clear)
                 )
+                // Not yet: the same shape drawn as a hairline, so the button
+                // waits quietly instead of sitting there as a grey slab.
+                .overlay(
+                    RoundedRectangle(cornerRadius: 12)
+                        .strokeBorder(NMColor.border, lineWidth: 1)
+                        .opacity(isEnabled ? 0 : 1)
+                )
+                .animation(.easeOut(duration: OnboardingMotion.quick), value: isEnabled)
         }
         .buttonStyle(PressableButtonStyle())
         .disabled(!isEnabled)

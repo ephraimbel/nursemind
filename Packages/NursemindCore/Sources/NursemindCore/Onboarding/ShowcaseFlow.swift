@@ -61,12 +61,13 @@ struct ShowcaseFlow: View {
         VStack(spacing: 0) {
             pageView
             Spacer(minLength: NMSpace.lg)
-            pageDots
-            Spacer().frame(height: NMSpace.lg)
             actionButton
             skipButton
         }
         .background(NMColor.bgPrimary.ignoresSafeArea())
+        // The flow's one rule advances page by page; no dots of its own.
+        .preference(key: OnboardingSubprogressKey.self,
+                    value: [OnboardingSubprogress(step: "showcase", fraction: Double(currentPage) / Double(pages.count))])
     }
 
     // MARK: - Page view
@@ -135,19 +136,6 @@ struct ShowcaseFlow: View {
         case 2: ToolsShowcaseDemo(isActive: isActive)
         case 3: FeedShowcaseDemo(isActive: isActive)
         default: EmptyView()
-        }
-    }
-
-    // MARK: - Page dots
-
-    private var pageDots: some View {
-        HStack(spacing: 8) {
-            ForEach(0..<pages.count, id: \.self) { i in
-                Circle()
-                    .fill(i == currentPage ? NMColor.textPrimary : NMColor.borderSubtle)
-                    .frame(width: 7, height: 7)
-                    .animation(.easeOut(duration: 0.2), value: currentPage)
-            }
         }
     }
 
