@@ -2,6 +2,8 @@
 
 Setup date: September 17, 2026. No ad campaigns or spending were activated.
 
+September 17 campaign follow-up: Meta's low-volume AEM acknowledgement was available and accepted during the purchase-campaign setup. Its eligibility dialog now confirms **“Your app is eligible”** for Meta's attribution for iOS 14+. The saved, inactive campaign uses **Maximize number of app events → Purchase** with AEM and optional SKAN reporting off. This does not publish the pending SKAN schema or verify production Purchase delivery; no Purchase event was visible in today's production event table. Campaign and identity details: `docs/META_AD_DRAFT_2026-09-17.md`.
+
 ## Accounts
 
 | Asset | Identifier |
