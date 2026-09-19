@@ -98,8 +98,16 @@ public struct RAGRetriever: Sendable {
             if let boost = seedScores[chunk.entry.id] { scores[index, default: 0] += boost }
         }
         let bestScore = scores.values.max() ?? 0
-        let ranked = scores.filter { $0.value > 0 && $0.value >= bestScore * 0.6 }
+        var ranked = scores.filter { $0.value > 0 && $0.value >= bestScore * 0.6 }
             .sorted { $0.value == $1.value ? $0.key < $1.key : $0.value > $1.value }
+        // Entry scoping by population: a question that does not ask about
+        // children never sees the pediatric variant of a topic next to the
+        // adult one, and a pediatric question never sees the adult-only
+        // variant, so the model has nothing to conflate. A population-
+        // specific entry still answers on its own when it is all there is.
+        let requested = Self.requestedPopulation(query: query, specialty: specialty)
+        let scoped = ranked.filter { Self.serves(requested, entry: corpus[$0.key].entry) }
+        if !scoped.isEmpty { ranked = scoped }
 
         var citations: [CitationSource] = []
         var entries: [LibraryEntry] = []
@@ -128,6 +136,49 @@ public struct RAGRetriever: Sendable {
         }
         return Result(formattedContext: lines.joined(separator: "\n"), citations: citations,
                       entries: entries, confidenceFloor: lines.isEmpty)
+    }
+
+    // MARK: - Population scoping
+
+    enum Population: Equatable {
+        case pediatric, pregnancy, adult, general
+    }
+
+    /// Who an entry is written for, read from its slug and title: "Pediatric
+    /// DKA" and "peds-iv-fluids" are pediatric, "Adult DKA" is adult,
+    /// "pregnancy-vte" is pregnancy, everything else is general.
+    static func population(of entry: LibraryEntry) -> Population {
+        let slug = entry.id.split(separator: ":").last.map(String.init) ?? entry.id
+        let text = "\(slug) \(entry.title)".lowercased()
+        if text.range(of: #"(^|[\s(-])(peds?|pediatric|paediatric|neonat\w*|newborn|infant|child(ren)?|adolescent)([\s):-]|$)"#, options: .regularExpression) != nil { return .pediatric }
+        if text.range(of: #"(^|[\s(-])(pregnan\w*|obstetric|antepartum|postpartum|maternal)([\s):-]|$)"#, options: .regularExpression) != nil { return .pregnancy }
+        if text.range(of: #"(^|[\s(-])adults?([\s):-]|$)"#, options: .regularExpression) != nil { return .adult }
+        return .general
+    }
+
+    /// The population the question is about. Nil means unspecified, which
+    /// reads as adult; the nurse's unit only speaks when the question is silent.
+    static func requestedPopulation(query: String, specialty: NursingSpecialty?) -> Population? {
+        let lower = query.lowercased()
+        if lower.range(of: #"\b(peds?|pediatric|paediatric|child|children|kids?|infants?|neonat\w*|newborns?|nicu|picu|toddlers?|adolescents?|teens?|\d+\s*-?\s*(month|year)s?[- ]old)\b"#, options: .regularExpression) != nil { return .pediatric }
+        if lower.range(of: #"\b(pregnan\w*|obstetric\w*|antepartum|postpartum|laboring|in labor|maternal)\b"#, options: .regularExpression) != nil { return .pregnancy }
+        if lower.range(of: #"\badults?\b"#, options: .regularExpression) != nil { return .adult }
+        switch specialty {
+        case .peds?, .nicu?: return .pediatric
+        case .ob?: return .pregnancy
+        default: return nil
+        }
+    }
+
+    /// Whether an entry belongs in the context for the requested population.
+    /// General entries always do; a specific entry only when it matches, and
+    /// an adult entry also when the question names no population.
+    static func serves(_ requested: Population?, entry: LibraryEntry) -> Bool {
+        switch population(of: entry) {
+        case .general: return true
+        case .adult: return requested == nil || requested == .adult
+        case let specific: return requested == specific
+        }
     }
 
     private static func evidenceText(_ chunk: Chunk) -> String {

@@ -41,6 +41,49 @@ struct AIPassageTests {
         #expect(result.entries.isEmpty)
     }
 
+    @Test func scopesRetrievalToTheQuestionsPopulation() {
+        func variant(_ id: String, _ title: String, _ text: String) -> LibraryEntry {
+            .reference(ReferenceEntry(id: id, title: title, eyebrow: "REFERENCE",
+                                      sections: [.prose(title: "Criteria", .init(text, citationIDs: [evidence.id]))],
+                                      citations: [evidence], lastSourceFidelityReview: "2026-09-17"))
+        }
+        let adult = variant("adult-dka", "Adult DKA", "DKA criteria for adults: glucose above 250.")
+        let general = variant("dka", "DKA", "DKA criteria overview: anion gap acidosis.")
+        let pediatric = variant("pediatric-dka", "Pediatric DKA", "DKA criteria for children: glucose above 200.")
+        for (requested, kept) in [(nil, [true, true, false]), (RAGRetriever.Population.adult, [true, true, false]),
+                                  (.pediatric, [false, true, true]), (.pregnancy, [false, true, false])] as [(RAGRetriever.Population?, [Bool])] {
+            #expect([adult, general, pediatric].map { RAGRetriever.serves(requested, entry: $0) } == kept, Comment(rawValue: String(describing: requested)))
+        }
+        let retriever = RAGRetriever(registry: ContentRegistry(entries: [adult, general, pediatric]))
+        let unspecified = retriever.retrieve(for: "What are the nursing priorities for DKA criteria?")
+        #expect(unspecified.entries.contains { $0.id == "reference:dka" })
+        #expect(!unspecified.formattedContext.contains("for children"))
+        let child = retriever.retrieve(for: "What are the pediatric DKA criteria for a child?")
+        #expect(child.entries.contains { $0.id == "reference:pediatric-dka" })
+        #expect(!child.formattedContext.contains("for adults"))
+        let byUnit = retriever.retrieve(for: "What are the nursing priorities for DKA criteria?", specialty: .peds)
+        #expect(!byUnit.formattedContext.contains("for adults"))
+        #expect(byUnit.entries.contains { $0.id == "reference:dka" })
+        let pedsOnly = RAGRetriever(registry: ContentRegistry(entries: [variant("pediatric-vitals", "Pediatric vital signs", "Vital sign criteria by age.")]))
+        #expect(pedsOnly.retrieve(for: "What are the vital sign criteria?").entries.count == 1)
+    }
+
+    @Test func populationIsReadFromSlugAndTitle() {
+        func entry(_ id: String, _ title: String) -> LibraryEntry {
+            .reference(ReferenceEntry(id: id, title: title, eyebrow: "R", sections: [], citations: [evidence], lastSourceFidelityReview: "2026-09-17"))
+        }
+        #expect(RAGRetriever.population(of: entry("peds-iv-fluids", "IV fluids")) == .pediatric)
+        #expect(RAGRetriever.population(of: entry("dka", "DKA in children")) == .pediatric)
+        #expect(RAGRetriever.population(of: entry("adult-dka", "Adult DKA")) == .adult)
+        #expect(RAGRetriever.population(of: entry("pregnancy-vte", "VTE in pregnancy")) == .pregnancy)
+        #expect(RAGRetriever.population(of: entry("adulthood-transitions", "Childhood-onset conditions")) == .general)
+        #expect(RAGRetriever.population(of: entry("potassium", "Potassium (K⁺)")) == .general)
+        #expect(RAGRetriever.requestedPopulation(query: "normal potassium range", specialty: nil) == nil)
+        #expect(RAGRetriever.requestedPopulation(query: "normal potassium range", specialty: .icu) == nil)
+        #expect(RAGRetriever.requestedPopulation(query: "heart rate for a 2-year-old", specialty: nil) == .pediatric)
+        #expect(RAGRetriever.requestedPopulation(query: "magnesium in preeclampsia during pregnancy", specialty: nil) == .pregnancy)
+    }
+
     @Test func keepsSharedPassagesAttributedToPermittedSourcesOnly() {
         let restricted = CitationSource(id: "restricted", shortName: "Display only", license: .ccBy4WithAIRestriction,
                                         url: "https://example.org", lastRetrieved: "2026-09-17")
