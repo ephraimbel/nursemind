@@ -1,13 +1,19 @@
+import StoreKit
 import SwiftUI
 
 /// Social-proof step between `safetyContract` and `paywall`: three serif
 /// pull quotes set between hairlines, right before the ask. The App Store
-/// rating dialog no longer fires here; the app asks after the third
-/// answer, once there is something to rate.
+/// rating dialog opens over them once the step has settled, the standard
+/// premium-subscription pattern where goodwill is highest just before the
+/// ask; it is requested once per install.
 struct ReviewsView: View {
     let onContinue: () -> Void
 
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @Environment(\.requestReview) private var requestReview
+    @Environment(\.scenePhase) private var scenePhase
+    @State private var prefs = UserPreferences.shared
+    @State private var hasContinued = false
     @State private var visible: [Bool] = Array(repeating: false, count: 5)
 
     private let testimonials: [Testimonial] = [
@@ -49,6 +55,21 @@ struct ReviewsView: View {
             }
         }
         .task { await stagger() }
+        .task(id: scenePhase) {
+            guard scenePhase == .active, !prefs.hasRequestedReview, !hasContinued else { return }
+            // Let the step land and the quotes settle before StoreKit takes the screen.
+            do {
+                try await Task.sleep(for: .milliseconds(900))
+            } catch {
+                return
+            }
+            guard !Task.isCancelled, !hasContinued, !prefs.hasRequestedReview else { return }
+            prefs.hasRequestedReview = true
+            requestReview()
+            AnalyticsService.shared.capture("review_prompt_requested", properties: [
+                "source": "onboarding_social_proof"
+            ])
+        }
     }
 
     // MARK: - Header
@@ -95,6 +116,7 @@ struct ReviewsView: View {
 
     private var actions: some View {
         PrimaryCTAButton(title: "Continue", action: {
+            hasContinued = true
             Haptic.selection()
             onContinue()
         })

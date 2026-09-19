@@ -29,6 +29,16 @@ enum OnboardingMotion {
         )
     }
 
+    /// The splash stays whole underneath while Welcome fades in over it,
+    /// so two dark screens hand off without the cream ground flashing
+    /// through the middle of the crossfade.
+    static func hold() -> AnyTransition {
+        .asymmetric(
+            insertion: .identity,
+            removal: .modifier(active: HoldModifier(progress: 1), identity: HoldModifier(progress: 0))
+        )
+    }
+
     /// The photograph on Welcome does not lift; it loses its colour and
     /// dissolves so the cream ground appears to rise through it.
     static func photoExit(reduceMotion: Bool) -> AnyTransition {
@@ -55,6 +65,23 @@ struct LiftModifier: ViewModifier, Animatable {
             .opacity(1 - progress)
             .offset(y: rise * progress)
             .blur(radius: blur * progress)
+    }
+}
+
+/// Keeps the departing view on screen, whole, for almost the length of the
+/// transition and lets it go only at the very end, once the arriving view
+/// has covered it. The body must read `progress`, or SwiftUI treats the
+/// removal as instant.
+struct HoldModifier: ViewModifier, Animatable {
+    var progress: Double
+
+    nonisolated var animatableData: Double {
+        get { progress }
+        set { progress = newValue }
+    }
+
+    func body(content: Content) -> some View {
+        content.opacity(1 - progress * progress * progress * progress)
     }
 }
 

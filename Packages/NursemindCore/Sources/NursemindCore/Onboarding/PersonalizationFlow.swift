@@ -41,7 +41,23 @@ struct PersonalizationFlow: View {
                 .zIndex(Double(step.rawValue))
         }
         .animation(.easeInOut(duration: reduceMotion ? 0.2 : OnboardingMotion.base), value: step)
+        #if DEBUG
+        .task { await autoplay() }
+        #endif
     }
+
+    #if DEBUG
+    /// Under `NM_ONBOARDING_AUTOPLAY` the questions advance at the flow's
+    /// cadence so the sub-step hand-offs can be reviewed too.
+    private func autoplay() async {
+        guard let raw = ProcessInfo.processInfo.environment["NM_ONBOARDING_AUTOPLAY"], let hold = Double(raw), hold > 0 else { return }
+        while Step(rawValue: step.rawValue + 1) != nil {
+            try? await Task.sleep(for: .seconds(hold))
+            guard !Task.isCancelled else { return }
+            advance()
+        }
+    }
+    #endif
 
     @ViewBuilder
     private var stepView: some View {

@@ -55,11 +55,20 @@ struct RootView: View {
         }
     }
 
+    #if DEBUG
+    /// The contract date at launch: the `NM_ONBOARDING_STEP` jump forces
+    /// onboarding only until the flow commits and writes a new one, so
+    /// "Open NurseMind" still opens the app on a debug launch.
+    @State private var debugLaunchAgreedAt = UserPreferences.shared.safetyContractAgreedAt
+    #endif
+
     /// Dev-only: show onboarding regardless of completion state when the
-    /// `NM_ONBOARDING_STEP` jump hook (see `OnboardingFlow.init`) is active.
+    /// `NM_ONBOARDING_STEP` jump hook (see `OnboardingFlow.init`) is active
+    /// and the flow has not yet been completed in this launch.
     private var forceOnboardingForDebug: Bool {
         #if DEBUG
         ProcessInfo.processInfo.environment["NM_ONBOARDING_STEP"] != nil
+            && prefs.safetyContractAgreedAt == debugLaunchAgreedAt
         #else
         false
         #endif

@@ -30,16 +30,23 @@ public struct OnboardingFlow: View {
             // The ground never moves: the cream paper every step is set on,
             // so steps can lift in and fade out over it instead of sliding
             // whole screens past each other.
-            GrainBackground().ignoresSafeArea()
+            // Below every step, including one on its way out: a departing
+            // view whose zIndex ties the ground's is drawn behind it, which
+            // hid the splash the instant Welcome began.
+            GrainBackground().ignoresSafeArea().zIndex(-1)
+            // Each step carries its own transition so the one leaving keeps
+            // its exit (a modifier outside the switch would hand the
+            // departing step the arriving step's transition instead).
             stepView
-                .transition(transition(for: step))
                 .zIndex(Double(step.rawValue))
         }
         .animation(.easeInOut(duration: reduceMotion ? 0.2 : OnboardingMotion.slow), value: step)
         .onPreferenceChange(OnboardingMarkKey.self) { targets in
-            // Both the leaving and the arriving step report during a
-            // transition; the arriving step's slot is the one to follow.
-            if let target = targets.first(where: { $0.home == step.markHome }) ?? targets.last {
+            // Both the leaving and the arriving view report during a
+            // transition, and a leaving view drifts as it fades. The newest
+            // slot for the current home is the arriving one, so the mark
+            // flies to where the step will rest instead of chasing the exit.
+            if let target = targets.last(where: { $0.home == step.markHome }) ?? targets.last {
                 markTarget = target
             }
         }
@@ -67,7 +74,13 @@ public struct OnboardingFlow: View {
     private func autoplay() async {
         guard let raw = ProcessInfo.processInfo.environment["NM_ONBOARDING_AUTOPLAY"], let hold = Double(raw), hold > 0 else { return }
         while let next = Step(rawValue: step.rawValue + 1) {
-            try? await Task.sleep(for: .seconds(step == .splash ? 1.9 : hold))
+            let seconds: Double
+            switch step {
+            case .splash: seconds = 1.9
+            case .personalization: seconds = hold * Double(PersonalizationFlow.Step.total)
+            default: seconds = hold
+            }
+            try? await Task.sleep(for: .seconds(seconds))
             navigate(to: next)
         }
     }
@@ -78,7 +91,7 @@ public struct OnboardingFlow: View {
     private func transition(for step: Step) -> AnyTransition {
         switch step {
         case .welcome: return OnboardingMotion.photoExit(reduceMotion: reduceMotion)
-        case .splash: return .opacity
+        case .splash: return OnboardingMotion.hold()
         default: return OnboardingMotion.lift(reduceMotion: reduceMotion)
         }
     }
@@ -88,30 +101,40 @@ public struct OnboardingFlow: View {
         switch step {
         case .splash:
             SplashView { navigate(to: .welcome) }
+                .transition(transition(for: .splash))
         case .welcome:
             WelcomeView(onContinue: { navigate(to: .auth) })
+                .transition(transition(for: .welcome))
         case .auth:
             AuthView { navigate(to: .showcase) }
+                .transition(transition(for: .auth))
         case .showcase:
             ShowcaseFlow(
                 onComplete: { navigate(to: .personalization) },
                 onSkip: { navigate(to: .personalization) }
             )
+            .transition(transition(for: .showcase))
         case .personalization:
             PersonalizationFlow(
                 onComplete: { navigate(to: .notificationsConsent) },
                 onBack: { navigate(to: .auth) }
             )
+            .transition(transition(for: .personalization))
         case .notificationsConsent:
             NotificationsConsentView { navigate(to: .safetyContract) }
+                .transition(transition(for: .notificationsConsent))
         case .safetyContract:
             SafetyContractView { navigate(to: .reviews) }
+                .transition(transition(for: .safetyContract))
         case .reviews:
             ReviewsView { navigate(to: .paywall) }
+                .transition(transition(for: .reviews))
         case .paywall:
             OnboardingPaywallStep { navigate(to: .success) }
+                .transition(transition(for: .paywall))
         case .success:
             OnboardingSuccessView { commit() }
+                .transition(transition(for: .success))
         }
     }
 
