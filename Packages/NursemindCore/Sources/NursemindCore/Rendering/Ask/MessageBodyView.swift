@@ -74,7 +74,7 @@ public struct MessageBodyView: View {
             if emphasized {
                 VStack(alignment: .leading, spacing: NMSpace.base) {
                     AttributedTextView(
-                        attributed: buildAttributed(spans, font: leadFont, textColor: bodyColor, lineSpacing: 6),
+                        attributed: buildAttributed(spans, font: leadFont, textColor: bodyColor, lineSpacing: 6, monoPointSize: 20),
                         onLinkTap: handleLinkTap
                     )
                     Hairline()
@@ -93,12 +93,14 @@ public struct MessageBodyView: View {
                 ForEach(Array(rows.enumerated()), id: \.offset) { idx, row in
                     HStack(alignment: .firstTextBaseline, spacing: NMSpace.base) {
                         Text(row.key)
-                            .font(NMFont.body)
+                            .font(NumericTokens.isNumericCell(row.key) ? NMFont.mono : NMFont.body)
                             .foregroundStyle(NMColor.textSecondary)
                             .frame(width: 118, alignment: .leading)
                             .fixedSize(horizontal: false, vertical: true)
                         AttributedTextView(
-                            attributed: buildAttributed(row.value, font: monoFont, textColor: bodyColor, lineSpacing: 3, monoNumbers: false),
+                            attributed: NumericTokens.isNumericCell(row.valueText)
+                                ? buildAttributed(row.value, font: monoFont, textColor: bodyColor, lineSpacing: 3, monoNumbers: false)
+                                : buildAttributed(row.value, font: bodyFont, textColor: bodyColor, lineSpacing: 3),
                             onLinkTap: handleLinkTap
                         )
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -182,7 +184,7 @@ public struct MessageBodyView: View {
     /// Build an NSAttributedString that interleaves markdown text segments with
     /// inline citation pill image attachments. The result is rendered by a
     /// UITextView wrapper so attachments display correctly (SwiftUI Text drops them).
-    private func buildAttributed(_ spans: [ContentSpan], font: UIFont, textColor: UIColor, lineSpacing: CGFloat = 4, monoNumbers: Bool = true) -> NSAttributedString {
+    private func buildAttributed(_ spans: [ContentSpan], font: UIFont, textColor: UIColor, lineSpacing: CGFloat = 4, monoNumbers: Bool = true, monoPointSize: CGFloat? = nil) -> NSAttributedString {
         let result = NSMutableAttributedString()
         let paragraph = NSMutableParagraphStyle()
         paragraph.lineSpacing = lineSpacing
@@ -196,7 +198,7 @@ public struct MessageBodyView: View {
                     result.deleteCharacters(in: NSRange(location: result.length - 1, length: 1))
                 }
                 let parsed = NSMutableAttributedString(attributedString: parseMarkdownToNSAttributed(s, font: font, textColor: textColor))
-                if monoNumbers { NumericTokens.applyMono(to: parsed, bodyFont: font) }
+                if monoNumbers { NumericTokens.applyMono(to: parsed, bodyFont: font, pointSize: monoPointSize) }
                 result.append(parsed)
             case .citation(let source, let extras):
                 let citationIndex = (citations.firstIndex(where: { $0.id == source.id }) ?? 0) + 1
@@ -277,6 +279,11 @@ public enum ContentBlock {
 public struct TableRow {
     public let key: String
     public let value: [ContentSpan]
+
+    /// The value without citation pills, for choosing a cell face.
+    public var valueText: String {
+        value.compactMap { if case .text(let t) = $0 { return t } else { return nil } }.joined()
+    }
 }
 
 public enum ContentSpan {

@@ -305,24 +305,58 @@ Deno.test("adult quick reference never overrides follow-up history or pediatric 
 Deno.test("renderSubmission emits a cited table under a heading and the validator accepts it", () => {
   const rendered = renderSubmission({
     insufficient_evidence: false,
-    statements: [{ text: "Potassium is monitored during correction.", source_ids: ["c001"] }],
-    table: { title: "Potassium reference values", rows: [
+    statements: [
+      { text: "Potassium is monitored during correction.", source_ids: ["c001"] },
+      { text: "Hemolyzed samples read falsely high.", source_ids: ["c002"] },
+    ],
+    table: { title: "Potassium (K+) reference values", rows: [
       { key: "Normal range", value: "3.5-5.0 mEq/L", source_ids: ["c001"] },
-      { key: "Critical high", value: "above 6.0 mEq/L", source_ids: ["c001", "c002"] },
+      { key: "Critical high", value: "above 6.0 mEq/L. Repeat the draw", source_ids: ["c001", "c002"] },
     ] },
     missing_topics: [],
   })
-  assert(rendered.includes("## Potassium reference values"))
+  const lead = rendered.indexOf("Potassium is monitored")
+  const heading = rendered.indexOf("## Potassium (K+) reference values")
+  const second = rendered.indexOf("Hemolyzed samples")
+  assert(lead >= 0 && heading > lead && second > heading, "table sits under the lead statement")
   assert(rendered.includes("| Normal range | 3.5-5.0 mEq/L [c001] |"))
-  assert(rendered.includes("| Critical high | above 6.0 mEq/L [c001] [c002] |"))
-  const ctx = "[c001] Potassium normal range 3.5-5.0 mEq/L; critical above 6.0 mEq/L.\n[c002] Critical high above 6.0 mEq/L."
+  assert(rendered.includes("| Critical high | above 6.0 mEq/L; Repeat the draw [c001] [c002] |"))
+  const ctx = "[c001] Potassium normal range 3.5-5.0 mEq/L; critical above 6.0 mEq/L.\n[c002] Critical high above 6.0 mEq/L. Repeat the draw. Hemolyzed samples read falsely high."
   assertEquals(validateAnswer(rendered, new Set(["c001", "c002"]), ctx), [])
 })
 
-Deno.test("renderSubmission rejects malformed tables", () => {
+Deno.test("renderSubmission drops a malformed table with a warning and keeps the statements", () => {
   const base = { insufficient_evidence: false, statements: [{ text: "Text.", source_ids: ["c001"] }] }
-  assertThrows(() => renderSubmission({ ...base, table: { title: "Only one", rows: [{ key: "a", value: "b", source_ids: ["c001"] }] } }))
-  assertThrows(() => renderSubmission({ ...base, table: { title: "No sources", rows: [{ key: "a", value: "b", source_ids: [] }, { key: "c", value: "d", source_ids: ["c001"] }] } }))
-  assertThrows(() => renderSubmission({ ...base, table: { title: "Bad [title]", rows: [{ key: "a", value: "b", source_ids: ["c001"] }, { key: "c", value: "d", source_ids: ["c001"] }] } }))
+  const rows = [{ key: "a", value: "b", source_ids: ["c001"] }, { key: "c", value: "d", source_ids: ["c001"] }]
+  const render = (table: unknown) => { const warnings: string[] = []; const text = renderSubmission({ ...base, table }, (w) => warnings.push(w)); return { text, warnings } }
+  for (const [table, warning] of [
+    [{ title: "Only one", rows: rows.slice(0, 1) }, "table_dropped_rows"],
+    [{ title: "No sources", rows: [{ key: "a", value: "b", source_ids: [] }, rows[1]] }, "table_dropped_citations"],
+    [{ title: "Bad", rows: [{ key: "", value: "b", source_ids: ["c001"] }, rows[1]] }, "table_dropped_key"],
+    ["nope", "table_dropped_invalid"],
+  ] as [unknown, string][]) {
+    const { text, warnings } = render(table)
+    assert(!text.includes("|") && text.includes("Text [c001]."), `dropped: ${warning}`)
+    assertEquals(warnings, [warning])
+  }
   assert(!renderSubmission(base).includes("|"))
+})
+
+Deno.test("renderSubmission sanitizes table titles and cells so the validator can read them", () => {
+  const base = { insufficient_evidence: false, statements: [{ text: "Text.", source_ids: ["c001"] }] }
+  const rows = [{ key: "a", value: "b", source_ids: ["c001"] }, { key: "c", value: "d", source_ids: ["c001"] }]
+  const render = (table: unknown) => { const warnings: string[] = []; const text = renderSubmission({ ...base, table }, (w) => warnings.push(w)); return { text, warnings } }
+  let out = render({ title: "Serum Potassium: Normal and Critical Ranges", rows })
+  assert(out.text.includes("\n## Serum Potassium: Normal and Critical Ranges\n"))
+  assertEquals(out.warnings, [])
+  out = render({ title: "Vitamin B12 ranges", rows })
+  assert(out.text.includes("\n## At a glance\n"))
+  assertEquals(out.warnings, ["table_title_replaced"])
+  out = render({ title: "One two three four five six seven eight nine", rows })
+  assert(out.text.includes("\n## At a glance\n"))
+  out = render({ title: "Ranges [see table] | #x ", rows })
+  assert(out.text.includes("\n## Ranges see table x\n"), out.text)
+  out = render({ title: "Cells", rows: [{ key: "Range [adult]", value: "3.5 mEq/L. Repeat draw", source_ids: ["c001"] }, rows[1]] })
+  assert(out.text.includes("| Range (adult) | 3.5 mEq/L; Repeat draw [c001] |"), out.text)
+  assertEquals(validateAnswer(out.text, new Set(["c001"]), "[c001] Range 3.5 mEq/L. Repeat draw. Text."), [])
 })

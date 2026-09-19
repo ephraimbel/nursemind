@@ -19,10 +19,19 @@ enum NumericTokens {
 
     /// Applies a mono font one point under the body size, keeping weight
     /// steady so a value inside a bold clause stays legible.
-    static func applyMono(to attributed: NSMutableAttributedString, bodyFont: UIFont) {
-        let mono = UIFont.monospacedSystemFont(ofSize: max(11, bodyFont.pointSize - 1.5), weight: .regular)
+    static func applyMono(to attributed: NSMutableAttributedString, bodyFont: UIFont, pointSize: CGFloat? = nil) {
+        let mono = UIFont.monospacedSystemFont(ofSize: pointSize ?? max(11, bodyFont.pointSize - 1.5), weight: .regular)
         for range in ranges(in: attributed.string) {
             attributed.addAttribute(.font, value: mono, range: range)
         }
+    }
+
+    /// A table cell that is a figure (">1.30", "3.5 – 5.0 mEq/L", "< 2.5 mEq/L")
+    /// is set wholly in mono; a cell that is a phrase keeps the body face and
+    /// only its numbers go mono, so a wrapped interpretation never reads as code.
+    static func isNumericCell(_ text: String) -> Bool {
+        let trimmed = text.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard trimmed.count <= 28 else { return false }
+        return trimmed.range(of: #"^[<>≤≥~≈±]?\s*\d"#, options: .regularExpression) != nil
     }
 }

@@ -36,6 +36,15 @@ struct AnswerRenderingTests {
         #expect(ContentBlockParser.parseTableRow("not a row", citations: sources) == nil)
     }
 
+    @Test func numericCellsAreFiguresNotPhrases() {
+        for cell in [">1.30", "3.5 – 5.0 mEq/L", "< 2.5 mEq/L", "0.91-1.30", "≥ 60 mL/min/1.73 m²"] {
+            #expect(NumericTokens.isNumericCell(cell), Comment(rawValue: cell))
+        }
+        for cell in ["Non-compressible / calcified vessels (DM, CKD) — ABI invalid; use TBI", "Normal", "Every 4 hours after the 2nd dose", "3.5 – 5.0 mEq/L unless the sample is hemolyzed"] {
+            #expect(!NumericTokens.isNumericCell(cell), Comment(rawValue: cell))
+        }
+    }
+
     @Test func numericTokensCoverValuesRangesRatiosAndUnits() {
         func found(_ s: String) -> [String] {
             NumericTokens.ranges(in: s).map { (s as NSString).substring(with: $0) }

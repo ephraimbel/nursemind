@@ -216,7 +216,10 @@ struct RootView: View {
     ///   which is the App Store / TestFlight requirement.
     private var anthropicClient: AnthropicClient? {
         #if DEBUG
-        if let key = Secrets.anthropicAPIKey, !key.isEmpty {
+        // `SIMCTL_CHILD_NM_FORCE_PROXY=1` exercises the deployed function on a
+        // simulator even when a direct development key is present.
+        if let key = Secrets.anthropicAPIKey, !key.isEmpty,
+           ProcessInfo.processInfo.environment["NM_FORCE_PROXY"] != "1" {
             return AnthropicClient(apiKey: key)
         }
         #endif
