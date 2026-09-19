@@ -80,7 +80,14 @@ public final class SupabaseService {
     /// safely even if SwiftUI tears down and rebuilds the root.
     public func configure(url: URL, anonKey: String) {
         guard client == nil else { return }
-        self.client = SupabaseClient(supabaseURL: url, supabaseKey: anonKey)
+        self.client = SupabaseClient(
+            supabaseURL: url,
+            supabaseKey: anonKey,
+            options: SupabaseClientOptions(
+                auth: .init(storage: ResilientAuthStorage()),
+                global: .init(logger: SupabaseUnifiedLogger())
+            )
+        )
         self.supabaseURL = url
         self.anonKey = anonKey
         self.state = .bootstrapping
