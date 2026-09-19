@@ -5,6 +5,8 @@ public enum ProfileDestination: Hashable {
     case notifications
     case manageSubscription
     case editorialStandards
+    case pastCases
+    case pastCase(String)
     case about
     case termsOfUse
     case privacyPolicy
@@ -65,6 +67,13 @@ public struct ProfileHomeView: View {
                 case .notifications:      NotificationsSettingsView()
                 case .manageSubscription: ManageSubscriptionView()
                 case .editorialStandards: EditorialStandardsView()
+                case .pastCases:          PastCasesView()
+                case .pastCase(let id):
+                    if let c = MicroCaseRegistry.shared.case(id: id) {
+                        MicroCaseView(microCase: c, readOnly: true)
+                    } else {
+                        EditorialStandardsView()
+                    }
                 case .about:              AboutView()
                 case .termsOfUse:         LegalDocumentView(.termsOfUse)
                 case .privacyPolicy:      LegalDocumentView(.privacyPolicy)
@@ -177,6 +186,8 @@ public struct ProfileHomeView: View {
 
     private var resourcesSection: some View {
         ProfileSection("RESOURCES") {
+            ProfileLinkRow(label: "Past cases", value: nil, destination: .pastCases)
+            Hairline(color: NMColor.borderSubtle)
             ProfileLinkRow(label: "Editorial standards", value: nil, destination: .editorialStandards)
             Hairline(color: NMColor.borderSubtle)
             ProfileLinkRow(label: "About", value: nil, destination: .about)

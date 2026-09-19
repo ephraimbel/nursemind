@@ -223,9 +223,29 @@ struct FeedListView: View {
                     FeedEmptyState(kind: .empty, onRetry: refreshNow)
                 }
             } else {
-                itemsList(filtered)
+                VStack(spacing: 0) {
+                    if showsTodaysCase, let todaysCase {
+                        TodaysCaseBlock(microCase: todaysCase) { openCase(todaysCase) }
+                        Hairline()
+                    }
+                    itemsList(filtered)
+                }
             }
         }
+    }
+
+    // MARK: - Today's case (R4)
+
+    private var todaysCase: MicroCase? { MicroCaseRegistry.shared.case(on: Date()) }
+
+    /// The daily block sits above the stories on the two general filters only;
+    /// MY UNIT, SAVED and category views stay pure.
+    private var showsTodaysCase: Bool {
+        activeFilter == .thisWeek || activeFilter == .all
+    }
+
+    private func openCase(_ c: MicroCase) {
+        path.append(FeedDestination.microCase(c.id))
     }
 
     /// Items visible under the current filter. `store.items` is server-ordered
@@ -442,4 +462,5 @@ enum FeedFilter: Hashable {
 /// push to a specific item without holding the whole FeedItem in the stack.
 enum FeedDestination: Hashable {
     case item(UUID)
+    case microCase(String)
 }

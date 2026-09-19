@@ -11,10 +11,16 @@ public enum PushDeepLink: Equatable, Sendable {
     case feed
     case feedWatchlist
     case feedItem(UUID)
+    case caseToday
 
-    /// `nursemind://feed`, `nursemind://feed?filter=watchlist`, `nursemind://feed?item=<uuid>`.
+    /// `nursemind://feed`, `nursemind://feed?filter=watchlist`, `nursemind://feed?item=<uuid>`,
+    /// `nursemind://case/today`.
     public static func parse(_ url: URL) -> PushDeepLink? {
-        guard url.scheme?.lowercased() == "nursemind", url.host?.lowercased() == "feed" else { return nil }
+        guard url.scheme?.lowercased() == "nursemind" else { return nil }
+        if url.host?.lowercased() == "case" {
+            return url.path.lowercased() == "/today" ? .caseToday : nil
+        }
+        guard url.host?.lowercased() == "feed" else { return nil }
         let items = URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems ?? []
         if let raw = items.first(where: { $0.name == "item" })?.value, let id = UUID(uuidString: raw) {
             return .feedItem(id)
@@ -175,6 +181,7 @@ public final class PushRegistrationService {
         case .feed:               router.openFeed()
         case .feedWatchlist:      router.openFeedWatchlist()
         case .feedItem(let id):   router.openFeedItem(id)
+        case .caseToday:          router.openTodaysCase()
         }
     }
 

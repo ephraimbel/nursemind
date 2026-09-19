@@ -191,6 +191,15 @@ public final class AppRouter {
         selectedTab = AppRouter.feedTab
     }
 
+    /// Feed tab with today's case pushed (nursemind://case/today).
+    public func openTodaysCase() {
+        guard let c = MicroCaseRegistry.shared.case(on: Date()) else { openFeed(); return }
+        var newPath = NavigationPath()
+        newPath.append(FeedDestination.microCase(c.id))
+        feedPath = newPath
+        selectedTab = AppRouter.feedTab
+    }
+
     /// Feed tab, default filter.
     public func openFeed() {
         feedPath = NavigationPath()

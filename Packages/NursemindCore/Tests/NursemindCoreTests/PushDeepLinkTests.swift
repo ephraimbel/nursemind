@@ -17,6 +17,8 @@ struct PushDeepLinkTests {
         #expect(PushDeepLink.parse(URL(string: "https://nursemind.app/feed")!) == nil)
         #expect(PushDeepLink.parse(URL(string: "nursemind://library")!) == nil)
         #expect(PushDeepLink.parse(URL(string: "nursemind://feed?item=not-a-uuid")!) == .feed)
+        #expect(PushDeepLink.parse(URL(string: "nursemind://case/today")!) == .caseToday)
+        #expect(PushDeepLink.parse(URL(string: "nursemind://case/yesterday")!) == nil)
     }
 
     @Test func readsThePushPayloadFields() {

@@ -17,6 +17,12 @@ public struct FeedTabView: View {
                     switch dest {
                     case .item(let id):
                         FeedItemDestination(id: id)
+                    case .microCase(let id):
+                        if let c = MicroCaseRegistry.shared.case(id: id) {
+                            MicroCaseView(microCase: c, readOnly: c.publishOn < MicroCaseRegistry.dayKey(Date()) && MicroCaseRegistry.shared.case(on: Date())?.id != id)
+                        } else {
+                            FeedEmptyState(kind: .error("This case is no longer available."), onRetry: {})
+                        }
                     }
                 }
         }
