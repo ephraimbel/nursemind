@@ -67,6 +67,7 @@ public final class AnthropicAskService: AskService, Sendable {
                         let repair = attempt == 0 ? "" : "\nThe prior attempt failed validation. Regenerate from the excerpts only. Cite each factual sentence, use only supplied IDs, omit unsupported facts, and finish within 450 words."
                         var answer = ""
                         var externalEvidence: ExternalAnswerEvidence?
+                        var followUps: [String] = []
                         for try await event in client.streamAnswer(
                             model: .haiku45,
                             cachedSystem: SystemPrompt.staticPrefix,
@@ -79,6 +80,11 @@ public final class AnthropicAskService: AskService, Sendable {
                             switch event {
                             case .text(let text): answer += text
                             case .evidence(let evidence): externalEvidence = evidence
+                            case .stage(let stage, let sources): continuation.yield(.stage(Self.stageLabel(stage, sources: sources)))
+                            case .followUps(let questions): followUps = questions
+                            case .refusal(let raw):
+                                refuse(RefusalType(rawValue: raw) ?? .lowConfidence)
+                                return
                             }
                             if ResponseValidator.containsComputedDose(answer) { refuse(.prescribing); return }
                             guard answer.count <= 12_000 else { refuse(.lowConfidence); return }
@@ -102,6 +108,7 @@ public final class AnthropicAskService: AskService, Sendable {
                         )))
                         continuation.yield(.libraryEntries(externalEvidence == nil ? rag.entries.map(\.id) : []))
                         continuation.yield(.delta(answer))
+                        if !followUps.isEmpty { continuation.yield(.followUps(followUps)) }
                         continuation.yield(.done)
                         continuation.finish()
                         return
@@ -136,6 +143,23 @@ public final class AnthropicAskService: AskService, Sendable {
         async let connection: Void = client.warmUp()
         await Task.detached { [retriever] in retriever.prewarm() }.value
         await connection
+    }
+
+    /// The waiting line for a server stage. Plain, present tense, no counts
+    /// the nurse cannot see, except how many sources are being read.
+    static func stageLabel(_ stage: String, sources: Int?) -> String {
+        switch stage {
+        case "reading":
+            switch sources ?? 0 {
+            case 0: return "Searching for sources…"
+            case 1: return "Reading 1 source…"
+            case let n: return "Reading \(n) sources…"
+            }
+        case "writing": return "Writing…"
+        case "checking": return "Checking against the sources…"
+        case "revising": return "Revising…"
+        default: return "Finding a supported answer…"
+        }
     }
 
     static func formatHistory(_ messages: [AskMessage]) -> String {

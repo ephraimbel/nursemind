@@ -10,7 +10,7 @@ private final class AITransportFixture: @unchecked Sendable {
     private var data = Data()
     private var count = 0
 
-    func set(status: Int = 200, version: String? = "2", body: String) {
+    func set(status: Int = 200, version: String? = AnthropicClient.contract, body: String) {
         lock.lock(); defer { lock.unlock() }
         self.status = status
         headers = version.map { ["x-nursemind-contract": $0] } ?? [:]
@@ -97,6 +97,21 @@ struct AITransportIntegrationTests {
         let output = try await events()
         #expect(output.contains { if case .refusal(.serviceUnavailable, _) = $0 { return true }; return false })
         #expect(!output.contains { if case .delta = $0 { return true }; return false })
+    }
+
+    @Test func streamedStagesFollowUpsAndRefusalsReachTheView() async throws {
+        let answer = "Monitoring is described in the reference [c001].\n\n" + SystemPrompt.referenceFooter
+        let prelude = "event: stage\ndata: {\"type\":\"stage\",\"stage\":\"reading\",\"sources\":2}\n\nevent: stage\ndata: {\"type\":\"stage\",\"stage\":\"writing\"}\n\nevent: follow_ups\ndata: {\"type\":\"follow_ups\",\"questions\":[\"What monitoring matters next?\"]}\n\n"
+        AITransportFixture.shared.set(body: prelude + (try stream(answer)))
+        let output = try await events()
+        let stages = output.compactMap { event -> String? in if case .stage(let label) = event { return label }; return nil }
+        #expect(stages == ["Reading 2 sources…", "Writing…"])
+        #expect(output.contains { if case .followUps(let questions) = $0 { return questions == ["What monitoring matters next?"] }; return false })
+        #expect(output.contains { if case .delta(let text) = $0 { return text == answer }; return false })
+        AITransportFixture.shared.set(body: "event: stage\ndata: {\"type\":\"stage\",\"stage\":\"reading\",\"sources\":1}\n\nevent: refusal\ndata: {\"type\":\"refusal\",\"refusal\":\"prescribing\"}\n\n")
+        let refused = try await events()
+        #expect(refused.contains { if case .refusal(.prescribing, _) = $0 { return true }; return false })
+        #expect(!refused.contains { if case .delta = $0 { return true }; return false })
     }
 
     @Test func rendersServerSafetyRefusal() async throws {

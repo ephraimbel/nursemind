@@ -12,13 +12,22 @@ public struct MessageBodyView: View {
     /// Stable identity for the streaming parse cache. Pass the message id for
     /// live-streaming messages; nil (previews, saved answers) parses fresh.
     let cacheKey: UUID?
-    @State private var presentedCitationIndex: Int?
+    /// Entries the answer was grounded in, so a source card can open one.
+    let libraryEntryIDs: [String]
+    @State private var presentedCitation: PresentedCitation?
     @Environment(\.colorScheme) private var colorScheme
 
-    public init(content: String, citations: [CitationSource], cacheKey: UUID? = nil) {
+    struct PresentedCitation: Identifiable {
+        let index: Int
+        let claim: String?
+        var id: String { "\(index)|\(claim ?? "")" }
+    }
+
+    public init(content: String, citations: [CitationSource], cacheKey: UUID? = nil, libraryEntryIDs: [String] = []) {
         self.content = content
         self.citations = citations
         self.cacheKey = cacheKey
+        self.libraryEntryIDs = libraryEntryIDs
     }
 
     public var body: some View {
@@ -38,23 +47,21 @@ public struct MessageBodyView: View {
         VStack(alignment: .leading, spacing: NMSpace.base) {
             ForEach(Array(parsed.enumerated()), id: \.offset) { idx, block in
                 renderBlock(block, emphasized: idx == firstParagraphIdx)
+                    // Each block arrives whole and settles into place.
+                    .transition(.opacity.combined(with: .offset(y: 6)))
             }
         }
+        .animation(.easeOut(duration: 0.32), value: parsed.count)
         // Inline pills are rasterized per appearance; a live switch rebuilds
         // the text views so they pick up the other variant.
         .id(colorScheme)
-        .sheet(
-            isPresented: Binding(
-                get: { presentedCitationIndex != nil },
-                set: { if !$0 { presentedCitationIndex = nil } }
+        .sheet(item: $presentedCitation) { presented in
+            CitationCardView(
+                number: presented.index,
+                citations: citations,
+                claim: presented.claim,
+                libraryEntryIDs: libraryEntryIDs
             )
-        ) {
-            if let idx = presentedCitationIndex {
-                CitationCardView(
-                    number: idx,
-                    citations: citations
-                )
-            }
         }
     }
 
@@ -98,25 +105,41 @@ public struct MessageBodyView: View {
             VStack(alignment: .leading, spacing: 0) {
                 Hairline()
                 ForEach(Array(rows.enumerated()), id: \.offset) { idx, row in
+                    let figure = NumericTokens.isNumericCell(row.valueText)
+                    let pill = row.citation.map { source, extras in
+                        CitationPill(source: source, extraCount: extras) {
+                            presentedCitation = .init(index: (citations.firstIndex(where: { $0.id == source.id }) ?? 0) + 1,
+                                                      claim: "\(row.key): \(row.valueText.trimmingCharacters(in: .whitespaces))")
+                        }
+                        .fixedSize()
+                    }
                     HStack(alignment: .firstTextBaseline, spacing: NMSpace.md) {
                         Text(row.key)
                             .font(NumericTokens.isNumericCell(row.key) ? NMFont.mono : NMFont.body)
                             .foregroundStyle(NMColor.textSecondary)
                             .frame(width: 104, alignment: .leading)
                             .fixedSize(horizontal: false, vertical: true)
-                        AttributedTextView(
-                            attributed: NumericTokens.isNumericCell(row.valueText)
-                                ? buildAttributed(row.textSpans, font: monoFont, textColor: bodyColor, lineSpacing: 3, monoNumbers: false)
-                                : buildAttributed(row.textSpans, font: bodyFont, textColor: bodyColor, lineSpacing: 3),
-                            onLinkTap: handleLinkTap
-                        )
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        if let (source, extras) = row.citation {
-                            CitationPill(source: source, extraCount: extras) {
-                                presentedCitationIndex = (citations.firstIndex(where: { $0.id == source.id }) ?? 0) + 1
+                        // A figure keeps its pill on the same line; a phrase
+                        // takes the full column and carries the pill beneath,
+                        // so a wide pill can never squeeze the text.
+                        if figure {
+                            AttributedTextView(
+                                attributed: buildAttributed(row.textSpans, font: monoFont, textColor: bodyColor, lineSpacing: 3, monoNumbers: false),
+                                onLinkTap: handleLinkTap
+                            )
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            if let pill {
+                                pill.alignmentGuide(.firstTextBaseline) { $0[VerticalAlignment.center] + 4 }
                             }
-                            .fixedSize()
-                            .alignmentGuide(.firstTextBaseline) { $0[VerticalAlignment.center] + 4 }
+                        } else {
+                            VStack(alignment: .leading, spacing: NMSpace.sm) {
+                                AttributedTextView(
+                                    attributed: buildAttributed(row.textSpans, font: bodyFont, textColor: bodyColor, lineSpacing: 3),
+                                    onLinkTap: handleLinkTap
+                                )
+                                if let pill { pill }
+                            }
+                            .frame(maxWidth: .infinity, alignment: .leading)
                         }
                     }
                     .padding(.vertical, NMSpace.md)
@@ -130,6 +153,38 @@ public struct MessageBodyView: View {
                 Hairline()
             }
             .padding(.vertical, NMSpace.xs)
+
+        case .bedside(let rows):
+            // Three nursing actions the nurse can screenshot: assess, watch,
+            // escalate. Each label sits over its full-width line, with the
+            // source pill inline at the end of the sentence.
+            VStack(alignment: .leading, spacing: NMSpace.sm) {
+                EyebrowLabel("At the bedside", sparkle: false)
+                VStack(alignment: .leading, spacing: 0) {
+                    Hairline()
+                    ForEach(Array(rows.enumerated()), id: \.offset) { idx, row in
+                        VStack(alignment: .leading, spacing: NMSpace.xs + 2) {
+                            Text(row.key.uppercased())
+                                .font(NMFont.label)
+                                .tracking(1.2)
+                                .foregroundStyle(NMColor.textTertiary)
+                            AttributedTextView(
+                                attributed: buildAttributed(row.value, font: bodyFont, textColor: bodyColor, lineSpacing: 3),
+                                onLinkTap: handleLinkTap
+                            )
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.vertical, NMSpace.md)
+                        .accessibilityElement(children: .combine)
+                        .accessibilityLabel(rowSpokenLabel(row))
+                        if idx < rows.count - 1 {
+                            Hairline(color: NMColor.borderSubtle)
+                        }
+                    }
+                    Hairline()
+                }
+            }
+            .padding(.top, NMSpace.xs)
 
         case .bulletList(let items):
             VStack(alignment: .leading, spacing: NMSpace.sm + 2) {
@@ -198,12 +253,25 @@ public struct MessageBodyView: View {
     }
 
     private func handleLinkTap(_ url: URL) {
-        if url.scheme == "nm-citation",
-           let host = url.host,
-           let idx = Int(host),
-           idx >= 1, idx <= citations.count {
-            presentedCitationIndex = idx
+        guard url.scheme == "nm-citation",
+              let host = url.host, let idx = Int(host),
+              idx >= 1, idx <= citations.count else { return }
+        let claim = URLComponents(url: url, resolvingAgainstBaseURL: false)?
+            .queryItems?.first(where: { $0.name == "claim" })?.value
+        presentedCitation = .init(index: idx, claim: claim.flatMap { $0.isEmpty ? nil : $0 })
+    }
+
+    /// The sentence a pill sits at the end of, so the source card can show
+    /// which passage supports that line rather than the whole answer.
+    nonisolated static func claim(before text: String) -> String {
+        var tail = text.replacingOccurrences(of: "**", with: "").trimmingCharacters(in: .whitespacesAndNewlines)
+        // A terminator counts only when whitespace follows it, so "3.5" and
+        // "mEq/L." inside a sentence never split it.
+        if let range = tail.range(of: #"[.!?]\s+(?!.*[.!?]\s)"#, options: .regularExpression) {
+            tail = String(tail[range.upperBound...])
         }
+        tail = tail.trimmingCharacters(in: CharacterSet(charactersIn: " ,;:("))
+        return String(tail.prefix(240))
     }
 
     /// Build an NSAttributedString that interleaves markdown text segments with
@@ -214,9 +282,11 @@ public struct MessageBodyView: View {
         let paragraph = NSMutableParagraphStyle()
         paragraph.lineSpacing = lineSpacing
 
+        var running = ""
         for span in spans {
             switch span {
             case .text(let s):
+                running += s
                 // A pill is padded with spaces; when the sentence's period or
                 // comma follows the pill, drop the pad so it reads "…[1]." not "…[1] .".
                 if let first = s.first, ".,;:!?)".contains(first), result.string.hasSuffix(" ") {
@@ -227,7 +297,7 @@ public struct MessageBodyView: View {
                 result.append(parsed)
             case .citation(let source, let extras):
                 let citationIndex = (citations.firstIndex(where: { $0.id == source.id }) ?? 0) + 1
-                let chip = citationChip(source, index: citationIndex, extras: extras)
+                let chip = citationChip(source, index: citationIndex, extras: extras, claim: Self.claim(before: running))
                 result.append(chip)
             }
         }
@@ -267,7 +337,7 @@ public struct MessageBodyView: View {
     /// Inline citation pill rendered as a UIImage text attachment. The pill is
     /// linked via `nm-citation://<index>` so the AttributedTextView coordinator
     /// can intercept taps and present the in-app CitationCardView popover.
-    private func citationChip(_ source: CitationSource, index: Int, extras: Int) -> NSAttributedString {
+    private func citationChip(_ source: CitationSource, index: Int, extras: Int, claim: String = "") -> NSAttributedString {
         let image = CitationPillImage.render(for: source, extras: extras, dark: colorScheme == .dark)
 
         let attachment = NSTextAttachment()
@@ -283,7 +353,11 @@ public struct MessageBodyView: View {
         combined.append(NSAttributedString(string: " "))
         combined.append(NSAttributedString(attachment: attachment))
         combined.append(NSAttributedString(string: " "))
-        if let url = URL(string: "nm-citation://\(index)") {
+        var components = URLComponents()
+        components.scheme = "nm-citation"
+        components.host = String(index)
+        if !claim.isEmpty { components.queryItems = [URLQueryItem(name: "claim", value: claim)] }
+        if let url = components.url {
             combined.addAttribute(.link, value: url, range: NSRange(location: 0, length: combined.length))
         }
         return combined
@@ -299,6 +373,7 @@ public enum ContentBlock {
     case numberedList([[ContentSpan]], start: Int)
     /// Cited reference rows (`| key | value [cNNN] |`); values render in mono.
     case table([TableRow])
+    case bedside([TableRow])
 }
 
 public struct TableRow {
@@ -416,6 +491,7 @@ enum ContentBlockParser {
         var currentNumbered: [String] = []
         var numberedStart: Int = 1
         var currentRows: [TableRow] = []
+        var bedsidePending = false
 
         func flushParagraph() {
             if !currentParagraph.isEmpty {
@@ -440,9 +516,10 @@ enum ContentBlockParser {
         }
         func flushRows() {
             if !currentRows.isEmpty {
-                blocks.append(.table(currentRows))
+                blocks.append(bedsidePending ? .bedside(currentRows) : .table(currentRows))
                 currentRows.removeAll()
             }
+            bedsidePending = false
         }
         func flushAll() { flushParagraph(); flushBullets(); flushNumbered(); flushRows() }
 
@@ -467,7 +544,13 @@ enum ContentBlockParser {
                 currentBullets.append(bulletText)
             } else if let headerText = parseHeaderLine(trimmed) {
                 flushAll()
-                blocks.append(.header(headerText))
+                // The server's fixed heading for the nursing-action trio; the
+                // rows under it render as the bedside block, not a table.
+                if headerText.caseInsensitiveCompare("At the bedside") == .orderedSame {
+                    bedsidePending = true
+                } else {
+                    blocks.append(.header(headerText))
+                }
             } else {
                 flushBullets(); flushNumbered(); flushRows()
                 currentParagraph.append(trimmed)

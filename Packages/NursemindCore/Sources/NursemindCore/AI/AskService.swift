@@ -46,5 +46,7 @@ public enum AskEvent: Sendable {
     case delta(String)
     case citations([CitationSource])
     case libraryEntries([String])    // entry IDs from the RAG retrieval — surfaced as deep-dive chips
+    case stage(String)               // what the server is doing right now, shown while waiting
+    case followUps([String])         // questions the evidence can answer next, chosen by the server
     case done
 }

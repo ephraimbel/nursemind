@@ -1,14 +1,17 @@
-import { ANSWER_POLICY, AskInput, citationIDs, evidenceRepairFeedback, FOOTER, INTENT_POLICY, MODEL, Refusal, validateAnswer } from "./contract.ts"
+import { ANSWER_POLICY, AskInput, citationIDs, evidenceRepairFeedback, FOOTER, INTENT_POLICY, MODEL, Refusal, scrubPHI, validateAnswer } from "./contract.ts"
 
 import { ExternalEvidence, RetrieveEvidence } from "./external-evidence.ts"
 import { abgQuickReference } from "./quick-reference.ts"
 
-export type Completion = { text: string; stopReason: string; usage?: Record<string, number>; validationIssue?: string; warnings?: string[] }
+export type Completion = { text: string; stopReason: string; usage?: Record<string, number>; validationIssue?: string; warnings?: string[]; followUps?: string[] }
 export type Complete = (system: string, payload: string, maxTokens: number, format?: "answer" | "review") => Promise<Completion>
 export type VerifyAnswer = (answer: string, context: string) => Promise<{ supported: boolean; feedback: string }>
-export type Outcome = { answer: string; attempts: number; evidence?: ExternalEvidence } | { refusal: Refusal; attempts: number }
+export type Outcome = { answer: string; attempts: number; evidence?: ExternalEvidence; followUps?: string[] } | { refusal: Refusal; attempts: number }
+/// Progress the client can show while it waits: what the model is reading,
+/// that it is writing, that the reviewer is checking, or that it is revising.
+export type StageReport = (stage: "reading" | "writing" | "checking" | "revising", detail?: Record<string, number>) => void
 
-export async function answerQuestion(input: AskInput, complete: Complete, retrieve?: RetrieveEvidence, reportIssues?: (issues: string[]) => void, verify?: VerifyAnswer): Promise<Outcome> {
+export async function answerQuestion(input: AskInput, complete: Complete, retrieve?: RetrieveEvidence, reportIssues?: (issues: string[]) => void, verify?: VerifyAnswer, onStage?: StageReport): Promise<Outcome> {
   const classified = await complete(INTENT_POLICY, JSON.stringify({ history: input.history, question: input.question }), 32)
   if (classified.stopReason !== "end_turn") throw new Error("classification_incomplete")
   const intent = classified.text.trim()
@@ -42,6 +45,7 @@ export async function answerQuestion(input: AskInput, complete: Complete, retrie
       if (!found) break
       evidence = found; context = found.context; ids = new Set(found.sources.map((source) => source.id))
     }
+    onStage?.("reading", { sources: ids.size })
     let previousDraft = ""
     let previousIssues: string[] = []
     let reviewerFeedback = ""
@@ -54,6 +58,7 @@ export async function answerQuestion(input: AskInput, complete: Complete, retrie
       const payload = JSON.stringify({ question: input.question, history: input.history, preferences: input.preferences, evidence: context,
         ...(previousDraft ? { rejected_draft: previousDraft, validation_issues: previousIssues,
           corrections_needed: evidenceRepairFeedback(previousDraft, context), reviewer_feedback: reviewerFeedback } : {}) })
+      onStage?.(attempt === 1 ? "writing" : "revising")
       const completion = await complete(ANSWER_POLICY + repair, payload, 1400, "answer")
       previousDraft = completion.text
       attempts++
@@ -68,6 +73,7 @@ export async function answerQuestion(input: AskInput, complete: Complete, retrie
       const insufficient = !citationIDs(completion.text).size && /I (?:don't|do not) have a high-confidence source/i.test(completion.text)
       if (completion.stopReason === "end_turn" && !issues.length && !insufficient) {
         if (verify) {
+          onStage?.("checking")
           const review = await verify(completion.text, context)
           if (!review.supported) {
             reviewerFeedback = review.feedback
@@ -78,7 +84,7 @@ export async function answerQuestion(input: AskInput, complete: Complete, retrie
             continue
           }
         }
-        return { answer: completion.text, attempts, ...(evidence ? { evidence } : {}) }
+        return { answer: completion.text, attempts, ...(evidence ? { evidence } : {}), ...(completion.followUps?.length ? { followUps: completion.followUps } : {}) }
       }
       if (insufficient && !evidence) break
     }
@@ -120,12 +126,14 @@ export function makeCompletion(apiKey: string, signal: AbortSignal, recordUsage:
     let stopReason = result.stop_reason
     let validationIssue: string | undefined
     const warnings: string[] = []
+    let followUps: string[] = []
     if (format) {
       const submitted = result.content.filter((block: { type: string; name?: string }) => block.type === "tool_use" && block.name === tool.name)
       if (stopReason !== "tool_use" || submitted.length !== 1) return { text: "", stopReason: "invalid_submission" }
       stopReason = "end_turn"
       try {
         text = format === "answer" ? renderSubmission(submitted[0].input, (issue) => warnings.push(issue)) : JSON.stringify(submitted[0].input)
+        if (format === "answer") followUps = sanitizeFollowUps(submitted[0].input)
       } catch (error) {
         text = JSON.stringify(submitted[0].input)
         stopReason = "invalid_submission"
@@ -139,7 +147,7 @@ export function makeCompletion(apiKey: string, signal: AbortSignal, recordUsage:
     }
     recordUsage(usage)
     recordUsage({ [`${format ?? "classification"}_ms`]: Math.round(performance.now() - started), [`${format ?? "classification"}_calls`]: 1 })
-    return { text, stopReason, usage, ...(validationIssue ? { validationIssue } : {}), ...(warnings.length ? { warnings } : {}) }
+    return { text, stopReason, usage, ...(validationIssue ? { validationIssue } : {}), ...(warnings.length ? { warnings } : {}), ...(followUps.length ? { followUps } : {}) }
   }
 }
 
@@ -147,6 +155,8 @@ const STRUCTURED_POLICY = `
 Submit your answer using submit_answer. This structured format replaces all markdown-output instructions above.
 Write 1–8 concise factual statements covering the direct answer and essential qualifications; a simple lookup may need only one. Each statement must be supported in full by its source_ids. Use plain prose, without citation markers, numbering, tables, headings, or a footer inside statement text; the app adds these. Copy measurements and units only when explicitly present in the cited evidence. The lead statement answers the question directly.
 When the answer compares two or more items or gives reference values (lab ranges and critical thresholds, drug-versus-drug differences, titration or monitoring steps, precautions by category, onset and duration figures), put those in the table field: a title of 2–8 words with no numbers, then 2–8 rows, key = the item or parameter as a short label, value = the figure or short phrase copied exactly from the cited evidence (no full sentences), each row with its own source_ids. Keep the statements for what the table cannot say. Never put a dose to give in a table; published reference values only.
+When the question asks what to do, how to manage or respond, or which nursing actions apply, fill bedside with three one-sentence nursing actions whose meaning is copied from the cited evidence: assess (what to assess now), watch (what to watch for), escalate (when to notify the provider or call for help). Never a dose, rate, or medication amount. Each with its own source_ids. Leave bedside out for lookups, definitions, and reference values.
+Fill follow_ups with up to three short questions, in the nurse's own voice, that this evidence could answer next and the answer did not cover. No numbers, no claims, each ending with a question mark. Leave it empty when the evidence supports nothing further.
 If evidence supports a useful part of a multi-part question, provide that supported part and put the unanswered topic names in missing_topics. Topic names must be short noun phrases, never medical claims, advice, numbers, or personal details. Do not imply a partial procedure is complete or omit an essential qualification to make it fit. Set insufficient_evidence true and statements empty only when a useful safe answer cannot be supported. Use missing_topics [] when there are no gaps.`
 
 const REVIEW_TOOL = {
@@ -180,8 +190,57 @@ const ANSWER_TOOL = {
           } },
         },
       },
+      bedside: {
+        type: "object", additionalProperties: false, required: ["assess", "watch", "escalate"],
+        description: "Only for questions about what to do: three nursing actions from the evidence, never a dose",
+        properties: Object.fromEntries(["assess", "watch", "escalate"].map((key) => [key, {
+          type: "object", additionalProperties: false, required: ["text", "source_ids"],
+          properties: { text: { type: "string", minLength: 8, maxLength: 320 }, source_ids: { type: "array", minItems: 1, maxItems: 4, items: { type: "string", pattern: "^c[0-9]{3}$" } } },
+        }])),
+      },
+      follow_ups: { type: "array", maxItems: 3, items: { type: "string", minLength: 8, maxLength: 90 }, description: "Questions this evidence could answer next; no numbers" },
     },
   },
+}
+
+/// Follow-up questions ride beside the answer, never inside it, so the
+/// validator's cite-or-refuse rule is untouched. Anything that is not a
+/// short, number-free question is dropped.
+export function sanitizeFollowUps(value: unknown): string[] {
+  const raw = (value as { follow_ups?: unknown } | null)?.follow_ups
+  if (!Array.isArray(raw)) return []
+  const out: string[] = []
+  for (const item of raw) {
+    if (typeof item !== "string") continue
+    const text = item.replace(/\s+/g, " ").trim()
+    if (text.length < 8 || text.length > 90 || !text.endsWith("?") || /\d|\[|\]/.test(text) || scrubPHI(text) !== text) continue
+    if (!out.some((seen) => seen.toLowerCase() === text.toLowerCase())) out.push(text)
+    if (out.length === 3) break
+  }
+  return out
+}
+
+const BEDSIDE_LABELS: [string, string][] = [["assess", "Assess now"], ["watch", "Watch for"], ["escalate", "Escalate when"]]
+
+/// Three cited nursing actions under a fixed heading the app recognizes.
+/// Rendered as table rows so the validator reads one cited line each.
+export function renderBedside(value: unknown, warn: (issue: string) => void = () => {}): string {
+  if (value === undefined || value === null) return ""
+  const drop = (issue: string) => { warn(issue); return "" }
+  if (typeof value !== "object") return drop("bedside_dropped_invalid")
+  const clean = (text: string) => text.replace(/\s+/g, " ").trim().replace(/\|/g, "/").replace(/\[/g, "(").replace(/\]/g, ")").replace(/[.!?]\s+(?=[A-Z*])/g, "; ").replace(/[.;,\s]+$/, "")
+  const lines: string[] = []
+  for (const [key, label] of BEDSIDE_LABELS) {
+    const entry = (value as Record<string, unknown>)[key]
+    if (!entry || typeof entry !== "object") return drop("bedside_dropped_incomplete")
+    const { text, source_ids } = entry as { text?: unknown; source_ids?: unknown }
+    if (typeof text !== "string" || text.trim().length < 8 || text.length > 320) return drop("bedside_dropped_text")
+    if (!Array.isArray(source_ids) || !source_ids.length || source_ids.length > 4 ||
+      !source_ids.every((id: unknown) => typeof id === "string" && /^c[0-9]{3}$/.test(id))) return drop("bedside_dropped_citations")
+    const markers = [...new Set(source_ids)].map((id) => `[${id}]`).join(" ")
+    lines.push(`| ${label} | ${clean(text)} ${markers} |`)
+  }
+  return `\n\n## At the bedside\n${lines.join("\n")}`
 }
 
 /// Renders the optional table as one `| key | value [cNNN] |` line per row
@@ -222,7 +281,7 @@ export function renderTable(value: unknown, warn: (issue: string) => void = () =
 
 export function renderSubmission(value: unknown, warn: (issue: string) => void = () => {}): string {
   if (!value || typeof value !== "object") throw new Error("invalid_submission")
-  const input = value as { insufficient_evidence?: unknown; statements?: unknown; missing_topics?: unknown; table?: unknown }
+  const input = value as { insufficient_evidence?: unknown; statements?: unknown; missing_topics?: unknown; table?: unknown; bedside?: unknown }
   if (typeof input.insufficient_evidence !== "boolean" || !Array.isArray(input.statements)) throw new Error("invalid_submission")
   if (input.insufficient_evidence) return "I don't have a high-confidence source for this question."
   if (!input.statements.length || input.statements.length > 12) throw new Error("invalid_submission")
@@ -246,7 +305,7 @@ export function renderSubmission(value: unknown, warn: (issue: string) => void =
   // The table sits under the lead statement: direct answer, then the
   // reference values, then the qualifications.
   const [lead, ...rest] = paragraphs
-  return [lead + renderTable(input.table, warn), ...rest].join("\n\n") + limitation + `\n\n${FOOTER}`
+  return [lead + renderTable(input.table, warn), ...rest].join("\n\n") + renderBedside(input.bedside, warn) + limitation + `\n\n${FOOTER}`
 }
 
 export function validatedSSE(answer: string, evidence?: ExternalEvidence): string {

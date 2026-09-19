@@ -1,5 +1,5 @@
 import { MAX_BODY_BYTES, parseInput } from "./contract.ts"
-import { answerQuestion, Complete, validatedSSE, VerifyAnswer } from "./pipeline.ts"
+import { answerQuestion, Complete, StageReport, validatedSSE, VerifyAnswer } from "./pipeline.ts"
 
 import { RetrieveEvidence } from "./external-evidence.ts"
 
@@ -47,7 +47,9 @@ export function createHandler(deps: Dependencies): (request: Request) => Promise
   return async (request) => {
     if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: HEADERS })
     if (request.method !== "POST") return json(405, { error: "method_not_allowed" })
-    if (request.headers.get("x-nursemind-contract") !== "2") return json(426, { error: "app_update_required" })
+    // Contract 2 answers in one response; contract 3 streams progress first.
+    const version = request.headers.get("x-nursemind-contract")
+    if (version !== "2" && version !== "3") return json(426, { error: "app_update_required" })
     const auth = request.headers.get("authorization") ?? ""
     if (!/^Bearer /i.test(auth)) return json(401, { error: "unauthorized" })
     let input
@@ -68,23 +70,55 @@ export function createHandler(deps: Dependencies): (request: Request) => Promise
     const started = performance.now()
     const tokens: Record<string, number> = {}
     const signal = AbortSignal.any([request.signal, AbortSignal.timeout(55_000)])
-    try {
-      const recordUsage = (usage: Record<string, number>) => {
-        for (const [key, value] of Object.entries(usage)) tokens[key] = (tokens[key] ?? 0) + value
-      }
+    const recordUsage = (usage: Record<string, number>) => {
+      for (const [key, value] of Object.entries(usage)) tokens[key] = (tokens[key] ?? 0) + value
+    }
+    const run = async (onStage?: StageReport) => {
       const outcome = await answerQuestion(input, deps.complete(signal, recordUsage), deps.retrieve?.(signal, recordUsage),
-        (issues) => deps.log({ event: "ask_validation", issues }), deps.verify(signal, recordUsage))
+        (issues) => deps.log({ event: "ask_validation", issues }), deps.verify(signal, recordUsage), onStage)
       signal.throwIfAborted()
       deps.log({ event: "ask_complete", latency_ms: Math.round(performance.now() - started), attempts: outcome.attempts,
         outcome: "answer" in outcome ? "answer" : outcome.refusal, context_characters: input.context.length, ...tokens })
-      if ("refusal" in outcome) return json(422, { refusal: outcome.refusal })
-      return new Response(validatedSSE(outcome.answer, outcome.evidence), { status: 200, headers: { ...HEADERS, "content-type": "text/event-stream" } })
-    } catch (error) {
+      return outcome
+    }
+    const failed = async (error: unknown) => {
       try { await deps.refund(userID) } catch { deps.log({ event: "ask_refund_failed" }) }
       const known = new Set(["invalid_submission", "invalid_evidence_gaps", "verification_incomplete", "verification_invalid", "classification_incomplete", "classification_invalid", "upstream_invalid"])
       const reason = error instanceof Error && known.has(error.message) ? error.message : "request_or_upstream_failure"
       deps.log({ event: "ask_failed", reason, latency_ms: Math.round(performance.now() - started), ...tokens })
-      return json(503, { error: "answer_unavailable" })
     }
+    if (version === "2") {
+      try {
+        const outcome = await run()
+        if ("refusal" in outcome) return json(422, { refusal: outcome.refusal })
+        return new Response(validatedSSE(outcome.answer, outcome.evidence), { status: 200, headers: { ...HEADERS, "content-type": "text/event-stream" } })
+      } catch (error) {
+        await failed(error)
+        return json(503, { error: "answer_unavailable" })
+      }
+    }
+    // The response opens at once so stage events reach the app while the
+    // model works; refusals and failures travel as events on the same stream.
+    const encoder = new TextEncoder()
+    const stream = new ReadableStream<Uint8Array>({
+      async start(controller) {
+        const send = (event: Record<string, unknown>) => controller.enqueue(encoder.encode(`event: ${event.type}\ndata: ${JSON.stringify(event)}\n\n`))
+        try {
+          const outcome = await run((stage, detail) => send({ type: "stage", stage, ...(detail ?? {}) }))
+          if ("refusal" in outcome) {
+            send({ type: "refusal", refusal: outcome.refusal })
+          } else {
+            if (outcome.followUps?.length) send({ type: "follow_ups", questions: outcome.followUps })
+            controller.enqueue(encoder.encode(validatedSSE(outcome.answer, outcome.evidence)))
+          }
+        } catch (error) {
+          await failed(error)
+          send({ type: "error", error: "answer_unavailable" })
+        } finally {
+          controller.close()
+        }
+      },
+    })
+    return new Response(stream, { status: 200, headers: { ...HEADERS, "x-nursemind-contract": "3", "content-type": "text/event-stream" } })
   }
 }

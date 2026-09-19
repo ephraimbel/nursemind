@@ -57,6 +57,10 @@ public final class MockAskService: AskService, @unchecked Sendable {
                     }
 
                     // 4. Compose a curator answer from the matched entry's actual fields
+                    continuation.yield(.stage("Reading \(results.count) source\(results.count == 1 ? "" : "s")…"))
+                    try await Task.sleep(nanoseconds: 700_000_000)
+                    continuation.yield(.stage("Writing…"))
+                    try await Task.sleep(nanoseconds: 500_000_000)
                     let response = MockAskService.composeAnswer(for: primary, query: scrub.scrubbed)
 
                     // 5. Emit citations BEFORE streaming so inline chips resolve in real time
@@ -65,6 +69,10 @@ public final class MockAskService: AskService, @unchecked Sendable {
 
                     // 6. Stream
                     try await streamText(response.text, continuation: continuation)
+                    continuation.yield(.followUps([
+                        "What can affect a \(primary.title) result?",
+                        "Which \(primary.title) findings warrant escalation?",
+                    ]))
                     continuation.yield(.done)
                     continuation.finish()
                 } catch {
@@ -294,6 +302,15 @@ public final class MockAskService: AskService, @unchecked Sendable {
 
         lines.append("")
         lines.append("Reference intervals vary by laboratory and assay. Always verify against your facility's reported reference range.")
+        // Action questions end with the bedside trio, as production does.
+        if let tier = lab.interpretationTiers.first(where: { $0.nursingActions.count >= 3 }),
+           q.contains("critical") || q.contains("do ") || q.contains("manage") {
+            lines.append("")
+            lines.append("## At the bedside")
+            for (label, action) in zip(["Assess now", "Watch for", "Escalate when"], tier.nursingActions) {
+                lines.append("| \(label) | \(action)\(marker) |")
+            }
+        }
         return ComposedAnswer(text: lines.joined(separator: "\n"), citations: lab.citations)
     }
 

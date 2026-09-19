@@ -1,6 +1,6 @@
 import { assert, assertEquals, assertRejects, assertThrows } from "jsr:@std/assert@1"
 import { FOOTER, parseInput, scrubPHI, validateAnswer } from "./contract.ts"
-import { answerQuestion, Completion, makeAnswerVerifier, makeCompletion, renderSubmission, validatedSSE } from "./pipeline.ts"
+import { answerQuestion, Completion, makeAnswerVerifier, makeCompletion, renderBedside, renderSubmission, sanitizeFollowUps, validatedSSE } from "./pipeline.ts"
 import { abgQuickReference } from "./quick-reference.ts"
 import { createHandler, Dependencies } from "./handler.ts"
 
@@ -359,4 +359,83 @@ Deno.test("renderSubmission sanitizes table titles and cells so the validator ca
   out = render({ title: "Cells", rows: [{ key: "Range [adult]", value: "3.5 mEq/L. Repeat draw", source_ids: ["c001"] }, rows[1]] })
   assert(out.text.includes("| Range (adult) | 3.5 mEq/L; Repeat draw [c001] |"), out.text)
   assertEquals(validateAnswer(out.text, new Set(["c001"]), "[c001] Range 3.5 mEq/L. Repeat draw. Text."), [])
+})
+
+Deno.test("renderSubmission ends with a cited bedside trio the validator accepts", () => {
+  const warnings: string[] = []
+  const rendered = renderSubmission({
+    insufficient_evidence: false,
+    statements: [{ text: "Hyperkalemia with EKG changes is an emergency.", source_ids: ["c001"] }],
+    bedside: {
+      assess: { text: "Assess the rhythm strip for peaked T waves.", source_ids: ["c001"] },
+      watch: { text: "Watch for widening QRS [see strip] | bradycardia.", source_ids: ["c001"] },
+      escalate: { text: "Notify the provider immediately. Call a rapid response if needed", source_ids: ["c001", "c002"] },
+    },
+    missing_topics: [],
+  }, (w) => warnings.push(w))
+  assertEquals(warnings, [])
+  const at = rendered.indexOf("## At the bedside")
+  assert(at > rendered.indexOf("emergency") && at < rendered.indexOf(FOOTER))
+  assert(rendered.includes("| Assess now | Assess the rhythm strip for peaked T waves [c001] |"))
+  assert(rendered.includes("| Watch for | Watch for widening QRS (see strip) / bradycardia [c001] |"))
+  assert(rendered.includes("| Escalate when | Notify the provider immediately; Call a rapid response if needed [c001] [c002] |"))
+  const ctx = "[c001] Hyperkalemia with EKG changes is an emergency. Assess the rhythm strip for peaked T waves. Watch for widening QRS, bradycardia. Notify the provider immediately.\n[c002] Call a rapid response if needed."
+  assertEquals(validateAnswer(rendered, new Set(["c001", "c002"]), ctx), [])
+})
+
+Deno.test("an incomplete or uncited bedside trio is dropped with a warning, never rendered", () => {
+  const good = { text: "Assess the rhythm strip.", source_ids: ["c001"] }
+  for (const [bedside, warning] of [
+    [{ assess: good, watch: good }, "bedside_dropped_incomplete"],
+    [{ assess: good, watch: good, escalate: { text: "Notify the provider.", source_ids: [] } }, "bedside_dropped_citations"],
+    [{ assess: good, watch: good, escalate: { text: "Now", source_ids: ["c001"] } }, "bedside_dropped_text"],
+    ["nope", "bedside_dropped_invalid"],
+  ] as [unknown, string][]) {
+    const warnings: string[] = []
+    assertEquals(renderBedside(bedside, (w) => warnings.push(w)), "")
+    assertEquals(warnings, [warning])
+  }
+  assertEquals(renderBedside(undefined), "")
+})
+
+Deno.test("follow-ups are short number-free questions, three at most, never identifiers", () => {
+  assertEquals(sanitizeFollowUps({ follow_ups: [
+    "What monitoring matters after correction?", "  Which findings warrant   escalation? ", "what monitoring matters after correction?",
+    "Give 40 mEq?", "No question mark", "MRN 123456 asks?", "How is magnesium involved?", "What about teaching?",
+  ] }), ["What monitoring matters after correction?", "Which findings warrant escalation?", "How is magnesium involved?"])
+  assertEquals(sanitizeFollowUps({ follow_ups: "nope" }), [])
+  assertEquals(sanitizeFollowUps(null), [])
+})
+
+Deno.test("contract 3 streams stages, follow-ups and the validated answer on one open response", async () => {
+  const { state, handler } = harness({
+    complete: () => () => Promise.resolve(++state.calls === 1 ? completion("nursing_clinical") : { ...completion(answer), followUps: ["What monitoring matters next?"] }),
+  })
+  const response = await handler(request(body, "3"))
+  assertEquals(response.status, 200)
+  assertEquals(response.headers.get("x-nursemind-contract"), "3")
+  const text = await response.text()
+  const events = [...text.matchAll(/^event: (\w+)$/gm)].map((m) => m[1])
+  assertEquals(events.slice(0, 4), ["stage", "stage", "stage", "follow_ups"])
+  assert(text.includes('data: {"type":"stage","stage":"reading","sources":1}'))
+  assert(text.includes('data: {"type":"stage","stage":"writing"}'))
+  assert(text.includes('data: {"type":"stage","stage":"checking"}'))
+  assert(text.includes('data: {"type":"follow_ups","questions":["What monitoring matters next?"]}'))
+  assert(text.endsWith(validatedSSE(answer)))
+  assertEquals(state.reservations, 1)
+  assertEquals(state.refunds, 0)
+})
+
+Deno.test("contract 3 sends refusals and failures as events after the stream has opened", async () => {
+  const refused = harness({ complete: () => () => Promise.resolve(completion("prescribing_request")) })
+  const refusal = await refused.handler(request(body, "3"))
+  assertEquals(refusal.status, 200)
+  assert((await refusal.text()).endsWith('event: refusal\ndata: {"type":"refusal","refusal":"prescribing"}\n\n'))
+  assertEquals(refused.state.refunds, 0)
+  const failed = harness({ complete: () => () => Promise.reject(new Error("upstream down")) })
+  const failure = await failed.handler(request(body, "3"))
+  assertEquals(failure.status, 200)
+  assert((await failure.text()).endsWith('event: error\ndata: {"type":"error","error":"answer_unavailable"}\n\n'))
+  assertEquals(failed.state.refunds, 1)
+  assert(!JSON.stringify(failed.state.logs).includes("Assessment"))
 })

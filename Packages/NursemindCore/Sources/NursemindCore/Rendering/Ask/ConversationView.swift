@@ -229,7 +229,13 @@ struct MessageRenderer: View {
             // a subtle "the AI just took the floor" signal. The animation
             // fires once per message instance and stays static thereafter, so
             // scrolling back to an older message doesn't replay it.
-            EyebrowLabel("NURSEMIND", animated: true)
+            VStack(alignment: .leading, spacing: NMSpace.sm) {
+                EyebrowLabel("NURSEMIND", animated: true)
+                if message.refusal == nil, !message.isStreaming, !message.citations.isEmpty {
+                    ProvenanceStrip(message: message)
+                        .transition(.opacity)
+                }
+            }
             if let refusal = message.refusal {
                 RefusalCard(refusal: refusal, onRetry: refusal == .serviceUnavailable ? {
                     viewModel.retry(message.id)
@@ -281,10 +287,10 @@ struct MessageRenderer: View {
             // dot + cycling phase text). Replaces the bare blinking cursor
             // so the moment between "send tapped" and "first token" reads
             // like deliberate work rather than dead air.
-            ThinkingIndicator()
+            ThinkingIndicator(stage: viewModel.stage)
         } else {
             VStack(alignment: .leading, spacing: NMSpace.base) {
-                MessageBodyView(content: message.content, citations: message.citations, cacheKey: message.id)
+                MessageBodyView(content: message.content, citations: message.citations, cacheKey: message.id, libraryEntryIDs: message.libraryEntryIDs)
                 if message.isStreaming {
                     StreamingCursor()
                         .padding(.top, 2)
@@ -326,6 +332,7 @@ private extension MessageRenderer {
             ActionButton(icon: "doc.on.doc") {
                 UIPasteboard.general.string = plainText
             }
+            ShareAnswerButton(message: message, question: previousUserQuestion())
             ActionButton(icon: isSaved ? "bookmark.fill" : "bookmark", isActive: isSaved) {
                 toggleSaved()
             }

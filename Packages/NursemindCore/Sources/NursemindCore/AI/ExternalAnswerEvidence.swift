@@ -30,4 +30,7 @@ struct ExternalAnswerEvidence: Decodable, Sendable {
 enum AnswerStreamEvent: Sendable {
     case text(String)
     case evidence(ExternalAnswerEvidence)
+    case stage(String, sources: Int?)
+    case followUps([String])
+    case refusal(String)
 }

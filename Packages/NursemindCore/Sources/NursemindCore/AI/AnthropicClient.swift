@@ -90,6 +90,10 @@ public struct AnthropicClient: Sendable {
         }
     }
 
+    /// Proxy wire contract. 3 streams stage, follow-up and refusal events
+    /// on an open response; the server keeps answering 2 for older builds.
+    static let contract = "3"
+
     var usesProxy: Bool {
         if case .proxy = mode { return true }
         return false
@@ -132,7 +136,7 @@ public struct AnthropicClient: Sendable {
             request.setValue(key, forHTTPHeaderField: "x-api-key")
             request.setValue("2023-06-01", forHTTPHeaderField: "anthropic-version")
         case .proxy(_, let tokenProvider):
-            request.setValue("2", forHTTPHeaderField: "x-nursemind-contract")
+            request.setValue(Self.contract, forHTTPHeaderField: "x-nursemind-contract")
             if let token = await tokenProvider() {
                 request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
             }
@@ -211,7 +215,7 @@ public struct AnthropicClient: Sendable {
                         }
                         throw ClientError.requestFailed(status: http.statusCode, body: errorBody)
                     }
-                    if usesProxy && http.value(forHTTPHeaderField: "x-nursemind-contract") != "2" {
+                    if usesProxy && http.value(forHTTPHeaderField: "x-nursemind-contract") != Self.contract {
                         throw ClientError.invalidResponse
                     }
                     var parser = MessageStreamParser()
@@ -223,6 +227,10 @@ public struct AnthropicClient: Sendable {
                             guard usesProxy else { throw ClientError.invalidResponse }
                             continuation.yield(.evidence(evidence))
                             sentEvidence = true
+                        }
+                        for event in parser.drainPending() {
+                            guard usesProxy else { throw ClientError.invalidResponse }
+                            continuation.yield(event)
                         }
                         if let delta { continuation.yield(.text(delta)) }
                     }

@@ -1,6 +1,6 @@
 # NurseMind AI chat v2
 
-Authenticated nursing-reference endpoint deployed alongside the legacy `ai-chat`. The app sends `x-nursemind-contract: 2`; classifier/enrichment calls and arbitrary provider requests are not public operations.
+Authenticated nursing-reference endpoint deployed alongside the legacy `ai-chat`. The app sends `x-nursemind-contract: 3` (builds up to 24 send `2`); classifier/enrichment calls and arbitrary provider requests are not public operations.
 
 Library evidence is optional. Valid catalog-matched excerpts take the fast path; missing or stale excerpts are discarded and use server-fetched external references. Insufficient library answers also trigger the fallback. External retrieval uses a bounded Anthropic web search, exact host/path and license restrictions, bounded page reads with redirect validation, and a six-hour bounded cache of public source pages. ABG questions preferentially fetch the audited Open RN chapter and its reference table directly. General adult ABG-reading questions can use an explicitly authored teaching sequence that must pass the same value checks and automated source-support review; specialized or patient-specific requests do not qualify. Extracted tables preserve their column labels.
 
@@ -9,3 +9,19 @@ The server reserves quota, classifies scope, generates structured statements wit
 HTTP 422 carries a typed clinical refusal, 429 a quota limit, and 503 a service failure. Backend logs include only operational metrics and validation categories. No prompts, drafts, source excerpts, or generated answers are logged.
 
 See `docs/AI_CHAT_QUALITY_2026-09-17.md` for validation, release status, and clinical limitations. The app changes still need an App Store release; existing installs using legacy `ai-chat` do not receive these controls.
+
+## Contract 3: one open stream
+
+Contract 2 answers in a single response after the whole pipeline has run. Contract 3 opens the `text/event-stream` response immediately and reports progress while the model works, so the app can show what is happening instead of a timer:
+
+```
+event: stage       data: {"type":"stage","stage":"reading","sources":9}
+event: stage       data: {"type":"stage","stage":"writing"}        (later "checking", "revising")
+event: follow_ups  data: {"type":"follow_ups","questions":["…?"]}   (optional, at most 3)
+event: evidence    …                                               (external retrieval only)
+event: content_block_delta / message_delta / message_stop          (the validated answer, unchanged)
+```
+
+Refusals and failures arrive on the same stream as `event: refusal` (`{"refusal":"prescribing"}`) and `event: error` (`{"error":"answer_unavailable"}`) with HTTP 200; the quota refund rules are the same as for contract 2. Stages never precede text once text has started, and the app rejects any stream whose response header is not `x-nursemind-contract: 3`.
+
+The structured answer tool also returns an optional `table` (reference values, rendered as `| key | value [cNNN] |` rows under a `## title`), an optional `bedside` trio for questions about what to do (rendered under the fixed heading `## At the bedside` as `Assess now`, `Watch for`, `Escalate when` rows, each cited, never a dose), and `follow_ups`, which are validated as short number-free questions and sent as their own event rather than inside the answer text.

@@ -7,6 +7,9 @@ public final class AskViewModel {
     public var conversation: AskConversation
     public var inputText: String = ""
     public var isStreaming: Bool = false
+    /// What the server is doing right now, shown in the thinking indicator
+    /// until the first block of the answer lands.
+    public var stage: String?
     public var phiNoticeFlash: Bool = false   // briefly true when input was scrubbed
     public var focusRequestToken: Int = 0     // bump to ask the input bar to focus
 
@@ -19,17 +22,13 @@ public final class AskViewModel {
     private let enrichmentService: AnswerEnrichmentService?
     private var streamingTask: Task<Void, Never>?
 
-    // MARK: Smooth reveal
+    // MARK: Block reveal
     //
-    // Network deltas arrive in lurching chunks (SSE batches tokens
-    // unevenly), and appending each one directly re-parsed and re-laid-out
-    // the entire answer per delta — O(n²) over the stream and visually
-    // choppy. Instead, deltas land in `revealBuffer` and a 30ms drain loop
-    // moves an adaptive slice into the visible message: a floor of a few
-    // characters per tick keeps short answers flowing, a backlog-
-    // proportional rate keeps long answers from falling behind the network.
-    // The result is an even typographic flow at ~30 render passes/second
-    // regardless of how the network chunks arrive.
+    // Deltas land in `revealBuffer` and a drain loop moves one whole unit at
+    // a time into the visible message: everything through the next line
+    // break, so the lede arrives complete, then each bullet or table row
+    // settles into place on its own tick. Whole units keep the layout from
+    // reflowing mid-sentence and let the renderer fade each block in.
     @ObservationIgnored private var revealBuffer: String = ""
     @ObservationIgnored private var revealTask: Task<Void, Never>?
     @ObservationIgnored private var streamEnded: Bool = false
@@ -101,6 +100,7 @@ public final class AskViewModel {
         conversation.append(assistantMessage)
 
         isStreaming = true
+        stage = nil
         streamEnded = false
         revealBuffer = ""
         let extractedValues = ClinicalValueExtractor.extract(from: scrub.scrubbed)
@@ -127,6 +127,7 @@ public final class AskViewModel {
                     icuSubspecialty: icuSubspecialty
                 )
                 var refusal: RefusalType? = nil
+                var pendingFollowUps: [String] = []
 
                 for try await event in stream {
                     switch event {
@@ -186,6 +187,10 @@ public final class AskViewModel {
                                 self.conversation.messages[idx].libraryEntryIDs = ids
                             }
                         }
+                    case .stage(let label):
+                        self.stage = label
+                    case .followUps(let questions):
+                        pendingFollowUps = questions
                     case .done:
                         // Finalization happens after the reveal buffer drains
                         // (below) — flipping isStreaming here would drop the
@@ -204,7 +209,14 @@ public final class AskViewModel {
                 if refusal == nil,
                    let idx = self.conversation.messages.firstIndex(where: { $0.id == assistantID }) {
                     self.conversation.messages[idx].isStreaming = false
+                    if !pendingFollowUps.isEmpty {
+                        self.conversation.messages[idx].followUps = pendingFollowUps
+                    }
+                    // The answer has settled: one soft tap, the same weight
+                    // as opening a citation.
+                    Haptic.light()
                 }
+                self.stage = nil
                 self.fetchEnrichment(for: assistantID, originalQuestion: scrub.scrubbed)
                 let final = self.conversation.messages.first { $0.id == assistantID }
                 AnalyticsService.shared.capture(
@@ -248,6 +260,7 @@ public final class AskViewModel {
         streamingTask = nil
         stopReveal()
         isStreaming = false
+        stage = nil
         if let last = conversation.messages.last, last.role == .assistant, last.isStreaming {
             conversation.messages.removeLast()
         }
@@ -272,14 +285,15 @@ public final class AskViewModel {
         revealBuffer = ""
     }
 
-    /// Starts the 30ms drain loop if it isn't already running. The loop ends
-    /// itself once the stream has finished AND the buffer is empty.
+    /// Starts the drain loop if it isn't already running. One unit lands
+    /// per tick; the loop ends itself once the stream has finished AND the
+    /// buffer is empty.
     private func scheduleReveal(for messageID: UUID) {
         guard revealTask == nil else { return }
         revealTask = Task { [weak self] in
             guard let self else { return }
             while !Task.isCancelled {
-                try? await Task.sleep(nanoseconds: 33_000_000)
+                try? await Task.sleep(nanoseconds: 90_000_000)
                 if Task.isCancelled { return }
                 let emitted = self.emitRevealSlice(to: messageID)
                 if !emitted && self.streamEnded { break }
@@ -288,55 +302,31 @@ public final class AskViewModel {
         }
     }
 
-    /// Moves one adaptive slice from the buffer into the visible message.
+    /// Moves the next whole unit from the buffer into the visible message.
     /// Returns false when nothing could be emitted this tick.
     private func emitRevealSlice(to messageID: UUID) -> Bool {
-        guard !revealBuffer.isEmpty else { return false }
-        let chars = Array(revealBuffer)
-        let total = chars.count
-        // Floor keeps short answers moving (~90 chars/s minimum); the
-        // backlog-proportional term catches up when the network runs ahead.
-        // Post-stream the rate triples so the tail drains in a beat.
-        var take = min(total, streamEnded ? max(12, total / 3) : max(3, total / 6))
-
-        // Citation-marker holdback: never emit a partial "[c001, c0" — the
-        // raw fragment would flash before the parser can turn it into a pill.
-        // If the marker's close already arrived, extend the slice through it;
-        // otherwise pull back to just before the "[" and wait a tick.
-        if let openIdx = lastUnclosedMarkerStart(in: chars, upTo: take) {
-            if let closeIdx = chars[take...].firstIndex(of: "]"), closeIdx - openIdx <= 24 {
-                take = closeIdx + 1
-            } else if total - openIdx <= 24 {
-                take = openIdx
-            }
-        }
-        guard take > 0 else { return false }
-
-        let slice = String(chars[0..<take])
-        revealBuffer = String(chars[take...])
+        guard let (unit, rest) = Self.nextRevealUnit(in: revealBuffer, streamEnded: streamEnded) else { return false }
+        revealBuffer = rest
         guard let idx = conversation.messages.firstIndex(where: { $0.id == messageID }) else {
             revealBuffer = ""
             return false
         }
-        conversation.messages[idx].content += slice
+        conversation.messages[idx].content += unit
         return true
     }
 
-    /// Index of a "[" in `chars[0..<take]` that opens a plausible citation
-    /// marker not yet closed within the slice; nil when the boundary is safe.
-    private func lastUnclosedMarkerStart(in chars: [Character], upTo take: Int) -> Int? {
-        var i = take - 1
-        while i >= 0 && take - i <= 24 {
-            let c = chars[i]
-            if c == "]" { return nil }
-            if c == "[" {
-                let tail = chars[(i + 1)..<take]
-                let plausible = tail.allSatisfy { $0 == "c" || $0.isNumber || $0 == "," || $0 == " " }
-                return plausible ? i : nil
-            }
-            i -= 1
+    /// The next unit: everything through the first line break plus any blank
+    /// lines after it, so a paragraph, bullet, or table row lands complete.
+    /// A partial line waits for the network; once the stream has ended the
+    /// remainder flushes as one unit.
+    nonisolated static func nextRevealUnit(in buffer: String, streamEnded: Bool) -> (unit: String, rest: String)? {
+        guard !buffer.isEmpty else { return nil }
+        if let newline = buffer.firstIndex(of: "\n") {
+            var end = buffer.index(after: newline)
+            while end < buffer.endIndex, buffer[end] == "\n" { end = buffer.index(after: end) }
+            return (String(buffer[..<end]), String(buffer[end...]))
         }
-        return nil
+        return streamEnded ? (buffer, "") : nil
     }
 
     public func startNewConversation() {
@@ -384,7 +374,11 @@ public final class AskViewModel {
             await MainActor.run {
                 guard let i = self.conversation.messages.firstIndex(where: { $0.id == messageID }) else { return }
                 withAnimation(.easeOut(duration: 0.25)) {
-                    self.conversation.messages[i].followUps = enrichment.followUps
+                    // Server-chosen follow-ups win; the local ones fill in
+                    // for direct and mock services.
+                    if self.conversation.messages[i].followUps.isEmpty {
+                        self.conversation.messages[i].followUps = enrichment.followUps
+                    }
                     if let calc = enrichment.calculatorID {
                         self.conversation.messages[i].calculatorSuggestion = calc
                     }
