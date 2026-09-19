@@ -87,8 +87,12 @@ struct ToolLinkRow: View {
             Image(systemName: "arrow.up.right")
                 .font(.system(size: 13, weight: .regular))
                 .foregroundStyle(NMColor.textTertiary)
+                .accessibilityHidden(true)
         }
         .padding(.vertical, NMSpace.md)
         .frame(maxWidth: .infinity, alignment: .leading)
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(subtitle.isEmpty ? "\(eyebrow.capitalized): \(title)" : "\(eyebrow.capitalized): \(title). \(subtitle)")
+        .accessibilityHint("Opens in the Library")
     }
 }

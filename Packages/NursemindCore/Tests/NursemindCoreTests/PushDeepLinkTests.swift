@@ -43,3 +43,19 @@ struct PushDeepLinkTests {
         #expect(UserPreferences.defaultShiftStartMinutes == 405)
     }
 }
+
+@Suite("Shift-start preference")
+@MainActor
+struct ShiftStartPreferenceTests {
+    /// Regression: assigning inside `didSet` of an @Observable property
+    /// re-entered the setter and overflowed the stack on every launch that
+    /// applied a server profile.
+    @Test func settingShiftStartDoesNotRecurse() {
+        let prefs = UserPreferences.shared
+        let before = prefs.shiftStartMinutes
+        prefs.shiftStartMinutes = 18 * 60 + 45
+        #expect(prefs.shiftStartMinutes == 1125)
+        #expect(prefs.shiftStartLocal == "18:45")
+        prefs.shiftStartMinutes = before
+    }
+}

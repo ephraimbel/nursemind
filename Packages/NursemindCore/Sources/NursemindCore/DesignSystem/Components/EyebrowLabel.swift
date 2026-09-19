@@ -44,6 +44,12 @@ public struct EyebrowLabel: View {
                 .tracking(1.6)
                 .foregroundStyle(NMColor.textTertiary)
         }
+        // One heading element for VoiceOver: the sparkle is decoration, and
+        // the label keeps the author's casing so short words are read as
+        // words, not spelled out.
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(text)
+        .accessibilityAddTraits(.isHeader)
     }
 }
 

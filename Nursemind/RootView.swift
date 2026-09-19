@@ -139,6 +139,9 @@ struct RootView: View {
             }
             guard phase == .active else { return }
             SessionAnalytics.shared.applicationDidBecomeActive()
+            #if DEBUG
+            AccessibilityAudit.startIfEnabled()
+            #endif
             // Debug screenshot runs skip the ATT sheet so it can't cover the
             // surface under inspection.
             guard !debugDeepLinkActive else { return }

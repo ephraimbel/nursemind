@@ -12,6 +12,7 @@ struct MicroCaseView: View {
     @State private var router = AppRouter.shared
     @State private var appearedAt = Date()
     @Environment(\.openURL) private var openURL
+    @AccessibilityFocusState private var lessonFocused: Bool
 
     private var answer: MicroCaseProgress.Answer? { progress.answer(for: microCase.id) }
     private var revealed: Bool { readOnly || answer != nil }
@@ -42,6 +43,7 @@ struct MicroCaseView: View {
                     .tracking(-0.4)
                     .foregroundStyle(NMColor.textPrimary)
                     .fixedSize(horizontal: false, vertical: true)
+                    .accessibilityAddTraits(.isHeader)
                     .padding(.bottom, NMSpace.lg)
 
                 optionsSection
@@ -81,23 +83,15 @@ struct MicroCaseView: View {
 
     private var header: some View {
         VStack(alignment: .leading, spacing: NMSpace.md) {
-            HStack(spacing: NMSpace.xs) {
-                EyebrowLabel(readOnly ? "PAST CASE" : "TODAY'S CASE")
-                Text("·").foregroundStyle(NMColor.textTertiary)
-                Text(microCase.populationLabel)
-                    .font(NMFont.label).tracking(1.6)
-                    .foregroundStyle(NMColor.textTertiary)
-                Text("·").foregroundStyle(NMColor.textTertiary)
-                Text(microCase.step.label.uppercased())
-                    .font(NMFont.label).tracking(1.6)
-                    .foregroundStyle(NMColor.textTertiary)
-                    .lineLimit(1)
-            }
+            // One eyebrow string so it wraps at large type and reads as a
+            // single heading: "Today's case · Adult · Analyze cues".
+            EyebrowLabel("\(readOnly ? "Past case" : "Today's case") · \(microCase.populationLabel.capitalized) · \(microCase.step.label)")
             Text(microCase.title)
                 .font(NMFont.displayXL)
                 .tracking(-1.6)
                 .foregroundStyle(NMColor.textPrimary)
                 .fixedSize(horizontal: false, vertical: true)
+                .accessibilityAddTraits(.isHeader)
             Text(Self.longDate(microCase.publishOn))
                 .font(NMFont.displayItalicMD)
                 .foregroundStyle(NMColor.textSecondary)
@@ -108,15 +102,18 @@ struct MicroCaseView: View {
         VStack(alignment: .leading, spacing: NMSpace.sm) {
             EyebrowLabel("WHAT YOU NOTICE", sparkle: false)
             VStack(alignment: .leading, spacing: NMSpace.sm) {
-                ForEach(microCase.cues, id: \.self) { cue in
+                ForEach(Array(microCase.cues.enumerated()), id: \.offset) { idx, cue in
                     HStack(alignment: .firstTextBaseline, spacing: NMSpace.sm) {
                         Text("—").font(NMFont.body).foregroundStyle(NMColor.textTertiary)
+                            .accessibilityHidden(true)
                         Text(cue)
                             .font(NMFont.body)
                             .foregroundStyle(NMColor.textPrimary)
                             .lineSpacing(3)
                             .fixedSize(horizontal: false, vertical: true)
                     }
+                    .accessibilityElement(children: .combine)
+                    .accessibilityLabel("Cue \(idx + 1) of \(microCase.cues.count): \(cue)")
                 }
             }
         }
@@ -125,14 +122,24 @@ struct MicroCaseView: View {
     private var optionsSection: some View {
         VStack(spacing: 0) {
             ForEach(Array(microCase.options.enumerated()), id: \.offset) { idx, option in
-                Button {
-                    choose(idx)
-                } label: {
+                // Before answering the rows are buttons; afterwards (and in
+                // read-only past cases) they are plain text, so VoiceOver
+                // does not read four "dimmed" buttons.
+                if canAnswer {
+                    Button {
+                        choose(idx)
+                    } label: {
+                        optionRow(idx, option)
+                    }
+                    .buttonStyle(.plain)
+                    .accessibilityLabel(accessibilityLabel(for: idx, option))
+                    .accessibilityHint("Double tap to choose this as the next step")
+                } else {
                     optionRow(idx, option)
+                        .accessibilityElement(children: .ignore)
+                        .accessibilityLabel(accessibilityLabel(for: idx, option))
+                        .accessibilityAddTraits(answer?.chosenIndex == idx ? [.isStaticText, .isSelected] : [.isStaticText])
                 }
-                .buttonStyle(.plain)
-                .disabled(!canAnswer)
-                .accessibilityLabel(accessibilityLabel(for: idx, option))
                 if idx < microCase.options.count - 1 {
                     Hairline(color: NMColor.borderSubtle)
                 }
@@ -186,6 +193,9 @@ struct MicroCaseView: View {
                 .foregroundStyle(NMColor.textPrimary)
                 .fixedSize(horizontal: false, vertical: true)
         }
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("The lesson: \(microCase.takeaway)")
+        .accessibilityFocused($lessonFocused)
     }
 
     private var rationaleSection: some View {
@@ -193,8 +203,9 @@ struct MicroCaseView: View {
             EyebrowLabel("WHY", sparkle: false)
             VStack(alignment: .leading, spacing: NMSpace.lg) {
                 ForEach(Array(microCase.options.enumerated()), id: \.offset) { idx, option in
+                    let isBest = idx == microCase.bestOptionIndex
                     VStack(alignment: .leading, spacing: NMSpace.xs) {
-                        Text(idx == microCase.bestOptionIndex ? "✓ \(option.text)" : option.text)
+                        Text(isBest ? "✓ \(option.text)" : option.text)
                             .font(NMFont.title)
                             .foregroundStyle(NMColor.textPrimary)
                             .fixedSize(horizontal: false, vertical: true)
@@ -204,6 +215,8 @@ struct MicroCaseView: View {
                             .lineSpacing(4)
                             .fixedSize(horizontal: false, vertical: true)
                     }
+                    .accessibilityElement(children: .ignore)
+                    .accessibilityLabel("\(isBest ? "Best next step" : "Option \(idx + 1)"): \(Self.sentence(option.text)) \(Self.sentence(option.rationale.text)) \(sourcesSpoken(option.rationale.citationIDs))")
                 }
             }
         }
@@ -245,6 +258,20 @@ struct MicroCaseView: View {
                     Button {
                         if let url = URL(string: source.url) { openURL(url) }
                     } label: {
+                        referenceRow(idx, source)
+                    }
+                    .buttonStyle(.plain)
+                    .accessibilityLabel("Reference \(idx + 1): \(source.shortName)")
+                    .accessibilityHint("Opens \(URL(string: source.url)?.host ?? "the source") in the browser")
+                    if idx < microCase.citations.count - 1 {
+                        Hairline(color: NMColor.borderSubtle)
+                    }
+                }
+            }
+        }
+    }
+
+    private func referenceRow(_ idx: Int, _ source: CitationSource) -> some View {
                         HStack(alignment: .firstTextBaseline, spacing: NMSpace.sm) {
                             Text("[\(idx + 1)]")
                                 .font(NMFont.mono)
@@ -263,14 +290,6 @@ struct MicroCaseView: View {
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .contentShape(Rectangle())
-                    }
-                    .buttonStyle(.plain)
-                    if idx < microCase.citations.count - 1 {
-                        Hairline(color: NMColor.borderSubtle)
-                    }
-                }
-            }
-        }
     }
 
     // MARK: - Actions & helpers
@@ -280,15 +299,37 @@ struct MicroCaseView: View {
         Haptic.selection()
         let recorded = progress.record(microCase, chosenIndex: idx)
         MicroCaseAnalytics.answered(microCase, correct: recorded.correct, secondsToAnswer: Date().timeIntervalSince(appearedAt))
+        // Tell VoiceOver the page changed and land it on the lesson.
+        AccessibilityNotification.Announcement(
+            recorded.correct ? "That is the best next step. The lesson and rationale are below." : "Not the best step. The best step is marked; the lesson and rationale are below."
+        ).post()
+        Task { @MainActor in
+            try? await Task.sleep(for: .milliseconds(450))
+            lessonFocused = true
+        }
+    }
+
+    private func sourcesSpoken(_ ids: [String]) -> String {
+        let numbers = ids.compactMap { microCase.citationIndex[$0] }.map(String.init)
+        guard !numbers.isEmpty else { return "" }
+        return numbers.count == 1 ? "Source \(numbers[0])." : "Sources \(numbers.joined(separator: " and "))."
     }
 
     private func accessibilityLabel(for idx: Int, _ option: MicroCase.Option) -> String {
-        var label = "Option \(idx + 1) of \(microCase.options.count): \(option.text)"
+        var label = "Option \(idx + 1) of \(microCase.options.count): \(Self.sentence(option.text))"
         if revealed {
-            if idx == microCase.bestOptionIndex { label += ". The best next step." }
+            if idx == microCase.bestOptionIndex { label += " The best next step." }
             if answer?.chosenIndex == idx { label += " Your choice." }
         }
         return label
+    }
+
+    /// Ends `text` with a period unless it already ends with terminal
+    /// punctuation, so spoken labels never contain "..".
+    static func sentence(_ text: String) -> String {
+        let trimmed = text.trimmingCharacters(in: .whitespaces)
+        guard let last = trimmed.last else { return trimmed }
+        return ".!?".contains(last) ? trimmed : trimmed + "."
     }
 
     private func superscript(_ ids: [String]) -> String {
@@ -360,7 +401,8 @@ struct TodaysCaseBlock: View {
             .contentShape(Rectangle())
         }
         .buttonStyle(.plain)
-        .accessibilityLabel(answered ? "Today's case, answered. \(microCase.takeaway). Opens the rationale." : "Today's case: \(microCase.title). Opens the case.")
+        .accessibilityLabel(answered ? "Today's case, answered. The lesson: \(microCase.takeaway)" : "Today's case: \(microCase.title)")
+        .accessibilityHint(answered ? "Opens the rationale" : "Opens today's clinical judgment case")
         .onAppear { MicroCaseAnalytics.shown(microCase, answered: answered) }
     }
 }
@@ -380,6 +422,7 @@ public struct PastCasesView: View {
                     .padding(.top, NMSpace.xxl)
                 Text("One a day, kept.")
                     .displayXL()
+                    .accessibilityAddTraits(.isHeader)
                     .padding(.top, NMSpace.md)
                 Text("Reopen any case to read the rationale. Past cases are read-only.")
                     .font(NMFont.body)
@@ -421,6 +464,8 @@ public struct PastCasesView: View {
                                 .contentShape(Rectangle())
                             }
                             .buttonStyle(.plain)
+                            .accessibilityLabel("\(status(for: c)). \(c.title). \(Self.longDate(c.publishOn))")
+                            .accessibilityHint("Opens the case read-only")
                             if c.id != cases.last?.id {
                                 Hairline(color: NMColor.borderSubtle)
                             }
@@ -440,6 +485,20 @@ public struct PastCasesView: View {
     private func glyph(for c: MicroCase) -> String {
         guard let a = progress.answer(for: c.id) else { return " " }
         return a.correct ? "✓" : "–"
+    }
+
+    private func status(for c: MicroCase) -> String {
+        guard let a = progress.answer(for: c.id) else { return "Not answered" }
+        return a.correct ? "Answered with the best step" : "Answered"
+    }
+
+    private static func longDate(_ key: String) -> String {
+        let parts = key.split(separator: "-").compactMap { Int($0) }
+        guard parts.count == 3,
+              let date = Calendar.current.date(from: DateComponents(year: parts[0], month: parts[1], day: parts[2])) else { return key }
+        let fmt = DateFormatter()
+        fmt.dateFormat = "EEEE, MMMM d"
+        return fmt.string(from: date)
     }
 
     private static func shortDate(_ key: String) -> String {

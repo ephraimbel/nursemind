@@ -11,6 +11,7 @@ public struct Hairline: View {
         Rectangle()
             .fill(color)
             .frame(height: 1)
+            .accessibilityHidden(true)
     }
 }
 

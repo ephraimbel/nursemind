@@ -125,9 +125,12 @@ public final class UserPreferences {
             postChange()
         }
     }
+    /// Writers clamp before assigning (`minutes(fromShiftStart:)` validates,
+    /// the settings picker cannot exceed a day). Assigning inside `didSet`
+    /// on an `@Observable` property re-enters the setter and overflows the
+    /// stack, which crashed every launch that applied a server profile.
     public var shiftStartMinutes: Int {
         didSet {
-            shiftStartMinutes = min(max(shiftStartMinutes, 0), 23 * 60 + 59)
             defaults.set(shiftStartMinutes, forKey: shiftStartMinutesKey)
             postChange()
         }

@@ -78,7 +78,41 @@ struct FeedCard: View {
         .padding(.vertical, isLead ? NMSpace.xxl : NMSpace.lg)
         .frame(maxWidth: .infinity, alignment: .leading)
         .contentShape(Rectangle())
+        // VoiceOver: one sentence instead of "FDA, ·, DRUG SAFETY, ·, 4D".
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(spokenLabel)
         .onAppear { FeedStore.shared.bumpEngagement(item.id, .view) }
+    }
+
+    private var spokenLabel: String {
+        var parts: [String] = []
+        if item.priority == .urgent { parts.append("Urgent") }
+        parts.append("\(item.authorityLabel), \(item.category.label.lowercased()), \(spokenAge(item.displayDate)), \(item.readMinutes) minute read")
+        if let matchedTitle { parts.append("Affects your saved entry \(matchedTitle)") }
+        parts.append(item.headline)
+        parts.append(item.whyNursesCare)
+        if isSaved { parts.append("Saved") }
+        if isRead { parts.append("Already read") }
+        return parts.joined(separator: ". ")
+    }
+
+    private func spokenAge(_ date: Date) -> String {
+        let interval = Date().timeIntervalSince(date)
+        let minutes = Int(interval / 60)
+        let hours = minutes / 60
+        let days = hours / 24
+        switch (days, hours, minutes) {
+        case (0, 0, 0..<2):  return "just now"
+        case (0, 0, let m):  return "\(m) minutes ago"
+        case (0, 1, _):      return "1 hour ago"
+        case (0, let h, _):  return "\(h) hours ago"
+        case (1, _, _):      return "1 day ago"
+        case (2...6, _, _):  return "\(days) days ago"
+        default:
+            let fmt = DateFormatter()
+            fmt.dateFormat = "MMMM d"
+            return fmt.string(from: date)
+        }
     }
 
     private var eyebrow: some View {
