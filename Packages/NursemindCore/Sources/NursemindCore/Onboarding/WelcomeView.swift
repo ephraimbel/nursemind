@@ -80,6 +80,8 @@ struct WelcomeView: View {
             logo
                 .padding(.top, NMSpace.sm)
             Spacer(minLength: NMSpace.xxl)
+            OnboardingMarkSlot(home: "welcome", size: 18, tint: .white)
+                .padding(.bottom, NMSpace.base)
             hero
             Spacer().frame(height: NMSpace.base)
             subtitle
@@ -124,31 +126,26 @@ struct WelcomeView: View {
         let serifRegular = Font.custom("InstrumentSerif-Regular", size: 44, relativeTo: .largeTitle)
         let serifItalic  = Font.custom("InstrumentSerif-Italic",  size: 44, relativeTo: .largeTitle)
 
-        return VStack(spacing: -4) {
-            Text("A nursing companion")
-                .font(serifRegular)
-                .foregroundStyle(.white)
-                .lineLimit(1)
-                .minimumScaleFactor(0.7)
-            HStack(alignment: .firstTextBaseline, spacing: 0) {
-                Text("you can ")
-                    .font(serifRegular)
-                    .foregroundStyle(.white)
-                Text("trust")
-                    .font(serifItalic)
-                    .foregroundStyle(NMColor.accent)
-                Text(".")
-                    .font(serifRegular)
-                    .foregroundStyle(.white)
-            }
-            .lineLimit(1)
-            .minimumScaleFactor(0.7)
-        }
-        .multilineTextAlignment(.center)
+        return RevealHeadline(
+            words: [
+                .init("A", font: serifRegular, color: .white),
+                .init("nursing", font: serifRegular, color: .white),
+                .init("companion", font: serifRegular, color: .white),
+                .init("you", font: serifRegular, color: .white, breakBefore: true),
+                .init("can", font: serifRegular, color: .white),
+                .init(segments: [
+                    .init(text: "trust", font: serifItalic, color: NMColor.accent),
+                    .init(text: ".", font: serifRegular, color: .white),
+                ]),
+            ],
+            alignment: .center,
+            wordSpacing: 11,
+            lineSpacing: -6,
+            delay: 0.1
+        )
         .frame(maxWidth: .infinity)
         .shadow(color: .black.opacity(0.55), radius: 16, y: 3)
         .opacity(visible[1] ? 1 : 0)
-        .offset(y: visible[1] ? 0 : 10)
     }
 
     // MARK: - Subtitle

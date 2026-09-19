@@ -43,9 +43,11 @@ struct NotificationsConsentView: View {
 
     private var header: some View {
         VStack(alignment: .leading, spacing: NMSpace.md) {
-            EyebrowLabel("ONE LAST THING")
-            Text("Notifications, on your terms.").displayXL()
-                .foregroundStyle(NMColor.textPrimary)
+            HStack(spacing: 6) {
+                OnboardingMarkSlot(home: "notifications_consent", size: 11)
+                EyebrowLabel("ONE LAST THING", sparkle: false)
+            }
+            RevealHeadline(words: RevealHeadline.words("Notifications, on your terms.", font: NMFont.displayXL, color: NMColor.textPrimary), wordSpacing: 11, lineSpacing: -2)
             Text("One quiet note at the start of your shift, only when something affects your unit. No marketing, no nudges.")
                 .font(NMFont.displayItalicMD)
                 .foregroundStyle(NMColor.textSecondary)

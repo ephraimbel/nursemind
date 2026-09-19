@@ -30,9 +30,11 @@ struct SafetyContractView: View {
 
     private var header: some View {
         VStack(alignment: .leading, spacing: NMSpace.md) {
-            EyebrowLabel("BEFORE WE BEGIN")
-            Text("Reference only.").displayXL()
-                .foregroundStyle(NMColor.textPrimary)
+            HStack(spacing: 6) {
+                OnboardingMarkSlot(home: "safety_contract", size: 11)
+                EyebrowLabel("BEFORE WE BEGIN", sparkle: false)
+            }
+            RevealHeadline(words: RevealHeadline.words("Reference only.", font: NMFont.displayXL, color: NMColor.textPrimary), wordSpacing: 11, lineSpacing: -2)
             Text("NurseMind is a curated, cited reference — not a substitute for clinical judgment.")
                 .font(NMFont.displayItalicMD)
                 .foregroundStyle(NMColor.textSecondary)

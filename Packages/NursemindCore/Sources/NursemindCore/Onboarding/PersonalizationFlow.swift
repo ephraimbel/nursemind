@@ -11,6 +11,7 @@ struct PersonalizationFlow: View {
     @State private var step: Step = .name
     @State private var isForward: Bool = true
     @State private var prefs = UserPreferences.shared
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     enum Step: Int, CaseIterable {
         case name, role, unit, experience
@@ -23,25 +24,10 @@ struct PersonalizationFlow: View {
         ZStack {
             NMColor.bgPrimary.ignoresSafeArea()
             stepView
-                .transition(directionalTransition)
+                .transition(OnboardingMotion.lift(reduceMotion: reduceMotion))
+                .zIndex(Double(step.rawValue))
         }
-        .animation(.easeInOut(duration: 0.32), value: step)
-    }
-
-    /// Asymmetric slide derived from direction. Forward = new from trailing,
-    /// old to leading. Back = mirrored.
-    private var directionalTransition: AnyTransition {
-        if isForward {
-            return .asymmetric(
-                insertion: .move(edge: .trailing).combined(with: .opacity),
-                removal: .move(edge: .leading).combined(with: .opacity)
-            )
-        } else {
-            return .asymmetric(
-                insertion: .move(edge: .leading).combined(with: .opacity),
-                removal: .move(edge: .trailing).combined(with: .opacity)
-            )
-        }
+        .animation(.easeInOut(duration: reduceMotion ? 0.2 : OnboardingMotion.base), value: step)
     }
 
     @ViewBuilder
@@ -130,12 +116,11 @@ private struct PersonalizationStepShell<Content: View>: View {
             VStack(alignment: .leading, spacing: 0) {
                 header
                 Spacer().frame(height: NMSpace.xxl)
-                Text(question)
-                    .font(NMFont.displayLG)
-                    .foregroundStyle(NMColor.textPrimary)
-                    .lineSpacing(2)
+                OnboardingMarkSlot(home: "personalization", size: 11)
+                    .padding(.bottom, NMSpace.md)
+                RevealHeadline(words: RevealHeadline.words(question, font: NMFont.displayLG, color: NMColor.textPrimary), wordSpacing: 9, lineSpacing: 2)
+                    .id(question)
                     .opacity(visible[0] ? 1 : 0)
-                    .offset(y: visible[0] ? 0 : 12)
                 Spacer().frame(height: NMSpace.xl)
                 content
                     .opacity(visible[1] ? 1 : 0)

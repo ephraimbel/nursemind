@@ -13,17 +13,22 @@ public struct PaywallView: View {
     private let annualPackage: Package?
     private let onComplete: (() -> Void)?
     private let analyticsSource: String
+    /// In onboarding the flow's living mark lands on the AI feature row in
+    /// place of its sparkle; the quota wall draws the plain icon.
+    private let onboardingMark: Bool
 
     public init(
         monthlyPackage: Package? = nil,
         annualPackage: Package? = nil,
         onComplete: (() -> Void)? = nil,
-        analyticsSource: String = "unknown"
+        analyticsSource: String = "unknown",
+        onboardingMark: Bool = false
     ) {
         self.monthlyPackage = monthlyPackage
         self.annualPackage = annualPackage
         self.onComplete = onComplete
         self.analyticsSource = analyticsSource
+        self.onboardingMark = onboardingMark
     }
 
     private func exit() {
@@ -119,7 +124,7 @@ public struct PaywallView: View {
     private func featureChecklist(compact: Bool) -> some View {
         VStack(spacing: compact ? NMSpace.sm : NMSpace.base) {
             ForEach(Array(features.enumerated()), id: \.offset) { _, feature in
-                PaywallFeatureRow(feature: feature, compact: compact)
+                PaywallFeatureRow(feature: feature, compact: compact, markSlot: onboardingMark && feature.icon == "sparkle")
             }
         }
         .frame(maxWidth: .infinity)
@@ -463,15 +468,21 @@ private struct PaywallFeature {
 private struct PaywallFeatureRow: View {
     let feature: PaywallFeature
     let compact: Bool
+    var markSlot: Bool = false
 
     var body: some View {
         VStack(spacing: NMSpace.xs) {
             HStack(spacing: NMSpace.sm) {
-                Image(systemName: feature.icon)
-                    .font(.system(size: 16, weight: .regular))
-                    .foregroundStyle(NMColor.textSecondary)
-                    .frame(width: 20)
-                    .accessibilityHidden(true)
+                if markSlot {
+                    OnboardingMarkSlot(home: "paywall", size: 16)
+                        .frame(width: 20)
+                } else {
+                    Image(systemName: feature.icon)
+                        .font(.system(size: 16, weight: .regular))
+                        .foregroundStyle(NMColor.textSecondary)
+                        .frame(width: 20)
+                        .accessibilityHidden(true)
+                }
                 Text(feature.title)
                     .font(NMFont.body.weight(.semibold))
                     .foregroundStyle(NMColor.textPrimary)

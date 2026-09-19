@@ -53,9 +53,9 @@ struct AuthView: View {
     /// half of the subtitle is the deliberate editorial accent per CLAUDE.md.
     private var hero: some View {
         VStack(alignment: .leading, spacing: NMSpace.sm) {
-            Text("You're set.")
-                .font(NMFont.displayLG)
-                .foregroundStyle(NMColor.textPrimary)
+            OnboardingMarkSlot(home: "auth", size: 11)
+                .padding(.bottom, NMSpace.xs)
+            RevealHeadline(words: RevealHeadline.words("You're set.", font: NMFont.displayLG, color: NMColor.textPrimary), wordSpacing: 9)
             (
                 Text("A reference and study companion — ")
                 + Text("ready when you are.").italic()

@@ -12,8 +12,6 @@ struct OnboardingSuccessView: View {
 
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var prefs = UserPreferences.shared
-    @State private var sparkleScale: CGFloat = 0.4   // starts small for burst entrance
-    @State private var sparkleOpacity: Double = 0    // starts invisible for burst entrance
 
     var body: some View {
         ZStack {
@@ -28,10 +26,7 @@ struct OnboardingSuccessView: View {
                 .padding(.horizontal, NMSpace.lg)
             }
         }
-        .task {
-            Haptic.success()
-            await burstThenPulse()
-        }
+        .task { Haptic.success() }
     }
 
     // MARK: - Hero block
@@ -41,15 +36,10 @@ struct OnboardingSuccessView: View {
     /// elements.
     private var heroBlock: some View {
         VStack(alignment: .leading, spacing: NMSpace.lg) {
-            Image(systemName: "sparkle")
-                .font(.system(size: 36, weight: .regular))
-                .foregroundStyle(NMColor.accent)
-                .scaleEffect(sparkleScale)
-                .opacity(sparkleOpacity)
+            // The mark that was born on the splash lands here, full size.
+            OnboardingMarkSlot(home: "success", size: 36)
 
-            Text("You're all set.")
-                .font(NMFont.displayXL)
-                .foregroundStyle(NMColor.textPrimary)
+            RevealHeadline(words: RevealHeadline.words("You're all set.", font: NMFont.displayXL, color: NMColor.textPrimary), wordSpacing: 11, delay: 0.25)
 
             VStack(alignment: .leading, spacing: NMSpace.xs) {
                 personalGreeting
@@ -99,46 +89,6 @@ struct OnboardingSuccessView: View {
             .padding(.bottom, NMSpace.xl)
     }
 
-    // MARK: - Sparkle pulse
-
-    /// Burst entrance + gentle pulse loop.
-    ///
-    /// Step 1 (burst, ~500ms): sparkle springs from scale 0.4 / opacity 0 to
-    /// full size with a gentle overshoot — celebratory entrance synced with
-    /// the success haptic.
-    ///
-    /// Step 2 (pulse, infinite): once the burst settles, transition into the
-    /// gentle scale-and-opacity pulse loop indefinitely.
-    ///
-    /// Reduce Motion: skip the burst, hold at full scale/opacity, no pulse.
-    private func burstThenPulse() async {
-        guard !reduceMotion else {
-            sparkleScale = 1.0
-            sparkleOpacity = 1.0
-            return
-        }
-
-        // Burst entrance — spring with overshoot
-        withAnimation(.spring(response: 0.55, dampingFraction: 0.62)) {
-            sparkleScale = 1.0
-            sparkleOpacity = 1.0
-        }
-        try? await Task.sleep(for: .milliseconds(700))
-
-        // Settle into the pulse loop
-        while !Task.isCancelled {
-            withAnimation(.easeInOut(duration: 1.6)) {
-                sparkleScale = 1.15
-                sparkleOpacity = 1.0
-            }
-            try? await Task.sleep(for: .seconds(1.6))
-            withAnimation(.easeInOut(duration: 1.6)) {
-                sparkleScale = 1.0
-                sparkleOpacity = 0.6
-            }
-            try? await Task.sleep(for: .seconds(1.6))
-        }
-    }
 }
 
 #Preview {

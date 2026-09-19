@@ -67,13 +67,28 @@ struct ShowcaseFlow: View {
         }
         .tabViewStyle(.page(indexDisplayMode: .never))
         .frame(maxHeight: .infinity)
+        // The mark holds its ground while pages swipe beneath it: one slot
+        // over the pager at the eyebrow position, sized by a hidden copy of
+        // the current eyebrow so its row height matches the page's.
+        .overlay(alignment: .topLeading) {
+            HStack(spacing: 6) {
+                OnboardingMarkSlot(home: "showcase", size: 11)
+                EyebrowLabel(pages[min(currentPage, pages.count - 1)].eyebrow, sparkle: false).hidden()
+            }
+            .padding(.horizontal, NMSpace.lg)
+            .padding(.top, NMSpace.md)
+            .allowsHitTesting(false)
+        }
     }
 
     @ViewBuilder
     private func showcasePage(_ page: DemoPage) -> some View {
         VStack(alignment: .leading, spacing: 0) {
             VStack(alignment: .leading, spacing: NMSpace.sm) {
-                EyebrowLabel(page.eyebrow, sparkle: false)
+                HStack(spacing: 6) {
+                    OnboardingMarkSlot(home: "showcase", size: 11, active: false)
+                    EyebrowLabel(page.eyebrow, sparkle: false)
+                }
                 Text(page.title)
                     .font(NMFont.displayLG)
                     .foregroundStyle(NMColor.textPrimary)

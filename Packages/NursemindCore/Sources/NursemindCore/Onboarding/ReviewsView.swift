@@ -84,9 +84,11 @@ struct ReviewsView: View {
 
     private var header: some View {
         VStack(alignment: .leading, spacing: NMSpace.md) {
-            EyebrowLabel("LOVED BY NURSES")
-            Text("You're in good company.").displayXL()
-                .foregroundStyle(NMColor.textPrimary)
+            HStack(spacing: 6) {
+                OnboardingMarkSlot(home: "reviews", size: 11)
+                EyebrowLabel("LOVED BY NURSES", sparkle: false)
+            }
+            RevealHeadline(words: RevealHeadline.words("You're in good company.", font: NMFont.displayXL, color: NMColor.textPrimary), wordSpacing: 11, lineSpacing: -2)
             HStack(spacing: NMSpace.sm) {
                 StarRow(filled: 5)
                 Text("4.9")
