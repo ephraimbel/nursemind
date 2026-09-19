@@ -1,97 +1,166 @@
-const items = [
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+import { useMotion } from "./Motion";
+import { ArrowRight } from "./icons";
+
+const steps = [
   {
-    label: "01",
-    eyebrow: "Library",
-    title: "A reference, fully cited.",
-    body: "Drugs, labs, procedures, diagnoses, communication scripts, and clinical scenarios — every claim sourced to a primary citation, written for clarity and self-directed learning.",
-    metrics: [
-      ["Drug entries", "1,200 +"],
-      ["Lab interpretations", "180"],
-      ["NGN-aligned scenarios", "60"],
-    ],
-    sourcedFrom: "openFDA · DailyMed · Open RN · OpenStax · CDC",
+    name: "Start with a question",
+    title: "Make room for the why.",
+    body: "Revisit a concept. Connect a few dots. Ask the question you didn't get to ask. A thoughtful learning companion is right here.",
   },
   {
-    label: "02",
-    eyebrow: "Scenarios",
-    title: "Clinical judgment, walked through.",
-    body: "Case-based scenarios structured on the NCSBN Clinical Judgment Measurement Model — recognize, analyze, prioritize, act, evaluate. Each one unfolds the way a shift does, with every clinical claim cited to its source.",
-    metrics: [
-      ["NGN-aligned scenarios", "60"],
-      ["CJMM steps per case", "6"],
-      ["Citations per claim", "1+"],
-    ],
-    sourcedFrom: "Open RN · OpenStax · NCSBN CJMM structure",
+    name: "Follow the evidence",
+    title: "Understanding has a source.",
+    body: "Go beyond the answer. Open a citation, read the supporting passage, and follow it back to the original reference.",
   },
   {
-    label: "03",
-    eyebrow: "Co-pilot",
-    title: "An AI that cites or refuses.",
-    body: "Grounded in the library, scoped to learning. It explains pathophysiology, walks through clinical reasoning, and surfaces guidelines. It does not diagnose. It does not prescribe. It is not for use during patient care.",
-    metrics: [
-      ["Average response", "< 4 s"],
-      ["Citations per answer", "always"],
-      ["Refusal patterns", "trained-in"],
-    ],
-    sourcedFrom: "Claude Sonnet 4.7 · grounded retrieval",
+    name: "Keep discovering",
+    title: "One thing leads to another.",
+    body: "Move from a question to a reference, then into a clinical scenario. Build on what you know, one connection at a time.",
   },
 ];
 
 export function Bundle() {
+  const { enabled } = useMotion();
+  const [active, setActive] = useState(0);
+  const [inView, setInView] = useState(false);
+  const [manual, setManual] = useState(false);
+  const section = useRef<HTMLElement>(null);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => setInView(entry.isIntersecting),
+      { threshold: 0.3 },
+    );
+    if (section.current) observer.observe(section.current);
+    return () => observer.disconnect();
+  }, []);
+  useEffect(() => {
+    if (!enabled || !inView || manual) return;
+    const timer = setInterval(
+      () => setActive((value) => (value + 1) % steps.length),
+      4800,
+    );
+    return () => clearInterval(timer);
+  }, [enabled, inView, manual]);
+
   return (
-    <section id="bundle" className="container-wide pt-24 md:pt-36 pb-16 md:pb-24">
-      <div className="max-w-[44rem]">
-        <div className="eyebrow">What's inside</div>
-        <h2 className="mt-5 text-[36px] md:text-[56px] leading-[1.02] tracking-[-0.02em]">
-          The reference, the scenarios,
-          <br />
-          and the co-pilot —{" "}
-          <span className="accent-italic">in one place.</span>
-        </h2>
-        <p className="mt-6 max-w-[36rem] text-[16.5px] md:text-[18px] leading-[1.55] text-[color:var(--color-ink-muted)]">
-          Search once. Citations carry through. The bundle is the point —
-          three tools that share a library, share a design, and share a
-          posture toward what they will and will not do.
-        </p>
-      </div>
-
-      <div className="mt-16 md:mt-24 grid grid-cols-1 md:grid-cols-3 gap-y-14 md:gap-y-0 md:gap-x-12 lg:gap-x-16 border-t border-[color:var(--color-hairline)] pt-12 md:pt-16">
-        {items.map((it, i) => (
-          <article
-            key={it.label}
-            className={`relative ${i > 0 ? "md:pl-12 lg:pl-16 md:border-l border-[color:var(--color-hairline)]" : ""}`}
+    <section
+      ref={section}
+      id="bundle"
+      className="connections-section section-space"
+      aria-labelledby="bundle-title"
+    >
+      <div className="container-wide">
+        <div className="connections-heading" data-reveal>
+          <p className="eyebrow">Less scattered. More connected.</p>
+          <h2 id="bundle-title">
+            Follow your curiosity.
+            <br />
+            <em>Find your clarity.</em>
+          </h2>
+          <p>
+            Good learning doesn't happen in isolation.
+            <br />
+            Neither should your tools.
+          </p>
+        </div>
+        <div className="connections-grid">
+          <div className="connection-steps" data-reveal>
+            {steps.map((step, index) => (
+              <button
+                type="button"
+                key={step.name}
+                className="connection-step"
+                aria-pressed={active === index}
+                aria-controls="connection-graphic"
+                onClick={() => {
+                  setActive(index);
+                  setManual(true);
+                }}
+              >
+                <span className="step-number num">0{index + 1}</span>
+                <span>
+                  <span className="eyebrow">{step.name}</span>
+                  <strong>{step.title}</strong>
+                  <span className="step-body">{step.body}</span>
+                </span>
+                <ArrowRight width={18} height={18} />
+              </button>
+            ))}
+          </div>
+          <div
+            className="connection-graphic"
+            id="connection-graphic"
+            data-step={active}
+            data-playing={enabled && inView && !manual}
+            data-reveal
+            aria-label={`How NurseMind connects your learning: ${steps[active].name}`}
           >
-            <div className="flex items-baseline justify-between">
-              <span className="num text-[11px] uppercase tracking-[0.16em] text-[color:var(--color-ink-faint)]">
-                {it.label}
+            <div className="graphic-heading">
+              <span className="eyebrow">
+                A small question. A bigger picture.
               </span>
-              <span className="text-[11px] uppercase tracking-[0.16em] text-[color:var(--color-ink-muted)]">
-                {it.eyebrow}
-              </span>
+              <span className="num">0{active + 1} / 03</span>
             </div>
-
-            <h3 className="mt-5 text-[28px] md:text-[32px] leading-[1.06] tracking-[-0.02em]">
-              {it.title}
-            </h3>
-            <p className="mt-4 text-[15.5px] leading-[1.6] text-[color:var(--color-ink-muted)]">
-              {it.body}
-            </p>
-
-            <dl className="mt-7 space-y-2.5">
-              {it.metrics.map(([k, v]) => (
-                <div
-                  key={k}
-                  className="flex items-baseline justify-between border-b border-[color:var(--color-hairline)] pb-2.5 text-[13.5px]"
-                >
-                  <dt className="text-[color:var(--color-ink-muted)]">{k}</dt>
-                  <dd className="num text-[color:var(--color-ink)]">{v}</dd>
-                </div>
-              ))}
-            </dl>
-
-            <p className="mt-6 text-[12.5px] citation">{it.sourcedFrom}</p>
-          </article>
-        ))}
+            <div className="connection-map" aria-hidden="true">
+              <svg className="map-lines" viewBox="0 0 500 480" fill="none">
+                <path
+                  className="map-path map-path-one"
+                  d="M250 94V145C250 172 114 142 114 189V216"
+                />
+                <path
+                  className="map-path map-path-two"
+                  d="M114 274V304C114 344 340 308 340 361V393"
+                />
+                <path
+                  className="map-path map-path-three"
+                  d="M340 393C460 386 450 132 321 77"
+                />
+              </svg>
+              <div className="map-question">
+                <span className="eyebrow">Your curiosity</span>
+                <span>“Help me understand SBAR.”</span>
+                <span className="map-send">↑</span>
+              </div>
+              <div className="map-reference">
+                <span className="eyebrow">Follow the source</span>
+                <strong>AHRQ</strong>
+                <em>TeamSTEPPS · SBAR</em>
+                <span className="map-citation">
+                  Reference <span>↗</span>
+                </span>
+              </div>
+              <div className="map-library">
+                <span className="eyebrow">Keep exploring</span>
+                <span>
+                  Communication <ArrowRight width={15} height={15} />
+                </span>
+                <span>
+                  Clinical scenarios <ArrowRight width={15} height={15} />
+                </span>
+              </div>
+              <span className="map-spark">✦</span>
+            </div>
+            <div className="graphic-footer">
+              <span>Questions become connections.</span>
+              <button
+                disabled={!enabled}
+                type="button"
+                onClick={() => setManual((value) => !value)}
+                aria-label={
+                  manual
+                    ? "Play learning animation"
+                    : "Pause learning animation"
+                }
+              >
+                {!enabled ? "Motion off" : manual ? "Play" : "Pause"}
+                <span aria-hidden="true">{manual || !enabled ? "▷" : "Ⅱ"}</span>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

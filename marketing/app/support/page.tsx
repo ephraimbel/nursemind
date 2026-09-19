@@ -15,7 +15,7 @@ export default function SupportPage() {
   return (
     <>
       <Nav />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <section className="container-wide pt-20 md:pt-32 pb-24 md:pb-32">
           <div className="max-w-[40rem]">
             <div className="eyebrow">Support</div>

@@ -24,7 +24,7 @@ export default function PrivacyPage() {
   return (
     <>
       <Nav />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <Header />
         <Body />
       </main>

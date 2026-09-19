@@ -24,7 +24,7 @@ export default function TermsPage() {
   return (
     <>
       <Nav />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <Header />
         <Body />
       </main>

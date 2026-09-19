@@ -1,172 +1,127 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
-import { Check, ArrowUpRight } from "./icons";
+import { AppStoreLink, APP_STORE_URL } from "./AppStoreLink";
+import { ArrowUpRight, Check } from "./icons";
 
-const free = {
-  name: "Free",
-  price: "0",
-  cadence: "always",
-  blurb: "Genuinely useful, not a teaser.",
-  features: [
-    "Full clinical reference library",
-    "Core scores, indexes + conversions",
-    "3 AI co-pilot queries / day",
-    "Local bookmarks",
-    "Citations on every claim",
-  ],
-};
-
-const pro = {
-  name: "Pro",
-  blurb: "Daily-use unlock.",
-  features: [
-    "50 AI co-pilot queries / day",
-    "All clinical scenarios",
-    "The complete reference library",
-    "Cross-device sync",
-    "Offline pack",
-    "Priority response time",
-  ],
-};
+const freeFeatures = [
+  "Clinical reference library",
+  "3 AI questions a day",
+  "Local bookmarks",
+  "Sources to explore",
+];
+const proFeatures = [
+  "Everything in Free",
+  "50 AI questions a day",
+  "Full clinical scenario collection",
+  "Offline reference access",
+];
 
 export function Pricing() {
   const [annual, setAnnual] = useState(true);
-
   return (
-    <section id="pricing" className="container-wide pt-24 md:pt-36 pb-16 md:pb-24">
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16">
-        <div className="md:col-span-5">
-          <div className="eyebrow">Pricing</div>
-          <h2 className="mt-5 text-[36px] md:text-[52px] leading-[1.02] tracking-[-0.02em]">
-            Two plans.
+    <section
+      id="pricing"
+      className="pricing-section container-wide section-space"
+      aria-labelledby="pricing-title"
+    >
+      <div className="pricing-heading" data-reveal>
+        <div>
+          <p className="eyebrow">Room to keep growing</p>
+          <h2 id="pricing-title">
+            Start curious.
             <br />
-            <span className="accent-italic">No</span> tricks.
+            <em>Go a little further.</em>
           </h2>
-          <p className="mt-6 max-w-[28rem] text-[16px] leading-[1.6] text-[color:var(--color-ink-muted)]">
-            The core library is free, forever. Pro unlocks the
-            AI co-pilot for daily work, the full scenario set, and the
-            complete reference library.
+        </div>
+        <div className="pricing-intro">
+          <p>
+            Make NurseMind part of your learning, for free. Choose Pro when
+            you'd like more room to explore.
           </p>
-
           <div
-            role="tablist"
-            aria-label="Billing cadence"
-            className="mt-10 inline-flex border border-[color:var(--color-hairline-strong)] rounded-full p-1 text-[13px]"
+            className="billing-toggle"
+            role="group"
+            aria-label="Billing frequency"
           >
             <button
               type="button"
-              role="tab"
-              aria-selected={annual}
+              aria-pressed={annual}
               onClick={() => setAnnual(true)}
-              className={`px-4 py-1.5 rounded-full transition-colors ${
-                annual
-                  ? "bg-[color:var(--color-ink)] text-[color:var(--color-bg)]"
-                  : "text-[color:var(--color-ink-muted)]"
-              }`}
             >
-              Annual
+              Yearly <span>Save 44%</span>
             </button>
             <button
               type="button"
-              role="tab"
-              aria-selected={!annual}
+              aria-pressed={!annual}
               onClick={() => setAnnual(false)}
-              className={`px-4 py-1.5 rounded-full transition-colors ${
-                !annual
-                  ? "bg-[color:var(--color-ink)] text-[color:var(--color-bg)]"
-                  : "text-[color:var(--color-ink-muted)]"
-              }`}
             >
               Monthly
             </button>
           </div>
-          <p className="mt-3 text-[12.5px] citation">
-            Annual saves 44% vs. monthly.
-          </p>
         </div>
-
-        <div className="md:col-span-7 grid grid-cols-1 md:grid-cols-2 border-t border-[color:var(--color-hairline)] pt-12">
-          {/* Free */}
-          <div className="md:pr-10 md:border-r border-[color:var(--color-hairline)]">
-            <div className="flex items-baseline justify-between">
-              <h3 className="text-[22px] tracking-[-0.01em]">{free.name}</h3>
-              <span className="text-[11px] uppercase tracking-[0.14em] text-[color:var(--color-ink-faint)] num">
-                {free.cadence}
-              </span>
-            </div>
-            <div className="mt-5 flex items-baseline gap-1">
-              <span className="num text-[56px] leading-none tracking-[-0.03em]">
-                $0
-              </span>
-            </div>
-            <p className="mt-3 text-[14px] italic font-[family-name:var(--font-serif)] text-[color:var(--color-ink-muted)]">
-              {free.blurb}
-            </p>
-
-            <ul className="mt-8 space-y-3 text-[14.5px]">
-              {free.features.map((f) => (
-                <li key={f} className="flex items-start gap-3">
-                  <Check className="w-[14px] h-[14px] mt-[5px] text-[color:var(--color-ink-muted)] shrink-0" />
-                  <span>{f}</span>
-                </li>
-              ))}
-            </ul>
-
-            <Link
-              href="#download"
-              className="mt-9 inline-flex items-center gap-1.5 text-[14px] border-b border-[color:var(--color-hairline-strong)] pb-[2px] hover:border-[color:var(--color-ink)] transition-colors"
-            >
-              Get the app
-              <ArrowUpRight className="w-[12px] h-[12px]" />
-            </Link>
+      </div>
+      <div className="pricing-plans" data-reveal>
+        <article className="plan">
+          <div className="plan-top">
+            <h3>Free</h3>
+            <span className="eyebrow">Your starting point</span>
           </div>
-
-          {/* Pro */}
-          <div className="mt-14 md:mt-0 md:pl-10">
-            <div className="flex items-baseline justify-between">
-              <h3 className="text-[22px] tracking-[-0.01em]">{pro.name}</h3>
-              <span className="text-[11px] uppercase tracking-[0.14em] text-[color:var(--color-ink-faint)] num">
-                {annual ? "billed yearly" : "billed monthly"}
-              </span>
-            </div>
-            <div className="mt-5 flex items-baseline gap-2">
-              <span className="num text-[56px] leading-none tracking-[-0.03em]">
-                {annual ? "$99.99" : "$14.99"}
-              </span>
-              <span className="text-[14px] text-[color:var(--color-ink-muted)] num">
-                / {annual ? "yr" : "mo"}
-              </span>
-            </div>
-            <p className="mt-3 text-[14px] italic font-[family-name:var(--font-serif)] text-[color:var(--color-ink-muted)]">
-              {annual ? "3-day free trial · then $8.33 / mo, billed yearly." : pro.blurb}
-            </p>
-
-            <ul className="mt-8 space-y-3 text-[14.5px]">
-              <li className="flex items-start gap-3 text-[color:var(--color-ink-muted)]">
-                <Check className="w-[14px] h-[14px] mt-[5px] shrink-0" />
-                <span>
-                  Everything in <span className="text-[color:var(--color-ink)]">Free</span>
-                </span>
+          <div className="plan-price">
+            <span className="num">$0</span>
+            <span>always</span>
+          </div>
+          <p className="plan-description">A little clarity, every day.</p>
+          <ul>
+            {freeFeatures.map((item) => (
+              <li key={item}>
+                <Check width={16} height={16} />
+                {item}
               </li>
-              {pro.features.map((f) => (
-                <li key={f} className="flex items-start gap-3">
-                  <Check className="w-[14px] h-[14px] mt-[5px] text-[color:var(--color-accent)] shrink-0" />
-                  <span>{f}</span>
-                </li>
-              ))}
-            </ul>
-
-            <Link href="#download" className="btn-primary mt-9">
-              Start with Pro
-              <ArrowUpRight className="w-[14px] h-[14px]" />
-            </Link>
-            <p className="mt-3 text-[12px] citation">
-              Cancel anytime. Subscriptions managed by Apple.
-            </p>
+            ))}
+          </ul>
+          <a
+            href={APP_STORE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="plan-secondary"
+          >
+            Get started free <ArrowUpRight width={16} height={16} />
+          </a>
+          <p className="plan-note">No subscription needed.</p>
+        </article>
+        <article className="plan plan-pro">
+          <div className="plan-top">
+            <h3>
+              NurseMind <em>Pro</em>
+            </h3>
+            <span className="eyebrow">Keep exploring</span>
           </div>
-        </div>
+          <div className="plan-price" aria-live="polite" aria-atomic="true">
+            <span className="num">{annual ? "$99.99" : "$14.99"}</span>
+            <span>/ {annual ? "year" : "month"}</span>
+          </div>
+          <p className="plan-description">
+            {annual
+              ? "About $8.33 per month, billed annually."
+              : "More room for your everyday questions."}
+          </p>
+          <ul>
+            {proFeatures.map((item) => (
+              <li key={item}>
+                <Check width={16} height={16} />
+                {item}
+              </li>
+            ))}
+          </ul>
+          <AppStoreLink>
+            {annual ? "Try Pro free for 3 days" : "Get NurseMind Pro"}
+          </AppStoreLink>
+          <p className="plan-note">
+            {annual ? "Then $99.99/year. " : "$14.99/month. "}Auto-renews.
+            Cancel through Apple.
+          </p>
+        </article>
       </div>
     </section>
   );

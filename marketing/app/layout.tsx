@@ -25,7 +25,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://nursemind.app"),
   title: {
-    default: "NurseMind — A clinical reference, redesigned for clarity.",
+    default: "NurseMind — A little clarity. For every nurse.",
     template: "%s · NurseMind",
   },
   description:
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     type: "website",
     title: "NurseMind",
     description:
-      "A clinical reference, redesigned for clarity. A cited library and an AI co-pilot — for studying and self-directed learning.",
+      "A little clarity. For every nurse. A cited nursing library, clinical scenarios, and an AI co-pilot for studying and self-directed learning.",
     url: "https://nursemind.app",
     siteName: "NurseMind",
   },
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "NurseMind",
     description:
-      "A clinical reference, redesigned for clarity. For nursing study and self-directed learning.",
+      "A little clarity. For every nurse. Nursing references, clinical scenarios, and an AI learning companion.",
   },
   icons: {
     icon: "/favicon.svg",
@@ -74,6 +74,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      data-scroll-behavior="smooth"
       className={`${inter.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable}`}
     >
       <body>{children}</body>

@@ -1,120 +1,148 @@
+"use client";
+
 import Image from "next/image";
+import { useRef, useState } from "react";
+import { screens, ScreenViewer } from "./ScreenViewer";
+import { ArrowRight } from "./icons";
 
-type Shot = {
-  index: string;
-  eyebrow: string;
-  title: string;
-  body: string;
-  detail: string;
-  src: string;
-  alt: string;
-  reverse: boolean;
-};
-
-const shots: Shot[] = [
+const descriptions = [
   {
-    index: "01 / 03",
-    eyebrow: "Ask · Entry",
-    title: "Ask, scoped to nursing.",
-    body: "The co-pilot opens to a single editorial input. It tells you what it knows — your specialty, the 2026 NCLEX-RN test plan — and how many questions you have left today before you ever type one.",
-    detail: "3 of 3 questions left today · Specialty-aware · NCLEX-aligned",
-    src: "/screenshots/ask.png",
-    alt: "NurseMind Ask home screen — italic display headline 'Ask anything' with quota, NCLEX alignment, and suggested questions",
-    reverse: false,
+    title: (
+      <>
+        A little more <em>“now I get it.”</em>
+      </>
+    ),
+    body: "Bring the concepts you want to understand. Ask in your own words, use your voice, or start with a suggested question.",
+    detail: "Your curiosity sets the direction.",
+    note: "ASK · YOUR LEARNING COMPANION",
   },
   {
-    index: "02 / 03",
-    eyebrow: "Library · Reference",
-    title: "A library that knows your specialty.",
-    body: "Drugs, drips, labs, procedures, diagnoses, scenarios — every category opens to entries written and cited for clinical learning. The count next to each row is what's in your specialty alone, not the global catalogue.",
-    detail: "965 entries in Med-Surg · cited to primary sources",
-    src: "/screenshots/library.png",
-    alt: "NurseMind Library tab — Med-Surg specialty showing browse categories Drugs, Drips, Labs, Procedures, Diagnoses with entry counts",
-    reverse: true,
+    title: (
+      <>
+        Your knowledge.
+        <br />
+        <em>In good company.</em>
+      </>
+    ),
+    body: "Search directly, follow a topic, or browse the A–Z reference. Drugs, labs, procedures, and scenarios — thoughtfully connected.",
+    detail: "Find a starting point. See where it takes you.",
+    note: "LIBRARY · A REFERENCE THAT CONNECTS",
   },
   {
-    index: "03 / 03",
-    eyebrow: "Answer · In practice",
-    title: "Cited, or refused.",
-    body: "Every answer surfaces the entries it pulled from before the prose begins. Numerical claims carry a citation chip. Critical findings — like a potassium of 6.5 — are flagged with the relevant guideline source, not buried in a paragraph.",
-    detail: "Source chips · guideline citations · grounded retrieval",
-    src: "/screenshots/answer.png",
-    alt: "NurseMind AI answer in action — interpreting a potassium of 6.5, with reference entries surfaced first and an AHA citation chip on the critical finding",
-    reverse: false,
+    title: (
+      <>
+        A source behind
+        <br />
+        <em>every discovery.</em>
+      </>
+    ),
+    body: "Follow a citation back to its reference. Read the supporting passage and open the original source to explore it in context.",
+    detail: "The evidence is part of the experience.",
+    note: "SOURCES · LOOK A LITTLE DEEPER",
   },
 ];
 
 export function Screenshots() {
+  const [active, setActive] = useState(0);
+  const tabs = useRef<Array<HTMLButtonElement | null>>([]);
+  const screen = screens[active];
+  const description = descriptions[active];
   return (
     <section
       id="inside"
-      className="border-t border-[color:var(--color-hairline)]"
+      className="showcase-section section-space"
+      aria-labelledby="inside-title"
     >
-      <div className="container-wide pt-24 md:pt-36 pb-16 md:pb-24">
-        <div className="max-w-[44rem]">
-          <div className="eyebrow">Inside the app</div>
-          <h2 className="mt-5 text-[36px] md:text-[56px] leading-[1.02] tracking-[-0.02em]">
-            What it{" "}
-            <span className="accent-italic">actually</span> looks like.
+      <div className="container-wide">
+        <div className="showcase-heading" data-reveal>
+          <p className="eyebrow">Thoughtfully made. Naturally yours.</p>
+          <h2 id="inside-title">
+            A calmer space
+            <br />
+            for a <em>curious mind.</em>
           </h2>
-          <p className="mt-6 max-w-[36rem] text-[16.5px] md:text-[18px] leading-[1.55] text-[color:var(--color-ink-muted)]">
-            Real screens, no mockups. Same typeface, same hairlines, same
-            citation discipline as the rest of the product.
-          </p>
         </div>
-
-        <div className="mt-16 md:mt-24">
-          {shots.map((shot, i) => (
-            <ShotRow key={shot.index} shot={shot} priority={i === 0} />
+        <div
+          className="showcase-tabs"
+          role="tablist"
+          aria-label="Explore the app"
+        >
+          {screens.map((item, index) => (
+            <button
+              ref={(node) => {
+                tabs.current[index] = node;
+              }}
+              type="button"
+              role="tab"
+              key={item.id}
+              id={`tour-tab-${index}`}
+              aria-controls="tour-panel"
+              aria-selected={active === index}
+              tabIndex={active === index ? 0 : -1}
+              onClick={() => setActive(index)}
+              onKeyDown={(event) => {
+                let next = index;
+                if (event.key === "ArrowRight")
+                  next = (index + 1) % screens.length;
+                else if (event.key === "ArrowLeft")
+                  next = (index + screens.length - 1) % screens.length;
+                else if (event.key === "Home") next = 0;
+                else if (event.key === "End") next = screens.length - 1;
+                else return;
+                event.preventDefault();
+                setActive(next);
+                tabs.current[next]?.focus();
+              }}
+            >
+              <span className="num">0{index + 1}</span>
+              {item.label}
+              <span className="tab-arrow" aria-hidden="true">
+                ↗
+              </span>
+            </button>
           ))}
+        </div>
+        <div
+          id="tour-panel"
+          role="tabpanel"
+          aria-labelledby={`tour-tab-${active}`}
+          className="showcase-panel"
+          tabIndex={0}
+        >
+          <div className="showcase-copy" key={`copy-${active}`}>
+            <p className="eyebrow">{description.note}</p>
+            <h3>{description.title}</h3>
+            <p>{description.body}</p>
+            <span className="showcase-detail">
+              <ArrowRight width={17} height={17} />
+              {description.detail}
+            </span>
+            <ScreenViewer initial={active} />
+            <p className="showcase-disclaimer">
+              For study and reference.
+              <br />
+              {" "}Not for use during patient care.
+            </p>
+          </div>
+          <div className="showcase-art" data-screen={screen.id}>
+            <span className="showcase-watermark" aria-hidden="true">
+              {screen.label === "Sources" ? "Cited." : screen.label + "."}
+            </span>
+            <div className="showcase-device" key={screen.id}>
+              <ScreenViewer initial={active} className="showcase-phone">
+                <Image
+                  src={screen.image}
+                  alt={screen.alt}
+                  sizes="(max-width: 767px) 280px, 330px"
+                />
+              </ScreenViewer>
+            </div>
+            <span className="showcase-art-caption">
+              Actual app screen. Tap to take a closer look.
+            </span>
+          </div>
         </div>
       </div>
     </section>
-  );
-}
-
-function ShotRow({ shot, priority }: { shot: Shot; priority: boolean }) {
-  return (
-    <article
-      className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-16 items-center border-t border-[color:var(--color-hairline)] py-14 md:py-24 first:border-t-0 first:pt-0"
-    >
-      <div
-        className={`md:col-span-5 ${shot.reverse ? "md:order-2" : "md:order-1"}`}
-      >
-        <div className="relative mx-auto md:mx-0 w-full max-w-[320px] md:max-w-[360px]">
-          <Image
-            src={shot.src}
-            alt={shot.alt}
-            width={1206}
-            height={2622}
-            priority={priority}
-            sizes="(min-width: 768px) 360px, 320px"
-            className="w-full h-auto block ring-1 ring-[color:var(--color-hairline)] rounded-[28px] md:rounded-[36px]"
-          />
-        </div>
-      </div>
-
-      <div
-        className={`md:col-span-7 ${shot.reverse ? "md:order-1 md:pr-10" : "md:order-2 md:pl-10"}`}
-      >
-        <div className="flex items-baseline justify-between max-w-[34rem]">
-          <span className="num text-[11px] uppercase tracking-[0.16em] text-[color:var(--color-ink-faint)]">
-            {shot.index}
-          </span>
-          <span className="text-[11px] uppercase tracking-[0.16em] text-[color:var(--color-ink-muted)]">
-            {shot.eyebrow}
-          </span>
-        </div>
-        <h3 className="mt-5 text-[28px] md:text-[40px] leading-[1.06] tracking-[-0.02em] max-w-[28rem]">
-          {shot.title}
-        </h3>
-        <p className="mt-5 text-[15.5px] md:text-[16.5px] leading-[1.62] text-[color:var(--color-ink-muted)] max-w-[32rem]">
-          {shot.body}
-        </p>
-        <p className="mt-6 citation text-[12.5px] md:text-[13px]">
-          {shot.detail}
-        </p>
-      </div>
-    </article>
   );
 }
