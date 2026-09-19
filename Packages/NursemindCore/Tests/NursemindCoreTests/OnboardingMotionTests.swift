@@ -19,8 +19,8 @@ struct OnboardingMotionTests {
     @Test func progressRuleStartsAfterWelcomeAndFillsOnSuccess() {
         #expect(OnboardingFlow.Step.splash.progress == 0)
         #expect(OnboardingFlow.Step.welcome.progress == 0)
-        #expect(OnboardingFlow.Step.auth.progress > 0)
-        #expect(OnboardingFlow.Step.auth.progress < OnboardingFlow.Step.paywall.progress)
+        #expect(OnboardingFlow.Step.showcase.progress > 0)
+        #expect(OnboardingFlow.Step.showcase.progress < OnboardingFlow.Step.paywall.progress)
         #expect(OnboardingFlow.Step.success.progress == 1)
     }
 }
@@ -35,6 +35,6 @@ struct OnboardingRuleTests {
         #expect(OnboardingFlow.ruleFraction(for: .showcase, subprogress: 2.0 / 3.0) < Step.personalization.progress)
         #expect(OnboardingFlow.ruleFraction(for: .personalization, subprogress: 0.75) < Step.notificationsConsent.progress)
         #expect(OnboardingFlow.ruleFraction(for: .success, subprogress: 0.9) == 1)
-        #expect(OnboardingFlow.ruleFraction(for: .auth, subprogress: -1) == Step.auth.progress)
+        #expect(OnboardingFlow.ruleFraction(for: .showcase, subprogress: -1) == Step.showcase.progress)
     }
 }

@@ -3,7 +3,7 @@ import SwiftUI
 /// Phase 1B onboarding sub-flow. Asks four personalization questions in
 /// sequence — name, role, unit, experience — and writes them to
 /// UserPreferences as the user progresses. Back from step 1 returns to
-/// AuthView; Continue from step 4 advances to SafetyContract.
+/// the showcase; Continue from step 4 advances to SafetyContract.
 struct PersonalizationFlow: View {
     let onComplete: () -> Void
     let onBack: () -> Void

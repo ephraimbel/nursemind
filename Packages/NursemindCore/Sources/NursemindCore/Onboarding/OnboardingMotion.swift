@@ -39,15 +39,6 @@ enum OnboardingMotion {
         )
     }
 
-    /// The photograph on Welcome does not lift; it loses its colour and
-    /// dissolves so the cream ground appears to rise through it.
-    static func photoExit(reduceMotion: Bool) -> AnyTransition {
-        guard !reduceMotion else { return .opacity }
-        return .asymmetric(
-            insertion: .opacity,
-            removal: .modifier(active: PhotoExitModifier(progress: 1), identity: PhotoExitModifier(progress: 0))
-        )
-    }
 }
 
 struct LiftModifier: ViewModifier, Animatable {
@@ -82,22 +73,6 @@ struct HoldModifier: ViewModifier, Animatable {
 
     func body(content: Content) -> some View {
         content.opacity(1 - progress * progress * progress * progress)
-    }
-}
-
-struct PhotoExitModifier: ViewModifier, Animatable {
-    var progress: Double
-
-    nonisolated var animatableData: Double {
-        get { progress }
-        set { progress = newValue }
-    }
-
-    func body(content: Content) -> some View {
-        content
-            .saturation(1 - progress)
-            .opacity(1 - progress)
-            .scaleEffect(1 + 0.03 * progress)
     }
 }
 
@@ -155,7 +130,7 @@ struct OnboardingMarkSlot: View {
                 GeometryReader { geo in
                     Color.clear.preference(
                         key: OnboardingMarkKey.self,
-                        value: active ? [OnboardingMarkTarget(home: home, frame: geo.frame(in: .global), size: size, tint: tint)] : []
+                        value: active ? [OnboardingMarkTarget(home: home, frame: geo.frame(in: .global), size: geo.frame(in: .global).width, tint: tint)] : []
                     )
                 }
             )

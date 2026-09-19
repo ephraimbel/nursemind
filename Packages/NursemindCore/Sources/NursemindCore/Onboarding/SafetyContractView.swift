@@ -133,6 +133,8 @@ struct SafetyContractView: View {
                 action: onContinue,
                 isEnabled: acknowledged
             )
+            LegalLinksFooter()
+                .padding(.top, NMSpace.xs)
         }
         .padding(.bottom, NMSpace.xl)
         .opacity(visible[4] ? 1 : 0)

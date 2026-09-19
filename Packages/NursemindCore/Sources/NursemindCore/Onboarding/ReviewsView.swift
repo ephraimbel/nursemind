@@ -2,7 +2,8 @@ import StoreKit
 import SwiftUI
 
 /// Social-proof step between `safetyContract` and `paywall`: three serif
-/// pull quotes set between hairlines, right before the ask. The App Store
+/// pull quotes set between hairlines, right before the ask, with no
+/// rating figure the App Store has not yet produced. The App Store
 /// rating dialog opens over them once the step has settled, the standard
 /// premium-subscription pattern where goodwill is highest just before the
 /// ask; it is requested once per install.
@@ -78,18 +79,9 @@ struct ReviewsView: View {
         VStack(alignment: .leading, spacing: NMSpace.md) {
             HStack(spacing: 6) {
                 OnboardingMarkSlot(home: "reviews", size: 11)
-                EyebrowLabel("LOVED BY NURSES", sparkle: false)
+                EyebrowLabel("WHAT NURSES SAY", sparkle: false)
             }
             RevealHeadline(words: RevealHeadline.words("You're in good company.", font: NMFont.displayXL, color: NMColor.textPrimary), wordSpacing: 11, lineSpacing: -2)
-            HStack(spacing: NMSpace.sm) {
-                StarRow(filled: 5)
-                Text("4.9")
-                    .font(NMFont.mono)
-                    .foregroundStyle(NMColor.textPrimary)
-                Text("average rating")
-                    .font(NMFont.displayItalicSM)
-                    .foregroundStyle(NMColor.textSecondary)
-            }
         }
         .padding(.top, NMSpace.xxl)
         .opacity(visible[0] ? 1 : 0)
@@ -172,27 +164,6 @@ private struct PullQuote: View {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .accessibilityElement(children: .combine)
-    }
-}
-
-// MARK: - Stars
-
-/// Filled rating stars in the accent — a deliberate exception to the
-/// accent-on-CTAs-only rule because rating stars read as "five-star" only
-/// when they carry the brand's affirmative color. One row, in the header.
-private struct StarRow: View {
-    let filled: Int
-
-    var body: some View {
-        HStack(spacing: 3) {
-            ForEach(0..<filled, id: \.self) { _ in
-                Image(systemName: "star.fill")
-                    .font(.system(size: 11))
-                    .foregroundStyle(NMColor.accent)
-            }
-        }
-        .accessibilityElement()
-        .accessibilityLabel("\(filled) out of 5 stars")
     }
 }
 

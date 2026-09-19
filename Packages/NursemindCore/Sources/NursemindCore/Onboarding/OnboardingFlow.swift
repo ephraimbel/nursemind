@@ -4,7 +4,7 @@ import SwiftUI
 /// machine; each step view receives a callback and the coordinator decides
 /// where to go next.
 ///
-/// Phase 1A scope: splash → welcome → auth → safety contract → success.
+/// Phase 1A scope: splash → welcome → safety contract → success.
 /// Personalization (Phase 1B) and feature showcase (Phase 2) slot between
 /// auth and safety in subsequent passes.
 public struct OnboardingFlow: View {
@@ -99,11 +99,10 @@ public struct OnboardingFlow: View {
         return min(1, step.progress + max(0, min(1, subprogress)) / span)
     }
 
-    /// Welcome's photograph dissolves and loses its colour on the way out;
-    /// every other step lifts in over the ground and fades away.
+    /// The splash holds whole beneath Welcome; every other step lifts in
+    /// over the ground and fades away.
     private func transition(for step: Step) -> AnyTransition {
         switch step {
-        case .welcome: return OnboardingMotion.photoExit(reduceMotion: reduceMotion)
         case .splash: return OnboardingMotion.hold()
         default: return OnboardingMotion.lift(reduceMotion: reduceMotion)
         }
@@ -116,11 +115,8 @@ public struct OnboardingFlow: View {
             SplashView { navigate(to: .welcome) }
                 .transition(transition(for: .splash))
         case .welcome:
-            WelcomeView(onContinue: { navigate(to: .auth) })
+            WelcomeView(onContinue: { navigate(to: .showcase) })
                 .transition(transition(for: .welcome))
-        case .auth:
-            AuthView { navigate(to: .showcase) }
-                .transition(transition(for: .auth))
         case .showcase:
             ShowcaseFlow(
                 onComplete: { navigate(to: .personalization) },
@@ -130,7 +126,7 @@ public struct OnboardingFlow: View {
         case .personalization:
             PersonalizationFlow(
                 onComplete: { navigate(to: .notificationsConsent) },
-                onBack: { navigate(to: .auth) }
+                onBack: { navigate(to: .showcase) }
             )
             .transition(transition(for: .personalization))
         case .notificationsConsent:
@@ -179,7 +175,6 @@ public struct OnboardingFlow: View {
     enum Step: Int, CaseIterable {
         case splash
         case welcome
-        case auth
         case showcase
         case personalization
         case notificationsConsent
@@ -202,7 +197,6 @@ public struct OnboardingFlow: View {
             switch self {
             case .splash:                return "splash"
             case .welcome:               return "welcome"
-            case .auth:                  return "auth"
             case .showcase:              return "showcase"
             case .personalization:       return "personalization"
             case .notificationsConsent:  return "notifications_consent"
