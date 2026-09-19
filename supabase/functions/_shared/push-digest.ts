@@ -57,13 +57,25 @@ export function unreadCount(items: WeekItem[], readIDs: Set<string>): number {
     return items.filter((item) => !readIDs.has(item.id)).length
 }
 
-/// Lock-screen copy. Counts only; never a headline.
-export function digestBody(hits: number, unread: number): string | null {
-    if (hits === 0 && unread === 0) return null
+export const CASE_STALE_DAYS = 7
+export const CASE_LINE = "Today's case is up"
+
+/// Lock-screen copy. Counts only; never a headline. When the user has not
+/// engaged with a daily case in `CASE_STALE_DAYS`, the digest mentions it,
+/// and carries only that line when there is nothing else to say.
+export function digestBody(hits: number, unread: number, caseStale = false): string | null {
     const parts: string[] = []
     if (hits > 0)   parts.push(`${hits} ${hits === 1 ? "alert" : "alerts"} for your unit`)
     if (unread > 0) parts.push(`${unread} new this week`)
-    return parts.join(" · ")
+    if (caseStale)  parts.push(CASE_LINE)
+    return parts.length === 0 ? null : parts.join(" · ")
+}
+
+/// Where a tap should land: alerts first, then the week, then the case.
+export function digestDeepLink(hits: number, unread: number, caseStale: boolean): string {
+    if (hits > 0)   return "nursemind://feed?filter=watchlist"
+    if (unread > 0) return "nursemind://feed"
+    return caseStale ? "nursemind://case/today" : "nursemind://feed"
 }
 
 export function urgentBody(): string {
@@ -75,7 +87,9 @@ export type DigestDecision = {
     send: boolean
     hits: number
     unread: number
+    case_stale: boolean
     body: string | null
+    deep_link: string
 }
 
 export function decideDigest(
@@ -83,13 +97,22 @@ export function decideDigest(
     weekItems: WeekItem[],
     readIDs: Set<string>,
     now: Date,
+    caseStale = false,
 ): DigestDecision {
-    const base = { user_id: user.user_id, send: false, hits: 0, unread: 0, body: null as string | null }
+    const base = { user_id: user.user_id, send: false, hits: 0, unread: 0, case_stale: caseStale, body: null as string | null, deep_link: "nursemind://feed" }
     if (!isShiftHour(user, now)) return base
     const hits = watchlistHits(weekItems, user.pinned_entry_ids).length
     const unread = unreadCount(weekItems, readIDs)
-    const body = digestBody(hits, unread)
-    return { ...base, send: body !== null, hits, unread, body }
+    const body = digestBody(hits, unread, caseStale)
+    return { ...base, send: body !== null, hits, unread, body, deep_link: digestDeepLink(hits, unread, caseStale) }
+}
+
+/// True when the user has no daily-case answer on or after the cutoff.
+/// `lastAnsweredOn` is a `yyyy-MM-dd` date or null when nothing is logged.
+export function isCaseStale(lastAnsweredOn: string | null, now: Date): boolean {
+    if (!lastAnsweredOn) return true
+    const cutoff = new Date(now.getTime() - CASE_STALE_DAYS * 86_400_000)
+    return lastAnsweredOn < cutoff.toISOString().slice(0, 10)
 }
 
 /// Users who should hear about an urgent item: saved-entry overlap only,

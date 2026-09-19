@@ -19,7 +19,7 @@
 import { adminClient } from "../_shared/supabase.ts"
 import { APNSEnv, APNSPayload, credentialsFromEnv, sendPush } from "../_shared/apns.ts"
 import {
-    assertLockScreenSafe, decideDigest, DigestUser, isShiftHour, urgentBody, urgentRecipients, WeekItem,
+    assertLockScreenSafe, decideDigest, DigestUser, isCaseStale, isShiftHour, urgentBody, urgentRecipients, WeekItem,
 } from "../_shared/push-digest.ts"
 
 const CORS_HEADERS = {
@@ -85,13 +85,19 @@ Deno.serve(async (req: Request): Promise<Response> => {
     const inHour = profiles.filter((p) => p.push_digest_enabled && isShiftHour(toDigestUser(p), now))
 
     const readByUser = await readSets(admin, inHour.map((p) => p.id), weekItems.map((i) => i.id))
+    const lastCaseByUser = await lastCaseAnswers(admin, inHour.map((p) => p.id))
     const sends: Send[] = []
     for (const p of inHour) {
-        const decision = decideDigest(toDigestUser(p), weekItems, readByUser.get(p.id) ?? new Set(), now)
+        // R4 hook: a user who has not answered a daily case in a week hears
+        // about today's in the same digest (opt-in via the digest toggle,
+        // no separate switch). Unknown history (table not yet migrated)
+        // counts as recent, so the hook never fires on a guess.
+        const caseStale = lastCaseByUser.has(p.id) ? isCaseStale(lastCaseByUser.get(p.id) ?? null, now) : false
+        const decision = decideDigest(toDigestUser(p), weekItems, readByUser.get(p.id) ?? new Set(), now, caseStale)
         if (!decision.send || !decision.body) continue
         sends.push({
             user_id: p.id, kind: "digest", body: decision.body,
-            deep_link: decision.hits > 0 ? "nursemind://feed?filter=watchlist" : "nursemind://feed",
+            deep_link: decision.deep_link,
             feed_item_id: null, hits: decision.hits, unread: decision.unread,
         })
     }
@@ -189,6 +195,29 @@ async function readSets(admin: any, userIDs: string[], itemIDs: string[]): Promi
     for (const row of (data ?? []) as { user_id: string; item_id: string }[]) {
         if (!map.has(row.user_id)) map.set(row.user_id, new Set())
         map.get(row.user_id)!.add(row.item_id)
+    }
+    return map
+}
+
+/// Most recent micro_case_answers.answered_on per user. Users with no row
+/// map to null. If the table is missing (migration 0016 not applied) the
+/// map is empty and the case hook stays off.
+// deno-lint-ignore no-explicit-any
+async function lastCaseAnswers(admin: any, userIDs: string[]): Promise<Map<string, string | null>> {
+    const map = new Map<string, string | null>()
+    if (userIDs.length === 0) return map
+    const { data, error } = await admin
+        .from("micro_case_answers")
+        .select("user_id, answered_on")
+        .in("user_id", userIDs)
+        .order("answered_on", { ascending: false })
+    if (error) {
+        console.warn("micro_case_answers unavailable; case hook disabled:", error.message)
+        return map
+    }
+    for (const id of userIDs) map.set(id, null)
+    for (const row of (data ?? []) as { user_id: string; answered_on: string }[]) {
+        if (map.get(row.user_id) === null) map.set(row.user_id, row.answered_on)
     }
     return map
 }

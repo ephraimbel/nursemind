@@ -1,5 +1,5 @@
 import { assert, assertEquals, assertThrows } from "jsr:@std/assert@1"
-import { assertLockScreenSafe, decideDigest, digestBody, isShiftHour, localHour, shiftStartHour, unreadCount, urgentRecipients, watchlistHits, WeekItem } from "./push-digest.ts"
+import { assertLockScreenSafe, decideDigest, digestBody, digestDeepLink, isCaseStale, isShiftHour, localHour, shiftStartHour, unreadCount, urgentRecipients, watchlistHits, WeekItem } from "./push-digest.ts"
 import { apnsHost, mintProviderJWT } from "./apns.ts"
 
 const items: WeekItem[] = [
@@ -77,4 +77,27 @@ Deno.test("provider JWT is a signed ES256 token with the key id", async () => {
     const valid = await crypto.subtle.verify({ name: "ECDSA", hash: "SHA-256" }, pair.publicKey, sig, new TextEncoder().encode(`${h}.${c}`))
     assert(valid)
     assertEquals(apnsHost("sandbox"), "https://api.sandbox.push.apple.com")
+})
+
+Deno.test("daily case hook: stale after seven days, mentioned in the digest, alone when nothing else", () => {
+    const now = new Date("2026-09-19T11:05:00Z")
+    assert(isCaseStale(null, now))
+    assert(isCaseStale("2026-09-11", now))
+    assert(!isCaseStale("2026-09-12", now))
+    assert(!isCaseStale("2026-09-19", now))
+    assertEquals(digestBody(0, 0, true), "Today's case is up")
+    assertEquals(digestBody(2, 0, true), "2 alerts for your unit · Today's case is up")
+    assertEquals(digestBody(0, 0, false), null)
+    assertEquals(digestDeepLink(0, 0, true), "nursemind://case/today")
+    assertEquals(digestDeepLink(1, 4, true), "nursemind://feed?filter=watchlist")
+    assertEquals(digestDeepLink(0, 4, true), "nursemind://feed")
+
+    const user = { user_id: "u1", shift_start_local: "06:45", tz: "America/Chicago", pinned_entry_ids: [] as string[] }
+    const quiet = decideDigest(user, [], new Set(), now, true)
+    assert(quiet.send)
+    assertEquals(quiet.body, "Today's case is up")
+    assertEquals(quiet.deep_link, "nursemind://case/today")
+    assert(!decideDigest(user, [], new Set(), now, false).send)
+    assert(!decideDigest(user, [], new Set(), new Date("2026-09-19T15:05:00Z"), true).send)
+    assertLockScreenSafe(quiet.body!)
 })
