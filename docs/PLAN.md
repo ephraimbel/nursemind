@@ -2,7 +2,9 @@
 
 **The live execution layer for the v2.0 spec.**
 
-Last updated: 2026-09-19 (37) · DIGEST CASE HOOK. The shift-start digest now mentions today's case for users with no answered case in seven days, and goes out as that single line when nothing else qualifies; deep link to the case; off until migration 0016 exists. Deno tests green.
+Last updated: 2026-09-19 (38) · VOICE BUTTON REWORK. Ask's mic button now meters the microphone (RMS → dB → 0…1 with fast attack / slow release) and, while listening, becomes a five-bar waveform inside the accent disc with one breathing ripple ring and slow idle breathing in silence; Reduce Motion keeps the data-driven bars and drops the ripple and springs. Transcriber hardening: real recognizer errors now reset the button (it could stay lit on a dead session), audible speech resets the silence timer even between partials, a 1.5 s finalize fallback releases the audio session if the recognizer never returns a final result, haptics on start/stop, and the `question_asked.voice` analytics flag is read before it is cleared. Three level-math tests. Verified on the simulator via the `NM_VOICE_DEMO=1` hook (clip in `docs/audit-assets/2026-09-18/voice-button-listening.mp4`); real dictation needs a device because the simulator lacks on-device recognition. Committed separately.
+
+Previous update: 2026-09-19 (37) · DIGEST CASE HOOK. The shift-start digest now mentions today's case for users with no answered case in seven days, and goes out as that single line when nothing else qualifies; deep link to the case; off until migration 0016 exists. Deno tests green.
 
 Previous update: 2026-09-19 (36) · R4 DAILY CASE BUILT. Sixty CJMM-structured, cited clinical-judgment cases (Sept 18 → Nov 16) compiled into the app with model, registry, on-device progress, Feed block, case view, Past cases, deep link, analytics, answer-log migration and eight corpus invariant tests including a dose/exam-framing guard. Simulator-verified light and dark. All cases pending Tier A/B review before production. Committed separately.
 

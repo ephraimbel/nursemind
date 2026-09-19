@@ -757,7 +757,9 @@ public struct AskHomeView: View {
     private func send() {
         // If voice is still capturing, stop it first so the recognizer can't
         // refill the field after we clear it. Toggling the binding asks the
-        // VoiceInputButton to tear down its session cleanly.
+        // VoiceInputButton to tear down its session cleanly. Read the flag
+        // before flipping it so the analytics property reflects the truth.
+        let dictated = voiceListening
         if voiceListening {
             voiceListening = false
         }
@@ -766,7 +768,7 @@ public struct AskHomeView: View {
             properties: [
                 "tier": prefs.subscriptionTier.isPro ? "pro" : "free",
                 "char_count": viewModel.inputText.count,
-                "voice": voiceListening
+                "voice": dictated
             ]
         )
         viewModel.send()

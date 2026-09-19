@@ -60,6 +60,17 @@ public final class VoiceTranscriber {
     public var onFinalTranscript: ((String) -> Void)?
     public var onError: ((TranscriberError) -> Void)?
     public var onAutoStop: (() -> Void)?
+    /// Smoothed microphone level, 0…1, delivered on the main actor at the
+    /// audio tap rate (~40 Hz). Drives the waveform in `VoiceInputButton`.
+    public var onLevel: ((Float) -> Void)?
+
+    /// Level above which the input counts as speech for the silence timer,
+    /// so a pause between recognizer partials does not end the session
+    /// while the user is audibly still talking.
+    nonisolated public static let speechLevelThreshold: Float = 0.18
+
+    private var smoothedLevel: Float = 0
+    private var finalizeTimer: Timer?
 
     public init(locale: Locale = .current) {
         // Apple falls back to en-US when the device locale isn't supported,
@@ -137,8 +148,16 @@ public final class VoiceTranscriber {
 
         let inputNode = audioEngine.inputNode
         let recordingFormat = inputNode.outputFormat(forBus: 0)
-        inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { [weak request] buffer, _ in
+        smoothedLevel = 0
+        inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { [weak self, weak request] buffer, _ in
             request?.append(buffer)
+            let rms = Self.rms(of: buffer)
+            Task { @MainActor in
+                guard let self, self.audioEngine.isRunning else { return }
+                self.smoothedLevel = Self.smooth(previous: self.smoothedLevel, next: Self.normalizedLevel(rms: rms))
+                if self.smoothedLevel > Self.speechLevelThreshold { self.lastSpeechAt = Date() }
+                self.onLevel?(self.smoothedLevel)
+            }
         }
 
         audioEngine.prepare()
@@ -166,8 +185,19 @@ public final class VoiceTranscriber {
                         self.cancelInternal()
                     }
                 }
-                if error != nil {
+                if let error {
+                    let wasRecording = self.audioEngine.isRunning
                     self.cancelInternal()
+                    // Cancellation (our own stop) and "no speech" are not
+                    // failures; anything else while still recording is, and
+                    // the button must not stay lit on a dead session.
+                    let code = (error as NSError).code
+                    let benign = [203, 216, 301, 1110].contains(code)
+                    if wasRecording && !benign {
+                        self.onError?(.audioEngineFailure(error.localizedDescription))
+                    } else if wasRecording {
+                        self.onAutoStop?()
+                    }
                 }
             }
         }
@@ -188,10 +218,45 @@ public final class VoiceTranscriber {
         }
         silenceTimer?.invalidate()
         silenceTimer = nil
+        onLevel?(0)
+        // The recognizer normally answers endAudio() with a final result,
+        // which tears down and releases the audio session. If it never does
+        // (recognizer reset, nothing recognized), release it ourselves.
+        finalizeTimer?.invalidate()
+        finalizeTimer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { [weak self] _ in
+            Task { @MainActor in self?.cancelInternal() }
+        }
     }
 
     public var isRecording: Bool {
         audioEngine.isRunning
+    }
+
+    // MARK: - Level maths (pure, tested)
+
+    /// Root-mean-square of the first channel.
+    nonisolated static func rms(of buffer: AVAudioPCMBuffer) -> Float {
+        guard let data = buffer.floatChannelData?[0], buffer.frameLength > 0 else { return 0 }
+        let n = Int(buffer.frameLength)
+        var sum: Float = 0
+        for i in 0..<n { sum += data[i] * data[i] }
+        return (sum / Float(n)).squareRoot()
+    }
+
+    /// Maps microphone RMS to 0…1 on a decibel scale: silence (below -50 dB)
+    /// is 0, normal speech (about -20 dB) lands near 0.6, loud speech reaches 1.
+    nonisolated static func normalizedLevel(rms: Float) -> Float {
+        guard rms > 0 else { return 0 }
+        let db = 20 * log10(rms)
+        let floor: Float = -50, ceiling: Float = -8
+        return min(1, max(0, (db - floor) / (ceiling - floor)))
+    }
+
+    /// Fast attack, slower release, so bars jump with a syllable and settle
+    /// between words instead of flickering.
+    nonisolated static func smooth(previous: Float, next: Float) -> Float {
+        let k: Float = next > previous ? 0.55 : 0.18
+        return previous + (next - previous) * k
     }
 
     // MARK: - Internals
@@ -212,6 +277,9 @@ public final class VoiceTranscriber {
     private func cancelInternal() {
         silenceTimer?.invalidate()
         silenceTimer = nil
+        finalizeTimer?.invalidate()
+        finalizeTimer = nil
+        smoothedLevel = 0
         recognitionTask?.cancel()
         recognitionTask = nil
         recognitionRequest = nil
