@@ -1,0 +1,1025 @@
+[
+  {
+    "diagnosis": {
+      "_0": {
+        "citations": [
+          {
+            "detail": "Type 2 Diabetes. Foundation: definition, mechanism, symptoms and management; source last reviewed May 2017. Current criteria and treatment context are separately cited to ADA 2026.",
+            "id": "common_conditions_t2dm",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIDDK, National Institutes of Health",
+            "shortName": "NIDDK · Type 2 diabetes",
+            "url": "https://www.niddk.nih.gov/health-information/diabetes/overview/what-is-diabetes/type-2-diabetes"
+          },
+          {
+            "detail": "Standards of Care in Diabetes—2026, section 2. DOI: 10.2337/dc26-S002. Diagnostic criteria and confirmation; original factual summary, not licensed full-text republication.",
+            "id": "common_conditions_ada_diagnosis",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Diabetes Association",
+            "shortName": "ADA 2026 · Diagnosis and classification",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12690183/"
+          },
+          {
+            "detail": "Standards of Care in Diabetes—2026, section 4. DOI: 10.2337/dc26-S004. Comprehensive evaluation and comorbidities.",
+            "id": "common_conditions_ada_evaluation",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Diabetes Association",
+            "shortName": "ADA 2026 · Comprehensive evaluation",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12690184/"
+          },
+          {
+            "detail": "Standards of Care in Diabetes—2026, section 1. DOI: 10.2337/dc26-S001. Recommendations 1.7–1.9 and interprofessional support.",
+            "id": "common_conditions_ada_social",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Diabetes Association",
+            "shortName": "ADA 2026 · Social context of care",
+            "url": "https://diabetesjournals.org/care/article/49/Supplement_1/S13/163920/1-Improving-Care-and-Promoting-Health-in"
+          },
+          {
+            "detail": "Standards of Care in Diabetes—2026, section 9. DOI: 10.2337/dc26-S009. Person-specific selection and cardiovascular/kidney benefits.",
+            "id": "common_conditions_ada_pharmacology",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Diabetes Association",
+            "shortName": "ADA 2026 · Glucose-lowering treatment",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12690185/"
+          },
+          {
+            "detail": "McGuire DK et al. Oral Semaglutide and Cardiovascular Outcomes in High-Risk Type 2 Diabetes. 2025;392:2001–2012. DOI: 10.1056/NEJMoa2501006. PMID: 40162642. Randomized trial; Novo Nordisk funded.",
+            "id": "common_conditions_soul",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "New England Journal of Medicine / Massachusetts Medical Society",
+            "shortName": "SOUL · Cardiovascular outcomes, 2025",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40162642/"
+          },
+          {
+            "detail": "Standards of Care in Diabetes—2026, section 6. DOI: 10.2337/dc26-S006. Individualized goals, hypoglycemia and intercurrent illness.",
+            "id": "common_conditions_ada_goals",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Diabetes Association",
+            "shortName": "ADA 2026 · Glycemia and intercurrent illness",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12690178/"
+          },
+          {
+            "detail": "NIDDK · Low blood glucose",
+            "id": "common_conditions_hypoglycemia",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIDDK, National Institutes of Health",
+            "shortName": "NIDDK · Low blood glucose",
+            "url": "https://www.niddk.nih.gov/health-information/diabetes/overview/preventing-problems/low-blood-glucose-hypoglycemia"
+          },
+          {
+            "detail": "Umpierrez GE et al. Hyperglycemic Crises in Adults With Diabetes: A Consensus Report. Diabetes Care. 2024;47:1257–1275. DOI: 10.2337/dci24-0032. Recognition, SGLT2-associated euglycemic DKA and prevention.",
+            "id": "common_conditions_crises",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Diabetes Association and partner societies",
+            "shortName": "ADA/EASD and partner societies · Hyperglycemic crises, 2024",
+            "url": "https://diabetesjournals.org/care/article/47/8/1257/156808/Hyperglycemic-Crises-in-Adults-With-Diabetes-A"
+          }
+        ],
+        "commonInterventions": [
+          {
+            "citationIDs": [
+              "common_conditions_ada_pharmacology"
+            ],
+            "text": "The 2026 ADA approach selects treatment around cardiovascular and kidney disease, heart failure, weight goals, hypoglycemia risk, tolerability and access. In established or high-risk atherosclerotic disease, agents with demonstrated cardiovascular benefit may be indicated irrespective of A1C. A glucose result alone does not determine which drug is appropriate."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_soul"
+            ],
+            "text": "In SOUL, 9,650 people with type 2 diabetes and atherosclerotic cardiovascular disease, chronic kidney disease or both received oral semaglutide or placebo. Over a median 49.5 months, major cardiovascular events occurred in 12.0% versus 13.8% (hazard ratio 0.86; 95% CI 0.77–0.96). This supports cardiovascular benefit in the studied high-risk population; it does not establish the same absolute benefit for all newly diagnosed adults."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_ada_goals"
+            ],
+            "text": "Glucose goals are individualized. Recurrent hypoglycemia, treatment burden, comorbidities and functional limitations can justify a less intensive plan. Nursing follow-up should make low-glucose episodes visible to the treating team and confirm that glucose monitoring, education and medication use match the current agreed goals."
+          }
+        ],
+        "definition": {
+          "citationIDs": [
+            "common_conditions_t2dm"
+          ],
+          "text": "Type 2 diabetes is chronic hyperglycemia caused by inadequate insulin action and an insulin supply that does not meet the body’s needs. It can be present for years before recognition. Nursing care includes glucose safety, cardiovascular and kidney risk reduction, complication surveillance and support for daily self-management."
+        },
+        "diagnosticCriteria": [
+          {
+            "citationIDs": [
+              "common_conditions_ada_diagnosis"
+            ],
+            "text": "For nonpregnant adults, diabetes criteria include laboratory A1C ≥6.5%; fasting plasma glucose ≥126 mg/dL after at least 8 hours without calories; or 2-hour plasma glucose ≥200 mg/dL during a 75-g oral glucose tolerance test. Random plasma glucose ≥200 mg/dL is diagnostic with classic hyperglycemic symptoms or a hyperglycemic crisis."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_ada_diagnosis"
+            ],
+            "text": "Without unequivocal symptomatic hyperglycemia, confirmation requires two abnormal results from the same test or different tests. Discordant results require follow-up of the abnormal test. A1C may misrepresent glycemia with altered red-cell turnover or certain hemoglobin variants; plasma glucose criteria are then preferred. CGM is not an established diagnostic test."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_ada_diagnosis"
+            ],
+            "text": "Glucose criteria establish diabetes but do not identify its type. ADA recommends standardized islet autoantibody testing when adult features overlap with type 1 diabetes, such as unintentional weight loss, ketoacidosis or a short interval to insulin treatment. Adult age alone does not settle classification."
+          }
+        ],
+        "id": "type-2-diabetes",
+        "lastSourceFidelityReview": "2026-09-19",
+        "nclexTags": {
+          "category": "physiologicalIntegrity",
+          "priorityConcept": "glucoseRegulation",
+          "subcategory": "reductionOfRiskPotential"
+        },
+        "pathophysiology": {
+          "citationIDs": [
+            "common_conditions_t2dm"
+          ],
+          "text": "Insulin normally helps glucose enter cells. In type 2 diabetes, tissues respond less effectively and the pancreas cannot provide enough insulin to compensate, leaving excess glucose in the circulation. Genetic susceptibility, excess adiposity and physical inactivity can contribute. Over time, diabetes can damage blood vessels, kidneys, eyes and peripheral nerves."
+        },
+        "presentation": [
+          {
+            "citationIDs": [
+              "common_conditions_t2dm"
+            ],
+            "text": "Many people have few symptoms. Possible findings include thirst, frequent urination, fatigue, blurred vision, unexplained weight loss, slow-healing sores and distal numbness or tingling. An absence of thirst or polyuria does not exclude disease; some people first present with an established complication."
+          }
+        ],
+        "priorityAssessments": [
+          {
+            "citationIDs": [
+              "common_conditions_ada_evaluation"
+            ],
+            "text": "A comprehensive review includes cardiovascular disease and heart-failure history, blood pressure, lipids, kidney function and albuminuria, eye care, neuropathy and foot status. The assessment also addresses oral health, immunizations, psychological well-being and the person’s ability to carry out the treatment plan. Existing complications change follow-up priorities."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_ada_social"
+            ],
+            "text": "Ask about food and housing security, insurance, medication cost, transport, preferred language and available support. Difficulty obtaining supplies or taking medicine may reflect access barriers. Coordinated diabetes education, pharmacy support, community resources and appropriate care-partner involvement help make the agreed plan achievable."
+          }
+        ],
+        "subtitle": "Diagnosis, complication surveillance and comprehensive risk reduction",
+        "title": "Type 2 diabetes mellitus",
+        "watchFor": [
+          {
+            "citationIDs": [
+              "common_conditions_hypoglycemia"
+            ],
+            "text": "Insulin and some insulin-releasing medicines can cause hypoglycemia. Rapid-onset shaking, hunger, palpitations, confusion or impaired speech may precede seizure or unconsciousness; some people have little warning. Severe events require immediate treatment through the emergency plan and subsequent review of the medication regimen."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_crises"
+            ],
+            "text": "Vomiting, abdominal pain, dehydration, abnormal breathing or altered mental status can indicate a hyperglycemic crisis. Ketoacidosis can also occur in type 2 diabetes, including with SGLT2 inhibitors when glucose is not markedly elevated. These findings need urgent clinical assessment rather than routine outpatient glucose follow-up."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "diagnosis": {
+      "_0": {
+        "citations": [
+          {
+            "detail": "NHLBI · High blood pressure overview",
+            "id": "common_conditions_bp_overview",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NHLBI, National Institutes of Health",
+            "shortName": "NHLBI · High blood pressure overview",
+            "url": "https://www.nhlbi.nih.gov/health/high-blood-pressure"
+          },
+          {
+            "detail": "NHLBI · Blood-pressure causes and risk factors",
+            "id": "common_conditions_bp_causes",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NHLBI, National Institutes of Health",
+            "shortName": "NHLBI · Blood-pressure causes and risk factors",
+            "url": "https://www.nhlbi.nih.gov/health/high-blood-pressure/causes"
+          },
+          {
+            "detail": "NHLBI · Blood-pressure symptoms and complications",
+            "id": "common_conditions_bp_symptoms",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NHLBI, National Institutes of Health",
+            "shortName": "NHLBI · Blood-pressure symptoms and complications",
+            "url": "https://www.nhlbi.nih.gov/health/high-blood-pressure/symptoms"
+          },
+          {
+            "detail": "High Blood Pressure: Diagnosis. Updated June 26, 2025. Standardized measurements, adult categories and out-of-office readings.",
+            "id": "common_conditions_bp_diagnosis",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NHLBI, National Institutes of Health",
+            "shortName": "NHLBI · Blood-pressure diagnosis",
+            "url": "https://www.nhlbi.nih.gov/health/high-blood-pressure/diagnosis"
+          },
+          {
+            "detail": "Official guideline summary, August 14, 2025. Guideline DOI: 10.1161/CIR.0000000000001356. Adult thresholds, PREVENT risk, goals and severe hypertension context.",
+            "id": "common_conditions_aha_bp",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Heart Association / American College of Cardiology",
+            "shortName": "AHA/ACC 2025 · Adult hypertension guideline",
+            "url": "https://professional.heart.org/en/science-news/2025-high-blood-pressure-guideline/top-things-to-know"
+          },
+          {
+            "detail": "High Blood Pressure: Treatment. Updated April 30, 2024. NIH-authored lifestyle and medication-class prose only; Nucleus Medical Media animation excluded. Target/threshold updates use AHA/ACC 2025 separately.",
+            "id": "common_conditions_bp_treatment",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NHLBI, National Institutes of Health",
+            "shortName": "NHLBI · Blood-pressure treatment",
+            "url": "https://www.nhlbi.nih.gov/health/high-blood-pressure/treatment"
+          },
+          {
+            "detail": "Bi Y et al. Intensive Blood-Pressure Control in Patients with Type 2 Diabetes. 2025;392:1155–1167. DOI: 10.1056/NEJMoa2412006. PMID: 39555827. Online 2024; print 2025. Randomized trial at 145 sites in China.",
+            "id": "common_conditions_bproad",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "New England Journal of Medicine / Massachusetts Medical Society",
+            "shortName": "BPROAD · Intensive blood-pressure control, 2025",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/39555827/"
+          },
+          {
+            "detail": "NHLBI · Living with high blood pressure",
+            "id": "common_conditions_bp_followup",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NHLBI, National Institutes of Health",
+            "shortName": "NHLBI · Living with high blood pressure",
+            "url": "https://www.nhlbi.nih.gov/health/high-blood-pressure/living-with"
+          }
+        ],
+        "commonInterventions": [
+          {
+            "citationIDs": [
+              "common_conditions_aha_bp"
+            ],
+            "text": "The 2025 AHA/ACC guideline generally aims for blood pressure <130/80 mm Hg, with additional considerations for pregnancy, limited life expectancy and institutional care. Medication is recommended at average ≥140/90, or selected averages ≥130/80 with cardiovascular disease, prior stroke, diabetes, CKD or PREVENT 10-year risk ≥7.5%. These are clinical decision thresholds, not automatic nursing medication orders."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_bp_treatment"
+            ],
+            "text": "Treatment combines an achievable lifestyle plan with prescribed medicines when indicated. DASH-style eating, reduced sodium, appropriate activity, smoking cessation, sleep and alcohol counseling are relevant. ACE inhibitors, ARBs, calcium-channel blockers and thiazide diuretics lower pressure through different mechanisms; comorbid disease and tolerability influence selection."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_bproad"
+            ],
+            "text": "BPROAD studied 12,821 adults aged 50 or older with type 2 diabetes and elevated cardiovascular risk in China. A systolic target <120 versus <140 mm Hg reduced major cardiovascular events (hazard ratio 0.79; 95% CI 0.69–0.90) over median 4.2-year follow-up. Symptomatic hypotension and hyperkalemia were more frequent with intensive treatment. The findings require individualized benefit–risk interpretation."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_bp_followup"
+            ],
+            "text": "Long-term care includes regular appointments, review of home readings, medication access and discussion of new diagnoses or side effects. A regimen may need adjustment over time. Reminder systems, refill support and an agreed role for family or community support can help maintain the treatment plan."
+          }
+        ],
+        "definition": {
+          "citationIDs": [
+            "common_conditions_bp_overview"
+          ],
+          "text": "Hypertension is persistently excessive pressure within the arteries. It commonly causes no early symptoms but increases the likelihood of cardiovascular, cerebrovascular and kidney injury. Recognition therefore depends on reliable measurement and follow-up, rather than waiting for a headache or other subjective warning."
+        },
+        "diagnosticCriteria": [
+          {
+            "citationIDs": [
+              "common_conditions_bp_diagnosis"
+            ],
+            "text": "Adult categories are normal: systolic <120 and diastolic <80 mm Hg; elevated: systolic 120–129 with diastolic <80; stage 1: systolic 130–139 or diastolic 80–89; stage 2: systolic ≥140 or diastolic ≥90. Classification uses the higher category when the two components differ."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_bp_diagnosis"
+            ],
+            "text": "A single routine reading is insufficient to establish persistent hypertension. Repeat standardized measurements and consider home or ambulatory results. White-coat hypertension describes higher office pressure than outside the clinic; masked hypertension describes the opposite pattern. Both patterns can change interpretation of apparently reassuring or abnormal office measurements."
+          }
+        ],
+        "id": "hypertension",
+        "lastSourceFidelityReview": "2026-09-19",
+        "nclexTags": {
+          "category": "physiologicalIntegrity",
+          "priorityConcept": "perfusion",
+          "subcategory": "reductionOfRiskPotential"
+        },
+        "pathophysiology": {
+          "citationIDs": [
+            "common_conditions_bp_causes"
+          ],
+          "text": "Arterial stiffness, inherited susceptibility and the interaction of lifestyle and environmental factors influence blood pressure. Kidney disease, sleep apnea, endocrine disorders and certain medicines can contribute. Dietary sodium, alcohol, inactivity, inadequate sleep and chronic stress are relevant to assessment, while financial and neighborhood conditions can affect the ability to change these exposures."
+        },
+        "presentation": [
+          {
+            "citationIDs": [
+              "common_conditions_bp_symptoms"
+            ],
+            "text": "Routine hypertension may be discovered during screening in a person who feels well. Complications can involve the heart, brain, kidneys, retina and aorta. The severity of a measured elevation and the presence of new symptoms both matter when deciding how urgently the person needs evaluation."
+          }
+        ],
+        "priorityAssessments": [
+          {
+            "citationIDs": [
+              "common_conditions_bp_diagnosis"
+            ],
+            "text": "Measurement preparation includes a correctly sized cuff on the bare upper arm, quiet seated rest, supported arm at heart level and feet on the floor. Recent exercise, smoking, caffeine, talking or a full bladder can distort readings. Technique should be checked before interpreting an unexpected trend."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_bp_causes"
+            ],
+            "text": "Medication reconciliation should include nonprescription decongestants, NSAIDs, hormonal medicines and stimulants, as well as prescribed drugs. Explore sleep-apnea symptoms, kidney or thyroid history, alcohol exposure and barriers to taking medicines. A possible contributing drug or condition needs prescriber assessment rather than an assumption of nonadherence."
+          }
+        ],
+        "subtitle": "Measurement, cardiovascular risk and ongoing nursing assessment",
+        "title": "Hypertension in adults",
+        "watchFor": [
+          {
+            "citationIDs": [
+              "common_conditions_bp_symptoms"
+            ],
+            "text": "Sudden focal weakness, speech or vision change, severe chest or back pain, marked breathlessness or a sudden severe headache may signal acute organ injury. These symptoms require emergency assessment, including when blood pressure is very high; the blood-pressure value alone cannot establish the cause."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_aha_bp"
+            ],
+            "text": "Severe hypertension above 180/120 mm Hg without acute target-organ damage is distinct from hypertensive emergency. The 2025 guideline calls for timely evaluation and oral-treatment management in the outpatient setting for nonpregnant people without acute injury. Suspected organ damage changes urgency and setting; pregnancy requires its own pathway."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "diagnosis": {
+      "_0": {
+        "citations": [
+          {
+            "detail": "Standards of Care in Diabetes—2026, section 8. DOI: 10.2337/dc26-S008. Assessment, shared decisions and sustained treatment in people with or at risk of diabetes.",
+            "id": "common_conditions_ada_obesity",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Diabetes Association",
+            "shortName": "ADA 2026 · Obesity and weight management",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12690172/"
+          },
+          {
+            "detail": "NIDDK · Factors affecting weight and health",
+            "id": "common_conditions_obesity_causes",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIDDK, National Institutes of Health",
+            "shortName": "NIDDK · Factors affecting weight and health",
+            "url": "https://www.niddk.nih.gov/health-information/weight-management/adult-overweight-obesity/factors-affecting-weight-health"
+          },
+          {
+            "detail": "NIDDK · Health risks of overweight and obesity",
+            "id": "common_conditions_obesity_risks",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIDDK, National Institutes of Health",
+            "shortName": "NIDDK · Health risks of overweight and obesity",
+            "url": "https://www.niddk.nih.gov/health-information/weight-management/adult-overweight-obesity/health-risks"
+          },
+          {
+            "detail": "NIDDK · Talking with patients about weight",
+            "id": "common_conditions_obesity_conversation",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIDDK, National Institutes of Health",
+            "shortName": "NIDDK · Talking with patients about weight",
+            "url": "https://www.niddk.nih.gov/health-information/professionals/clinical-tools-patient-management/weight-management/talking-with-your-patients-about-weight"
+          },
+          {
+            "detail": "NIDDK · Adult obesity definition",
+            "id": "common_conditions_obesity_definition",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIDDK, National Institutes of Health",
+            "shortName": "NIDDK · Adult obesity definition",
+            "url": "https://www.niddk.nih.gov/health-information/weight-management/adult-overweight-obesity/definition-facts"
+          },
+          {
+            "detail": "NIDDK · Choosing a weight-loss program",
+            "id": "common_conditions_obesity_program",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIDDK, National Institutes of Health",
+            "shortName": "NIDDK · Choosing a weight-loss program",
+            "url": "https://www.niddk.nih.gov/health-information/weight-management/choosing-a-safe-successful-weight-loss-program"
+          },
+          {
+            "detail": "NIDDK · Prescription weight-management medicines",
+            "id": "common_conditions_obesity_medications",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIDDK, National Institutes of Health",
+            "shortName": "NIDDK · Prescription weight-management medicines",
+            "url": "https://www.niddk.nih.gov/health-information/weight-management/prescription-medications-treat-overweight-obesity"
+          },
+          {
+            "detail": "Aronne LJ et al. Tirzepatide as Compared with Semaglutide for the Treatment of Obesity. 2025;393:26–36. DOI: 10.1056/NEJMoa2416394. PMID: 40353578. Open-label randomized trial; Eli Lilly funded.",
+            "id": "common_conditions_surmount5",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "New England Journal of Medicine / Massachusetts Medical Society",
+            "shortName": "SURMOUNT-5 · Tirzepatide versus semaglutide, 2025",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40353578/"
+          }
+        ],
+        "commonInterventions": [
+          {
+            "citationIDs": [
+              "common_conditions_obesity_program"
+            ],
+            "text": "A structured program includes an individualized eating plan, appropriate physical activity, repeated behavioral support and a maintenance strategy. A sustainable plan should fit health status, cultural preferences and resources. Physical activity has health benefits even when the scale changes little; progress can include greater endurance or improved daily function."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_obesity_medications"
+            ],
+            "text": "Prescription weight-management medicines may be considered for adults with BMI ≥30, or ≥27 with weight-related health problems, alongside lifestyle support. Selection depends on medical history, other medicines, likely benefit, adverse effects and cost. Eligibility is not a recommendation for a particular product, and pregnancy or pregnancy planning changes medication suitability."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_surmount5"
+            ],
+            "text": "SURMOUNT-5 randomized 751 adults with obesity without type 2 diabetes to tirzepatide or semaglutide in an open-label trial. At 72 weeks, mean weight change was −20.2% versus −13.7%; gastrointestinal events were most common, often during escalation. This is a weight-loss comparison in a defined population, not proof of superior cardiovascular outcomes or identical results in diabetes."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_ada_obesity"
+            ],
+            "text": "ADA 2026 recommends tailoring behavioral, medication and metabolic-surgery options to medical history, circumstances and preferences. In people with diabetes, weight and glycemic management are complementary goals. Continued follow-up remains necessary after initial improvement because obesity commonly recurs and treatment needs can change."
+          }
+        ],
+        "definition": {
+          "citationIDs": [
+            "common_conditions_ada_obesity"
+          ],
+          "text": "Obesity is a chronic, often relapsing disease involving excess adiposity and metabolic, physical or psychosocial complications. Assessment and treatment should use person-centered language and consider health outcomes, function and preferences. Weight management can be an important component of diabetes prevention and treatment, alongside management of glucose and other risks."
+        },
+        "diagnosticCriteria": [
+          {
+            "citationIDs": [
+              "common_conditions_obesity_definition"
+            ],
+            "text": "For adults aged 20 and older, BMI 25–29.9 kg/m² is categorized as overweight and BMI ≥30 as obesity; BMI ≥40 is severe obesity in the NIDDK classification. These adult thresholds are not pediatric growth-chart criteria. BMI combines height and weight and is an indirect measure."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_obesity_conversation"
+            ],
+            "text": "BMI and waist size do not directly measure body fat or fully describe an individual’s health risk. Interpretation includes age, history, cardiometabolic risks and current health. Weight loss is not automatically the appropriate goal for every adult above a BMI threshold; preventing additional gain may sometimes be a suitable agreed goal."
+          }
+        ],
+        "id": "obesity",
+        "lastSourceFidelityReview": "2026-09-19",
+        "nclexTags": {
+          "category": "physiologicalIntegrity",
+          "priorityConcept": "nutrition",
+          "subcategory": "reductionOfRiskPotential"
+        },
+        "pathophysiology": {
+          "citationIDs": [
+            "common_conditions_obesity_causes"
+          ],
+          "text": "Body weight reflects interacting biological, behavioral and environmental influences. Genes affect appetite and fat distribution; sleep, stress and some medicines can contribute to weight gain. Food affordability, safe activity space, workplace demands and access to care shape what changes are practical. Endocrine disease and eating disorders may warrant separate evaluation."
+        },
+        "presentation": [
+          {
+            "citationIDs": [
+              "common_conditions_obesity_risks"
+            ],
+            "text": "Associated conditions can include type 2 diabetes, hypertension, cardiovascular disease, sleep apnea, fatty liver disease, osteoarthritis and kidney disease. Symptoms may arise from these complications, such as sleep disruption or limited mobility, rather than from a particular body weight. The assessment should identify the person’s actual health problems."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_obesity_conversation"
+            ],
+            "text": "Begin with the person’s main concern and ask permission to discuss weight. Explore weight history, eating patterns, activity, prior treatment and possible eating-disorder symptoms without blame. A high BMI should not cause an unrelated symptom to be dismissed or prevent evaluation of another condition."
+          }
+        ],
+        "priorityAssessments": [
+          {
+            "citationIDs": [
+              "common_conditions_obesity_risks"
+            ],
+            "text": "Review blood pressure, glucose and lipid status, sleep-apnea symptoms, pain and mobility, and relevant kidney or liver disease. Mood, body image and experiences of weight bias also affect well-being. The same amount of weight change can have different significance depending on the complications being followed."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_obesity_causes"
+            ],
+            "text": "Review medicines that can promote weight gain, including some diabetes, psychiatric, seizure and steroid treatments. Their therapeutic benefits remain relevant; identifying an association supports a prescriber discussion about options. Assessment of sleep, food access, stress and physical limitations helps explain barriers that a calorie target alone would miss."
+          }
+        ],
+        "subtitle": "Adiposity, functional impact and evidence-based treatment options",
+        "title": "Obesity in adults",
+        "watchFor": [
+          {
+            "citationIDs": [
+              "common_conditions_obesity_medications"
+            ],
+            "text": "Persistent or concerning adverse effects require review against the actual product label and treatment plan. Medication risks differ between products; a general obesity overview cannot supply a universal dose-escalation, stopping or pregnancy plan. Unregulated products and medicine obtained outside an appropriate pharmacy pathway add avoidable uncertainty."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_obesity_conversation"
+            ],
+            "text": "Eating-disorder symptoms, distress or a treatment plan that the person cannot sustain merit reassessment and appropriate specialist support. Track function and health improvements as well as weight. A setback is a reason to revise goals and resources together, rather than assign blame."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "reference": {
+      "_0": {
+        "citations": [
+          {
+            "detail": "Managing Sick Days. May 2024. Illness, monitoring, hydration and emergency signs; blanket continuation of diabetes pills is not reproduced because ADA 2026 provides drug-specific illness exceptions.",
+            "id": "common_conditions_sick_days",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "Centers for Disease Control and Prevention",
+            "shortName": "CDC · Managing sick days",
+            "url": "https://www.cdc.gov/diabetes/living-with/managing-sick-days.html"
+          },
+          {
+            "detail": "Standards of Care in Diabetes—2026, section 6. DOI: 10.2337/dc26-S006. Individualized goals, hypoglycemia and intercurrent illness.",
+            "id": "common_conditions_ada_goals",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Diabetes Association",
+            "shortName": "ADA 2026 · Glycemia and intercurrent illness",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12690178/"
+          },
+          {
+            "detail": "Standards of Care in Diabetes—2026, section 16. DOI: 10.2337/dc26-S016. Type 1 basal-insulin continuity and SGLT2 precautions during acute illness.",
+            "id": "common_conditions_ada_hospital",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Diabetes Association",
+            "shortName": "ADA 2026 · Diabetes in hospital",
+            "url": "https://diabetesjournals.org/care/article/49/Supplement_1/S339/163925/16-Diabetes-Care-in-the-Hospital-Standards-of-Care"
+          },
+          {
+            "detail": "Umpierrez GE et al. Hyperglycemic Crises in Adults With Diabetes: A Consensus Report. Diabetes Care. 2024;47:1257–1275. DOI: 10.2337/dci24-0032. Recognition, SGLT2-associated euglycemic DKA and prevention.",
+            "id": "common_conditions_crises",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Diabetes Association and partner societies",
+            "shortName": "ADA/EASD and partner societies · Hyperglycemic crises, 2024",
+            "url": "https://diabetesjournals.org/care/article/47/8/1257/156808/Hyperglycemic-Crises-in-Adults-With-Diabetes-A"
+          },
+          {
+            "detail": "NIDDK · Low blood glucose",
+            "id": "common_conditions_hypoglycemia",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIDDK, National Institutes of Health",
+            "shortName": "NIDDK · Low blood glucose",
+            "url": "https://www.niddk.nih.gov/health-information/diabetes/overview/preventing-problems/low-blood-glucose-hypoglycemia"
+          },
+          {
+            "detail": "Standards of Care in Diabetes—2026, section 1. DOI: 10.2337/dc26-S001. Recommendations 1.7–1.9 and interprofessional support.",
+            "id": "common_conditions_ada_social",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Diabetes Association",
+            "shortName": "ADA 2026 · Social context of care",
+            "url": "https://diabetesjournals.org/care/article/49/Supplement_1/S13/163920/1-Improving-Care-and-Promoting-Health-in"
+          }
+        ],
+        "eyebrow": "REFERENCE · COMMON CONDITIONS",
+        "id": "diabetes-sick-day-safety",
+        "lastSourceFidelityReview": "2026-09-19",
+        "nclexTags": {
+          "category": "physiologicalIntegrity",
+          "priorityConcept": "glucoseRegulation",
+          "subcategory": "reductionOfRiskPotential"
+        },
+        "sections": [
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_sick_days"
+                  ],
+                  "text": "Illness-related hormones can raise glucose even when food intake falls. Vomiting or diarrhea may also impair intake and hydration. These competing effects mean a person can develop high or low glucose during the same illness. A usual meal pattern or a single in-range reading does not show that the illness is safe to manage without reassessment."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_ada_goals"
+                  ],
+                  "text": "ADA 2026 recommends reassessing glucose-monitoring frequency during illness and adding blood or urine ketone monitoring for people prone to ketosis. The written plan should identify when the treating team must reassess therapy. There is no single medicine-continuation rule suitable for every drug and every illness."
+                }
+              ],
+              "title": "Why illness changes the plan"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_sick_days"
+                  ],
+                  "text": "A sick-day record can track glucose results, temperature, fluid and food intake, and episodes of vomiting or diarrhea. Keep monitoring supplies and accessible food available before illness starts. Changes in alertness or the ability to drink and self-monitor should be communicated along with the glucose readings."
+                }
+              ],
+              "title": "Keep a useful illness record"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_ada_goals"
+                  ],
+                  "text": "Poor oral intake or concern for acute kidney injury can require clinician-directed interruption of metformin or an SGLT2 inhibitor. Significant gastrointestinal illness can affect GLP-1 therapy; heart-failure exacerbation changes the safety of thiazolidinediones. Document which medicine was changed, by whom and the follow-up needed, rather than extending one drug’s advice to the whole regimen."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_ada_hospital"
+                  ],
+                  "text": "Basal insulin remains essential for people with type 1 diabetes, including when hospitalized or transitioning between settings. In acute care, SGLT2 inhibitors are avoided with severe illness, ketosis or prolonged fasting. Outpatient and inpatient instructions must be reconciled with the prescriber; this guide does not generate insulin adjustments."
+                }
+              ],
+              "title": "Medication review is specific to the illness"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_crises"
+                  ],
+                  "text": "SGLT2-associated ketoacidosis may occur with near-normal or only moderately elevated glucose. Nausea, vomiting, abdominal pain, dehydration, deep breathing or altered consciousness require assessment in context. A glucose value that is below the usual marked-hyperglycemia range cannot exclude ketoacidosis; evaluation also considers ketones and acid–base status."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_sick_days"
+                  ],
+                  "text": "Trouble breathing, inability to keep fluids down, persistent vomiting or diarrhea, or ketones during illness are reasons for urgent contact or emergency assessment under the sick-day plan. Reduced alertness can impair safe self-care. A support person may need to help contact the team or arrange emergency assistance."
+                }
+              ],
+              "title": "Recognize deterioration early"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_hypoglycemia"
+                  ],
+                  "text": "Eating less while using insulin or insulin-releasing medicines can increase hypoglycemia risk. Review access to a glucose meter and the prescribed low-glucose rescue plan. Confusion, seizure or loss of consciousness represents severe deterioration requiring immediate help; the person may be unable to recognize the problem or treat it independently."
+                }
+              ],
+              "title": "Prevent low-glucose harm"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_ada_social"
+                  ],
+                  "text": "A written plan is only useful when the person can obtain supplies, food, medications and help. Assess language, literacy, vision, dexterity and available support as relevant. Arrange diabetes education, pharmacy or community assistance for identified barriers, and confirm how the person can reach the treating team when the usual clinic is closed."
+                }
+              ],
+              "title": "Make the plan usable before discharge"
+            }
+          }
+        ],
+        "subtitle": "A written plan for glucose, ketones, hydration and timely escalation",
+        "title": "Diabetes sick-day safety"
+      }
+    }
+  },
+  {
+    "reference": {
+      "_0": {
+        "citations": [
+          {
+            "detail": "High Blood Pressure: Treatment. Updated April 30, 2024. NIH-authored lifestyle and medication-class prose only; Nucleus Medical Media animation excluded. Target/threshold updates use AHA/ACC 2025 separately.",
+            "id": "common_conditions_bp_treatment",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NHLBI, National Institutes of Health",
+            "shortName": "NHLBI · Blood-pressure treatment",
+            "url": "https://www.nhlbi.nih.gov/health/high-blood-pressure/treatment"
+          },
+          {
+            "detail": "NHLBI · Living with high blood pressure",
+            "id": "common_conditions_bp_followup",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NHLBI, National Institutes of Health",
+            "shortName": "NHLBI · Living with high blood pressure",
+            "url": "https://www.nhlbi.nih.gov/health/high-blood-pressure/living-with"
+          },
+          {
+            "detail": "Official guideline summary, August 14, 2025. Guideline DOI: 10.1161/CIR.0000000000001356. Adult thresholds, PREVENT risk, goals and severe hypertension context.",
+            "id": "common_conditions_aha_bp",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Heart Association / American College of Cardiology",
+            "shortName": "AHA/ACC 2025 · Adult hypertension guideline",
+            "url": "https://professional.heart.org/en/science-news/2025-high-blood-pressure-guideline/top-things-to-know"
+          },
+          {
+            "detail": "KDIGO 2024 Clinical Practice Guideline for the Evaluation and Management of Chronic Kidney Disease. Kidney International. 105(Suppl 4S):S117–S314. Practice points 3.6.2–3.6.5, printed S159 / PDF page 44. CKD-specific monitoring.",
+            "id": "common_conditions_kdigo",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "Kidney Disease: Improving Global Outcomes",
+            "shortName": "KDIGO 2024 · CKD and RAS-inhibitor monitoring",
+            "url": "https://kdigo.org/wp-content/uploads/2024/03/KDIGO-2024-CKD-Guideline.pdf"
+          },
+          {
+            "detail": "NHLBI · Low blood pressure",
+            "id": "common_conditions_low_bp",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NHLBI, National Institutes of Health",
+            "shortName": "NHLBI · Low blood pressure",
+            "url": "https://www.nhlbi.nih.gov/health/low-blood-pressure"
+          },
+          {
+            "detail": "Bi Y et al. Intensive Blood-Pressure Control in Patients with Type 2 Diabetes. 2025;392:1155–1167. DOI: 10.1056/NEJMoa2412006. PMID: 39555827. Online 2024; print 2025. Randomized trial at 145 sites in China.",
+            "id": "common_conditions_bproad",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "New England Journal of Medicine / Massachusetts Medical Society",
+            "shortName": "BPROAD · Intensive blood-pressure control, 2025",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/39555827/"
+          }
+        ],
+        "eyebrow": "REFERENCE · COMMON CONDITIONS",
+        "id": "hypertension-medication-follow-up",
+        "lastSourceFidelityReview": "2026-09-19",
+        "nclexTags": {
+          "category": "physiologicalIntegrity",
+          "priorityConcept": "perfusion",
+          "subcategory": "reductionOfRiskPotential"
+        },
+        "sections": [
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_bp_treatment"
+                  ],
+                  "text": "Blood-pressure medicines act through different pathways: ACE inhibitors and ARBs reduce vessel constriction, calcium-channel blockers relax vascular muscle, and diuretics increase water and sodium removal. More than one class may be needed. A combination tablet can contain more than one active drug, so reconciliation should identify the actual ingredients and prescribed schedule."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_bp_followup"
+                  ],
+                  "text": "Follow-up should review current medicines, refill access, reported side effects, new health conditions and the home measurement record. Clarify changes made by different clinicians. Regular checks remain necessary when the person feels well, because absence of symptoms does not show whether long-term treatment is adequate."
+                }
+              ],
+              "title": "Connect the prescription to its purpose"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_aha_bp"
+                  ],
+                  "text": "The 2025 guideline supports standardized home monitoring paired with frequent team contact. Cuffless smartwatch readings should not substitute for a validated measurement approach. Treatment targets depend on the agreed clinical plan; an isolated reading does not by itself establish the need for a dose change."
+                }
+              ],
+              "title": "Interpret the response with measurement context"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_kdigo"
+                  ],
+                  "text": "For people with CKD starting or increasing an ACE inhibitor or ARB, KDIGO recommends checking blood pressure, serum creatinine and potassium within 2–4 weeks, with timing informed by baseline kidney function and potassium. This is CKD-specific guidance; higher-risk clinical circumstances may require an earlier plan from the treating team."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_kdigo"
+                  ],
+                  "text": "A creatinine rise greater than 30% within 4 weeks warrants clinical evaluation. KDIGO also emphasizes addressing hyperkalemia where possible rather than reflexively abandoning beneficial RAS inhibition. These findings require prescriber interpretation, including symptoms and reversible causes; the reference does not supply automatic medication hold or restart orders."
+                }
+              ],
+              "title": "Monitor kidney function when indicated"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_low_bp"
+                  ],
+                  "text": "Ask about dizziness, fainting, weakness, blurred vision or symptoms after standing. Low pressure can relate to medication effects, dehydration, blood loss or other disease. In older adults, postural or post-meal symptoms can increase fall risk. Document when symptoms occur relative to position, meals and medication use for clinical review."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_bproad"
+                  ],
+                  "text": "BPROAD illustrates the tradeoff: a lower systolic target reduced cardiovascular events in high-risk adults with type 2 diabetes, but symptomatic hypotension and hyperkalemia occurred more often. Nursing follow-up must therefore track tolerability and ordered laboratory results alongside the pressure trend, rather than treat a lower number as the only outcome."
+                }
+              ],
+              "title": "Capture tolerability as well as the number"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_bp_followup"
+                  ],
+                  "text": "Agree on who reviews the log, the next appointment and how refills will be obtained. Reminder tools and pharmacy support may help; pregnancy or pregnancy planning must be reported because medication choices may change. New neurologic symptoms, severe chest pain or breathing difficulty need emergency assessment rather than waiting for a scheduled medication review."
+                }
+              ],
+              "title": "Plan continuity and escalation"
+            }
+          }
+        ],
+        "subtitle": "Response, tolerability, kidney monitoring and practical continuity",
+        "title": "Hypertension medication follow-up"
+      }
+    }
+  },
+  {
+    "reference": {
+      "_0": {
+        "citations": [
+          {
+            "detail": "Standards of Care in Diabetes—2026, section 8. DOI: 10.2337/dc26-S008. Assessment, shared decisions and sustained treatment in people with or at risk of diabetes.",
+            "id": "common_conditions_ada_obesity",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Diabetes Association",
+            "shortName": "ADA 2026 · Obesity and weight management",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12690172/"
+          },
+          {
+            "detail": "NIDDK · Choosing a weight-loss program",
+            "id": "common_conditions_obesity_program",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIDDK, National Institutes of Health",
+            "shortName": "NIDDK · Choosing a weight-loss program",
+            "url": "https://www.niddk.nih.gov/health-information/weight-management/choosing-a-safe-successful-weight-loss-program"
+          },
+          {
+            "detail": "Aronne LJ et al. Continued Treatment With Tirzepatide for Maintenance of Weight Reduction in Adults With Obesity. JAMA. 2024;331:38–48. DOI: 10.1001/jama.2023.24945. Randomized withdrawal trial; Eli Lilly funded.",
+            "id": "common_conditions_surmount4",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "JAMA / American Medical Association",
+            "shortName": "SURMOUNT-4 · Weight maintenance, 2024",
+            "url": "https://jamanetwork.com/journals/jama/fullarticle/2812936"
+          },
+          {
+            "detail": "Aronne LJ et al. Tirzepatide as Compared with Semaglutide for the Treatment of Obesity. 2025;393:26–36. DOI: 10.1056/NEJMoa2416394. PMID: 40353578. Open-label randomized trial; Eli Lilly funded.",
+            "id": "common_conditions_surmount5",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "New England Journal of Medicine / Massachusetts Medical Society",
+            "shortName": "SURMOUNT-5 · Tirzepatide versus semaglutide, 2025",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40353578/"
+          },
+          {
+            "detail": "NIDDK · Prescription weight-management medicines",
+            "id": "common_conditions_obesity_medications",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIDDK, National Institutes of Health",
+            "shortName": "NIDDK · Prescription weight-management medicines",
+            "url": "https://www.niddk.nih.gov/health-information/weight-management/prescription-medications-treat-overweight-obesity"
+          },
+          {
+            "detail": "NIDDK · Health risks of overweight and obesity",
+            "id": "common_conditions_obesity_risks",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIDDK, National Institutes of Health",
+            "shortName": "NIDDK · Health risks of overweight and obesity",
+            "url": "https://www.niddk.nih.gov/health-information/weight-management/adult-overweight-obesity/health-risks"
+          }
+        ],
+        "eyebrow": "REFERENCE · COMMON CONDITIONS",
+        "id": "obesity-long-term-care",
+        "lastSourceFidelityReview": "2026-09-19",
+        "nclexTags": {
+          "category": "physiologicalIntegrity",
+          "priorityConcept": "nutrition",
+          "subcategory": "reductionOfRiskPotential"
+        },
+        "sections": [
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_ada_obesity"
+                  ],
+                  "text": "ADA 2026 treats obesity as a chronic condition with possible relapse. For people undergoing active weight-management treatment, it recommends monitoring anthropometric measures at least every 3 months. Follow-up should revisit health goals, treatment response and burden, rather than end as soon as an initial weight target is reached."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_obesity_program"
+                  ],
+                  "text": "Effective programs include continued support for eating patterns, appropriate activity and maintaining changes. The approach should fit culture, health, preferences and daily resources. Review the proposed maintenance support before enrollment; a program promising dramatic rapid loss without a durable follow-up plan is not equivalent to comprehensive care."
+                }
+              ],
+              "title": "Set a sustainable follow-up plan"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_surmount4"
+                  ],
+                  "text": "In SURMOUNT-4, adults without diabetes first received tirzepatide for 36 weeks. The 670 participants then randomized had lost a mean 20.9% of starting weight. Over the next 52 weeks, continued treatment produced an additional 5.5% reduction from randomization weight, while switching to placebo produced 14.0% regain. Those percentages use the randomization weight as the later comparison baseline."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_surmount4"
+                  ],
+                  "text": "This withdrawal design enrolled people who completed the initial treatment period. It supports a maintenance benefit from continued therapy in that selected population, but it does not mean every individual will tolerate ongoing treatment or regain the same amount after stopping. Both groups also received lifestyle support. Access interruptions and adverse effects therefore need an agreed contingency plan."
+                }
+              ],
+              "title": "Understand what withdrawal trials show"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_surmount5"
+                  ],
+                  "text": "In the 2025 SURMOUNT-5 comparison, gastrointestinal adverse effects were the most frequent events and often appeared during dose escalation. A nursing discussion should capture whether symptoms are affecting eating, drinking or treatment persistence, then connect the person with the prescribing team. The trial’s average weight response cannot replace individual assessment."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_obesity_medications"
+                  ],
+                  "text": "Cost, insurance coverage, other medicines and adverse effects can influence whether a treatment remains practical. Some people require long-term medication to maintain benefit. Any decision to continue, change or stop a product should include its specific safety information and a follow-up plan; weight regain after discontinuation can occur."
+                }
+              ],
+              "title": "Review tolerability and access"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_obesity_program"
+                  ],
+                  "text": "Physical activity can improve health even without a large weight change. Follow-up can examine participation in agreed activities and the ability to sustain nutrition changes, as well as the weight trend. Support should continue when progress slows, with adjustment of the plan to current abilities and resources."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_obesity_risks"
+                  ],
+                  "text": "Obesity-related conditions differ in their burden. Sleep apnea, joint pain, diabetes, hypertension and kidney disease may require their own ongoing care even when weight improves. Monitoring should stay connected to those diagnosed conditions and daily function; a lower body weight alone does not demonstrate resolution of every complication."
+                }
+              ],
+              "title": "Measure outcomes that matter to the person"
+            }
+          }
+        ],
+        "subtitle": "Maintenance, treatment burden and outcomes beyond weight",
+        "title": "Obesity: long-term treatment support"
+      }
+    }
+  }
+]

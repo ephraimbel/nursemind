@@ -1,0 +1,15 @@
+entry_id,title,tier,status,reviewer,reviewed_on,source_fidelity_checked_on,review_focus
+drug:suzetrigine,Suzetrigine,A,pending-independent-clinical-review,,,2026-09-19,"Label completeness, boxed-warning fidelity, indication scope, trial interpretation; dosing intentionally omitted"
+drug:gepotidacin,Gepotidacin,A,pending-independent-clinical-review,,,2026-09-19,"Label completeness, boxed-warning fidelity, indication scope, trial interpretation; dosing intentionally omitted"
+drug:brensocatib,Brensocatib,A,pending-independent-clinical-review,,,2026-09-19,"Label completeness, boxed-warning fidelity, indication scope, trial interpretation; dosing intentionally omitted"
+drug:nerandomilast,Nerandomilast,A,pending-independent-clinical-review,,,2026-09-19,"Label completeness, boxed-warning fidelity, indication scope, trial interpretation; dosing intentionally omitted"
+drug:donanemab,Donanemab,A,pending-independent-clinical-review,,,2026-09-19,"Label completeness, boxed-warning fidelity, indication scope, trial interpretation; dosing intentionally omitted"
+drug:zuranolone,Zuranolone,A,pending-independent-clinical-review,,,2026-09-19,"Label completeness, boxed-warning fidelity, indication scope, trial interpretation; dosing intentionally omitted"
+lab:plasma-p-tau217-amyloid-ratio,Plasma p-tau217 / amyloid ratio,A,pending-independent-clinical-review,,,2026-09-19,Assay-specific population and performance; collection labeling; no universal thresholds
+lab:self-collected-vaginal-hpv-testing,Self-collected vaginal HPV testing,A,pending-independent-clinical-review,,,2026-09-19,Assay-specific population and performance; collection labeling; no universal thresholds
+reference:lenacapavir-hiv-prevention-evidence,Lenacapavir for HIV prevention,A,pending-independent-clinical-review,,,2026-09-19,"Population, comparator, endpoint, effect estimate, uncertainty and current guidance"
+reference:rsv-adult-vaccination-evidence,Adult RSV vaccination evidence,A,pending-independent-clinical-review,,,2026-09-19,"Population, comparator, endpoint, effect estimate, uncertainty and current guidance"
+reference:obesity-medication-comparison-evidence,Obesity medication comparison evidence,A,pending-independent-clinical-review,,,2026-09-19,"Population, comparator, endpoint, effect estimate, uncertainty and current guidance"
+reference:diabetic-kidney-combination-evidence,Combination therapy in diabetic kidney disease,A,pending-independent-clinical-review,,,2026-09-19,"Population, comparator, endpoint, effect estimate, uncertainty and current guidance"
+reference:oral-semaglutide-cardiovascular-evidence,Oral semaglutide cardiovascular evidence,A,pending-independent-clinical-review,,,2026-09-19,"Population, comparator, endpoint, effect estimate, uncertainty and current guidance"
+reference:blood-pressure-diabetes-evidence,Blood-pressure targets in diabetes,A,pending-independent-clinical-review,,,2026-09-19,"Population, comparator, endpoint, effect estimate, uncertainty and current guidance"

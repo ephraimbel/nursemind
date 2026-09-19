@@ -167,9 +167,21 @@ public enum BedsideNutritionAssessmentSample {
                 AttributedBullet("Record the actual intake pattern and specific barriers, such as poor appetite, difficulty swallowing or inability to manage meals independently.", citationIDs: ["bedside_nutrition"]),
                 AttributedBullet("Share concerns about inadequate intake or swallowing with the care team so the nutrition plan and appropriate referrals can be evaluated.", citationIDs: ["bedside_nutrition"]),
                 AttributedBullet("Reassess whether the plan improves intake and addresses the identified barriers. Therapeutic diet selection is a separate question from identifying why a patient is not eating.", citationIDs: ["bedside_nutrition"])
+            ]),
+            .bullets(title: "Connect screening with evidence", [
+                AttributedBullet("A 2019 meta-analysis included 27 trials and 6,803 medical inpatients who were malnourished or at nutritional risk. It examined oral or enteral nutritional support in noncritically ill patients, not routine supplementation for all hospitalized adults.", citationIDs: ["bedside_evidence_nutrition_study"])
+            ]),
+            .bullets(title: "Understand the reported outcomes", [
+                AttributedBullet("In trials contributing mortality data, deaths occurred in 8.3% of intervention participants and 11.0% of controls; the pooled odds ratio was 0.73, 95% confidence interval 0.56–0.97. Nonelective readmissions were also lower. Odds ratios and absolute event proportions describe different aspects of the result.", citationIDs: ["bedside_evidence_nutrition_study"])
+            ]),
+            .bullets(title: "Avoid inventing a feeding prescription", [
+                AttributedBullet("Protocols and populations differed, and subgroup findings suggested benefit varied with nutritional status and adherence. These results support attention to malnutrition but do not supply a universal calorie, protein or fluid target. ICU, pediatric and disease-specific feeding decisions require their own assessment.", citationIDs: ["bedside_evidence_nutrition_study"])
+            ]),
+            .bullets(title: "Describe what prevents intake", [
+                AttributedBullet("The evidence concerns delivered nutritional support rather than a completed screening form alone. The review reported improvements in energy and protein intake and weight; use those findings as context for a team-based nutrition plan, not as patient-specific treatment targets.", citationIDs: ["bedside_evidence_nutrition_study"])
             ])
         ],
-        citations: [bedside_nutrition],
+        citations: [bedside_nutrition, BedsideEvidenceSources.nutrition_study],
         lastSourceFidelityReview: "2026-09-17"
     )
 }
@@ -194,9 +206,21 @@ public enum HospitalSleepSupportSample {
             .bullets(title: "Reassess sleep quality", [
                 AttributedBullet("Record the patient’s description of rest, observed awakenings and daytime effects. Note snoring or observed pauses in breathing for clinical follow-up.", citationIDs: ["bedside_sleep"]),
                 AttributedBullet("Evaluate whether changes improve rest and whether new symptoms need further assessment. Persistent sleep concerns require a plan beyond reducing nighttime noise.", citationIDs: ["bedside_sleep"])
+            ]),
+            .bullets(title: "What the inpatient research shows", [
+                AttributedBullet("A 2024 systematic review included 59 studies with 14,035 hospitalized adults; 28 studies were randomized trials. Environmental changes and relaxation approaches showed signals of benefit, but study methods and sleep measurements varied substantially.", citationIDs: ["bedside_evidence_sleep_study"])
+            ]),
+            .bullets(title: "Keep uncertainty visible", [
+                AttributedBullet("The review found moderate to high risk of bias overall and could not pool interventions into a meta-analysis. Improved self-reported sleep does not establish better recovery or fewer complications. Evidence was insufficient to identify a single standard program for every ward.", citationIDs: ["bedside_evidence_sleep_study"])
+            ]),
+            .bullets(title: "Plan changes the patient can use", [
+                AttributedBullet("Patient partners emphasized acceptability and feasibility. Eye masks or earplugs may be useful for some people; others need staff assistance. Clustering care and reducing light or noise require coordination, with necessary clinical monitoring taking precedence over sleep interventions.", citationIDs: ["bedside_evidence_sleep_study"])
+            ]),
+            .bullets(title: "Evaluate more than time in bed", [
+                AttributedBullet("The authors recommend combining patient-reported sleep with objective measures in future evaluation. Reports of quality, awakenings and daytime effects can describe different aspects of rest. Study findings should not be converted into a promise that one device or relaxation technique will work for everyone.", citationIDs: ["bedside_evidence_sleep_study"])
             ])
         ],
-        citations: [bedside_sleep],
+        citations: [bedside_sleep, BedsideEvidenceSources.sleep_study],
         lastSourceFidelityReview: "2026-09-17"
     )
 }
@@ -221,9 +245,21 @@ public enum BedsideMobilityAssessmentSample {
             .bullets(title: "Plan and reassess with the team", [
                 AttributedBullet("Use the assessment to individualize mobility goals and collaborate with rehabilitation staff when needed. Reassess tolerance and function as the condition changes.", citationIDs: ["bedside_mobility"]),
                 AttributedBullet("The assessment describes current ability; transfer technique and equipment use require the applicable safe-handling procedure and care plan.", citationIDs: ["bedside_mobility"])
+            ]),
+            .bullets(title: "Evidence for inpatient walking", [
+                AttributedBullet("A systematic review of hospital walking programs included 15 unique studies involving adults aged at least 65 years. Seven studies contributed to the main length-of-stay meta-analysis. Walking programs did not produce a statistically significant pooled reduction in length of stay.", citationIDs: ["bedside_evidence_walking"])
+            ]),
+            .bullets(title: "Choose an outcome that matches the goal", [
+                AttributedBullet("Individual studies suggested benefits, but study methods and walking exposure varied. The authors cautioned that length of stay may not capture functional benefit. A non-significant hospital-stay result is not proof that walking has no value, and it does not establish a universal step target.", citationIDs: ["bedside_evidence_walking"])
+            ]),
+            .bullets(title: "Reassess activity tolerance", [
+                AttributedBullet("Review current assistance and weight-bearing orders, then monitor the response to activity. Document symptoms, vital-sign response and actual assistance needs. Reassess dizziness or difficulty tolerating the activity before progressing; safe participation depends on the current assessment, not only the planned goal.", citationIDs: ["bedside_evidence_mobility"])
+            ]),
+            .bullets(title: "Keep program evidence within scope", [
+                AttributedBullet("Only a minority of studies quantified walking dose using steps or distance. The review does not identify an optimal walking prescription for every older inpatient. Critical illness and individual restrictions need their own mobility plan and trained staff support.", citationIDs: ["bedside_evidence_walking"])
             ])
         ],
-        citations: [bedside_mobility],
+        citations: [bedside_mobility, BedsideEvidenceSources.walking, BedsideEvidenceSources.mobility],
         lastSourceFidelityReview: "2026-09-17"
     )
 }
@@ -250,9 +286,21 @@ public enum HospitalOralCareSample {
             ]),
             .bullets(title: "Adult mechanical ventilation", [
                 AttributedBullet("SHEA/IDSA/APIC’s adult pneumonia-prevention guidance supports daily toothbrushing without routine oral chlorhexidine. Use the relevant ventilated-patient protocol rather than extending a general ward routine to every airway situation.", citationIDs: ["bedside_shea_2022"])
+            ]),
+            .bullets(title: "Evidence behind toothbrushing", [
+                AttributedBullet("A 2024 meta-analysis of 15 randomized trials compared oral care with and without toothbrushing in hospitalized adults. After adjustment for a cluster trial, the effective sample was 2,786. Pneumonia risk was lower with toothbrushing: risk ratio 0.67, 95% confidence interval 0.56–0.81.", citationIDs: ["bedside_evidence_brushing"])
+            ]),
+            .bullets(title: "Separate ventilated and ward evidence", [
+                AttributedBullet("The clearest evidence came from patients receiving invasive mechanical ventilation. Evidence in nonventilated patients was limited and less certain. The overall relative result should not be presented as a guaranteed ward-level benefit or a patient’s personal risk reduction.", citationIDs: ["bedside_evidence_brushing"])
+            ]),
+            .bullets(title: "Keep research distinct from the care protocol", [
+                AttributedBullet("Toothbrushing was also associated with lower ICU mortality and shorter ventilation and ICU stay. Hospital length of stay and antibiotic use did not clearly differ. These findings do not establish that every mouth-care product or antiseptic has the same benefit.", citationIDs: ["bedside_evidence_brushing"])
+            ]),
+            .bullets(title: "Plan for physical barriers", [
+                AttributedBullet("CDC’s nonventilated-patient toolkit includes the oral-health history, pain, dry mouth, dentures and ability to manage oral care. Supplies need to be available, and the assistance plan should account for swallowing difficulty or inability to spit. Reassess barriers rather than recording only that products were supplied.", citationIDs: ["bedside_oral_cdc"])
             ])
         ],
-        citations: [bedside_oral_cdc, bedside_shea_2022],
+        citations: [bedside_oral_cdc, bedside_shea_2022, BedsideEvidenceSources.brushing],
         lastSourceFidelityReview: "2026-09-17"
     )
 }

@@ -55,6 +55,6 @@ extension EntryLinkRegistry {
             EntryLink(from: "reference:post-arrest-assessment-priorities", to: "reference:post-icu-recovery", relation: .seeAlso),
             EntryLink(from: "reference:cardiac-arrest-recovery-support", to: "reference:post-icu-recovery", relation: .seeAlso),
             EntryLink(from: "reference:cardiac-arrest-recovery-support", to: "reference:code-blue-roles", relation: .seeAlso)
-        ]
+        ] + icuEvidenceDraftLinks()
     }
 }

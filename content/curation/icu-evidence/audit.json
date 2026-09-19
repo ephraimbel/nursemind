@@ -1,0 +1,197 @@
+{
+  "entryCount": 16,
+  "sourceCount": 30,
+  "words": 4800,
+  "citedBlocks": 123,
+  "entries": [
+    {
+      "id": "reference:icu-preoxygenation-evidence",
+      "title": "Preoxygenation & peri-intubation oxygenation",
+      "words": 250,
+      "citedBlocks": 6,
+      "reviewTier": "A",
+      "reviewStatus": "pending-independent-RN-review"
+    },
+    {
+      "id": "reference:icu-intubation-first-pass-evidence",
+      "title": "First-attempt intubation evidence",
+      "words": 245,
+      "citedBlocks": 6,
+      "reviewTier": "A",
+      "reviewStatus": "pending-independent-RN-review"
+    },
+    {
+      "id": "reference:high-risk-extubation-support",
+      "title": "High-risk extubation & preventive support",
+      "words": 251,
+      "citedBlocks": 6,
+      "reviewTier": "A",
+      "reviewStatus": "pending-independent-RN-review"
+    },
+    {
+      "id": "reference:ards-treatment-evidence",
+      "title": "ARDS treatment evidence",
+      "words": 255,
+      "citedBlocks": 6,
+      "reviewTier": "A",
+      "reviewStatus": "pending-independent-RN-review"
+    },
+    {
+      "id": "reference:sepsis-fluid-strategy-evidence",
+      "title": "Sepsis fluid strategy evidence",
+      "words": 287,
+      "citedBlocks": 7,
+      "reviewTier": "A",
+      "reviewStatus": "pending-independent-RN-review"
+    },
+    {
+      "id": "reference:septic-shock-corticosteroid-evidence",
+      "title": "Corticosteroids in septic shock",
+      "words": 267,
+      "citedBlocks": 7,
+      "reviewTier": "A",
+      "reviewStatus": "pending-independent-RN-review"
+    },
+    {
+      "id": "reference:aki-kidney-support-timing",
+      "title": "AKI & timing of kidney support",
+      "words": 293,
+      "citedBlocks": 8,
+      "reviewTier": "A",
+      "reviewStatus": "pending-independent-RN-review"
+    },
+    {
+      "id": "reference:icu-stress-ulcer-prophylaxis",
+      "title": "Stress ulcer prophylaxis in the ICU",
+      "words": 244,
+      "citedBlocks": 6,
+      "reviewTier": "A",
+      "reviewStatus": "pending-independent-RN-review"
+    },
+    {
+      "id": "reference:icu-sedation-drug-evidence",
+      "title": "Dexmedetomidine & propofol evidence",
+      "words": 268,
+      "citedBlocks": 6,
+      "reviewTier": "A",
+      "reviewStatus": "pending-independent-RN-review"
+    },
+    {
+      "id": "reference:remimazolam-procedural-sedation-evidence",
+      "title": "Remimazolam procedural sedation evidence",
+      "words": 282,
+      "citedBlocks": 7,
+      "reviewTier": "A",
+      "reviewStatus": "pending-independent-RN-review"
+    },
+    {
+      "id": "diagnosis:hepatorenal-syndrome-aki",
+      "title": "Hepatorenal syndrome\u2013AKI",
+      "words": 319,
+      "citedBlocks": 9,
+      "reviewTier": "A",
+      "reviewStatus": "pending-independent-RN-review"
+    },
+    {
+      "id": "drug:terlipressin",
+      "title": "Terlipressin",
+      "words": 470,
+      "citedBlocks": 12,
+      "reviewTier": "A",
+      "reviewStatus": "pending-independent-RN-review"
+    },
+    {
+      "id": "drug:remimazolam",
+      "title": "Remimazolam",
+      "words": 379,
+      "citedBlocks": 10,
+      "reviewTier": "A",
+      "reviewStatus": "pending-independent-RN-review"
+    },
+    {
+      "id": "drug:sulbactam-durlobactam",
+      "title": "Sulbactam\u2013durlobactam",
+      "words": 418,
+      "citedBlocks": 11,
+      "reviewTier": "A",
+      "reviewStatus": "pending-independent-RN-review"
+    },
+    {
+      "id": "diagnosis:carbapenem-resistant-acinetobacter-infection",
+      "title": "Carbapenem-resistant Acinetobacter infection",
+      "words": 321,
+      "citedBlocks": 9,
+      "reviewTier": "A",
+      "reviewStatus": "pending-independent-RN-review"
+    },
+    {
+      "id": "reference:attack-trial-crab-treatment",
+      "title": "CRAB treatment evidence: ATTACK",
+      "words": 251,
+      "citedBlocks": 7,
+      "reviewTier": "A",
+      "reviewStatus": "pending-independent-RN-review"
+    }
+  ],
+  "sourceAttributedWordCounts": {
+    "icu_evidence_preoxi": 126,
+    "icu_evidence_prevent": 124,
+    "icu_evidence_device": 118,
+    "icu_evidence_bougie": 127,
+    "icu_evidence_highwean": 124,
+    "icu_evidence_aarc_sbt": 127,
+    "icu_evidence_ats_ards": 124,
+    "icu_evidence_rose": 131,
+    "icu_evidence_clovers": 124,
+    "icu_evidence_classic": 79,
+    "icu_evidence_ssc2026": 149,
+    "icu_evidence_adrenal": 75,
+    "icu_evidence_aprocchss": 72,
+    "icu_evidence_steroids": 84,
+    "icu_evidence_starrt": 147,
+    "icu_evidence_ideal": 117,
+    "icu_evidence_revise": 116,
+    "icu_evidence_sup": 128,
+    "icu_evidence_mends": 132,
+    "icu_evidence_padis": 136,
+    "icu_evidence_remi_trial": 125,
+    "icu_evidence_remi_label": 491,
+    "icu_evidence_ismp": 45,
+    "icu_evidence_adqi": 170,
+    "icu_evidence_terli_label": 536,
+    "icu_evidence_confirm": 83,
+    "icu_evidence_xacduro_label": 559,
+    "icu_evidence_idsa2026": 138,
+    "icu_evidence_cdc_crab": 149,
+    "icu_evidence_attack": 144
+  },
+  "retrievedLabelSHA256": {
+    "terlipressin": "cb9ec595105716c6740ce8ebd9b6fc4d3afdbd02e4939b489646597ec6734c28",
+    "remimazolam": "5f5b4cf65fe5fb2efd92cdd17b5c3732f7de78df07f2f3b14343e1fc65491e65",
+    "xacduro": "73e77cabb103f06e837fcce5fc020c5b72429604c028dfc4b4fd23a5d687e7cf"
+  },
+  "checks": {
+    "newIDsUniqueAgainstBaseline": true,
+    "relatedEndpointsResolveAgainstBaselineAndBatch": true,
+    "allBlocksHaveDeclaredSources": true,
+    "copyrightedSourceBodyWordsAtMost200": true,
+    "drugLabelSentenceMatch": "Passed after whitespace normalization and cross-reference removal; classification statements checked separately.",
+    "clinicalReview": "Pending independent RN review; no credentialed review claimed."
+  },
+  "validation": {
+    "reviewBuildTests": "27 tests in 5 suites passed",
+    "finalICUSuite": "3 tests in 1 suite passed; parameterized over 16 entries",
+    "appBuild": "Succeeded; Debug plus ICU_EVIDENCE_REVIEW",
+    "visualInspection": [
+      "preoxygenation reference",
+      "terlipressin drug and absent dosing navigation target",
+      "carbapenem-resistant Acinetobacter diagnosis"
+    ],
+    "publicationGate": "Actual generated files compile with empty entries/collections/links in normal Debug and non-Debug with review flag; isolated Swift harness",
+    "releaseAppExecution": "Not performed",
+    "productionManifests": "16 candidate IDs absent from current shared title and evidence-hash manifests",
+    "clinicalReview": "Pending independent RN review",
+    "entriesSHA256": "b5b70e98fbc25614eda3b8cae22b5ec15e1b6f2bba5a44536a962a11cc37f35d",
+    "sourcesSHA256": "91a73c182fa2ca62c99c901a89b57b27f911d109447bb59eee20974752cff33c"
+  }
+}

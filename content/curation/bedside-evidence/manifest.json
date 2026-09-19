@@ -1,0 +1,1388 @@
+{
+  "date": "2026-09-19",
+  "scope": "Adult bedside evidence and education; study summaries are not prescribing protocols.",
+  "clinicalReview": {
+    "status": "pending",
+    "publicationApproved": false,
+    "note": "Local development content. Source fidelity and automated checks are not independent clinical approval. No deployment is authorized by this manifest."
+  },
+  "sources": [
+    {
+      "id": "bedside_evidence_delirium",
+      "shortName": "Burton et al. — Non-ICU delirium prevention (2021)",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/34826144/",
+      "license": "factCitationOnly",
+      "detail": "Cochrane Database Syst Rev. 2021;11:CD013307. Abstract: multicomponent prevention comparison, certainty and population. Brief original factual summary only; no reproduced review, algorithm or instrument.",
+      "publisher": "Cochrane / Wiley",
+      "lastRetrieved": "2026-09-19",
+      "evidenceType": "systematicReview",
+      "publicationYear": 2021
+    },
+    {
+      "id": "bedside_evidence_cognition",
+      "shortName": "Open RN — Cognitive impairments, section 6.2",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK610835/",
+      "license": "ccBy4",
+      "detail": "Ernstmeyer K, Christman E, editors. Nursing Fundamentals, 2nd ed. (2024), section 6.2, Delirium and Comparison of Three Conditions. Original nursing prose adapted and condensed by NurseMind under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Developmental-theory sections derived from StatPearls/OpenStax, figures, instruments and third-party tables excluded.",
+      "publisher": "Open Resources for Nursing; Chippewa Valley Technical College",
+      "lastRetrieved": "2026-09-19",
+      "evidenceType": "nursingTextbook",
+      "publicationYear": 2024
+    },
+    {
+      "id": "bedside_evidence_falls",
+      "shortName": "Morris et al. — Hospital falls interventions (2022)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9078046/",
+      "license": "ccBy4",
+      "detail": "Age Ageing. 2022;51:afac077. doi:10.1093/ageing/afac077. Abstract, Results and Discussion. Adapted and condensed by NurseMind under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/); no figures or tables.",
+      "publisher": "The authors; Oxford University Press / British Geriatrics Society",
+      "lastRetrieved": "2026-09-19",
+      "evidenceType": "systematicReview",
+      "publicationYear": 2022
+    },
+    {
+      "id": "bedside_evidence_mobility",
+      "shortName": "Open RN — Mobility, sections 13.2–13.3",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK610826/",
+      "license": "ccBy4",
+      "detail": "Ernstmeyer K, Christman E, editors. Nursing Fundamentals, 2nd ed. (2024). Original nursing assessment, activity-tolerance and safe-handling prose adapted and condensed by NurseMind under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). No proprietary tools, figures, diagnostic-taxonomy tables or externally attributed intervention lists.",
+      "publisher": "Open Resources for Nursing; Chippewa Valley Technical College",
+      "lastRetrieved": "2026-09-19",
+      "evidenceType": "nursingTextbook",
+      "publicationYear": 2024
+    },
+    {
+      "id": "bedside_evidence_turning",
+      "shortName": "Yap et al. — TEAM-UP repositioning trial (2022)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9119401/",
+      "license": "factCitationOnly",
+      "detail": "Effect of Varying Repositioning Frequency on Pressure Injury Prevention in Nursing Home Residents: TEAM-UP Trial Results. Methods, eligibility, Results and limitations. Brief original factual paraphrase only; no reproduced tables, protocol or Braden instrument.",
+      "publisher": "Advances in Skin & Wound Care / Wolters Kluwer",
+      "lastRetrieved": "2026-09-19",
+      "evidenceType": "clusterRandomizedTrial",
+      "publicationYear": 2022
+    },
+    {
+      "id": "bedside_evidence_skin",
+      "shortName": "Open RN — Integumentary assessment, section 10.6",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK610817/",
+      "license": "ccBy4",
+      "detail": "Ernstmeyer K, Christman E, editors. Nursing Fundamentals, 2nd ed. (2024). Section 10.6, original assessment, implementation and evaluation prose adapted and condensed by NurseMind under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Braden derivatives, NANDA/NIC tables, staging images and fixed treatment schedules excluded.",
+      "publisher": "Open Resources for Nursing; Chippewa Valley Technical College",
+      "lastRetrieved": "2026-09-19",
+      "evidenceType": "nursingTextbook",
+      "publicationYear": 2024
+    },
+    {
+      "id": "bedside_evidence_hydration",
+      "shortName": "Viñas et al. — Dysphagia and hydration (2022)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9228104/",
+      "license": "factCitationOnly",
+      "detail": "Nutrients. 2022;14:2497. doi:10.3390/nu14122497. Abstract and conclusions of two parallel systematic/scoping reviews. Brief original factual paraphrase; no source prose, figures or fluid prescription reproduced. Hydration findings must not be represented as pneumonia-prevention evidence.",
+      "publisher": "The authors; Nutrients / MDPI",
+      "lastRetrieved": "2026-09-19",
+      "evidenceType": "systematicAndScopingReviews",
+      "publicationYear": 2022
+    },
+    {
+      "id": "bedside_evidence_swallow",
+      "shortName": "MedlinePlus — Dysphagia tests",
+      "url": "https://medlineplus.gov/lab-tests/dysphagia-tests/",
+      "license": "publicDomain",
+      "detail": "NLM-authored Medical Test page: purpose, symptoms, screening versus diagnostic testing, FEES and VFSS. Adapted and condensed by NurseMind. Excludes linked third-party pages and images.",
+      "publisher": "National Library of Medicine",
+      "lastRetrieved": "2026-09-19",
+      "evidenceType": "federalEducation",
+      "publicationYear": null
+    },
+    {
+      "id": "bedside_evidence_discharge",
+      "shortName": "Becker et al. — Discharge communication (2021)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8397933/",
+      "license": "ccBy4",
+      "detail": "JAMA Netw Open. 2021;4:e2119346. doi:10.1001/jamanetworkopen.2021.19346. Abstract, eligibility and limitations. Adapted and condensed by NurseMind under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/); no figures or tables.",
+      "publisher": "The authors; JAMA Network Open",
+      "lastRetrieved": "2026-09-19",
+      "evidenceType": "systematicReview",
+      "publicationYear": 2021
+    },
+    {
+      "id": "bedside_evidence_red",
+      "shortName": "AHRQ — Re-Engineered Discharge, Tool 3",
+      "url": "https://www.ahrq.gov/patient-safety/settings/hospital/red/toolkit/redtool3.html",
+      "license": "factCitationOnly",
+      "detail": "Re-Engineered Discharge Toolkit (2013), Tool 3: roles, follow-up, pending results and after-hospital plan. Brief original factual summary; contractor-authored toolkit is not assumed public domain. Obsolete National Guideline Clearinghouse reference, templates and third-party materials excluded.",
+      "publisher": "Agency for Healthcare Research and Quality; Boston University RED team",
+      "lastRetrieved": "2026-09-19",
+      "evidenceType": "implementationToolkit",
+      "publicationYear": 2013
+    },
+    {
+      "id": "bedside_evidence_teach_study",
+      "shortName": "Talevski et al. — Teach-back implementation (2020)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7156054/",
+      "license": "ccBy4",
+      "detail": "PLoS One. 2020;15:e0231350. doi:10.1371/journal.pone.0231350. Abstract, intervention definition, implementation and limitations. Adapted and condensed by NurseMind under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/); excludes figures.",
+      "publisher": "Talevski and colleagues; PLOS",
+      "lastRetrieved": "2026-09-19",
+      "evidenceType": "systematicReview",
+      "publicationYear": 2020
+    },
+    {
+      "id": "bedside_evidence_teach",
+      "shortName": "AHRQ — Use the teach-back method, Tool 5",
+      "url": "https://www.ahrq.gov/health-literacy/improve/precautions/tool5.html",
+      "license": "factCitationOnly",
+      "detail": "Health Literacy Universal Precautions Toolkit, third edition, Tool 5; reviewed April 2024. Brief original factual summary of teach-back, show-me and implementation; no copied scripts or externally linked instruments. Contractor authorship is not assumed public domain.",
+      "publisher": "Agency for Healthcare Research and Quality",
+      "lastRetrieved": "2026-09-19",
+      "evidenceType": "implementationToolkit",
+      "publicationYear": 2024
+    },
+    {
+      "id": "bedside_evidence_marquis",
+      "shortName": "Schnipper et al. — MARQUIS2 medication reconciliation",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10964422/",
+      "license": "factCitationOnly",
+      "detail": "Effects of a refined evidence-based toolkit and mentored implementation on medication reconciliation at 18 hospitals: results of the MARQUIS2 study. Published online 2021. Abstract: design, discrepancy outcome and interrupted time-series analysis. Brief original factual summary; no toolkit or source prose reproduced.",
+      "publisher": "BMJ Quality & Safety; MARQUIS2 investigators",
+      "lastRetrieved": "2026-09-19",
+      "evidenceType": "qualityImprovementStudy",
+      "publicationYear": 2021
+    },
+    {
+      "id": "bedside_evidence_match",
+      "shortName": "AHRQ — MATCH medication reconciliation, chapter 3",
+      "url": "https://www.ahrq.gov/patient-safety/settings/hospital/match/chapter-3.html",
+      "license": "factCitationOnly",
+      "detail": "Medications at Transitions and Clinical Handoffs Toolkit (2012), chapter 3: shared list, roles and transition workflow. Brief original factual summary; no copied forms or workflow diagrams. Contractor authorship is not assumed public domain.",
+      "publisher": "Agency for Healthcare Research and Quality",
+      "lastRetrieved": "2026-09-19",
+      "evidenceType": "implementationToolkit",
+      "publicationYear": 2012
+    },
+    {
+      "id": "bedside_evidence_sleep_study",
+      "shortName": "Acharya et al. — Inpatient sleep interventions (2024)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11004792/",
+      "license": "ccBy4",
+      "detail": "Acharya R, Blackwell S, Simoes J, et al. Non-pharmacological interventions to improve sleep quality and quantity for hospitalized adult patients—co-produced study with surgical patient partners: systematic review. BJS Open. 2024;zrae018. doi:10.1093/bjsopen/zrae018. Abstract and Discussion. Adapted and condensed by NurseMind under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/).",
+      "publisher": "The authors; BJS Open / Oxford University Press",
+      "lastRetrieved": "2026-09-19",
+      "evidenceType": "systematicReview",
+      "publicationYear": 2024
+    },
+    {
+      "id": "bedside_evidence_nutrition_study",
+      "shortName": "Gomes et al. — Nutritional support in medical inpatients (2019)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6902795/",
+      "license": "ccBy4",
+      "detail": "JAMA Netw Open. 2019;2:e1915138. doi:10.1001/jamanetworkopen.2019.15138. Abstract: trial populations, mortality and readmissions. Adapted and condensed by NurseMind under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/); no diet targets, figures or tables.",
+      "publisher": "The authors; JAMA Network Open",
+      "lastRetrieved": "2026-09-19",
+      "evidenceType": "systematicReview",
+      "publicationYear": 2019
+    },
+    {
+      "id": "bedside_evidence_walking",
+      "shortName": "Loyd et al. — Hospital walking programs (2023)",
+      "url": "https://onlinelibrary.wiley.com/doi/10.1002/nop2.1496",
+      "license": "factCitationOnly",
+      "detail": "Nursing Open. 2023;10:1942–1953; online November 2022. doi:10.1002/nop2.1496. Results and Conclusion: older medical/surgical inpatients, length of stay and heterogeneity. Brief original factual summary only; no walking prescription or copied source text.",
+      "publisher": "Nursing Open / Wiley",
+      "lastRetrieved": "2026-09-19",
+      "evidenceType": "systematicReview",
+      "publicationYear": 2023
+    },
+    {
+      "id": "bedside_evidence_brushing",
+      "shortName": "Ehrenzeller & Klompas — Toothbrushing and pneumonia (2024)",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10728803/",
+      "license": "factCitationOnly",
+      "detail": "JAMA Intern Med. 2024;184:131–142; online December 2023. doi:10.1001/jamainternmed.2023.6638. Abstract and subgroup results. Brief original factual summary only; copyright American Medical Association, all rights reserved. No tables or figures.",
+      "publisher": "American Medical Association",
+      "lastRetrieved": "2026-09-19",
+      "evidenceType": "systematicReview",
+      "publicationYear": 2024
+    },
+    {
+      "id": "bedside_evidence_contacts",
+      "shortName": "VA Evidence Synthesis — Post-discharge contacts (2024)",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK613007/",
+      "license": "publicDomain",
+      "detail": "Boggan JC, Sankineni S, Gordon AM, et al. Effectiveness of Post-Discharge Contacts on Health Care Utilization and Patient Satisfaction. VA Evidence Synthesis Program, March 2024. Executive Summary: study eligibility, findings and certainty. Federal report explicitly public domain; adapted and condensed by NurseMind.",
+      "publisher": "Department of Veterans Affairs; Evidence Synthesis Program",
+      "lastRetrieved": "2026-09-19",
+      "evidenceType": "systematicReview",
+      "publicationYear": 2024
+    },
+    {
+      "id": "bedside_evidence_call",
+      "shortName": "AHRQ — Postdischarge follow-up phone call, Tool 5",
+      "url": "https://www.ahrq.gov/patient-safety/settings/hospital/red/toolkit/redtool5.html",
+      "license": "factCitationOnly",
+      "detail": "Re-Engineered Discharge Toolkit (2013), Tool 5: preparation, medication review, services and post-call communication. Brief original factual summary; no scripts or forms reproduced. Contractor authorship is not assumed public domain.",
+      "publisher": "Agency for Healthcare Research and Quality; Boston University RED team",
+      "lastRetrieved": "2026-09-19",
+      "evidenceType": "implementationToolkit",
+      "publicationYear": 2013
+    }
+  ],
+  "entries": [
+    {
+      "id": "delirium-prevention-ward-care",
+      "title": "Delirium prevention on adult wards",
+      "subtitle": "Orientation, sensory support, sleep and the limits of bundle evidence",
+      "priorityConcept": "cognition",
+      "sections": [
+        {
+          "title": "Recognize a change from baseline",
+          "blocks": [
+            {
+              "text": "Delirium develops over hours or days and can fluctuate. Dementia and delirium can coexist. Compare attention, alertness and thinking with the usual state described by the patient, family or prior records; a dementia diagnosis does not explain every new change.",
+              "citationIDs": [
+                "bedside_evidence_cognition"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "What the research studied",
+          "blocks": [
+            {
+              "text": "A 2021 Cochrane review examined prevention in hospitalized adults outside intensive care and high-dependency units. Fourteen studies involving 3,693 participants contributed to the multicomponent comparison. These were prevention programs, not a treatment trial for established delirium.",
+              "citationIDs": [
+                "bedside_evidence_delirium"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Study finding and certainty",
+          "blocks": [
+            {
+              "text": "Multicomponent programs probably reduced delirium incidence: risk ratio 0.57, 95% confidence interval 0.46–0.71. The review rated this moderate-certainty evidence because of risk of bias. This relative effect does not mean a 43-percentage-point reduction for every ward.",
+              "citationIDs": [
+                "bedside_evidence_delirium"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Make orientation and communication possible",
+          "blocks": [
+            {
+              "text": "Open RN describes a quiet, adequately lit environment, visible clocks or calendars and familiar visitors. Access to glasses and hearing aids supports communication. Consistent staff, when feasible, can reduce repeated unfamiliar encounters.",
+              "citationIDs": [
+                "bedside_evidence_cognition"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Look for a physiological contributor",
+          "blocks": [
+            {
+              "text": "Infection, hypoxia, electrolyte changes, medication effects and sleep disruption can contribute to acute confusion. New mental-status changes require prompt clinical assessment and communication; orientation measures do not replace evaluation of the underlying cause.",
+              "citationIDs": [
+                "bedside_evidence_cognition"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Keep prevention outcomes separate",
+          "blocks": [
+            {
+              "text": "The review found little or no clear effect on inpatient mortality, with lower certainty than for delirium incidence. The combined intervention result does not establish that one isolated component has the same benefit or that the findings apply unchanged to ICU care.",
+              "citationIDs": [
+                "bedside_evidence_delirium"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Observe over time",
+          "blocks": [
+            {
+              "text": "Symptoms may include sleepiness, altered alertness, disorganized speech or difficulty concentrating as well as agitation. Monitor the cognitive pattern over time and report changes. The care plan needs reassessment when attention or participation worsens, even if the patient is quiet.",
+              "citationIDs": [
+                "bedside_evidence_cognition"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Prevention is a coordinated program",
+          "blocks": [
+            {
+              "text": "Programs combined several non-drug measures, and the content varied between trials. The review’s component analysis was exploratory. It should not be read as a ranking that permits replacing the combined approach with whichever single activity is easiest to deliver.",
+              "citationIDs": [
+                "bedside_evidence_delirium"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Make baseline information available",
+          "blocks": [
+            {
+              "text": "Family or caregiver observations and earlier records help establish usual cognition. When the baseline is unclear, new confusion still warrants assessment for an acute cause. The clinical evaluation may include examination and targeted tests guided by the history.",
+              "citationIDs": [
+                "bedside_evidence_cognition"
+              ]
+            }
+          ]
+        }
+      ],
+      "relatedEntryIDs": [
+        "diagnosis:delirium",
+        "reference:hospital-sleep-support",
+        "reference:hearing-loss-communication"
+      ],
+      "clinicalReview": {
+        "tier": "B",
+        "status": "pending",
+        "reviewer": null,
+        "publicationApproved": false
+      },
+      "category": "physiologicalIntegrity",
+      "subcategory": "reductionOfRiskPotential"
+    },
+    {
+      "id": "inpatient-falls-prevention-evidence",
+      "title": "Inpatient falls: individualized prevention",
+      "subtitle": "Education, assistance needs and what alarms cannot establish",
+      "priorityConcept": "safety",
+      "sections": [
+        {
+          "title": "What the review covered",
+          "blocks": [
+            {
+              "text": "Morris and colleagues reviewed 43 hospital studies; 23 contributed to meta-analyses. Interventions included education, environmental changes, rehabilitation and combined programs. Studies differed substantially in design and care setting; home and residential-care falls were outside the review.",
+              "citationIDs": [
+                "bedside_evidence_falls"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "The clearest pooled finding",
+          "blocks": [
+            {
+              "text": "Education reduced the rate of falls: rate ratio 0.70, 95% confidence interval 0.51–0.96. The education evidence included patient and staff approaches. A fall rate counts events over exposure time; it is different from the proportion of people who fall.",
+              "citationIDs": [
+                "bedside_evidence_falls"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Translate the assessment into assistance",
+          "blocks": [
+            {
+              "text": "Open RN recommends assessing current mobility and ordered assistance or weight-bearing restrictions before activity. Determine which equipment and staff support the person needs now. Prior independence does not establish safe transfers during acute illness.",
+              "citationIDs": [
+                "bedside_evidence_mobility"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Watch the response to activity",
+          "blocks": [
+            {
+              "text": "Dizziness, light-headedness, breathlessness and changes in vital signs during activity warrant reassessment. Record tolerance and the assistance actually required. Mobility goals should be realistic for the person’s current condition and revised with the patient and team.",
+              "citationIDs": [
+                "bedside_evidence_mobility"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Limits of risk scores and alarms",
+          "blocks": [
+            {
+              "text": "Scored risk tools, bed or chair alarms and sensors did not show significant fall reductions in this review. This does not justify disabling prescribed safeguards. Their presence alone is not evidence that an individualized prevention plan has been completed.",
+              "citationIDs": [
+                "bedside_evidence_falls"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Interpret combined programs carefully",
+          "blocks": [
+            {
+              "text": "Some multifactorial trials were favorable and others were not. Differences in staffing and intervention delivery complicated interpretation. The review did not pool fall injuries because definitions varied; fewer falls and fewer injuries are separate outcomes.",
+              "citationIDs": [
+                "bedside_evidence_falls"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "What combined care may include",
+          "blocks": [
+            {
+              "text": "Included programs addressed combinations of toileting, call-button response, handover, equipment access, footwear, medications and cognition. Results reflected the whole program. The review could not determine which educational design or delivery method was optimal across hospitals.",
+              "citationIDs": [
+                "bedside_evidence_falls"
+              ]
+            }
+          ]
+        }
+      ],
+      "relatedEntryIDs": [
+        "reference:bedside-mobility-assessment",
+        "procedure:ambulatory-aid-teaching",
+        "scenario:falls-prevention-scenario"
+      ],
+      "clinicalReview": {
+        "tier": "B",
+        "status": "pending",
+        "reviewer": null,
+        "publicationApproved": false
+      },
+      "category": "safeAndEffectiveCare",
+      "subcategory": "safetyAndInfectionControl"
+    },
+    {
+      "id": "pressure-injury-repositioning-evidence",
+      "title": "Pressure injury prevention: repositioning context",
+      "subtitle": "Skin assessment, support surfaces and the TEAM-UP trial",
+      "priorityConcept": "safety",
+      "sections": [
+        {
+          "title": "Begin with skin and function",
+          "blocks": [
+            {
+              "text": "Document existing wounds and assess skin at admission. Continue assessment during the stay according to condition. Pain, moisture, impaired mobility and nutrition concerns can affect the prevention plan; a turning record alone does not describe tissue condition.",
+              "citationIDs": [
+                "bedside_evidence_skin"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "What TEAM-UP actually compared",
+          "blocks": [
+            {
+              "text": "TEAM-UP randomized nine nursing homes to repositioning intervals of 2, 3 or 4 hours. The four-week intervention involved 992 residents, high-density foam mattresses and sensor cues for staff. Eligible residents had no current pressure injury and Braden scores of at least 10.",
+              "citationIDs": [
+                "bedside_evidence_turning"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Read the result within its setting",
+          "blocks": [
+            {
+              "text": "No new pressure injuries occurred during the intervention in any assigned group. This finding came from supported nursing-home care with specific mattresses and monitoring. It does not establish a universal four-hour schedule for hospitalized patients, severe-risk patients or existing wounds.",
+              "citationIDs": [
+                "bedside_evidence_turning"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Reassess the condition, not just the clock",
+          "blocks": [
+            {
+              "text": "Open RN emphasizes assessing current skin and risk factors before implementing care, then modifying interventions when the condition changes. Worsening tissue findings or delayed healing require reassessment and may warrant wound-specialist involvement.",
+              "citationIDs": [
+                "bedside_evidence_skin"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Understand study limitations",
+          "blocks": [
+            {
+              "text": "Sensor wear was intermittent for many residents, and monitoring may have increased staff awareness across groups. The intervention was brief. Zero events under these study conditions cannot demonstrate that all repositioning intervals are equivalent in all populations.",
+              "citationIDs": [
+                "bedside_evidence_turning"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Include the patient’s experience",
+          "blocks": [
+            {
+              "text": "Ask about pain and the effect of wounds on sleep, activity and daily care. Chronic wounds can restrict independence and social participation. These observations help the team evaluate the burden of care as well as the appearance of the wound.",
+              "citationIDs": [
+                "bedside_evidence_skin"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Keep the plan responsive",
+          "blocks": [
+            {
+              "text": "Skin changes and new signs of local or systemic infection need clinical communication. Reassessment includes whether current interventions remain appropriate and whether healing is progressing. Pressure-redistribution and repositioning choices belong to the individualized clinical plan.",
+              "citationIDs": [
+                "bedside_evidence_skin"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Distinguish pressure from wound healing",
+          "blocks": [
+            {
+              "text": "Prevention and treatment are related but different questions. Existing wounds require assessment during dressing changes, while intact skin still needs surveillance for breakdown. A wound’s effect on comfort and function should be considered alongside its measured appearance.",
+              "citationIDs": [
+                "bedside_evidence_skin"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Do not substitute historical controls for randomization",
+          "blocks": [
+            {
+              "text": "The study also compared pressure-injury experience with a prior baseline period. That historical comparison included a different observation period and the introduction of monitoring, so it cannot isolate the effect of changing the turning interval alone.",
+              "citationIDs": [
+                "bedside_evidence_turning"
+              ]
+            }
+          ]
+        }
+      ],
+      "relatedEntryIDs": [
+        "diagnosis:pressure-injury",
+        "reference:wound-care-fundamentals",
+        "reference:bedside-mobility-assessment"
+      ],
+      "clinicalReview": {
+        "tier": "A",
+        "status": "pending",
+        "reviewer": null,
+        "publicationApproved": false
+      },
+      "category": "safeAndEffectiveCare",
+      "subcategory": "safetyAndInfectionControl"
+    },
+    {
+      "id": "dysphagia-hydration-evidence",
+      "title": "Dysphagia: hydration and thickened fluids",
+      "subtitle": "Swallowing assessment, intake monitoring and evidence limits",
+      "priorityConcept": "nutrition",
+      "sections": [
+        {
+          "title": "Two outcomes need attention",
+          "blocks": [
+            {
+              "text": "A 2022 systematic/scoping review examined hydration in adults with oropharyngeal dysphagia and the effects of thickened fluids. Hydration status and the volume actually consumed were distinct outcomes. A prescribed consistency alone does not establish adequate intake.",
+              "citationIDs": [
+                "bedside_evidence_hydration"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "What the review found",
+          "blocks": [
+            {
+              "text": "Nine of ten studies evaluating fluid intake reported consumption below basal water requirements. Other included studies reported improved hydration with thickened-fluid therapy. These findings require attention to intake and implementation rather than a blanket claim that thickening always improves or worsens hydration.",
+              "citationIDs": [
+                "bedside_evidence_hydration"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "What testing can establish",
+          "blocks": [
+            {
+              "text": "A bedside swallow screen identifies risk and may lead to further testing. It does not, by itself, characterize every swallowing disorder. A videofluoroscopic swallow study follows barium-containing foods and liquids during swallowing; FEES uses an endoscope to view swallowing in the throat.",
+              "citationIDs": [
+                "bedside_evidence_swallow"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Symptoms worth communicating",
+          "blocks": [
+            {
+              "text": "Swallowing concerns include coughing or choking with eating, a wet or gurgling voice, food sticking, and unexplained weight loss. Testing helps the team identify the problem and choose an appropriate plan. Symptoms and the patient’s history contribute to interpretation.",
+              "citationIDs": [
+                "bedside_evidence_swallow"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Do not overextend the evidence",
+          "blocks": [
+            {
+              "text": "The review addressed hydration and intake, not proof of reduced aspiration pneumonia. Included populations and methods varied. Its findings do not authorize changing a prescribed consistency or introducing a free-water protocol without the swallowing team’s assessment.",
+              "citationIDs": [
+                "bedside_evidence_hydration"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Prepare for an individualized assessment",
+          "blocks": [
+            {
+              "text": "The evaluating clinician provides test-specific preparation instructions. A list of swallowing symptoms and a complete medication history can help the assessment. Do not assume every dysphagia test requires the same fasting or medication changes.",
+              "citationIDs": [
+                "bedside_evidence_swallow"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Continue review when concerns persist",
+          "blocks": [
+            {
+              "text": "The authors emphasize close monitoring of fluid volume because intake can remain low. The clinical plan should account for whether recommended fluids are actually accepted and consumed; an order and a completed hydration assessment are different things.",
+              "citationIDs": [
+                "bedside_evidence_hydration"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Keep screening and treatment decisions connected",
+          "blocks": [
+            {
+              "text": "Follow-up testing may distinguish problems with chewing, initiating a swallow or passage through the esophagus. Referral can involve speech-language pathology or another relevant specialist. The appropriate assessment depends on where the suspected problem occurs, rather than on one symptom alone.",
+              "citationIDs": [
+                "bedside_evidence_swallow"
+              ]
+            }
+          ]
+        }
+      ],
+      "relatedEntryIDs": [
+        "reference:dysphagia-mealtime-support",
+        "reference:fluid-balance-monitoring",
+        "reference:hospital-oral-care"
+      ],
+      "clinicalReview": {
+        "tier": "A",
+        "status": "pending",
+        "reviewer": null,
+        "publicationApproved": false
+      },
+      "category": "physiologicalIntegrity",
+      "subcategory": "reductionOfRiskPotential"
+    },
+    {
+      "id": "discharge-communication-evidence",
+      "title": "Discharge communication: a usable transition plan",
+      "subtitle": "Medication access, pending results, follow-up and readmission evidence",
+      "priorityConcept": "safety",
+      "sections": [
+        {
+          "title": "Why the handoff needs more than paperwork",
+          "blocks": [
+            {
+              "text": "The RED toolkit distinguishes the patient’s after-hospital plan from the clinical discharge summary. The patient-facing plan explains what happens next; the summary communicates the hospital course to clinicians. Both need to support the transition.",
+              "citationIDs": [
+                "bedside_evidence_red"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Study population and finding",
+          "blocks": [
+            {
+              "text": "Becker and colleagues included 60 randomized trials in a 2021 review. Nineteen trials with 3,953 participants contributed to the readmission analysis. Communication interventions were associated with lower readmissions: risk ratio 0.69, 95% confidence interval 0.56–0.84.",
+              "citationIDs": [
+                "bedside_evidence_discharge"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Make follow-up achievable",
+          "blocks": [
+            {
+              "text": "Confirm appointment details, preparation and transportation with the patient. Identify pending tests and who will review the results. Arrange required services and equipment with the discharge team, and clarify the contact route when a problem arises.",
+              "citationIDs": [
+                "bedside_evidence_red"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Make the medication plan usable",
+          "blocks": [
+            {
+              "text": "Review the final medication plan with the patient and resolve access barriers, including cost or obtaining supplies. Explain changes and address concerns. Caregivers who will help at home need appropriate involvement in the teaching.",
+              "citationIDs": [
+                "bedside_evidence_red"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Separate a program result from a single technique",
+          "blocks": [
+            {
+              "text": "Trials tested varied approaches, including medication counseling, disease education and communication techniques. The pooled result does not identify one universally best script or establish that handing over written instructions alone produces the same effect. Some trials had high or unclear risk of bias.",
+              "citationIDs": [
+                "bedside_evidence_discharge"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Check understanding and close the handoff",
+          "blocks": [
+            {
+              "text": "Use the patient’s explanation of the plan to identify misunderstandings. Language assistance and clear written material support teaching. Communicate the plan to the clinicians accepting care so that follow-up is connected to the hospital decisions.",
+              "citationIDs": [
+                "bedside_evidence_red"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Read the outcome accurately",
+          "blocks": [
+            {
+              "text": "Observed readmission proportions were 9.1% in intervention groups and 13.5% in controls. These are pooled study observations, not an individual forecast. Better adherence and satisfaction were also reported; the source does not prove every readmission is preventable.",
+              "citationIDs": [
+                "bedside_evidence_discharge"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Identify the barriers before discharge",
+          "blocks": [
+            {
+              "text": "The discharge educator works with the multidisciplinary team to identify service gaps and practical barriers. A follow-up appointment is not an effective plan if the patient cannot get there or does not know the required preparation.",
+              "citationIDs": [
+                "bedside_evidence_red"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Match the time frame",
+          "blocks": [
+            {
+              "text": "The review’s main patient-relevant outcomes were assessed around 30 days after discharge. Results from those trials should not be relabeled as long-term effectiveness. Differences in underlying illnesses and intervention content limit transfer of one pooled estimate to every service.",
+              "citationIDs": [
+                "bedside_evidence_discharge"
+              ]
+            }
+          ]
+        }
+      ],
+      "relatedEntryIDs": [
+        "reference:discharge-teaching-framework",
+        "procedure:medication-reconciliation",
+        "communication:interpreter-use"
+      ],
+      "clinicalReview": {
+        "tier": "B",
+        "status": "pending",
+        "reviewer": null,
+        "publicationApproved": false
+      },
+      "category": "safeAndEffectiveCare",
+      "subcategory": "managementOfCare"
+    },
+    {
+      "id": "teach-back-and-show-me-evidence",
+      "title": "Teach-back and show-me: checking understanding",
+      "subtitle": "A repeatable teaching cycle with implementation evidence",
+      "priorityConcept": "safety",
+      "sections": [
+        {
+          "title": "Use a teaching check, not a memory test",
+          "blocks": [
+            {
+              "text": "Teach-back asks the person to explain the plan in their own words. It checks the clarity of the explanation. A yes-or-no question about understanding cannot show how the person will carry out the plan.",
+              "citationIDs": [
+                "bedside_evidence_teach"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "What the review included",
+          "blocks": [
+            {
+              "text": "Talevski and colleagues reviewed 20 studies across varied populations and settings. Four were rated high quality, nine moderate and seven weak. Nineteen reported a benefit on at least one outcome, but the different outcomes cannot be combined into one universal effect size.",
+              "citationIDs": [
+                "bedside_evidence_teach_study"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Teach in small parts",
+          "blocks": [
+            {
+              "text": "Explain a manageable portion of information, invite the person’s explanation, clarify gaps using different wording, and check again before adding more. Written material can remain available; verbatim reading does not demonstrate understanding.",
+              "citationIDs": [
+                "bedside_evidence_teach"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Match the check to the task",
+          "blocks": [
+            {
+              "text": "For a practical skill, ask for a demonstration using the relevant equipment or teaching materials. Show-me can uncover difficulties that a correct verbal answer misses. Supportive wording keeps responsibility for clear teaching with the clinician.",
+              "citationIDs": [
+                "bedside_evidence_teach"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "What implementation evidence adds",
+          "blocks": [
+            {
+              "text": "Training, clinician support, audits and feedback were common implementation strategies. Reporting was incomplete, so the review could not determine a single best strategy for embedding teach-back. Describing the method in a policy is different from knowing whether staff use it consistently.",
+              "citationIDs": [
+                "bedside_evidence_teach_study"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Build repeatable practice",
+          "blocks": [
+            {
+              "text": "AHRQ describes staff training, coaching by experienced colleagues and observation with feedback. Teach-back can be used by clinical and nonclinical staff, including when explaining appointment preparation. Practice helps the approach become familiar.",
+              "citationIDs": [
+                "bedside_evidence_teach"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Avoid overstating the results",
+          "blocks": [
+            {
+              "text": "Studies assessed knowledge, recall, self-care and selected health outcomes. The mix of designs and variable quality limits causal certainty and generalization. A successful teach-back confirms current understanding; it does not by itself prove later adherence or guarantee fewer admissions.",
+              "citationIDs": [
+                "bedside_evidence_teach_study"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Check delivery as well as results",
+          "blocks": [
+            {
+              "text": "Only half of included studies described implementation strategies. The review distinguished whether teach-back was delivered from what outcomes were measured. That reporting gap makes it difficult to explain why a successful local approach would reproduce its results elsewhere.",
+              "citationIDs": [
+                "bedside_evidence_teach_study"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Use the patient’s words",
+          "blocks": [
+            {
+              "text": "AHRQ recommends changing the explanation when a misunderstanding appears, then inviting another explanation. Simply asking someone to repeat the clinician’s wording can conceal uncertainty. The check belongs throughout teaching, not only after a long set of instructions.",
+              "citationIDs": [
+                "bedside_evidence_teach"
+              ]
+            }
+          ]
+        }
+      ],
+      "relatedEntryIDs": [
+        "reference:health-literacy-teach-back",
+        "reference:discharge-teaching-framework",
+        "reference:diabetes-self-management-teaching"
+      ],
+      "clinicalReview": {
+        "tier": "B",
+        "status": "pending",
+        "reviewer": null,
+        "publicationApproved": false
+      },
+      "category": "safeAndEffectiveCare",
+      "subcategory": "managementOfCare"
+    },
+    {
+      "id": "medication-reconciliation-transition-evidence",
+      "title": "Medication reconciliation across transitions",
+      "subtitle": "A shared list, defined responsibility and discrepancy evidence",
+      "priorityConcept": "safety",
+      "sections": [
+        {
+          "title": "Establish a shared medication record",
+          "blocks": [
+            {
+              "text": "MATCH recommends a centrally available medication list that physicians, nurses and pharmacists use together. Reliable new information should update that record with an audit trail. Parallel lists that disagree undermine subsequent ordering and discharge decisions.",
+              "citationIDs": [
+                "bedside_evidence_match"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "What MARQUIS2 studied",
+          "blocks": [
+            {
+              "text": "MARQUIS2 was a quality-improvement study at 18 North American hospitals or hospital systems. It combined a refined toolkit with mentored implementation. Investigators sampled 4,947 patients before and after implementation; it was not an individually randomized medication trial.",
+              "citationIDs": [
+                "bedside_evidence_marquis"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "What changed",
+          "blocks": [
+            {
+              "text": "Unintentional discrepancies declined from 2.85 to 0.98 per patient over the intervention. Interrupted time-series analysis at 17 sites estimated an adjusted incidence rate ratio of 0.95 per month, with a 95% confidence interval of 0.93–0.97, beyond baseline temporal trends.",
+              "citationIDs": [
+                "bedside_evidence_marquis"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Assign responsibility for the transition",
+          "blocks": [
+            {
+              "text": "Define who obtains and verifies the medication history, reconciles orders, resolves discrepancies and teaches the final plan. Integrate those responsibilities into admission, internal transfer and discharge workflows. The process must fit the actual setting and available staff.",
+              "citationIDs": [
+                "bedside_evidence_match"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Include the patient and caregiver",
+          "blocks": [
+            {
+              "text": "Educate patients and caregivers about their part in reconciliation. Make information sources and verification visible within the shared workflow. Electronic reminders can support the process, but a populated record still needs confirmation that its information is accurate and complete.",
+              "citationIDs": [
+                "bedside_evidence_match"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Know what this outcome does not prove",
+          "blocks": [
+            {
+              "text": "The primary outcome was medication discrepancies, not a demonstrated reduction in mortality. Secular changes and differences between sites may influence a before-and-after study. The association supports further implementation work but does not isolate the effect of one toolkit component.",
+              "citationIDs": [
+                "bedside_evidence_marquis"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Carry verified information forward",
+          "blocks": [
+            {
+              "text": "The shared list is the reference point for ordering and the discharge regimen. New information discovered by one discipline should be available to the others. Reconciliation requires communicating and resolving differences, not simply copying the prior list.",
+              "citationIDs": [
+                "bedside_evidence_match"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Interpret the adjusted change",
+          "blocks": [
+            {
+              "text": "The monthly estimate came from an interrupted time-series model, not a 5-percentage-point fall in a patient’s medication risk. Patient-level interventions and system changes occurred together, and associations became stronger as implementation progressed.",
+              "citationIDs": [
+                "bedside_evidence_marquis"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Make the workflow consistent",
+          "blocks": [
+            {
+              "text": "MATCH describes electronic, paper and hybrid approaches. The central requirements are a shared record, clear responsibilities and a process that clinicians can follow during routine work. Software availability alone does not complete those responsibilities.",
+              "citationIDs": [
+                "bedside_evidence_match"
+              ]
+            }
+          ]
+        }
+      ],
+      "relatedEntryIDs": [
+        "procedure:medication-reconciliation",
+        "reference:do-not-crush",
+        "reference:discharge-teaching-framework"
+      ],
+      "clinicalReview": {
+        "tier": "B",
+        "status": "pending",
+        "reviewer": null,
+        "publicationApproved": false
+      },
+      "category": "safeAndEffectiveCare",
+      "subcategory": "managementOfCare"
+    },
+    {
+      "id": "post-discharge-follow-up-evidence",
+      "title": "Post-discharge calls: follow-up and evidence",
+      "subtitle": "Medication barriers, unresolved needs and what one call can achieve",
+      "priorityConcept": "safety",
+      "category": "safeAndEffectiveCare",
+      "subcategory": "managementOfCare",
+      "clinicalReview": {
+        "tier": "B",
+        "status": "pending",
+        "reviewer": null,
+        "publicationApproved": false
+      },
+      "relatedEntryIDs": [
+        "reference:discharge-communication-evidence",
+        "reference:medication-reconciliation-transition-evidence",
+        "communication:interpreter-use"
+      ],
+      "sections": [
+        {
+          "title": "Know the evidence question",
+          "blocks": [
+            {
+              "text": "A 2024 VA evidence synthesis examined contact within the first 7 days after an acute medical hospitalization. It included 13 studies, of which 11 were randomized trials. Most interventions were a single telephone contact in the first 3 days.",
+              "citationIDs": [
+                "bedside_evidence_contacts"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "What the review found",
+          "blocks": [
+            {
+              "text": "Brief post-discharge contact did not reduce 30-day readmission or emergency-department use compared with usual care in the pooled analysis. Certainty was moderate. Evidence for improved satisfaction was limited; a completed phone call should not be presented as proven prevention of readmission.",
+              "citationIDs": [
+                "bedside_evidence_contacts"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Prepare from the actual handoff",
+          "blocks": [
+            {
+              "text": "RED’s follow-up guidance recommends reviewing the discharge summary, after-hospital plan and educator’s notes before calling. Resolve conflicting medication lists with the responsible team. Confirm language needs and access to an interpreter instead of assuming a telephone conversation will be understood.",
+              "citationIDs": [
+                "bedside_evidence_call"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Ask about implementation at home",
+          "blocks": [
+            {
+              "text": "Review changes in health, how medications are actually being taken, appointments and whether home services or equipment arrived. Invite discussion of costs, side effects and confusing instructions. Use the patient’s explanation to clarify understanding of the existing plan.",
+              "citationIDs": [
+                "bedside_evidence_call"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Escalate and communicate unresolved needs",
+          "blocks": [
+            {
+              "text": "New or worsening symptoms require the appropriate clinical triage pathway. Medication discrepancies and service gaps should be communicated to the responsible clinician or team. The caller’s role includes follow-through and documenting the issue and response in the clinical record.",
+              "citationIDs": [
+                "bedside_evidence_call"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Keep the populations separate",
+          "blocks": [
+            {
+              "text": "No included study focused on acute psychiatric hospitalization. These findings therefore do not answer whether a specific mental-health follow-up intervention prevents harm after psychiatric discharge. Most studies tested brief contact, not a prolonged transitional-care program.",
+              "citationIDs": [
+                "bedside_evidence_contacts"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Evaluate the purpose of the contact",
+          "blocks": [
+            {
+              "text": "Implementation details were poorly reported in the underlying studies. The review does not prove that every follow-up model is ineffective, or identify the best content for every patient. Readmission, emergency use, satisfaction and resolution of practical problems are different outcomes.",
+              "citationIDs": [
+                "bedside_evidence_contacts"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Close the loop after the call",
+          "blocks": [
+            {
+              "text": "RED describes sending the receiving clinician a summary of the call, including concerns, actions and medication issues, and involving other care-team members where needed. Identifying a barrier is only part of the handoff; responsibility for resolving it must be clear.",
+              "citationIDs": [
+                "bedside_evidence_call"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "expandedEntries": [
+    {
+      "id": "hospital-sleep-support",
+      "enum": "HospitalSleepSupportSample",
+      "sections": [
+        {
+          "title": "What the inpatient research shows",
+          "blocks": [
+            {
+              "text": "A 2024 systematic review included 59 studies with 14,035 hospitalized adults; 28 studies were randomized trials. Environmental changes and relaxation approaches showed signals of benefit, but study methods and sleep measurements varied substantially.",
+              "citationIDs": [
+                "bedside_evidence_sleep_study"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Keep uncertainty visible",
+          "blocks": [
+            {
+              "text": "The review found moderate to high risk of bias overall and could not pool interventions into a meta-analysis. Improved self-reported sleep does not establish better recovery or fewer complications. Evidence was insufficient to identify a single standard program for every ward.",
+              "citationIDs": [
+                "bedside_evidence_sleep_study"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Plan changes the patient can use",
+          "blocks": [
+            {
+              "text": "Patient partners emphasized acceptability and feasibility. Eye masks or earplugs may be useful for some people; others need staff assistance. Clustering care and reducing light or noise require coordination, with necessary clinical monitoring taking precedence over sleep interventions.",
+              "citationIDs": [
+                "bedside_evidence_sleep_study"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Evaluate more than time in bed",
+          "blocks": [
+            {
+              "text": "The authors recommend combining patient-reported sleep with objective measures in future evaluation. Reports of quality, awakenings and daytime effects can describe different aspects of rest. Study findings should not be converted into a promise that one device or relaxation technique will work for everyone.",
+              "citationIDs": [
+                "bedside_evidence_sleep_study"
+              ]
+            }
+          ]
+        }
+      ],
+      "addedSourceKeys": [
+        "sleep_study"
+      ],
+      "clinicalReview": {
+        "tier": "B",
+        "status": "pending",
+        "reviewer": null,
+        "publicationApproved": false
+      }
+    },
+    {
+      "id": "bedside-nutrition-assessment",
+      "enum": "BedsideNutritionAssessmentSample",
+      "sections": [
+        {
+          "title": "Connect screening with evidence",
+          "blocks": [
+            {
+              "text": "A 2019 meta-analysis included 27 trials and 6,803 medical inpatients who were malnourished or at nutritional risk. It examined oral or enteral nutritional support in noncritically ill patients, not routine supplementation for all hospitalized adults.",
+              "citationIDs": [
+                "bedside_evidence_nutrition_study"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Understand the reported outcomes",
+          "blocks": [
+            {
+              "text": "In trials contributing mortality data, deaths occurred in 8.3% of intervention participants and 11.0% of controls; the pooled odds ratio was 0.73, 95% confidence interval 0.56–0.97. Nonelective readmissions were also lower. Odds ratios and absolute event proportions describe different aspects of the result.",
+              "citationIDs": [
+                "bedside_evidence_nutrition_study"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Avoid inventing a feeding prescription",
+          "blocks": [
+            {
+              "text": "Protocols and populations differed, and subgroup findings suggested benefit varied with nutritional status and adherence. These results support attention to malnutrition but do not supply a universal calorie, protein or fluid target. ICU, pediatric and disease-specific feeding decisions require their own assessment.",
+              "citationIDs": [
+                "bedside_evidence_nutrition_study"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Describe what prevents intake",
+          "blocks": [
+            {
+              "text": "The evidence concerns delivered nutritional support rather than a completed screening form alone. The review reported improvements in energy and protein intake and weight; use those findings as context for a team-based nutrition plan, not as patient-specific treatment targets.",
+              "citationIDs": [
+                "bedside_evidence_nutrition_study"
+              ]
+            }
+          ]
+        }
+      ],
+      "addedSourceKeys": [
+        "nutrition_study"
+      ],
+      "clinicalReview": {
+        "tier": "B",
+        "status": "pending",
+        "reviewer": null,
+        "publicationApproved": false
+      }
+    },
+    {
+      "id": "bedside-mobility-assessment",
+      "enum": "BedsideMobilityAssessmentSample",
+      "sections": [
+        {
+          "title": "Evidence for inpatient walking",
+          "blocks": [
+            {
+              "text": "A systematic review of hospital walking programs included 15 unique studies involving adults aged at least 65 years. Seven studies contributed to the main length-of-stay meta-analysis. Walking programs did not produce a statistically significant pooled reduction in length of stay.",
+              "citationIDs": [
+                "bedside_evidence_walking"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Choose an outcome that matches the goal",
+          "blocks": [
+            {
+              "text": "Individual studies suggested benefits, but study methods and walking exposure varied. The authors cautioned that length of stay may not capture functional benefit. A non-significant hospital-stay result is not proof that walking has no value, and it does not establish a universal step target.",
+              "citationIDs": [
+                "bedside_evidence_walking"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Reassess activity tolerance",
+          "blocks": [
+            {
+              "text": "Review current assistance and weight-bearing orders, then monitor the response to activity. Document symptoms, vital-sign response and actual assistance needs. Reassess dizziness or difficulty tolerating the activity before progressing; safe participation depends on the current assessment, not only the planned goal.",
+              "citationIDs": [
+                "bedside_evidence_mobility"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Keep program evidence within scope",
+          "blocks": [
+            {
+              "text": "Only a minority of studies quantified walking dose using steps or distance. The review does not identify an optimal walking prescription for every older inpatient. Critical illness and individual restrictions need their own mobility plan and trained staff support.",
+              "citationIDs": [
+                "bedside_evidence_walking"
+              ]
+            }
+          ]
+        }
+      ],
+      "addedSourceKeys": [
+        "walking",
+        "mobility"
+      ],
+      "clinicalReview": {
+        "tier": "B",
+        "status": "pending",
+        "reviewer": null,
+        "publicationApproved": false
+      }
+    },
+    {
+      "id": "hospital-oral-care",
+      "enum": "HospitalOralCareSample",
+      "sections": [
+        {
+          "title": "Evidence behind toothbrushing",
+          "blocks": [
+            {
+              "text": "A 2024 meta-analysis of 15 randomized trials compared oral care with and without toothbrushing in hospitalized adults. After adjustment for a cluster trial, the effective sample was 2,786. Pneumonia risk was lower with toothbrushing: risk ratio 0.67, 95% confidence interval 0.56–0.81.",
+              "citationIDs": [
+                "bedside_evidence_brushing"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Separate ventilated and ward evidence",
+          "blocks": [
+            {
+              "text": "The clearest evidence came from patients receiving invasive mechanical ventilation. Evidence in nonventilated patients was limited and less certain. The overall relative result should not be presented as a guaranteed ward-level benefit or a patient’s personal risk reduction.",
+              "citationIDs": [
+                "bedside_evidence_brushing"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Keep research distinct from the care protocol",
+          "blocks": [
+            {
+              "text": "Toothbrushing was also associated with lower ICU mortality and shorter ventilation and ICU stay. Hospital length of stay and antibiotic use did not clearly differ. These findings do not establish that every mouth-care product or antiseptic has the same benefit.",
+              "citationIDs": [
+                "bedside_evidence_brushing"
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Plan for physical barriers",
+          "blocks": [
+            {
+              "text": "CDC’s nonventilated-patient toolkit includes the oral-health history, pain, dry mouth, dentures and ability to manage oral care. Supplies need to be available, and the assistance plan should account for swallowing difficulty or inability to spit. Reassess barriers rather than recording only that products were supplied.",
+              "citationIDs": [
+                "bedside_oral_cdc"
+              ]
+            }
+          ]
+        }
+      ],
+      "addedSourceKeys": [
+        "brushing"
+      ],
+      "clinicalReview": {
+        "tier": "B",
+        "status": "pending",
+        "reviewer": null,
+        "publicationApproved": false
+      }
+    }
+  ]
+}

@@ -5,6 +5,8 @@ extension ContentRegistry {
     /// from openFDA, Open RN, OpenStax, CDC, AHRQ, etc. with attribution.
     public static func bundledEntries() -> [LibraryEntry] {
         var entries: [LibraryEntry] = []
+        entries.append(contentsOf: CommonConditionsDrafts.entries)
+        entries.append(contentsOf: RecentEvidenceDrafts.entries)
         entries.append(contentsOf: bundledChunk01())
         entries.append(contentsOf: bundledChunk02())
         entries.append(contentsOf: bundledChunk03())
@@ -67,6 +69,7 @@ extension ContentRegistry {
         entries.append(contentsOf: bundledRespiratoryHematologyDepth())
         entries.append(contentsOf: bundledDigestiveUrologyDepth())
         entries.append(contentsOf: bundledCrossCategoryDepth())
+        entries.append(contentsOf: bundledBedsideEvidence())
         entries.append(.reference(LabResultInterpretationSample.entry))
         entries.append(.reference(LaboratoryTestPreparationSample.entry))
         entries.append(.reference(NursingCarePlanEvaluationSample.entry))

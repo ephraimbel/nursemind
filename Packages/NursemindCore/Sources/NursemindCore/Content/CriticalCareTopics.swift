@@ -135,5 +135,5 @@ extension LibraryTopic {
                   "lab:capnography-etco2",
                   "reference:post-icu-recovery"
               ])
-    ]
+    ] + icuEvidenceDraftCollections
 }

@@ -1,0 +1,71 @@
+import Foundation
+
+extension EntryLinkRegistry {
+    static func commonConditionsDraftLinks() -> [EntryLink] {
+#if DEBUG && COMMON_CONDITIONS_REVIEW
+        return [
+            .init(from: "diagnosis:chronic-constipation", to: "diagnosis:ibs", relation: .seeAlso),
+            .init(from: "diagnosis:chronic-constipation", to: "diagnosis:opioid-induced-constipation", relation: .seeAlso),
+            .init(from: "diagnosis:chronic-constipation", to: "reference:adult-constipation-bowel-routine", relation: .seeAlso),
+            .init(from: "diagnosis:chronic-constipation", to: "reference:ibs-symptom-follow-up", relation: .seeAlso),
+            .init(from: "diagnosis:chronic-insomnia", to: "reference:insomnia-cbt-i-follow-up", relation: .seeAlso),
+            .init(from: "diagnosis:cirrhosis", to: "reference:masld-fibrosis-follow-up", relation: .seeAlso),
+            .init(from: "diagnosis:diabetic-nephropathy", to: "diagnosis:type-2-diabetes", relation: .seeAlso),
+            .init(from: "diagnosis:dyslipidemia", to: "drug:atorvastatin", relation: .seeAlso),
+            .init(from: "diagnosis:dyslipidemia", to: "lab:lipid-panel", relation: .seeAlso),
+            .init(from: "diagnosis:dyslipidemia", to: "reference:lipid-lowering-therapy-reference", relation: .seeAlso),
+            .init(from: "diagnosis:dyslipidemia", to: "reference:lipid-panel-interpretation", relation: .seeAlso),
+            .init(from: "diagnosis:gerd", to: "reference:gerd-treatment-reassessment", relation: .seeAlso),
+            .init(from: "diagnosis:hypertension", to: "diagnosis:hypertensive-emergency", relation: .seeAlso),
+            .init(from: "diagnosis:hypertension", to: "diagnosis:obesity", relation: .seeAlso),
+            .init(from: "diagnosis:hypertension", to: "diagnosis:type-2-diabetes", relation: .seeAlso),
+            .init(from: "diagnosis:hypertension", to: "reference:home-blood-pressure-measurement", relation: .seeAlso),
+            .init(from: "diagnosis:hypertension", to: "reference:hypertension-medication-follow-up", relation: .seeAlso),
+            .init(from: "diagnosis:ibs", to: "reference:ibs-symptom-follow-up", relation: .seeAlso),
+            .init(from: "diagnosis:iron-deficiency-anemia", to: "reference:iron-deficiency-treatment-follow-up", relation: .seeAlso),
+            .init(from: "diagnosis:migraine", to: "reference:migraine-prevention-follow-up", relation: .seeAlso),
+            .init(from: "diagnosis:nafld-nash", to: "reference:masld-fibrosis-follow-up", relation: .seeAlso),
+            .init(from: "diagnosis:obesity", to: "diagnosis:type-2-diabetes", relation: .seeAlso),
+            .init(from: "diagnosis:obesity", to: "reference:obesity-long-term-care", relation: .seeAlso),
+            .init(from: "diagnosis:obesity", to: "reference:test-guide-obesity-screening", relation: .seeAlso),
+            .init(from: "diagnosis:osa-obstructive-sleep-apnea", to: "reference:insomnia-cbt-i-follow-up", relation: .seeAlso),
+            .init(from: "diagnosis:osteoarthritis", to: "reference:osteoarthritis-treatment-follow-up", relation: .seeAlso),
+            .init(from: "diagnosis:postmenopausal-osteoporosis", to: "reference:osteoporosis-treatment-continuity", relation: .seeAlso),
+            .init(from: "diagnosis:tobacco-use-disorder", to: "reference:smoking-cessation-treatment-support", relation: .seeAlso),
+            .init(from: "diagnosis:type-2-diabetes", to: "lab:hba1c", relation: .seeAlso),
+            .init(from: "diagnosis:type-2-diabetes", to: "reference:continuous-glucose-monitor-teaching", relation: .seeAlso),
+            .init(from: "diagnosis:type-2-diabetes", to: "reference:diabetes-sick-day-safety", relation: .seeAlso),
+            .init(from: "diagnosis:type-2-diabetes", to: "reference:masld-fibrosis-follow-up", relation: .seeAlso),
+            .init(from: "diagnosis:type-2-diabetes", to: "reference:obesity-long-term-care", relation: .seeAlso),
+            .init(from: "diagnosis:uti", to: "reference:recurrent-uti-prevention-follow-up", relation: .seeAlso),
+            .init(from: "drug:alendronate", to: "reference:osteoporosis-treatment-continuity", relation: .seeAlso),
+            .init(from: "drug:ferrous-sulfate", to: "reference:iron-deficiency-treatment-follow-up", relation: .seeAlso),
+            .init(from: "drug:omeprazole", to: "reference:gerd-treatment-reassessment", relation: .seeAlso),
+            .init(from: "drug:sumatriptan", to: "reference:migraine-prevention-follow-up", relation: .seeAlso),
+            .init(from: "drug:varenicline", to: "reference:smoking-cessation-treatment-support", relation: .seeAlso),
+            .init(from: "lab:creatinine", to: "reference:hypertension-medication-follow-up", relation: .seeAlso),
+            .init(from: "lab:ferritin-iron-studies", to: "reference:iron-deficiency-treatment-follow-up", relation: .seeAlso),
+            .init(from: "lab:potassium", to: "reference:hypertension-medication-follow-up", relation: .seeAlso),
+            .init(from: "procedure:dexa-scan", to: "reference:osteoporosis-treatment-continuity", relation: .seeAlso),
+            .init(from: "procedure:iron-iv-administration", to: "reference:iron-deficiency-treatment-follow-up", relation: .seeAlso),
+            .init(from: "reference:continuous-glucose-monitor-teaching", to: "reference:diabetes-sick-day-safety", relation: .seeAlso),
+            .init(from: "reference:diabetes-sick-day-safety", to: "reference:dka-vs-hhs", relation: .seeAlso),
+            .init(from: "reference:fall-fracture-prevention", to: "reference:osteoarthritis-treatment-follow-up", relation: .seeAlso),
+            .init(from: "reference:gerd-daily-care-follow-up", to: "reference:gerd-treatment-reassessment", relation: .seeAlso),
+            .init(from: "reference:headache-acute-prophylactic-therapy", to: "reference:migraine-prevention-follow-up", relation: .seeAlso),
+            .init(from: "reference:home-blood-pressure-measurement", to: "reference:hypertension-medication-follow-up", relation: .seeAlso),
+            .init(from: "reference:ibs-daily-symptom-food-support", to: "reference:ibs-symptom-follow-up", relation: .seeAlso),
+            .init(from: "reference:insomnia-cbt-i-follow-up", to: "reference:smoking-cessation-treatment-support", relation: .seeAlso),
+            .init(from: "reference:masld-fibrosis-follow-up", to: "reference:obesity-long-term-care", relation: .seeAlso),
+            .init(from: "reference:obesity-long-term-care", to: "reference:osteoarthritis-treatment-follow-up", relation: .seeAlso),
+            .init(from: "reference:obesity-long-term-care", to: "reference:test-guide-obesity-screening", relation: .seeAlso),
+            .init(from: "reference:osteoarthritis-daily-function-support", to: "reference:osteoarthritis-treatment-follow-up", relation: .seeAlso),
+            .init(from: "reference:osteoporosis-daily-fracture-prevention", to: "reference:osteoporosis-treatment-continuity", relation: .seeAlso),
+            .init(from: "reference:recurrent-uti-prevention-follow-up", to: "reference:urinary-continence-support", relation: .seeAlso),
+            .init(from: "reference:recurrent-uti-prevention-follow-up", to: "reference:urinary-tract-imaging-preparation", relation: .seeAlso)
+        ]
+#else
+        return []
+#endif
+    }
+}

@@ -1,0 +1,129 @@
+#!/usr/bin/env python3
+"""Generate the opt-in recent-evidence batch; --check detects content drift."""
+import argparse
+import csv
+import io
+import json
+from collections import Counter
+from pathlib import Path
+from urllib.parse import urlparse
+
+ROOT = Path(__file__).resolve().parents[1]
+CURATION = ROOT / 'content/curation/recent-evidence'
+CONTENT = ROOT / 'Packages/NursemindCore/Sources/NursemindCore/Content'
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--check', action='store_true')
+args = parser.parse_args()
+entries = json.loads((CURATION / 'entries.json').read_text())
+sources = json.loads((CURATION / 'sources.json').read_text())
+source_keys = {s['id'].removeprefix('recent_evidence_'): s for s in sources}
+
+
+def quote(value):
+    return json.dumps(value, ensure_ascii=False)
+
+
+def blocks(value):
+    if isinstance(value, dict):
+        if 'text' in value and 'sources' in value:
+            yield value
+        else:
+            for child in value.values():
+                yield from blocks(child)
+    elif isinstance(value, list):
+        for child in value:
+            yield from blocks(child)
+
+
+def ids(block):
+    return '[' + ', '.join(quote(source_keys[k]['id']) for k in block['sources']) + ']'
+
+
+def attributed(block):
+    return '.init(' + quote(block['text']) + ', citationIDs: ' + ids(block) + ')'
+
+
+def array(items):
+    return '[\n' + ',\n'.join('            ' + attributed(b) for b in items) + '\n        ]' if items else '[]'
+
+
+assert len(source_keys) == len(sources)
+identities = {e['kind'] + ':' + e['id'] for e in entries}
+assert len(identities) == len(entries)
+usage = Counter()
+for e in entries:
+    assert e['reviewStatus'] == 'pending-independent-clinical-review'
+    assert e['reviewTier'] == 'A'
+    assert e['topics'] and e['links']
+    assert len(e['links']) == len(set(e['links']))
+    assert sum(len(b['text'].split()) for b in blocks(e)) >= 200
+    for b in blocks(e):
+        assert b['text'].strip() and b['sources']
+        assert set(b['sources']) <= source_keys.keys()
+        for k in b['sources']:
+            usage[k] += len(b['text'].split())
+for k,s in source_keys.items():
+    assert s['license'] in ['publicDomain', 'ccBy4', 'factCitationOnly']
+    assert s['lastRetrieved'] == '2026-09-19'
+    assert urlparse(s['url']).scheme == 'https'
+    assert urlparse(s['url']).path.strip('/') and not urlparse(s['url']).query.startswith('term=')
+    assert usage[k] == s['attributedBodyWords'] and 0 < usage[k] <= 200
+
+source_swift = 'import Foundation\n\n#if DEBUG && RECENT_EVIDENCE_REVIEW\nenum RecentEvidenceSources {\n'
+for k,s in source_keys.items():
+    source_swift += '    static let ' + k + ' = CitationSource(\n'
+    source_swift += ',\n'.join('        '+f+': '+('.'+s[f] if f=='license' else quote(s[f])) for f in ['id','shortName','detail','publisher','license','url','lastRetrieved'])
+    source_swift += '\n    )\n\n'
+source_swift += '}\n#endif\n'
+
+swift = 'import Foundation\n\n// Publication requires independent clinical review; the opt-in flag is for local review only.\nenum RecentEvidenceDrafts {\n    static let entries: [LibraryEntry] = {\n#if DEBUG && RECENT_EVIDENCE_REVIEW\n        return [\n'
+swift += ',\n'.join('            .'+e['kind']+'(entry'+str(i)+')' for i,e in enumerate(entries))
+swift += '\n        ]\n#else\n        return []\n#endif\n    }()\n\n    static func entryIDs(for topic: String) -> [String] {\n#if DEBUG && RECENT_EVIDENCE_REVIEW\n        switch topic {\n'
+topics = sorted({t for e in entries for t in e['topics']})
+for t in topics:
+    swift += '        case '+quote(t)+': return '+quote([e['kind']+':'+e['id'] for e in entries if t in e['topics']])+'\n'
+swift += '        default: return []\n        }\n#else\n        return []\n#endif\n    }\n\n#if DEBUG && RECENT_EVIDENCE_REVIEW\n'
+for i,e in enumerate(entries):
+    kind=e['kind']
+    fields=[('id',quote(e['id'])),('title',quote(e['title'])),('subtitle',quote(e['subtitle']))]
+    if kind=='drug':
+        fields += [('category',quote(e['category'])),('isHighAlert',str(e['isHighAlert']).lower()),('isHighRisk',str(e['isHighRisk']).lower()),('quickReference','[]'),('indications',attributed(e['indications'])),('mechanism',attributed(e['mechanism'])),('dosing','[]'),('contraindications',attributed(e['contraindications'])),('warnings',array(e['warnings'])),('adverseReactions',attributed(e['adverseReactions'])),('drugInteractions',array(e['drugInteractions']))]
+    else:
+        if kind=='reference':
+            fields.append(('eyebrow',quote('REFERENCE · STUDY EVIDENCE')))
+        else:
+            fields.append(('specimen',quote(e['specimen'])))
+        fields.append(('nclexTags','.init(category: .physiologicalIntegrity, subcategory: .reductionOfRiskPotential, priorityConcept: .'+e['concept']+')'))
+        if kind=='reference':
+            sections=['.bullets(title: '+quote(s['title'])+', '+array(s['blocks'])+')' for s in e['sections']]
+            fields.append(('sections','[\n            '+',\n            '.join(sections)+'\n        ]'))
+        else:
+            groups=[]
+            for s in e['context']:
+                for b in s['blocks']:
+                    groups.append('.init(title: '+quote(s['title'])+', causes: ['+quote(b['text'])+'], citationIDs: '+ids(b)+')')
+            fields += [('referenceRanges','[]'),('interpretationTiers','[]'),('commonCauses','[\n            '+',\n            '.join(groups)+'\n        ]'),('nursingActions',array(e['nursingActions'])),('watchFor',array(e['watchFor']))]
+    keys=list(dict.fromkeys(k for b in blocks(e) for k in b['sources']))
+    fields += [('citations','['+', '.join('RecentEvidenceSources.'+k for k in keys)+']'),('lastSourceFidelityReview',quote(e['sourceFidelityCheckedOn']))]
+    model={'drug':'DrugEntry','lab':'LabEntry','reference':'ReferenceEntry'}[kind]
+    swift += '    private static let entry'+str(i)+' = '+model+'(\n'+',\n'.join('        '+k+': '+v for k,v in fields)+'\n    )\n\n'
+swift += '#endif\n}\n'
+
+pairs=sorted({tuple(sorted([e['kind']+':'+e['id'],t])) for e in entries for t in e['links']})
+assert all(a!=b for a,b in pairs)
+link_swift='import Foundation\n\nextension EntryLinkRegistry {\n    static func recentEvidenceDraftLinks() -> [EntryLink] {\n#if DEBUG && RECENT_EVIDENCE_REVIEW\n        return [\n'
+link_swift+=',\n'.join('            .init(from: '+quote(a)+', to: '+quote(b)+', relation: .seeAlso)' for a,b in pairs)
+link_swift+='\n        ]\n#else\n        return []\n#endif\n    }\n}\n'
+queue=io.StringIO()
+w=csv.writer(queue,lineterminator='\n')
+w.writerow(['entry_id','title','tier','status','reviewer','reviewed_on','source_fidelity_checked_on','review_focus'])
+for e in entries:
+    focus={'drug':'Label completeness, boxed-warning fidelity, indication scope, trial interpretation; dosing intentionally omitted','lab':'Assay-specific population and performance; collection labeling; no universal thresholds','reference':'Population, comparator, endpoint, effect estimate, uncertainty and current guidance'}[e['kind']]
+    w.writerow([e['kind']+':'+e['id'],e['title'],'A',e['reviewStatus'],'','',e['sourceFidelityCheckedOn'],focus])
+files={CONTENT/'Samples/RecentEvidenceSources.swift':source_swift,CONTENT/'Samples/RecentEvidenceEntries.swift':swift,CONTENT/'Links/RecentEvidenceLinks.swift':link_swift,CURATION/'review-queue.csv':queue.getvalue()}
+for path,body in files.items():
+    if args.check:
+        assert path.read_text()==body,'Generated output differs: '+str(path)
+    else:
+        path.write_text(body)
+print(('Verified' if args.check else 'Generated')+f' {len(entries)} drafts, {len(sources)} sources, {len(pairs)} related pairs, {len(topics)} topic integrations; '+str(sum(len(b['text'].split()) for e in entries for b in blocks(e)))+' body words.')

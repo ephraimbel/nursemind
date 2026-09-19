@@ -1,0 +1,306 @@
+import Foundation
+
+#if DEBUG && ICU_EVIDENCE_REVIEW
+enum ICUEvidenceSources {
+    static let terli_label = CitationSource(
+        id: "icu_evidence_terli_label",
+        shortName: "DailyMed — TERLIVAZ prescribing information",
+        detail: "SET ID 3a35b86c-f451-4fac-8499-43019e4da354; boxed warning; §§1, 4–6, 12.1, 12.3, 14. Label excerpts; internal cross-references removed.",
+        publisher: "FDA Structured Product Labeling via NLM DailyMed",
+        license: .publicDomain,
+        url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=3a35b86c-f451-4fac-8499-43019e4da354",
+        lastRetrieved: "2026-09-19"
+    )
+
+    static let remi_label = CitationSource(
+        id: "icu_evidence_remi_label",
+        shortName: "DailyMed — BYFAVO prescribing information",
+        detail: "SET ID 4e1838f2-b999-41a7-a761-d94f09aa531f; boxed warning; §§1, 2.1, 4–7, 8.6, 12.1, 14. Label excerpts; internal cross-references removed.",
+        publisher: "FDA Structured Product Labeling via NLM DailyMed",
+        license: .publicDomain,
+        url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=4e1838f2-b999-41a7-a761-d94f09aa531f",
+        lastRetrieved: "2026-09-19"
+    )
+
+    static let ismp = CitationSource(
+        id: "icu_evidence_ismp",
+        shortName: "ISMP — High-alert medications in acute care (2024)",
+        detail: "IV moderate-sedation medication class; classification fact only, no list reproduced.",
+        publisher: "Institute for Safe Medication Practices",
+        license: .factCitationOnly,
+        url: "https://www.ismp.org/recommendations/high-alert-medications-acute-list",
+        lastRetrieved: "2026-09-19"
+    )
+
+    static let confirm = CitationSource(
+        id: "icu_evidence_confirm",
+        shortName: "CONFIRM — Terlipressin for hepatorenal syndrome (2021)",
+        detail: "Wong et al. N Engl J Med. 2021;384:818–828. DOI: 10.1056/NEJMoa2008290. Randomized trial; methods and primary outcome.",
+        publisher: "Massachusetts Medical Society · New England Journal of Medicine",
+        license: .factCitationOnly,
+        url: "https://www.nejm.org/doi/full/10.1056/NEJMoa2008290",
+        lastRetrieved: "2026-09-19"
+    )
+
+    static let adqi = CitationSource(
+        id: "icu_evidence_adqi",
+        shortName: "ADQI / ICA — AKI in cirrhosis consensus (2024)",
+        detail: "Nadim et al. J Hepatol. 2024;81:163–183. DOI: 10.1016/j.jhep.2024.03.031. HRS-AKI criteria and diagnostic limitations; consensus, not a trial.",
+        publisher: "ADQI and International Club of Ascites",
+        license: .factCitationOnly,
+        url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11193657/",
+        lastRetrieved: "2026-09-19"
+    )
+
+    static let preoxi = CitationSource(
+        id: "icu_evidence_preoxi",
+        shortName: "PREOXI — NIV for preoxygenation (2024)",
+        detail: "Gibbs et al. N Engl J Med. 2024;390:2165–2177. DOI: 10.1056/NEJMoa2313680. Randomized trial; eligibility, hypoxemia and aspiration outcomes.",
+        publisher: "Massachusetts Medical Society · New England Journal of Medicine",
+        license: .factCitationOnly,
+        url: "https://www.nejm.org/doi/abs/10.1056/NEJMoa2313680",
+        lastRetrieved: "2026-09-19"
+    )
+
+    static let prevent = CitationSource(
+        id: "icu_evidence_prevent",
+        shortName: "PreVent — Bag-mask ventilation during intubation (2019)",
+        detail: "Casey et al. N Engl J Med. 2019;380:811–821. DOI: 10.1056/NEJMoa1812405. Randomized trial; primary and secondary outcomes and limitations.",
+        publisher: "Massachusetts Medical Society · New England Journal of Medicine",
+        license: .factCitationOnly,
+        url: "https://www.nejm.org/doi/full/10.1056/NEJMoa1812405",
+        lastRetrieved: "2026-09-19"
+    )
+
+    static let device = CitationSource(
+        id: "icu_evidence_device",
+        shortName: "DEVICE — Video versus direct laryngoscopy (2023)",
+        detail: "Prekker et al. N Engl J Med. 2023;389:418–429. DOI: 10.1056/NEJMoa2301601. Randomized trial; first-attempt success and severe complications.",
+        publisher: "Massachusetts Medical Society · New England Journal of Medicine",
+        license: .factCitationOnly,
+        url: "https://www.nejm.org/doi/abs/10.1056/NEJMoa2301601",
+        lastRetrieved: "2026-09-19"
+    )
+
+    static let bougie = CitationSource(
+        id: "icu_evidence_bougie",
+        shortName: "BOUGIE — Bougie versus stylet (2021)",
+        detail: "Driver et al. JAMA. 2021;326:2488–2497. DOI: 10.1001/jama.2021.22002. Randomized trial; first-attempt success and applicability.",
+        publisher: "American Medical Association · JAMA",
+        license: .factCitationOnly,
+        url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC8655668/",
+        lastRetrieved: "2026-09-19"
+    )
+
+    static let highwean = CitationSource(
+        id: "icu_evidence_highwean",
+        shortName: "HIGH-WEAN — Support after high-risk extubation (2019)",
+        detail: "Thille et al. JAMA. 2019;322:1465–1475. DOI: 10.1001/jama.2019.14901. Randomized trial; day-7 reintubation and ICU mortality.",
+        publisher: "American Medical Association · JAMA",
+        license: .factCitationOnly,
+        url: "https://jamanetwork.com/journals/jama/fullarticle/2752582",
+        lastRetrieved: "2026-09-19"
+    )
+
+    static let aarc_sbt = CitationSource(
+        id: "icu_evidence_aarc_sbt",
+        shortName: "AARC — Spontaneous breathing trials (2024)",
+        detail: "Roberts et al. Respir Care. 2024;69:891–901. DOI: 10.4187/respcare.11735. Recommendations and distinction between liberation and extubation.",
+        publisher: "American Association for Respiratory Care",
+        license: .factCitationOnly,
+        url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11285503/",
+        lastRetrieved: "2026-09-19"
+    )
+
+    static let ats_ards = CitationSource(
+        id: "icu_evidence_ats_ards",
+        shortName: "ATS — Adult ARDS guideline update (2024)",
+        detail: "Qadir et al. Am J Respir Crit Care Med. 2024;209:24–36. DOI: 10.1164/rccm.202311-2011ST. Recommendations, certainty and retained 2017 recommendations.",
+        publisher: "American Thoracic Society",
+        license: .factCitationOnly,
+        url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10870893/",
+        lastRetrieved: "2026-09-19"
+    )
+
+    static let rose = CitationSource(
+        id: "icu_evidence_rose",
+        shortName: "ROSE — Early neuromuscular blockade in ARDS (2019)",
+        detail: "Moss et al., PETAL Network. N Engl J Med. 2019;380:1997–2008. DOI: 10.1056/NEJMoa1901686. Randomized trial; treatment strategy and 90-day mortality.",
+        publisher: "Massachusetts Medical Society · New England Journal of Medicine",
+        license: .factCitationOnly,
+        url: "https://www.nejm.org/doi/full/10.1056/NEJMoa1901686",
+        lastRetrieved: "2026-09-19"
+    )
+
+    static let clovers = CitationSource(
+        id: "icu_evidence_clovers",
+        shortName: "CLOVERS — Early fluid strategy in sepsis (2023)",
+        detail: "Shapiro et al. N Engl J Med. 2023;388:499–510. DOI: 10.1056/NEJMoa2212663. Randomized trial; enrollment after initial fluids and death before discharge home by day 90.",
+        publisher: "Massachusetts Medical Society · New England Journal of Medicine",
+        license: .factCitationOnly,
+        url: "https://www.nejm.org/doi/full/10.1056/NEJMoa2212663",
+        lastRetrieved: "2026-09-19"
+    )
+
+    static let classic = CitationSource(
+        id: "icu_evidence_classic",
+        shortName: "CLASSIC — Fluid restriction in septic shock (2022)",
+        detail: "Meyhoff et al. N Engl J Med. 2022;386:2459–2470. DOI: 10.1056/NEJMoa2202707. Randomized trial; ICU fluid strategy and 90-day mortality.",
+        publisher: "Massachusetts Medical Society · New England Journal of Medicine",
+        license: .factCitationOnly,
+        url: "https://www.nejm.org/doi/full/10.1056/NEJMoa2202707",
+        lastRetrieved: "2026-09-19"
+    )
+
+    static let ssc2026 = CitationSource(
+        id: "icu_evidence_ssc2026",
+        shortName: "Surviving Sepsis Campaign — Adult guidelines (2026)",
+        detail: "Prescott et al. SCCM / ESICM 2026 adult recommendations: initial and subsequent fluid resuscitation, dynamic measures, IV corticosteroids and kidney replacement therapy.",
+        publisher: "SCCM and ESICM",
+        license: .factCitationOnly,
+        url: "https://www.sccm.org/clinical-resources/guidelines/guidelines/surviving-sepsis-campaign-international-guidelines-for-management-of-sepsis-and-septic-shock-2026",
+        lastRetrieved: "2026-09-19"
+    )
+
+    static let adrenal = CitationSource(
+        id: "icu_evidence_adrenal",
+        shortName: "ADRENAL — Hydrocortisone in septic shock (2018)",
+        detail: "Venkatesh et al. N Engl J Med. 2018;378:797–808. DOI: 10.1056/NEJMoa1705835. Randomized trial; 90-day mortality and shock resolution.",
+        publisher: "Massachusetts Medical Society · New England Journal of Medicine",
+        license: .factCitationOnly,
+        url: "https://www.nejm.org/doi/full/10.1056/NEJMoa1705835",
+        lastRetrieved: "2026-09-19"
+    )
+
+    static let aprocchss = CitationSource(
+        id: "icu_evidence_aprocchss",
+        shortName: "APROCCHSS — Hydrocortisone plus fludrocortisone (2018)",
+        detail: "Annane et al. N Engl J Med. 2018;378:809–818. DOI: 10.1056/NEJMoa1705716. Randomized trial; septic-shock population and 90-day mortality.",
+        publisher: "Massachusetts Medical Society · New England Journal of Medicine",
+        license: .factCitationOnly,
+        url: "https://www.nejm.org/doi/full/10.1056/NEJMoa1705716",
+        lastRetrieved: "2026-09-19"
+    )
+
+    static let steroids = CitationSource(
+        id: "icu_evidence_steroids",
+        shortName: "SCCM — Corticosteroids focused update (2024)",
+        detail: "Chaudhuri et al. Crit Care Med. 2024;52:e219–e233. Adult septic-shock recommendations; dose-duration limitation and certainty.",
+        publisher: "Society of Critical Care Medicine",
+        license: .factCitationOnly,
+        url: "https://www.sccm.org/clinical-resources/guidelines/guidelines/use-of-corticosteroids-in-sepsis-ards-cap",
+        lastRetrieved: "2026-09-19"
+    )
+
+    static let starrt = CitationSource(
+        id: "icu_evidence_starrt",
+        shortName: "STARRT-AKI — Timing of kidney replacement therapy (2020)",
+        detail: "STARRT-AKI Investigators. N Engl J Med. 2020;383:240–251. DOI: 10.1056/NEJMoa2000741. Randomized trial; mortality, dialysis dependence and eligibility.",
+        publisher: "Massachusetts Medical Society · New England Journal of Medicine",
+        license: .factCitationOnly,
+        url: "https://www.nejm.org/doi/full/10.1056/NEJMoa2000741",
+        lastRetrieved: "2026-09-19"
+    )
+
+    static let ideal = CitationSource(
+        id: "icu_evidence_ideal",
+        shortName: "IDEAL-ICU — Dialysis timing in septic shock (2018)",
+        detail: "Barbar et al. N Engl J Med. 2018;379:1431–1442. DOI: 10.1056/NEJMoa1803213. Randomized trial; severe AKI without urgent dialysis indication.",
+        publisher: "Massachusetts Medical Society · New England Journal of Medicine",
+        license: .factCitationOnly,
+        url: "https://www.nejm.org/doi/full/10.1056/NEJMoa1803213",
+        lastRetrieved: "2026-09-19"
+    )
+
+    static let revise = CitationSource(
+        id: "icu_evidence_revise",
+        shortName: "REVISE — Pantoprazole during invasive ventilation (2024)",
+        detail: "Cook et al. N Engl J Med. 2024;391:9–20. DOI: 10.1056/NEJMoa2404245. Randomized trial; clinically important upper GI bleeding and 90-day mortality.",
+        publisher: "Massachusetts Medical Society · New England Journal of Medicine",
+        license: .factCitationOnly,
+        url: "https://www.nejm.org/doi/full/10.1056/NEJMoa2404245",
+        lastRetrieved: "2026-09-19"
+    )
+
+    static let sup = CitationSource(
+        id: "icu_evidence_sup",
+        shortName: "SCCM / ASHP — Stress-related GI bleeding prevention (2024)",
+        detail: "MacLaren et al. Crit Care Med. 2024;52:e421–e430. Risk factors, acid suppression, enteral nutrition and discontinuation.",
+        publisher: "SCCM and American Society of Health-System Pharmacists",
+        license: .factCitationOnly,
+        url: "https://www.sccm.org/clinical-resources/guidelines/guidelines/sccm-ashp-guideline-prevention-of-ugib",
+        lastRetrieved: "2026-09-19"
+    )
+
+    static let mends = CitationSource(
+        id: "icu_evidence_mends",
+        shortName: "MENDS2 — Dexmedetomidine versus propofol in sepsis (2021)",
+        detail: "Hughes et al. N Engl J Med. 2021;384:1424–1436. DOI: 10.1056/NEJMoa2024922. Randomized trial; delirium/coma-free days and patient-centered outcomes.",
+        publisher: "Massachusetts Medical Society · New England Journal of Medicine",
+        license: .factCitationOnly,
+        url: "https://www.nejm.org/doi/abs/10.1056/NEJMoa2024922",
+        lastRetrieved: "2026-09-19"
+    )
+
+    static let padis = CitationSource(
+        id: "icu_evidence_padis",
+        shortName: "SCCM — PADIS focused update (2025)",
+        detail: "Lewis et al. Crit Care Med. 2025;53:e711–e727. Conditional dexmedetomidine-over-propofol recommendation when light sedation or delirium reduction is a priority.",
+        publisher: "Society of Critical Care Medicine",
+        license: .factCitationOnly,
+        url: "https://sccm.org/clinical-resources/guidelines/guidelines/focused-update-padis-guideline",
+        lastRetrieved: "2026-09-19"
+    )
+
+    static let remi_trial = CitationSource(
+        id: "icu_evidence_remi_trial",
+        shortName: "Remimazolam — Bronchoscopy phase 3 trial (2019)",
+        detail: "Pastis et al. Chest. 2019;155:137–146. DOI: 10.1016/j.chest.2018.09.015. Randomized trial; composite procedural success, recovery and comparator limitations.",
+        publisher: "American College of Chest Physicians · CHEST",
+        license: .factCitationOnly,
+        url: "https://pubmed.ncbi.nlm.nih.gov/30292760/",
+        lastRetrieved: "2026-09-19"
+    )
+
+    static let xacduro_label = CitationSource(
+        id: "icu_evidence_xacduro_label",
+        shortName: "DailyMed — XACDURO prescribing information",
+        detail: "SET ID c0167aec-a89d-4e96-afe5-2ccf3e89fe72; §§1, 4–7, 12.4, 14. Label excerpts; internal cross-references removed.",
+        publisher: "FDA Structured Product Labeling via NLM DailyMed",
+        license: .publicDomain,
+        url: "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=c0167aec-a89d-4e96-afe5-2ccf3e89fe72",
+        lastRetrieved: "2026-09-19"
+    )
+
+    static let cdc_crab = CitationSource(
+        id: "icu_evidence_cdc_crab",
+        shortName: "CDC — About Acinetobacter (2025)",
+        detail: "June 12, 2025. Infection sites, colonization, risk factors, transmission, testing and prevention.",
+        publisher: "Centers for Disease Control and Prevention",
+        license: .publicDomain,
+        url: "https://www.cdc.gov/acinetobacter/about/index.html",
+        lastRetrieved: "2026-09-19"
+    )
+
+    static let idsa2026 = CitationSource(
+        id: "icu_evidence_idsa2026",
+        shortName: "IDSA — AMR guidance (2026)",
+        detail: "2026 guidance, Section 5: invasive carbapenem-resistant Acinetobacter baumannii complex infections; Question 5.1 and colonization distinction. Retrieved version is 2026, not the superseded 2024 edition.",
+        publisher: "Infectious Diseases Society of America",
+        license: .factCitationOnly,
+        url: "https://www.idsociety.org/practice-guideline/amr-guidance/",
+        lastRetrieved: "2026-09-19"
+    )
+
+    static let attack = CitationSource(
+        id: "icu_evidence_attack",
+        shortName: "ATTACK — Sulbactam–durlobactam versus colistin (2023)",
+        detail: "Kaye et al. Lancet Infect Dis. 2023;23:1072–1084. DOI: 10.1016/S1473-3099(23)00184-6. Phase 3 randomized noninferiority trial; mortality, nephrotoxicity and background therapy.",
+        publisher: "Elsevier · The Lancet Infectious Diseases",
+        license: .factCitationOnly,
+        url: "https://pubmed.ncbi.nlm.nih.gov/37182534/",
+        lastRetrieved: "2026-09-19"
+    )
+
+}
+#endif

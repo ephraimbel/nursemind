@@ -37,7 +37,9 @@ public struct LabEntryView: View {
     private var previewContent: some View {
         header
         Hairline().padding(.vertical, NMSpace.xxl)
-        referenceRanges
+        if !entry.referenceRanges.isEmpty {
+            referenceRanges
+        }
         if let firstCitation = entry.citations.first {
             CitationsList(citations: [firstCitation])
                 .padding(.top, NMSpace.lg)
@@ -49,10 +51,14 @@ public struct LabEntryView: View {
     @ViewBuilder
     private var fullContent: some View {
         header
-        Hairline().padding(.vertical, NMSpace.xxl)
-        referenceRanges
-        divider
-        interpretationTiers
+        if !entry.referenceRanges.isEmpty {
+            divider
+            referenceRanges
+        }
+        if !entry.interpretationTiers.isEmpty {
+            divider
+            interpretationTiers
+        }
         if !entry.commonCauses.isEmpty {
             divider
             commonCauses
@@ -144,7 +150,7 @@ public struct LabEntryView: View {
 
     private var commonCauses: some View {
         VStack(alignment: .leading, spacing: NMSpace.xxl) {
-            SectionHeader("Common causes")
+            SectionHeader(entry.referenceRanges.isEmpty ? "Test context" : "Common causes")
             ForEach(Array(entry.commonCauses.enumerated()), id: \.offset) { _, group in
                 VStack(alignment: .leading, spacing: NMSpace.md) {
                     Text(group.title)

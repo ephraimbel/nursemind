@@ -1,0 +1,13 @@
+entry_id,change,review_tier,review_status,reviewer,publication_approved,review_focus
+reference:delirium-prevention-ward-care,new,B,pending,,false,"Verify claim-to-source fidelity, population and outcome limits, numerical study findings, and bedside scope."
+reference:inpatient-falls-prevention-evidence,new,B,pending,,false,"Verify claim-to-source fidelity, population and outcome limits, numerical study findings, and bedside scope."
+reference:pressure-injury-repositioning-evidence,new,A,pending,,false,"Verify claim-to-source fidelity, population and outcome limits, numerical study findings, and bedside scope."
+reference:dysphagia-hydration-evidence,new,A,pending,,false,"Verify claim-to-source fidelity, population and outcome limits, numerical study findings, and bedside scope."
+reference:discharge-communication-evidence,new,B,pending,,false,"Verify claim-to-source fidelity, population and outcome limits, numerical study findings, and bedside scope."
+reference:teach-back-and-show-me-evidence,new,B,pending,,false,"Verify claim-to-source fidelity, population and outcome limits, numerical study findings, and bedside scope."
+reference:medication-reconciliation-transition-evidence,new,B,pending,,false,"Verify claim-to-source fidelity, population and outcome limits, numerical study findings, and bedside scope."
+reference:post-discharge-follow-up-evidence,new,B,pending,,false,"Verify claim-to-source fidelity, population and outcome limits, numerical study findings, and bedside scope."
+reference:hospital-sleep-support,expanded,B,pending,,false,"Verify claim-to-source fidelity, population and outcome limits, numerical study findings, and bedside scope."
+reference:bedside-nutrition-assessment,expanded,B,pending,,false,"Verify claim-to-source fidelity, population and outcome limits, numerical study findings, and bedside scope."
+reference:bedside-mobility-assessment,expanded,B,pending,,false,"Verify claim-to-source fidelity, population and outcome limits, numerical study findings, and bedside scope."
+reference:hospital-oral-care,expanded,B,pending,,false,"Verify claim-to-source fidelity, population and outcome limits, numerical study findings, and bedside scope."

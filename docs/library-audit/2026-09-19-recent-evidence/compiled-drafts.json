@@ -1,0 +1,1355 @@
+[
+  {
+    "drug": {
+      "_0": {
+        "adverseReactions": {
+          "citationIDs": [
+            "recent_evidence_suzetrigine_label"
+          ],
+          "text": "Reported adverse reactions include itching, muscle spasms, increased creatine phosphokinase and rash."
+        },
+        "category": "NaV1.8 sodium-channel blocker",
+        "citations": [
+          {
+            "detail": "FDA approval announcement, January 30, 2025. Adult moderate-to-severe acute pain indication and development program.",
+            "id": "recent_evidence_suzetrigine_fda",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "FDA",
+            "shortName": "FDA · Journavx approval",
+            "url": "https://www.fda.gov/news-events/press-announcements/fda-approves-novel-non-opioid-treatment-moderate-severe-acute-pain"
+          },
+          {
+            "detail": "Suzetrigine, a Nonopioid NaV1.8 Inhibitor for Treatment of Moderate-to-severe Acute Pain: Two Phase 3 Randomized Clinical Trials. 2025. PMID 40117446.",
+            "id": "recent_evidence_suzetrigine_trial",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "Anesthesiology",
+            "shortName": "Suzetrigine · phase 3 trials",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40117446/"
+          },
+          {
+            "detail": "Journavx (suzetrigine); DailyMed SPL set f0976da4-1d20-4517-945c-b60ed2f41c12; sections 1, 2, 4–8, 12 and 14. Prescribing information revised January 2026; SPL updated April 2026.",
+            "id": "recent_evidence_suzetrigine_label",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "Vertex Pharmaceuticals · DailyMed",
+            "shortName": "Journavx prescribing information",
+            "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f0976da4-1d20-4517-945c-b60ed2f41c12"
+          }
+        ],
+        "contraindications": {
+          "citationIDs": [
+            "recent_evidence_suzetrigine_label"
+          ],
+          "text": "Strong CYP3A inhibitors are contraindicated with Journavx."
+        },
+        "dosing": [],
+        "drugInteractions": [
+          {
+            "citationIDs": [
+              "recent_evidence_suzetrigine_label"
+            ],
+            "text": "Moderate CYP3A inhibitors increase exposure and require dose modification. Strong or moderate CYP3A inducers can reduce efficacy; the label advises avoiding these combinations and grapefruit."
+          },
+          {
+            "citationIDs": [
+              "recent_evidence_suzetrigine_label"
+            ],
+            "text": "Suzetrigine induces CYP3A and can reduce concentrations of sensitive substrates. Starting or stopping it can change the exposure of other medicines."
+          }
+        ],
+        "id": "suzetrigine",
+        "indications": {
+          "citationIDs": [
+            "recent_evidence_suzetrigine_fda",
+            "recent_evidence_suzetrigine_trial"
+          ],
+          "text": "FDA approved suzetrigine for moderate-to-severe acute pain in adults, including postoperative pain. The 2025 phase 3 report describes randomized trials after abdominoplasty and bunionectomy, enrolling 1,118 and 1,073 adults respectively. Participants received suzetrigine, hydrocodone–acetaminophen or placebo during a 48-hour comparison. Suzetrigine improved the primary pain-intensity endpoint versus placebo in both trials. The active-comparator results should not be described as proof that suzetrigine outperforms opioid analgesia. These short postoperative studies do not establish long-term efficacy for chronic pain, and their defined surgical populations limit generalization to every acute-pain presentation. The FDA approval and the published trial answer different questions: labeled eligibility versus the strength and scope of the supporting evidence."
+        },
+        "isHighAlert": false,
+        "isHighRisk": false,
+        "lastSourceFidelityReview": "2026-09-19",
+        "mechanism": {
+          "citationIDs": [
+            "recent_evidence_suzetrigine_label"
+          ],
+          "text": "Suzetrigine blocks NaV1.8 channels in peripheral sensory neurons, reducing pain-signal transmission; its active metabolite also inhibits this channel."
+        },
+        "quickReference": [],
+        "subtitle": "Journavx · acute pain evidence",
+        "title": "Suzetrigine",
+        "warnings": [
+          {
+            "citationIDs": [
+              "recent_evidence_suzetrigine_label"
+            ],
+            "text": "Moderate hepatic impairment requires a modified regimen; the label advises avoiding use in severe hepatic impairment. Treatment beyond 14 days has not been studied."
+          },
+          {
+            "citationIDs": [
+              "recent_evidence_suzetrigine_label"
+            ],
+            "text": "Hormonal contraceptives containing progestins other than levonorgestrel or norethindrone require additional nonhormonal or alternative contraception during treatment and for 28 days afterward."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "drug": {
+      "_0": {
+        "adverseReactions": {
+          "citationIDs": [
+            "recent_evidence_gepotidacin_label"
+          ],
+          "text": "Diarrhea, nausea, abdominal symptoms and vomiting are reported; tolerability differs between the UTI and gonorrhea regimens."
+        },
+        "category": "Bacterial type II topoisomerase inhibitor",
+        "citations": [
+          {
+            "detail": "FDA approval announcement, December 12, 2025; Blujepa expanded indication approved December 11.",
+            "id": "recent_evidence_gepotidacin_fda",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "FDA",
+            "shortName": "FDA · oral gonorrhea therapies",
+            "url": "https://www.fda.gov/news-events/press-announcements/fda-approves-two-oral-therapies-treat-gonorrhea"
+          },
+          {
+            "detail": "Oral gepotidacin for the treatment of uncomplicated urogenital gonorrhoea (EAGLE-1): a phase 3 randomised, open-label, non-inferiority, multicentre study. 2025. PMID 40245902.",
+            "id": "recent_evidence_gepotidacin_trial",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "The Lancet",
+            "shortName": "EAGLE-1 · gepotidacin",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40245902/"
+          },
+          {
+            "detail": "Blujepa (gepotidacin); DailyMed SPL set 80b57cfe-7819-4d95-a57d-014af42f118d; sections 1, 2, 4–8, 12 and 14.",
+            "id": "recent_evidence_gepotidacin_label",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "GlaxoSmithKline · DailyMed",
+            "shortName": "Blujepa prescribing information",
+            "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=80b57cfe-7819-4d95-a57d-014af42f118d"
+          }
+        ],
+        "contraindications": {
+          "citationIDs": [
+            "recent_evidence_gepotidacin_label"
+          ],
+          "text": "A history of severe hypersensitivity to gepotidacin is a contraindication."
+        },
+        "dosing": [],
+        "drugInteractions": [
+          {
+            "citationIDs": [
+              "recent_evidence_gepotidacin_label"
+            ],
+            "text": "CYP3A4 inhibitor and inducer restrictions differ by indication. Strong inhibitors are avoided for both; moderate inhibitors are additionally avoided with the gonorrhea regimen."
+          },
+          {
+            "citationIDs": [
+              "recent_evidence_gepotidacin_label"
+            ],
+            "text": "QT-prolonging medicines, digoxin, cholinergic drugs and neuromuscular blockers require interaction review. The full label specifies the relevant monitoring and avoidance rules."
+          }
+        ],
+        "id": "gepotidacin",
+        "indications": {
+          "citationIDs": [
+            "recent_evidence_gepotidacin_fda",
+            "recent_evidence_gepotidacin_trial"
+          ],
+          "text": "Gepotidacin has US indications for uncomplicated urinary tract infection and, following the December 2025 expansion, uncomplicated urogenital gonorrhea in eligible patients with limited or no alternatives. The gonorrhea approval rests on limited clinical safety data. EAGLE-1 compared oral gepotidacin with ceftriaxone plus azithromycin in an open-label, randomized non-inferiority trial. In the microbiological intention-to-treat population, urogenital microbiological success was 92.6% with gepotidacin and 91.2% with the comparator. Non-inferiority concerns the prespecified margin and endpoint; it does not establish superiority, unrestricted first-line use, or efficacy at pharyngeal and rectal sites. The expanded indication therefore must not be interpreted as a universal oral replacement for existing gonorrhea regimens."
+        },
+        "isHighAlert": false,
+        "isHighRisk": true,
+        "lastSourceFidelityReview": "2026-09-19",
+        "mechanism": {
+          "citationIDs": [
+            "recent_evidence_gepotidacin_label"
+          ],
+          "text": "Gepotidacin inhibits bacterial DNA gyrase and topoisomerase IV, disrupting DNA replication."
+        },
+        "quickReference": [],
+        "subtitle": "Blujepa · urinary and urogenital indications",
+        "title": "Gepotidacin",
+        "warnings": [
+          {
+            "citationIDs": [
+              "recent_evidence_gepotidacin_label"
+            ],
+            "text": "UTI eligibility is female patients aged at least 12 years and weighing at least 40 kg; gonorrhea eligibility requires age at least 12 years and weight at least 45 kg."
+          },
+          {
+            "citationIDs": [
+              "recent_evidence_gepotidacin_label"
+            ],
+            "text": "QTc prolongation, cholinergic effects, anaphylaxis and C. difficile infection are important risks. Renal or hepatic impairment can increase exposure; severe impairment has label restrictions."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "drug": {
+      "_0": {
+        "adverseReactions": {
+          "citationIDs": [
+            "recent_evidence_brensocatib_label"
+          ],
+          "text": "Common reported reactions include upper respiratory infection, headache, rash, dry skin, hyperkeratosis and hypertension. Safety follow-up includes oral and skin symptoms as well as respiratory status."
+        },
+        "category": "Dipeptidyl peptidase 1 inhibitor",
+        "citations": [
+          {
+            "detail": "Drug Trials Snapshots: Brinsupri. Approval August 12, 2025; non-cystic fibrosis bronchiectasis.",
+            "id": "recent_evidence_brensocatib_fda",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "FDA",
+            "shortName": "FDA · Brinsupri snapshot",
+            "url": "https://www.fda.gov/drugs/drug-trials-snapshots/drug-trials-snapshots-brinsupri"
+          },
+          {
+            "detail": "Chalmers et al. Phase 3 Trial of Brensocatib in Bronchiectasis. 2025. DOI 10.1056/NEJMoa2411664; PMID 40267423.",
+            "id": "recent_evidence_aspen",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "New England Journal of Medicine",
+            "shortName": "ASPEN · bronchiectasis",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40267423/"
+          },
+          {
+            "detail": "Brinsupri (brensocatib); DailyMed SPL set b56986ae-e7db-421e-b622-a7f41e321f3d; sections 1, 2, 4–8, 12 and 14.",
+            "id": "recent_evidence_brensocatib_label",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "Insmed · DailyMed",
+            "shortName": "Brinsupri prescribing information",
+            "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=b56986ae-e7db-421e-b622-a7f41e321f3d"
+          }
+        ],
+        "contraindications": {
+          "citationIDs": [
+            "recent_evidence_brensocatib_label"
+          ],
+          "text": "The prescribing information lists no contraindications; this does not remove its precautions."
+        },
+        "dosing": [],
+        "drugInteractions": [
+          {
+            "citationIDs": [
+              "recent_evidence_brensocatib_label"
+            ],
+            "text": "Concurrent live attenuated vaccines have not been evaluated; the label recommends avoiding them because effects on vaccine safety and effectiveness are unknown."
+          }
+        ],
+        "id": "brensocatib",
+        "indications": {
+          "citationIDs": [
+            "recent_evidence_brensocatib_fda",
+            "recent_evidence_aspen"
+          ],
+          "text": "Brensocatib is approved for non-cystic fibrosis bronchiectasis in adults and patients aged 12 years or older. ASPEN randomized 1,721 participants, including 41 adolescents, to two brensocatib regimens or placebo over 52 weeks. Annualized exacerbation rates were 1.02 and 1.04 with brensocatib versus 1.29 with placebo; corresponding rate ratios were 0.79 and 0.81. About 48.5% in each active group remained exacerbation-free, compared with 40.3% receiving placebo. The trial, funded by Insmed, supports fewer pulmonary exacerbations in the studied population. It does not establish treatment of cystic fibrosis, immediate relief during an acute exacerbation, or reversal of established airway damage. The small adolescent subgroup also limits the precision of age-specific efficacy estimates."
+        },
+        "isHighAlert": false,
+        "isHighRisk": false,
+        "lastSourceFidelityReview": "2026-09-19",
+        "mechanism": {
+          "citationIDs": [
+            "recent_evidence_brensocatib_label"
+          ],
+          "text": "DPP1 inhibition reduces activation of inflammatory neutrophil serine proteases during neutrophil maturation. These enzymes contribute to neutrophil-mediated airway inflammation."
+        },
+        "quickReference": [],
+        "subtitle": "Brinsupri · bronchiectasis evidence",
+        "title": "Brensocatib",
+        "warnings": [
+          {
+            "citationIDs": [
+              "recent_evidence_brensocatib_label"
+            ],
+            "text": "New rash, dry skin or hyperkeratosis warrants assessment; the label recommends dermatology evaluation for new dermatologic findings."
+          },
+          {
+            "citationIDs": [
+              "recent_evidence_brensocatib_label"
+            ],
+            "text": "Gingival and periodontal adverse reactions support regular dental checkups and routine dental hygiene during treatment."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "drug": {
+      "_0": {
+        "adverseReactions": {
+          "citationIDs": [
+            "recent_evidence_nerandomilast_label"
+          ],
+          "text": "Diarrhea, nausea, reduced appetite and decreased weight are among reported adverse reactions. Tolerability can affect continuation and requires reassessment."
+        },
+        "category": "Preferential PDE4B inhibitor",
+        "citations": [
+          {
+            "detail": "FDA approval of Jascayd for progressive pulmonary fibrosis, December 19, 2025.",
+            "id": "recent_evidence_nerandomilast_fda",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "FDA",
+            "shortName": "FDA · progressive pulmonary fibrosis",
+            "url": "https://www.fda.gov/drugs/news-events-human-drugs/fda-approves-drug-treat-chronic-progressive-lung-disease"
+          },
+          {
+            "detail": "Richeldi et al. Nerandomilast in Patients with Idiopathic Pulmonary Fibrosis. NEJM 2025;392:2193–2202. DOI 10.1056/NEJMoa2414108; PMID 40387033.",
+            "id": "recent_evidence_fibroneer",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "New England Journal of Medicine",
+            "shortName": "FIBRONEER-IPF",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40387033/"
+          },
+          {
+            "detail": "Jascayd (nerandomilast); DailyMed SPL set fa1b14c6-957f-d326-5099-911bfe33e391; sections 1, 2, 4–8, 12 and 14.",
+            "id": "recent_evidence_nerandomilast_label",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "Boehringer Ingelheim · DailyMed",
+            "shortName": "Jascayd prescribing information",
+            "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=fa1b14c6-957f-d326-5099-911bfe33e391"
+          }
+        ],
+        "contraindications": {
+          "citationIDs": [
+            "recent_evidence_nerandomilast_label"
+          ],
+          "text": "The label lists no contraindications; treatment still requires review of tolerability and interacting medicines."
+        },
+        "dosing": [],
+        "drugInteractions": [
+          {
+            "citationIDs": [
+              "recent_evidence_nerandomilast_label"
+            ],
+            "text": "Strong CYP3A inhibitors increase exposure and require regimen modification. Strong inducers are avoided. Moderate inducers and pirfenidone reduce exposure and have distinct label instructions."
+          }
+        ],
+        "id": "nerandomilast",
+        "indications": {
+          "citationIDs": [
+            "recent_evidence_nerandomilast_fda",
+            "recent_evidence_fibroneer"
+          ],
+          "text": "Nerandomilast has adult indications for idiopathic pulmonary fibrosis and progressive pulmonary fibrosis. In FIBRONEER-IPF, 1,177 adults were randomized to two active regimens or placebo; 77.7% were already receiving nintedanib or pirfenidone. At 52 weeks, the adjusted difference in forced vital capacity decline versus placebo was 68.8 mL for the higher regimen and 44.9 mL for the lower regimen. Mean lung function still declined in all groups. These findings describe slower loss of FVC, not restored lung function or a demonstrated survival benefit. Diarrhea was more frequent with nerandomilast. Boehringer Ingelheim funded the trial. The FDA subsequently approved the separate progressive pulmonary fibrosis indication on its own evidence program."
+        },
+        "isHighAlert": false,
+        "isHighRisk": false,
+        "lastSourceFidelityReview": "2026-09-19",
+        "mechanism": {
+          "citationIDs": [
+            "recent_evidence_nerandomilast_label"
+          ],
+          "text": "Nerandomilast preferentially inhibits PDE4B, increasing intracellular cyclic AMP and affecting fibrotic and inflammatory signaling."
+        },
+        "quickReference": [],
+        "subtitle": "Jascayd · pulmonary fibrosis evidence",
+        "title": "Nerandomilast",
+        "warnings": [
+          {
+            "citationIDs": [
+              "recent_evidence_nerandomilast_label"
+            ],
+            "text": "The August 2026 label allows swallowing tablets whole or dispersing them in water using its specific preparation instructions. This is not blanket permission to crush tablets or use other liquids."
+          },
+          {
+            "citationIDs": [
+              "recent_evidence_nerandomilast_label"
+            ],
+            "text": "The lower regimen did not show efficacy when combined with pirfenidone in FIBRONEER-IPF. Dose reduction rules depend on concomitant therapy."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "drug": {
+      "_0": {
+        "adverseReactions": {
+          "citationIDs": [
+            "recent_evidence_donanemab_label"
+          ],
+          "text": "ARIA, headache, infusion reactions and hypersensitivity are important reported adverse reactions. ARIA can be asymptomatic or cause focal neurologic symptoms resembling ischemic stroke."
+        },
+        "category": "Amyloid-directed monoclonal antibody",
+        "citations": [
+          {
+            "detail": "Drug Trials Snapshots: Kisunla. Early Alzheimer disease trial population and approval evidence.",
+            "id": "recent_evidence_donanemab_fda",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "FDA",
+            "shortName": "FDA · Kisunla snapshot",
+            "url": "https://www.fda.gov/drugs/drug-trials-snapshots/drug-trials-snapshots-kisunla"
+          },
+          {
+            "detail": "Wang et al. The effect of modified donanemab titration on amyloid-related imaging abnormalities with edema/effusions and amyloid reduction: 18-month results from TRAILBLAZER-ALZ 6. 2025. DOI 10.1016/j.tjpad.2025.100266; PMID 40619285.",
+            "id": "recent_evidence_alz6",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "The Journal of Prevention of Alzheimer’s Disease",
+            "shortName": "TRAILBLAZER-ALZ 6 · completed analysis",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40619285/"
+          },
+          {
+            "detail": "Kisunla (donanemab); DailyMed SPL set 190352d4-ef62-4679-b4fa-e846e2766afa; sections 1, 2, 4–8, 12 and 14.",
+            "id": "recent_evidence_donanemab_label",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "Eli Lilly · DailyMed",
+            "shortName": "Kisunla prescribing information",
+            "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=190352d4-ef62-4679-b4fa-e846e2766afa"
+          }
+        ],
+        "contraindications": {
+          "citationIDs": [
+            "recent_evidence_donanemab_label"
+          ],
+          "text": "Serious hypersensitivity to donanemab or its excipients, including prior anaphylaxis, is a contraindication."
+        },
+        "dosing": [],
+        "drugInteractions": [
+          {
+            "citationIDs": [
+              "recent_evidence_donanemab_label"
+            ],
+            "text": "Anticoagulants and thrombolytics require particular caution because intracerebral hemorrhage can occur. Focal deficits require evaluation for ARIA as well as stroke before treatment decisions."
+          }
+        ],
+        "id": "donanemab",
+        "indications": {
+          "citationIDs": [
+            "recent_evidence_donanemab_fda",
+            "recent_evidence_alz6"
+          ],
+          "text": "Donanemab is an Alzheimer disease therapy initiated in the mild cognitive impairment or mild dementia stage represented in its trials. Treatment eligibility depends on confirming amyloid pathology. The completed 2025 TRAILBLAZER-ALZ 6 analysis compared modified and standard titration. By 76 weeks, ARIA with edema occurred in 15.6% versus 24.2%; amyloid reduction was similar. Symptomatic ARIA with edema occurred in 2.8% versus 4.8%, a difference that was not statistically significant. These findings support a safety advantage for the studied modified titration, but do not establish absence of hemorrhage risk or additional cognitive benefit. The study involved manufacturer investigators. Amyloid clearance and lower ARIA frequency should not be interpreted as a cure for dementia."
+        },
+        "isHighAlert": false,
+        "isHighRisk": true,
+        "lastSourceFidelityReview": "2026-09-19",
+        "mechanism": {
+          "citationIDs": [
+            "recent_evidence_donanemab_label"
+          ],
+          "text": "Donanemab targets a modified form of amyloid beta in brain plaques and reduces plaque burden."
+        },
+        "quickReference": [],
+        "subtitle": "Kisunla · early Alzheimer disease",
+        "title": "Donanemab",
+        "warnings": [
+          {
+            "citationIDs": [
+              "recent_evidence_donanemab_label"
+            ],
+            "text": "BOXED WARNING: Amyloid-related imaging abnormalities can involve edema or hemorrhage and may be serious or fatal. APOE ε4 homozygotes have greater risk; pretreatment testing and discussion of genetic implications inform counseling."
+          },
+          {
+            "citationIDs": [
+              "recent_evidence_donanemab_label"
+            ],
+            "text": "The label requires baseline MRI and MRI before infusions 2, 3, 4 and 7, with additional evaluation for possible ARIA symptoms. Management depends on symptoms and imaging severity."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "drug": {
+      "_0": {
+        "adverseReactions": {
+          "citationIDs": [
+            "recent_evidence_zuranolone_label"
+          ],
+          "text": "Somnolence, dizziness, fatigue and diarrhea are reported. Additive CNS effects can increase respiratory depression risk."
+        },
+        "category": "Neuroactive steroid · GABA-A modulator",
+        "citations": [
+          {
+            "detail": "Drug Trials Snapshots: Zurzuvae. Adult postpartum depression indication; two placebo-controlled trials.",
+            "id": "recent_evidence_zuranolone_fda",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "FDA",
+            "shortName": "FDA · Zurzuvae snapshot",
+            "url": "https://www.fda.gov/drugs/drug-trials-snapshots/drug-trials-snapshots-zurzuvae"
+          },
+          {
+            "detail": "Deligiannidis et al. Zuranolone for the Treatment of Postpartum Depression. Am J Psychiatry 2023;180:668–675. DOI 10.1176/appi.ajp.20220785; PMID 37491938. Correction PMID 39659161 concerns a supplemental MADRS timepoint, not the reported HAM-D endpoint.",
+            "id": "recent_evidence_zuranolone_trial",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Journal of Psychiatry",
+            "shortName": "Zuranolone · postpartum depression trial",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/37491938/"
+          },
+          {
+            "detail": "Correction to Deligiannidis et al. Am J Psychiatry 2025;182:311. DOI 10.1176/appi.ajp.20220785correction; PMID 39659161.",
+            "id": "recent_evidence_zuranolone_correction",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Journal of Psychiatry",
+            "shortName": "Zuranolone trial · correction",
+            "url": "https://psychiatryonline.org/doi/10.1176/appi.ajp.20220785correction"
+          },
+          {
+            "detail": "Zurzuvae (zuranolone); DailyMed SPL set f18e53b0-d0bb-422d-8de7-ab64b7292b29; sections 1, 2, 4–8, 12 and 14. Prescribing information revised April 2026; SPL updated June 2026.",
+            "id": "recent_evidence_zuranolone_label",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "Biogen · DailyMed",
+            "shortName": "Zurzuvae prescribing information",
+            "url": "https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=f18e53b0-d0bb-422d-8de7-ab64b7292b29"
+          }
+        ],
+        "contraindications": {
+          "citationIDs": [
+            "recent_evidence_zuranolone_label"
+          ],
+          "text": "No contraindications are listed in the prescribing information; the boxed warning remains essential."
+        },
+        "dosing": [],
+        "drugInteractions": [
+          {
+            "citationIDs": [
+              "recent_evidence_zuranolone_label"
+            ],
+            "text": "Alcohol, opioids and other CNS depressants can increase impairment. Strong CYP3A4 inhibitors require dose modification; CYP3A4 inducers can reduce exposure and should be avoided under the label."
+          }
+        ],
+        "id": "zuranolone",
+        "indications": {
+          "citationIDs": [
+            "recent_evidence_zuranolone_fda",
+            "recent_evidence_zuranolone_trial",
+            "recent_evidence_zuranolone_correction"
+          ],
+          "text": "Zuranolone is approved for postpartum depression in adults. The pivotal 2023 placebo-controlled trial randomized 196 women with severe postpartum depression to a 14-day course. At day 15, mean improvement on the Hamilton Depression Rating Scale was 15.6 points with zuranolone versus 11.6 with placebo; the adjusted between-group difference was −4.0 points (95% CI −6.3 to −1.7). Symptom differences were also reported through day 45. This is short-term symptom evidence, not proof of indefinite remission after one course or an indication for every depressive disorder. The trial included manufacturer-affiliated investigators. A later correction changed a supplemental MADRS assessment date; the primary HAM-D result and study conclusions were unchanged."
+        },
+        "isHighAlert": false,
+        "isHighRisk": true,
+        "lastSourceFidelityReview": "2026-09-19",
+        "mechanism": {
+          "citationIDs": [
+            "recent_evidence_zuranolone_label"
+          ],
+          "text": "Its postpartum depression mechanism is incompletely understood; positive allosteric modulation of GABA-A receptors is thought to contribute."
+        },
+        "quickReference": [],
+        "subtitle": "Zurzuvae · postpartum depression",
+        "title": "Zuranolone",
+        "warnings": [
+          {
+            "citationIDs": [
+              "recent_evidence_zuranolone_label"
+            ],
+            "text": "BOXED WARNING: Driving ability can be impaired. The label prohibits driving or hazardous activities requiring full alertness until at least 12 hours after each dose throughout treatment; patients cannot reliably judge their own impairment."
+          },
+          {
+            "citationIDs": [
+              "recent_evidence_zuranolone_label"
+            ],
+            "text": "Sedation, confusion and falls can occur. Worsening depression or emerging suicidal thoughts require clinical reassessment. Animal findings support potential fetal harm; effective contraception is advised during treatment and for one week afterward."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "lab": {
+      "_0": {
+        "citations": [
+          {
+            "detail": "FDA clearance of Lumipulse G pTau217/β-Amyloid 1-42 Plasma Ratio, May 16, 2025. Device-specific population, comparison study and limitations.",
+            "id": "recent_evidence_ptau_fda",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "FDA",
+            "shortName": "FDA · first Alzheimer blood test",
+            "url": "https://www.fda.gov/news-events/press-announcements/fda-clears-first-blood-test-used-diagnosing-alzheimers-disease"
+          },
+          {
+            "detail": "Palmqvist et al. Alzheimer’s Association Clinical Practice Guideline on blood-based biomarkers in specialized care. 2025. DOI 10.1002/alz.70535; PMID 40729527.",
+            "id": "recent_evidence_blood_biomarker_guideline",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "Alzheimer’s & Dementia",
+            "shortName": "Alzheimer’s Association · blood biomarkers",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40729527/"
+          }
+        ],
+        "commonCauses": [
+          {
+            "causes": [
+              "The FDA-cleared Lumipulse G pTau217/β-Amyloid 1-42 Plasma Ratio measures two plasma biomarkers to help identify amyloid pathology. Its intended population is adults aged 55 years or older with signs or symptoms of cognitive decline evaluated in a specialized care setting. Clearance of this particular ratio does not establish interchangeability with every commercial p-tau217 assay."
+            ],
+            "citationIDs": [
+              "recent_evidence_ptau_fda"
+            ],
+            "title": "What the cleared test measures"
+          },
+          {
+            "causes": [
+              "Among 499 cognitively impaired adults, 91.7% with positive results had amyloid confirmed by PET or cerebrospinal fluid testing; 97.3% with negative results had negative comparator testing. Fewer than 20% had indeterminate results. These are agreement or predictive findings in this selected population, not universal sensitivity and specificity estimates for asymptomatic screening."
+            ],
+            "citationIDs": [
+              "recent_evidence_ptau_fda"
+            ],
+            "title": "What the FDA comparison found"
+          },
+          {
+            "causes": [
+              "The Alzheimer’s Association guideline addresses objectively impaired patients assessed in specialized care. It distinguishes a triage test, which can identify who needs confirmation, from a test accurate enough to substitute for amyloid PET or cerebrospinal fluid testing. Its performance requirements apply to the specific test and intended role. Many available commercial tests do not meet those requirements."
+            ],
+            "citationIDs": [
+              "recent_evidence_blood_biomarker_guideline"
+            ],
+            "title": "2025 guideline context"
+          }
+        ],
+        "id": "plasma-p-tau217-amyloid-ratio",
+        "interpretationTiers": [],
+        "lastSourceFidelityReview": "2026-09-19",
+        "nclexTags": {
+          "category": "physiologicalIntegrity",
+          "priorityConcept": "cognition",
+          "subcategory": "reductionOfRiskPotential"
+        },
+        "nursingActions": [
+          {
+            "citationIDs": [
+              "recent_evidence_blood_biomarker_guideline"
+            ],
+            "text": "The guideline retains a comprehensive clinical evaluation and attention to pretest probability. Interpretation depends on the exact assay, clinical setting and role of the result in the diagnostic workup; a biomarker should not replace that assessment."
+          }
+        ],
+        "referenceRanges": [],
+        "specimen": "Plasma",
+        "subtitle": "Alzheimer biomarkers · assay-specific interpretation",
+        "title": "Plasma p-tau217 / amyloid ratio",
+        "watchFor": [
+          {
+            "citationIDs": [
+              "recent_evidence_ptau_fda"
+            ],
+            "text": "The FDA does not authorize this device as population screening or a stand-alone Alzheimer diagnosis. False-positive, false-negative and indeterminate results can lead to additional testing or inappropriate treatment if detached from clinical context."
+          },
+          {
+            "citationIDs": [
+              "recent_evidence_blood_biomarker_guideline"
+            ],
+            "text": "A threshold from a different platform is not validated merely because both tests measure phosphorylated tau. The guideline’s accuracy criteria are test-specific, and its recommendations are not an asymptomatic screening program."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "lab": {
+      "_0": {
+        "citations": [
+          {
+            "detail": "FDA De Novo review summary and classification order, DEN240045, May 9, 2025. Teal Wand prescription home vaginal collection device for specifically validated HPV molecular assays.",
+            "id": "recent_evidence_hpv_fda",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "FDA",
+            "shortName": "FDA · Teal Wand authorization",
+            "url": "https://www.accessdata.fda.gov/cdrh_docs/reviews/DEN240045.pdf"
+          },
+          {
+            "detail": "Clinical Validation of a Vaginal Cervical Cancer Screening Self-Collection Method for At-Home Use: A Nonrandomized Clinical Trial. 2025. PMID 40388167; NCT06120205.",
+            "id": "recent_evidence_self_cerv",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "JAMA Network Open",
+            "shortName": "SELF-CERV · HPV self-collection",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40388167/"
+          },
+          {
+            "detail": "Wentzensen et al. Re: Self-Collected Vaginal Specimens at Home for HPV Testing: Recommendations From the Enduring Guidelines Committee. J Low Genit Tract Dis 2026;30:97–99. DOI 10.1097/LGT.0000000000000929; PMID 41616373.",
+            "id": "recent_evidence_hpv_enduring",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "Journal of Lower Genital Tract Disease",
+            "shortName": "Enduring Guidelines · home HPV testing",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12994907/"
+          }
+        ],
+        "commonCauses": [
+          {
+            "causes": [
+              "The FDA’s 2025 Teal Wand authorization covers a prescription device for collecting a vaginal specimen for HPV molecular testing at home or in another private setting. The specimen must be tested using an FDA-approved molecular assay specifically validated with that device. Authorization therefore attaches to a collection-and-testing combination, rather than to any swab or any HPV laboratory test."
+            ],
+            "citationIDs": [
+              "recent_evidence_hpv_fda"
+            ],
+            "title": "What authorization covers"
+          },
+          {
+            "causes": [
+              "SELF-CERV compared self-collected and clinician-collected specimens in a nonrandomized, paired validation study at 16 US sites. Participants were aged 25–65 years; 599 had paired specimens and 582 entered the valid-sample analysis. Positive agreement for high-risk HPV was 95.2% (278/292; 95% CI 92.1–97.1). Sensitivity for high-grade dysplasia was 95.8% (46/48), with a wider confidence interval of 86.0–98.8%."
+            ],
+            "citationIDs": [
+              "recent_evidence_self_cerv"
+            ],
+            "title": "What SELF-CERV studied"
+          },
+          {
+            "causes": [
+              "The study evaluated test performance against paired clinical sampling, not a randomized reduction in cervical cancer mortality. The small number with high-grade dysplasia limits precision. Agreement within this device-and-assay study cannot be transferred to unvalidated collection kits, age groups outside the study, or every clinical screening and surveillance setting."
+            ],
+            "citationIDs": [
+              "recent_evidence_self_cerv"
+            ],
+            "title": "What those results cannot establish"
+          }
+        ],
+        "id": "self-collected-vaginal-hpv-testing",
+        "interpretationTiers": [],
+        "lastSourceFidelityReview": "2026-09-19",
+        "nclexTags": {
+          "category": "physiologicalIntegrity",
+          "priorityConcept": "infection",
+          "subcategory": "reductionOfRiskPotential"
+        },
+        "nursingActions": [
+          {
+            "citationIDs": [
+              "recent_evidence_hpv_fda"
+            ],
+            "text": "The collection device supplies a laboratory specimen; it does not itself read or diagnose HPV infection. Its prescription instructions and the laboratory’s validated collection, transport and testing pathway determine whether a sample is acceptable. The FDA authorization should be checked for the specific product used."
+          },
+          {
+            "citationIDs": [
+              "recent_evidence_hpv_enduring"
+            ],
+            "text": "The 2026 Enduring Guidelines update extends management recommendations to validated home-collected specimens. Follow-up differs for HPV 16/18 and other high-risk types; some positive results need a clinician-collected cervical specimen for cytology or dual-stain testing. Prior abnormal-result surveillance favors clinician collection. Home collection does not remove the need for that follow-up."
+          }
+        ],
+        "referenceRanges": [],
+        "specimen": "Self-collected vaginal specimen",
+        "subtitle": "Home collection · device and assay validation",
+        "title": "Self-collected vaginal HPV testing",
+        "watchFor": [
+          {
+            "citationIDs": [
+              "recent_evidence_hpv_enduring"
+            ],
+            "text": "Self-collection for HPV molecular testing is not cervical cytology. An HPV result alone is not a cancer diagnosis; further clinical management depends on the result and the applicable screening pathway. A device authorization does not set a universal rescreening interval."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "reference": {
+      "_0": {
+        "citations": [
+          {
+            "detail": "Clinical Recommendation for the Use of Injectable Lenacapavir as HIV Preexposure Prophylaxis — United States, 2025. MMWR 74, September 18, 2025.",
+            "id": "recent_evidence_lenacapavir_cdc",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "CDC",
+            "shortName": "CDC · lenacapavir PrEP recommendation",
+            "url": "https://www.cdc.gov/mmwr/volumes/74/wr/mm7435a1.htm"
+          },
+          {
+            "detail": "Twice-Yearly Lenacapavir for HIV Prevention in Men and Gender-Diverse Persons. DOI 10.1056/NEJMoa2411858; PMID 39602624. Online 2024, print 2025.",
+            "id": "recent_evidence_purpose2",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "New England Journal of Medicine",
+            "shortName": "PURPOSE 2 · HIV prevention",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/39602624/"
+          },
+          {
+            "detail": "Twice-Yearly Lenacapavir or Daily F/TAF for HIV Prevention in Cisgender Women. 2024. DOI 10.1056/NEJMoa2407001; PMID 39046157.",
+            "id": "recent_evidence_purpose1",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "New England Journal of Medicine",
+            "shortName": "PURPOSE 1 · HIV prevention",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/39046157/"
+          }
+        ],
+        "eyebrow": "REFERENCE · STUDY EVIDENCE",
+        "id": "lenacapavir-hiv-prevention-evidence",
+        "lastSourceFidelityReview": "2026-09-19",
+        "nclexTags": {
+          "category": "physiologicalIntegrity",
+          "priorityConcept": "infection",
+          "subcategory": "reductionOfRiskPotential"
+        },
+        "sections": [
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "recent_evidence_lenacapavir_cdc"
+                  ],
+                  "text": "CDC’s 2025 recommendation adds injectable lenacapavir every six months as a PrEP option for people weighing at least 35 kg who would benefit from HIV prevention. This prevention use has its own product and regimen; the existing lenacapavir HIV-treatment indication is not interchangeable with PrEP."
+                }
+              ],
+              "title": "Current recommendation"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "recent_evidence_purpose2"
+                  ],
+                  "text": "PURPOSE 2 evaluated men and gender-diverse people at risk for HIV. The modified intention-to-treat population included 2,179 receiving lenacapavir and 1,086 receiving daily tenofovir disoproxil fumarate–emtricitabine. Two infections occurred in the lenacapavir group. Its HIV incidence was substantially below estimated background incidence; comparison with a modeled background is distinct from comparison with the randomized active-control group. Capsid resistance detected in breakthrough infections is clinically important. The Gilead-funded trial does not establish that infection is impossible after an injection."
+                },
+                {
+                  "citationIDs": [
+                    "recent_evidence_purpose1"
+                  ],
+                  "text": "PURPOSE 1 studied adolescent girls and young women in South Africa and Uganda. No HIV infections occurred among 2,134 lenacapavir recipients in the primary analysis. The study compared incidence with estimated background incidence and with oral prevention regimens. Its impressive trial result is bounded by follow-up, eligibility, testing and adherence support; it does not establish lifelong protection or cover all exposure contexts."
+                }
+              ],
+              "title": "What the trials found"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "recent_evidence_lenacapavir_cdc"
+                  ],
+                  "text": "HIV testing before initiation and follow-up injections is essential: unrecognized infection under long-acting single-drug exposure can select resistance. CDC addresses laboratory antigen/antibody testing and HIV RNA testing, including suspected acute infection. Oral antibody-only tests are insufficiently sensitive for the recommended pathway. Exact testing and delayed-dose management should follow current product and CDC instructions."
+                },
+                {
+                  "citationIDs": [
+                    "recent_evidence_lenacapavir_cdc"
+                  ],
+                  "text": "Injection-site pain and nodules are common, and nodules may persist. Switching from tenofovir-containing PrEP requires attention to hepatitis B, because stopping HBV-active medicines may need a separate treatment plan. Drug interactions, late injections and discontinuation require planned follow-up during the prolonged drug tail."
+                }
+              ],
+              "title": "Testing and follow-up are part of the intervention"
+            }
+          }
+        ],
+        "subtitle": "PURPOSE trials · testing and continuity of care",
+        "title": "Lenacapavir for HIV prevention"
+      }
+    }
+  },
+  {
+    "reference": {
+      "_0": {
+        "citations": [
+          {
+            "detail": "RSV Vaccine Guidance for Adults. Updated February 24, 2026. Eligibility, timing and repeat-dose guidance.",
+            "id": "recent_evidence_rsv_cdc",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "CDC",
+            "shortName": "CDC · adult RSV guidance",
+            "url": "https://www.cdc.gov/rsv/hcp/vaccine-clinical-guidance/adults.html"
+          },
+          {
+            "detail": "Lassen et al. Durability of RSV Prefusion F Vaccine Protection across Two RSV Seasons. NEJM Evidence, August 29, 2026. DOI 10.1056/EVIDoa2600242; PMID 42666088.",
+            "id": "recent_evidence_dan_rsv",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "NEJM Evidence",
+            "shortName": "DAN-RSV · two-season follow-up",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/42666088/"
+          }
+        ],
+        "eyebrow": "REFERENCE · STUDY EVIDENCE",
+        "id": "rsv-adult-vaccination-evidence",
+        "lastSourceFidelityReview": "2026-09-19",
+        "nclexTags": {
+          "category": "physiologicalIntegrity",
+          "priorityConcept": "infection",
+          "subcategory": "reductionOfRiskPotential"
+        },
+        "sections": [
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "recent_evidence_rsv_cdc"
+                  ],
+                  "text": "CDC recommends a single RSV vaccine dose for all adults aged 75 years or older and adults aged 50–74 years at increased risk of severe RSV illness. The February 2026 guidance includes Arexvy, Abrysvo and mResvia, with no product preference for eligible adults. Prior vaccination matters: RSV vaccination is not currently an annual series, and previously vaccinated adults should not receive another dose at this time."
+                },
+                {
+                  "citationIDs": [
+                    "recent_evidence_rsv_cdc"
+                  ],
+                  "text": "Relevant risk factors include specified chronic cardiac or pulmonary disease, immune compromise and other conditions listed by CDC. Vaccination can occur year-round; late summer or early fall usually best precedes the season. The adult recommendation is separate from maternal vaccination and infant antibody guidance."
+                }
+              ],
+              "title": "Eligibility and timing"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "recent_evidence_dan_rsv"
+                  ],
+                  "text": "DAN-RSV randomized adults aged at least 60 years to RSVpreF vaccine or no vaccine and followed two winter seasons. Of 131,379 randomized participants, 130,991 entered the second-season intention-to-treat analysis. The primary endpoint was RSV-related respiratory tract disease hospitalization. This was an open-label, pragmatic trial funded by Pfizer."
+                },
+                {
+                  "citationIDs": [
+                    "recent_evidence_dan_rsv"
+                  ],
+                  "text": "Estimated effectiveness was 70.6% across both seasons (95% CI 39.1–87.0). The second-season estimate alone was 56.2%, with a confidence interval from −12.4% to 84.8%. That interval includes no benefit, so second-season precision is limited. Second-season hospitalization rates were low: 0.11 versus 0.25 events per 1,000 person-years."
+                }
+              ],
+              "title": "August 2026 durability study"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "recent_evidence_dan_rsv"
+                  ],
+                  "text": "A positive combined-season result does not make the uncertain second-season estimate definitive. The study did not randomize booster timing, and results for RSVpreF should not automatically be assigned to every RSV vaccine platform. There was no apparent second-season difference in all-cause respiratory or cardiorespiratory hospitalization."
+                },
+                {
+                  "citationIDs": [
+                    "recent_evidence_rsv_cdc"
+                  ],
+                  "text": "CDC permits coadministration with other indicated vaccines, while noting limited evidence and potentially greater reactogenicity. Eligibility assessment, prior-dose history and current guidance remain the basis of the vaccination conversation."
+                }
+              ],
+              "title": "Interpretation at the bedside"
+            }
+          }
+        ],
+        "subtitle": "2026 eligibility · duration of protection",
+        "title": "Adult RSV vaccination evidence"
+      }
+    }
+  },
+  {
+    "reference": {
+      "_0": {
+        "citations": [
+          {
+            "detail": "Aronne et al. Tirzepatide as Compared with Semaglutide for the Treatment of Obesity. 2025. DOI 10.1056/NEJMoa2416394; PMID 40353578.",
+            "id": "recent_evidence_surmount5",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "New England Journal of Medicine",
+            "shortName": "SURMOUNT-5 · obesity comparison",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40353578/"
+          },
+          {
+            "detail": "Katsura et al. Real-World Cardiovascular Outcomes of Obesity Treatment With Tirzepatide Versus Semaglutide in Non-Diabetic Adults. Diabetes Obes Metab 2026;28:5174–5183. DOI 10.1111/dom.70721; PMID 41891334.",
+            "id": "recent_evidence_obesity_cohort",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "Diabetes, Obesity and Metabolism",
+            "shortName": "Tirzepatide–semaglutide · 2026 cohort",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41891334/"
+          },
+          {
+            "detail": "Prescription Medications to Treat Overweight & Obesity. Patient education: treatment selection, lifestyle support, adverse effects and discontinuation.",
+            "id": "recent_evidence_obesity_niddk",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIDDK",
+            "shortName": "NIDDK · weight-management medicines",
+            "url": "https://www.niddk.nih.gov/health-information/weight-management/prescription-medications-treat-overweight-obesity"
+          }
+        ],
+        "eyebrow": "REFERENCE · STUDY EVIDENCE",
+        "id": "obesity-medication-comparison-evidence",
+        "lastSourceFidelityReview": "2026-09-19",
+        "nclexTags": {
+          "category": "physiologicalIntegrity",
+          "priorityConcept": "nutrition",
+          "subcategory": "reductionOfRiskPotential"
+        },
+        "sections": [
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "recent_evidence_surmount5"
+                  ],
+                  "text": "SURMOUNT-5 randomized 751 adults with obesity but without type 2 diabetes to maximum-tolerated tirzepatide or semaglutide regimens in an open-label trial. Mean weight change at 72 weeks was −20.2% versus −13.7%. Gastrointestinal adverse effects were common, usually mild or moderate, and often occurred during dose escalation. Eli Lilly funded the trial."
+                },
+                {
+                  "citationIDs": [
+                    "recent_evidence_surmount5"
+                  ],
+                  "text": "This comparison supports greater average weight loss under the trial’s regimens. It does not compare every dose or formulation, establish identical effects in people with diabetes, or demonstrate superiority for cardiovascular mortality. A mean response is not a promised individual outcome."
+                }
+              ],
+              "title": "Randomized weight-loss evidence"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "recent_evidence_obesity_cohort"
+                  ],
+                  "text": "A TriNetX study matched 35,336 pairs of adults without diabetes who initiated tirzepatide or semaglutide for obesity. At 12 months, a composite of death, acute coronary syndrome, stroke or new heart failure occurred in 1.90% versus 2.18% (hazard ratio 0.86; 95% CI 0.77–0.97). The association was driven by new heart failure; individual death, coronary syndrome and stroke comparisons were not significant."
+                },
+                {
+                  "citationIDs": [
+                    "recent_evidence_obesity_cohort"
+                  ],
+                  "text": "This retrospective study excluded people with prior heart failure and certain recent cardiovascular events. Matching reduces measured differences but cannot remove unmeasured confounding, prescribing selection or electronic-record limitations. It supplies an association, not randomized proof that one drug prevents more cardiovascular events. Its composite also differs from conventional three-point MACE."
+                }
+              ],
+              "title": "What a 2026 observational study adds"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "recent_evidence_obesity_niddk"
+                  ],
+                  "text": "NIDDK describes medication as part of a broader weight-management plan that includes eating, activity and behavioral support. Choice depends on health conditions, other medicines, likely benefit, adverse effects and cost. Weight regain after stopping is common, so follow-up includes the feasibility of continuing treatment rather than focusing only on an early scale change."
+                },
+                {
+                  "citationIDs": [
+                    "recent_evidence_obesity_niddk"
+                  ],
+                  "text": "Medication review includes supplements and pregnancy plans. NIDDK advises against weight-management medicines during pregnancy or while planning pregnancy. Drug-specific warnings, tolerability and access belong in the treatment discussion alongside comparative weight-loss figures."
+                }
+              ],
+              "title": "Patient-centered treatment context"
+            }
+          }
+        ],
+        "subtitle": "Tirzepatide and semaglutide · trial versus cohort",
+        "title": "Obesity medication comparison evidence"
+      }
+    }
+  },
+  {
+    "reference": {
+      "_0": {
+        "citations": [
+          {
+            "detail": "Agarwal et al. Finerenone with Empagliflozin in Chronic Kidney Disease and Type 2 Diabetes. NEJM 2025;393:533–543. DOI 10.1056/NEJMoa2410659; PMID 40470996.",
+            "id": "recent_evidence_confidence",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "New England Journal of Medicine",
+            "shortName": "CONFIDENCE · combination kidney therapy",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40470996/"
+          },
+          {
+            "detail": "Quick Reference on UACR & GFR. Interpretation and measurement of albuminuria and estimated filtration.",
+            "id": "recent_evidence_uacr_niddk",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIDDK",
+            "shortName": "NIDDK · UACR and GFR",
+            "url": "https://www.niddk.nih.gov/health-information/professionals/advanced-search/quick-reference-uacr-gfr"
+          }
+        ],
+        "eyebrow": "REFERENCE · STUDY EVIDENCE",
+        "id": "diabetic-kidney-combination-evidence",
+        "lastSourceFidelityReview": "2026-09-19",
+        "nclexTags": {
+          "category": "physiologicalIntegrity",
+          "priorityConcept": "elimination",
+          "subcategory": "reductionOfRiskPotential"
+        },
+        "sections": [
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "recent_evidence_confidence"
+                  ],
+                  "text": "CONFIDENCE randomized adults with type 2 diabetes, chronic kidney disease and albuminuria to finerenone, empagliflozin or both. Eligibility included eGFR 30–90 mL/min/1.73 m² and urine albumin-to-creatinine ratio 100–5,000 mg/g. Participants were already taking a renin–angiotensin system inhibitor. The primary endpoint was UACR change at 180 days."
+                }
+              ],
+              "title": "Who was studied"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "recent_evidence_confidence"
+                  ],
+                  "text": "Combination treatment produced a UACR reduction 29% greater than finerenone alone and 32% greater than empagliflozin alone. These are relative comparisons of albuminuria change, not percentage-point reductions in kidney failure. Symptomatic hypotension, acute kidney injury and hyperkalemia leading to discontinuation were uncommon during the trial. Bayer funded the study."
+                }
+              ],
+              "title": "What changed"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "recent_evidence_confidence"
+                  ],
+                  "text": "An albuminuria endpoint over six months cannot by itself establish additional prevention of dialysis, cardiovascular death or long-term kidney failure. The eligibility restrictions also limit extrapolation to lower eGFR, absent albuminuria or people without diabetes. Uncommon short-term adverse events do not eliminate the need for individual safety monitoring."
+                }
+              ],
+              "title": "What remains uncertain"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "recent_evidence_uacr_niddk"
+                  ],
+                  "text": "NIDDK describes UACR as a urine measure of albumin excretion corrected for urine concentration, while eGFR estimates filtration from blood-based markers. They represent related but different aspects of kidney disease. An improved urine result does not mean that the filtration estimate has become normal."
+                },
+                {
+                  "citationIDs": [
+                    "recent_evidence_uacr_niddk"
+                  ],
+                  "text": "Spot UACR avoids the need for routine timed urine collection and is less affected by urine dilution than an albumin dipstick alone. Follow-up trends should preserve the reported units and distinction between albumin concentration and an albumin-to-creatinine ratio."
+                },
+                {
+                  "citationIDs": [
+                    "recent_evidence_uacr_niddk"
+                  ],
+                  "text": "NIDDK uses both urine albumin and eGFR to identify and monitor kidney disease. A care discussion can therefore identify which marker changed and why it was measured, instead of treating any lower laboratory number as proof of fewer clinical events."
+                }
+              ],
+              "title": "Understanding the laboratory follow-up"
+            }
+          }
+        ],
+        "subtitle": "CONFIDENCE · albuminuria and outcome limits",
+        "title": "Combination therapy in diabetic kidney disease"
+      }
+    }
+  },
+  {
+    "reference": {
+      "_0": {
+        "citations": [
+          {
+            "detail": "McGuire et al. Oral Semaglutide and Cardiovascular Outcomes in High-Risk Type 2 Diabetes. 2025. DOI 10.1056/NEJMoa2501006; PMID 40162642.",
+            "id": "recent_evidence_soul",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "New England Journal of Medicine",
+            "shortName": "SOUL · oral semaglutide",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40162642/"
+          },
+          {
+            "detail": "Pop-Busui et al. Oral Semaglutide and Heart Failure Outcomes in Persons With Type 2 Diabetes: A Secondary Analysis of the SOUL Randomized Clinical Trial. JAMA Intern Med 2026;186:426–436. DOI 10.1001/jamainternmed.2025.7774; PMID 41627802.",
+            "id": "recent_evidence_soul_hf",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "JAMA Internal Medicine",
+            "shortName": "SOUL · 2026 heart-failure analysis",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41627802/"
+          }
+        ],
+        "eyebrow": "REFERENCE · STUDY EVIDENCE",
+        "id": "oral-semaglutide-cardiovascular-evidence",
+        "lastSourceFidelityReview": "2026-09-19",
+        "nclexTags": {
+          "category": "physiologicalIntegrity",
+          "priorityConcept": "perfusion",
+          "subcategory": "reductionOfRiskPotential"
+        },
+        "sections": [
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "recent_evidence_soul"
+                  ],
+                  "text": "SOUL enrolled 9,650 adults aged at least 50 years with type 2 diabetes and established atherosclerotic cardiovascular disease, chronic kidney disease or both. Participants received oral semaglutide or placebo in addition to usual care. Over mean follow-up of 47.5 months, cardiovascular death, nonfatal myocardial infarction or nonfatal stroke occurred in 12.0% versus 13.8% (hazard ratio 0.86; 95% CI 0.77–0.96)."
+                },
+                {
+                  "citationIDs": [
+                    "recent_evidence_soul"
+                  ],
+                  "text": "The difference supports lower three-point MACE in this high-risk population. Confirmatory secondary outcomes, including major kidney disease events, were not significantly different. The trial was funded by Novo Nordisk. Its findings should not be generalized to all oral formulations, people without diabetes, or every lower-risk population."
+                }
+              ],
+              "title": "The randomized primary result"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "recent_evidence_soul_hf"
+                  ],
+                  "text": "The secondary analysis examined a composite of heart-failure hospitalization or urgent visits and cardiovascular death. The overall hazard ratio was 0.90 (95% CI 0.79–1.03), which did not establish a statistically significant reduction. The heart-failure-only outcome was likewise inconclusive, with hazard ratio 0.86 (95% CI 0.69–1.08)."
+                },
+                {
+                  "citationIDs": [
+                    "recent_evidence_soul_hf"
+                  ],
+                  "text": "Participants with baseline heart failure had a composite hazard ratio of 0.78 (95% CI 0.63–0.96); those without it had a hazard ratio of 1.01 (95% CI 0.84–1.20). However, the interaction P value was 0.06, and the study’s hierarchical testing limits matter. A significant result within one subgroup does not prove that effects differ between subgroups."
+                }
+              ],
+              "title": "What the 2026 heart-failure analysis found"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "recent_evidence_soul_hf"
+                  ],
+                  "text": "The prespecified MACE benefit and the exploratory heart-failure findings answer different questions. Neither a subgroup result nor a favorable point estimate with a confidence interval crossing 1 should be described as definitive prevention of heart failure. The secondary analysis does not independently establish a new treatment indication."
+                },
+                {
+                  "citationIDs": [
+                    "recent_evidence_soul"
+                  ],
+                  "text": "The primary report concerns longer-term cardiovascular outcomes under a randomized regimen; it is not a dosing comparison or a patient-specific prescribing rule. Individual treatment decisions still depend on the relevant product indication and clinical assessment."
+                }
+              ],
+              "title": "How to describe the evidence accurately"
+            }
+          }
+        ],
+        "subtitle": "SOUL · primary outcomes and 2026 secondary analysis",
+        "title": "Oral semaglutide cardiovascular evidence"
+      }
+    }
+  },
+  {
+    "reference": {
+      "_0": {
+        "citations": [
+          {
+            "detail": "Bi et al. Intensive Blood-Pressure Control in Patients with Type 2 Diabetes. NEJM 2025;392:1155–1167. DOI 10.1056/NEJMoa2412006; PMID 39555827. Online November 16, 2024.",
+            "id": "recent_evidence_bproad",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "New England Journal of Medicine",
+            "shortName": "BPROAD · blood-pressure targets",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/39555827/"
+          },
+          {
+            "detail": "Liu, Wang and Niu. Frontiers in Endocrinology 2026;17:1850865. DOI 10.3389/fendo.2026.1850865. Nine randomized trials in type 2 diabetes; search through December 12, 2025.",
+            "id": "recent_evidence_bp_meta",
+            "lastRetrieved": "2026-09-19",
+            "license": "ccBy4",
+            "publisher": "Frontiers in Endocrinology",
+            "shortName": "Blood-pressure intensification · 2026 review",
+            "url": "https://www.frontiersin.org/journals/endocrinology/articles/10.3389/fendo.2026.1850865/full"
+          },
+          {
+            "detail": "Top Things to Know: 2025 High Blood Pressure Guideline. Measurement, treatment goals and individualized management.",
+            "id": "recent_evidence_bp_aha",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Heart Association",
+            "shortName": "AHA/ACC · 2025 blood-pressure guidance",
+            "url": "https://professional.heart.org/en/science-news/2025-high-blood-pressure-guideline/top-things-to-know"
+          }
+        ],
+        "eyebrow": "REFERENCE · STUDY EVIDENCE",
+        "id": "blood-pressure-diabetes-evidence",
+        "lastSourceFidelityReview": "2026-09-19",
+        "nclexTags": {
+          "category": "physiologicalIntegrity",
+          "priorityConcept": "perfusion",
+          "subcategory": "reductionOfRiskPotential"
+        },
+        "sections": [
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "recent_evidence_bproad"
+                  ],
+                  "text": "BPROAD randomized 12,821 adults aged at least 50 years with type 2 diabetes and increased cardiovascular risk at 145 sites in China. The trial compared systolic targets below 120 and below 140 mm Hg. At one year, mean achieved systolic pressures were 121.6 and 133.2 mm Hg; assigned targets and achieved measurements are different quantities."
+                },
+                {
+                  "citationIDs": [
+                    "recent_evidence_bproad"
+                  ],
+                  "text": "Over a median 4.2 years, the composite of nonfatal stroke, nonfatal myocardial infarction, heart-failure treatment or hospitalization, or cardiovascular death occurred at 1.65 versus 2.09 events per 100 person-years. The hazard ratio was 0.79 (95% CI 0.69–0.90). Symptomatic hypotension and hyperkalemia were more frequent with intensive treatment, although serious adverse events overall were similar."
+                }
+              ],
+              "title": "BPROAD: the randomized comparison"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "recent_evidence_bp_meta"
+                  ],
+                  "text": "A systematic review of nine trials involving 34,260 participants with type 2 diabetes found fewer major cardiovascular events with more intensive control: 7.9% versus 9.7%, pooled risk ratio 0.80 (95% CI 0.73–0.89). Stroke was reduced, while individual myocardial infarction, heart-failure and cardiovascular-death estimates were not significant."
+                },
+                {
+                  "citationIDs": [
+                    "recent_evidence_bp_meta"
+                  ],
+                  "text": "Trials used different targets, some contributed diabetes subgroups, and several included other risk-factor interventions. Hypotension estimates were imprecise. The pooled result supports benefit in selected populations but cannot identify a universally optimal systolic number or remove the need to consider treatment harms. The review’s literature search ended in December 2025."
+                }
+              ],
+              "title": "June 2026 evidence synthesis"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "recent_evidence_bp_aha"
+                  ],
+                  "text": "The 2025 AHA/ACC guideline emphasizes reliable measurement, home monitoring and individualized care. Its overall treatment goal is below 130/80 mm Hg for most adults, with additional considerations for particular populations. A trial target should not be converted directly into an unsupervised medication change."
+                },
+                {
+                  "citationIDs": [
+                    "recent_evidence_bproad"
+                  ],
+                  "text": "For a patient discussion, the relevant distinctions are the studied risk profile, assigned versus achieved pressure, and the adverse effects that accompanied intensification. BPROAD does not establish that every patient with diabetes benefits equally from its intensive strategy."
+                }
+              ],
+              "title": "Applying a target in context"
+            }
+          }
+        ],
+        "subtitle": "BPROAD · 2026 synthesis and applicability",
+        "title": "Blood-pressure targets in diabetes"
+      }
+    }
+  }
+]

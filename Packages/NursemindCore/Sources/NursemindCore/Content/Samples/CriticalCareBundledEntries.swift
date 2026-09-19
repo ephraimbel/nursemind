@@ -23,6 +23,6 @@ extension ContentRegistry {
         entries.append(.reference(ICUDepthResuscitationAirwayCapnographySample.entry))
         entries.append(.reference(ICUDepthPostArrestAssessmentPrioritiesSample.entry))
         entries.append(.reference(ICUDepthCardiacArrestRecoverySupportSample.entry))
-        return entries
+        return entries + ICUEvidenceDrafts.entries
     }
 }

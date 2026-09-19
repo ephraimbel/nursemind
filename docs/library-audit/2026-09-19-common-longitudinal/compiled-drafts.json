@@ -1,0 +1,2864 @@
+[
+  {
+    "diagnosis": {
+      "_0": {
+        "citations": [
+          {
+            "detail": "Type 2 Diabetes. Foundation: definition, mechanism, symptoms and management; source last reviewed May 2017. Current criteria and treatment context are separately cited to ADA 2026.",
+            "id": "common_conditions_t2dm",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIDDK, National Institutes of Health",
+            "shortName": "NIDDK · Type 2 diabetes",
+            "url": "https://www.niddk.nih.gov/health-information/diabetes/overview/what-is-diabetes/type-2-diabetes"
+          },
+          {
+            "detail": "Standards of Care in Diabetes—2026, section 2. DOI: 10.2337/dc26-S002. Diagnostic criteria and confirmation; original factual summary, not licensed full-text republication.",
+            "id": "common_conditions_ada_diagnosis",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Diabetes Association",
+            "shortName": "ADA 2026 · Diagnosis and classification",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12690183/"
+          },
+          {
+            "detail": "Standards of Care in Diabetes—2026, section 4. DOI: 10.2337/dc26-S004. Comprehensive evaluation and comorbidities.",
+            "id": "common_conditions_ada_evaluation",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Diabetes Association",
+            "shortName": "ADA 2026 · Comprehensive evaluation",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12690184/"
+          },
+          {
+            "detail": "Standards of Care in Diabetes—2026, section 1. DOI: 10.2337/dc26-S001. Recommendations 1.7–1.9 and interprofessional support.",
+            "id": "common_conditions_ada_social",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Diabetes Association",
+            "shortName": "ADA 2026 · Social context of care",
+            "url": "https://diabetesjournals.org/care/article/49/Supplement_1/S13/163920/1-Improving-Care-and-Promoting-Health-in"
+          },
+          {
+            "detail": "Standards of Care in Diabetes—2026, section 9. DOI: 10.2337/dc26-S009. Person-specific selection and cardiovascular/kidney benefits.",
+            "id": "common_conditions_ada_pharmacology",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Diabetes Association",
+            "shortName": "ADA 2026 · Glucose-lowering treatment",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12690185/"
+          },
+          {
+            "detail": "McGuire DK et al. Oral Semaglutide and Cardiovascular Outcomes in High-Risk Type 2 Diabetes. 2025;392:2001–2012. DOI: 10.1056/NEJMoa2501006. PMID: 40162642. Randomized trial; Novo Nordisk funded.",
+            "id": "common_conditions_soul",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "New England Journal of Medicine / Massachusetts Medical Society",
+            "shortName": "SOUL · Cardiovascular outcomes, 2025",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40162642/"
+          },
+          {
+            "detail": "Standards of Care in Diabetes—2026, section 6. DOI: 10.2337/dc26-S006. Individualized goals, hypoglycemia and intercurrent illness.",
+            "id": "common_conditions_ada_goals",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Diabetes Association",
+            "shortName": "ADA 2026 · Glycemia and intercurrent illness",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12690178/"
+          },
+          {
+            "detail": "NIDDK · Low blood glucose",
+            "id": "common_conditions_hypoglycemia",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIDDK, National Institutes of Health",
+            "shortName": "NIDDK · Low blood glucose",
+            "url": "https://www.niddk.nih.gov/health-information/diabetes/overview/preventing-problems/low-blood-glucose-hypoglycemia"
+          },
+          {
+            "detail": "Umpierrez GE et al. Hyperglycemic Crises in Adults With Diabetes: A Consensus Report. Diabetes Care. 2024;47:1257–1275. DOI: 10.2337/dci24-0032. Recognition, SGLT2-associated euglycemic DKA and prevention.",
+            "id": "common_conditions_crises",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Diabetes Association and partner societies",
+            "shortName": "ADA/EASD and partner societies · Hyperglycemic crises, 2024",
+            "url": "https://diabetesjournals.org/care/article/47/8/1257/156808/Hyperglycemic-Crises-in-Adults-With-Diabetes-A"
+          }
+        ],
+        "commonInterventions": [
+          {
+            "citationIDs": [
+              "common_conditions_ada_pharmacology"
+            ],
+            "text": "The 2026 ADA approach selects treatment around cardiovascular and kidney disease, heart failure, weight goals, hypoglycemia risk, tolerability and access. In established or high-risk atherosclerotic disease, agents with demonstrated cardiovascular benefit may be indicated irrespective of A1C. A glucose result alone does not determine which drug is appropriate."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_soul"
+            ],
+            "text": "In SOUL, 9,650 people with type 2 diabetes and atherosclerotic cardiovascular disease, chronic kidney disease or both received oral semaglutide or placebo. Over a median 49.5 months, major cardiovascular events occurred in 12.0% versus 13.8% (hazard ratio 0.86; 95% CI 0.77–0.96). This supports cardiovascular benefit in the studied high-risk population; it does not establish the same absolute benefit for all newly diagnosed adults."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_ada_goals"
+            ],
+            "text": "Glucose goals are individualized. Recurrent hypoglycemia, treatment burden, comorbidities and functional limitations can justify a less intensive plan. Nursing follow-up should make low-glucose episodes visible to the treating team and confirm that glucose monitoring, education and medication use match the current agreed goals."
+          }
+        ],
+        "definition": {
+          "citationIDs": [
+            "common_conditions_t2dm"
+          ],
+          "text": "Type 2 diabetes is chronic hyperglycemia caused by inadequate insulin action and an insulin supply that does not meet the body’s needs. It can be present for years before recognition. Nursing care includes glucose safety, cardiovascular and kidney risk reduction, complication surveillance and support for daily self-management."
+        },
+        "diagnosticCriteria": [
+          {
+            "citationIDs": [
+              "common_conditions_ada_diagnosis"
+            ],
+            "text": "For nonpregnant adults, diabetes criteria include laboratory A1C ≥6.5%; fasting plasma glucose ≥126 mg/dL after at least 8 hours without calories; or 2-hour plasma glucose ≥200 mg/dL during a 75-g oral glucose tolerance test. Random plasma glucose ≥200 mg/dL is diagnostic with classic hyperglycemic symptoms or a hyperglycemic crisis."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_ada_diagnosis"
+            ],
+            "text": "Without unequivocal symptomatic hyperglycemia, confirmation requires two abnormal results from the same test or different tests. Discordant results require follow-up of the abnormal test. A1C may misrepresent glycemia with altered red-cell turnover or certain hemoglobin variants; plasma glucose criteria are then preferred. CGM is not an established diagnostic test."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_ada_diagnosis"
+            ],
+            "text": "Glucose criteria establish diabetes but do not identify its type. ADA recommends standardized islet autoantibody testing when adult features overlap with type 1 diabetes, such as unintentional weight loss, ketoacidosis or a short interval to insulin treatment. Adult age alone does not settle classification."
+          }
+        ],
+        "id": "type-2-diabetes",
+        "lastSourceFidelityReview": "2026-09-19",
+        "nclexTags": {
+          "category": "physiologicalIntegrity",
+          "priorityConcept": "glucoseRegulation",
+          "subcategory": "reductionOfRiskPotential"
+        },
+        "pathophysiology": {
+          "citationIDs": [
+            "common_conditions_t2dm"
+          ],
+          "text": "Insulin normally helps glucose enter cells. In type 2 diabetes, tissues respond less effectively and the pancreas cannot provide enough insulin to compensate, leaving excess glucose in the circulation. Genetic susceptibility, excess adiposity and physical inactivity can contribute. Over time, diabetes can damage blood vessels, kidneys, eyes and peripheral nerves."
+        },
+        "presentation": [
+          {
+            "citationIDs": [
+              "common_conditions_t2dm"
+            ],
+            "text": "Many people have few symptoms. Possible findings include thirst, frequent urination, fatigue, blurred vision, unexplained weight loss, slow-healing sores and distal numbness or tingling. An absence of thirst or polyuria does not exclude disease; some people first present with an established complication."
+          }
+        ],
+        "priorityAssessments": [
+          {
+            "citationIDs": [
+              "common_conditions_ada_evaluation"
+            ],
+            "text": "A comprehensive review includes cardiovascular disease and heart-failure history, blood pressure, lipids, kidney function and albuminuria, eye care, neuropathy and foot status. The assessment also addresses oral health, immunizations, psychological well-being and the person’s ability to carry out the treatment plan. Existing complications change follow-up priorities."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_ada_social"
+            ],
+            "text": "Ask about food and housing security, insurance, medication cost, transport, preferred language and available support. Difficulty obtaining supplies or taking medicine may reflect access barriers. Coordinated diabetes education, pharmacy support, community resources and appropriate care-partner involvement help make the agreed plan achievable."
+          }
+        ],
+        "subtitle": "Diagnosis, complication surveillance and comprehensive risk reduction",
+        "title": "Type 2 diabetes mellitus",
+        "watchFor": [
+          {
+            "citationIDs": [
+              "common_conditions_hypoglycemia"
+            ],
+            "text": "Insulin and some insulin-releasing medicines can cause hypoglycemia. Rapid-onset shaking, hunger, palpitations, confusion or impaired speech may precede seizure or unconsciousness; some people have little warning. Severe events require immediate treatment through the emergency plan and subsequent review of the medication regimen."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_crises"
+            ],
+            "text": "Vomiting, abdominal pain, dehydration, abnormal breathing or altered mental status can indicate a hyperglycemic crisis. Ketoacidosis can also occur in type 2 diabetes, including with SGLT2 inhibitors when glucose is not markedly elevated. These findings need urgent clinical assessment rather than routine outpatient glucose follow-up."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "diagnosis": {
+      "_0": {
+        "citations": [
+          {
+            "detail": "NHLBI · High blood pressure overview",
+            "id": "common_conditions_bp_overview",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NHLBI, National Institutes of Health",
+            "shortName": "NHLBI · High blood pressure overview",
+            "url": "https://www.nhlbi.nih.gov/health/high-blood-pressure"
+          },
+          {
+            "detail": "NHLBI · Blood-pressure causes and risk factors",
+            "id": "common_conditions_bp_causes",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NHLBI, National Institutes of Health",
+            "shortName": "NHLBI · Blood-pressure causes and risk factors",
+            "url": "https://www.nhlbi.nih.gov/health/high-blood-pressure/causes"
+          },
+          {
+            "detail": "NHLBI · Blood-pressure symptoms and complications",
+            "id": "common_conditions_bp_symptoms",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NHLBI, National Institutes of Health",
+            "shortName": "NHLBI · Blood-pressure symptoms and complications",
+            "url": "https://www.nhlbi.nih.gov/health/high-blood-pressure/symptoms"
+          },
+          {
+            "detail": "High Blood Pressure: Diagnosis. Updated June 26, 2025. Standardized measurements, adult categories and out-of-office readings.",
+            "id": "common_conditions_bp_diagnosis",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NHLBI, National Institutes of Health",
+            "shortName": "NHLBI · Blood-pressure diagnosis",
+            "url": "https://www.nhlbi.nih.gov/health/high-blood-pressure/diagnosis"
+          },
+          {
+            "detail": "Official guideline summary, August 14, 2025. Guideline DOI: 10.1161/CIR.0000000000001356. Adult thresholds, PREVENT risk, goals and severe hypertension context.",
+            "id": "common_conditions_aha_bp",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Heart Association / American College of Cardiology",
+            "shortName": "AHA/ACC 2025 · Adult hypertension guideline",
+            "url": "https://professional.heart.org/en/science-news/2025-high-blood-pressure-guideline/top-things-to-know"
+          },
+          {
+            "detail": "High Blood Pressure: Treatment. Updated April 30, 2024. NIH-authored lifestyle and medication-class prose only; Nucleus Medical Media animation excluded. Target/threshold updates use AHA/ACC 2025 separately.",
+            "id": "common_conditions_bp_treatment",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NHLBI, National Institutes of Health",
+            "shortName": "NHLBI · Blood-pressure treatment",
+            "url": "https://www.nhlbi.nih.gov/health/high-blood-pressure/treatment"
+          },
+          {
+            "detail": "Bi Y et al. Intensive Blood-Pressure Control in Patients with Type 2 Diabetes. 2025;392:1155–1167. DOI: 10.1056/NEJMoa2412006. PMID: 39555827. Online 2024; print 2025. Randomized trial at 145 sites in China.",
+            "id": "common_conditions_bproad",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "New England Journal of Medicine / Massachusetts Medical Society",
+            "shortName": "BPROAD · Intensive blood-pressure control, 2025",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/39555827/"
+          },
+          {
+            "detail": "NHLBI · Living with high blood pressure",
+            "id": "common_conditions_bp_followup",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NHLBI, National Institutes of Health",
+            "shortName": "NHLBI · Living with high blood pressure",
+            "url": "https://www.nhlbi.nih.gov/health/high-blood-pressure/living-with"
+          }
+        ],
+        "commonInterventions": [
+          {
+            "citationIDs": [
+              "common_conditions_aha_bp"
+            ],
+            "text": "The 2025 AHA/ACC guideline generally aims for blood pressure <130/80 mm Hg, with additional considerations for pregnancy, limited life expectancy and institutional care. Medication is recommended at average ≥140/90, or selected averages ≥130/80 with cardiovascular disease, prior stroke, diabetes, CKD or PREVENT 10-year risk ≥7.5%. These are clinical decision thresholds, not automatic nursing medication orders."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_bp_treatment"
+            ],
+            "text": "Treatment combines an achievable lifestyle plan with prescribed medicines when indicated. DASH-style eating, reduced sodium, appropriate activity, smoking cessation, sleep and alcohol counseling are relevant. ACE inhibitors, ARBs, calcium-channel blockers and thiazide diuretics lower pressure through different mechanisms; comorbid disease and tolerability influence selection."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_bproad"
+            ],
+            "text": "BPROAD studied 12,821 adults aged 50 or older with type 2 diabetes and elevated cardiovascular risk in China. A systolic target <120 versus <140 mm Hg reduced major cardiovascular events (hazard ratio 0.79; 95% CI 0.69–0.90) over median 4.2-year follow-up. Symptomatic hypotension and hyperkalemia were more frequent with intensive treatment. The findings require individualized benefit–risk interpretation."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_bp_followup"
+            ],
+            "text": "Long-term care includes regular appointments, review of home readings, medication access and discussion of new diagnoses or side effects. A regimen may need adjustment over time. Reminder systems, refill support and an agreed role for family or community support can help maintain the treatment plan."
+          }
+        ],
+        "definition": {
+          "citationIDs": [
+            "common_conditions_bp_overview"
+          ],
+          "text": "Hypertension is persistently excessive pressure within the arteries. It commonly causes no early symptoms but increases the likelihood of cardiovascular, cerebrovascular and kidney injury. Recognition therefore depends on reliable measurement and follow-up, rather than waiting for a headache or other subjective warning."
+        },
+        "diagnosticCriteria": [
+          {
+            "citationIDs": [
+              "common_conditions_bp_diagnosis"
+            ],
+            "text": "Adult categories are normal: systolic <120 and diastolic <80 mm Hg; elevated: systolic 120–129 with diastolic <80; stage 1: systolic 130–139 or diastolic 80–89; stage 2: systolic ≥140 or diastolic ≥90. Classification uses the higher category when the two components differ."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_bp_diagnosis"
+            ],
+            "text": "A single routine reading is insufficient to establish persistent hypertension. Repeat standardized measurements and consider home or ambulatory results. White-coat hypertension describes higher office pressure than outside the clinic; masked hypertension describes the opposite pattern. Both patterns can change interpretation of apparently reassuring or abnormal office measurements."
+          }
+        ],
+        "id": "hypertension",
+        "lastSourceFidelityReview": "2026-09-19",
+        "nclexTags": {
+          "category": "physiologicalIntegrity",
+          "priorityConcept": "perfusion",
+          "subcategory": "reductionOfRiskPotential"
+        },
+        "pathophysiology": {
+          "citationIDs": [
+            "common_conditions_bp_causes"
+          ],
+          "text": "Arterial stiffness, inherited susceptibility and the interaction of lifestyle and environmental factors influence blood pressure. Kidney disease, sleep apnea, endocrine disorders and certain medicines can contribute. Dietary sodium, alcohol, inactivity, inadequate sleep and chronic stress are relevant to assessment, while financial and neighborhood conditions can affect the ability to change these exposures."
+        },
+        "presentation": [
+          {
+            "citationIDs": [
+              "common_conditions_bp_symptoms"
+            ],
+            "text": "Routine hypertension may be discovered during screening in a person who feels well. Complications can involve the heart, brain, kidneys, retina and aorta. The severity of a measured elevation and the presence of new symptoms both matter when deciding how urgently the person needs evaluation."
+          }
+        ],
+        "priorityAssessments": [
+          {
+            "citationIDs": [
+              "common_conditions_bp_diagnosis"
+            ],
+            "text": "Measurement preparation includes a correctly sized cuff on the bare upper arm, quiet seated rest, supported arm at heart level and feet on the floor. Recent exercise, smoking, caffeine, talking or a full bladder can distort readings. Technique should be checked before interpreting an unexpected trend."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_bp_causes"
+            ],
+            "text": "Medication reconciliation should include nonprescription decongestants, NSAIDs, hormonal medicines and stimulants, as well as prescribed drugs. Explore sleep-apnea symptoms, kidney or thyroid history, alcohol exposure and barriers to taking medicines. A possible contributing drug or condition needs prescriber assessment rather than an assumption of nonadherence."
+          }
+        ],
+        "subtitle": "Measurement, cardiovascular risk and ongoing nursing assessment",
+        "title": "Hypertension in adults",
+        "watchFor": [
+          {
+            "citationIDs": [
+              "common_conditions_bp_symptoms"
+            ],
+            "text": "Sudden focal weakness, speech or vision change, severe chest or back pain, marked breathlessness or a sudden severe headache may signal acute organ injury. These symptoms require emergency assessment, including when blood pressure is very high; the blood-pressure value alone cannot establish the cause."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_aha_bp"
+            ],
+            "text": "Severe hypertension above 180/120 mm Hg without acute target-organ damage is distinct from hypertensive emergency. The 2025 guideline calls for timely evaluation and oral-treatment management in the outpatient setting for nonpregnant people without acute injury. Suspected organ damage changes urgency and setting; pregnancy requires its own pathway."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "diagnosis": {
+      "_0": {
+        "citations": [
+          {
+            "detail": "Standards of Care in Diabetes—2026, section 8. DOI: 10.2337/dc26-S008. Assessment, shared decisions and sustained treatment in people with or at risk of diabetes.",
+            "id": "common_conditions_ada_obesity",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Diabetes Association",
+            "shortName": "ADA 2026 · Obesity and weight management",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12690172/"
+          },
+          {
+            "detail": "NIDDK · Factors affecting weight and health",
+            "id": "common_conditions_obesity_causes",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIDDK, National Institutes of Health",
+            "shortName": "NIDDK · Factors affecting weight and health",
+            "url": "https://www.niddk.nih.gov/health-information/weight-management/adult-overweight-obesity/factors-affecting-weight-health"
+          },
+          {
+            "detail": "NIDDK · Health risks of overweight and obesity",
+            "id": "common_conditions_obesity_risks",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIDDK, National Institutes of Health",
+            "shortName": "NIDDK · Health risks of overweight and obesity",
+            "url": "https://www.niddk.nih.gov/health-information/weight-management/adult-overweight-obesity/health-risks"
+          },
+          {
+            "detail": "NIDDK · Talking with patients about weight",
+            "id": "common_conditions_obesity_conversation",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIDDK, National Institutes of Health",
+            "shortName": "NIDDK · Talking with patients about weight",
+            "url": "https://www.niddk.nih.gov/health-information/professionals/clinical-tools-patient-management/weight-management/talking-with-your-patients-about-weight"
+          },
+          {
+            "detail": "NIDDK · Adult obesity definition",
+            "id": "common_conditions_obesity_definition",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIDDK, National Institutes of Health",
+            "shortName": "NIDDK · Adult obesity definition",
+            "url": "https://www.niddk.nih.gov/health-information/weight-management/adult-overweight-obesity/definition-facts"
+          },
+          {
+            "detail": "NIDDK · Choosing a weight-loss program",
+            "id": "common_conditions_obesity_program",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIDDK, National Institutes of Health",
+            "shortName": "NIDDK · Choosing a weight-loss program",
+            "url": "https://www.niddk.nih.gov/health-information/weight-management/choosing-a-safe-successful-weight-loss-program"
+          },
+          {
+            "detail": "NIDDK · Prescription weight-management medicines",
+            "id": "common_conditions_obesity_medications",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIDDK, National Institutes of Health",
+            "shortName": "NIDDK · Prescription weight-management medicines",
+            "url": "https://www.niddk.nih.gov/health-information/weight-management/prescription-medications-treat-overweight-obesity"
+          },
+          {
+            "detail": "Aronne LJ et al. Tirzepatide as Compared with Semaglutide for the Treatment of Obesity. 2025;393:26–36. DOI: 10.1056/NEJMoa2416394. PMID: 40353578. Open-label randomized trial; Eli Lilly funded.",
+            "id": "common_conditions_surmount5",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "New England Journal of Medicine / Massachusetts Medical Society",
+            "shortName": "SURMOUNT-5 · Tirzepatide versus semaglutide, 2025",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40353578/"
+          }
+        ],
+        "commonInterventions": [
+          {
+            "citationIDs": [
+              "common_conditions_obesity_program"
+            ],
+            "text": "A structured program includes an individualized eating plan, appropriate physical activity, repeated behavioral support and a maintenance strategy. A sustainable plan should fit health status, cultural preferences and resources. Physical activity has health benefits even when the scale changes little; progress can include greater endurance or improved daily function."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_obesity_medications"
+            ],
+            "text": "Prescription weight-management medicines may be considered for adults with BMI ≥30, or ≥27 with weight-related health problems, alongside lifestyle support. Selection depends on medical history, other medicines, likely benefit, adverse effects and cost. Eligibility is not a recommendation for a particular product, and pregnancy or pregnancy planning changes medication suitability."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_surmount5"
+            ],
+            "text": "SURMOUNT-5 randomized 751 adults with obesity without type 2 diabetes to tirzepatide or semaglutide in an open-label trial. At 72 weeks, mean weight change was −20.2% versus −13.7%; gastrointestinal events were most common, often during escalation. This is a weight-loss comparison in a defined population, not proof of superior cardiovascular outcomes or identical results in diabetes."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_ada_obesity"
+            ],
+            "text": "ADA 2026 recommends tailoring behavioral, medication and metabolic-surgery options to medical history, circumstances and preferences. In people with diabetes, weight and glycemic management are complementary goals. Continued follow-up remains necessary after initial improvement because obesity commonly recurs and treatment needs can change."
+          }
+        ],
+        "definition": {
+          "citationIDs": [
+            "common_conditions_ada_obesity"
+          ],
+          "text": "Obesity is a chronic, often relapsing disease involving excess adiposity and metabolic, physical or psychosocial complications. Assessment and treatment should use person-centered language and consider health outcomes, function and preferences. Weight management can be an important component of diabetes prevention and treatment, alongside management of glucose and other risks."
+        },
+        "diagnosticCriteria": [
+          {
+            "citationIDs": [
+              "common_conditions_obesity_definition"
+            ],
+            "text": "For adults aged 20 and older, BMI 25–29.9 kg/m² is categorized as overweight and BMI ≥30 as obesity; BMI ≥40 is severe obesity in the NIDDK classification. These adult thresholds are not pediatric growth-chart criteria. BMI combines height and weight and is an indirect measure."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_obesity_conversation"
+            ],
+            "text": "BMI and waist size do not directly measure body fat or fully describe an individual’s health risk. Interpretation includes age, history, cardiometabolic risks and current health. Weight loss is not automatically the appropriate goal for every adult above a BMI threshold; preventing additional gain may sometimes be a suitable agreed goal."
+          }
+        ],
+        "id": "obesity",
+        "lastSourceFidelityReview": "2026-09-19",
+        "nclexTags": {
+          "category": "physiologicalIntegrity",
+          "priorityConcept": "nutrition",
+          "subcategory": "reductionOfRiskPotential"
+        },
+        "pathophysiology": {
+          "citationIDs": [
+            "common_conditions_obesity_causes"
+          ],
+          "text": "Body weight reflects interacting biological, behavioral and environmental influences. Genes affect appetite and fat distribution; sleep, stress and some medicines can contribute to weight gain. Food affordability, safe activity space, workplace demands and access to care shape what changes are practical. Endocrine disease and eating disorders may warrant separate evaluation."
+        },
+        "presentation": [
+          {
+            "citationIDs": [
+              "common_conditions_obesity_risks"
+            ],
+            "text": "Associated conditions can include type 2 diabetes, hypertension, cardiovascular disease, sleep apnea, fatty liver disease, osteoarthritis and kidney disease. Symptoms may arise from these complications, such as sleep disruption or limited mobility, rather than from a particular body weight. The assessment should identify the person’s actual health problems."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_obesity_conversation"
+            ],
+            "text": "Begin with the person’s main concern and ask permission to discuss weight. Explore weight history, eating patterns, activity, prior treatment and possible eating-disorder symptoms without blame. A high BMI should not cause an unrelated symptom to be dismissed or prevent evaluation of another condition."
+          }
+        ],
+        "priorityAssessments": [
+          {
+            "citationIDs": [
+              "common_conditions_obesity_risks"
+            ],
+            "text": "Review blood pressure, glucose and lipid status, sleep-apnea symptoms, pain and mobility, and relevant kidney or liver disease. Mood, body image and experiences of weight bias also affect well-being. The same amount of weight change can have different significance depending on the complications being followed."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_obesity_causes"
+            ],
+            "text": "Review medicines that can promote weight gain, including some diabetes, psychiatric, seizure and steroid treatments. Their therapeutic benefits remain relevant; identifying an association supports a prescriber discussion about options. Assessment of sleep, food access, stress and physical limitations helps explain barriers that a calorie target alone would miss."
+          }
+        ],
+        "subtitle": "Adiposity, functional impact and evidence-based treatment options",
+        "title": "Obesity in adults",
+        "watchFor": [
+          {
+            "citationIDs": [
+              "common_conditions_obesity_medications"
+            ],
+            "text": "Persistent or concerning adverse effects require review against the actual product label and treatment plan. Medication risks differ between products; a general obesity overview cannot supply a universal dose-escalation, stopping or pregnancy plan. Unregulated products and medicine obtained outside an appropriate pharmacy pathway add avoidable uncertainty."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_obesity_conversation"
+            ],
+            "text": "Eating-disorder symptoms, distress or a treatment plan that the person cannot sustain merit reassessment and appropriate specialist support. Track function and health improvements as well as weight. A setback is a reason to revise goals and resources together, rather than assign blame."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "reference": {
+      "_0": {
+        "citations": [
+          {
+            "detail": "Managing Sick Days. May 2024. Illness, monitoring, hydration and emergency signs; blanket continuation of diabetes pills is not reproduced because ADA 2026 provides drug-specific illness exceptions.",
+            "id": "common_conditions_sick_days",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "Centers for Disease Control and Prevention",
+            "shortName": "CDC · Managing sick days",
+            "url": "https://www.cdc.gov/diabetes/living-with/managing-sick-days.html"
+          },
+          {
+            "detail": "Standards of Care in Diabetes—2026, section 6. DOI: 10.2337/dc26-S006. Individualized goals, hypoglycemia and intercurrent illness.",
+            "id": "common_conditions_ada_goals",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Diabetes Association",
+            "shortName": "ADA 2026 · Glycemia and intercurrent illness",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12690178/"
+          },
+          {
+            "detail": "Standards of Care in Diabetes—2026, section 16. DOI: 10.2337/dc26-S016. Type 1 basal-insulin continuity and SGLT2 precautions during acute illness.",
+            "id": "common_conditions_ada_hospital",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Diabetes Association",
+            "shortName": "ADA 2026 · Diabetes in hospital",
+            "url": "https://diabetesjournals.org/care/article/49/Supplement_1/S339/163925/16-Diabetes-Care-in-the-Hospital-Standards-of-Care"
+          },
+          {
+            "detail": "Umpierrez GE et al. Hyperglycemic Crises in Adults With Diabetes: A Consensus Report. Diabetes Care. 2024;47:1257–1275. DOI: 10.2337/dci24-0032. Recognition, SGLT2-associated euglycemic DKA and prevention.",
+            "id": "common_conditions_crises",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Diabetes Association and partner societies",
+            "shortName": "ADA/EASD and partner societies · Hyperglycemic crises, 2024",
+            "url": "https://diabetesjournals.org/care/article/47/8/1257/156808/Hyperglycemic-Crises-in-Adults-With-Diabetes-A"
+          },
+          {
+            "detail": "NIDDK · Low blood glucose",
+            "id": "common_conditions_hypoglycemia",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIDDK, National Institutes of Health",
+            "shortName": "NIDDK · Low blood glucose",
+            "url": "https://www.niddk.nih.gov/health-information/diabetes/overview/preventing-problems/low-blood-glucose-hypoglycemia"
+          },
+          {
+            "detail": "Standards of Care in Diabetes—2026, section 1. DOI: 10.2337/dc26-S001. Recommendations 1.7–1.9 and interprofessional support.",
+            "id": "common_conditions_ada_social",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Diabetes Association",
+            "shortName": "ADA 2026 · Social context of care",
+            "url": "https://diabetesjournals.org/care/article/49/Supplement_1/S13/163920/1-Improving-Care-and-Promoting-Health-in"
+          }
+        ],
+        "eyebrow": "REFERENCE · COMMON CONDITIONS",
+        "id": "diabetes-sick-day-safety",
+        "lastSourceFidelityReview": "2026-09-19",
+        "nclexTags": {
+          "category": "physiologicalIntegrity",
+          "priorityConcept": "glucoseRegulation",
+          "subcategory": "reductionOfRiskPotential"
+        },
+        "sections": [
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_sick_days"
+                  ],
+                  "text": "Illness-related hormones can raise glucose even when food intake falls. Vomiting or diarrhea may also impair intake and hydration. These competing effects mean a person can develop high or low glucose during the same illness. A usual meal pattern or a single in-range reading does not show that the illness is safe to manage without reassessment."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_ada_goals"
+                  ],
+                  "text": "ADA 2026 recommends reassessing glucose-monitoring frequency during illness and adding blood or urine ketone monitoring for people prone to ketosis. The written plan should identify when the treating team must reassess therapy. There is no single medicine-continuation rule suitable for every drug and every illness."
+                }
+              ],
+              "title": "Why illness changes the plan"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_sick_days"
+                  ],
+                  "text": "A sick-day record can track glucose results, temperature, fluid and food intake, and episodes of vomiting or diarrhea. Keep monitoring supplies and accessible food available before illness starts. Changes in alertness or the ability to drink and self-monitor should be communicated along with the glucose readings."
+                }
+              ],
+              "title": "Keep a useful illness record"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_ada_goals"
+                  ],
+                  "text": "Poor oral intake or concern for acute kidney injury can require clinician-directed interruption of metformin or an SGLT2 inhibitor. Significant gastrointestinal illness can affect GLP-1 therapy; heart-failure exacerbation changes the safety of thiazolidinediones. Document which medicine was changed, by whom and the follow-up needed, rather than extending one drug’s advice to the whole regimen."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_ada_hospital"
+                  ],
+                  "text": "Basal insulin remains essential for people with type 1 diabetes, including when hospitalized or transitioning between settings. In acute care, SGLT2 inhibitors are avoided with severe illness, ketosis or prolonged fasting. Outpatient and inpatient instructions must be reconciled with the prescriber; this guide does not generate insulin adjustments."
+                }
+              ],
+              "title": "Medication review is specific to the illness"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_crises"
+                  ],
+                  "text": "SGLT2-associated ketoacidosis may occur with near-normal or only moderately elevated glucose. Nausea, vomiting, abdominal pain, dehydration, deep breathing or altered consciousness require assessment in context. A glucose value that is below the usual marked-hyperglycemia range cannot exclude ketoacidosis; evaluation also considers ketones and acid–base status."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_sick_days"
+                  ],
+                  "text": "Trouble breathing, inability to keep fluids down, persistent vomiting or diarrhea, or ketones during illness are reasons for urgent contact or emergency assessment under the sick-day plan. Reduced alertness can impair safe self-care. A support person may need to help contact the team or arrange emergency assistance."
+                }
+              ],
+              "title": "Recognize deterioration early"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_hypoglycemia"
+                  ],
+                  "text": "Eating less while using insulin or insulin-releasing medicines can increase hypoglycemia risk. Review access to a glucose meter and the prescribed low-glucose rescue plan. Confusion, seizure or loss of consciousness represents severe deterioration requiring immediate help; the person may be unable to recognize the problem or treat it independently."
+                }
+              ],
+              "title": "Prevent low-glucose harm"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_ada_social"
+                  ],
+                  "text": "A written plan is only useful when the person can obtain supplies, food, medications and help. Assess language, literacy, vision, dexterity and available support as relevant. Arrange diabetes education, pharmacy or community assistance for identified barriers, and confirm how the person can reach the treating team when the usual clinic is closed."
+                }
+              ],
+              "title": "Make the plan usable before discharge"
+            }
+          }
+        ],
+        "subtitle": "A written plan for glucose, ketones, hydration and timely escalation",
+        "title": "Diabetes sick-day safety"
+      }
+    }
+  },
+  {
+    "reference": {
+      "_0": {
+        "citations": [
+          {
+            "detail": "High Blood Pressure: Treatment. Updated April 30, 2024. NIH-authored lifestyle and medication-class prose only; Nucleus Medical Media animation excluded. Target/threshold updates use AHA/ACC 2025 separately.",
+            "id": "common_conditions_bp_treatment",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NHLBI, National Institutes of Health",
+            "shortName": "NHLBI · Blood-pressure treatment",
+            "url": "https://www.nhlbi.nih.gov/health/high-blood-pressure/treatment"
+          },
+          {
+            "detail": "NHLBI · Living with high blood pressure",
+            "id": "common_conditions_bp_followup",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NHLBI, National Institutes of Health",
+            "shortName": "NHLBI · Living with high blood pressure",
+            "url": "https://www.nhlbi.nih.gov/health/high-blood-pressure/living-with"
+          },
+          {
+            "detail": "Official guideline summary, August 14, 2025. Guideline DOI: 10.1161/CIR.0000000000001356. Adult thresholds, PREVENT risk, goals and severe hypertension context.",
+            "id": "common_conditions_aha_bp",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Heart Association / American College of Cardiology",
+            "shortName": "AHA/ACC 2025 · Adult hypertension guideline",
+            "url": "https://professional.heart.org/en/science-news/2025-high-blood-pressure-guideline/top-things-to-know"
+          },
+          {
+            "detail": "KDIGO 2024 Clinical Practice Guideline for the Evaluation and Management of Chronic Kidney Disease. Kidney International. 105(Suppl 4S):S117–S314. Practice points 3.6.2–3.6.5, printed S159 / PDF page 44. CKD-specific monitoring.",
+            "id": "common_conditions_kdigo",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "Kidney Disease: Improving Global Outcomes",
+            "shortName": "KDIGO 2024 · CKD and RAS-inhibitor monitoring",
+            "url": "https://kdigo.org/wp-content/uploads/2024/03/KDIGO-2024-CKD-Guideline.pdf"
+          },
+          {
+            "detail": "NHLBI · Low blood pressure",
+            "id": "common_conditions_low_bp",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NHLBI, National Institutes of Health",
+            "shortName": "NHLBI · Low blood pressure",
+            "url": "https://www.nhlbi.nih.gov/health/low-blood-pressure"
+          },
+          {
+            "detail": "Bi Y et al. Intensive Blood-Pressure Control in Patients with Type 2 Diabetes. 2025;392:1155–1167. DOI: 10.1056/NEJMoa2412006. PMID: 39555827. Online 2024; print 2025. Randomized trial at 145 sites in China.",
+            "id": "common_conditions_bproad",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "New England Journal of Medicine / Massachusetts Medical Society",
+            "shortName": "BPROAD · Intensive blood-pressure control, 2025",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/39555827/"
+          }
+        ],
+        "eyebrow": "REFERENCE · COMMON CONDITIONS",
+        "id": "hypertension-medication-follow-up",
+        "lastSourceFidelityReview": "2026-09-19",
+        "nclexTags": {
+          "category": "physiologicalIntegrity",
+          "priorityConcept": "perfusion",
+          "subcategory": "reductionOfRiskPotential"
+        },
+        "sections": [
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_bp_treatment"
+                  ],
+                  "text": "Blood-pressure medicines act through different pathways: ACE inhibitors and ARBs reduce vessel constriction, calcium-channel blockers relax vascular muscle, and diuretics increase water and sodium removal. More than one class may be needed. A combination tablet can contain more than one active drug, so reconciliation should identify the actual ingredients and prescribed schedule."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_bp_followup"
+                  ],
+                  "text": "Follow-up should review current medicines, refill access, reported side effects, new health conditions and the home measurement record. Clarify changes made by different clinicians. Regular checks remain necessary when the person feels well, because absence of symptoms does not show whether long-term treatment is adequate."
+                }
+              ],
+              "title": "Connect the prescription to its purpose"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_aha_bp"
+                  ],
+                  "text": "The 2025 guideline supports standardized home monitoring paired with frequent team contact. Cuffless smartwatch readings should not substitute for a validated measurement approach. Treatment targets depend on the agreed clinical plan; an isolated reading does not by itself establish the need for a dose change."
+                }
+              ],
+              "title": "Interpret the response with measurement context"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_kdigo"
+                  ],
+                  "text": "For people with CKD starting or increasing an ACE inhibitor or ARB, KDIGO recommends checking blood pressure, serum creatinine and potassium within 2–4 weeks, with timing informed by baseline kidney function and potassium. This is CKD-specific guidance; higher-risk clinical circumstances may require an earlier plan from the treating team."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_kdigo"
+                  ],
+                  "text": "A creatinine rise greater than 30% within 4 weeks warrants clinical evaluation. KDIGO also emphasizes addressing hyperkalemia where possible rather than reflexively abandoning beneficial RAS inhibition. These findings require prescriber interpretation, including symptoms and reversible causes; the reference does not supply automatic medication hold or restart orders."
+                }
+              ],
+              "title": "Monitor kidney function when indicated"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_low_bp"
+                  ],
+                  "text": "Ask about dizziness, fainting, weakness, blurred vision or symptoms after standing. Low pressure can relate to medication effects, dehydration, blood loss or other disease. In older adults, postural or post-meal symptoms can increase fall risk. Document when symptoms occur relative to position, meals and medication use for clinical review."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_bproad"
+                  ],
+                  "text": "BPROAD illustrates the tradeoff: a lower systolic target reduced cardiovascular events in high-risk adults with type 2 diabetes, but symptomatic hypotension and hyperkalemia occurred more often. Nursing follow-up must therefore track tolerability and ordered laboratory results alongside the pressure trend, rather than treat a lower number as the only outcome."
+                }
+              ],
+              "title": "Capture tolerability as well as the number"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_bp_followup"
+                  ],
+                  "text": "Agree on who reviews the log, the next appointment and how refills will be obtained. Reminder tools and pharmacy support may help; pregnancy or pregnancy planning must be reported because medication choices may change. New neurologic symptoms, severe chest pain or breathing difficulty need emergency assessment rather than waiting for a scheduled medication review."
+                }
+              ],
+              "title": "Plan continuity and escalation"
+            }
+          }
+        ],
+        "subtitle": "Response, tolerability, kidney monitoring and practical continuity",
+        "title": "Hypertension medication follow-up"
+      }
+    }
+  },
+  {
+    "reference": {
+      "_0": {
+        "citations": [
+          {
+            "detail": "Standards of Care in Diabetes—2026, section 8. DOI: 10.2337/dc26-S008. Assessment, shared decisions and sustained treatment in people with or at risk of diabetes.",
+            "id": "common_conditions_ada_obesity",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Diabetes Association",
+            "shortName": "ADA 2026 · Obesity and weight management",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12690172/"
+          },
+          {
+            "detail": "NIDDK · Choosing a weight-loss program",
+            "id": "common_conditions_obesity_program",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIDDK, National Institutes of Health",
+            "shortName": "NIDDK · Choosing a weight-loss program",
+            "url": "https://www.niddk.nih.gov/health-information/weight-management/choosing-a-safe-successful-weight-loss-program"
+          },
+          {
+            "detail": "Aronne LJ et al. Continued Treatment With Tirzepatide for Maintenance of Weight Reduction in Adults With Obesity. JAMA. 2024;331:38–48. DOI: 10.1001/jama.2023.24945. Randomized withdrawal trial; Eli Lilly funded.",
+            "id": "common_conditions_surmount4",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "JAMA / American Medical Association",
+            "shortName": "SURMOUNT-4 · Weight maintenance, 2024",
+            "url": "https://jamanetwork.com/journals/jama/fullarticle/2812936"
+          },
+          {
+            "detail": "Aronne LJ et al. Tirzepatide as Compared with Semaglutide for the Treatment of Obesity. 2025;393:26–36. DOI: 10.1056/NEJMoa2416394. PMID: 40353578. Open-label randomized trial; Eli Lilly funded.",
+            "id": "common_conditions_surmount5",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "New England Journal of Medicine / Massachusetts Medical Society",
+            "shortName": "SURMOUNT-5 · Tirzepatide versus semaglutide, 2025",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40353578/"
+          },
+          {
+            "detail": "NIDDK · Prescription weight-management medicines",
+            "id": "common_conditions_obesity_medications",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIDDK, National Institutes of Health",
+            "shortName": "NIDDK · Prescription weight-management medicines",
+            "url": "https://www.niddk.nih.gov/health-information/weight-management/prescription-medications-treat-overweight-obesity"
+          },
+          {
+            "detail": "NIDDK · Health risks of overweight and obesity",
+            "id": "common_conditions_obesity_risks",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIDDK, National Institutes of Health",
+            "shortName": "NIDDK · Health risks of overweight and obesity",
+            "url": "https://www.niddk.nih.gov/health-information/weight-management/adult-overweight-obesity/health-risks"
+          }
+        ],
+        "eyebrow": "REFERENCE · COMMON CONDITIONS",
+        "id": "obesity-long-term-care",
+        "lastSourceFidelityReview": "2026-09-19",
+        "nclexTags": {
+          "category": "physiologicalIntegrity",
+          "priorityConcept": "nutrition",
+          "subcategory": "reductionOfRiskPotential"
+        },
+        "sections": [
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_ada_obesity"
+                  ],
+                  "text": "ADA 2026 treats obesity as a chronic condition with possible relapse. For people undergoing active weight-management treatment, it recommends monitoring anthropometric measures at least every 3 months. Follow-up should revisit health goals, treatment response and burden, rather than end as soon as an initial weight target is reached."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_obesity_program"
+                  ],
+                  "text": "Effective programs include continued support for eating patterns, appropriate activity and maintaining changes. The approach should fit culture, health, preferences and daily resources. Review the proposed maintenance support before enrollment; a program promising dramatic rapid loss without a durable follow-up plan is not equivalent to comprehensive care."
+                }
+              ],
+              "title": "Set a sustainable follow-up plan"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_surmount4"
+                  ],
+                  "text": "In SURMOUNT-4, adults without diabetes first received tirzepatide for 36 weeks. The 670 participants then randomized had lost a mean 20.9% of starting weight. Over the next 52 weeks, continued treatment produced an additional 5.5% reduction from randomization weight, while switching to placebo produced 14.0% regain. Those percentages use the randomization weight as the later comparison baseline."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_surmount4"
+                  ],
+                  "text": "This withdrawal design enrolled people who completed the initial treatment period. It supports a maintenance benefit from continued therapy in that selected population, but it does not mean every individual will tolerate ongoing treatment or regain the same amount after stopping. Both groups also received lifestyle support. Access interruptions and adverse effects therefore need an agreed contingency plan."
+                }
+              ],
+              "title": "Understand what withdrawal trials show"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_surmount5"
+                  ],
+                  "text": "In the 2025 SURMOUNT-5 comparison, gastrointestinal adverse effects were the most frequent events and often appeared during dose escalation. A nursing discussion should capture whether symptoms are affecting eating, drinking or treatment persistence, then connect the person with the prescribing team. The trial’s average weight response cannot replace individual assessment."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_obesity_medications"
+                  ],
+                  "text": "Cost, insurance coverage, other medicines and adverse effects can influence whether a treatment remains practical. Some people require long-term medication to maintain benefit. Any decision to continue, change or stop a product should include its specific safety information and a follow-up plan; weight regain after discontinuation can occur."
+                }
+              ],
+              "title": "Review tolerability and access"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_obesity_program"
+                  ],
+                  "text": "Physical activity can improve health even without a large weight change. Follow-up can examine participation in agreed activities and the ability to sustain nutrition changes, as well as the weight trend. Support should continue when progress slows, with adjustment of the plan to current abilities and resources."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_obesity_risks"
+                  ],
+                  "text": "Obesity-related conditions differ in their burden. Sleep apnea, joint pain, diabetes, hypertension and kidney disease may require their own ongoing care even when weight improves. Monitoring should stay connected to those diagnosed conditions and daily function; a lower body weight alone does not demonstrate resolution of every complication."
+                }
+              ],
+              "title": "Measure outcomes that matter to the person"
+            }
+          }
+        ],
+        "subtitle": "Maintenance, treatment burden and outcomes beyond weight",
+        "title": "Obesity: long-term treatment support"
+      }
+    }
+  },
+  {
+    "diagnosis": {
+      "_0": {
+        "citations": [
+          {
+            "detail": "ACC/AHA Issue Updated Guideline for Managing Lipids, Cholesterol. March 13, 2026. Issuer summary of the 2026 guideline; recommendations attributed to the issuing societies, not represented as a new randomized trial.",
+            "id": "common_conditions_lipids_2026",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American College of Cardiology",
+            "shortName": "ACC/AHA · Dyslipidemia, 2026",
+            "url": "https://www.acc.org/About-ACC/Press-Releases/2026/03/13/18/01/ACCAHA-Issue-Updated-Guideline-for-Managing-Lipids-Cholesterol"
+          },
+          {
+            "detail": "Blood Cholesterol: Living with high cholesterol. Updated April 19, 2024. Follow-up, atherosclerosis and medication safety; older calculator and blanket pregnancy stop intervals not reproduced.",
+            "id": "common_conditions_lipids_living",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NHLBI, National Institutes of Health",
+            "shortName": "NHLBI · Cholesterol living with high cholesterol",
+            "url": "https://www.nhlbi.nih.gov/health/blood-cholesterol/living-with"
+          },
+          {
+            "detail": "Blood Cholesterol: Symptoms. Updated April 18, 2024. Asymptomatic presentation and inherited lipid signs.",
+            "id": "common_conditions_lipids_symptoms",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NHLBI, National Institutes of Health",
+            "shortName": "NHLBI · Cholesterol symptoms",
+            "url": "https://www.nhlbi.nih.gov/health/blood-cholesterol/symptoms"
+          },
+          {
+            "detail": "Blood Cholesterol: Diagnosis. Updated April 18, 2024. Lipid components, history and testing; old general thresholds and screening schedules not used.",
+            "id": "common_conditions_lipids_diagnosis",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NHLBI, National Institutes of Health",
+            "shortName": "NHLBI · Cholesterol diagnosis",
+            "url": "https://www.nhlbi.nih.gov/health/blood-cholesterol/diagnosis"
+          },
+          {
+            "detail": "Blood Cholesterol: Treatment. Updated April 19, 2024. Statin mechanism and combined lifestyle/medical care; drug-specific selection uses 2026 guidance.",
+            "id": "common_conditions_lipids_treatment",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NHLBI, National Institutes of Health",
+            "shortName": "NHLBI · Cholesterol treatment",
+            "url": "https://www.nhlbi.nih.gov/health/blood-cholesterol/treatment"
+          },
+          {
+            "detail": "Nissen SE et al. Bempedoic Acid and Cardiovascular Outcomes in Statin-Intolerant Patients. NEJM 2023;388:1353–1364. DOI: 10.1056/NEJMoa2215024. PMID: 36876740. Randomized trial; Esperion Therapeutics funded.",
+            "id": "common_conditions_clear_outcomes",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "New England Journal of Medicine / Massachusetts Medical Society",
+            "shortName": "CLEAR Outcomes · Cardiovascular events, 2023",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/36876740/"
+          }
+        ],
+        "commonInterventions": [
+          {
+            "citationIDs": [
+              "common_conditions_lipids_treatment"
+            ],
+            "text": "Statins reduce cholesterol production in the liver and lower cardiovascular event risk. Healthy eating, activity and weight management remain part of treatment alongside medication. When another disease or medicine contributes to the lipid abnormality, the treating clinician may also address that cause; nursing teaching should reflect the prescribed plan."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_lipids_2026"
+            ],
+            "text": "The 2026 guideline pairs risk-based LDL and non-HDL goals with the percentage LDL reduction. If lifestyle measures and statins are insufficient, options include ezetimibe, bempedoic acid or PCSK9 monoclonal antibodies, selected for the person’s risk and circumstances. LDL lowering alone does not establish identical outcome evidence for every product."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_clear_outcomes"
+            ],
+            "text": "CLEAR Outcomes (2023) randomized 13,970 statin-intolerant adults with or at high cardiovascular risk to bempedoic acid or placebo. Over a median 40.6 months, the composite of cardiovascular death, nonfatal myocardial infarction, nonfatal stroke or coronary revascularization occurred in 11.7% versus 13.3% (hazard ratio 0.87; 95% CI 0.79–0.96). Gout and gallstones were more frequent; all-cause mortality was not significantly reduced. These results concern the studied population and do not justify replacing tolerated statins automatically."
+          }
+        ],
+        "definition": {
+          "citationIDs": [
+            "common_conditions_lipids_2026"
+          ],
+          "text": "Dyslipidemia describes abnormal blood lipids or lipoproteins, including cholesterol and triglycerides. Management aims to reduce atherosclerotic cardiovascular disease (ASCVD) risk over time. The 2026 ACC/AHA guideline considers the lipid pattern, overall risk and duration of exposure when selecting prevention strategies."
+        },
+        "diagnosticCriteria": [
+          {
+            "citationIDs": [
+              "common_conditions_lipids_diagnosis"
+            ],
+            "text": "The lipid panel measures total cholesterol, LDL cholesterol, HDL cholesterol and triglycerides; non-HDL cholesterol is calculated by subtracting HDL from total cholesterol. Review the actual components and the laboratory’s collection instructions, including whether fasting was requested. Diagnosis combines results with medical history, family history and examination."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_lipids_2026"
+            ],
+            "text": "For eligible primary-prevention adults, the 2026 guideline uses PREVENT-ASCVD risk estimation. It recommends at least one adult Lp(a) measurement and selective apoB testing; coronary calcium testing can help when a treatment decision remains uncertain. A risk estimate supplements clinical assessment and does not diagnose an acute vascular event."
+          }
+        ],
+        "id": "dyslipidemia",
+        "lastSourceFidelityReview": "2026-09-19",
+        "nclexTags": {
+          "category": "physiologicalIntegrity",
+          "priorityConcept": "perfusion",
+          "subcategory": "reductionOfRiskPotential"
+        },
+        "pathophysiology": {
+          "citationIDs": [
+            "common_conditions_lipids_living"
+          ],
+          "text": "Excess circulating cholesterol can contribute to plaque accumulation in arteries. Atherosclerosis can affect coronary, carotid and peripheral vessels and eventually cause myocardial infarction, stroke or peripheral artery disease. Follow-up therefore addresses future vascular events as well as whether the laboratory result has improved."
+        },
+        "presentation": [
+          {
+            "citationIDs": [
+              "common_conditions_lipids_symptoms"
+            ],
+            "text": "High LDL cholesterol usually produces no symptoms and is commonly discovered through blood testing. Very high inherited cholesterol may produce skin xanthomas or corneal lipid deposits. Feeling well does not indicate that cholesterol is controlled, and an examination without visible deposits does not replace a lipid panel."
+          }
+        ],
+        "priorityAssessments": [
+          {
+            "citationIDs": [
+              "common_conditions_lipids_diagnosis"
+            ],
+            "text": "Ask about family cardiovascular history, diet, activity, current medicines and other vascular risk factors. Document the current treatment list and the context of previous results so the clinician can interpret the lipid pattern alongside potential contributing conditions. A single total-cholesterol number does not describe the entire profile."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_lipids_living"
+            ],
+            "text": "At follow-up, confirm medication use, concerns about adverse effects, planned repeat testing and new health conditions. Reconcile supplements and interacting foods or medicines; grapefruit affects some statins. New muscle pain warrants clinician assessment rather than assuming that every muscle symptom proves permanent statin intolerance."
+          }
+        ],
+        "subtitle": "Lipid patterns, cardiovascular risk and longitudinal treatment assessment",
+        "title": "Dyslipidemia in adults",
+        "watchFor": [
+          {
+            "citationIDs": [
+              "common_conditions_lipids_living"
+            ],
+            "text": "Suspected heart attack or stroke requires emergency evaluation rather than waiting for lipid follow-up. Report medication-related symptoms and clarify the next testing date. Patients considering pregnancy need a medication discussion with the prescribing team; treatment changes should be individualized, with the reason and revised plan clearly communicated."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "diagnosis": {
+      "_0": {
+        "citations": [
+          {
+            "detail": "Symptoms and causes of Constipation. Foundation reviewed May 2018. Bowel pattern, causes and warning symptoms.",
+            "id": "common_conditions_constipation_symptoms",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIDDK, National Institutes of Health",
+            "shortName": "NIDDK · Constipation symptoms and causes",
+            "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/constipation/symptoms-causes"
+          },
+          {
+            "detail": "Diagnosis of Constipation. Foundation reviewed May 2018. History, selected diagnostic tests and bowel-function assessment.",
+            "id": "common_conditions_constipation_diagnosis",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIDDK, National Institutes of Health",
+            "shortName": "NIDDK · Constipation diagnosis",
+            "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/constipation/diagnosis"
+          },
+          {
+            "detail": "Staller K et al. AGA Clinical Practice Update on Evaluation and Management of Refractory Constipation. Published January 7, 2026. DOI: 10.1016/j.cgh.2025.09.031. Expert best-practice advice.",
+            "id": "common_conditions_constipation_aga2026",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Gastroenterological Association",
+            "shortName": "AGA · Refractory constipation, 2026",
+            "url": "https://gastro.org/clinical-guidance/evaluation-and-management-of-refractory-constipation/"
+          },
+          {
+            "detail": "Treatment of Constipation. Foundation reviewed May 2018. Diet, activity, toileting and biofeedback only; older blanket laxative restrictions not reproduced.",
+            "id": "common_conditions_constipation_treatment",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIDDK, National Institutes of Health",
+            "shortName": "NIDDK · Constipation treatment",
+            "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/constipation/treatment"
+          },
+          {
+            "detail": "Chang L et al. Pharmacological Management of Chronic Idiopathic Constipation. May 19, 2023. DOI: 10.1053/j.gastro.2023.03.214. Evidence-based adult recommendations.",
+            "id": "common_conditions_constipation_aga2023",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Gastroenterological Association / American College of Gastroenterology",
+            "shortName": "AGA/ACG · Constipation pharmacotherapy, 2023",
+            "url": "https://gastro.org/clinical-guidance/pharmacological-management-of-chronic-idiopathic-constipation-cic/"
+          }
+        ],
+        "commonInterventions": [
+          {
+            "citationIDs": [
+              "common_conditions_constipation_treatment"
+            ],
+            "text": "Dietary fiber, appropriate fluid intake and regular activity can support bowel function. Scheduled toileting after a meal and comfortable positioning may help. Pelvic-floor biofeedback retrains evacuation when a defecatory disorder is present. Education should explain the purpose of each part of the agreed plan and how its benefit will be assessed."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_constipation_aga2023"
+            ],
+            "text": "The 2023 AGA/ACG guideline supports polyethylene glycol for adult chronic idiopathic constipation and distinguishes its evidence from weaker recommendations for some alternatives. Prescription options after inadequate response to over-the-counter agents include linaclotide, plecanatide and prucalopride. Treatment choice depends on the cause, tolerability and prescribing assessment; these recommendations do not constitute an obstruction-management plan."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_constipation_aga2026"
+            ],
+            "text": "For truly refractory symptoms, the 2026 AGA update emphasizes documenting transit and excluding ongoing pelvic-floor dysfunction before colectomy. Its recommendations are expert best-practice advice, not proof that every advanced intervention benefits every patient. Nursing follow-up can establish whether ordered testing and indicated biofeedback were completed before another escalation discussion."
+          }
+        ],
+        "definition": {
+          "citationIDs": [
+            "common_conditions_constipation_symptoms"
+          ],
+          "text": "Constipation includes infrequent bowel movements, hard or lumpy stool, difficult or painful passage, or a sense of incomplete emptying. Persistent symptoms warrant assessment even when stool is passed regularly. Nursing history should describe the person’s usual pattern and the specific difficulty rather than using frequency alone."
+        },
+        "diagnosticCriteria": [
+          {
+            "citationIDs": [
+              "common_conditions_constipation_diagnosis"
+            ],
+            "text": "The clinician combines history with examination, including hydration, abdominal distension or tenderness and a rectal examination when indicated. Blood, stool, endoscopic or imaging tests are selected for the clinical question; not every person requires every test. Anorectal manometry and balloon-expulsion testing assess evacuation, while transit studies assess movement through the colon."
+          },
+          {
+            "citationIDs": [
+              "common_conditions_constipation_aga2026"
+            ],
+            "text": "The AGA’s 2026 update advises assessing secondary causes and, for most patients, anorectal function and indicated pelvic-floor biofeedback before calling constipation refractory. Persistent symptoms after an adequate treatment trial require reassessment of the mechanism and treatment actually tried; repeated laxative failure alone does not establish a need for surgery."
+          }
+        ],
+        "id": "chronic-constipation",
+        "lastSourceFidelityReview": "2026-09-19",
+        "nclexTags": {
+          "category": "physiologicalIntegrity",
+          "priorityConcept": "elimination",
+          "subcategory": "basicCareAndComfort"
+        },
+        "pathophysiology": {
+          "citationIDs": [
+            "common_conditions_constipation_symptoms"
+          ],
+          "text": "Symptoms may reflect slow colonic transit, impaired pelvic-floor emptying, a functional bowel disorder or several contributors together. Dehydration, reduced activity, inadequate fiber, hypothyroidism, diabetes and neurologic disease can contribute. Opioids, anticholinergics, iron and some calcium-channel blockers can worsen constipation; obstruction is another possible cause."
+        },
+        "presentation": [
+          {
+            "citationIDs": [
+              "common_conditions_constipation_diagnosis"
+            ],
+            "text": "Useful observations include symptom duration, bowel frequency, stool appearance, painful evacuation, rectal bleeding and recent weight change. A bowel record collected before the visit can make the pattern clearer. Include abdominal symptoms, current medicines and supplements, prior digestive surgery and family colorectal-cancer history in the assessment."
+          }
+        ],
+        "priorityAssessments": [
+          {
+            "citationIDs": [
+              "common_conditions_constipation_treatment"
+            ],
+            "text": "Review which bowel treatments are actually available and used, alongside diet, activity, toileting habits and medicines that may contribute. A workable routine allows time for evacuation and a response to the urge to defecate. Concerns about a prescribed medicine should be discussed with the clinician before changing it."
+          }
+        ],
+        "subtitle": "Bowel-pattern assessment, reversible causes and refractory-symptom evaluation",
+        "title": "Chronic constipation in adults",
+        "watchFor": [
+          {
+            "citationIDs": [
+              "common_conditions_constipation_symptoms"
+            ],
+            "text": "Constipation with persistent abdominal pain, inability to pass gas, vomiting, fever or rectal bleeding needs prompt medical assessment. Unintentional weight loss and symptoms that persist despite self-care also warrant evaluation. These changes should be communicated as new findings rather than attributed automatically to the established bowel pattern."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "reference": {
+      "_0": {
+        "citations": [
+          {
+            "detail": "Diagnosis of Irritable Bowel Syndrome. Foundation reviewed November 2017; no source diagnostic duration criteria or blanket gluten avoidance reproduced.",
+            "id": "common_conditions_ibs_diagnosis",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIDDK, National Institutes of Health",
+            "shortName": "NIDDK · IBS diagnosis",
+            "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/irritable-bowel-syndrome/diagnosis"
+          },
+          {
+            "detail": "Treatment of Irritable Bowel Syndrome. Foundation reviewed November 2017; no source diagnostic duration criteria or blanket gluten avoidance reproduced.",
+            "id": "common_conditions_ibs_treatment",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIDDK, National Institutes of Health",
+            "shortName": "NIDDK · IBS treatment",
+            "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/irritable-bowel-syndrome/treatment"
+          },
+          {
+            "detail": "Eating, diet and nutrition of Irritable Bowel Syndrome. Foundation reviewed November 2017; no source diagnostic duration criteria or blanket gluten avoidance reproduced.",
+            "id": "common_conditions_ibs_diet",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIDDK, National Institutes of Health",
+            "shortName": "NIDDK · IBS eating, diet and nutrition",
+            "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/irritable-bowel-syndrome/eating-diet-nutrition"
+          },
+          {
+            "detail": "Nybacka S et al. A low FODMAP diet plus traditional dietary advice versus a low-carbohydrate diet versus pharmacological treatment in irritable bowel syndrome. Lancet Gastroenterol Hepatol. 2024. DOI: 10.1016/S2468-1253(24)00045-1. PMID: 38643782. Single-center randomized trial; Swedish public/foundation and other funding disclosed in primary record.",
+            "id": "common_conditions_ibs_caribs",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "The Lancet Gastroenterology & Hepatology / Elsevier",
+            "shortName": "CARIBS · Diet and medication trial, 2024",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/38643782/"
+          }
+        ],
+        "eyebrow": "REFERENCE · COMMON CONDITIONS",
+        "id": "ibs-symptom-follow-up",
+        "lastSourceFidelityReview": "2026-09-19",
+        "nclexTags": {
+          "category": "physiologicalIntegrity",
+          "priorityConcept": "elimination",
+          "subcategory": "basicCareAndComfort"
+        },
+        "sections": [
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_ibs_diagnosis"
+                  ],
+                  "text": "For an adult with an established irritable bowel syndrome diagnosis, follow-up should describe abdominal pain in relation to defecation, stool frequency and stool appearance. Record which symptoms changed and review medicines, recent infections, diet and stressful events. A change in the bowel pattern deserves assessment in its clinical context."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_ibs_treatment"
+                  ],
+                  "text": "IBS treatment may combine dietary change, medicines and psychological therapies. Different symptoms can respond differently: constipation, diarrhea and abdominal pain may require different approaches. Clarify the intended symptom target for the prescribed plan so improvement in one area is not mistaken for resolution of every problem."
+                }
+              ],
+              "title": "Establish a useful symptom baseline"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_ibs_diet"
+                  ],
+                  "text": "Soluble fiber may improve IBS symptoms, particularly constipation. Increasing fiber gradually can limit gas and bloating that accompany a sudden increase. Review tolerance during follow-up rather than assuming that a larger amount of any fiber will improve every person’s symptoms; dietitian input can help individualize the approach."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_ibs_diet"
+                  ],
+                  "text": "A low-FODMAP approach is a structured dietary trial to identify symptom-provoking fermentable carbohydrates. NIDDK describes a limited trial followed, when helpful, by gradual food reintroduction. The follow-up discussion should establish what improved and which foods can return; indefinite broad restriction is not the endpoint of that process."
+                }
+              ],
+              "title": "Dietary trials and nutrition"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_ibs_caribs"
+                  ],
+                  "text": "CARIBS (2024) randomized adults with moderate-to-severe IBS at one Swedish center. Among 294 who began treatment, a clinically meaningful IBS severity-score response at four weeks occurred in 76% receiving low-FODMAP plus traditional dietary advice, 71% receiving a fiber-optimized low-carbohydrate diet and 58% receiving optimized medication. The endpoint was a score reduction of at least 50 points, not cure. The short comparison, single-center setting and open-label medication arm limit generalization; the result does not prescribe a permanent restrictive diet for every patient."
+                }
+              ],
+              "title": "What a recent dietary trial showed"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_ibs_treatment"
+                  ],
+                  "text": "Medication follow-up should cover the intended benefit, use as prescribed and adverse effects. Treatments used for diarrhea differ from those used for constipation; pain-directed medicines address another target. Persistent symptoms call for a review with the treating clinician rather than unsupervised addition of several products."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_ibs_treatment"
+                  ],
+                  "text": "Cognitive behavioral therapy, gut-directed hypnotherapy and relaxation training are treatment options for IBS symptoms. Explain their symptom-management purpose and help identify an accessible service when they are part of the care plan. Activity, adequate sleep and stress management can also support care alongside other treatments."
+                }
+              ],
+              "title": "Medicines and gut-directed therapies"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_ibs_diagnosis"
+                  ],
+                  "text": "Rectal bleeding, black tarry stool, anemia or weight loss can point to another disorder and should not be labeled an expected IBS flare. Family history of celiac disease, inflammatory bowel disease or colorectal cancer also changes the assessment. The clinician may select blood, stool or endoscopic tests to investigate these concerns."
+                }
+              ],
+              "title": "When the original diagnosis needs reassessment"
+            }
+          }
+        ],
+        "subtitle": "Symptom patterns, dietary trials, gut-directed care and reasons to reassess",
+        "title": "IBS: treatment response and follow-up"
+      }
+    }
+  },
+  {
+    "reference": {
+      "_0": {
+        "citations": [
+          {
+            "detail": "Insomnia: Diagnosis. Updated March 24, 2022. Foundation assessment, behavioral therapy or follow-up; current pharmacotherapy guidance separately attributed to VA/DoD 2025.",
+            "id": "common_conditions_insomnia_diagnosis",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NHLBI, National Institutes of Health",
+            "shortName": "NHLBI · Insomnia diagnosis",
+            "url": "https://www.nhlbi.nih.gov/health/insomnia/diagnosis"
+          },
+          {
+            "detail": "Management of Chronic Insomnia Disorder and Obstructive Sleep Apnea. January 2025 guideline; September 15, 2025 file revision. Recommendations 5–10 and sidebars 3–4; treatment selection and CBT-I precautions.",
+            "id": "common_conditions_insomnia_va2025",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "US Department of Veterans Affairs / Department of Defense",
+            "shortName": "VA/DoD · Insomnia guideline, 2025",
+            "url": "https://www.healthquality.va.gov/guidelines/CD/insomnia/I-OSA-CPG_2025-Guideline_final_20250915.pdf"
+          },
+          {
+            "detail": "Insomnia: Treatment. Updated March 24, 2022. Foundation assessment, behavioral therapy or follow-up; current pharmacotherapy guidance separately attributed to VA/DoD 2025.",
+            "id": "common_conditions_insomnia_treatment",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NHLBI, National Institutes of Health",
+            "shortName": "NHLBI · Insomnia treatment",
+            "url": "https://www.nhlbi.nih.gov/health/insomnia/treatment"
+          },
+          {
+            "detail": "Insomnia: Living with insomnia. Updated March 24, 2022. Foundation assessment, behavioral therapy or follow-up; current pharmacotherapy guidance separately attributed to VA/DoD 2025.",
+            "id": "common_conditions_insomnia_living",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NHLBI, National Institutes of Health",
+            "shortName": "NHLBI · Insomnia living with insomnia",
+            "url": "https://www.nhlbi.nih.gov/health/insomnia/living-with"
+          }
+        ],
+        "eyebrow": "REFERENCE · COMMON CONDITIONS",
+        "id": "insomnia-cbt-i-follow-up",
+        "lastSourceFidelityReview": "2026-09-19",
+        "nclexTags": {
+          "category": "physiologicalIntegrity",
+          "priorityConcept": "painComfort",
+          "subcategory": "basicCareAndComfort"
+        },
+        "sections": [
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_insomnia_diagnosis"
+                  ],
+                  "text": "Assessment includes difficulty falling asleep, awakenings, waking time, symptom duration and daytime functioning. Ask about work-day and day-off schedules, naps, medicines, caffeine, nicotine and alcohol. Snoring or waking with gasping raises a different question from difficulty sleeping alone and should be reported for evaluation."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_insomnia_diagnosis"
+                  ],
+                  "text": "A sleep diary for one to two weeks can document bedtime, waking, naps, daytime sleepiness, exercise and substance use. It helps the clinician identify patterns and compare treatment response. Targeted testing may investigate another sleep disorder or medical contributor; the diary is an assessment aid, not a stand-alone diagnostic test."
+                }
+              ],
+              "title": "Describe the sleep problem and daytime effect"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_insomnia_va2025"
+                  ],
+                  "text": "The 2025 VA/DoD guideline recommends cognitive behavioral therapy for insomnia (CBT-I) and suggests it over medication as first-line treatment. Sleep-hygiene advice alone is insufficient treatment for chronic insomnia. Brief behavioral treatment is an alternative when appropriate; confirm that a referral leads to an actual treatment opportunity."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_insomnia_treatment"
+                  ],
+                  "text": "CBT-I combines cognitive work around sleep-related worry, relaxation, stimulus control and a structured time-in-bed plan. Stimulus control strengthens the association between bed and sleep. The time-in-bed component is adjusted as sleep improves; it is a therapeutic process rather than a general instruction to keep sleeping less."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_insomnia_treatment"
+                  ],
+                  "text": "NHLBI describes in-person, telephone and online delivery by a clinician providing CBT-I. Discuss access and the person’s ability to attend or use the planned format. Supportive habits include a consistent sleep schedule, a quiet dark bedroom and avoiding caffeine, nicotine and alcohol near bedtime. Alcohol can fragment sleep despite initial drowsiness."
+                }
+              ],
+              "title": "First-line treatment and access"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_insomnia_va2025"
+                  ],
+                  "text": "The 2025 guideline identifies situations requiring adaptation or delay of CBT-I, including excessive daytime sleepiness, nighttime fall risk, bipolar disorder, uncontrolled seizures and acute mental-health symptoms. Sleep restriction can temporarily increase sleepiness. A trained treating professional should tailor the intervention rather than using an unsupervised generic sleep-restriction schedule."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_insomnia_va2025"
+                  ],
+                  "text": "When short-term medication is considered, the guideline emphasizes other sleep disorders, respiratory and cognitive impairment, substance-use history, interactions and a deprescribing plan. It suggests against benzodiazepines, diphenhydramine, trazodone and antipsychotics for chronic insomnia. This is a condition-specific recommendation and does not determine their role for a different indication."
+                }
+              ],
+              "title": "Tailor the plan for safety"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_insomnia_living"
+                  ],
+                  "text": "Follow-up should include the sleep diary, daytime concentration, mood, function and medicine adverse effects. Insomnia can increase fall and road-accident risk, so daytime safety matters even when nights seem somewhat better. New or worsening symptoms should reach the treating clinician between scheduled visits."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_insomnia_living"
+                  ],
+                  "text": "Improvement does not necessarily end follow-up. A regular schedule and continued behavioral strategies may remain useful after sleep improves. Clarify the next visit and how to report recurrent symptoms or adverse effects; assess functioning as well as the person’s impression of sleep quality."
+                }
+              ],
+              "title": "Measure response and reassess"
+            }
+          }
+        ],
+        "subtitle": "Sleep diaries, behavioral treatment, daytime safety and ongoing assessment",
+        "title": "Insomnia: CBT-I and treatment follow-up"
+      }
+    }
+  },
+  {
+    "reference": {
+      "_0": {
+        "citations": [
+          {
+            "detail": "Clinical Interventions to Treat Tobacco Use and Dependence Among Adults. May 2024. Repeated treatment, adult medication options, pregnancy boundaries and follow-up.",
+            "id": "common_conditions_cessation_clinical",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "Centers for Disease Control and Prevention",
+            "shortName": "CDC · Treating tobacco dependence",
+            "url": "https://www.cdc.gov/tobacco/hcp/patient-care-settings/clinical.html"
+          },
+          {
+            "detail": "How to Quit Smoking. May 15, 2024. Counseling, quit planning and US quitline resources.",
+            "id": "common_conditions_cessation_quit",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "Centers for Disease Control and Prevention",
+            "shortName": "CDC · Counseling and quit support",
+            "url": "https://www.cdc.gov/tobacco/about/how-to-quit.html"
+          },
+          {
+            "detail": "How to Combine Quit Smoking Medicines. Reviewed October 4, 2024. Long-acting and short-acting nicotine replacement roles; precautions. No dosing schedule reproduced.",
+            "id": "common_conditions_cessation_combination",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "Centers for Disease Control and Prevention",
+            "shortName": "CDC · Combination nicotine replacement",
+            "url": "https://www.cdc.gov/tobacco/campaign/tips/quit-smoking/quit-smoking-medications/how-to-use-quit-smoking-medicines/how-to-combine-medicines.html"
+          },
+          {
+            "detail": "7 Common Withdrawal Symptoms. Reviewed September 27, 2024. Symptoms, caffeine, coping and mental-health escalation.",
+            "id": "common_conditions_cessation_withdrawal",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "Centers for Disease Control and Prevention",
+            "shortName": "CDC · Nicotine withdrawal and mood",
+            "url": "https://www.cdc.gov/tobacco/campaign/tips/quit-smoking/7-common-withdrawal-symptoms/index.html"
+          },
+          {
+            "detail": "Kypriotakis G et al. Effects of Varenicline, Bupropion, Nicotine Patch, and Placebo on Treating Smoking Among Persons With Current or Past Major Depressive Disorder. Am J Psychiatry 2025;182:174–186; online December 11, 2024. DOI: 10.1176/appi.ajp.20230855. PMID: 39659160. Secondary analysis of randomized trial; industry affiliations disclosed.",
+            "id": "common_conditions_cessation_mdd2025",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Journal of Psychiatry / American Psychiatric Association",
+            "shortName": "Smoking cessation and depression · Trial analysis, 2025",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/39659160/"
+          }
+        ],
+        "eyebrow": "REFERENCE · COMMON CONDITIONS",
+        "id": "smoking-cessation-treatment-support",
+        "lastSourceFidelityReview": "2026-09-19",
+        "nclexTags": {
+          "category": "healthPromotion",
+          "priorityConcept": "gasExchange",
+          "subcategory": "healthPromotion"
+        },
+        "sections": [
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_cessation_clinical"
+                  ],
+                  "text": "Tobacco dependence is a chronic, relapsing condition that often needs repeated treatment and long-term support. Brief advice and continued engagement matter even when someone is not ready to quit. At follow-up, review progress and barriers without treating a return to smoking as a reason to withdraw support."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_cessation_quit"
+                  ],
+                  "text": "Counseling helps build a quit plan and prepare for stress and urges to smoke. Options include individual or group sessions, telephone coaching and digital support. The US quitline, 1-800-QUIT-NOW, offers free confidential coaching. Confirm that the person knows how to reach the selected service and obtain help between visits."
+                }
+              ],
+              "title": "Start with a continuing care plan"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_cessation_clinical"
+                  ],
+                  "text": "For nonpregnant adults who smoke cigarettes, established treatment includes nicotine replacement, varenicline or bupropion, usually with counseling. Nicotine replacement reduces withdrawal; varenicline partly stimulates nicotine receptors while reducing cigarette reward. Medication choice requires the prescribing team’s assessment of suitability and the person’s preferences."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_cessation_combination"
+                  ],
+                  "text": "Combination nicotine replacement pairs a long-acting patch with a shorter-acting formulation such as gum or lozenge. The patch provides a steadier background level while the shorter-acting product helps with breakthrough urges. Follow-up should confirm understanding of each product’s role, directions and precautions; this guide does not select a dose or schedule."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_cessation_clinical",
+                    "common_conditions_cessation_combination"
+                  ],
+                  "text": "The CDC’s cigarette-cessation medication guidance is not automatically transferable to pregnancy, breastfeeding, adolescents or other tobacco products. These situations require a clinician discussion. For pregnancy, CDC prioritizes behavioral support and describes medication decisions as individualized because evidence about benefits and harms is less certain."
+                }
+              ],
+              "title": "Understand the treatment choices"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_cessation_withdrawal"
+                  ],
+                  "text": "Common withdrawal experiences include cravings, irritability, restlessness, difficulty concentrating, sleep disturbance and increased appetite. Triggers can involve people, places, routines or emotions associated with smoking. Planning a response to predictable urges, using support and staying active can help; symptoms and coping should be reviewed during follow-up."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_cessation_withdrawal"
+                  ],
+                  "text": "After smoking stops, caffeine remains in the body longer, which can worsen jitteriness or sleep difficulty. Mood changes also warrant attention. Persistent, worsening or unmanageable depression or anxiety needs clinical assessment; thoughts of self-harm require immediate crisis support through 988 or emergency services when danger is immediate."
+                }
+              ],
+              "title": "Withdrawal, triggers and mental health"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_cessation_mdd2025"
+                  ],
+                  "text": "A 2025 secondary analysis of a randomized trial examined 6,653 adults with current or past major depressive disorder or no psychiatric disorder. Varenicline, bupropion, nicotine patch or placebo were paired with brief counseling. Moderate-to-severe neuropsychiatric-event risk did not differ by medication within those cohorts; varenicline improved cessation compared with placebo in the current-depression group. The subgroup analysis does not prove absence of individual risk or replace mental-health monitoring."
+                }
+              ],
+              "title": "Recent study context"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_cessation_clinical"
+                  ],
+                  "text": "Repeated attempts are common. Review which triggers, cravings or access problems interfered with the attempt and reconnect the person with support. CDC recommends reassessing progress and considering different treatment strategies with the clinical team. The plan should remain accessible after a lapse, including a clear route back to counseling and treatment review."
+                }
+              ],
+              "title": "Follow-through after a lapse"
+            }
+          }
+        ],
+        "subtitle": "Adult cigarette dependence, counseling, medication support and relapse prevention",
+        "title": "Smoking cessation: treatment and follow-up"
+      }
+    }
+  },
+  {
+    "reference": {
+      "_0": {
+        "citations": [
+          {
+            "detail": "Diagnosis of NAFLD and NASH. Foundation reviewed April 2021; page includes current MASLD/MASH terminology. Imaging, noninvasive scores and selected biopsy use.",
+            "id": "common_conditions_masld_diagnosis",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIDDK, National Institutes of Health",
+            "shortName": "NIDDK · Fatty-liver assessment",
+            "url": "https://www.niddk.nih.gov/health-information/liver-disease/nafld-nash/diagnosis"
+          },
+          {
+            "detail": "Rinella ME et al. Practice Guidance on the clinical assessment and management of nonalcoholic fatty liver disease. Hepatology 2023;77:1797–1835. DOI: 10.1097/HEP.0000000000000323. PMID: 36727674. Fibrosis-screening limitations, risk-based follow-up and referral.",
+            "id": "common_conditions_masld_aasld2023",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Association for the Study of Liver Diseases",
+            "shortName": "AASLD · Fibrosis assessment, 2023",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/10735173/"
+          },
+          {
+            "detail": "Treatment for NAFLD and NASH. Foundation reviewed April 2021. Only lifestyle, nutrition and supplement-safety content used. Its outdated statement that no medicines are approved is explicitly excluded; current treatment is separately cited to AASLD and ESSENCE.",
+            "id": "common_conditions_masld_lifestyle",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIDDK, National Institutes of Health",
+            "shortName": "NIDDK · Fatty-liver lifestyle care",
+            "url": "https://www.niddk.nih.gov/health-information/liver-disease/nafld-nash/treatment"
+          },
+          {
+            "detail": "Sanyal AJ et al. Phase 3 Trial of Semaglutide in Metabolic Dysfunction-Associated Steatohepatitis. NEJM 2025;392:2089–2099. DOI: 10.1056/NEJMoa2413258. PMID: 40305708. Planned 72-week interim analysis; Novo Nordisk funded.",
+            "id": "common_conditions_masld_essence",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "New England Journal of Medicine / Massachusetts Medical Society",
+            "shortName": "ESSENCE · MASH trial, 2025",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/40305708/"
+          },
+          {
+            "detail": "Bansal MB et al. Semaglutide therapy for metabolic dysfunction-associated steatohepatitis: November 2025 updates to AASLD Practice Guidance. Online November 7, 2025; Hepatology 2026;83:1326–1340. DOI: 10.1097/HEP.0000000000001608. PMID: 41201884. Selection, monitoring and limits of response tests.",
+            "id": "common_conditions_masld_aasld2025",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Association for the Study of Liver Diseases",
+            "shortName": "AASLD · MASH treatment update, 2025/2026",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41201884/"
+          },
+          {
+            "detail": "Symptoms and Causes of Cirrhosis. Reviewed June 2023. Mental-status change, bleeding, edema, ascites and jaundice.",
+            "id": "common_conditions_cirrhosis_symptoms",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIDDK, National Institutes of Health",
+            "shortName": "NIDDK · Cirrhosis symptoms",
+            "url": "https://www.niddk.nih.gov/health-information/liver-disease/cirrhosis/symptoms-causes"
+          }
+        ],
+        "eyebrow": "REFERENCE · COMMON CONDITIONS",
+        "id": "masld-fibrosis-follow-up",
+        "lastSourceFidelityReview": "2026-09-19",
+        "nclexTags": {
+          "category": "physiologicalIntegrity",
+          "priorityConcept": "nutrition",
+          "subcategory": "reductionOfRiskPotential"
+        },
+        "sections": [
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_masld_diagnosis"
+                  ],
+                  "text": "Fatty liver detected on routine imaging does not by itself establish steatohepatitis or stage fibrosis. Assessment reviews metabolic risks, alcohol exposure and alternative causes of liver disease. Confirm which question the next test addresses: liver fat, evidence of injury, fibrosis risk or a competing diagnosis."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_masld_diagnosis"
+                  ],
+                  "text": "Noninvasive scores use clinical and laboratory data to estimate fibrosis risk. Elastography assesses liver stiffness, which can help evaluate advanced fibrosis. Liver biopsy is reserved for selected diagnostic questions rather than performed for everyone with suspected metabolic dysfunction-associated steatotic liver disease (MASLD)."
+                }
+              ],
+              "title": "Clarify what has been established"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_masld_aasld2023"
+                  ],
+                  "text": "AASLD’s 2023 assessment guidance uses FIB-4 as an initial risk tool, with secondary assessment such as elastography or ELF when appropriate. FIB-4 should not be used during acute illness, has low accuracy below age 35 and needs age-adjusted interpretation in older adults. A screening score alone does not establish a histologic stage."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_masld_aasld2023"
+                  ],
+                  "text": "Normal aminotransferases do not exclude advanced disease. People with diabetes or several metabolic risk factors may need more frequent fibrosis reassessment. Suspected advanced disease or discordant noninvasive results warrants specialist review; established cirrhosis changes care to include liver-cancer and variceal surveillance and assessment for decompensation."
+                }
+              ],
+              "title": "Interpret fibrosis screening in context"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_masld_lifestyle"
+                  ],
+                  "text": "Gradual weight reduction when indicated, healthy food choices and physical activity support care; activity can be beneficial even without weight loss. Rapid weight loss and malnutrition may worsen liver disease. Review supplements and herbal products with the treating team because some can injure the liver."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_masld_lifestyle"
+                  ],
+                  "text": "Follow-up can help clarify what nutrition and activity changes are achievable and whether the person is eating adequately. The goal is a sustainable plan with clinical oversight. Supplements marketed for liver health should not displace assessment or the treatment plan; their safety needs the same medication-reconciliation attention as other products."
+                }
+              ],
+              "title": "Support the longitudinal plan"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_masld_essence"
+                  ],
+                  "text": "ESSENCE (2025) reported a planned 72-week interim analysis of 800 adults with biopsy-defined metabolic dysfunction-associated steatohepatitis (MASH) and stage F2–F3 fibrosis. Semaglutide versus placebo produced steatohepatitis resolution without fibrosis worsening in 62.9% versus 34.3%, and fibrosis improvement without steatohepatitis worsening in 36.8% versus 22.4%. Gastrointestinal adverse events were more frequent. These were histologic endpoints; this interim report did not establish a reduction in liver-related death or decompensation."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_masld_aasld2025"
+                  ],
+                  "text": "AASLD’s November 2025 update, published in a 2026 issue, describes semaglutide treatment selection for MASH with moderate-to-advanced fibrosis after accelerated FDA approval. Selection requires assessment for cirrhosis and other contraindications; liver biopsy is not required for most treatment candidates. The indication does not extend automatically to everyone with fatty liver."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_masld_aasld2025"
+                  ],
+                  "text": "That update emphasizes gastrointestinal tolerance, dehydration-related kidney injury and other treatment-specific risks, with ongoing lifestyle care. It also notes that combining resmetirom with semaglutide for MASH has not been studied. Changes in noninvasive tests can inform follow-up but cannot reliably predict an individual patient’s histologic response."
+                }
+              ],
+              "title": "Recent MASH trial and guidance"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_cirrhosis_symptoms"
+                  ],
+                  "text": "New jaundice, increasing abdominal or leg swelling, easy bleeding or confusion can accompany worsening cirrhosis and should be reported promptly. Mental-status change or suspected gastrointestinal bleeding calls for urgent assessment. These developments change the follow-up priority beyond routine discussion of liver enzymes or weight."
+                }
+              ],
+              "title": "Recognize possible advanced-disease complications"
+            }
+          }
+        ],
+        "subtitle": "Metabolic liver disease, noninvasive testing and current MASH treatment evidence",
+        "title": "MASLD: fibrosis assessment and follow-up"
+      }
+    }
+  },
+  {
+    "reference": {
+      "_0": {
+        "citations": [
+          {
+            "detail": "Headache. Sections on diagnostic history, headache records and findings requiring prompt assessment. Federal educational foundation, not a new treatment guideline.",
+            "id": "common_conditions_migraine_ninds",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NINDS, National Institutes of Health",
+            "shortName": "NINDS · Headache assessment",
+            "url": "https://www.ninds.nih.gov/node/667"
+          },
+          {
+            "detail": "Guideline Update To Help Clinicians Determine Most Effective Medications For Preventing Migraine In Adults. Issuer summary dated September 7, 2026; prevention candidacy, patient priorities and monitoring.",
+            "id": "common_conditions_migraine_2026_summary",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Headache Society",
+            "shortName": "AHS 2026 · Prevention guideline summary",
+            "url": "https://americanheadachesociety.org/news/updated-guideline-on-migraine-prevention-medications-for-adults"
+          },
+          {
+            "detail": "Charles AC et al. CGRP-targeting therapies are a first-line option for migraine prevention. Headache. 2024;64:333–341. DOI: 10.1111/head.14692. Society position statement.",
+            "id": "common_conditions_migraine_ahs2024",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Headache Society / Wiley",
+            "shortName": "AHS 2024 · CGRP prevention position",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/38466028/"
+          },
+          {
+            "detail": "Potrebic S et al. Pharmacologic Treatment for Migraine Prevention in Adults Practice Guideline Recommendations. Headache. Online August 31, 2026. DOI: 10.1111/head.70199. Companion review searched through June 6, 2024.",
+            "id": "common_conditions_migraine_2026",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Academy of Neurology Institute / American Headache Society",
+            "shortName": "AAN–AHS 2026 · Adult migraine prevention",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/42673606/"
+          },
+          {
+            "detail": "Pozo-Rosich P et al. Atogepant for preventive treatment of chronic migraine (PROGRESS). Lancet. 2023;402:775–785. DOI: 10.1016/S0140-6736(23)01049-8. Randomized 12-week trial; funded by Allergan, now AbbVie.",
+            "id": "common_conditions_migraine_progress",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "Elsevier / Lancet",
+            "shortName": "PROGRESS · Chronic migraine trial",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/37516125/"
+          }
+        ],
+        "eyebrow": "REFERENCE · COMMON CONDITIONS",
+        "id": "migraine-prevention-follow-up",
+        "lastSourceFidelityReview": "2026-09-19",
+        "nclexTags": {
+          "category": "physiologicalIntegrity",
+          "priorityConcept": "neurologicalRegulation",
+          "subcategory": "reductionOfRiskPotential"
+        },
+        "sections": [
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_migraine_ninds"
+                  ],
+                  "text": "Headache assessment combines the history with physical and neurological examination. Record attack frequency, severity, duration, associated symptoms and effects on usual activities. A headache diary can connect attacks with medicine use, sleep, meals, menstrual periods and other possible triggers; the pattern helps the treating clinician reassess the diagnosis and care plan."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_migraine_2026_summary"
+                  ],
+                  "text": "The 2026 AAN–AHS guideline supports considering prevention when migraine meaningfully affects work or daily activities, including people with four or more migraine days or moderate-to-severe headache days per month. Frequency is one part of the discussion: disability, treatment preferences, adverse effects and access also influence selection."
+                }
+              ],
+              "title": "Describe the burden between visits"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_migraine_ahs2024"
+                  ],
+                  "text": "Acute treatment addresses an attack; preventive treatment aims to reduce future headache burden. The AHS 2024 position statement recognizes CGRP-targeted treatments as a first-line preventive option without requiring unsuccessful trials of older drug classes. This is a clinical position statement, and individual suitability still requires assessment."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_migraine_2026_summary"
+                  ],
+                  "text": "Prevention includes migraine-specific treatments and medicines also used for other conditions. The 2026 guideline emphasizes shared decisions about the evidence, route of administration, side effects and accessibility. A follow-up conversation should establish which medicine is intended for prevention and what benefit the person hopes to achieve in everyday life."
+                }
+              ],
+              "title": "Keep treatment roles clear"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_migraine_2026"
+                  ],
+                  "text": "The joint guideline was published online in August 2026. Its underlying systematic review searched studies through June 2024, so the publication date is not the evidence-search cutoff. It addresses starting, selecting, monitoring and discontinuing preventive treatment, with separate considerations for medication overuse and specific patient groups."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_migraine_2026"
+                  ],
+                  "text": "Comorbid obesity, hypertension or fibromyalgia, older age, pregnancy and lactation can affect preventive choices. Review changes in these circumstances and treatment-related concerns with the prescribing team. A generic adult prevention plan should not be transferred unchanged to pregnancy or another clinically different situation."
+                }
+              ],
+              "title": "What the updated guideline covers"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_migraine_progress"
+                  ],
+                  "text": "PROGRESS (2023) randomized 778 adults with chronic migraine to two atogepant regimens or placebo for 12 weeks. Mean monthly migraine days declined by 6.9–7.5 days with atogepant and 5.1 days with placebo; constipation and nausea were common adverse effects. This short trial supports preventive efficacy in its studied population, not a cure or equivalent results for every patient."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_migraine_2026_summary"
+                  ],
+                  "text": "Follow-up should compare headache burden and daily functioning with the pretreatment pattern, while reviewing adverse effects and whether the planned treatment is accessible. The 2026 guideline calls for reassessment at appropriate intervals. A partial response or a poorly tolerated medicine can support a new discussion about available preventive options."
+                }
+              ],
+              "title": "Trial context and response monitoring"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_migraine_ninds"
+                  ],
+                  "text": "A sudden severe headache, headache with new weakness or loss of sensation, confusion, loss of consciousness, seizure or breathing difficulty requires urgent assessment. A prior migraine diagnosis does not explain every new headache. Headache after injury, with fever or stiff neck, or with a progressively changing pattern also needs prompt clinical evaluation."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_migraine_2026"
+                  ],
+                  "text": "Bring all prescription and nonprescription headache medicines into the review, including how often they are used. The current guideline specifically addresses medication overuse alongside prevention. Persistent disability or increasing reliance on acute medicines is information for reassessment, rather than a reason to independently add or escalate a regimen."
+                }
+              ],
+              "title": "Recognize a changed headache"
+            }
+          }
+        ],
+        "subtitle": "Adult headache burden, preventive treatment response and the 2026 guideline",
+        "title": "Migraine: prevention and follow-up"
+      }
+    }
+  },
+  {
+    "reference": {
+      "_0": {
+        "citations": [
+          {
+            "detail": "Acid Reflux (GER & GERD) in Adults: Symptoms, contributing medicines and alarm findings. Last reviewed July 2020; newer treatment research is cited separately.",
+            "id": "common_conditions_gerd_symptoms",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIDDK, National Institutes of Health",
+            "shortName": "NIDDK · GERD Symptoms and reassessment",
+            "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/acid-reflux-ger-gerd-adults/symptoms-causes"
+          },
+          {
+            "detail": "Acid Reflux (GER & GERD) in Adults: Clinical assessment, endoscopy and esophageal reflux monitoring. Last reviewed July 2020; newer treatment research is cited separately.",
+            "id": "common_conditions_gerd_diagnosis",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIDDK, National Institutes of Health",
+            "shortName": "NIDDK · GERD Diagnostic evaluation",
+            "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/acid-reflux-ger-gerd-adults/diagnosis"
+          },
+          {
+            "detail": "Acid Reflux (GER & GERD) in Adults: Acid suppression and supportive lifestyle measures. Last reviewed July 2020; newer treatment research is cited separately.",
+            "id": "common_conditions_gerd_treatment",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIDDK, National Institutes of Health",
+            "shortName": "NIDDK · GERD Treatment foundation",
+            "url": "https://www.niddk.nih.gov/health-information/digestive-diseases/acid-reflux-ger-gerd-adults/treatment"
+          },
+          {
+            "detail": "Targownik LE, Fisher DA, Saini SD. AGA Clinical Practice Update on De-Prescribing of Proton Pump Inhibitors: Expert Review. Gastroenterology. 2022;162:1334–1342. DOI: 10.1053/j.gastro.2021.12.247. Expert advice, not a formally graded systematic review.",
+            "id": "common_conditions_gerd_deprescribing",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Gastroenterological Association / Elsevier",
+            "shortName": "AGA 2022 · PPI indication review",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/35183361/"
+          },
+          {
+            "detail": "Laine L et al. Vonoprazan is Efficacious for Treatment of Heartburn in Non-erosive Reflux Disease: A Randomized Trial. Clin Gastroenterol Hepatol. 2024;22:2211–2220.e10. DOI: 10.1016/j.cgh.2024.05.004. Four-week placebo comparison and 20-week active extension.",
+            "id": "common_conditions_gerd_vonoprazan",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Gastroenterological Association / Elsevier",
+            "shortName": "Vonoprazan · Nonerosive reflux trial",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/38750866/"
+          }
+        ],
+        "eyebrow": "REFERENCE · COMMON CONDITIONS",
+        "id": "gerd-treatment-reassessment",
+        "lastSourceFidelityReview": "2026-09-19",
+        "nclexTags": {
+          "category": "physiologicalIntegrity",
+          "priorityConcept": "elimination",
+          "subcategory": "reductionOfRiskPotential"
+        },
+        "sections": [
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_gerd_symptoms"
+                  ],
+                  "text": "Heartburn and regurgitation are common reflux symptoms, but GERD can also involve swallowing difficulty, nausea, cough or hoarseness. Review which symptoms are present and whether they have changed. Medicines and other conditions can contribute; symptoms that persist despite nonprescription treatment deserve clinical reassessment."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_gerd_diagnosis"
+                  ],
+                  "text": "Typical symptoms may initially be assessed through medical history and a treatment trial. Testing becomes more relevant when symptoms persist, a complication is suspected or another condition could explain the presentation. Repeated symptoms alone do not establish which reflux mechanism or alternative diagnosis is responsible."
+                }
+              ],
+              "title": "Establish what is being treated"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_gerd_treatment"
+                  ],
+                  "text": "PPIs reduce gastric acid and are more effective than H2 blockers at healing reflux-related esophageal injury. Antacids can relieve mild symptoms but are not a substitute for assessment of persistent or severe symptoms. Review the prescribed and nonprescription products together, including their purpose and any adverse effects."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_gerd_treatment"
+                  ],
+                  "text": "Supportive measures include weight management when indicated, smoking cessation, dietary changes and head elevation during sleep. Follow-up can review which measures are practical and whether symptoms are improving. Medication benefits and harms should be discussed with the treating clinician; long-term treatment may be appropriate when the indication remains."
+                }
+              ],
+              "title": "Follow the agreed treatment plan"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_gerd_diagnosis"
+                  ],
+                  "text": "Upper endoscopy can assess esophageal injury, complications and alternative causes; selected tissue samples may be examined. Reflux monitoring can relate recorded symptoms, meals and sleep to measured acid exposure. Catheter-based testing can also detect nonacid reflux. Clarify what the ordered test is intended to establish and follow its preparation instructions."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_gerd_symptoms"
+                  ],
+                  "text": "Dysphagia, painful swallowing, unexplained weight loss, persistent vomiting or evidence of gastrointestinal bleeding changes the priority from routine symptom tracking to prompt assessment. Blood or coffee-ground material in vomit and black, tarry stool are concerning findings. Chest pain needs medical evaluation and should not simply be labeled reflux."
+                }
+              ],
+              "title": "Persistent symptoms need a diagnostic question"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_gerd_deprescribing"
+                  ],
+                  "text": "AGA’s 2022 expert advice recommends documenting and periodically reviewing the PPI indication. A supervised deprescribing discussion is appropriate when there is no continuing indication. The decision should be based on expected benefit and the underlying condition, rather than stopping automatically because of reported associations with adverse outcomes."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_gerd_deprescribing"
+                  ],
+                  "text": "Severe erosive disease, esophageal ulcer or stricture, Barrett’s esophagus and high upper-GI bleeding risk are important reasons that routine discontinuation may be inappropriate. Transient rebound symptoms can occur after stopping long-term therapy. The review should establish who will reassess symptoms and the original indication before changing treatment."
+                }
+              ],
+              "title": "Review long-term PPI use deliberately"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_gerd_vonoprazan"
+                  ],
+                  "text": "A 2024 US randomized trial enrolled 772 adults with frequent heartburn and no erosive esophagitis on endoscopy. Over four weeks, about 44%–45% of days were completely heartburn-free in the vonoprazan groups versus 27.7% with placebo. This was the proportion of symptom-free days, not the proportion of patients cured."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_gerd_vonoprazan"
+                  ],
+                  "text": "The subsequent 20-week phase provided active treatment to all groups. It therefore does not supply a continuing placebo comparison or prove superiority to a PPI. The findings apply to the trial’s nonerosive reflux population and do not justify switching every patient with persistent upper-GI symptoms to a different acid suppressant."
+                }
+              ],
+              "title": "Recent nonerosive reflux evidence"
+            }
+          }
+        ],
+        "subtitle": "Adult acid suppression, persistent symptoms and appropriate long-term therapy",
+        "title": "GERD: treatment response and reassessment"
+      }
+    }
+  },
+  {
+    "reference": {
+      "_0": {
+        "citations": [
+          {
+            "detail": "Iron — Health Professional Fact Sheet. Iron-status assessment in inflammation and interactions with levothyroxine, levodopa and proton pump inhibitors.",
+            "id": "common_conditions_iron_ods",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "Office of Dietary Supplements, National Institutes of Health",
+            "shortName": "NIH ODS · Iron assessment and interactions",
+            "url": "https://ods.od.nih.gov/factsheets/Iron-HealthProfessional/"
+          },
+          {
+            "detail": "Anemia — Iron-Deficiency Anemia. Updated March 24, 2022. Causes, oral-treatment tolerance and repletion follow-up; source graphics and generalized laboratory cutoffs are not reproduced.",
+            "id": "common_conditions_iron_nhlbi",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NHLBI, National Institutes of Health",
+            "shortName": "NHLBI · Iron-deficiency anemia",
+            "url": "https://www.nhlbi.nih.gov/health/anemia/iron-deficiency-anemia"
+          },
+          {
+            "detail": "DeLoughery TG, Jackson CS, Ko CW, Rockey DC. AGA Clinical Practice Update on Management of Iron Deficiency Anemia: Expert Review. June 2024. DOI: 10.1016/j.cgh.2024.03.046. Oral tolerance, IV indications and underlying GI conditions.",
+            "id": "common_conditions_iron_aga2024",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Gastroenterological Association",
+            "shortName": "AGA 2024 · Iron-deficiency management",
+            "url": "https://gastro.org/clinical-guidance/management-of-iron-deficiency-anemia/"
+          },
+          {
+            "detail": "Li N et al. The Efficacy and Safety of Vitamin C for Iron Supplementation in Adult Patients With Iron Deficiency Anemia. JAMA Netw Open. 2020;3:e2023644. DOI: 10.1001/jamanetworkopen.2020.23644. Randomized equivalence trial.",
+            "id": "common_conditions_iron_vitc",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Medical Association",
+            "shortName": "Vitamin C · Iron equivalence trial",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/33136134/"
+          },
+          {
+            "detail": "Zoller H et al. Hypophosphataemia following ferric derisomaltose and ferric carboxymaltose in IBD (PHOSPHARE-IBD). Gut. 2023;72:644–653; online September 9, 2022. DOI: 10.1136/gutjnl-2022-327897. Randomized comparison.",
+            "id": "common_conditions_iron_phosphare",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "BMJ / Gut",
+            "shortName": "PHOSPHARE-IBD · IV iron phosphate risk",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/36343979/"
+          }
+        ],
+        "eyebrow": "REFERENCE · COMMON CONDITIONS",
+        "id": "iron-deficiency-treatment-follow-up",
+        "lastSourceFidelityReview": "2026-09-19",
+        "nclexTags": {
+          "category": "physiologicalIntegrity",
+          "priorityConcept": "nutrition",
+          "subcategory": "reductionOfRiskPotential"
+        },
+        "sections": [
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_iron_ods"
+                  ],
+                  "text": "Iron deficiency can precede anemia. Hemoglobin and hematocrit alone do not reliably establish iron status, and ferritin can rise with inflammation. Interpret the blood count, ferritin and other ordered iron measures together with the clinical context; an apparently normal ferritin does not resolve every question about iron availability."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_iron_nhlbi"
+                  ],
+                  "text": "Cause evaluation matters alongside replacement. Relevant histories include heavy menstrual bleeding, gastrointestinal or urinary blood loss, NSAID exposure, restrictive intake, digestive disease and prior stomach or intestinal surgery. Persistent blood loss or impaired absorption can prevent lasting correction even when an iron supplement has been prescribed."
+                }
+              ],
+              "title": "Confirm the deficiency and its cause"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_iron_aga2024"
+                  ],
+                  "text": "The AGA 2024 expert review advises oral iron no more than once daily and notes that alternate-day administration may be better tolerated by some people. Ferrous sulfate is inexpensive; no oral formulation has established superiority. Discuss tolerance and response with the prescriber before changing the schedule."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_iron_nhlbi"
+                  ],
+                  "text": "Nausea, abdominal discomfort, constipation or diarrhea can interfere with oral therapy. Replenishing iron stores may take months. Follow-up should establish whether the person can take the intended treatment and whether planned blood tests have been completed, rather than assuming symptom improvement alone proves that stores are restored."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_iron_ods"
+                  ],
+                  "text": "Iron can reduce absorption of levothyroxine and levodopa; acid suppression may impair iron absorption in someone already deficient. Medication reconciliation should include supplements and nonprescription products. A pharmacist or prescriber can clarify product-specific spacing and interactions without leaving the person to guess which treatment to omit."
+                }
+              ],
+              "title": "Make oral therapy tolerable and understandable"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_iron_aga2024"
+                  ],
+                  "text": "AGA supports considering IV iron when oral treatment is not tolerated, ferritin does not improve with an oral trial or absorption is unlikely to be adequate. Active inflammatory bowel disease and some bariatric procedures warrant particular attention. Reassessment should address continued bleeding, inflammation and absorption rather than simply repeating the same unsuccessful plan."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_iron_aga2024"
+                  ],
+                  "text": "For celiac disease or inflammatory bowel disease, treating the underlying disorder remains part of iron management. AGA emphasizes adherence to the gluten-free diet in celiac disease and effective control of intestinal inflammation in IBD. Replacement and cause-directed treatment answer different problems and may both be necessary."
+                }
+              ],
+              "title": "When the response is inadequate"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_iron_vitc",
+                    "common_conditions_iron_aga2024"
+                  ],
+                  "text": "AGA’s 2024 advice favors adding vitamin C, but a 2020 randomized equivalence trial in 440 adults found comparable hemoglobin improvement with iron alone and iron plus vitamin C. Participants were predominantly women at a single Chinese center. The finding challenges a universal need for additional vitamin C, while not settling every population or formulation."
+                }
+              ],
+              "title": "Study context: vitamin C is not a settled requirement"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_iron_phosphare"
+                  ],
+                  "text": "PHOSPHARE-IBD, published in a 2023 issue, compared two IV formulations in 97 adults with IBD and iron-deficiency anemia. Hypophosphatemia through day 35 occurred in 8.3% receiving ferric derisomaltose and 51.0% receiving ferric carboxymaltose. Both corrected anemia. This selected trial does not establish the same event rate for every patient or every IV iron product."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_iron_phosphare"
+                  ],
+                  "text": "Fatigue improved in both trial groups but less rapidly with ferric carboxymaltose, and slower improvement was associated with a greater phosphate decline. Persistent fatigue after an infusion should not automatically be attributed to residual iron deficiency. The result supports attention to the exact product and clinician-directed assessment of possible treatment effects."
+                }
+              ],
+              "title": "IV formulations have different safety considerations"
+            }
+          }
+        ],
+        "subtitle": "Adult anemia evaluation, oral tolerance, repletion response and IV formulation risks",
+        "title": "Iron deficiency: treatment and follow-up"
+      }
+    }
+  },
+  {
+    "reference": {
+      "_0": {
+        "citations": [
+          {
+            "detail": "Osteoarthritis: Overview, Symptoms and Causes. Last reviewed September 2023. Joint tissues, symptom patterns and daily functional limitations.",
+            "id": "common_conditions_oa_overview",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIAMS, National Institutes of Health",
+            "shortName": "NIAMS · Osteoarthritis symptoms",
+            "url": "https://www.niams.nih.gov/health-topics/osteoarthritis"
+          },
+          {
+            "detail": "Osteoarthritis: Diagnosis, Treatment, and Steps to Take. Exercise, supports, diagnostic reassessment and surgical discussion. No tables or media reproduced.",
+            "id": "common_conditions_oa_care",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIAMS, National Institutes of Health",
+            "shortName": "NIAMS · Osteoarthritis care",
+            "url": "https://www.niams.nih.gov/health-topics/osteoarthritis/diagnosis-treatment-and-steps-to-take"
+          },
+          {
+            "detail": "Kolasinski SL et al. 2019 ACR/Arthritis Foundation Guideline for Osteoarthritis of the Hand, Hip, and Knee. Arthritis Rheumatol. 2020;72:220–233. DOI: 10.1002/art.41142. Recommendations differ by joint and patient context.",
+            "id": "common_conditions_oa_acr",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American College of Rheumatology / Wiley",
+            "shortName": "ACR/AF · Joint-specific osteoarthritis care",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/31908163/"
+          },
+          {
+            "detail": "The best way to take your over-the-counter pain reliever? Seriously. Federal brochure: active-ingredient duplication, acetaminophen liver injury and NSAID gastrointestinal/kidney risk.",
+            "id": "common_conditions_oa_fda",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "US Food and Drug Administration",
+            "shortName": "FDA · Nonprescription pain medicine safety",
+            "url": "https://www.fda.gov/drugs/safe-use-over-counter-pain-relievers-and-fever-reducers/best-way-take-your-over-counter-pain-reliever-seriously-four-panel-brochure"
+          },
+          {
+            "detail": "Bliddal H et al. Once-Weekly Semaglutide in Persons with Obesity and Knee Osteoarthritis. N Engl J Med. 2024;391:1573–1583. DOI: 10.1056/NEJMoa2403664. 68-week randomized trial; funded by Novo Nordisk.",
+            "id": "common_conditions_oa_step9",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "Massachusetts Medical Society",
+            "shortName": "STEP 9 · Obesity and knee osteoarthritis",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/39476339/"
+          }
+        ],
+        "eyebrow": "REFERENCE · COMMON CONDITIONS",
+        "id": "osteoarthritis-treatment-follow-up",
+        "lastSourceFidelityReview": "2026-09-19",
+        "nclexTags": {
+          "category": "physiologicalIntegrity",
+          "priorityConcept": "mobility",
+          "subcategory": "basicCareAndComfort"
+        },
+        "sections": [
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_oa_overview"
+                  ],
+                  "text": "Osteoarthritis involves changes in multiple joint tissues, including cartilage, bone and surrounding structures. Symptoms can include pain with use, brief stiffness after rest, swelling and reduced movement. Joint instability, sleep disruption and difficulty with everyday tasks help describe its impact more fully than a pain number alone."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_oa_overview"
+                  ],
+                  "text": "Ask about specific activities such as walking, stairs, rising from a chair, using the toilet or gripping household objects. Less activity can contribute to muscle weakness and additional joint stress. Tracking the same activities over time gives the care team a practical description of improvement or increasing disability."
+                }
+              ],
+              "title": "Assess function as well as pain"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_oa_care"
+                  ],
+                  "text": "Exercise, education and weight management when indicated are core components of care. NIAMS describes strengthening, range-of-motion work, balance activities and low-impact aerobic or water exercise, tailored with the clinician or physical therapist. Progression should account for current ability and tolerance rather than assuming one exercise program suits every joint or patient."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_oa_care"
+                  ],
+                  "text": "Occupational therapy can help with joint protection and daily tasks; appropriately fitted canes, walkers, braces or hand aids can support function. Follow-up should review whether the chosen device can actually be used and whether the activity plan remains achievable. These supports address independence as well as symptom relief."
+                }
+              ],
+              "title": "Build a sustainable activity plan"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_oa_acr"
+                  ],
+                  "text": "The ACR/Arthritis Foundation guideline strongly supports topical NSAIDs for knee osteoarthritis and recognizes oral NSAIDs and selected intra-articular steroid treatment among pharmacologic options. Recommendations differ for the hand, hip and knee. Selection should account for comorbidities, preferences and treatment burden rather than applying one medication plan to all osteoarthritis."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_oa_fda"
+                  ],
+                  "text": "FDA advises checking the active ingredients in every nonprescription product: pain, cold and combination medicines can duplicate ingredients. Excess acetaminophen can injure the liver, while NSAIDs can contribute to gastrointestinal bleeding or kidney disease in susceptible people. Include these products in the medication review even when they were not prescribed."
+                }
+              ],
+              "title": "Medication choices depend on the joint and risks"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_oa_step9"
+                  ],
+                  "text": "STEP 9 (2024) randomized 407 adults with obesity and moderate knee osteoarthritis with at least moderate pain to semaglutide or placebo, alongside diet and activity counseling. At 68 weeks, mean body weight fell 13.7% versus 3.2%; WOMAC pain scores fell 41.7 versus 27.5 points on a 100-point scale. Physical function also improved more with semaglutide."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_oa_step9"
+                  ],
+                  "text": "Treatment discontinuation because of adverse events occurred in 6.7% versus 3.0%, most commonly for gastrointestinal problems. This manufacturer-funded trial studied obesity with symptomatic knee disease. It did not establish cartilage regeneration, prevention of joint replacement or equivalent benefit in people without obesity or with a different affected joint."
+                }
+              ],
+              "title": "Recent obesity and knee-pain trial"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_oa_care"
+                  ],
+                  "text": "Osteoarthritis has no single diagnostic test. Examination, imaging and sometimes blood or joint-fluid testing help assess the problem and exclude other causes such as gout or infection. A changing symptom pattern, locking or giving way deserves reassessment rather than assuming every new limitation comes from established osteoarthritis."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_oa_care"
+                  ],
+                  "text": "When pain and disability persist despite other treatment and joint damage is substantial, surgical assessment may be considered. NIAMS describes decisions that incorporate pain, functional limitation, occupation and overall circumstances. Nursing follow-up can bring the person’s concrete limitations and previous treatment experience into that discussion."
+                }
+              ],
+              "title": "Reassess when the pattern changes"
+            }
+          }
+        ],
+        "subtitle": "Joint-specific care, functional goals, medication safety and STEP 9 evidence",
+        "title": "Osteoarthritis: pain and treatment follow-up"
+      }
+    }
+  },
+  {
+    "reference": {
+      "_0": {
+        "citations": [
+          {
+            "detail": "Osteoporosis: Diagnosis, Treatment, and Steps to Take. DXA, nutrition, safe activity, secondary causes and fall prevention. Quantitative supplement tables are excluded.",
+            "id": "common_conditions_bone_niams",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIAMS, National Institutes of Health",
+            "shortName": "NIAMS · Osteoporosis treatment and falls",
+            "url": "https://www.niams.nih.gov/health-topics/osteoporosis/diagnosis-treatment-and-steps-to-take"
+          },
+          {
+            "detail": "Pharmacological Management of Osteoporosis in Postmenopausal Women. 2019 guideline with February 2020 update. Sections 2 and 3: bisphosphonate reassessment/holiday and denosumab continuation or subsequent therapy.",
+            "id": "common_conditions_bone_endocrine",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "Endocrine Society",
+            "shortName": "Endocrine Society · Treatment continuity",
+            "url": "https://www.endocrine.org/clinical-practice-guidelines/osteoporosis-in-postmenopausal-women"
+          },
+          {
+            "detail": "January 19, 2024 Drug Safety Communication. Boxed warning for severe hypocalcemia with Prolia in advanced CKD, especially dialysis or CKD-related mineral and bone disorder.",
+            "id": "common_conditions_bone_fda",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "US Food and Drug Administration",
+            "shortName": "FDA 2024 · Prolia and advanced CKD",
+            "url": "https://www.fda.gov/drugs/drug-safety-communications/fda-adds-boxed-warning-increased-risk-severe-hypocalcemia-patients-advanced-chronic-kidney-disease"
+          },
+          {
+            "detail": "Yen HK et al. Therapeutic Strategies of Denosumab Sequential Therapy: A Four-Armed Randomized Controlled Trial. Clin Pharmacol Ther. 2026;119:480–489; online October 7, 2025. DOI: 10.1002/cpt.70088. Two-year BMD outcomes in 101 adults.",
+            "id": "common_conditions_bone_dst2026",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Society for Clinical Pharmacology and Therapeutics / Wiley",
+            "shortName": "DST 2026 · Denosumab sequential therapy",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/41058078/"
+          }
+        ],
+        "eyebrow": "REFERENCE · COMMON CONDITIONS",
+        "id": "osteoporosis-treatment-continuity",
+        "lastSourceFidelityReview": "2026-09-19",
+        "nclexTags": {
+          "category": "physiologicalIntegrity",
+          "priorityConcept": "mobility",
+          "subcategory": "reductionOfRiskPotential"
+        },
+        "sections": [
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_bone_niams"
+                  ],
+                  "text": "Osteoporosis treatment combines medication when indicated with nutrition, safe activity and fall prevention. It also addresses conditions or medicines contributing to bone loss. Review the treatment’s purpose and the planned follow-up assessment; a medicine list alone does not establish that the fracture-prevention plan is being carried out."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_bone_niams"
+                  ],
+                  "text": "Hip and spine DXA can assess bone density and inform fracture risk. Adequate calcium, vitamin D, protein and overall nutrition remain relevant during drug treatment. Physical therapy can tailor strength, balance and movement strategies to reduce strain and support safer daily activity. Supplement amounts require individual assessment rather than automatic escalation."
+                }
+              ],
+              "title": "Follow a fracture-prevention plan"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_bone_endocrine"
+                  ],
+                  "text": "Endocrine Society guidance for postmenopausal osteoporosis distinguishes a selected bisphosphonate holiday from denosumab interruption. Bisphosphonate treatment is reassessed after several years; a holiday may be considered in people whose fracture risk has become low or moderate. Those remaining at high risk may need continued treatment."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_bone_endocrine"
+                  ],
+                  "text": "Denosumab effects reverse when treatment is not maintained. The guideline advises against delaying or stopping it without subsequent therapy because bone turnover can rebound, bone density can fall rapidly and fracture risk can rise. Follow-up should identify anticipated missed appointments or treatment changes early enough for the prescribing team to arrange continuity."
+                }
+              ],
+              "title": "A treatment pause is drug-specific"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_bone_fda"
+                  ],
+                  "text": "FDA’s 2024 boxed-warning communication identifies severe hypocalcemia risk with Prolia in advanced chronic kidney disease, especially dialysis and CKD-related mineral and bone disorder. Patient selection, calcium assessment and monitoring require appropriate clinical expertise. A plan to avoid missed treatment must still account for these risks and any change in kidney health."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_bone_fda"
+                  ],
+                  "text": "Severe hypocalcemia may cause tingling, muscle spasms, weakness, confusion, abnormal heart rhythm, fainting or seizures, and may sometimes be asymptomatic. New concerning symptoms require prompt medical assessment; seizures, fainting or an abnormal rhythm can signal an emergency. Symptom checks do not replace the ordered laboratory-monitoring plan."
+                }
+              ],
+              "title": "Advanced kidney disease changes denosumab safety"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_bone_dst2026"
+                  ],
+                  "text": "The DST trial’s two-year report appeared online in 2025 and in a 2026 issue. It randomized 101 adults aged at least 50 who had received denosumab for at least two years among continued denosumab and three sequential strategies. The primary outcomes were changes in bone mineral density, rather than a definitive comparison of fracture prevention."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_bone_dst2026"
+                  ],
+                  "text": "Lumbar-spine density declined most with one zoledronate infusion followed by a medication-free year; 22% of that group required rescue zoledronate. The small, open-label Taiwan trial reinforces that a single transition treatment may not fully preserve bone density. It does not establish a universal switching schedule or justify changing an individual regimen without specialist review."
+                }
+              ],
+              "title": "Newer sequential-treatment evidence"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_bone_niams"
+                  ],
+                  "text": "Ask about falls, new balance or walking problems and medicines that may increase fall risk. Vision, physical function and the home environment also matter. Ongoing follow-up should connect these concerns with the treating team and the person’s activity plan; preventing falls remains important even when bone-density treatment is continuing."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_bone_endocrine"
+                  ],
+                  "text": "During a clinician-selected bisphosphonate holiday, fracture risk still requires reassessment. An intervening fracture, a significant density decline or another change in risk may prompt earlier treatment review. The term holiday describes a monitored treatment decision and should not imply that follow-up is unnecessary."
+                }
+              ],
+              "title": "Keep falls and reassessment in the plan"
+            }
+          }
+        ],
+        "subtitle": "Adult fracture prevention, denosumab transitions and safety monitoring",
+        "title": "Osteoporosis: treatment continuity"
+      }
+    }
+  },
+  {
+    "reference": {
+      "_0": {
+        "citations": [
+          {
+            "detail": "Hayward G et al. d-Mannose for Prevention of Recurrent Urinary Tract Infection Among Women. JAMA Intern Med. 2024;184:619–628. DOI: 10.1001/jamainternmed.2024.0264. Placebo-controlled UK primary-care trial, six-month outcome.",
+            "id": "common_conditions_uti_dmannose",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "American Medical Association",
+            "shortName": "D-mannose · Recurrent UTI trial",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/38587819/"
+          },
+          {
+            "detail": "Bladder Infection in Adults: History, urinalysis, culture and selected structural evaluation. Last reviewed April 2024.",
+            "id": "common_conditions_uti_diagnosis",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIDDK, National Institutes of Health",
+            "shortName": "NIDDK · UTI Diagnostic evaluation",
+            "url": "https://www.niddk.nih.gov/health-information/urologic-diseases/bladder-infection-uti-in-adults/diagnosis"
+          },
+          {
+            "detail": "Bladder Infection in Adults: Treatment reassessment, fluids, contraceptive factors and vaginal estrogen. Last reviewed April 2024.",
+            "id": "common_conditions_uti_treatment",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIDDK, National Institutes of Health",
+            "shortName": "NIDDK · UTI Treatment and prevention",
+            "url": "https://www.niddk.nih.gov/health-information/urologic-diseases/bladder-infection-uti-in-adults/treatment"
+          },
+          {
+            "detail": "Bladder Infection in Adults: Bladder symptoms and findings concerning for kidney infection. Last reviewed April 2024.",
+            "id": "common_conditions_uti_symptoms",
+            "lastRetrieved": "2026-09-19",
+            "license": "publicDomain",
+            "publisher": "NIDDK, National Institutes of Health",
+            "shortName": "NIDDK · UTI Symptoms and kidney involvement",
+            "url": "https://www.niddk.nih.gov/health-information/urologic-diseases/bladder-infection-uti-in-adults/symptoms-causes"
+          },
+          {
+            "detail": "Harding C et al. Methenamine hippurate compared with antibiotic prophylaxis to prevent recurrent urinary tract infections in women: the ALTAR non-inferiority RCT. Health Technol Assess. 2022;26(23):1–172. DOI: 10.3310/QOIZ6538. Primary trial report; noninferiority margin one UTI/person-year.",
+            "id": "common_conditions_uti_altar",
+            "lastRetrieved": "2026-09-19",
+            "license": "factCitationOnly",
+            "publisher": "National Institute for Health and Care Research Journals Library",
+            "shortName": "ALTAR · Methenamine prevention trial",
+            "url": "https://pubmed.ncbi.nlm.nih.gov/35535708/"
+          }
+        ],
+        "eyebrow": "REFERENCE · COMMON CONDITIONS",
+        "id": "recurrent-uti-prevention-follow-up",
+        "lastSourceFidelityReview": "2026-09-19",
+        "nclexTags": {
+          "category": "physiologicalIntegrity",
+          "priorityConcept": "elimination",
+          "subcategory": "reductionOfRiskPotential"
+        },
+        "sections": [
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_uti_dmannose"
+                  ],
+                  "text": "A commonly studied recurrent-UTI pattern is at least two episodes in six months or three in a year. The prevention trials discussed here studied adult women; they do not establish management for children, pregnancy, catheter-associated infection or a new systemic illness. Document the episode history and its clinical context."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_uti_diagnosis"
+                  ],
+                  "text": "Assessment combines symptoms, history, examination and appropriate testing. Urinalysis can identify blood and white cells, while urine culture identifies bacteria and helps inform antibiotic treatment. Review prior results alongside symptoms and treatment response; selected recurrent presentations may need imaging or cystoscopy to investigate an underlying cause."
+                }
+              ],
+              "title": "Describe episodes before planning prevention"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_uti_treatment"
+                  ],
+                  "text": "When symptoms and tests do not support a bladder-infection diagnosis, the clinician may investigate another cause instead of prescribing antibiotics. For a confirmed infection, treatment depends on the organism, allergies, illness severity and urinary-tract factors. Persistent or recurrent symptoms need reassessment rather than assuming an earlier prescription still fits."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_uti_symptoms"
+                  ],
+                  "text": "Fever or chills, nausea or vomiting, and back, side or groin pain can indicate kidney involvement. These findings call for prompt clinical assessment, even when previous episodes were uncomplicated bladder infections. A prevention discussion should not delay evaluation of a potentially ascending infection or worsening illness."
+                }
+              ],
+              "title": "Confirm the current problem"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_uti_treatment"
+                  ],
+                  "text": "NIDDK describes adequate fluid intake and complete bladder emptying among supportive measures. Fluid advice must account for heart or kidney disease and other restrictions. Recurrent episodes may also prompt a discussion about spermicide or diaphragm use. These measures are supportive options, not proof that an infection resulted from poor hygiene."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_uti_treatment"
+                  ],
+                  "text": "For perimenopausal or postmenopausal people with repeated bladder infections, vaginal estrogen may be considered by the clinician. It supports the local vaginal environment and beneficial bacteria. Follow-up should clarify the selected approach, its suitability and whether recurrence continues, alongside review of any preventive or acute medicines."
+                }
+              ],
+              "title": "Discuss appropriate prevention options"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_uti_dmannose"
+                  ],
+                  "text": "A 2024 placebo-controlled trial randomized 598 women with recurrent UTI from 99 UK primary-care centers. Over six months, 51.0% in the D-mannose group and 55.7% in the placebo group contacted ambulatory care for a clinically suspected UTI. The difference was not statistically significant. The trial does not support routinely recommending D-mannose for prevention in this population."
+                }
+              ],
+              "title": "D-mannose: a negative primary-care trial"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_uti_altar"
+                  ],
+                  "text": "ALTAR (2022) randomized 240 adult women requiring prevention to methenamine hippurate or daily antibiotic prophylaxis for 12 months. In the primary modified analysis, symptomatic antibiotic-treated UTI rates were 1.38 versus 0.89 episodes per person-year. The difference met the prespecified noninferiority margin of one additional episode per person-year."
+                },
+                {
+                  "citationIDs": [
+                    "common_conditions_uti_altar"
+                  ],
+                  "text": "Noninferiority within that margin does not mean the treatments had identical event rates. ALTAR was open-label, allowed treatment crossover and was conducted in UK secondary care. It supports a clinician discussion of a non-antibiotic preventive option, not self-treatment of an active infection or a regimen automatically suitable for every patient."
+                }
+              ],
+              "title": "Methenamine: interpret noninferiority carefully"
+            }
+          },
+          {
+            "bullets": {
+              "_1": [
+                {
+                  "citationIDs": [
+                    "common_conditions_uti_diagnosis"
+                  ],
+                  "text": "Keep the timing of symptoms, available urine results and response to treatment together so the next clinician can reassess the pattern. Further testing should answer a clinical question, such as whether an anatomic problem contributes to recurrence. A test result is interpreted within the presentation rather than replacing the history."
+                }
+              ],
+              "title": "Close the follow-up loop"
+            }
+          }
+        ],
+        "subtitle": "Adult women, diagnostic reassessment and non-antibiotic prevention evidence",
+        "title": "Recurrent UTI: prevention and follow-up"
+      }
+    }
+  }
+]

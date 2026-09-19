@@ -95,6 +95,8 @@ public final class EntryLinkRegistry: @unchecked Sendable {
     /// ContentRegistry.bundledEntries().
     public static func bundledLinks() -> [EntryLink] {
         var links: [EntryLink] = []
+        links.append(contentsOf: commonConditionsDraftLinks())
+        links.append(contentsOf: recentEvidenceDraftLinks())
         links.append(contentsOf: highAlertLinks())
         links.append(contentsOf: diagnosisLinks())
         links.append(contentsOf: labPairLinks())
@@ -116,6 +118,7 @@ public final class EntryLinkRegistry: @unchecked Sendable {
         links.append(contentsOf: respiratoryHematologyDepthLinks())
         links.append(contentsOf: digestiveUrologyDepthLinks())
         links.append(contentsOf: crossCategoryDepthLinks())
+        links.append(contentsOf: bedsideEvidenceLinks())
         links.append(contentsOf: bedsideWorkflowLinks())
         links.append(contentsOf: specialtyDailySupportLinks())
         links.append(contentsOf: medlinePlusReferenceLinks())

@@ -68,8 +68,10 @@ public struct DrugEntryView: View {
             divider
         }
         indicationsAndMechanism.id(SectionAnchor.indications.rawValue)
-        divider
-        dosing.id(SectionAnchor.dosing.rawValue)
+        if !entry.dosing.isEmpty {
+            divider
+            dosing.id(SectionAnchor.dosing.rawValue)
+        }
         if entry.contraindications != nil {
             divider
             contraindications.id(SectionAnchor.contraindications.rawValue)
@@ -123,6 +125,7 @@ public struct DrugEntryView: View {
         SectionAnchor.allCases.filter { anchor in
             switch anchor {
             case .quickReference:    return !entry.quickReference.isEmpty
+            case .dosing:            return !entry.dosing.isEmpty
             case .contraindications: return entry.contraindications != nil
             case .nursing:           return entry.nursingImplications != nil
             case .teaching:          return entry.patientTeaching != nil

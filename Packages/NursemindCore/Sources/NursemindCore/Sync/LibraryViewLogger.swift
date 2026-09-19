@@ -37,6 +37,8 @@ public final class LibraryViewLogger {
     public static let shared = LibraryViewLogger()
 
     private let supabase: SupabaseService
+    private let defaults: UserDefaults
+    private var isFlushing = false
 
     /// Live view sessions, keyed by entry slug. Refcounted so nested
     /// onAppear / onDisappear (e.g., user navigates from a drug entry into
@@ -56,14 +58,15 @@ public final class LibraryViewLogger {
         var depth: Int
     }
 
-    public struct QueuedView: Codable, Sendable {
+    public struct QueuedView: Codable, Sendable, Hashable {
         public let entrySlug: String
         public let durationSec: Int?
         public let viewedAt: Date
     }
 
-    private init(supabase: SupabaseService = .shared) {
+    init(supabase: SupabaseService = .shared, defaults: UserDefaults = .standard) {
         self.supabase = supabase
+        self.defaults = defaults
         loadOfflineQueue()
     }
 
@@ -169,7 +172,7 @@ public final class LibraryViewLogger {
 
     // MARK: - Offline queue
 
-    private func enqueueOffline(_ queued: QueuedView) {
+    func enqueueOffline(_ queued: QueuedView) {
         offlineQueue.append(queued)
         // Drop oldest entries if we've crossed the cap. Bounded growth
         // matters because UserDefaults is a small data store and a runaway
@@ -181,31 +184,37 @@ public final class LibraryViewLogger {
     }
 
     private func flushOfflineQueue() async {
-        guard !offlineQueue.isEmpty else { return }
         guard let client = supabase.client,
               let userID = supabase.currentUserID else { return }
 
-        // Snapshot the queue so concurrent additions during the flush
-        // don't get truncated by the post-success cleanup.
-        let snapshot = offlineQueue
-        let inserts = snapshot.map {
-            LibraryViewInsert(
-                userID: userID,
-                entrySlug: $0.entrySlug,
-                durationSec: $0.durationSec,
-                viewedAt: $0.viewedAt
-            )
-        }
-
-        do {
+        await flushOfflineQueue { snapshot in
+            let inserts = snapshot.map {
+                LibraryViewInsert(
+                    userID: userID,
+                    entrySlug: $0.entrySlug,
+                    durationSec: $0.durationSec,
+                    viewedAt: $0.viewedAt
+                )
+            }
             _ = try await client
                 .from("library_views")
                 .insert(inserts)
                 .execute()
+        }
+    }
+
+    func flushOfflineQueue(send: ([QueuedView]) async throws -> Void) async {
+        guard !isFlushing, !offlineQueue.isEmpty else { return }
+        isFlushing = true
+        defer { isFlushing = false }
+        let snapshot = offlineQueue
+
+        do {
+            try await send(snapshot)
             viewLog.info("Flushed offline queue: \(snapshot.count) entries")
-            // Remove only what we successfully sent. Anything appended
-            // during the flush stays for the next round.
-            offlineQueue.removeFirst(snapshot.count)
+            // Await permits new entries and capacity eviction; the sent prefix may have moved.
+            let sent = Set(snapshot)
+            offlineQueue.removeAll { sent.contains($0) }
             persistOfflineQueue()
         } catch {
             viewLog.error("Offline flush failed: \(error.localizedDescription, privacy: .public)")
@@ -214,7 +223,7 @@ public final class LibraryViewLogger {
     }
 
     private func loadOfflineQueue() {
-        guard let data = UserDefaults.standard.data(forKey: queueKey),
+        guard let data = defaults.data(forKey: queueKey),
               let decoded = try? JSONDecoder().decode([QueuedView].self, from: data) else {
             return
         }
@@ -223,7 +232,7 @@ public final class LibraryViewLogger {
 
     private func persistOfflineQueue() {
         guard let data = try? JSONEncoder().encode(offlineQueue) else { return }
-        UserDefaults.standard.set(data, forKey: queueKey)
+        defaults.set(data, forKey: queueKey)
     }
 }
 
