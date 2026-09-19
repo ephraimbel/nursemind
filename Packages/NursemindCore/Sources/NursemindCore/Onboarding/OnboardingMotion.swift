@@ -246,44 +246,69 @@ struct MarkGlyphSize: ViewModifier, Animatable {
     }
 }
 
-// MARK: - Progress rule
+// MARK: - Step meter
 
-/// A step with pages or questions reports how far through them it is, so
-/// the one rule at the top advances inside the step too. Tagged with the
-/// step so a departing view's last value is ignored.
-struct OnboardingSubprogress: Equatable {
-    let step: String
-    let fraction: Double
+/// Where the current step sits among the metered ones (the splash and
+/// Welcome are not counted). The flow sets it into the environment and each
+/// page draws its own meter from it.
+struct OnboardingPosition: Equatable {
+    let index: Int
+    let count: Int
 }
 
-struct OnboardingSubprogressKey: PreferenceKey {
-    static let defaultValue: [OnboardingSubprogress] = []
-    static func reduce(value: inout [OnboardingSubprogress], nextValue: () -> [OnboardingSubprogress]) {
-        value.append(contentsOf: nextValue())
+private struct OnboardingPositionKey: EnvironmentKey {
+    static let defaultValue: OnboardingPosition? = nil
+}
+
+extension EnvironmentValues {
+    var onboardingPosition: OnboardingPosition? {
+        get { self[OnboardingPositionKey.self] }
+        set { self[OnboardingPositionKey.self] = newValue }
     }
 }
 
-/// A one-point rule at the top of the flow that fills with the accent as
-/// the nurse advances: structure, not chrome, and the only accent on the
-/// page apart from the primary button.
-struct OnboardingProgressRule: View {
-    let fraction: Double
+/// The flow's progress, set into each page so it scrolls with the content
+/// instead of pinning to the top: one hairline segment per step, the ones
+/// behind in ink, the current one part-lit on arrival and filling further
+/// as its pages or questions go by. It draws itself in from the left as
+/// the page lands.
+struct OnboardingStepMeter: View {
+    /// How far through the current step's own pages or questions, 0 to 1.
+    var subprogress: Double = 0
+
+    @Environment(\.onboardingPosition) private var position
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @State private var landed = false
 
     var body: some View {
-        GeometryReader { geo in
-            ZStack(alignment: .leading) {
-                Rectangle().fill(NMColor.borderSubtle)
-                Rectangle()
-                    .fill(NMColor.accent)
-                    .frame(width: max(0, geo.size.width * fraction))
+        if let position {
+            HStack(spacing: NMSpace.xs) {
+                ForEach(0..<position.count, id: \.self) { segment in
+                    let fill = landed ? Self.fill(segment: segment, position: position, subprogress: subprogress) : 0
+                    GeometryReader { geo in
+                        ZStack(alignment: .leading) {
+                            Capsule().fill(NMColor.borderSubtle)
+                            Capsule()
+                                .fill(NMColor.textPrimary)
+                                .frame(width: geo.size.width * fill)
+                        }
+                    }
+                    .frame(height: 2)
+                    .animation(reduceMotion ? nil : .easeOut(duration: OnboardingMotion.base).delay(Double(segment) * 0.05), value: fill)
+                }
             }
+            .onAppear { landed = true }
+            .accessibilityElement()
+            .accessibilityLabel("Step \(position.index + 1) of \(position.count)")
         }
-        .frame(height: 1)
-        .animation(reduceMotion ? nil : OnboardingMotion.spring, value: fraction)
-        .accessibilityElement()
-        .accessibilityLabel("Setup progress")
-        .accessibilityValue("\(Int((fraction * 100).rounded())) percent")
+    }
+
+    /// Behind: full. Ahead: empty. Current: a third lit on arrival, the rest
+    /// filling with the step's own pages or questions.
+    nonisolated static func fill(segment: Int, position: OnboardingPosition, subprogress: Double) -> Double {
+        if segment < position.index { return 1 }
+        if segment > position.index { return 0 }
+        return 0.3 + 0.7 * max(0, min(1, subprogress))
     }
 }
 

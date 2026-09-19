@@ -16,25 +16,26 @@ struct OnboardingMotionTests {
         #expect(!words.contains { $0.breakBefore })
     }
 
-    @Test func progressRuleStartsAfterWelcomeAndFillsOnSuccess() {
-        #expect(OnboardingFlow.Step.splash.progress == 0)
-        #expect(OnboardingFlow.Step.welcome.progress == 0)
-        #expect(OnboardingFlow.Step.showcase.progress > 0)
-        #expect(OnboardingFlow.Step.showcase.progress < OnboardingFlow.Step.paywall.progress)
-        #expect(OnboardingFlow.Step.success.progress == 1)
+    @Test func meterCountsTheStepsAfterWelcome() {
+        typealias Step = OnboardingFlow.Step
+        #expect(Step.splash.meterPosition == nil)
+        #expect(Step.welcome.meterPosition == nil)
+        #expect(Step.showcase.meterPosition == OnboardingPosition(index: 0, count: 7))
+        #expect(Step.paywall.meterPosition == OnboardingPosition(index: 5, count: 7))
+        #expect(Step.success.meterPosition == OnboardingPosition(index: 6, count: 7))
     }
 }
 
-@Suite("One progress rule")
-struct OnboardingRuleTests {
-    @Test func ruleAdvancesInsideAStepAndHandsOffCleanly() {
-        typealias Step = OnboardingFlow.Step
-        let span = Double(Step.success.rawValue - Step.welcome.rawValue)
-        #expect(OnboardingFlow.ruleFraction(for: .showcase, subprogress: 0) == Step.showcase.progress)
-        #expect(OnboardingFlow.ruleFraction(for: .showcase, subprogress: 0.5) == Step.showcase.progress + 0.5 / span)
-        #expect(OnboardingFlow.ruleFraction(for: .showcase, subprogress: 2.0 / 3.0) < Step.personalization.progress)
-        #expect(OnboardingFlow.ruleFraction(for: .personalization, subprogress: 0.75) < Step.notificationsConsent.progress)
-        #expect(OnboardingFlow.ruleFraction(for: .success, subprogress: 0.9) == 1)
-        #expect(OnboardingFlow.ruleFraction(for: .showcase, subprogress: -1) == Step.showcase.progress)
+@Suite("Step meter")
+struct OnboardingMeterTests {
+    @Test func segmentsFillBehindPartlyOnCurrentAndNotAhead() {
+        let position = OnboardingPosition(index: 2, count: 7)
+        #expect(OnboardingStepMeter.fill(segment: 0, position: position, subprogress: 0) == 1)
+        #expect(OnboardingStepMeter.fill(segment: 1, position: position, subprogress: 0.4) == 1)
+        #expect(abs(OnboardingStepMeter.fill(segment: 2, position: position, subprogress: 0) - 0.3) < 1e-9)
+        #expect(abs(OnboardingStepMeter.fill(segment: 2, position: position, subprogress: 0.5) - 0.65) < 1e-9)
+        #expect(OnboardingStepMeter.fill(segment: 2, position: position, subprogress: 1) == 1)
+        #expect(OnboardingStepMeter.fill(segment: 2, position: position, subprogress: 4) == 1)
+        #expect(OnboardingStepMeter.fill(segment: 5, position: position, subprogress: 0.9) == 0)
     }
 }

@@ -20,6 +20,8 @@ struct OnboardingSuccessView: View {
             NMColor.bgPrimary.ignoresSafeArea()
             FitOrScrollLayout {
                 VStack(alignment: .leading, spacing: 0) {
+                    OnboardingStepMeter(subprogress: 1)
+                        .padding(.top, NMSpace.md)
                     Spacer(minLength: NMSpace.xl)
                     heroBlock
                     Spacer(minLength: NMSpace.xl)

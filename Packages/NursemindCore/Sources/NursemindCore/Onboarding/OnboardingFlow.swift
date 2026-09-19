@@ -12,8 +12,6 @@ public struct OnboardingFlow: View {
     @State private var isForward: Bool = true
     @State private var prefs = UserPreferences.shared
     @State private var markTarget: OnboardingMarkTarget?
-    /// How far through the current step's own pages or questions.
-    @State private var subprogress: Double = 0
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     public init() {
@@ -41,6 +39,7 @@ public struct OnboardingFlow: View {
             // departing step the arriving step's transition instead).
             stepView
                 .zIndex(Double(step.rawValue))
+                .environment(\.onboardingPosition, step.meterPosition)
         }
         .animation(.easeInOut(duration: reduceMotion ? 0.2 : OnboardingMotion.slow), value: step)
         .onPreferenceChange(OnboardingMarkKey.self) { targets in
@@ -56,17 +55,6 @@ public struct OnboardingFlow: View {
             GeometryReader { geo in
                 OnboardingMark(target: markTarget, origin: geo.frame(in: .global).origin)
             }
-        }
-        .onPreferenceChange(OnboardingSubprogressKey.self) { values in
-            subprogress = values.last(where: { $0.step == step.eventName })?.fraction ?? 0
-        }
-        .onChange(of: step) { _, _ in subprogress = 0 }
-        .overlay(alignment: .top) {
-            // The rule begins once the nurse has chosen to get started: it
-            // is absent on the splash and the Welcome photograph.
-            OnboardingProgressRule(fraction: Self.ruleFraction(for: step, subprogress: subprogress))
-                .opacity(step.progress > 0 ? 1 : 0)
-                .animation(.easeInOut(duration: OnboardingMotion.base), value: step.progress > 0)
         }
         #if DEBUG
         .task { await autoplay() }
@@ -91,13 +79,6 @@ public struct OnboardingFlow: View {
         }
     }
     #endif
-
-    /// The rule's fill: the step's share of the flow plus the share of the
-    /// step its pages or questions have covered.
-    nonisolated static func ruleFraction(for step: Step, subprogress: Double) -> Double {
-        let span = Double(Step.success.rawValue - Step.welcome.rawValue)
-        return min(1, step.progress + max(0, min(1, subprogress)) / span)
-    }
 
     /// The splash holds whole beneath Welcome, Welcome's photograph
     /// dissolves and loses its colour on the way out, and every other step
@@ -188,11 +169,12 @@ public struct OnboardingFlow: View {
         /// The slot the mark lives in on this step.
         var markHome: String { eventName }
 
-        /// Share of the flow behind the nurse, for the hairline rule: zero
-        /// through Welcome, full on Success.
-        var progress: Double {
-            let span = Double(Step.success.rawValue - Step.welcome.rawValue)
-            return max(0, Double(rawValue - Step.welcome.rawValue)) / span
+        /// Where the step sits in the meter; nil for the splash and Welcome,
+        /// which come before the nurse has chosen to get started.
+        var meterPosition: OnboardingPosition? {
+            guard rawValue >= Step.showcase.rawValue else { return nil }
+            return OnboardingPosition(index: rawValue - Step.showcase.rawValue,
+                                      count: Step.success.rawValue - Step.showcase.rawValue + 1)
         }
 
         var eventName: String {

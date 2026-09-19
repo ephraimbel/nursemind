@@ -82,9 +82,14 @@ public struct PaywallView: View {
 
     private var navigationHeader: some View {
         ZStack {
-            // In onboarding the living mark carries the brand; the wordmark
-            // returns when the paywall stands alone.
-            if !onboardingMark {
+            // In onboarding the living mark carries the brand and the step
+            // meter takes the wordmark's row; the wordmark returns when the
+            // paywall stands alone.
+            if onboardingMark {
+                OnboardingStepMeter()
+                    .padding(.leading, NMSpace.sm)
+                    .padding(.trailing, 44 + NMSpace.sm)
+            } else {
                 NursemindLogo(size: 28)
             }
         }

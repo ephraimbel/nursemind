@@ -16,6 +16,8 @@ struct SafetyContractView: View {
             NMColor.bgPrimary.ignoresSafeArea()
             FitOrScrollLayout {
                 VStack(alignment: .leading, spacing: 0) {
+                    OnboardingStepMeter()
+                        .padding(.top, NMSpace.md)
                     header
                     Spacer(minLength: NMSpace.xl)
                     bullets

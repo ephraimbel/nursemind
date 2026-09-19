@@ -59,15 +59,16 @@ struct ShowcaseFlow: View {
 
     var body: some View {
         VStack(spacing: 0) {
+            OnboardingStepMeter(subprogress: Double(currentPage) / Double(pages.count))
+                .padding(.horizontal, NMSpace.lg)
+                .padding(.top, NMSpace.md)
+                .padding(.bottom, NMSpace.lg)
             pageView
             Spacer(minLength: NMSpace.lg)
             actionButton
             skipButton
         }
         .background(NMColor.bgPrimary.ignoresSafeArea())
-        // The flow's one rule advances page by page; no dots of its own.
-        .preference(key: OnboardingSubprogressKey.self,
-                    value: [OnboardingSubprogress(step: "showcase", fraction: Double(currentPage) / Double(pages.count))])
     }
 
     // MARK: - Page view

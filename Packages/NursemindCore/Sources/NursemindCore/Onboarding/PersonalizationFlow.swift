@@ -41,9 +41,6 @@ struct PersonalizationFlow: View {
                 .zIndex(Double(step.rawValue))
         }
         .animation(.easeInOut(duration: reduceMotion ? 0.2 : OnboardingMotion.base), value: step)
-        // The flow's one rule advances question by question.
-        .preference(key: OnboardingSubprogressKey.self,
-                    value: [OnboardingSubprogress(step: "personalization", fraction: Double(step.rawValue) / Double(Step.total))])
         #if DEBUG
         .task { await autoplay() }
         #endif
@@ -146,6 +143,8 @@ private struct PersonalizationStepShell<Content: View>: View {
     var body: some View {
         FitOrScrollLayout {
             VStack(alignment: .leading, spacing: 0) {
+                OnboardingStepMeter(subprogress: Double(stepNumber - 1) / Double(PersonalizationFlow.Step.total))
+                    .padding(.top, NMSpace.md)
                 header
                 Spacer().frame(height: NMSpace.xxl)
                 OnboardingMarkSlot(home: "personalization", size: 11)
